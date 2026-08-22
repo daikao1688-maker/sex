@@ -9,9 +9,11 @@ interface Props {
 const { lang } = Astro.props;
 const t = getDictionary(lang);
 
-// Three copies of the list make the auto-scroll loop seamless in both
-// directions; the script wraps scrollLeft between the first and last copy.
-const loop = [...t.testimonials.items, ...t.testimonials.items, ...t.testimonials.items];
+// Extra visual copies make the transform loop seamless. Only the first copy
+// is exposed to assistive technology, so a quote is never announced twice.
+const loop = [0, 1, 2].flatMap((copy) =>
+  t.testimonials.items.map((item) => ({ item, isClone: copy > 0 })),
+);
 ---
 
 <section class="pt-10 pb-16 px-4">
@@ -22,22 +24,38 @@ const loop = [...t.testimonials.items, ...t.testimonials.items, ...t.testimonial
     </div>
 
     <div class="relative">
+      <button
+        type="button"
+        data-testimonial-motion-toggle
+        aria-pressed="false"
+        aria-label="Pause testimonial motion"
+        class="absolute right-2 top-2 z-10 flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-sm text-white transition-colors hover:border-gold hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+      >
+        <span aria-hidden="true" data-testimonial-motion-icon>❚❚</span>
+      </button>
+      <div class="testimonial-viewport">
       <div
         id="testimonial-track"
-        class="flex gap-4 overflow-x-auto scrollbar-hide"
-        style="scroll-behavior: auto"
+        class="testimonial-track flex gap-4"
         role="region"
         aria-label={t.testimonials.regionLabel}
         data-count={t.testimonials.items.length}
+        data-motion-state="running"
       >
         {
-          loop.map((item) => (
-            <blockquote class="flex-shrink-0 w-[280px] bg-[#141414] border border-white/5 rounded-xl p-5 flex flex-col justify-between">
+          loop.map(({ item, isClone }) => (
+            <blockquote
+              data-testimonial-card={isClone ? "clone" : "primary"}
+              data-testimonial-clone={isClone ? "true" : undefined}
+              aria-hidden={isClone ? "true" : "false"}
+              class="flex-shrink-0 w-[280px] bg-[#141414] border border-white/5 rounded-xl p-5 flex flex-col justify-between"
+            >
               <p class="text-white/70 text-sm leading-relaxed mb-4">&ldquo;{item.quote}&rdquo;</p>
               <p class="text-gold/60 text-xs text-right">— {item.author}</p>
             </blockquote>
           ))
         }
+      </div>
       </div>
     </div>
 
@@ -53,35 +71,97 @@ const loop = [...t.testimonials.items, ...t.testimonials.items, ...t.testimonial
     if (!track) return;
 
     const count = Number(track.dataset.count ?? 0);
-    if (!count) return;
+    const toggle = document.querySelector("[data-testimonial-motion-toggle]");
+    const icon = document.querySelector("[data-testimonial-motion-icon]");
+    if (!count || !toggle) return;
 
-    // Card width (280) + gap (16).
-    const loopWidth = count * 296;
-    track.scrollLeft = loopWidth;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let manuallyPaused = false;
+    let hovered = false;
+    let focused = false;
+    let inViewport = true;
+    let animationFrame = 0;
+    let lastTimestamp = 0;
+    let offset = 0;
 
-    track.addEventListener("scroll", () => {
-      if (track.scrollLeft >= loopWidth * 2) track.scrollLeft -= loopWidth;
-      else if (track.scrollLeft <= 0) track.scrollLeft += loopWidth;
-    });
+    const canAnimate = () =>
+      !reducedMotion.matches &&
+      !manuallyPaused &&
+      !hovered &&
+      !focused &&
+      inViewport &&
+      document.visibilityState !== "hidden";
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    let paused = false;
-    let resumeTimer: number | undefined;
-
-    const pause = (ms: number) => {
-      paused = true;
-      window.clearTimeout(resumeTimer);
-      resumeTimer = window.setTimeout(() => (paused = false), ms);
+    const loopWidth = () => {
+      const cards = track.querySelectorAll("[data-testimonial-card]");
+      const first = cards[0];
+      const firstClone = cards[count];
+      const measured = firstClone && first ? firstClone.offsetLeft - first.offsetLeft : 0;
+      return measured > 0 ? measured : count * 296;
     };
 
-    setInterval(() => {
-      if (paused) return;
-      track.scrollLeft += 1;
-      if (track.scrollLeft >= loopWidth * 2) track.scrollLeft -= loopWidth;
-    }, 30);
+    const renderState = () => {
+      const running = canAnimate();
+      track.dataset.motionState = reducedMotion.matches ? "reduced" : running ? "running" : "paused";
+      toggle.setAttribute("aria-pressed", String(manuallyPaused));
+      toggle.setAttribute("aria-label", manuallyPaused ? "Resume testimonial motion" : "Pause testimonial motion");
+      toggle.toggleAttribute("disabled", reducedMotion.matches);
+      icon.textContent = manuallyPaused ? "▶" : "❚❚";
 
-    track.addEventListener("touchstart", () => pause(2000), { passive: true });
-    track.addEventListener("mouseenter", () => pause(2000));
+      window.cancelAnimationFrame(animationFrame);
+      if (running) {
+        lastTimestamp = 0;
+        animationFrame = window.requestAnimationFrame(step);
+      }
+    };
+
+    const step = (timestamp) => {
+      if (!canAnimate()) return;
+      if (lastTimestamp) {
+        offset += ((timestamp - lastTimestamp) * 28) / 1000;
+        const width = loopWidth();
+        if (offset >= width) offset -= width;
+        track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+      }
+      lastTimestamp = timestamp;
+      animationFrame = window.requestAnimationFrame(step);
+    };
+
+    toggle.addEventListener("click", () => {
+      manuallyPaused = !manuallyPaused;
+      renderState();
+    });
+    track.addEventListener("mouseenter", () => {
+      hovered = true;
+      renderState();
+    });
+    track.addEventListener("mouseleave", () => {
+      hovered = false;
+      renderState();
+    });
+    track.addEventListener("focusin", () => {
+      focused = true;
+      renderState();
+    });
+    track.addEventListener("focusout", (event) => {
+      if (!track.contains(event.relatedTarget)) {
+        focused = false;
+        renderState();
+      }
+    });
+    document.addEventListener("visibilitychange", renderState);
+    reducedMotion.addEventListener?.("change", renderState);
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(
+        ([entry]) => {
+          inViewport = entry.isIntersecting;
+          renderState();
+        },
+        { threshold: 0.1 },
+      ).observe(track);
+    }
+
+    renderState();
   })();
 </script>

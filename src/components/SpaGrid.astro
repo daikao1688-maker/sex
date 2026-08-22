@@ -33,7 +33,7 @@ const [hiddenBefore, hiddenAfter = ""] = t.spas.hiddenNote.split("{count}");
     <div class="fade-up text-center mb-16">
       <h2 class="text-3xl sm:text-4xl font-bold mb-4">{t.spas.heading}</h2>
       <div class="w-20 h-0.5 bg-gold mx-auto mb-6"></div>
-      <p class="text-white/50 max-w-none mx-auto">{t.spas.intro}</p>
+      <p class="text-white/60 max-w-none mx-auto">{t.spas.intro}</p>
     </div>
 
     <div
@@ -51,7 +51,7 @@ const [hiddenBefore, hiddenAfter = ""] = t.spas.hiddenNote.split("{count}");
               type="button"
               data-bucket={filter.bucket}
               aria-pressed={index === 0 ? "true" : "false"}
-              class="flex-1 sm:flex-none min-w-0 rounded-full px-2 sm:px-3.5 py-1.5 text-xs sm:text-[13px] font-semibold text-center border border-white/12 bg-white/[0.04] text-white/70 whitespace-nowrap transition-colors hover:bg-white/[0.08] aria-pressed:bg-gold aria-pressed:text-black aria-pressed:border-transparent"
+              class="flex min-h-11 flex-1 items-center justify-center sm:flex-none min-w-0 rounded-full px-2 sm:px-3.5 py-1.5 text-xs sm:text-[13px] font-semibold text-center border border-white/12 bg-white/[0.04] text-white/70 whitespace-nowrap transition-colors hover:bg-white/[0.08] aria-pressed:bg-gold aria-pressed:text-black aria-pressed:border-transparent"
             >
               {filter.label}
             </button>
@@ -109,7 +109,7 @@ const [hiddenBefore, hiddenAfter = ""] = t.spas.hiddenNote.split("{count}");
                   <h3 class="text-lg font-semibold text-white group-hover:text-gold transition-colors duration-300 mb-2">
                     {copy.name}
                   </h3>
-                  <p class="text-white/50 text-sm leading-relaxed line-clamp-2 whitespace-pre-line">
+                  <p class="text-white/60 text-sm leading-relaxed line-clamp-2 whitespace-pre-line">
                     {copy.description}
                   </p>
                   <div class="mt-4 flex items-center text-gold text-sm font-medium opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">

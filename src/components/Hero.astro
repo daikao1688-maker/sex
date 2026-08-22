@@ -33,13 +33,15 @@ const stepIcons = ["message-circle", "car", "star"] as const;
 
 <section
   class="relative min-h-screen flex items-start justify-center overflow-hidden pt-[9.5rem] sm:pt-[12rem] pb-12 sm:pb-16"
+  data-hero-motion
+  data-motion-state="running"
 >
   <div class="absolute inset-0 z-0" data-hero-backdrops>
     {
       backdrops.map((image, index) => (
         <div
           class={`hero-backdrop absolute inset-0 ${index === 0 ? "is-active" : ""}`}
-          aria-hidden={index === 0 ? undefined : "true"}
+          aria-hidden={index === 0 ? "false" : "true"}
           data-hero-backdrop
           data-zoom-direction={index % 2 === 0 ? "in" : "out"}
         >
@@ -58,6 +60,15 @@ const stepIcons = ["message-circle", "car", "star"] as const;
     }
   </div>
   <div class="absolute inset-0 z-[1] bg-gradient-to-b from-black/75 via-black/60 to-[#0a0a0a]"></div>
+  <button
+    type="button"
+    data-hero-motion-toggle
+    aria-pressed="false"
+    aria-label="Pause background motion"
+    class="absolute bottom-4 right-4 z-20 flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-sm text-white transition-colors hover:border-gold hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+  >
+    <span aria-hidden="true" data-hero-motion-icon>❚❚</span>
+  </button>
 
   <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pt-6">
     <h1 class="text-[28px] sm:text-4xl md:text-5xl font-bold mb-3 tracking-wider">{t.hero.title}</h1>
@@ -72,7 +83,7 @@ const stepIcons = ["message-circle", "car", "star"] as const;
           <span
             class="transition-opacity duration-700"
             style={`grid-area:1 / 1;opacity:${index === 0 ? 1 : 0}`}
-            aria-hidden={index === 0 ? undefined : "true"}
+            aria-hidden={index === 0 ? "false" : "true"}
             data-hero-venue-group
           >
             {group}
@@ -118,7 +129,7 @@ const stepIcons = ["message-circle", "car", "star"] as const;
     <div class="flex flex-col items-center gap-3 w-full max-w-[280px] mx-auto">
       <a
         href="#spas"
-        class="glow-gold relative overflow-hidden w-full px-6 py-2.5 bg-gold hover:bg-gold-dark text-black font-semibold rounded-full transition-colors duration-300 tracking-wider text-center"
+        class="glow-gold relative flex min-h-11 items-center justify-center overflow-hidden w-full px-6 py-2.5 bg-gold hover:bg-gold-dark text-black font-semibold rounded-full transition-colors duration-300 tracking-wider text-center"
       >
         <span aria-hidden="true" class="shimmer-gold pointer-events-none absolute inset-0"></span>
         <span class="relative">↓ {t.hero.exploreCta}</span>
@@ -126,13 +137,13 @@ const stepIcons = ["message-circle", "car", "star"] as const;
       <div class="flex w-full gap-3">
         <a
           href="#vip-treats"
-          class="flex-1 px-3 py-2.5 border border-gold/50 text-gold hover:bg-gold/10 rounded-full transition-all duration-300 text-sm text-center"
+          class="flex min-h-11 flex-1 items-center justify-center px-3 py-2.5 border border-gold/50 text-gold hover:bg-gold/10 rounded-full transition-all duration-300 text-sm text-center"
         >
           {t.hero.howItWorksCta}
         </a>
         <a
           href="#contact"
-          class="flex-1 px-3 py-2.5 border border-gold/50 text-gold hover:bg-gold/10 rounded-full transition-all duration-300 text-sm text-center"
+          class="flex min-h-11 flex-1 items-center justify-center px-3 py-2.5 border border-gold/50 text-gold hover:bg-gold/10 rounded-full transition-all duration-300 text-sm text-center"
         >
           {t.hero.bookCta}
         </a>
@@ -163,6 +174,10 @@ const stepIcons = ["message-circle", "car", "star"] as const;
   .hero-backdrop img {
     transform: scale(1.06);
     will-change: transform;
+  }
+
+  [data-hero-motion][data-motion-state="paused"] .hero-backdrop img {
+    animation-play-state: paused;
   }
 
   .hero-backdrop[data-zoom-direction="in"]:is(.is-active, .is-leaving) img {
@@ -206,44 +221,99 @@ const stepIcons = ["message-circle", "car", "star"] as const;
 </style>
 
 <script>
-  // Cross-fades the hero backdrops with a slow alternating Ken Burns zoom.
+  // Cross-fade the hero only while it is visible, in view, and not paused.
   (() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const hero = document.querySelector("[data-hero-motion]");
+    const toggle = document.querySelector("[data-hero-motion-toggle]");
+    const icon = document.querySelector("[data-hero-motion-icon]");
+    const backdrops = document.querySelectorAll("[data-hero-backdrop]");
+    const venueGroups = document.querySelectorAll("[data-hero-venue-group]");
+    if (!hero || !toggle || backdrops.length < 2 || venueGroups.length < 2) return;
 
-    const cycleBackdrops = (nodes: NodeListOf<HTMLElement>, intervalMs: number) => {
-      const fadeDurationMs = 1350;
-      if (nodes.length < 2) return;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let manuallyPaused = false;
+    let inViewport = true;
+    let backdropIndex = 0;
+    let venueIndex = 0;
+    let backdropTimer = 0;
+    let venueTimer = 0;
 
-      let active = 0;
-      setInterval(() => {
-        const leaving = nodes[active];
-        active = (active + 1) % nodes.length;
-        const entering = nodes[active];
+    const canAnimate = () =>
+      !reducedMotion.matches &&
+      !manuallyPaused &&
+      inViewport &&
+      document.visibilityState !== "hidden";
 
-        leaving.classList.remove("is-active");
-        leaving.classList.add("is-leaving");
-        leaving.setAttribute("aria-hidden", "true");
-
-        entering.classList.remove("is-leaving");
-        void entering.offsetWidth;
-        entering.classList.add("is-active");
-        entering.removeAttribute("aria-hidden");
-
-        window.setTimeout(() => leaving.classList.remove("is-leaving"), fadeDurationMs);
-      }, intervalMs);
+    const syncVenue = (nextIndex) => {
+      venueGroups.forEach((group, index) => {
+        const active = index === nextIndex;
+        group.style.opacity = active ? "1" : "0";
+        group.setAttribute("aria-hidden", String(!active));
+      });
     };
 
-    const cycleOpacity = (nodes: NodeListOf<HTMLElement>, intervalMs: number) => {
-      if (nodes.length < 2) return;
-      let active = 0;
-      setInterval(() => {
-        nodes[active].style.opacity = "0";
-        active = (active + 1) % nodes.length;
-        nodes[active].style.opacity = "1";
-      }, intervalMs);
+    const syncBackdrop = (nextIndex) => {
+      backdrops.forEach((backdrop, index) => {
+        const active = index === nextIndex;
+        const leaving = index === backdropIndex && !active;
+        backdrop.classList.toggle("is-active", active);
+        backdrop.classList.toggle("is-leaving", leaving);
+        backdrop.setAttribute("aria-hidden", String(!active));
+      });
+      backdropIndex = nextIndex;
     };
 
-    cycleBackdrops(document.querySelectorAll<HTMLElement>("[data-hero-backdrop]"), 6000);
-    cycleOpacity(document.querySelectorAll<HTMLElement>("[data-hero-venue-group]"), 4500);
+    const stopTimers = () => {
+      window.clearTimeout(backdropTimer);
+      window.clearTimeout(venueTimer);
+    };
+
+    const queueBackdrop = () => {
+      backdropTimer = window.setTimeout(() => {
+        if (!canAnimate()) return;
+        syncBackdrop((backdropIndex + 1) % backdrops.length);
+        queueBackdrop();
+      }, 6000);
+    };
+
+    const queueVenue = () => {
+      venueTimer = window.setTimeout(() => {
+        if (!canAnimate()) return;
+        venueIndex = (venueIndex + 1) % venueGroups.length;
+        syncVenue(venueIndex);
+        queueVenue();
+      }, 4500);
+    };
+
+    const renderState = () => {
+      stopTimers();
+      const running = canAnimate();
+      hero.dataset.motionState = reducedMotion.matches ? "reduced" : running ? "running" : "paused";
+      toggle.setAttribute("aria-pressed", String(manuallyPaused));
+      toggle.setAttribute("aria-label", manuallyPaused ? "Resume background motion" : "Pause background motion");
+      toggle.toggleAttribute("disabled", reducedMotion.matches);
+      icon.textContent = manuallyPaused ? "▶" : "❚❚";
+      if (!running) return;
+      queueBackdrop();
+      queueVenue();
+    };
+
+    toggle.addEventListener("click", () => {
+      manuallyPaused = !manuallyPaused;
+      renderState();
+    });
+    document.addEventListener("visibilitychange", renderState);
+    reducedMotion.addEventListener?.("change", renderState);
+    new IntersectionObserver(
+      ([entry]) => {
+        inViewport = entry.isIntersecting;
+        renderState();
+      },
+      { threshold: 0.1 },
+    ).observe(hero);
+
+    syncBackdrop(backdropIndex);
+    syncVenue(venueIndex);
+    renderState();
   })();
 </script>

@@ -159,6 +159,16 @@ body {
   }
 }
 
+/* --- Testimonial transform carousel ------------------------------------ */
+.testimonial-viewport {
+  overflow: hidden;
+}
+
+.testimonial-track {
+  width: max-content;
+  will-change: transform;
+}
+
 /* --- Quick Match result card ------------------------------------------- */
 .qm-hero-img {
   animation: qmFade 0.45s ease;
@@ -194,6 +204,10 @@ body {
 
   .qm-sweep {
     display: none;
+  }
+
+  .testimonial-track {
+    transform: none !important;
   }
 }
 

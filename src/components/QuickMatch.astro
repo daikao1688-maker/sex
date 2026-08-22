@@ -108,7 +108,7 @@ const clientConfig = {
                           data-field={question.field}
                           data-value={value}
                           aria-pressed={active ? "true" : "false"}
-                          class={`rounded-full px-3 py-1.5 text-[13px] font-bold transition-colors ${active ? activePill : idlePill}`}
+                          class={`min-h-11 rounded-full px-3 py-1.5 text-[13px] font-bold transition-colors ${active ? activePill : idlePill}`}
                         >
                           {label}
                         </button>
@@ -124,7 +124,7 @@ const clientConfig = {
               role="switch"
               aria-checked={defaultSelection.overnight ? "true" : "false"}
               data-qm-overnight
-              class="flex w-full flex-col gap-1.5 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-left transition-colors hover:bg-white/[0.05]"
+              class="flex min-h-11 w-full flex-col gap-1.5 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-left transition-colors hover:bg-white/[0.05]"
             >
               <span class="flex items-center gap-3">
                 <span
@@ -185,7 +185,7 @@ const clientConfig = {
                   <a
                     href={localizePath(lang, `/spa/${best.venue.slug}/`)}
                     data-qm-details
-                    class="flex-shrink-0 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white/90 ring-1 ring-white/20 backdrop-blur-sm transition-colors hover:bg-black/70 hover:text-white"
+                    class="flex min-h-11 flex-shrink-0 items-center rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white/90 ring-1 ring-white/20 backdrop-blur-sm transition-colors hover:bg-black/70 hover:text-white"
                     >{qm.details} →</a
                   >
                 </div>
@@ -201,7 +201,7 @@ const clientConfig = {
                     target="_blank"
                     rel="noopener"
                     data-qm-whatsapp
-                    class="flex items-center justify-center gap-2 rounded-xl bg-[#25d366] px-3 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+                    class="flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#25d366] px-3 py-2.5 text-sm font-bold text-[#071f12] transition-transform hover:-translate-y-0.5"
                   >
                     <img src="/icons/whatsapp.svg" alt="" width="16" height="16" />WhatsApp
                   </a>
@@ -210,7 +210,7 @@ const clientConfig = {
                     target="_blank"
                     rel="noopener"
                     data-qm-telegram
-                    class="flex items-center justify-center gap-2 rounded-xl bg-[#229ed9] px-3 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+                    class="flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#229ed9] px-3 py-2.5 text-sm font-bold text-[#061923] transition-transform hover:-translate-y-0.5"
                   >
                     <img src="/icons/telegram.svg" alt="" width="16" height="16" />Telegram
                   </a>
@@ -221,7 +221,7 @@ const clientConfig = {
                     data-wechat-trigger
                     aria-label="WeChat"
                     title="WeChat"
-                    class="flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] py-2 transition-colors hover:bg-white/[0.08]"
+                    class="flex min-h-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] py-2 transition-colors hover:bg-white/[0.08]"
                   >
                     <img src="/icons/wechat.svg" alt="WeChat" class="h-5 w-5 rounded-md" />
                   </button>
@@ -231,7 +231,7 @@ const clientConfig = {
                     rel="noopener"
                     aria-label="LINE"
                     title="LINE"
-                    class="flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] py-2 transition-colors hover:bg-white/[0.08]"
+                    class="flex min-h-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] py-2 transition-colors hover:bg-white/[0.08]"
                   >
                     <img src="/icons/line.svg" alt="LINE" class="h-5 w-5 rounded-md" />
                   </a>
@@ -246,7 +246,7 @@ const clientConfig = {
                     type="button"
                     data-qm-alternate
                     data-slug={item.venue.slug}
-                    class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.02] p-2 text-left transition-colors hover:border-gold/30 hover:bg-white/[0.05]"
+                    class="flex min-h-11 items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.02] p-2 text-left transition-colors hover:border-gold/30 hover:bg-white/[0.05]"
                   >
                     <img
                       src={`/covers/${item.venue.cover}.jpg`}
@@ -365,7 +365,7 @@ const clientConfig = {
         list.innerHTML = alternates
           .map((item) => {
             const alt = config.venues[item.venue.slug];
-            return `<button type="button" data-qm-alternate data-slug="${item.venue.slug}" class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.02] p-2 text-left transition-colors hover:border-gold/30 hover:bg-white/[0.05]">
+            return `<button type="button" data-qm-alternate data-slug="${item.venue.slug}" class="flex min-h-11 items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.02] p-2 text-left transition-colors hover:border-gold/30 hover:bg-white/[0.05]">
                 <img src="${alt.cover}" alt="${alt.name}" class="h-11 w-11 flex-shrink-0 rounded-lg object-cover" loading="lazy" />
                 <span class="min-w-0 flex-1">
                   <span class="block truncate text-[13px] font-bold text-white">${alt.name}</span>
