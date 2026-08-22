@@ -16,6 +16,7 @@ export default defineConfig({
 
   integrations: [
     sitemap({
+      filter: (page) => new URL(page).pathname !== '/',
       i18n: {
         defaultLocale: 'en',
         locales: {

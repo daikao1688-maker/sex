@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
@@ -120,6 +120,50 @@ test("the generated sitemap, robots file, and head declaration share one origin"
   for (const locale of Object.keys(locales)) {
     assert.ok(sitemap.includes(`/${locale}/`), `sitemap is missing ${locale} pages`);
     assert.ok(sitemap.includes(`hreflang="${locale}"`), `sitemap is missing ${locale} alternates`);
+  }
+});
+
+test("the sitemap contains exactly the 126 localized canonical pages", async () => {
+  const sitemap = await readFile(path.join(distRoot, "sitemap-0.xml"), "utf8");
+  const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+  const localizedHtmlPaths = (await readdir(distRoot, { recursive: true })).filter(
+    (relativePath) =>
+      relativePath.endsWith(`${path.sep}index.html`) &&
+      Object.keys(locales).some((locale) => relativePath.startsWith(`${locale}${path.sep}`)),
+  );
+  const canonicalUrls = (
+    await Promise.all(
+      localizedHtmlPaths.map(async (relativePath) =>
+        canonicalHref(await readFile(path.join(distRoot, relativePath), "utf8")),
+      ),
+    )
+  ).filter(Boolean);
+
+  assert.equal(canonicalUrls.length, 126, "localized canonical page count changed unexpectedly");
+  assert.equal(
+    sitemapLocations.includes(`${siteOrigin}/`),
+    false,
+    "the noindex root locale gateway must not appear in the sitemap",
+  );
+  assert.deepEqual(
+    sitemapLocations.sort(),
+    canonicalUrls.sort(),
+    "sitemap locations diverge from localized canonical pages",
+  );
+});
+
+test("each sitemap alternate group contains at most one URL per language", async () => {
+  const sitemap = await readFile(path.join(distRoot, "sitemap-0.xml"), "utf8");
+  const entries = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => match[1]);
+
+  for (const entry of entries) {
+    const location = entry.match(/<loc>([^<]+)<\/loc>/)?.[1] ?? "unknown location";
+    const languages = [...entry.matchAll(/hreflang="([^"]+)"/g)].map((match) => match[1]);
+    assert.equal(
+      languages.length,
+      new Set(languages).size,
+      `${location} has duplicate language alternates`,
+    );
   }
 });
 
