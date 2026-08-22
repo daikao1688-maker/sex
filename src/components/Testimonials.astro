@@ -79,7 +79,9 @@ const loop = [0, 1, 2].flatMap((copy) =>
     let manuallyPaused = false;
     let hovered = false;
     let focused = false;
-    let inViewport = true;
+    // Without viewport observation, stay conservative and do not animate
+    // potentially offscreen content for the lifetime of the page.
+    let inViewport = false;
     let animationFrame = 0;
     let lastTimestamp = 0;
     let offset = 0;

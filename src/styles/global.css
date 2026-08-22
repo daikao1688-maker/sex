@@ -209,6 +209,20 @@ body {
   .testimonial-track {
     transform: none !important;
   }
+
+  .testimonial-viewport {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+  }
+
+  .testimonial-track [data-testimonial-clone] {
+    display: none;
+  }
+
+  .testimonial-track > blockquote {
+    scroll-snap-align: start;
+  }
 }
 
 /* --- Blog "paper" theme -------------------------------------------------- */

@@ -27,6 +27,14 @@ const heroScript = async () => {
   return script;
 };
 
+const testimonialsScript = async () => {
+  const source = await readFile(path.join(projectRoot, "src/components/Testimonials.astro"), "utf8");
+  const scripts = [...source.matchAll(/<script>([\s\S]*?)<\/script>/g)];
+  const script = scripts.at(-1)?.[1];
+  assert.ok(script, "Testimonials must ship a motion-control script");
+  return script;
+};
+
 class FakeElement {
   constructor() {
     this.attributes = new Map();
@@ -171,4 +179,51 @@ test("hero keeps its background cadence when venue text rotates first", async ()
 
   assert.equal(backdrops[1].getAttribute("aria-hidden"), "false", "backdrop rotation must not be reset by venue rotation");
   assert.equal(venues[1].getAttribute("aria-hidden"), "false", "venue rotation must remain synchronized with its visible state");
+});
+
+test("reduced motion keeps the testimonial region horizontally reachable", async () => {
+  const styles = await readFile(path.join(projectRoot, "src/styles/global.css"), "utf8");
+  const reducedMotionRules = styles.slice(styles.indexOf("@media (prefers-reduced-motion: reduce)"));
+
+  assert.match(
+    reducedMotionRules,
+    /\.testimonial-viewport\s*\{\s*overflow-x:\s*auto;/,
+    "reduced-motion visitors must be able to scroll the primary testimonial cards",
+  );
+  assert.match(
+    reducedMotionRules,
+    /\.testimonial-track\s+\[data-testimonial-clone\]\s*\{\s*display:\s*none;/,
+    "reduced-motion visitors must not scroll through redundant visual copies",
+  );
+});
+
+test("testimonial motion stays inactive when viewport observation is unavailable", async () => {
+  const track = new FakeElement();
+  const toggle = new FakeElement();
+  const icon = new FakeElement();
+  track.dataset.count = "2";
+  track.querySelectorAll = () => [{ offsetLeft: 0 }, { offsetLeft: 296 }, { offsetLeft: 592 }];
+  track.contains = () => false;
+  let animationFrames = 0;
+
+  const document = {
+    visibilityState: "visible",
+    getElementById: (id) => (id === "testimonial-track" ? track : null),
+    querySelector: (selector) =>
+      ({
+        "[data-testimonial-motion-toggle]": toggle,
+        "[data-testimonial-motion-icon]": icon,
+      })[selector] ?? null,
+    addEventListener() {},
+  };
+  const window = {
+    matchMedia: () => ({ matches: false, addEventListener() {} }),
+    cancelAnimationFrame() {},
+    requestAnimationFrame: () => ++animationFrames,
+  };
+
+  vm.runInNewContext(await testimonialsScript(), { document, window });
+
+  assert.equal(track.dataset.motionState, "paused", "without observation, carousel visibility is unknown and must remain paused");
+  assert.equal(animationFrames, 0, "without observation, carousel must not schedule an animation frame");
 });
