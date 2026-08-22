@@ -27,6 +27,7 @@ pnpm-debug.log*
 .claude/settings.local.json
 .vercel
 .workbuddy/
+.worktrees/
 
 # design reference snapshots (local only)
 design/
