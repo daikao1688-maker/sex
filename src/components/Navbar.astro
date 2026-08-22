@@ -102,50 +102,7 @@ const showLanguageSwitcher = locales.length > 1;
         }
       </div>
 
-      <div class="flex shrink-0 items-center gap-1 xl:hidden" data-nav-mobile-controls>
-        {
-          showLanguageSwitcher && (
-            <div class="relative" data-lang-menu>
-              <button
-                type="button"
-                class="language-trigger flex items-center gap-1.5 rounded-xl border border-white/15 bg-transparent px-2 py-2 text-white/70 transition-colors hover:bg-white/5 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70"
-                aria-label={`${t.nav.languageLabel}: ${localeMeta[lang].label}`}
-                aria-expanded="false"
-                aria-controls="language-panel-mobile"
-                aria-haspopup="true"
-                data-lang-toggle
-              >
-                <Icon name="globe" class="w-5 h-5 shrink-0" />
-                <span class="whitespace-nowrap text-sm font-medium">{localeMeta[lang].label}</span>
-                <span class="lang-chevron transition-transform duration-200" aria-hidden="true">
-                  <Icon name="chevron-down" class="w-3.5 h-3.5" />
-                </span>
-              </button>
-              <div
-                id="language-panel-mobile"
-                class="absolute right-0 mt-3 hidden w-48 max-w-[calc(100vw-2rem)] rounded-2xl border border-white/10 bg-[#111]/98 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl"
-                data-lang-panel
-              >
-                {locales.map((code) => (
-                  <a
-                    href={switchTo(code)}
-                    hreflang={localeMeta[code].htmlLang}
-                    aria-current={code === lang ? "true" : undefined}
-                    class:list={[
-                      "flex min-h-11 items-center justify-between rounded-xl px-4 py-2.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70",
-                      code === lang
-                        ? "bg-gold/15 text-gold"
-                        : "text-white/70 hover:bg-white/5 hover:text-white focus-visible:bg-white/5",
-                    ]}
-                  >
-                    <span>{localeMeta[code].label}</span>
-                    {code === lang && <Icon name="check" class="w-4 h-4 shrink-0" />}
-                  </a>
-                ))}
-              </div>
-            </div>
-          )
-        }
+      <div class="flex shrink-0 items-center xl:hidden" data-nav-mobile-controls>
         <button
           type="button"
           class="text-white/70 hover:text-gold transition-colors p-1"
@@ -176,6 +133,51 @@ const showLanguageSwitcher = locales.length > 1;
           </a>
         ))
       }
+      {
+        showLanguageSwitcher && (
+          <div class="mt-2 border-t border-white/10 pt-3" data-lang-menu>
+            <button
+              type="button"
+              class="language-trigger flex min-h-11 w-full items-center justify-between rounded-xl border border-white/15 bg-white/[0.02] px-3 py-2.5 text-white/70 transition-colors hover:bg-white/5 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70"
+              aria-label={`${t.nav.languageLabel}: ${localeMeta[lang].label}`}
+              aria-expanded="false"
+              aria-controls="language-panel-mobile"
+              aria-haspopup="true"
+              data-lang-toggle
+            >
+              <span class="flex min-w-0 items-center gap-2">
+                <Icon name="globe" class="w-5 h-5 shrink-0" />
+                <span class="truncate text-sm font-medium">{localeMeta[lang].label}</span>
+              </span>
+              <span class="lang-chevron shrink-0 transition-transform duration-200" aria-hidden="true">
+                <Icon name="chevron-down" class="w-4 h-4" />
+              </span>
+            </button>
+            <div
+              id="language-panel-mobile"
+              class="mt-2 hidden w-full rounded-2xl border border-white/10 bg-[#111]/98 p-2 shadow-2xl shadow-black/50"
+              data-lang-panel
+            >
+              {locales.map((code) => (
+                <a
+                  href={switchTo(code)}
+                  hreflang={localeMeta[code].htmlLang}
+                  aria-current={code === lang ? "true" : undefined}
+                  class:list={[
+                    "flex min-h-11 items-center justify-between rounded-xl px-4 py-2.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70",
+                    code === lang
+                      ? "bg-gold/15 text-gold"
+                      : "text-white/70 hover:bg-white/5 hover:text-white focus-visible:bg-white/5",
+                  ]}
+                >
+                  <span>{localeMeta[code].label}</span>
+                  {code === lang && <Icon name="check" class="w-4 h-4 shrink-0" />}
+                </a>
+              ))}
+            </div>
+          </div>
+        )
+      }
     </div>
   </div>
 </nav>
@@ -189,14 +191,6 @@ const showLanguageSwitcher = locales.length > 1;
     .nav-brand {
       font-size: 0.875rem;
       letter-spacing: 0.025em;
-    }
-
-    .language-trigger {
-      padding-inline: 0.25rem;
-    }
-
-    .lang-chevron {
-      display: none;
     }
   }
 </style>

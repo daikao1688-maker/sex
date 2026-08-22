@@ -19,6 +19,14 @@ const tagWithAttribute = (html, attribute) => {
 
 const classList = (tag) => tag.match(/class="([^"]+)"/)?.[1]?.split(/\s+/) ?? [];
 
+const regionBetween = (html, startMarker, endMarker) => {
+  const start = html.indexOf(startMarker);
+  assert.notEqual(start, -1, `generated page is missing ${startMarker}`);
+  const end = html.indexOf(endMarker, start + startMarker.length);
+  assert.notEqual(end, -1, `generated page is missing ${endMarker} after ${startMarker}`);
+  return html.slice(start, end);
+};
+
 test("the blog promotion stays on the article and targets its booking section", async () => {
   for (const locale of locales) {
     const html = await readPage(locale, "blog", "macau-sauna-beginner-guide-2026");
@@ -64,6 +72,39 @@ test("the navigation uses mobile controls below 1280px and desktop links from 12
     assert.ok(mobileControls.includes("xl:hidden"), `${locale} mobile controls disappear before 1280px`);
     assert.ok(mobileMenu.includes("xl:hidden"), `${locale} mobile menu disappears before 1280px`);
     assert.ok(!desktop.includes("md:flex"), `${locale} still switches to desktop navigation at 768px`);
+  }
+});
+
+test("mobile navigation moves language switching below its menu links while desktop keeps its switcher", async () => {
+  const hreflangs = ["en", "zh-TW", "zh-CN", "ja"];
+
+  for (const locale of locales) {
+    const html = await readPage(locale);
+    const desktop = regionBetween(html, "data-nav-desktop", "data-nav-mobile-controls");
+    const mobileHeader = regionBetween(html, "data-nav-mobile-controls", 'id="mobile-menu"');
+    const mobileMenu = regionBetween(html, 'id="mobile-menu"', "</nav>");
+
+    assert.ok(desktop.includes("data-lang-toggle"), `${locale} desktop language trigger is missing`);
+    assert.ok(desktop.includes('id="language-panel-desktop"'), `${locale} desktop language panel is missing`);
+
+    assert.ok(!mobileHeader.includes("data-lang-toggle"), `${locale} mobile header still renders a language trigger`);
+    assert.ok(mobileHeader.includes("data-menu-toggle"), `${locale} mobile header lost its hamburger trigger`);
+
+    const finalNavLink = mobileMenu.indexOf(`href="/${locale}/blog/"`);
+    const languageToggle = mobileMenu.indexOf("data-lang-toggle");
+    assert.notEqual(finalNavLink, -1, `${locale} mobile menu is missing its final navigation link`);
+    assert.notEqual(languageToggle, -1, `${locale} mobile menu is missing its language trigger`);
+    assert.ok(languageToggle > finalNavLink, `${locale} mobile language switcher is not below the menu links`);
+
+    const languageRegion = mobileMenu.slice(languageToggle);
+    for (const hreflang of hreflangs) {
+      assert.ok(languageRegion.includes(`hreflang="${hreflang}"`), `${locale} mobile language menu is missing ${hreflang}`);
+    }
+    assert.equal(
+      (languageRegion.match(/aria-current="true"/g) ?? []).length,
+      1,
+      `${locale} mobile language menu must mark exactly one current locale`,
+    );
   }
 });
 
