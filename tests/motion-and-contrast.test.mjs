@@ -12,6 +12,27 @@ const locales = ["en", "zh-TW", "zh-CN", "ja"];
 
 const readHome = (locale) => readFile(path.join(distRoot, locale, "index.html"), "utf8");
 
+const attr = (tag, name) =>
+  tag.match(new RegExp(`(?:^|\\s)${name}="([^"]*)"`, "i"))?.[1];
+
+const rgb = (hex) => {
+  const value = Number.parseInt(hex.slice(1), 16);
+  return [(value >> 16) & 255, (value >> 8) & 255, value & 255];
+};
+
+const luminance = (color) => {
+  const linear = color.map((channel) => {
+    const value = channel / 255;
+    return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+  });
+  return linear[0] * 0.2126 + linear[1] * 0.7152 + linear[2] * 0.0722;
+};
+
+const contrast = (foreground, background) => {
+  const [lighter, darker] = [luminance(foreground), luminance(background)].sort((a, b) => b - a);
+  return (lighter + 0.05) / (darker + 0.05);
+};
+
 const tagWith = (html, ...attributes) => {
   const match = (html.match(/<(?!style\b|script\b)[a-zA-Z][^>]*>/g) ?? []).find((tag) =>
     attributes.every((attribute) => tag.includes(attribute)),
@@ -76,6 +97,25 @@ class FakeElement {
 }
 
 test("every locale exposes pausable motion controls and hides testimonial duplicates", async () => {
+  const labels = {
+    en: {
+      hero: ["Pause background motion", "Resume background motion"],
+      testimonials: ["Pause testimonial motion", "Resume testimonial motion"],
+    },
+    "zh-TW": {
+      hero: ["暫停背景動效", "繼續背景動效"],
+      testimonials: ["暫停行前清單動效", "繼續行前清單動效"],
+    },
+    "zh-CN": {
+      hero: ["暂停背景动效", "继续背景动效"],
+      testimonials: ["暂停行前清单动效", "继续行前清单动效"],
+    },
+    ja: {
+      hero: ["背景の動きを一時停止", "背景の動きを再開"],
+      testimonials: ["事前確認リストの動きを一時停止", "事前確認リストの動きを再開"],
+    },
+  };
+
   for (const locale of locales) {
     const html = await readHome(locale);
     const testimonialToggle = tagWith(html, "data-testimonial-motion-toggle");
@@ -84,11 +124,111 @@ test("every locale exposes pausable motion controls and hides testimonial duplic
 
     assert.match(testimonialToggle, /aria-pressed="false"/, `${locale} testimonial control starts unpaused`);
     assert.match(heroToggle, /aria-pressed="false"/, `${locale} hero control starts unpaused`);
+    assert.equal(attr(heroToggle, "aria-label"), labels[locale].hero[0]);
+    assert.equal(attr(heroToggle, "data-pause-label"), labels[locale].hero[0]);
+    assert.equal(attr(heroToggle, "data-resume-label"), labels[locale].hero[1]);
+    assert.equal(attr(testimonialToggle, "aria-label"), labels[locale].testimonials[0]);
+    assert.equal(attr(testimonialToggle, "data-pause-label"), labels[locale].testimonials[0]);
+    assert.equal(attr(testimonialToggle, "data-resume-label"), labels[locale].testimonials[1]);
     assert.ok(clones.length > 0, `${locale} carousel must mark repeated cards as clones`);
     clones.forEach((clone) => {
       assert.match(clone, /aria-hidden="true"/, `${locale} repeated testimonial must be hidden from assistive tech`);
     });
   }
+});
+
+test("translucent gold testimonial attribution meets AA on its card surface", async () => {
+  const [html, styles] = await Promise.all([
+    readHome("en"),
+    readFile(path.join(projectRoot, "src/styles/global.css"), "utf8"),
+  ]);
+  const author = html.match(/<p\b[^>]*class="[^"]*text-gold\/\d+[^"]*"[^>]*>\s*— Choosing a venue<\/p>/)?.[0];
+  assert.ok(author, "generated testimonial attribution is missing its translucent gold token");
+
+  const opacity = Number(author.match(/text-gold\/(\d+)/)?.[1]) / 100;
+  const gold = rgb(styles.match(/--color-gold:\s*(#[0-9a-f]{6})/i)?.[1] ?? "#000000");
+  const surface = rgb(styles.match(/--color-surface:\s*(#[0-9a-f]{6})/i)?.[1] ?? "#ffffff");
+  const composited = gold.map((channel, index) =>
+    Math.round(channel * opacity + surface[index] * (1 - opacity)),
+  );
+
+  assert.ok(
+    contrast(composited, surface) >= 4.5,
+    `testimonial attribution contrast is ${contrast(composited, surface).toFixed(3)}:1`,
+  );
+});
+
+test("motion toggles keep their localized accessible names after runtime state changes", async () => {
+  const hero = new FakeElement();
+  const heroToggle = new FakeElement();
+  const heroIcon = new FakeElement();
+  const backdrops = [new FakeElement(), new FakeElement()];
+  const venueGroups = [new FakeElement(), new FakeElement()];
+  heroToggle.dataset = {
+    pauseLabel: "LOCALIZED HERO PAUSE",
+    resumeLabel: "LOCALIZED HERO RESUME",
+  };
+  const heroDocument = {
+    visibilityState: "visible",
+    querySelector: (selector) =>
+      ({
+        "[data-hero-motion]": hero,
+        "[data-hero-motion-toggle]": heroToggle,
+        "[data-hero-motion-icon]": heroIcon,
+      })[selector] ?? null,
+    querySelectorAll: (selector) =>
+      ({
+        "[data-hero-backdrop]": backdrops,
+        "[data-hero-venue-group]": venueGroups,
+      })[selector] ?? [],
+    addEventListener() {},
+  };
+  const heroWindow = {
+    matchMedia: () => ({ matches: false, addEventListener() {} }),
+    setTimeout: () => 1,
+    clearTimeout() {},
+  };
+
+  vm.runInNewContext(await heroScript(), { document: heroDocument, window: heroWindow });
+  assert.equal(heroToggle.getAttribute("aria-label"), "LOCALIZED HERO PAUSE");
+  heroToggle.listeners.get("click")();
+  assert.equal(heroToggle.getAttribute("aria-label"), "LOCALIZED HERO RESUME");
+
+  const track = new FakeElement();
+  const motionRegion = new FakeElement();
+  const testimonialToggle = new FakeElement();
+  const testimonialIcon = new FakeElement();
+  track.dataset.count = "1";
+  track.querySelectorAll = () => [];
+  motionRegion.contains = () => false;
+  testimonialToggle.dataset = {
+    pauseLabel: "LOCALIZED TESTIMONIAL PAUSE",
+    resumeLabel: "LOCALIZED TESTIMONIAL RESUME",
+  };
+  const testimonialDocument = {
+    visibilityState: "visible",
+    getElementById: () => track,
+    querySelector: (selector) =>
+      ({
+        "[data-testimonial-motion-region]": motionRegion,
+        "[data-testimonial-motion-toggle]": testimonialToggle,
+        "[data-testimonial-motion-icon]": testimonialIcon,
+      })[selector] ?? null,
+    addEventListener() {},
+  };
+  const testimonialWindow = {
+    matchMedia: () => ({ matches: false, addEventListener() {} }),
+    cancelAnimationFrame() {},
+    requestAnimationFrame: () => 1,
+  };
+
+  vm.runInNewContext(await testimonialsScript(), {
+    document: testimonialDocument,
+    window: testimonialWindow,
+  });
+  assert.equal(testimonialToggle.getAttribute("aria-label"), "LOCALIZED TESTIMONIAL PAUSE");
+  testimonialToggle.listeners.get("click")();
+  assert.equal(testimonialToggle.getAttribute("aria-label"), "LOCALIZED TESTIMONIAL RESUME");
 });
 
 test("every locale gives motion regions an observable state and synchronized hero accessibility", async () => {

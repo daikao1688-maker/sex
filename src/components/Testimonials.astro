@@ -27,8 +27,10 @@ const loop = [0, 1, 2].flatMap((copy) =>
       <button
         type="button"
         data-testimonial-motion-toggle
+        data-pause-label={t.testimonials.motion.pause}
+        data-resume-label={t.testimonials.motion.resume}
         aria-pressed="false"
-        aria-label="Pause testimonial motion"
+        aria-label={t.testimonials.motion.pause}
         class="absolute right-2 top-2 z-10 flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-sm text-white transition-colors hover:border-gold hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
       >
         <span aria-hidden="true" data-testimonial-motion-icon>❚❚</span>
@@ -51,7 +53,7 @@ const loop = [0, 1, 2].flatMap((copy) =>
               class="flex-shrink-0 w-[280px] bg-[#141414] border border-white/5 rounded-xl p-5 flex flex-col justify-between"
             >
               <p class="text-white/70 text-sm leading-relaxed mb-4">&ldquo;{item.quote}&rdquo;</p>
-              <p class="text-gold/60 text-xs text-right">— {item.author}</p>
+              <p class="text-gold/70 text-xs text-right">— {item.author}</p>
             </blockquote>
           ))
         }
@@ -107,7 +109,10 @@ const loop = [0, 1, 2].flatMap((copy) =>
       const running = canAnimate();
       track.dataset.motionState = reducedMotion.matches ? "reduced" : running ? "running" : "paused";
       toggle.setAttribute("aria-pressed", String(manuallyPaused));
-      toggle.setAttribute("aria-label", manuallyPaused ? "Resume testimonial motion" : "Pause testimonial motion");
+      toggle.setAttribute(
+        "aria-label",
+        manuallyPaused ? toggle.dataset.resumeLabel ?? "" : toggle.dataset.pauseLabel ?? "",
+      );
       toggle.toggleAttribute("disabled", reducedMotion.matches);
       icon.textContent = manuallyPaused ? "▶" : "❚❚";
 

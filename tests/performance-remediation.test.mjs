@@ -217,6 +217,81 @@ test("analytics ignores idle, interaction, and refusal, then initializes exactly
   );
 });
 
+test("explicit acceptance initializes once when consent storage is unavailable", async () => {
+  const html = await readPage("en");
+  const loader = [...html.matchAll(/<script\b[^>]*data-analytics-loader[^>]*>([\s\S]*?)<\/script>/g)][0]?.[1];
+  const controller = [...html.matchAll(/<script\b[^>]*data-consent-controller[^>]*>([\s\S]*?)<\/script>/g)][0]?.[1];
+  assert.ok(loader);
+  assert.ok(controller);
+
+  const windowListeners = new Map();
+  const documentListeners = new Map();
+  const appended = [];
+  const panel = new FakeElement();
+  const accept = new FakeElement();
+  const decline = new FakeElement();
+  const settings = new FakeElement();
+  panel.hidden = true;
+  const localStorage = {
+    getItem: () => {
+      throw new Error("storage unavailable");
+    },
+    setItem: () => {
+      throw new Error("storage unavailable");
+    },
+  };
+  const window = {
+    addEventListener: (name, callback) => {
+      const listeners = windowListeners.get(name) ?? [];
+      listeners.push(callback);
+      windowListeners.set(name, listeners);
+    },
+    dispatchEvent: (event) => {
+      for (const callback of windowListeners.get(event.type) ?? []) callback(event);
+    },
+  };
+  window.window = window;
+  const document = {
+    createElement: () => ({}),
+    head: { append: (node) => appended.push(node) },
+    querySelector: (selector) =>
+      ({
+        "[data-consent-panel]": panel,
+        "[data-consent-accept]": accept,
+      })[selector] ?? null,
+    addEventListener: (name, callback) => documentListeners.set(name, callback),
+  };
+  const CustomEvent = class {
+    constructor(type, init = {}) {
+      this.type = type;
+      this.detail = init.detail;
+    }
+  };
+  const click = (selector, target) =>
+    documentListeners.get("click")({
+      preventDefault() {},
+      target: { closest: (candidate) => (candidate === selector ? target : null) },
+    });
+
+  vm.runInNewContext(loader, { document, localStorage, window });
+  vm.runInNewContext(controller, {
+    CustomEvent,
+    document,
+    localStorage,
+    requestAnimationFrame: (callback) => callback(),
+    window,
+  });
+
+  assert.equal(appended.length, 0, "storage failure must not weaken the pre-consent block");
+  click("[data-consent-decline]", decline);
+  assert.equal(appended.length, 0, "an in-memory refusal must keep Google tags blocked");
+
+  click("[data-consent-settings]", settings);
+  click("[data-consent-accept]", accept);
+  click("[data-consent-accept]", accept);
+  assert.equal(appended.length, 1, "an explicit in-memory grant must initialize Google tags exactly once");
+});
+
 test("persisted refusal and later withdrawal keep Google tags blocked on subsequent pages", async () => {
   const html = await readPage("en");
   const loader = [...html.matchAll(/<script\b[^>]*data-analytics-loader[^>]*>([\s\S]*?)<\/script>/g)][0]?.[1];

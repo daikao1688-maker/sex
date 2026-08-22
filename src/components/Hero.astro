@@ -77,8 +77,10 @@ const stepIcons = ["message-circle", "car", "star"] as const;
   <button
     type="button"
     data-hero-motion-toggle
+    data-pause-label={t.hero.motion.pause}
+    data-resume-label={t.hero.motion.resume}
     aria-pressed="false"
-    aria-label="Pause background motion"
+    aria-label={t.hero.motion.pause}
     class="absolute bottom-4 right-4 z-20 flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-sm text-white transition-colors hover:border-gold hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
   >
     <span aria-hidden="true" data-hero-motion-icon>❚❚</span>
@@ -322,7 +324,10 @@ const stepIcons = ["message-circle", "car", "star"] as const;
       const running = canAnimate();
       hero.dataset.motionState = reducedMotion.matches ? "reduced" : running ? "running" : "paused";
       toggle.setAttribute("aria-pressed", String(manuallyPaused));
-      toggle.setAttribute("aria-label", manuallyPaused ? "Resume background motion" : "Pause background motion");
+      toggle.setAttribute(
+        "aria-label",
+        manuallyPaused ? toggle.dataset.resumeLabel ?? "" : toggle.dataset.pauseLabel ?? "",
+      );
       toggle.toggleAttribute("disabled", reducedMotion.matches);
       icon.textContent = manuallyPaused ? "▶" : "❚❚";
       if (!running) return;

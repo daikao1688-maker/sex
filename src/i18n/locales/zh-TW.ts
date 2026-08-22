@@ -52,6 +52,7 @@ const zhTW: Dictionary = {
     exploreCta: '探索會所',
     howItWorksCta: '服務流程',
     bookCta: '立即預約',
+    motion: { pause: '暫停背景動效', resume: '繼續背景動效' },
   },
 
   spas: {
@@ -282,6 +283,7 @@ const zhTW: Dictionary = {
     heading: '出發前，最常需要確認的事',
     regionLabel: '行前規劃清單',
     served: '先整理關鍵資料，再確認實際安排',
+    motion: { pause: '暫停行前清單動效', resume: '繼續行前清單動效' },
     items: [
       {
         quote:

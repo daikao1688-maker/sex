@@ -53,6 +53,7 @@ const en: Dictionary = {
     exploreCta: 'Explore Saunas',
     howItWorksCta: 'How It Works',
     bookCta: 'Request Now',
+    motion: { pause: 'Pause background motion', resume: 'Resume background motion' },
   },
 
   spas: {
@@ -341,6 +342,7 @@ const en: Dictionary = {
     heading: 'Questions Worth Sorting Out Before You Go',
     regionLabel: 'Pre-trip planning topics',
     served: 'A practical checklist for confirming the details',
+    motion: { pause: 'Pause testimonial motion', resume: 'Resume testimonial motion' },
     items: [
       {
         quote:

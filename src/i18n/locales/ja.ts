@@ -53,6 +53,7 @@ const ja: Dictionary = {
     exploreCta: 'サウナを探す',
     howItWorksCta: '遊び方',
     bookCta: 'LINEで相談',
+    motion: { pause: '背景の動きを一時停止', resume: '背景の動きを再開' },
   },
 
   spas: {
@@ -341,6 +342,10 @@ const ja: Dictionary = {
     heading: '出発前によく確認されること',
     regionLabel: '事前確認のチェックリスト',
     served: '予約を決める前に整理しておきたい項目',
+    motion: {
+      pause: '事前確認リストの動きを一時停止',
+      resume: '事前確認リストの動きを再開',
+    },
     items: [
       {
         quote:

@@ -52,6 +52,7 @@ const zhCN: Dictionary = {
     exploreCta: '探索会所',
     howItWorksCta: '服务流程',
     bookCta: '立即预约',
+    motion: { pause: '暂停背景动效', resume: '继续背景动效' },
   },
 
   spas: {
@@ -282,6 +283,7 @@ const zhCN: Dictionary = {
     heading: '出发前，最常需要确认的事',
     regionLabel: '行前确认清单',
     served: '先把需求说清，再核对具体安排',
+    motion: { pause: '暂停行前清单动效', resume: '继续行前清单动效' },
     items: [
       {
         quote:

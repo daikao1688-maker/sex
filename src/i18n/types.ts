@@ -56,6 +56,7 @@ export interface Dictionary {
     exploreCta: string;
     howItWorksCta: string;
     bookCta: string;
+    motion: { pause: string; resume: string };
   };
   spas: {
     heading: string;
@@ -118,6 +119,7 @@ export interface Dictionary {
     heading: string;
     regionLabel: string;
     served: string;
+    motion: { pause: string; resume: string };
     items: Array<{ quote: string; author: string }>;
   };
   blog: {

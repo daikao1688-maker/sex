@@ -92,8 +92,8 @@ const deferredGtagSnippet = `(() => {
     ad_personalization: value,
   });
 
-  const initialize = () => {
-    if (readPreference() !== "granted") return;
+  const initialize = (preference = readPreference()) => {
+    if (preference !== "granted") return;
     if (started || window.__rmAnalyticsInitialized) return;
     started = true;
     window.__rmAnalyticsInitialized = true;
@@ -116,7 +116,7 @@ const deferredGtagSnippet = `(() => {
       if (window.__rmAnalyticsInitialized && window.gtag) {
         window.gtag("consent", "update", consentState("granted"));
       } else {
-        initialize();
+        initialize("granted");
       }
     } else if (event.detail === "denied" && window.__rmAnalyticsInitialized && window.gtag) {
       window.gtag("consent", "update", consentState("denied"));
