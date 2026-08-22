@@ -21,13 +21,14 @@ const href = (slug: string) => localizePath(lang, `/spa/${slug}/`);
 const price = (value: number) => value.toLocaleString("en-US");
 const stars = (rating: number) => "★".repeat(rating) + "☆".repeat(5 - rating);
 const flag = (value: boolean) => (value ? copy.values.yes : copy.values.no);
+const activeVenues = venues.filter((venue) => !venue.temporarilyClosed);
 
 const schemas = [
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: copy.heading,
-    itemListElement: venues.map((venue, index) => ({
+    itemListElement: activeVenues.map((venue, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: name(venue.slug),

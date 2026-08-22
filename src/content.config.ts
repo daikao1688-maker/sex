@@ -15,6 +15,8 @@ const blog = defineCollection({
     category: z.enum(['beginner', 'price', 'compare', 'itinerary', 'experience', 'news']),
     /** ISO date; drives ordering and the printed month. */
     date: z.string(),
+    /** ISO date of a verified editorial update; published date is the fallback. */
+    dateModified: z.string().optional(),
     /** Printed under the title, e.g. "Jul 2026 · 6 min read". */
     meta: z.string(),
     cover: z.string(),

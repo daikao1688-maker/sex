@@ -69,14 +69,18 @@ const schemas = [
     image: new URL(cover, site.origin).href,
     address: { "@type": "PostalAddress", addressCountry: "MO", addressLocality: "Macau" },
     areaServed: { "@type": "Country", name: "Macau" },
-    priceRange: `MOP ${venue.priceMin} – ${venue.priceMax}`,
     aggregateRating: undefined,
-    makesOffer: {
-      "@type": "AggregateOffer",
-      priceCurrency: "MOP",
-      lowPrice: venue.priceMin,
-      highPrice: venue.priceMax,
-    },
+    ...(venue.temporarilyClosed
+      ? {}
+      : {
+          priceRange: `MOP ${venue.priceMin} – ${venue.priceMax}`,
+          makesOffer: {
+            "@type": "AggregateOffer",
+            priceCurrency: "MOP",
+            lowPrice: venue.priceMin,
+            highPrice: venue.priceMax,
+          },
+        }),
   },
 ];
 ---

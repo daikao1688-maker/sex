@@ -1,7 +1,9 @@
 /** Locale-neutral site constants: canonical origin, contact handles, tracking. */
 
+const origin = new URL(import.meta.env.SITE).origin;
+
 export const site = {
-  origin: 'https://relaxmacau.com',
+  origin,
   ogImage: '/covers/macau-sauna-night-skyline.jpg',
   ogImageWidth: 2048,
   ogImageHeight: 1366,
