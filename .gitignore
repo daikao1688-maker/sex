@@ -31,3 +31,6 @@ pnpm-debug.log*
 
 # design reference snapshots (local only)
 design/
+
+# local SEO audit data
+.seo-cache/

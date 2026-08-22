@@ -13,16 +13,25 @@ const t = getDictionary(lang);
 const backdrops = [
   {
     src: "/covers/macau-sauna-night-skyline.jpg",
+    smallSrc: "/covers/macau-sauna-night-skyline-768.jpg",
+    width: 2048,
+    height: 1366,
     alt: "Macau sauna concierge — Macau night skyline, VIP booking & luxury pickup",
     position: "object-center",
   },
   {
     src: "/covers/macau-sauna-cotai-casino-skyline-night.jpg",
+    smallSrc: "/covers/macau-sauna-cotai-casino-skyline-night-768.jpg",
+    width: 1600,
+    height: 1066,
     alt: "Macau sauna VIP concierge — Cotai casino skyline at night, luxury chauffeur pickup",
     position: "object-[20%_50%] sm:object-center",
   },
   {
     src: "/covers/macau-sauna-tower-fireworks-night.webp",
+    smallSrc: "/covers/macau-sauna-tower-fireworks-night-768.webp",
+    width: 1248,
+    height: 832,
     alt: "Macau sauna concierge for travelers — Macau Tower fireworks at night",
     position: "object-[80%_50%] sm:object-center",
   },
@@ -46,10 +55,15 @@ const stepIcons = ["message-circle", "car", "star"] as const;
           data-zoom-direction={index % 2 === 0 ? "in" : "out"}
         >
           <img
-            src={image.src}
+            src={index === 0 ? image.src : undefined}
+            srcset={index === 0 ? `${image.smallSrc} 768w, ${image.src} ${image.width}w` : undefined}
+            sizes="100vw"
+            data-src={index === 0 ? undefined : image.src}
+            data-srcset={index === 0 ? undefined : `${image.smallSrc} 768w, ${image.src} ${image.width}w`}
+            data-alt={image.alt}
             alt={index === 0 ? image.alt : ""}
-            width="1920"
-            height="1080"
+            width={image.width}
+            height={image.height}
             fetchpriority={index === 0 ? "high" : "low"}
             decoding="async"
             loading={index === 0 ? "eager" : "lazy"}
@@ -236,6 +250,7 @@ const stepIcons = ["message-circle", "car", "star"] as const;
     let backdropIndex = 0;
     let venueIndex = 0;
     let backdropTimer = 0;
+    let backdropPreloadTimer = 0;
     let venueTimer = 0;
 
     const canAnimate = () =>
@@ -259,19 +274,36 @@ const stepIcons = ["message-circle", "car", "star"] as const;
         backdrop.classList.toggle("is-active", active);
         backdrop.classList.toggle("is-leaving", leaving);
         backdrop.setAttribute("aria-hidden", String(!active));
+        const image = backdrop.querySelector?.("img");
+        if (image) image.alt = active ? image.dataset.alt ?? "" : "";
       });
       backdropIndex = nextIndex;
     };
 
+    const prepareBackdrop = (index) => {
+      const image = backdrops[index]?.querySelector?.("img");
+      if (!image || image.getAttribute("src")) return;
+      const source = image.dataset.src;
+      if (!source) return;
+      image.src = source;
+      if (image.dataset.srcset) image.srcset = image.dataset.srcset;
+    };
+
     const stopTimers = () => {
       window.clearTimeout(backdropTimer);
+      window.clearTimeout(backdropPreloadTimer);
       window.clearTimeout(venueTimer);
     };
 
     const queueBackdrop = () => {
+      const nextIndex = (backdropIndex + 1) % backdrops.length;
+      backdropPreloadTimer = window.setTimeout(() => {
+        if (canAnimate()) prepareBackdrop(nextIndex);
+      }, 5000);
       backdropTimer = window.setTimeout(() => {
         if (!canAnimate()) return;
-        syncBackdrop((backdropIndex + 1) % backdrops.length);
+        prepareBackdrop(nextIndex);
+        syncBackdrop(nextIndex);
         queueBackdrop();
       }, 6000);
     };

@@ -33,6 +33,13 @@ const toc = tableOfContents(headings);
 
 const alternateLocales = await localesForSlug(slug);
 const related = (await getPostsFor(lang)).filter((other) => postSlug(other) !== slug).slice(0, 3);
+const coverExtension = post.data.cover.match(/\.(?:jpe?g|webp)$/i)?.[0] ?? "";
+const responsiveCover = post.data.cover.replace(coverExtension, `-640${coverExtension}`);
+// The checked-in blog hero inventory is uniform by format: WebP covers are
+// 1280×720 and the one JPEG cover is 1360×768.
+const coverDimensions = coverExtension.toLowerCase() === ".jpg"
+  ? { width: 1360, height: 768 }
+  : { width: 1280, height: 720 };
 
 const schemas = [
   {
@@ -113,10 +120,15 @@ const schemas = [
       <div class="mt-8 overflow-hidden rounded-2xl border border-[var(--paper-border)] bg-[#eee7d7]">
         <img
           src={post.data.cover}
+          srcset={`${responsiveCover} 640w, ${post.data.cover} ${coverDimensions.width}w`}
+          sizes="(min-width: 1152px) 1152px, calc(100vw - 2rem)"
           alt={post.data.coverAlt}
           class="w-full h-auto object-cover"
-          width="1200"
-          height="675"
+          width={coverDimensions.width}
+          height={coverDimensions.height}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
       </div>
 

@@ -92,14 +92,21 @@ const [hiddenBefore, hiddenAfter = ""] = t.spas.hiddenNote.split("{count}");
                     </span>
                   )}
                   <picture>
-                    <source srcset={`/covers/${venue.cover}.webp`} type="image/webp" />
+                    <source
+                      srcset={`/covers/${venue.cover}-400.webp 400w, /covers/${venue.cover}.webp 800w`}
+                      sizes="(min-width: 1024px) 405px, (min-width: 640px) calc((100vw - 3.5rem) / 2), calc(100vw - 2rem)"
+                      type="image/webp"
+                    />
                     <img
                       src={`/covers/${venue.cover}.jpg`}
+                      srcset={`/covers/${venue.cover}-400.jpg 400w, /covers/${venue.cover}.jpg 800w`}
+                      sizes="(min-width: 1024px) 405px, (min-width: 640px) calc((100vw - 3.5rem) / 2), calc(100vw - 2rem)"
                       alt={`${copy.name} — Macau premium sauna venue`}
-                      loading={index < 3 ? "eager" : "lazy"}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      fetchpriority={index === 0 ? "high" : "low"}
                       decoding="async"
                       width="800"
-                      height="600"
+                      height="800"
                       class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </picture>

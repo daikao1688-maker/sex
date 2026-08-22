@@ -22,6 +22,8 @@ interface Props {
   alternateLocales?: Locale[];
   /** Error and utility pages can opt out of indexing and locale alternates. */
   indexable?: boolean;
+  /** Lightweight utility pages can omit the production analytics loader. */
+  analytics?: boolean;
 }
 
 const {
@@ -35,6 +37,7 @@ const {
   siteSchema = false,
   alternateLocales = locales,
   indexable = true,
+  analytics = true,
 } = Astro.props;
 
 const t = getDictionary(lang);
@@ -58,8 +61,57 @@ const ogLocaleAlternates = alternateLocales
 const xDefaultLocale = alternateLocales.includes(defaultLocale) ? defaultLocale : alternateLocales[0];
 const xDefault = new URL(localizePath(xDefaultLocale, path), site.origin).href;
 
-// GA4 + Google Ads bootstrap; only emitted in production builds.
-const gtagSnippet = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${site.googleTagId}');gtag('config','${site.googleAdsId}');`;
+const fontStacks: Record<Locale, string> = {
+  en: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+  "zh-TW":
+    '"PingFang TC", "Heiti TC", "Microsoft JhengHei", system-ui, -apple-system, sans-serif',
+  "zh-CN":
+    '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif',
+  ja: '"Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, -apple-system, sans-serif',
+};
+
+// Production analytics waits for idle time, consent integration, or the first
+// meaningful interaction. A global guard makes repeated signals harmless.
+const deferredGtagSnippet = `(() => {
+  const tagId = ${JSON.stringify(site.googleTagId)};
+  const adsId = ${JSON.stringify(site.googleAdsId)};
+  const interactionEvents = ["pointerdown", "keydown", "touchstart", "scroll"];
+  let started = false;
+
+  const cleanup = () => {
+    interactionEvents.forEach((eventName) => window.removeEventListener(eventName, initialize));
+    window.removeEventListener("relaxmacau:analytics-consent", initialize);
+  };
+
+  const initialize = () => {
+    if (started || window.__rmAnalyticsInitialized) return;
+    started = true;
+    window.__rmAnalyticsInitialized = true;
+    cleanup();
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", tagId);
+    gtag("config", adsId);
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(tagId);
+    document.head.append(script);
+  };
+
+  interactionEvents.forEach((eventName) =>
+    window.addEventListener(eventName, initialize, { once: true, passive: true }),
+  );
+  window.addEventListener("relaxmacau:analytics-consent", initialize, { once: true });
+
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(initialize, { timeout: 3500 });
+  } else {
+    window.setTimeout(initialize, 3500);
+  }
+})();`;
 
 const siteSchemas = [
   {
@@ -119,7 +171,7 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
 ---
 
 <!doctype html>
-<html lang={meta.htmlLang} dir={meta.dir}>
+<html lang={meta.htmlLang} dir={meta.dir} style={`--font-sans:${fontStacks[lang]}`}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -163,13 +215,6 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
-    />
-
     {
       structuredData.map((schema) => (
         <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
@@ -177,15 +222,8 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
     }
 
     {
-      import.meta.env.PROD && (
-        <Fragment>
-          <script
-            is:inline
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${site.googleTagId}`}
-          />
-          <script is:inline set:html={gtagSnippet} />
-        </Fragment>
+      analytics && import.meta.env.PROD && (
+        <script is:inline data-analytics-loader set:html={deferredGtagSnippet} />
       )
     }
   </head>

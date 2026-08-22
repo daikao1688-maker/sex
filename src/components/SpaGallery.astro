@@ -36,7 +36,8 @@ const large = (file: string) =>
           src={fallbackImage}
           alt={fallbackAlt}
           width="800"
-          height="600"
+          height="800"
+          sizes="(min-width: 1280px) 1280px, calc(100vw - 2rem)"
           loading="lazy"
           decoding="async"
           class="w-full h-auto object-cover"
@@ -44,7 +45,7 @@ const large = (file: string) =>
       </figure>
     ) : (
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-spa-gallery>
-        {available.map((image, index) => (
+        {available.map((image) => (
           <figure class="group overflow-hidden rounded-2xl border border-white/5 bg-[#141414]">
             <button
               type="button"
@@ -57,7 +58,10 @@ const large = (file: string) =>
               <img
                 src={`/media/${image.file}-thumb.webp`}
                 alt={image.alt}
-                loading={index < 3 ? "eager" : "lazy"}
+                width="600"
+                height="600"
+                sizes="(min-width: 1024px) 405px, (min-width: 640px) calc((100vw - 3rem) / 2), calc(100vw - 2rem)"
+                loading="lazy"
                 decoding="async"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
