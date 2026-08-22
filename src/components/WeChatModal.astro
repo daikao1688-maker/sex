@@ -18,6 +18,7 @@ const t = getDictionary(lang);
   role="dialog"
   aria-modal="true"
   aria-labelledby="wechat-modal-title"
+  aria-hidden="true"
   hidden
 >
   <div class="bg-[#141414] rounded-2xl p-6 sm:p-8 max-w-sm w-full border border-gold/20 relative">
@@ -71,18 +72,42 @@ const t = getDictionary(lang);
     const copyLabel = document.getElementById("wechat-copy-label");
     const originalLabel = copyLabel?.textContent ?? "";
     let labelTimer: number | undefined;
+    let lastTrigger: HTMLElement | null = null;
+    let previousBodyOverflow = "";
+
+    const isOpen = () => !modal.hasAttribute("hidden");
+    const focusable = () =>
+      Array.from(
+        modal.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+    const setBackgroundInert = (inert: boolean) => {
+      const background = document.querySelector<HTMLElement>("[data-page-background]");
+      if (background) background.inert = inert;
+    };
 
     const open = () => {
+      if (isOpen()) return;
+      lastTrigger = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      previousBodyOverflow = document.body.style.overflow;
       modal.removeAttribute("hidden");
+      modal.setAttribute("aria-hidden", "false");
       modal.classList.remove("opacity-0", "pointer-events-none");
       modal.classList.add("opacity-100", "pointer-events-auto");
+      setBackgroundInert(true);
       document.body.style.overflow = "hidden";
+      requestAnimationFrame(() => focusable()[0]?.focus());
     };
 
     const close = () => {
+      if (!isOpen()) return;
       modal.classList.add("opacity-0", "pointer-events-none");
       modal.classList.remove("opacity-100", "pointer-events-auto");
-      document.body.style.overflow = "";
+      modal.setAttribute("aria-hidden", "true");
+      setBackgroundInert(false);
+      document.body.style.overflow = previousBodyOverflow;
+      lastTrigger?.focus();
       window.setTimeout(() => {
         if (modal.classList.contains("opacity-0")) modal.setAttribute("hidden", "");
       }, 250);
@@ -125,7 +150,24 @@ const t = getDictionary(lang);
     closeBtn?.addEventListener("click", close);
     copyBtn?.addEventListener("click", copyId);
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") close();
+      if (!isOpen()) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        close();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const controls = focusable();
+      const first = controls[0];
+      const last = controls.at(-1);
+      if (!first || !last) return;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     });
   })();
 </script>

@@ -25,6 +25,7 @@ const t = getDictionary(lang);
 
     <div
       role="tablist"
+      aria-label={t.vip.heading}
       data-vip-tablist
       class="sticky top-16 sm:top-20 z-40 -mx-4 px-4 sm:mx-0 sm:px-0 flex border-b border-gold/15 mb-6 bg-[#0a0a0a]/95 backdrop-blur-sm"
     >
@@ -32,8 +33,10 @@ const t = getDictionary(lang);
         role="tab"
         type="button"
         data-tab-target="how"
+        id="vip-tab-how"
         aria-selected="true"
         aria-controls="panel-how"
+        tabindex="0"
         class="flex-1 px-4 py-3 text-sm sm:text-base font-semibold tracking-wide border-b-2 transition-colors border-gold text-gold"
       >
         {t.vip.tabHow}
@@ -42,8 +45,10 @@ const t = getDictionary(lang);
         role="tab"
         type="button"
         data-tab-target="gifts"
+        id="vip-tab-gifts"
         aria-selected="false"
         aria-controls="panel-gifts"
+        tabindex="-1"
         class="flex-1 px-4 py-3 text-sm sm:text-base font-semibold tracking-wide border-b-2 transition-colors border-transparent text-white/55 hover:text-white/85"
       >
         {t.vip.tabGifts}
@@ -54,6 +59,7 @@ const t = getDictionary(lang);
       id="panel-gifts"
       role="tabpanel"
       data-tab-panel="gifts"
+      aria-labelledby="vip-tab-gifts"
       class="bg-[#0f0f0f] border border-gold/15 rounded-2xl overflow-hidden hidden"
     >
       <div class="px-4 sm:px-6 py-3 sm:py-4 bg-gold/5 border-b border-gold/10">
@@ -113,6 +119,7 @@ const t = getDictionary(lang);
       id="panel-how"
       role="tabpanel"
       data-tab-panel="how"
+      aria-labelledby="vip-tab-how"
       class="bg-[#0f0f0f] border border-gold/15 rounded-2xl px-4 sm:px-6 py-5 sm:py-6"
     >
       <ol class="space-y-5">
@@ -152,6 +159,7 @@ const t = getDictionary(lang);
       tabs.forEach((tab) => {
         const active = tab.dataset.tabTarget === target;
         tab.setAttribute("aria-selected", String(active));
+        tab.tabIndex = active ? 0 : -1;
         tab.classList.toggle("border-gold", active);
         tab.classList.toggle("text-gold", active);
         tab.classList.toggle("border-transparent", !active);
@@ -184,5 +192,26 @@ const t = getDictionary(lang);
         realign(target);
       }),
     );
+
+    tablist?.addEventListener("keydown", (event) => {
+      const current = event.target as HTMLButtonElement;
+      const currentIndex = Array.from(tabs).indexOf(current);
+      if (currentIndex === -1) return;
+
+      let nextIndex = currentIndex;
+      if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % tabs.length;
+      else if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      else if (event.key === "Home") nextIndex = 0;
+      else if (event.key === "End") nextIndex = tabs.length - 1;
+      else return;
+
+      event.preventDefault();
+      const next = tabs[nextIndex];
+      const target = next.dataset.tabTarget;
+      if (!target) return;
+      activate(target);
+      next.focus();
+      realign(target);
+    });
   })();
 </script>

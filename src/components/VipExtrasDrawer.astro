@@ -112,21 +112,45 @@ const t = getDictionary(lang);
     const scrim = drawer?.querySelector<HTMLElement>("[data-vip-scrim]");
     if (!drawer || !panel || !scrim) return;
 
+    document.body.append(drawer);
+
     const closed = ["translate-y-full", "sm:translate-x-full"];
+    const closeButton = drawer.querySelector<HTMLButtonElement>("[data-close-vip-extras]");
+    let lastTrigger: HTMLElement | null = null;
+    let previousBodyOverflow = "";
+    const isOpen = () => drawer.getAttribute("aria-hidden") === "false";
+    const focusable = () =>
+      Array.from(
+        panel.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+    const setBackgroundInert = (inert: boolean) => {
+      const background = document.querySelector<HTMLElement>("[data-page-background]");
+      if (background) background.inert = inert;
+    };
 
     const open = () => {
+      if (isOpen()) return;
+      lastTrigger = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      previousBodyOverflow = document.body.style.overflow;
       drawer.classList.remove("pointer-events-none", "invisible");
       drawer.setAttribute("aria-hidden", "false");
       scrim.classList.replace("opacity-0", "opacity-100");
       panel.classList.remove(...closed);
+      setBackgroundInert(true);
       document.body.style.overflow = "hidden";
+      requestAnimationFrame(() => closeButton?.focus());
     };
 
     const close = () => {
+      if (!isOpen()) return;
       drawer.setAttribute("aria-hidden", "true");
       scrim.classList.replace("opacity-100", "opacity-0");
       panel.classList.add(...closed);
-      document.body.style.overflow = "";
+      setBackgroundInert(false);
+      document.body.style.overflow = previousBodyOverflow;
+      lastTrigger?.focus();
       window.setTimeout(() => drawer.classList.add("pointer-events-none", "invisible"), 300);
     };
 
@@ -141,7 +165,24 @@ const t = getDictionary(lang);
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") close();
+      if (!isOpen()) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        close();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const controls = focusable();
+      const first = controls[0];
+      const last = controls.at(-1);
+      if (!first || !last) return;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     });
   })();
 </script>

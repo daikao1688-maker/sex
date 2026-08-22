@@ -23,26 +23,41 @@ export function getStaticPaths() {
 }
 
 const lang = Astro.params.lang as Locale;
+const skipLabels: Record<Locale, string> = {
+  en: "Skip to main content",
+  "zh-TW": "跳至主要內容",
+  "zh-CN": "跳至主要内容",
+  ja: "メインコンテンツへ移動",
+};
 ---
 
 <Layout lang={lang} path="/" siteSchema>
-  <div class="min-h-screen bg-ink text-white">
+  <a
+    href="#main-content"
+    data-skip-link
+    class="sr-only fixed left-4 top-4 z-[300] rounded-lg bg-gold px-4 py-2 font-semibold text-black focus:not-sr-only focus:outline-none focus:ring-2 focus:ring-white"
+  >
+    {skipLabels[lang]}
+  </a>
+  <div data-page-background class="min-h-screen bg-ink text-white">
     <Navbar lang={lang} path="/" />
     <PromoBar lang={lang} />
-    <Hero lang={lang} />
-    <BestOfMonth lang={lang} />
-    <SpaGrid lang={lang} />
-    <HowItWorks lang={lang} />
-    <QuickMatch lang={lang} />
-    <Features lang={lang} />
-    <Testimonials lang={lang} />
-    <BlogTeaser lang={lang} />
-    <CtaBand lang={lang} />
-    <ContactSection lang={lang} />
-    <Mission lang={lang} />
+    <main id="main-content" tabindex="-1">
+      <Hero lang={lang} />
+      <BestOfMonth lang={lang} />
+      <SpaGrid lang={lang} />
+      <HowItWorks lang={lang} />
+      <QuickMatch lang={lang} />
+      <Features lang={lang} />
+      <Testimonials lang={lang} />
+      <BlogTeaser lang={lang} />
+      <CtaBand lang={lang} />
+      <ContactSection lang={lang} />
+      <Mission lang={lang} />
+    </main>
     <Footer lang={lang} />
+    <FloatingContactPill lang={lang} />
   </div>
 
   <WeChatModal lang={lang} />
-  <FloatingContactPill lang={lang} />
 </Layout>

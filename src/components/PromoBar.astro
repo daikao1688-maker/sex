@@ -59,6 +59,9 @@ const [offerBefore, offerAfter = ""] = t.promo.offer.split("{month}");
     </span>
     <a
       href={ctaTarget}
+      data-promo-cta
+      aria-hidden="true"
+      tabindex="-1"
       class="hidden sm:inline-flex ml-1 sm:ml-2 items-center px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold text-white bg-red-400 hover:bg-red-300 transition-colors whitespace-nowrap"
     >
       {t.promo.cta}
@@ -79,6 +82,21 @@ const [offerBefore, offerAfter = ""] = t.promo.offer.split("{month}");
       : new Intl.DateTimeFormat(lang, { month: "long" }).format(now);
 
     nodes.forEach((node) => (node.textContent = label));
+  })();
+
+  // The CTA is intentionally absent on narrow screens; mirror that state in
+  // the accessibility tree and restore its native tab stop on larger screens.
+  (() => {
+    const cta = document.querySelector<HTMLAnchorElement>("[data-promo-cta]");
+    if (!cta) return;
+    const desktop = window.matchMedia("(min-width: 640px)");
+    const syncFocusable = () => {
+      cta.setAttribute("aria-hidden", String(!desktop.matches));
+      if (desktop.matches) cta.removeAttribute("tabindex");
+      else cta.tabIndex = -1;
+    };
+    syncFocusable();
+    desktop.addEventListener("change", syncFocusable);
   })();
 
   // Slide the banner away within the first ~80px of scroll so it never floats

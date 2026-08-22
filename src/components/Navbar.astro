@@ -51,6 +51,7 @@ const showLanguageSwitcher = locales.length > 1;
           links.map((link) => (
             <a
               href={link.href}
+              aria-current={path === link.href.replace(`/${lang}`, "") ? "page" : undefined}
               class="text-white/70 hover:text-gold transition-colors text-sm tracking-widest uppercase"
             >
               {link.label}
@@ -127,6 +128,7 @@ const showLanguageSwitcher = locales.length > 1;
         links.map((link) => (
           <a
             href={link.href}
+            aria-current={path === link.href.replace(`/${lang}`, "") ? "page" : undefined}
             class="py-2.5 text-white/70 hover:text-gold transition-colors text-sm tracking-widest uppercase"
           >
             {link.label}
@@ -213,6 +215,12 @@ const showLanguageSwitcher = locales.length > 1;
   const menuToggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
   const mobileMenu = document.querySelector<HTMLElement>("[data-mobile-menu]");
 
+  const closeMobileMenu = (restoreFocus = false) => {
+    mobileMenu?.classList.add("hidden");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    if (restoreFocus) menuToggle?.focus();
+  };
+
   menuToggle?.addEventListener("click", () => {
     const open = mobileMenu?.classList.toggle("hidden") === false;
     menuToggle.setAttribute("aria-expanded", String(open));
@@ -221,8 +229,7 @@ const showLanguageSwitcher = locales.length > 1;
   // Close the menu after tapping a link (same-page anchors don't reload).
   mobileMenu?.querySelectorAll("a").forEach((link) =>
     link.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-      menuToggle?.setAttribute("aria-expanded", "false");
+      closeMobileMenu();
     }),
   );
 
@@ -262,6 +269,7 @@ const showLanguageSwitcher = locales.length > 1;
 
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
+    if (menuToggle?.getAttribute("aria-expanded") === "true") closeMobileMenu(true);
     languageMenus.forEach((menu) => {
       const toggle = menu.querySelector<HTMLButtonElement>("[data-lang-toggle]");
       if (toggle?.getAttribute("aria-expanded") === "true") {

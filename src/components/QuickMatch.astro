@@ -93,10 +93,10 @@ const clientConfig = {
           <div class="space-y-4">
             {
               questions.map((question) => (
-                <div>
-                  <div class="mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">
+                <fieldset data-qm-question-group class="min-w-0 border-0 p-0">
+                  <legend class="mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">
                     {question.label}
-                  </div>
+                  </legend>
                   <div class="flex flex-wrap gap-1.5">
                     {Object.entries(question.options).map(([value, label]) => {
                       const active =
@@ -115,7 +115,7 @@ const clientConfig = {
                       );
                     })}
                   </div>
-                </div>
+                </fieldset>
               ))
             }
 
@@ -145,7 +145,12 @@ const clientConfig = {
 
           <div>
             <div class="mb-3 flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-[0.14em] text-gold"
+              <span
+                data-qm-result-status
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+                class="text-xs font-bold uppercase tracking-[0.14em] text-gold"
                 >{qm.resultLabel}</span
               >
               <span class="text-xs text-white/45"
@@ -339,6 +344,9 @@ const clientConfig = {
 
       const name = $("[data-qm-hero-name]");
       if (name) name.textContent = copy.name;
+
+      const status = $("[data-qm-result-status]");
+      if (status) status.textContent = `${config.venues[best.venue.slug].name} ${config.matchSuffix}`;
 
       const score = $("[data-qm-score]");
       if (score) score.textContent = `${best.score}${config.matchSuffix}`;
