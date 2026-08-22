@@ -1,0 +1,193 @@
+---
+import PageShell from "../../layouts/PageShell.astro";
+import Icon from "../../components/Icon.astro";
+import ContactChannels from "../../components/ContactChannels.astro";
+import { getDictionary } from "../../i18n";
+import { locales, localizePath, type Locale } from "../../i18n/config";
+import { getShuttleCopy } from "../../i18n/pages/shuttle";
+import { site } from "../../data/site";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+const copy = getShuttleCopy(lang);
+const t = getDictionary(lang);
+
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: copy.schema.name,
+    description: copy.schema.description,
+    serviceType: copy.schema.serviceType,
+    areaServed: { "@type": "Place", name: "Macau" },
+    provider: {
+      "@type": "Organization",
+      name: t.meta.siteName,
+      url: new URL(localizePath(lang, "/"), site.origin).href,
+    },
+    url: new URL(localizePath(lang, "/shuttle/"), site.origin).href,
+  },
+];
+---
+
+<PageShell
+  lang={lang}
+  path="/shuttle/"
+  title={copy.meta.title}
+  description={copy.meta.description}
+  breadcrumbs={copy.breadcrumbs}
+  schemas={schemas}
+>
+  <section class="pt-6 sm:pt-10 pb-10 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="fade-up">
+        <p
+          class="text-[0.7rem] sm:text-xs uppercase tracking-[0.3em] text-gold/90 font-semibold mb-4"
+        >
+          {copy.eyebrow}
+        </p>
+        <h1 class="text-3xl sm:text-5xl font-bold mb-6 leading-tight">{copy.heading}</h1>
+        <p class="text-white/70 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          {copy.intro}
+        </p>
+        <div class="mt-6">
+          <a
+            href={localizePath(lang, "/")}
+            class="group inline-flex items-center text-white/40 hover:text-gold transition-colors text-sm"
+          >
+            <Icon
+              name="arrow-left"
+              class="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1"
+            />
+            {copy.backHome}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="fade-up">
+        <div
+          class="relative overflow-hidden rounded-2xl border border-gold/20 bg-gradient-to-br from-gold/[0.10] via-gold/[0.03] to-transparent p-6 sm:p-10 text-center mb-8"
+        >
+          <div
+            class="absolute inset-0 opacity-[0.07] pointer-events-none"
+            style="background-image: radial-gradient(circle at 1px 1px, #d4af37 1px, transparent 0); background-size: 22px 22px;"
+            aria-hidden="true"
+          >
+          </div>
+          <div class="relative">
+            <Icon name="car" class="w-10 h-10 text-gold mx-auto mb-4" />
+            <h2 class="text-xl sm:text-3xl font-bold mb-3">{copy.coverage.heading}</h2>
+            <p class="text-white/65 text-sm sm:text-base max-w-xl mx-auto mb-6">
+              {copy.coverage.body}
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+              {
+                copy.coverage.areas.map((area) => (
+                  <span class="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-5 py-2 text-sm font-medium text-gold">
+                    <Icon name="map-pin" class="w-4 h-4" />
+                    {area}
+                  </span>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-center text-base font-semibold text-white/70 mb-5">
+          {copy.pickupPoints.heading}
+        </h3>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            copy.pickupPoints.items.map((item) => (
+              <div class="flex items-center gap-3 rounded-xl border border-gold/10 bg-white/[0.02] px-4 py-3">
+                <Icon name="map-pin" class="w-4 h-4 text-gold shrink-0" />
+                <span class="text-white/75 text-sm">{item}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12 px-4">
+    <div class="max-w-4xl mx-auto grid gap-8 md:grid-cols-2">
+      <div class="fade-up">
+        <h2 class="text-xl sm:text-2xl font-bold mb-4 flex items-center gap-2">
+          <Icon name="message-circle" class="w-5 h-5 text-gold" />
+          {copy.howItWorks.heading}
+        </h2>
+        <ol class="space-y-3">
+          {
+            copy.howItWorks.steps.map((step, index) => (
+              <li class="flex gap-3 text-white/70 text-sm leading-relaxed">
+                <span class="shrink-0 w-6 h-6 rounded-full bg-gold/15 text-gold font-bold text-xs flex items-center justify-center">
+                  {index + 1}
+                </span>
+                <span>{step}</span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <div class="fade-up">
+        <h2 class="text-xl sm:text-2xl font-bold mb-4 flex items-center gap-2">
+          <Icon name="check" class="w-5 h-5 text-gold" />
+          {copy.included.heading}
+        </h2>
+        <ul class="space-y-3">
+          {
+            copy.included.items.map((item) => (
+              <li class="flex gap-3 text-white/70 text-sm leading-relaxed">
+                <Icon name="check" class="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="mt-4 text-xs text-white/55 leading-relaxed border-l-2 border-gold/30 pl-3">
+          {copy.included.tip}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="pb-12 px-4 scroll-mt-6">
+    <div class="max-w-xl mx-auto text-center">
+      <div class="fade-up">
+        <h2 class="text-xl sm:text-2xl font-bold mb-3">{copy.cta.heading}</h2>
+        <p class="text-white/65 text-sm mb-6">{copy.cta.body}</p>
+        <ContactChannels lang={lang} />
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="fade-up">
+        <h2 class="text-center text-lg font-bold mb-5 text-white/70">{copy.next.heading}</h2>
+        <div class="grid gap-3 sm:grid-cols-2">
+          {
+            copy.next.links.map((link) => (
+              <a
+                href={localizePath(lang, link.path)}
+                class="flex items-center justify-between rounded-xl border border-gold/10 bg-white/[0.02] px-4 py-3 text-sm text-white/75 hover:text-gold hover:border-gold/30 transition-colors"
+              >
+                <span>{link.label}</span>
+                <Icon name="arrow-right" class="w-4 h-4" />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</PageShell>

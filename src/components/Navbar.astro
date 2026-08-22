@@ -1,0 +1,279 @@
+---
+import Icon from "./Icon.astro";
+import { getDictionary } from "../i18n";
+import { localeMeta, locales, localizePath, type Locale } from "../i18n/config";
+
+interface Props {
+  lang: Locale;
+  /** Current path without the locale prefix — used by the language switcher. */
+  path?: string;
+  /**
+   * Locales where this exact path exists. Any locale outside the list gets a
+   * link to its home page instead of a URL that would 404 — blog articles are
+   * not translated one-for-one.
+   */
+  availableLocales?: Locale[];
+}
+
+const { lang, path = "/", availableLocales = locales } = Astro.props;
+
+/** Same page when the locale has it, that locale's home when it does not. */
+const switchTo = (code: Locale) =>
+  availableLocales.includes(code) ? localizePath(code, path) : localizePath(code, "/");
+const t = getDictionary(lang);
+
+const links = [
+  { href: localizePath(lang, "/"), label: t.nav.spas },
+  { href: localizePath(lang, "/ranking/"), label: t.nav.ranking },
+  { href: localizePath(lang, "/guide/"), label: t.nav.guide },
+  { href: localizePath(lang, "/faq/"), label: t.nav.faq },
+  { href: localizePath(lang, "/about/"), label: t.nav.about },
+  { href: localizePath(lang, "/blog/"), label: t.nav.blog },
+];
+
+const showLanguageSwitcher = locales.length > 1;
+---
+
+<nav
+  id="site-nav"
+  class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-[background-color,backdrop-filter] duration-300"
+  data-site-nav
+>
+  <div class="nav-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-20">
+      <a href={localizePath(lang, "/")} class="flex min-w-0 flex-1 items-center gap-2">
+        <img src="/favicon.svg" alt={t.nav.brand} width="36" height="36" class="w-8 h-8 shrink-0 sm:w-9 sm:h-9" />
+        <span class="nav-brand truncate whitespace-nowrap text-gold font-bold text-base sm:text-2xl tracking-wider">{t.nav.brand}</span>
+      </a>
+
+      <div class="hidden items-center xl:flex xl:gap-5 2xl:gap-8" data-nav-desktop>
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              class="text-white/70 hover:text-gold transition-colors text-sm tracking-widest uppercase"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+        {
+          showLanguageSwitcher && (
+            <div class="relative" data-lang-menu>
+              <button
+                type="button"
+                class="language-trigger flex items-center gap-2 rounded-xl border border-white/15 bg-transparent px-3 py-2 text-white/70 transition-colors hover:bg-white/5 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70"
+                aria-label={`${t.nav.languageLabel}: ${localeMeta[lang].label}`}
+                aria-expanded="false"
+                aria-controls="language-panel-desktop"
+                aria-haspopup="true"
+                data-lang-toggle
+              >
+                <Icon name="globe" class="w-5 h-5 shrink-0" />
+                <span class="whitespace-nowrap text-sm font-medium">{localeMeta[lang].label}</span>
+                <span class="lang-chevron transition-transform duration-200" aria-hidden="true">
+                  <Icon name="chevron-down" class="w-4 h-4" />
+                </span>
+              </button>
+              <div
+                id="language-panel-desktop"
+                class="absolute right-0 mt-3 hidden w-48 max-w-[calc(100vw-2rem)] rounded-2xl border border-white/10 bg-[#111]/98 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl"
+                data-lang-panel
+              >
+                {locales.map((code) => (
+                  <a
+                    href={switchTo(code)}
+                    hreflang={localeMeta[code].htmlLang}
+                    aria-current={code === lang ? "true" : undefined}
+                    class:list={[
+                      "flex min-h-11 items-center justify-between rounded-xl px-4 py-2.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70",
+                      code === lang
+                        ? "bg-gold/15 text-gold"
+                        : "text-white/70 hover:bg-white/5 hover:text-white focus-visible:bg-white/5",
+                    ]}
+                  >
+                    <span>{localeMeta[code].label}</span>
+                    {code === lang && <Icon name="check" class="w-4 h-4 shrink-0" />}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )
+        }
+      </div>
+
+      <div class="flex shrink-0 items-center gap-1 xl:hidden" data-nav-mobile-controls>
+        {
+          showLanguageSwitcher && (
+            <div class="relative" data-lang-menu>
+              <button
+                type="button"
+                class="language-trigger flex items-center gap-1.5 rounded-xl border border-white/15 bg-transparent px-2 py-2 text-white/70 transition-colors hover:bg-white/5 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70"
+                aria-label={`${t.nav.languageLabel}: ${localeMeta[lang].label}`}
+                aria-expanded="false"
+                aria-controls="language-panel-mobile"
+                aria-haspopup="true"
+                data-lang-toggle
+              >
+                <Icon name="globe" class="w-5 h-5 shrink-0" />
+                <span class="whitespace-nowrap text-sm font-medium">{localeMeta[lang].label}</span>
+                <span class="lang-chevron transition-transform duration-200" aria-hidden="true">
+                  <Icon name="chevron-down" class="w-3.5 h-3.5" />
+                </span>
+              </button>
+              <div
+                id="language-panel-mobile"
+                class="absolute right-0 mt-3 hidden w-48 max-w-[calc(100vw-2rem)] rounded-2xl border border-white/10 bg-[#111]/98 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl"
+                data-lang-panel
+              >
+                {locales.map((code) => (
+                  <a
+                    href={switchTo(code)}
+                    hreflang={localeMeta[code].htmlLang}
+                    aria-current={code === lang ? "true" : undefined}
+                    class:list={[
+                      "flex min-h-11 items-center justify-between rounded-xl px-4 py-2.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70",
+                      code === lang
+                        ? "bg-gold/15 text-gold"
+                        : "text-white/70 hover:bg-white/5 hover:text-white focus-visible:bg-white/5",
+                    ]}
+                  >
+                    <span>{localeMeta[code].label}</span>
+                    {code === lang && <Icon name="check" class="w-4 h-4 shrink-0" />}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )
+        }
+        <button
+          type="button"
+          class="text-white/70 hover:text-gold transition-colors p-1"
+          aria-label={t.nav.menuLabel}
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          data-menu-toggle
+        >
+          <Icon name="menu" class="w-6 h-6" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-white/5 bg-[#0a0a0a]/95 backdrop-blur-md xl:hidden"
+    data-mobile-menu
+  >
+    <div class="px-4 py-3 flex flex-col">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="py-2.5 text-white/70 hover:text-gold transition-colors text-sm tracking-widest uppercase"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</nav>
+
+<style>
+  @media (max-width: 359px) {
+    .nav-shell {
+      padding-inline: 0.75rem;
+    }
+
+    .nav-brand {
+      font-size: 0.875rem;
+      letter-spacing: 0.025em;
+    }
+
+    .language-trigger {
+      padding-inline: 0.25rem;
+    }
+
+    .lang-chevron {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const nav = document.querySelector<HTMLElement>("[data-site-nav]");
+
+  // Solid backdrop once the hero starts scrolling away.
+  if (nav) {
+    const solid = ["bg-[#0a0a0a]/90", "backdrop-blur-md"];
+    const update = () => {
+      const scrolled = window.scrollY > 24;
+      nav.classList.toggle("bg-transparent", !scrolled);
+      solid.forEach((cls) => nav.classList.toggle(cls, scrolled));
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+  }
+
+  const menuToggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const mobileMenu = document.querySelector<HTMLElement>("[data-mobile-menu]");
+
+  menuToggle?.addEventListener("click", () => {
+    const open = mobileMenu?.classList.toggle("hidden") === false;
+    menuToggle.setAttribute("aria-expanded", String(open));
+  });
+
+  // Close the menu after tapping a link (same-page anchors don't reload).
+  mobileMenu?.querySelectorAll("a").forEach((link) =>
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+      menuToggle?.setAttribute("aria-expanded", "false");
+    }),
+  );
+
+  const languageMenus = document.querySelectorAll<HTMLElement>("[data-lang-menu]");
+
+  const closeLanguageMenu = (menu: HTMLElement) => {
+    const toggle = menu.querySelector<HTMLButtonElement>("[data-lang-toggle]");
+    const panel = menu.querySelector<HTMLElement>("[data-lang-panel]");
+    const chevron = menu.querySelector<HTMLElement>(".lang-chevron");
+    panel?.classList.add("hidden");
+    toggle?.setAttribute("aria-expanded", "false");
+    chevron?.classList.remove("rotate-180");
+  };
+
+  languageMenus.forEach((menu) => {
+    const toggle = menu.querySelector<HTMLButtonElement>("[data-lang-toggle]");
+    const panel = menu.querySelector<HTMLElement>("[data-lang-panel]");
+    const chevron = menu.querySelector<HTMLElement>(".lang-chevron");
+    toggle?.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const open = panel?.classList.toggle("hidden") === false;
+      toggle.setAttribute("aria-expanded", String(open));
+      chevron?.classList.toggle("rotate-180", open);
+      if (open) {
+        languageMenus.forEach((otherMenu) => {
+          if (otherMenu !== menu) closeLanguageMenu(otherMenu);
+        });
+      }
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    languageMenus.forEach((menu) => {
+      if (!menu.contains(event.target as Node)) closeLanguageMenu(menu);
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    languageMenus.forEach((menu) => {
+      const toggle = menu.querySelector<HTMLButtonElement>("[data-lang-toggle]");
+      if (toggle?.getAttribute("aria-expanded") === "true") {
+        closeLanguageMenu(menu);
+        toggle.focus();
+      }
+    });
+  });
+</script>

@@ -1,0 +1,37 @@
+---
+import Icon from "./Icon.astro";
+import { getDictionary } from "../i18n";
+import type { Locale } from "../i18n/config";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+---
+
+<section
+  id="features"
+  class="pt-14 pb-20 sm:pt-20 sm:pb-28 px-4 scroll-mt-6 bg-gradient-to-b from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a]"
+>
+  <div class="max-w-7xl mx-auto">
+    <div class="fade-up text-center mb-10 sm:mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">{t.features.heading}</h2>
+      <div class="w-20 h-0.5 bg-gold mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-8 lg:grid-cols-4">
+      {
+        t.features.items.map((item, index) => (
+          <div class="fade-up min-w-0 text-center group" style={`transition-delay:${(index * 0.03).toFixed(2)}s`}>
+            <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl bg-gold/10 border border-gold/20 flex items-center justify-center group-hover:bg-gold/20 group-hover:border-gold/40 transition-all duration-500">
+              <Icon name={item.icon} class="w-6 h-6 sm:w-7 sm:h-7 text-gold" />
+            </div>
+            <h3 class="text-base sm:text-lg font-semibold mb-2 sm:mb-3 leading-snug">{item.title}</h3>
+            <p class="text-white/50 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

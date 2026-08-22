@@ -1,0 +1,203 @@
+---
+import "../styles/global.css";
+import { localeMeta, locales, defaultLocale, localizePath, type Locale } from "../i18n/config";
+import { getDictionary } from "../i18n";
+import { site } from "../data/site";
+import type { Crumb } from "../i18n/pages/helpers";
+
+interface Props {
+  lang: Locale;
+  /** Path *without* the locale prefix, e.g. "/" or "/guide/". */
+  path?: string;
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  /** Emitted as BreadcrumbList; there is no visible breadcrumb nav in the design. */
+  breadcrumbs?: Crumb[];
+  /** Page-specific JSON-LD (FAQPage, HowTo, Service, …). */
+  schemas?: Record<string, unknown>[];
+  /** Home renders the site-wide LocalBusiness/Organization/WebSite triple. */
+  siteSchema?: boolean;
+  /** Locales this page exists in; defaults to all. Blog posts differ per locale. */
+  alternateLocales?: Locale[];
+  /** Error and utility pages can opt out of indexing and locale alternates. */
+  indexable?: boolean;
+}
+
+const {
+  lang,
+  path = "/",
+  title,
+  description,
+  ogImage = site.ogImage,
+  breadcrumbs = [],
+  schemas = [],
+  siteSchema = false,
+  alternateLocales = locales,
+  indexable = true,
+} = Astro.props;
+
+const t = getDictionary(lang);
+const meta = localeMeta[lang];
+
+const suppliedTitle = title ?? t.meta.title;
+const pageTitle = suppliedTitle.includes(t.meta.siteName)
+  ? suppliedTitle
+  : `${suppliedTitle} | ${t.meta.siteName}`;
+const pageDescription = description ?? t.meta.description;
+const canonical = new URL(localizePath(lang, path), site.origin).href;
+const ogImageUrl = new URL(ogImage, site.origin).href;
+
+const alternates = alternateLocales.map((code) => ({
+  hreflang: localeMeta[code].htmlLang,
+  href: new URL(localizePath(code, path), site.origin).href,
+}));
+const xDefaultLocale = alternateLocales.includes(defaultLocale) ? defaultLocale : alternateLocales[0];
+const xDefault = new URL(localizePath(xDefaultLocale, path), site.origin).href;
+
+// GA4 + Google Ads bootstrap; only emitted in production builds.
+const gtagSnippet = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${site.googleTagId}');gtag('config','${site.googleAdsId}');`;
+
+const siteSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${site.origin}/#business`,
+    name: t.meta.siteName,
+    description: t.meta.description,
+    url: canonical,
+    image: [
+      new URL("/covers/macau-sauna-night-skyline.jpg", site.origin).href,
+      new URL("/covers/macau-sauna-cotai-casino-skyline-night.jpg", site.origin).href,
+      new URL("/covers/macau-sauna-tower-fireworks-night.webp", site.origin).href,
+    ],
+    logo: new URL("/favicon.svg", site.origin).href,
+    priceRange: "$$ – $$$",
+    address: { "@type": "PostalAddress", addressCountry: "MO", addressLocality: "Macau" },
+    areaServed: { "@type": "Country", name: "Macau" },
+    sameAs: ["https://t.me/Aomensauna"],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${site.origin}/#organization`,
+    name: t.meta.siteName,
+    url: `${site.origin}/`,
+    logo: new URL("/favicon.svg", site.origin).href,
+    sameAs: ["https://t.me/Aomensauna"],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${site.origin}/#website`,
+    url: canonical,
+    name: t.meta.siteName,
+    inLanguage: meta.htmlLang,
+    publisher: { "@id": `${site.origin}/#organization` },
+  },
+];
+
+const breadcrumbSchema = breadcrumbs.length
+  ? [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((crumb, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: crumb.name,
+          item: new URL(localizePath(lang, crumb.path), site.origin).href,
+        })),
+      },
+    ]
+  : [];
+
+const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema, ...schemas];
+---
+
+<!doctype html>
+<html lang={meta.htmlLang} dir={meta.dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+
+    {
+      indexable ? (
+        <Fragment>
+          <link rel="canonical" href={canonical} />
+          {alternates.map((alt) => (
+            <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+          ))}
+          <link rel="alternate" hreflang="x-default" href={xDefault} />
+        </Fragment>
+      ) : (
+        <meta name="robots" content="noindex, follow" />
+      )
+    }
+
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    {indexable && <meta property="og:url" content={canonical} />}
+    <meta property="og:locale" content={meta.ogLocale} />
+    <meta property="og:site_name" content={t.meta.siteName} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content={String(site.ogImageWidth)} />
+    <meta property="og:image:height" content={String(site.ogImageHeight)} />
+    <meta property="og:image:alt" content={t.meta.ogImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
+    />
+
+    {
+      structuredData.map((schema) => (
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+      ))
+    }
+
+    {
+      import.meta.env.PROD && (
+        <Fragment>
+          <script
+            is:inline
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${site.googleTagId}`}
+          />
+          <script is:inline set:html={gtagSnippet} />
+        </Fragment>
+      )
+    }
+  </head>
+  <body class="bg-ink text-white" data-inquiry-message={t.contact.inquiryMessage}>
+    <slot />
+
+    <script>
+      // Reveals `.fade-up` blocks once they scroll into view.
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        },
+        { rootMargin: "0px 0px -10% 0px", threshold: 0.05 },
+      );
+
+      document.querySelectorAll(".fade-up:not(.in-view)").forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

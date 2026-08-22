@@ -1,0 +1,131 @@
+---
+import Icon from "./Icon.astro";
+import { getDictionary } from "../i18n";
+import type { Locale } from "../i18n/config";
+import { contact } from "../data/site";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+---
+
+<div
+  id="wechat-modal"
+  class="fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-200"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="wechat-modal-title"
+  hidden
+>
+  <div class="bg-[#141414] rounded-2xl p-6 sm:p-8 max-w-sm w-full border border-gold/20 relative">
+    <button
+      id="wechat-modal-close"
+      type="button"
+      class="absolute top-3 right-3 w-10 h-10 flex items-center justify-center text-white/50 hover:text-gold transition-colors"
+      aria-label={t.wechat.close}
+    >
+      <Icon name="close" class="w-6 h-6" />
+    </button>
+
+    <h3 id="wechat-modal-title" class="text-lg font-bold text-gold text-center mb-4">
+      {t.wechat.title}
+    </h3>
+
+    <div class="bg-white rounded-xl p-3 mb-4 flex items-center justify-center">
+      <img
+        src={contact.wechat.qr}
+        alt={`WeChat QR Code for ${contact.wechat.id}`}
+        class="w-full h-auto max-w-[240px] rounded-lg"
+        loading="lazy"
+      />
+    </div>
+
+    <p class="text-center text-sm text-white/70 mb-4">
+      <span class="text-gold">{t.wechat.optionScan}</span><br />
+      <span class="text-gold">{t.wechat.optionCopy}</span>
+    </p>
+
+    <button
+      id="wechat-copy-btn"
+      type="button"
+      data-copy-wechat={contact.wechat.id}
+      data-copied-label={t.wechat.copied}
+      class="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-3 rounded-lg transition-colors"
+    >
+      <Icon name="copy" class="w-4 h-4" />
+      <span id="wechat-copy-label">{t.wechat.copy}</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const modal = document.getElementById("wechat-modal");
+    if (!modal) return;
+
+    const closeBtn = document.getElementById("wechat-modal-close");
+    const copyBtn = document.getElementById("wechat-copy-btn");
+    const copyLabel = document.getElementById("wechat-copy-label");
+    const originalLabel = copyLabel?.textContent ?? "";
+    let labelTimer: number | undefined;
+
+    const open = () => {
+      modal.removeAttribute("hidden");
+      modal.classList.remove("opacity-0", "pointer-events-none");
+      modal.classList.add("opacity-100", "pointer-events-auto");
+      document.body.style.overflow = "hidden";
+    };
+
+    const close = () => {
+      modal.classList.add("opacity-0", "pointer-events-none");
+      modal.classList.remove("opacity-100", "pointer-events-auto");
+      document.body.style.overflow = "";
+      window.setTimeout(() => {
+        if (modal.classList.contains("opacity-0")) modal.setAttribute("hidden", "");
+      }, 250);
+    };
+
+    const copyId = async () => {
+      const id = copyBtn?.dataset.copyWechat;
+      if (!id) return;
+
+      try {
+        await navigator.clipboard.writeText(id);
+      } catch {
+        const field = document.createElement("textarea");
+        field.value = id;
+        field.style.position = "fixed";
+        field.style.opacity = "0";
+        document.body.appendChild(field);
+        field.select();
+        document.execCommand("copy");
+        field.remove();
+      }
+
+      if (!copyLabel) return;
+      copyLabel.textContent = copyBtn?.dataset.copiedLabel ?? originalLabel;
+      window.clearTimeout(labelTimer);
+      labelTimer = window.setTimeout(() => (copyLabel.textContent = originalLabel), 2000);
+    };
+
+    // Delegated so any [data-wechat-trigger] on the page opens the modal.
+    document.addEventListener("click", (event) => {
+      const target = event.target as HTMLElement | null;
+      if (target?.closest("[data-wechat-trigger]")) {
+        event.preventDefault();
+        open();
+      } else if (target === modal) {
+        close();
+      }
+    });
+
+    closeBtn?.addEventListener("click", close);
+    copyBtn?.addEventListener("click", copyId);
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") close();
+    });
+  })();
+</script>

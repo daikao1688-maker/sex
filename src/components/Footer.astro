@@ -1,0 +1,45 @@
+---
+import { getDictionary } from "../i18n";
+import { localizePath, type Locale } from "../i18n/config";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+---
+
+<footer class="bg-[#0a0a0a] border-t border-gold/10 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav
+      aria-label="Footer"
+      class="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-5 gap-y-2 mb-5 text-sm"
+    >
+      {
+        t.footer.links.map((link, index) => (
+          <>
+            {index > 0 && (
+              <span class="text-white/15" aria-hidden="true">
+                ·
+              </span>
+            )}
+            <a
+              href={localizePath(lang, link.path)}
+              class="text-white/55 hover:text-gold transition-colors"
+            >
+              {link.label}
+            </a>
+          </>
+        ))
+      }
+    </nav>
+
+    <div class="flex flex-col items-center text-center gap-3 sm:flex-row sm:justify-center sm:gap-8">
+      <a href={localizePath(lang, "/")} class="text-gold font-bold text-xl tracking-wider"
+        >{t.nav.brand}</a
+      >
+      <p class="text-white/30 text-xs">{t.footer.copyright}</p>
+    </div>
+  </div>
+</footer>

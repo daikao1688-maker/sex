@@ -1,0 +1,77 @@
+---
+import { getDictionary } from "../i18n";
+import type { Locale } from "../i18n/config";
+import { contact, chatUrl } from "../data/site";
+
+/** The four messaging-channel cards. Used on the home page and every subpage. */
+interface Props {
+  lang: Locale;
+  /** Overrides the default enquiry text pre-filled into WhatsApp / Telegram. */
+  message?: string;
+}
+
+const { lang, message } = Astro.props;
+const t = getDictionary(lang);
+const inquiry = message ?? t.contact.inquiryMessage;
+
+const channels = [
+  {
+    kind: "link" as const,
+    href: chatUrl(contact.whatsapp.url, inquiry),
+    icon: "/icons/whatsapp.svg",
+    name: "WhatsApp",
+    value: t.contact.channels.whatsapp,
+  },
+  {
+    kind: "link" as const,
+    href: chatUrl(contact.telegram.url, inquiry),
+    icon: "/icons/telegram.svg",
+    name: "Telegram",
+    value: t.contact.channels.telegram,
+  },
+  {
+    kind: "wechat" as const,
+    icon: "/icons/wechat.svg",
+    name: "WeChat",
+    value: t.contact.channels.wechat,
+  },
+  {
+    kind: "link" as const,
+    href: contact.line.url,
+    icon: "/icons/line.svg",
+    name: "LINE",
+    value: t.contact.channels.line,
+  },
+];
+
+const cardClass =
+  "flex items-center gap-4 bg-[#141414] border border-white/5 hover:border-gold/30 rounded-xl p-2.5 transition-all duration-300 group text-left w-full";
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  {
+    channels.map((channel) =>
+      channel.kind === "wechat" ? (
+        <button type="button" data-wechat-trigger class={cardClass}>
+          <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+            <img src={channel.icon} alt={channel.name} class="w-7 h-7 rounded-md" />
+          </div>
+          <div>
+            <div class="text-white/40 text-xs mb-1">{channel.name}</div>
+            <div class="text-white font-medium">{channel.value}</div>
+          </div>
+        </button>
+      ) : (
+        <a href={channel.href} target="_blank" rel="noopener noreferrer" class={cardClass}>
+          <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+            <img src={channel.icon} alt={channel.name} class="w-7 h-7 rounded-md" />
+          </div>
+          <div>
+            <div class="text-white/40 text-xs mb-1">{channel.name}</div>
+            <div class="text-white font-medium">{channel.value}</div>
+          </div>
+        </a>
+      ),
+    )
+  }
+</div>

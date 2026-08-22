@@ -1,0 +1,170 @@
+---
+import PageShell from "../../layouts/PageShell.astro";
+import Icon from "../../components/Icon.astro";
+import ContactChannels from "../../components/ContactChannels.astro";
+import DetailsFaq from "../../components/DetailsFaq.astro";
+import { locales, localizePath, type Locale } from "../../i18n/config";
+import { getContactPageCopy } from "../../i18n/pages/contact";
+import { site } from "../../data/site";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+const copy = getContactPageCopy(lang);
+
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: copy.heading,
+    description: copy.meta.description,
+    url: new URL(localizePath(lang, "/contact/"), site.origin).href,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: copy.faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  },
+];
+---
+
+<PageShell
+  lang={lang}
+  path="/contact/"
+  title={copy.meta.title}
+  description={copy.meta.description}
+  breadcrumbs={copy.breadcrumbs}
+  schemas={schemas}
+>
+  <section class="pt-6 sm:pt-10 pb-10 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="fade-up">
+        <p
+          class="text-[0.7rem] sm:text-xs uppercase tracking-[0.3em] text-gold/90 font-semibold mb-4"
+        >
+          {copy.eyebrow}
+        </p>
+        <h1 class="text-3xl sm:text-5xl font-bold mb-6 leading-tight">{copy.heading}</h1>
+        <p class="text-white/70 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          {copy.intro}
+        </p>
+        <div class="mt-6">
+          <a
+            href={localizePath(lang, "/")}
+            class="group inline-flex items-center text-white/40 hover:text-gold transition-colors text-sm"
+          >
+            <Icon
+              name="arrow-left"
+              class="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1"
+            />
+            {copy.backHome}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="pb-12 px-4 scroll-mt-6">
+    <div class="max-w-xl mx-auto">
+      <div class="fade-up">
+        <h2 class="text-center text-xl sm:text-2xl font-bold mb-6">{copy.channelsHeading}</h2>
+        <ContactChannels lang={lang} />
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12 px-4">
+    <div class="max-w-4xl mx-auto grid gap-5 sm:grid-cols-3">
+      {
+        copy.promises.map((promise) => (
+          <div class="fade-up">
+            <div class="h-full rounded-2xl border border-white/5 bg-[#141414] hover:border-gold/30 transition-colors p-6 text-center">
+              <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center">
+                <Icon name={promise.icon} class="w-6 h-6 text-gold" />
+              </div>
+              <h3 class="font-bold mb-2">{promise.title}</h3>
+              <p class="text-white/60 text-sm leading-relaxed">{promise.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="pb-12 px-4">
+    <div class="max-w-4xl mx-auto grid gap-6 md:grid-cols-2">
+      <div class="fade-up">
+        <div class="h-full rounded-2xl border border-gold/10 bg-white/[0.02] p-6 sm:p-8">
+          <h2 class="text-xl sm:text-2xl font-bold mb-3 flex items-center gap-2">
+            <Icon name="message-circle" class="w-5 h-5 text-gold" />
+            {copy.whatToSend.heading}
+          </h2>
+          <p class="text-white/60 text-sm mb-4">{copy.whatToSend.intro}</p>
+          <ul class="space-y-2.5">
+            {
+              copy.whatToSend.items.map((item) => (
+                <li class="flex gap-2.5 text-white/75 text-sm leading-relaxed">
+                  <Icon name="check" class="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div class="fade-up">
+        <div
+          class="h-full rounded-2xl border border-gold/10 bg-white/[0.02] p-6 sm:p-8 flex flex-col justify-center"
+        >
+          <Icon name="shield" class="w-8 h-8 text-gold mb-3" />
+          <h2 class="text-xl sm:text-2xl font-bold mb-3">{copy.discreet.heading}</h2>
+          <p class="text-white/65 text-sm leading-relaxed">{copy.discreet.body}</p>
+          <a
+            href={localizePath(lang, "/privacy/")}
+            class="inline-flex items-center text-gold hover:underline text-sm mt-3">{copy.discreet.link}</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="fade-up">
+        <h2 class="text-xl sm:text-2xl font-bold mb-6 flex items-center gap-2">
+          <Icon name="message-circle" class="w-5 h-5 text-gold" />
+          {copy.faq.heading}
+        </h2>
+        <DetailsFaq items={copy.faq.items} />
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="fade-up">
+        <h2 class="text-center text-lg font-bold mb-5 text-white/70">{copy.next.heading}</h2>
+        <div class="grid gap-3 sm:grid-cols-3">
+          {
+            copy.next.links.map((link) => (
+              <a
+                href={localizePath(lang, link.path)}
+                class="flex items-center justify-between rounded-xl border border-gold/10 bg-white/[0.02] px-4 py-3 text-sm text-white/75 hover:text-gold hover:border-gold/30 transition-colors"
+              >
+                <span>{link.label}</span>
+                <Icon name="arrow-right" class="w-4 h-4" />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</PageShell>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex" />
+    <title>Macau Sauna Sites</title>
+    <script is:inline data-root-locale-redirect>
+      (() => {
+        const language = (navigator.language || '').toLowerCase();
+        let locale = 'en';
+
+        if (language === 'ja' || language.startsWith('ja-')) {
+          locale = 'ja';
+        } else if (
+          language === 'zh-tw' ||
+          language === 'zh-hk' ||
+          language === 'zh-mo' ||
+          language === 'zh-hant' ||
+          language.startsWith('zh-hant-')
+        ) {
+          locale = 'zh-TW';
+        } else if (
+          language === 'zh' ||
+          language === 'zh-cn' ||
+          language === 'zh-sg' ||
+          language === 'zh-hans' ||
+          language.startsWith('zh-hans-')
+        ) {
+          locale = 'zh-CN';
+        }
+
+        location.replace(`/${locale}/${location.search}${location.hash}`);
+      })();
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=/en/" />
+    </noscript>
+  </head>
+  <body>
+    <a href="/en/">Continue in English</a>
+  </body>
+</html>

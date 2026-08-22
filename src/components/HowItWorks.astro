@@ -1,0 +1,188 @@
+---
+import { getDictionary } from "../i18n";
+import type { Locale } from "../i18n/config";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+---
+
+<section id="vip-treats" class="py-16 sm:py-24 px-4 scroll-mt-6">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-3">
+      <div
+        class="inline-block bg-green-500/15 text-green-400 text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4"
+      >
+        {t.vip.badge}
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-3">{t.vip.heading}</h2>
+      <div class="w-20 h-0.5 bg-gold mx-auto mb-6"></div>
+      <p class="text-white/60 max-w-none mx-auto">{t.vip.intro}</p>
+    </div>
+
+    <div
+      role="tablist"
+      data-vip-tablist
+      class="sticky top-16 sm:top-20 z-40 -mx-4 px-4 sm:mx-0 sm:px-0 flex border-b border-gold/15 mb-6 bg-[#0a0a0a]/95 backdrop-blur-sm"
+    >
+      <button
+        role="tab"
+        type="button"
+        data-tab-target="how"
+        aria-selected="true"
+        aria-controls="panel-how"
+        class="flex-1 px-4 py-3 text-sm sm:text-base font-semibold tracking-wide border-b-2 transition-colors border-gold text-gold"
+      >
+        {t.vip.tabHow}
+      </button>
+      <button
+        role="tab"
+        type="button"
+        data-tab-target="gifts"
+        aria-selected="false"
+        aria-controls="panel-gifts"
+        class="flex-1 px-4 py-3 text-sm sm:text-base font-semibold tracking-wide border-b-2 transition-colors border-transparent text-white/55 hover:text-white/85"
+      >
+        {t.vip.tabGifts}
+      </button>
+    </div>
+
+    <div
+      id="panel-gifts"
+      role="tabpanel"
+      data-tab-panel="gifts"
+      class="bg-[#0f0f0f] border border-gold/15 rounded-2xl overflow-hidden hidden"
+    >
+      <div class="px-4 sm:px-6 py-3 sm:py-4 bg-gold/5 border-b border-gold/10">
+        <span class="text-gold font-semibold text-sm tracking-wider">{t.vip.giftsHeader}</span>
+      </div>
+      <table class="w-full text-sm sm:text-base">
+        <thead>
+          <tr class="border-b border-white/10">
+            <th
+              scope="col"
+              class="text-left pl-4 sm:pl-6 pr-2 pt-3 pb-2 text-xs uppercase tracking-wider text-white/40 font-normal"
+              >{t.vip.columns.item}</th
+            >
+            <th
+              scope="col"
+              class="text-right px-2 pt-3 pb-2 text-xs uppercase tracking-wider text-white/40 font-normal whitespace-nowrap"
+              >{t.vip.columns.value}</th
+            >
+            <th
+              scope="col"
+              class="text-right pl-2 pr-4 sm:pr-6 pt-3 pb-2 text-xs uppercase tracking-wider text-gold font-normal whitespace-nowrap"
+              >{t.vip.columns.ours}</th
+            >
+          </tr>
+        </thead>
+        <tbody>
+          {
+            t.vip.gifts.map((gift) => (
+              <tr class="border-b border-white/5">
+                <td class="py-3 sm:py-4 pl-4 sm:pl-6 pr-2 align-top">
+                  <div class="flex items-start gap-3 sm:gap-4">
+                    <span class="text-2xl sm:text-3xl leading-none shrink-0 select-none mt-0.5">
+                      {gift.emoji}
+                    </span>
+                    <div class="min-w-0">
+                      <div class="font-semibold text-white">{gift.name}</div>
+                      <div class="text-white/55 text-xs sm:text-sm leading-relaxed mt-0.5">
+                        {gift.desc}
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-right text-white/45 align-top py-3 sm:py-4 px-2 whitespace-nowrap line-through">
+                  {gift.value}
+                </td>
+                <td class="text-right text-gold font-semibold align-top py-3 sm:py-4 pl-2 pr-5 sm:pr-7 whitespace-nowrap">
+                  {t.vip.free}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div
+      id="panel-how"
+      role="tabpanel"
+      data-tab-panel="how"
+      class="bg-[#0f0f0f] border border-gold/15 rounded-2xl px-4 sm:px-6 py-5 sm:py-6"
+    >
+      <ol class="space-y-5">
+        {
+          t.vip.steps.map((step, index) => (
+            <li class="flex gap-3">
+              <span class="w-7 h-7 shrink-0 rounded-full bg-gold/20 text-gold flex items-center justify-center text-sm font-bold">
+                {index + 1}
+              </span>
+              <div class="flex-1 text-sm sm:text-base text-white/80 leading-relaxed">
+                <strong class="block text-gold text-base sm:text-lg font-semibold mb-1">
+                  {step.title}
+                </strong>
+                {step.body}
+                {step.note && (
+                  <div class="mt-2 px-3 py-2 bg-gold/5 border-l-2 border-gold rounded-r text-xs sm:text-sm text-white/75">
+                    <strong class="text-gold">{step.note.title}</strong>&nbsp;{step.note.body}
+                  </div>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const tabs = document.querySelectorAll<HTMLButtonElement>("[data-tab-target]");
+    const panels = document.querySelectorAll<HTMLElement>("[data-tab-panel]");
+    const tablist = document.querySelector<HTMLElement>("[data-vip-tablist]");
+    if (!tabs.length || !panels.length) return;
+
+    const activate = (target: string) => {
+      tabs.forEach((tab) => {
+        const active = tab.dataset.tabTarget === target;
+        tab.setAttribute("aria-selected", String(active));
+        tab.classList.toggle("border-gold", active);
+        tab.classList.toggle("text-gold", active);
+        tab.classList.toggle("border-transparent", !active);
+        tab.classList.toggle("text-white/55", !active);
+      });
+      panels.forEach((panel) => panel.classList.toggle("hidden", panel.dataset.tabPanel !== target));
+    };
+
+    // If the tab bar is stuck to the top, line the new panel up with it so the
+    // user doesn't have to scroll back up after switching.
+    const realign = (target: string) => {
+      const panel = document.querySelector<HTMLElement>(`[data-tab-panel="${target}"]`);
+      if (!tablist || !panel) return;
+
+      const tablistRect = tablist.getBoundingClientRect();
+      if (tablistRect.top > 84) return;
+
+      const diff = panel.getBoundingClientRect().top - tablistRect.bottom;
+      if (Math.abs(diff) < 3) return;
+
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollBy({ top: diff, behavior: reduce ? "auto" : "smooth" });
+    };
+
+    tabs.forEach((tab) =>
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.tabTarget;
+        if (!target) return;
+        activate(target);
+        realign(target);
+      }),
+    );
+  })();
+</script>

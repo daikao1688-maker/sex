@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import PromoBar from "../../components/PromoBar.astro";
+import Hero from "../../components/Hero.astro";
+import BestOfMonth from "../../components/BestOfMonth.astro";
+import SpaGrid from "../../components/SpaGrid.astro";
+import HowItWorks from "../../components/HowItWorks.astro";
+import QuickMatch from "../../components/QuickMatch.astro";
+import Features from "../../components/Features.astro";
+import Testimonials from "../../components/Testimonials.astro";
+import BlogTeaser from "../../components/BlogTeaser.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import ContactSection from "../../components/ContactSection.astro";
+import Mission from "../../components/Mission.astro";
+import Footer from "../../components/Footer.astro";
+import WeChatModal from "../../components/WeChatModal.astro";
+import FloatingContactPill from "../../components/FloatingContactPill.astro";
+import { locales, type Locale } from "../../i18n/config";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+---
+
+<Layout lang={lang} path="/" siteSchema>
+  <div class="min-h-screen bg-ink text-white">
+    <Navbar lang={lang} path="/" />
+    <PromoBar lang={lang} />
+    <Hero lang={lang} />
+    <BestOfMonth lang={lang} />
+    <SpaGrid lang={lang} />
+    <HowItWorks lang={lang} />
+    <QuickMatch lang={lang} />
+    <Features lang={lang} />
+    <Testimonials lang={lang} />
+    <BlogTeaser lang={lang} />
+    <CtaBand lang={lang} />
+    <ContactSection lang={lang} />
+    <Mission lang={lang} />
+    <Footer lang={lang} />
+  </div>
+
+  <WeChatModal lang={lang} />
+  <FloatingContactPill lang={lang} />
+</Layout>

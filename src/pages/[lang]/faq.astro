@@ -1,0 +1,85 @@
+---
+import PageShell from "../../layouts/PageShell.astro";
+import Icon from "../../components/Icon.astro";
+import FaqAccordion from "../../components/FaqAccordion.astro";
+import ContactChannels from "../../components/ContactChannels.astro";
+import { locales, localizePath, type Locale } from "../../i18n/config";
+import { getFaqCopy } from "../../i18n/pages/faq";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+const copy = getFaqCopy(lang);
+
+// Answers carry links written as `{base}/spa/…`; expand them for this locale.
+const categories = copy.categories.map((category) => ({
+  title: category.title,
+  items: category.items.map((item) => ({
+    question: item.question,
+    answer: item.answer.replaceAll("{base}", `/${lang}`),
+  })),
+}));
+
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: categories.flatMap((category) =>
+      category.items.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer.replace(/<[^>]+>/g, "") },
+      })),
+    ),
+  },
+];
+---
+
+<PageShell
+  lang={lang}
+  path="/faq/"
+  title={copy.meta.title}
+  description={copy.meta.description}
+  breadcrumbs={copy.breadcrumbs}
+  schemas={schemas}
+>
+  <section class="relative pt-6 pb-16 sm:pt-10 sm:pb-20 px-4">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#141414] via-[#0f0f0f] to-[#0a0a0a]"></div>
+    <div class="relative z-10 max-w-3xl mx-auto">
+      <div class="fade-up">
+        <a
+          href={localizePath(lang, "/")}
+          class="inline-flex items-center gap-2 text-white/50 hover:text-gold transition-colors mb-8 text-sm"
+        >
+          <Icon name="arrow-left" class="w-4 h-4" />
+          {copy.backHome}
+        </a>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-wider">
+          {copy.heading}
+        </h1>
+        <p class="text-white/50 text-base sm:text-lg max-w-xl leading-relaxed">{copy.intro}</p>
+        <div class="w-20 h-0.5 bg-gold mt-6"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 pb-20 sm:pb-28">
+    <FaqAccordion categories={categories} />
+  </section>
+
+  <section id="contact" class="px-4 pb-20 sm:pb-28 scroll-mt-6">
+    <div class="max-w-3xl mx-auto">
+      <div
+        class="bg-gradient-to-r from-[#141414] to-[#1a1a1a] border border-gold/10 rounded-2xl p-8 sm:p-12 text-center"
+      >
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">
+          {copy.cta.headingLead}<span class="text-gold">{copy.cta.headingAccent}</span>
+        </h2>
+        <p class="text-white/50 mb-8 max-w-md mx-auto">{copy.cta.body}</p>
+        <ContactChannels lang={lang} />
+      </div>
+    </div>
+  </section>
+</PageShell>

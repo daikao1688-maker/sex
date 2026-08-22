@@ -1,0 +1,426 @@
+---
+import { getDictionary, interpolate } from "../i18n";
+import { localizePath, type Locale } from "../i18n/config";
+import { bookableVenues, venues } from "../data/venues";
+import { contact, chatUrl } from "../data/site";
+import { defaultSelection, rankVenues } from "../lib/quickMatch";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+const qm = t.quickMatch;
+
+const questions = [
+  { field: "group", label: qm.questions.group, options: qm.groupOptions },
+  { field: "experience", label: qm.questions.experience, options: qm.experienceOptions },
+  { field: "when", label: qm.questions.when, options: qm.whenOptions },
+  { field: "from", label: qm.questions.from, options: qm.fromOptions },
+] as const;
+
+const activePill = "bg-gradient-to-r from-gold-light to-gold-dark text-black";
+const idlePill = "border border-white/12 bg-white/[0.04] text-white/75 hover:bg-white/[0.08]";
+
+const ranked = rankVenues(defaultSelection);
+const [best, ...rest] = ranked;
+const alternates = rest.slice(0, 2);
+
+const venueName = (slug: keyof typeof t.spas.venues) => t.spas.venues[slug].name;
+
+const defaultMessage = interpolate(qm.messageTemplate, {
+  experience: qm.experienceOptions[defaultSelection.experience],
+  group: qm.groupOptions[defaultSelection.group],
+  when: qm.whenOptions[defaultSelection.when],
+  from: qm.fromOptions[defaultSelection.from],
+  overnight: defaultSelection.overnight ? qm.yes : qm.no,
+  venue: venueName(best.venue.slug),
+});
+
+// Everything the browser needs to re-render after an answer changes.
+const clientConfig = {
+  labels: {
+    group: qm.groupOptions,
+    experience: qm.experienceOptions,
+    when: qm.whenOptions,
+    from: qm.fromOptions,
+  },
+  messageTemplate: qm.messageTemplate,
+  yes: qm.yes,
+  no: qm.no,
+  matchSuffix: qm.matchSuffix,
+  overnightOn: qm.overnightOn,
+  overnightOff: qm.overnightOff,
+  whatsapp: contact.whatsapp.url,
+  telegram: contact.telegram.url,
+  venues: Object.fromEntries(
+    bookableVenues.map((venue) => [
+      venue.slug,
+      {
+        name: venueName(venue.slug),
+        href: localizePath(lang, `/spa/${venue.slug}/`),
+        cover: `/covers/${venue.cover}.jpg`,
+      },
+    ]),
+  ),
+};
+---
+
+<section id="quickmatch" class="pb-20 sm:pb-28 px-4 scroll-mt-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="fade-up">
+      <div
+        class="qm-root rounded-3xl border border-gold/25 bg-gradient-to-b from-gold/[0.07] to-white/[0.02] p-5 sm:p-8"
+      >
+        <div class="text-center mb-6 sm:mb-8">
+          <span class="inline-block text-gold text-xs sm:text-sm font-bold tracking-[0.18em] mb-3"
+            >{qm.badge}</span
+          >
+          <h2 class="text-2xl sm:text-4xl font-bold text-white leading-tight">
+            {
+              qm.heading.map((segment) => (
+                <span class={segment.accent ? "text-gold" : undefined}>{segment.text}</span>
+              ))
+            }
+          </h2>
+          <p class="text-white/55 text-sm sm:text-base max-w-xl mx-auto mt-3 text-balance">
+            {interpolate(qm.intro, { count: venues.length })}
+          </p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-[1fr_1fr] lg:gap-8 items-start">
+          <div class="space-y-4">
+            {
+              questions.map((question) => (
+                <div>
+                  <div class="mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">
+                    {question.label}
+                  </div>
+                  <div class="flex flex-wrap gap-1.5">
+                    {Object.entries(question.options).map(([value, label]) => {
+                      const active =
+                        defaultSelection[question.field as keyof typeof defaultSelection] === value;
+                      return (
+                        <button
+                          type="button"
+                          data-qm-option
+                          data-field={question.field}
+                          data-value={value}
+                          aria-pressed={active ? "true" : "false"}
+                          class={`rounded-full px-3 py-1.5 text-[13px] font-bold transition-colors ${active ? activePill : idlePill}`}
+                        >
+                          {label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))
+            }
+
+            <button
+              type="button"
+              role="switch"
+              aria-checked={defaultSelection.overnight ? "true" : "false"}
+              data-qm-overnight
+              class="flex w-full flex-col gap-1.5 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-left transition-colors hover:bg-white/[0.05]"
+            >
+              <span class="flex items-center gap-3">
+                <span
+                  class="relative h-6 w-11 flex-shrink-0 rounded-full border transition-colors border-white/15 bg-white/15"
+                  data-qm-switch-track
+                >
+                  <span
+                    class="absolute top-0.5 h-[18px] w-[18px] rounded-full bg-white shadow transition-transform translate-x-0.5"
+                    data-qm-switch-knob></span>
+                </span>
+                <span class="text-sm font-bold text-white/55" data-qm-switch-label
+                  >{defaultSelection.overnight ? qm.overnightOn : qm.overnightOff}</span
+                >
+              </span>
+              <span class="text-xs text-white/45">{qm.overnightHint}</span>
+            </button>
+          </div>
+
+          <div>
+            <div class="mb-3 flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-[0.14em] text-gold"
+                >{qm.resultLabel}</span
+              >
+              <span class="text-xs text-white/45"
+                >{interpolate(qm.pickedFrom, { count: venues.length })}</span
+              >
+            </div>
+
+            <div class="qm-hero relative overflow-hidden rounded-2xl border border-gold/40 bg-black/40">
+              <div class="relative h-44 sm:h-52 w-full overflow-hidden">
+                <img
+                  src={`/covers/${best.venue.cover}.jpg`}
+                  alt={venueName(best.venue.slug)}
+                  class="qm-hero-img h-full w-full object-cover"
+                  loading="lazy"
+                  data-qm-hero-img
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent">
+                </div>
+                <span class="qm-sweep pointer-events-none absolute inset-0" aria-hidden="true"></span>
+                <span
+                  class="absolute left-3 top-3 rounded-md bg-gradient-to-br from-gold-light to-gold-dark px-2.5 py-1 text-[11px] font-black tracking-wider text-black shadow"
+                  >{qm.bestMatch}</span
+                >
+                <span
+                  class="absolute right-3 top-3 rounded-md bg-black/55 px-2.5 py-1 text-sm font-extrabold text-gold backdrop-blur-sm"
+                  data-qm-score>{best.score}{qm.matchSuffix}</span
+                >
+                <div class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
+                  <h3 class="truncate text-xl sm:text-2xl font-black text-white" data-qm-hero-name>
+                    {venueName(best.venue.slug)}
+                  </h3>
+                  <a
+                    href={localizePath(lang, `/spa/${best.venue.slug}/`)}
+                    data-qm-details
+                    class="flex-shrink-0 rounded-full bg-black/50 px-3 py-1 text-xs font-semibold text-white/90 ring-1 ring-white/20 backdrop-blur-sm transition-colors hover:bg-black/70 hover:text-white"
+                    >{qm.details} →</a
+                  >
+                </div>
+              </div>
+
+              <div class="p-3 sm:p-4">
+                <p class="mb-2.5 text-[11px] font-bold tracking-[0.08em] text-white/55">
+                  {qm.bookNow}
+                </p>
+                <div class="grid grid-cols-2 gap-2.5">
+                  <a
+                    href={chatUrl(contact.whatsapp.url, defaultMessage)}
+                    target="_blank"
+                    rel="noopener"
+                    data-qm-whatsapp
+                    class="flex items-center justify-center gap-2 rounded-xl bg-[#25d366] px-3 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+                  >
+                    <img src="/icons/whatsapp.svg" alt="" width="16" height="16" />WhatsApp
+                  </a>
+                  <a
+                    href={chatUrl(contact.telegram.url, defaultMessage)}
+                    target="_blank"
+                    rel="noopener"
+                    data-qm-telegram
+                    class="flex items-center justify-center gap-2 rounded-xl bg-[#229ed9] px-3 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+                  >
+                    <img src="/icons/telegram.svg" alt="" width="16" height="16" />Telegram
+                  </a>
+                </div>
+                <div class="mt-2.5 grid grid-cols-2 gap-2.5">
+                  <button
+                    type="button"
+                    data-wechat-trigger
+                    aria-label="WeChat"
+                    title="WeChat"
+                    class="flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] py-2 transition-colors hover:bg-white/[0.08]"
+                  >
+                    <img src="/icons/wechat.svg" alt="WeChat" class="h-5 w-5 rounded-md" />
+                  </button>
+                  <a
+                    href={contact.line.url}
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="LINE"
+                    title="LINE"
+                    class="flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] py-2 transition-colors hover:bg-white/[0.08]"
+                  >
+                    <img src="/icons/line.svg" alt="LINE" class="h-5 w-5 rounded-md" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-2.5 grid grid-cols-2 gap-2.5" data-qm-alternates>
+              {
+                alternates.map((item) => (
+                  <button
+                    type="button"
+                    data-qm-alternate
+                    data-slug={item.venue.slug}
+                    class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.02] p-2 text-left transition-colors hover:border-gold/30 hover:bg-white/[0.05]"
+                  >
+                    <img
+                      src={`/covers/${item.venue.cover}.jpg`}
+                      alt={venueName(item.venue.slug)}
+                      class="h-11 w-11 flex-shrink-0 rounded-lg object-cover"
+                      loading="lazy"
+                    />
+                    <span class="min-w-0 flex-1">
+                      <span class="block truncate text-[13px] font-bold text-white">
+                        {venueName(item.venue.slug)}
+                      </span>
+                      <span class="block text-[11px] font-semibold text-gold">
+                        {item.score}
+                        {qm.matchSuffix}
+                      </span>
+                    </span>
+                  </button>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline type="application/json" data-qm-config set:html={JSON.stringify(clientConfig)} />
+</section>
+
+<script>
+  import { defaultSelection, rankVenues, type QuickMatchSelection } from "../lib/quickMatch";
+
+  interface VenueCopy {
+    name: string;
+    href: string;
+    cover: string;
+  }
+
+  interface Config {
+    labels: Record<string, Record<string, string>>;
+    messageTemplate: string;
+    yes: string;
+    no: string;
+    matchSuffix: string;
+    overnightOn: string;
+    overnightOff: string;
+    whatsapp: string;
+    telegram: string;
+    venues: Record<string, VenueCopy>;
+  }
+
+  const configNode = document.querySelector("[data-qm-config]");
+  const root = document.querySelector<HTMLElement>(".qm-root");
+  if (configNode && root) {
+    const config: Config = JSON.parse(configNode.textContent || "{}");
+
+    const ACTIVE = ["bg-gradient-to-r", "from-gold-light", "to-gold-dark", "text-black"];
+    const IDLE = ["border", "border-white/12", "bg-white/[0.04]", "text-white/75", "hover:bg-white/[0.08]"];
+
+    const selection: QuickMatchSelection = { ...defaultSelection };
+    /** Slug the guest pinned by tapping an alternate; cleared on any answer change. */
+    let pinned: string | null = null;
+
+    const $ = <T extends Element>(selector: string) => root.querySelector<T>(selector);
+
+    const interpolate = (template: string, values: Record<string, string>) =>
+      template.replace(/\{(\w+)\}/g, (match, key: string) => values[key] ?? match);
+
+    const buildMessage = (venueName: string) =>
+      interpolate(config.messageTemplate, {
+        experience: config.labels.experience[selection.experience],
+        group: config.labels.group[selection.group],
+        when: config.labels.when[selection.when],
+        from: config.labels.from[selection.from],
+        overnight: selection.overnight ? config.yes : config.no,
+        venue: venueName,
+      });
+
+    const render = () => {
+      const ranked = rankVenues(selection);
+      const pinnedIndex = pinned ? ranked.findIndex((item) => item.venue.slug === pinned) : -1;
+      const best = pinnedIndex > -1 ? ranked[pinnedIndex] : ranked[0];
+      const alternates = ranked.filter((item) => item.venue.slug !== best.venue.slug).slice(0, 2);
+
+      const copy = config.venues[best.venue.slug];
+      const heroImg = $<HTMLImageElement>("[data-qm-hero-img]");
+      if (heroImg && heroImg.getAttribute("src") !== copy.cover) {
+        heroImg.src = copy.cover;
+        heroImg.alt = copy.name;
+        // Restart the fade-in so a new pick reads as a change.
+        heroImg.classList.remove("qm-hero-img");
+        void heroImg.offsetWidth;
+        heroImg.classList.add("qm-hero-img");
+      }
+
+      const name = $("[data-qm-hero-name]");
+      if (name) name.textContent = copy.name;
+
+      const score = $("[data-qm-score]");
+      if (score) score.textContent = `${best.score}${config.matchSuffix}`;
+
+      const details = $<HTMLAnchorElement>("[data-qm-details]");
+      if (details) details.href = copy.href;
+
+      const message = encodeURIComponent(buildMessage(copy.name));
+      const whatsapp = $<HTMLAnchorElement>("[data-qm-whatsapp]");
+      if (whatsapp) whatsapp.href = `${config.whatsapp}?text=${message}`;
+      const telegram = $<HTMLAnchorElement>("[data-qm-telegram]");
+      if (telegram) telegram.href = `${config.telegram}?text=${message}`;
+
+      const list = $("[data-qm-alternates]");
+      if (list) {
+        list.innerHTML = alternates
+          .map((item) => {
+            const alt = config.venues[item.venue.slug];
+            return `<button type="button" data-qm-alternate data-slug="${item.venue.slug}" class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.02] p-2 text-left transition-colors hover:border-gold/30 hover:bg-white/[0.05]">
+                <img src="${alt.cover}" alt="${alt.name}" class="h-11 w-11 flex-shrink-0 rounded-lg object-cover" loading="lazy" />
+                <span class="min-w-0 flex-1">
+                  <span class="block truncate text-[13px] font-bold text-white">${alt.name}</span>
+                  <span class="block text-[11px] font-semibold text-gold">${item.score}${config.matchSuffix}</span>
+                </span>
+              </button>`;
+          })
+          .join("");
+      }
+    };
+
+    root.querySelectorAll<HTMLButtonElement>("[data-qm-option]").forEach((option) => {
+      option.addEventListener("click", () => {
+        const field = option.dataset.field as keyof QuickMatchSelection;
+        const value = option.dataset.value;
+        if (!field || !value) return;
+
+        (selection[field] as unknown as string) = value;
+        pinned = null;
+
+        root
+          .querySelectorAll<HTMLButtonElement>(`[data-qm-option][data-field="${field}"]`)
+          .forEach((sibling) => {
+            const active = sibling === option;
+            sibling.setAttribute("aria-pressed", String(active));
+            sibling.classList.remove(...(active ? IDLE : ACTIVE));
+            sibling.classList.add(...(active ? ACTIVE : IDLE));
+          });
+
+        render();
+      });
+    });
+
+    const overnightToggle = $<HTMLButtonElement>("[data-qm-overnight]");
+    overnightToggle?.addEventListener("click", () => {
+      selection.overnight = !selection.overnight;
+      pinned = null;
+      overnightToggle.setAttribute("aria-checked", String(selection.overnight));
+
+      const track = $("[data-qm-switch-track]");
+      track?.classList.toggle("bg-gold", selection.overnight);
+      track?.classList.toggle("border-gold", selection.overnight);
+      track?.classList.toggle("bg-white/15", !selection.overnight);
+      track?.classList.toggle("border-white/15", !selection.overnight);
+
+      const knob = $("[data-qm-switch-knob]");
+      knob?.classList.toggle("translate-x-[22px]", selection.overnight);
+      knob?.classList.toggle("translate-x-0.5", !selection.overnight);
+
+      const label = $("[data-qm-switch-label]");
+      if (label) label.textContent = selection.overnight ? config.overnightOn : config.overnightOff;
+      label?.classList.toggle("text-white", selection.overnight);
+      label?.classList.toggle("text-white/55", !selection.overnight);
+
+      render();
+    });
+
+    // Alternates are re-rendered, so listen on the container.
+    root.querySelector("[data-qm-alternates]")?.addEventListener("click", (event) => {
+      const button = (event.target as HTMLElement).closest<HTMLElement>("[data-qm-alternate]");
+      if (!button?.dataset.slug) return;
+      pinned = button.dataset.slug;
+      render();
+    });
+  }
+</script>

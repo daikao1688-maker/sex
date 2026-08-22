@@ -1,0 +1,339 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #d4af37;
+  --color-gold-light: #e8c96b;
+  --color-gold-dark: #b8912b;
+  --color-ink: #0a0a0a;
+  --color-surface: #141414;
+  --font-sans: "Noto Sans TC", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-ink);
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Scroll-reveal ------------------------------------------------------ */
+/* Elements start faded; an IntersectionObserver adds .in-view once visible. */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+}
+
+.fade-up.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Glow / shimmer accents -------------------------------------------- */
+@keyframes goldGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgb(212 175 55 / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgb(212 175 55 / 0.6);
+  }
+}
+
+@keyframes redGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgb(248 113 113 / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 22px rgb(248 113 113 / 0.6);
+  }
+}
+
+@keyframes silverGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgb(192 192 210 / 0.35);
+  }
+  50% {
+    box-shadow: 0 0 22px rgb(192 192 210 / 0.65);
+  }
+}
+
+@keyframes shimmerSweep {
+  0% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: 250% 0;
+  }
+}
+
+@keyframes redPulse {
+  0%,
+  100% {
+    text-shadow: 0 0 8px rgb(248 113 113 / 0.5);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 18px rgb(248 113 113 / 0.9);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes qmFade {
+  from {
+    opacity: 0.25;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes qmSweep {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+@utility glow-gold {
+  animation: goldGlow 2.5s ease-in-out infinite;
+}
+
+@utility glow-red {
+  animation: redGlow 2s ease-in-out infinite;
+}
+
+@utility glow-silver {
+  animation: silverGlow 3s ease-in-out infinite;
+}
+
+@utility pulse-red {
+  display: inline-block;
+  color: rgb(248 113 113);
+  animation: redPulse 1.8s ease-in-out infinite;
+}
+
+/* Diagonal light sweep across a button / banner. */
+@utility shimmer-gold {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 40%,
+    rgb(255 255 255 / 0.55) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerSweep 3.5s linear infinite;
+}
+
+@utility shimmer-red {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 40%,
+    rgb(248 113 113 / 0.25) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerSweep 4s linear infinite;
+}
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* --- Quick Match result card ------------------------------------------- */
+.qm-hero-img {
+  animation: qmFade 0.45s ease;
+}
+
+.qm-sweep {
+  background: linear-gradient(105deg, transparent 35%, rgb(212 175 55 / 0.35) 50%, transparent 65%);
+  transform: translateX(-120%);
+  animation: qmSweep 0.7s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .qm-hero-img,
+  .qm-sweep,
+  .glow-gold,
+  .glow-red,
+  .glow-silver,
+  .pulse-red,
+  .shimmer-gold,
+  .shimmer-red {
+    animation: none;
+  }
+
+  .qm-sweep {
+    display: none;
+  }
+}
+
+/* --- Blog "paper" theme -------------------------------------------------- */
+/* Blog index and articles run light while the rest of the site stays dark.
+   Values mirror the production stylesheet. */
+:root {
+  --paper-bg: #faf7f0;
+  --paper-card: #fff;
+  --paper-border: #e6ddc8;
+  --paper-ink: #26221a;
+  --paper-body: #45412f;
+  --paper-muted: #6b665a;
+  --paper-soft: #8b8674;
+  --paper-accent: #8a651f;
+  --paper-accent-strong: #6b4a14;
+}
+
+.rm-paper {
+  background: var(--paper-bg);
+  color: var(--paper-ink);
+}
+
+/* The filter bar only gains its blur and shadow once it sticks — a sentinel
+   above it drives the `is-stuck` class. */
+.rm-filterbar {
+  transition:
+    box-shadow 0.25s,
+    background-color 0.25s;
+}
+
+.rm-filterbar.is-stuck {
+  background: color-mix(in srgb, var(--paper-bg) 92%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgb(38 34 26 / 0.09);
+}
+
+/* Long-form article body: the markup comes from Markdown, so the styling
+   lives here rather than on every element. */
+.rm-paper .prose-paper p {
+  margin: 0 0 1.1rem;
+  font-size: 1.02rem;
+  line-height: 1.9;
+  color: var(--paper-body);
+}
+
+.rm-paper .prose-paper h2 {
+  margin: 2.1rem 0 0.85rem;
+  padding-left: 0.65rem;
+  border-left: 3px solid #d4af37;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--paper-accent-strong);
+  scroll-margin-top: 6rem;
+}
+
+.rm-paper .prose-paper h3 {
+  margin: 1.5rem 0 0.6rem;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--paper-ink);
+  scroll-margin-top: 6rem;
+}
+
+.rm-paper .prose-paper ul,
+.rm-paper .prose-paper ol {
+  margin: 0 0 1.1rem;
+  padding-left: 1.35rem;
+}
+
+.rm-paper .prose-paper ul {
+  list-style: outside;
+}
+
+.rm-paper .prose-paper ol {
+  list-style: decimal outside;
+}
+
+.rm-paper .prose-paper li {
+  margin: 0.3rem 0;
+  line-height: 1.85;
+  color: var(--paper-body);
+}
+
+.rm-paper .prose-paper a {
+  color: var(--paper-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.rm-paper .prose-paper strong {
+  color: var(--paper-ink);
+}
+
+.rm-paper .prose-paper img {
+  width: 100%;
+  height: auto;
+  margin: 1.3rem 0;
+  border: 1px solid var(--paper-border);
+  border-radius: 0.7rem;
+}
+
+.rm-paper .prose-paper blockquote {
+  margin: 1.2rem 0;
+  padding: 0.2rem 0 0.2rem 1rem;
+  border-left: 3px solid #d4af37;
+  color: var(--paper-muted);
+}
+
+.rm-paper .prose-paper table {
+  width: 100%;
+  margin: 1.3rem 0;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.rm-paper .prose-paper th {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--paper-border);
+  background: #f0e9d6;
+  text-align: left;
+  color: var(--paper-accent-strong);
+}
+
+.rm-paper .prose-paper td {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--paper-border);
+  color: var(--paper-body);
+}
+
+.rm-paper .prose-paper details {
+  border: 1px solid var(--paper-border);
+  border-radius: 0.75rem;
+  background-color: var(--paper-card);
+  padding: 0.9em 1.1em;
+}
+
+.rm-paper .prose-paper summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--paper-ink);
+}

@@ -1,0 +1,87 @@
+---
+import { getDictionary } from "../i18n";
+import type { Locale } from "../i18n/config";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+
+// Three copies of the list make the auto-scroll loop seamless in both
+// directions; the script wraps scrollLeft between the first and last copy.
+const loop = [...t.testimonials.items, ...t.testimonials.items, ...t.testimonials.items];
+---
+
+<section class="pt-10 pb-16 px-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4">{t.testimonials.heading}</h2>
+      <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+    </div>
+
+    <div class="relative">
+      <div
+        id="testimonial-track"
+        class="flex gap-4 overflow-x-auto scrollbar-hide"
+        style="scroll-behavior: auto"
+        role="region"
+        aria-label={t.testimonials.regionLabel}
+        data-count={t.testimonials.items.length}
+      >
+        {
+          loop.map((item) => (
+            <blockquote class="flex-shrink-0 w-[280px] bg-[#141414] border border-white/5 rounded-xl p-5 flex flex-col justify-between">
+              <p class="text-white/70 text-sm leading-relaxed mb-4">&ldquo;{item.quote}&rdquo;</p>
+              <p class="text-gold/60 text-xs text-right">— {item.author}</p>
+            </blockquote>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <p class="text-white/40 text-sm">{t.testimonials.served}</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const track = document.getElementById("testimonial-track");
+    if (!track) return;
+
+    const count = Number(track.dataset.count ?? 0);
+    if (!count) return;
+
+    // Card width (280) + gap (16).
+    const loopWidth = count * 296;
+    track.scrollLeft = loopWidth;
+
+    track.addEventListener("scroll", () => {
+      if (track.scrollLeft >= loopWidth * 2) track.scrollLeft -= loopWidth;
+      else if (track.scrollLeft <= 0) track.scrollLeft += loopWidth;
+    });
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let paused = false;
+    let resumeTimer: number | undefined;
+
+    const pause = (ms: number) => {
+      paused = true;
+      window.clearTimeout(resumeTimer);
+      resumeTimer = window.setTimeout(() => (paused = false), ms);
+    };
+
+    setInterval(() => {
+      if (paused) return;
+      track.scrollLeft += 1;
+      if (track.scrollLeft >= loopWidth * 2) track.scrollLeft -= loopWidth;
+    }, 30);
+
+    track.addEventListener("touchstart", () => pause(2000), { passive: true });
+    track.addEventListener("mouseenter", () => pause(2000));
+  })();
+</script>

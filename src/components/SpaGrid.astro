@@ -1,0 +1,199 @@
+---
+import { getDictionary } from "../i18n";
+import { localizePath, type Locale } from "../i18n/config";
+import { venues, type VenueAccent } from "../data/venues";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+
+const frames: Record<VenueAccent, string> = {
+  red: "border-2 border-red-400/60 hover:border-red-400/80 glow-red",
+  gold: "border-2 border-gold/60 hover:border-gold/80 glow-gold",
+  silver: "border-2 border-white/30 hover:border-gold/40 glow-silver",
+  plain: "border border-gold/25 hover:border-gold/40",
+};
+
+const badges: Record<VenueAccent, string> = {
+  red: "bg-red-400 text-white",
+  gold: "bg-gold text-black",
+  silver: "bg-gold text-black",
+  plain: "bg-gold text-black",
+};
+
+// The count renders inside a <strong>, so split the sentence around it.
+const [hiddenBefore, hiddenAfter = ""] = t.spas.hiddenNote.split("{count}");
+---
+
+<section id="spas" class="py-20 sm:py-28 px-4 scroll-mt-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="fade-up text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">{t.spas.heading}</h2>
+      <div class="w-20 h-0.5 bg-gold mx-auto mb-6"></div>
+      <p class="text-white/50 max-w-none mx-auto">{t.spas.intro}</p>
+    </div>
+
+    <div
+      class="sticky top-16 sm:top-20 z-30 -mx-4 px-4 py-2 mb-7 bg-[#0a0a0a]/85 backdrop-blur-md border-b border-white/5"
+    >
+      <div
+        class="flex sm:flex-wrap sm:justify-center gap-1.5 sm:gap-2 max-w-7xl mx-auto"
+        role="group"
+        aria-label={t.spas.filterLabel}
+        data-spa-filter
+      >
+        {
+          t.spas.filters.map((filter, index) => (
+            <button
+              type="button"
+              data-bucket={filter.bucket}
+              aria-pressed={index === 0 ? "true" : "false"}
+              class="flex-1 sm:flex-none min-w-0 rounded-full px-2 sm:px-3.5 py-1.5 text-xs sm:text-[13px] font-semibold text-center border border-white/12 bg-white/[0.04] text-white/70 whitespace-nowrap transition-colors hover:bg-white/[0.08] aria-pressed:bg-gold aria-pressed:text-black aria-pressed:border-transparent"
+            >
+              {filter.label}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-spa-grid>
+      {
+        venues.map((venue, index) => {
+          const copy = t.spas.venues[venue.slug];
+          return (
+            <div
+              class="fade-up"
+              style={`transition-delay: ${(index * 0.03).toFixed(2)}s`}
+              data-buckets={venue.buckets.join(" ")}
+            >
+              <a
+                href={localizePath(lang, `/spa/${venue.slug}/`)}
+                class={`group block bg-[#141414] rounded-2xl overflow-hidden transition-all duration-500 shadow-lg hover:shadow-gold/5 ${frames[venue.accent]}`}
+              >
+                <div class="relative aspect-[4/3] overflow-hidden">
+                  {venue.temporarilyClosed ? (
+                    <div class="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+                      <span
+                        data-testid="spa-temporarily-closed-badge"
+                        class="px-5 py-2 rounded-full border border-gold/60 bg-black/55 text-gold-light text-sm font-bold tracking-wide shadow-lg"
+                      >
+                        {t.spas.temporarilyClosed}
+                      </span>
+                    </div>
+                  ) : (
+                    <span
+                      class={`absolute top-3 right-3 z-10 text-xs font-bold px-2.5 py-1 rounded-full shadow-lg ${badges[venue.accent]}`}
+                    >
+                      {copy.badge}
+                    </span>
+                  )}
+                  <picture>
+                    <source srcset={`/covers/${venue.cover}.webp`} type="image/webp" />
+                    <img
+                      src={`/covers/${venue.cover}.jpg`}
+                      alt={`${copy.name} — Macau premium sauna venue`}
+                      loading={index < 3 ? "eager" : "lazy"}
+                      decoding="async"
+                      width="800"
+                      height="600"
+                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </picture>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                </div>
+                <div class="p-5">
+                  <h3 class="text-lg font-semibold text-white group-hover:text-gold transition-colors duration-300 mb-2">
+                    {copy.name}
+                  </h3>
+                  <p class="text-white/50 text-sm leading-relaxed line-clamp-2 whitespace-pre-line">
+                    {copy.description}
+                  </p>
+                  <div class="mt-4 flex items-center text-gold text-sm font-medium opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                    <span>{t.spas.learnMore}</span>
+                    <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <p class="text-center text-sm text-white/50 mt-8" data-spa-hidden-note hidden>
+      {hiddenBefore}<strong class="text-white" data-hidden-count>0</strong>{hiddenAfter}
+      <button
+        type="button"
+        class="text-gold underline underline-offset-2 hover:text-gold-light"
+        data-spa-jump-all
+      >
+        {t.spas.showAll}
+      </button>
+    </p>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const grid = document.querySelector<HTMLElement>("[data-spa-grid]");
+    const filterBar = document.querySelector<HTMLElement>("[data-spa-filter]");
+    const note = document.querySelector<HTMLElement>("[data-spa-hidden-note]");
+    if (!grid || !filterBar) return;
+
+    const pills = filterBar.querySelectorAll<HTMLButtonElement>("button[data-bucket]");
+    const cards = grid.querySelectorAll<HTMLElement>("[data-buckets]");
+    const stickyBar = filterBar.closest<HTMLElement>(".sticky");
+
+    // Teleport (never smooth-scroll) so the first card lands right under the
+    // sticky bar — a smooth scroll would be clamped mid-flight as the grid
+    // shrinks, producing a visible double jump.
+    const jumpToFirstCard = () => {
+      const navHeight = window.matchMedia("(max-width: 639px)").matches ? 64 : 80;
+      const barHeight = stickyBar ? Math.ceil(stickyBar.getBoundingClientRect().height) : 0;
+      const targetY = window.scrollY + grid.getBoundingClientRect().top - navHeight - barHeight - 12;
+      window.scrollTo({ top: Math.max(0, targetY), behavior: "instant" as ScrollBehavior });
+    };
+
+    const apply = (active: HTMLButtonElement) => {
+      const bucket = active.dataset.bucket ?? "all";
+      pills.forEach((pill) => pill.setAttribute("aria-pressed", String(pill === active)));
+
+      let hidden = 0;
+      cards.forEach((card) => {
+        const buckets = (card.dataset.buckets ?? "").split(/\s+/).filter(Boolean);
+        const visible = bucket === "all" || buckets.includes(bucket);
+        card.toggleAttribute("hidden", !visible);
+        if (!visible) hidden += 1;
+      });
+
+      if (!note) return;
+      if (bucket === "all" || hidden === 0) {
+        note.setAttribute("hidden", "");
+      } else {
+        const count = note.querySelector<HTMLElement>("[data-hidden-count]");
+        if (count) count.textContent = String(hidden);
+        note.removeAttribute("hidden");
+      }
+    };
+
+    pills.forEach((pill) =>
+      pill.addEventListener("click", () => {
+        // Filter first, then jump — both run synchronously, so the scroll
+        // measurement sees the final layout.
+        apply(pill);
+        jumpToFirstCard();
+      }),
+    );
+
+    note?.querySelector("[data-spa-jump-all]")?.addEventListener("click", () => {
+      const all = filterBar.querySelector<HTMLButtonElement>('button[data-bucket="all"]');
+      if (!all) return;
+      apply(all);
+      jumpToFirstCard();
+    });
+  })();
+</script>

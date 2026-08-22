@@ -1,0 +1,39 @@
+---
+import ContactChannels from "./ContactChannels.astro";
+import { getDictionary } from "../i18n";
+import type { Locale } from "../i18n/config";
+import type { TextSegment } from "../i18n/types";
+
+interface Props {
+  lang: Locale;
+  /** Defaults to the dictionary heading; pages pass segments to accent a word. */
+  heading?: TextSegment[];
+  intro?: string;
+  /** The gold rule under the heading — home page only. */
+  divider?: boolean;
+  class?: string;
+}
+
+const { lang, heading, intro, divider = true, class: className = "" } = Astro.props;
+const t = getDictionary(lang);
+
+const segments: TextSegment[] = heading ?? [{ text: t.contact.heading }];
+---
+
+<section id="contact" class:list={["px-4 scroll-mt-6", className || "pt-14 pb-20 sm:pt-20 sm:pb-28"]}>
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+        {
+          segments.map((segment) => (
+            <span class={segment.accent ? "text-gold" : undefined}>{segment.text}</span>
+          ))
+        }
+      </h2>
+      {divider && <div class="w-20 h-0.5 bg-gold mx-auto mb-6" />}
+      <p class="text-white/50">{intro ?? t.contact.intro}</p>
+    </div>
+
+    <ContactChannels lang={lang} />
+  </div>
+</section>

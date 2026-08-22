@@ -1,0 +1,45 @@
+---
+import { getDictionary } from "../i18n";
+import { localizePath, type Locale } from "../i18n/config";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+
+const secondary = [
+  { href: localizePath(lang, "/ranking/"), label: t.ctaBand.ranking },
+  { href: localizePath(lang, "/guide/"), label: t.ctaBand.guide },
+  { href: localizePath(lang, "/faq/"), label: t.ctaBand.faq },
+];
+---
+
+<section class="pb-12 px-4">
+  <div class="max-w-3xl mx-auto">
+    <div
+      class="fade-up bg-gradient-to-r from-[#141414] to-[#1a1a1a] border border-gold/10 rounded-2xl p-8 text-center"
+    >
+      <h3 class="text-xl font-bold mb-3">{t.ctaBand.heading}</h3>
+      <p class="text-white/50 text-sm mb-6">{t.ctaBand.body}</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a
+          href="#contact"
+          class="px-6 py-2.5 bg-gold hover:bg-gold-dark text-black font-semibold rounded-full transition-all duration-300 text-sm"
+          >{t.ctaBand.chat}</a
+        >
+        {
+          secondary.map((link) => (
+            <a
+              href={link.href}
+              class="px-6 py-2.5 border border-gold/50 text-gold hover:bg-gold/10 rounded-full transition-all duration-300 text-sm"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

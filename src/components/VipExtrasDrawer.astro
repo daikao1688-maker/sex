@@ -1,0 +1,147 @@
+---
+import Icon from "./Icon.astro";
+import { getDictionary } from "../i18n";
+import type { Locale } from "../i18n/config";
+
+/**
+ * Slide-over listing the complimentary VIP Extras. Opened by any
+ * `[data-open-vip-extras]` trigger; the gift rows come from the shared
+ * dictionary, so it is translated wherever the home page is.
+ */
+interface Props {
+  lang: Locale;
+  titleLead: string;
+  titleAccent: string;
+  note: string;
+  closeLabel: string;
+}
+
+const { lang, titleLead, titleAccent, note, closeLabel } = Astro.props;
+const t = getDictionary(lang);
+---
+
+<div
+  data-vip-extras-drawer
+  aria-hidden="true"
+  class="fixed inset-0 z-[60] pointer-events-none invisible"
+>
+  <div class="absolute inset-0 bg-black/70 transition-opacity duration-300 opacity-0" data-vip-scrim>
+  </div>
+
+  <div
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="vip-extras-drawer-title"
+    data-vip-panel
+    class="fixed bg-[#0f0f0f] border-white/10 shadow-2xl flex flex-col inset-0 pb-[env(safe-area-inset-bottom)] sm:inset-y-0 sm:right-0 sm:left-auto sm:w-[440px] sm:border-l sm:pb-0 transition-transform duration-300 ease-out translate-y-full sm:translate-y-0 sm:translate-x-full"
+  >
+    <div class="flex items-start justify-between gap-4 p-5 sm:p-6 border-b border-white/5">
+      <div>
+        <h2 id="vip-extras-drawer-title" class="text-xl sm:text-2xl font-bold text-white">
+          {titleLead} <span class="text-gold">{titleAccent}</span>
+        </h2>
+        <p class="text-sm text-white/60 mt-2">{note}</p>
+      </div>
+      <button
+        type="button"
+        aria-label={closeLabel}
+        data-close-vip-extras
+        class="flex-shrink-0 p-2.5 rounded-full bg-white/10 text-white ring-1 ring-white/15 hover:bg-white/20 active:bg-white/25 transition-colors"
+      >
+        <Icon name="close" class="w-5 h-5" />
+      </button>
+    </div>
+
+    <div class="relative flex-1 min-h-0">
+      <div class="scrollbar-hide absolute inset-0 overflow-y-auto px-5 sm:px-6 py-4">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-white/10">
+              <th
+                scope="col"
+                class="text-left pb-2 text-xs uppercase tracking-wider text-white/40 font-normal"
+                >{t.vip.columns.item}</th
+              >
+              <th
+                scope="col"
+                class="text-right pb-2 text-xs uppercase tracking-wider text-white/40 font-normal"
+                >{t.vip.columns.value}</th
+              >
+              <th
+                scope="col"
+                class="text-right pb-2 pl-2 text-xs uppercase tracking-wider text-gold font-normal"
+                >{t.vip.columns.ours}</th
+              >
+            </tr>
+          </thead>
+          <tbody>
+            {
+              t.vip.gifts.map((gift) => (
+                <tr class="border-b border-white/5">
+                  <td class="py-3 pr-2 align-top">
+                    <div class="flex items-start gap-2">
+                      <span class="text-xl flex-shrink-0 leading-none mt-0.5" aria-hidden="true">
+                        {gift.emoji}
+                      </span>
+                      <div class="min-w-0">
+                        <div class="font-semibold text-white">{gift.name}</div>
+                        <div class="text-xs text-white/55 mt-0.5 leading-relaxed">{gift.desc}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-3 text-right align-top whitespace-nowrap text-white/45 line-through">
+                    {gift.value}
+                  </td>
+                  <td class="py-3 pl-2 text-right align-top whitespace-nowrap text-gold font-semibold">
+                    {t.vip.free}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const drawer = document.querySelector<HTMLElement>("[data-vip-extras-drawer]");
+    const panel = drawer?.querySelector<HTMLElement>("[data-vip-panel]");
+    const scrim = drawer?.querySelector<HTMLElement>("[data-vip-scrim]");
+    if (!drawer || !panel || !scrim) return;
+
+    const closed = ["translate-y-full", "sm:translate-x-full"];
+
+    const open = () => {
+      drawer.classList.remove("pointer-events-none", "invisible");
+      drawer.setAttribute("aria-hidden", "false");
+      scrim.classList.replace("opacity-0", "opacity-100");
+      panel.classList.remove(...closed);
+      document.body.style.overflow = "hidden";
+    };
+
+    const close = () => {
+      drawer.setAttribute("aria-hidden", "true");
+      scrim.classList.replace("opacity-100", "opacity-0");
+      panel.classList.add(...closed);
+      document.body.style.overflow = "";
+      window.setTimeout(() => drawer.classList.add("pointer-events-none", "invisible"), 300);
+    };
+
+    document.addEventListener("click", (event) => {
+      const target = event.target as HTMLElement | null;
+      if (target?.closest("[data-open-vip-extras]")) {
+        event.preventDefault();
+        open();
+      } else if (target?.closest("[data-close-vip-extras]") || target === scrim) {
+        close();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") close();
+    });
+  })();
+</script>

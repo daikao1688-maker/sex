@@ -1,0 +1,119 @@
+---
+import Icon from "./Icon.astro";
+
+/**
+ * Grouped Q&A accordion. One panel open at a time; the first question of the
+ * first group starts open, matching the design. Answers are trusted HTML from
+ * the copy modules.
+ */
+interface Props {
+  categories: Array<{
+    title: string;
+    items: Array<{ question: string; answer: string }>;
+  }>;
+}
+
+const { categories } = Astro.props;
+
+let index = 0;
+const groups = categories.map((category) => ({
+  title: category.title,
+  items: category.items.map((item) => ({ ...item, id: index++ })),
+}));
+---
+
+<div class="max-w-3xl mx-auto space-y-10" data-faq-accordion>
+  {
+    groups.map((group) => (
+      <div>
+        <h2 class="text-lg sm:text-xl font-semibold mb-4 text-white flex items-center gap-3">
+          <span class="w-1 h-5 bg-gold rounded-full" />
+          {group.title}
+        </h2>
+        <div class="space-y-3">
+          {group.items.map((item) => (
+            <div
+              class="bg-[#141414] border rounded-xl overflow-hidden transition-colors duration-300"
+              class:list={[item.id === 0 ? "border-gold/20" : "border-white/5"]}
+              data-faq-item
+            >
+              <h3 class="m-0">
+                <button
+                  id={`faq-button-${item.id}`}
+                  type="button"
+                  aria-expanded={item.id === 0 ? "true" : "false"}
+                  aria-controls={`faq-panel-${item.id}`}
+                  class:list={[
+                    "w-full flex items-center justify-between gap-4 px-5 py-4 sm:px-6 sm:py-5 text-left group text-sm sm:text-base font-medium leading-relaxed transition-colors duration-300",
+                    item.id === 0 ? "text-gold" : "text-white hover:text-white/90",
+                  ]}
+                  data-faq-trigger
+                >
+                  <span>{item.question}</span>
+                  <span class="flex-shrink-0">
+                    <Icon
+                      name="chevron-down"
+                      class:list={[
+                        "w-5 h-5 transition-transform duration-300",
+                        item.id === 0 && "rotate-180 text-gold",
+                      ]}
+                    />
+                  </span>
+                </button>
+              </h3>
+              <div
+                id={`faq-panel-${item.id}`}
+                role="region"
+                aria-labelledby={`faq-button-${item.id}`}
+                class:list={["overflow-hidden", item.id === 0 ? "" : "hidden"]}
+                data-faq-panel
+              >
+                <div class="px-5 pb-4 sm:px-6 sm:pb-5">
+                  <div class="w-full h-px bg-white/5 mb-4" />
+                  <div class="text-white/70 text-sm leading-relaxed" set:html={item.answer} />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  (() => {
+    const root = document.querySelector<HTMLElement>("[data-faq-accordion]");
+    if (!root) return;
+
+    const items = Array.from(root.querySelectorAll<HTMLElement>("[data-faq-item]"));
+
+    const setOpen = (item: HTMLElement, open: boolean) => {
+      const trigger = item.querySelector<HTMLButtonElement>("[data-faq-trigger]");
+      const panel = item.querySelector<HTMLElement>("[data-faq-panel]");
+      const chevron = trigger?.querySelector("svg");
+      if (!trigger || !panel) return;
+
+      trigger.setAttribute("aria-expanded", String(open));
+      panel.classList.toggle("hidden", !open);
+      item.classList.toggle("border-gold/20", open);
+      item.classList.toggle("border-white/5", !open);
+      trigger.classList.toggle("text-gold", open);
+      trigger.classList.toggle("text-white", !open);
+      trigger.classList.toggle("hover:text-white/90", !open);
+      chevron?.classList.toggle("rotate-180", open);
+      chevron?.classList.toggle("text-gold", open);
+    };
+
+    items.forEach((item) => {
+      item.querySelector("[data-faq-trigger]")?.addEventListener("click", () => {
+        const isOpen =
+          item
+            .querySelector("[data-faq-trigger]")
+            ?.getAttribute("aria-expanded") === "true";
+        items.forEach((other) => setOpen(other, false));
+        setOpen(item, !isOpen);
+      });
+    });
+  })();
+</script>

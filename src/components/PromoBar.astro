@@ -1,0 +1,113 @@
+---
+import { getDictionary } from "../i18n";
+import { localeMeta, localizePath, type Locale } from "../i18n/config";
+
+interface Props {
+  lang: Locale;
+  /**
+   * "fixed" overlays the hero and slides away on scroll (home page);
+   * "inline" sits in the document flow below the navbar (every other page).
+   */
+  variant?: "fixed" | "inline";
+  /** Override the default home-page contact target for contextual CTAs. */
+  ctaHref?: string;
+}
+
+const { lang, variant = "fixed", ctaHref } = Astro.props;
+
+const placement =
+  variant === "fixed"
+    ? "fixed top-[5.5rem] sm:top-[6.5rem]"
+    : "relative mt-[5.5rem] sm:mt-[6.5rem]";
+const t = getDictionary(lang);
+const ctaTarget = ctaHref ?? localizePath(lang, "/#contact");
+
+const htmlLang = localeMeta[lang].htmlLang;
+const now = new Date();
+// CJK locales render months as a number + 月; everything else gets the long name.
+const currentMonth = /^(zh|ja|ko)/.test(htmlLang)
+  ? `${now.getMonth() + 1}月`
+  : new Intl.DateTimeFormat(htmlLang, { month: "long" }).format(now);
+
+const [offerBefore, offerAfter = ""] = t.promo.offer.split("{month}");
+---
+
+<div
+  id="promo-top-bar"
+  class:list={[
+    "left-0 right-0 z-40 w-full overflow-hidden border-b border-red-400/40 glow-red",
+    placement,
+  ]}
+  style="background: linear-gradient(90deg, #1a0a0a 0%, #2a0e0e 50%, #1a0a0a 100%);"
+>
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 shimmer-red"></div>
+  <div
+    class="relative max-w-7xl mx-auto px-4 py-2 sm:py-2.5 flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-4 gap-y-0.5"
+  >
+    <span
+      class="text-red-300 text-[13px] sm:text-base font-semibold uppercase tracking-wider whitespace-nowrap"
+    >
+      <span class="sm:hidden">{t.promo.headlineShort}</span>
+      <span class="hidden sm:inline">{t.promo.headlineLong}</span>
+    </span>
+    <span class="hidden sm:inline text-white/30">·</span>
+    <span class="text-white text-[13px] sm:text-base font-bold whitespace-nowrap">
+      <span class="text-white/80">{offerBefore}</span><span class="pulse-red" data-promo-month
+        >{currentMonth}</span
+      ><span class="text-white/80">{offerAfter}</span>
+    </span>
+    <a
+      href={ctaTarget}
+      class="hidden sm:inline-flex ml-1 sm:ml-2 items-center px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold text-white bg-red-400 hover:bg-red-300 transition-colors whitespace-nowrap"
+    >
+      {t.promo.cta}
+    </a>
+  </div>
+</div>
+
+<script>
+  // The month is baked in at build time, so refresh it on every visit.
+  (() => {
+    const nodes = document.querySelectorAll<HTMLElement>("[data-promo-month]");
+    if (!nodes.length) return;
+
+    const lang = (document.documentElement.lang || "en").toLowerCase();
+    const now = new Date();
+    const label = /^(zh|ja|ko)/.test(lang)
+      ? `${now.getMonth() + 1}月`
+      : new Intl.DateTimeFormat(lang, { month: "long" }).format(now);
+
+    nodes.forEach((node) => (node.textContent = label));
+  })();
+
+  // Slide the banner away within the first ~80px of scroll so it never floats
+  // over the hero headline as a translucent strip.
+  (() => {
+    const bar = document.getElementById("promo-top-bar");
+    if (!bar || getComputedStyle(bar).position !== "fixed") return;
+
+    const fadeEnd = 80;
+    let ticking = false;
+
+    const update = () => {
+      const progress = Math.min(1, Math.max(0, window.scrollY / fadeEnd));
+      bar.style.opacity = String(1 - progress);
+      bar.style.transform = `translateY(${-progress * 110}%)`;
+      bar.style.pointerEvents = progress > 0.95 ? "none" : "";
+    };
+
+    update();
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          update();
+          ticking = false;
+        });
+      },
+      { passive: true },
+    );
+  })();
+</script>

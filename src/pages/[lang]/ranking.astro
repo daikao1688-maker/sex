@@ -1,0 +1,333 @@
+---
+import PageShell from "../../layouts/PageShell.astro";
+import Icon from "../../components/Icon.astro";
+import ContactChannels from "../../components/ContactChannels.astro";
+import { getDictionary } from "../../i18n";
+import { locales, localizePath, type Locale } from "../../i18n/config";
+import { getRankingCopy } from "../../i18n/pages/ranking";
+import { venues } from "../../data/venues";
+import { site } from "../../data/site";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+const copy = getRankingCopy(lang);
+const t = getDictionary(lang);
+
+const name = (slug: (typeof venues)[number]["slug"]) => t.spas.venues[slug].name;
+const href = (slug: string) => localizePath(lang, `/spa/${slug}/`);
+const price = (value: number) => value.toLocaleString("en-US");
+const stars = (rating: number) => "★".repeat(rating) + "☆".repeat(5 - rating);
+const flag = (value: boolean) => (value ? copy.values.yes : copy.values.no);
+
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: copy.heading,
+    itemListElement: venues.map((venue, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: name(venue.slug),
+      url: new URL(href(venue.slug), site.origin).href,
+    })),
+  },
+];
+
+const tableWrap =
+  "overflow-x-auto rounded-xl border border-white/5 bg-[#0f0f0f] scrollbar-hide";
+const th = "text-left px-4 py-3 text-xs uppercase tracking-wider text-white/40 font-normal whitespace-nowrap";
+const td = "px-4 py-3 text-sm text-white/70 whitespace-nowrap";
+const venueTd = "px-4 py-3 text-sm font-medium whitespace-nowrap";
+---
+
+<PageShell
+  lang={lang}
+  path="/ranking/"
+  title={copy.meta.title}
+  description={copy.meta.description}
+  breadcrumbs={copy.breadcrumbs}
+  schemas={schemas}
+>
+  <section class="relative pt-6 pb-10 sm:pt-10 sm:pb-12 px-4">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#141414] via-[#0f0f0f] to-[#0a0a0a]"></div>
+    <div class="relative z-10 max-w-5xl mx-auto">
+      <div class="fade-up">
+        <a
+          href={localizePath(lang, "/")}
+          class="inline-flex items-center gap-2 text-white/50 hover:text-gold transition-colors mb-8 text-sm"
+        >
+          <Icon name="arrow-left" class="w-4 h-4" />
+          {copy.backHome}
+        </a>
+        <h1 class="text-2xl sm:text-4xl font-bold mb-4 leading-tight">{copy.heading}</h1>
+        <p class="text-white/50 text-base sm:text-lg max-w-3xl leading-relaxed">{copy.intro}</p>
+        <div class="w-20 h-0.5 bg-gold mt-6"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 pb-8">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4">{copy.topPicks.heading}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {
+          copy.topPicks.cards.map((card) => (
+            <a
+              href={href(card.slug)}
+              class="flex items-start gap-3 bg-[#141414] border border-white/5 hover:border-gold/30 rounded-xl p-4 transition-all duration-300 group"
+            >
+              <span class="text-2xl leading-none" aria-hidden="true">
+                {card.emoji}
+              </span>
+              <span class="min-w-0">
+                <span class="block text-gold text-xs font-semibold tracking-wide">{card.label}</span>
+                <span class="block font-semibold group-hover:text-gold transition-colors">
+                  {name(card.slug)}
+                </span>
+                <span class="block text-white/50 text-sm leading-relaxed">{card.body}</span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 pb-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="rounded-xl border border-gold/15 bg-gold/[0.04] p-5">
+        <h2 class="text-sm font-semibold text-gold mb-3 tracking-wide">{copy.includes.heading}</h2>
+        <ul class="flex flex-wrap gap-x-5 gap-y-2">
+          {
+            copy.includes.items.map((item) => (
+              <li class="flex items-center gap-1.5 text-white/70 text-sm">
+                <span class="text-green-400" aria-hidden="true">
+                  ✓
+                </span>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 pb-8">
+    <div class="max-w-5xl mx-auto space-y-10">
+      <div>
+        <h2 class="text-lg sm:text-xl font-bold mb-3">{copy.tables.basics.heading}</h2>
+        <p class="text-white/30 text-xs mb-2 sm:hidden">{copy.swipeHint}</p>
+        <div class={tableWrap}>
+          <table class="w-full border-collapse">
+            <thead class="bg-white/[0.03]">
+              <tr class="border-b border-white/5">
+                <th class={th}>{copy.tables.basics.venue}</th>
+                <th class={th}>{copy.tables.basics.district}</th>
+                <th class={th}>{copy.tables.basics.therapists}</th>
+                <th class={th}>{copy.tables.basics.hours}</th>
+                <th class={th}>{copy.tables.basics.open24h}</th>
+                <th class={th}>{copy.tables.basics.rating}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                venues.map((venue) => (
+                  <tr class="border-b border-white/5 last:border-0 hover:bg-white/[0.02]">
+                    <td class={venueTd}>
+                      <a href={href(venue.slug)} class="text-white hover:text-gold transition-colors">
+                        {name(venue.slug)}
+                      </a>
+                    </td>
+                    <td class={td}>{copy.districts[venue.district]}</td>
+                    <td class={td}>{copy.values.multinational}</td>
+                    <td class={td}>{venue.hours}</td>
+                    <td class={td}>
+                      <span class={venue.open24h ? "text-green-400" : "text-white/25"}>
+                        {flag(venue.open24h)}
+                      </span>
+                    </td>
+                    <td class={`${td} text-gold`}>{stars(venue.rating)}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-lg sm:text-xl font-bold mb-3">{copy.tables.pricing.heading}</h2>
+        <div class={tableWrap}>
+          <table class="w-full border-collapse">
+            <thead class="bg-white/[0.03]">
+              <tr class="border-b border-white/5">
+                <th class={th}>{copy.tables.basics.venue}</th>
+                <th class={th}>{copy.tables.pricing.priceRange}</th>
+                <th class={th}>{copy.tables.pricing.serviceFee}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                venues.map((venue) => (
+                  <tr class="border-b border-white/5 last:border-0 hover:bg-white/[0.02]">
+                    <td class={venueTd}>
+                      <a href={href(venue.slug)} class="text-white hover:text-gold transition-colors">
+                        {name(venue.slug)}
+                      </a>
+                    </td>
+                    <td class={td}>
+                      {price(venue.priceMin)} – {price(venue.priceMax)}
+                    </td>
+                    <td class={td}>
+                      {venue.serviceFee === "none" ? (
+                        <span class="text-green-400">{copy.values.none}</span>
+                      ) : (
+                        venue.serviceFee
+                      )}
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-lg sm:text-xl font-bold mb-3">{copy.tables.overnight.heading}</h2>
+        <div class={tableWrap}>
+          <table class="w-full border-collapse">
+            <thead class="bg-white/[0.03]">
+              <tr class="border-b border-white/5">
+                <th class={th}>{copy.tables.basics.venue}</th>
+                <th class={th}>{copy.tables.overnight.overnight}</th>
+                <th class={th}>{copy.tables.overnight.lounge}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                venues.map((venue) => (
+                  <tr class="border-b border-white/5 last:border-0 hover:bg-white/[0.02]">
+                    <td class={venueTd}>
+                      <a href={href(venue.slug)} class="text-white hover:text-gold transition-colors">
+                        {name(venue.slug)}
+                      </a>
+                    </td>
+                    <td class={td}>
+                      <span class={venue.overnightAllowed ? "text-green-400" : "text-white/25"}>
+                        {flag(venue.overnightAllowed)}
+                      </span>
+                    </td>
+                    <td class={td}>
+                      <span class={venue.loungeRecliner ? "text-green-400" : "text-white/25"}>
+                        {flag(venue.loungeRecliner)}
+                      </span>
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-lg sm:text-xl font-bold mb-3">{copy.tables.features.heading}</h2>
+        <div class={tableWrap}>
+          <table class="w-full border-collapse">
+            <thead class="bg-white/[0.03]">
+              <tr class="border-b border-white/5">
+                <th class={th}>{copy.tables.basics.venue}</th>
+                <th class={th}>{copy.tables.features.ktv}</th>
+                <th class={th}>{copy.tables.features.themeRooms}</th>
+                <th class={th}>{copy.tables.features.show}</th>
+                <th class={th}>{copy.tables.features.isNew}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                venues.map((venue) => (
+                  <tr class="border-b border-white/5 last:border-0 hover:bg-white/[0.02]">
+                    <td class={venueTd}>
+                      <a href={href(venue.slug)} class="text-white hover:text-gold transition-colors">
+                        {name(venue.slug)}
+                      </a>
+                    </td>
+                    <td class={td}>
+                      <span class={venue.ktv ? "text-green-400" : "text-white/25"}>
+                        {flag(venue.ktv)}
+                      </span>
+                    </td>
+                    <td class={td}>
+                      <span class={venue.themeRooms ? "text-green-400" : "text-white/25"}>
+                        {flag(venue.themeRooms)}
+                      </span>
+                    </td>
+                    <td class={td}>
+                      <span class={venue.recommendedShow ? "text-green-400" : "text-white/25"}>
+                        {flag(venue.recommendedShow)}
+                      </span>
+                    </td>
+                    <td class={td}>
+                      <span class={venue.isNew ? "text-gold" : "text-white/25"}>
+                        {venue.isNew ? "✦" : copy.values.no}
+                      </span>
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 py-12 sm:py-16 bg-gradient-to-b from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a]">
+    <div class="max-w-4xl mx-auto">
+      <div class="fade-up mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">{copy.treatments.heading}</h2>
+        <div class="w-16 h-0.5 bg-gold mb-5"></div>
+        <p class="text-white/60 leading-relaxed max-w-2xl">{copy.treatments.intro}</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {
+          t.vip.gifts.map((gift) => (
+            <div class="rounded-xl p-5 border bg-[#141414] border-white/5">
+              <div class="flex items-start justify-between gap-3 mb-1.5">
+                <h3 class="text-base font-semibold">
+                  <span class="mr-1.5" aria-hidden="true">
+                    {gift.emoji}
+                  </span>
+                  {gift.name}
+                </h3>
+                <span class="text-xs whitespace-nowrap">
+                  <span class="text-white/30 line-through">{gift.value}</span>{" "}
+                  <span class="text-green-400 font-semibold">{copy.treatments.free}</span>
+                </span>
+              </div>
+              <p class="text-white/50 text-sm leading-relaxed">{gift.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="px-4 py-12 sm:py-16 scroll-mt-6">
+    <div class="max-w-3xl mx-auto">
+      <div
+        class="bg-gradient-to-r from-[#141414] to-[#1a1a1a] border border-gold/10 rounded-2xl p-8 sm:p-12 text-center"
+      >
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">{copy.cta.heading}</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto mb-5"></div>
+        <p class="text-white/55 mb-8 max-w-md mx-auto">{copy.cta.body}</p>
+        <ContactChannels lang={lang} />
+      </div>
+    </div>
+  </section>
+</PageShell>

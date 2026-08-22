@@ -1,0 +1,287 @@
+---
+import PageShell from "../../layouts/PageShell.astro";
+import Icon from "../../components/Icon.astro";
+import QuickMatch from "../../components/QuickMatch.astro";
+import Testimonials from "../../components/Testimonials.astro";
+import ContactChannels from "../../components/ContactChannels.astro";
+import VipExtrasDrawer from "../../components/VipExtrasDrawer.astro";
+import { getDictionary } from "../../i18n";
+import { locales, localizePath, type Locale } from "../../i18n/config";
+import { getGuideCopy } from "../../i18n/pages/guide";
+import { contact, chatUrl } from "../../data/site";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+const copy = getGuideCopy(lang);
+const t = getDictionary(lang);
+
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: copy.heading,
+    description: copy.meta.description,
+    step: copy.steps.items.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.title,
+      text: step.body,
+    })),
+  },
+];
+---
+
+<PageShell
+  lang={lang}
+  path="/guide/"
+  title={copy.meta.title}
+  description={copy.meta.description}
+  breadcrumbs={copy.breadcrumbs}
+  schemas={schemas}
+>
+  <section
+    class="relative min-h-[45vh] flex items-start justify-center overflow-hidden pt-6 sm:pt-10"
+  >
+    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-[#0a0a0a]/90 to-[#0a0a0a]"></div>
+    <div
+      class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.08),transparent_60%)]"
+    >
+    </div>
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pb-12">
+      <div class="fade-up">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-wider">
+          {copy.heading}
+        </h1>
+      </div>
+      <div class="fade-up" style="transition-delay: 0.2s">
+        <p class="text-lg text-white/60 mb-8 max-w-2xl mx-auto leading-relaxed">{copy.intro}</p>
+      </div>
+      <div class="fade-up" style="transition-delay: 0.4s">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="#contact"
+            class="px-8 py-3.5 bg-gold hover:bg-gold-dark text-black font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-gold/20 tracking-wider"
+          >
+            {copy.primaryCta}
+          </a>
+          <a
+            href={localizePath(lang, "/")}
+            class="flex items-center gap-2 px-6 py-3 text-white/50 hover:text-gold transition-colors duration-300"
+          >
+            <Icon name="arrow-left" class="w-4 h-4" />
+            {copy.backHome}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12 sm:pt-2 sm:pb-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="fade-up text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">{copy.expect.heading}</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {
+          copy.expect.cards.map((card) => (
+            <div class="fade-up bg-[#141414] border border-white/5 hover:border-gold/30 rounded-2xl p-6 transition-colors">
+              <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mb-4">
+                <Icon name={card.icon} class="w-6 h-6 text-gold" />
+              </div>
+              <h3 class="text-lg font-semibold mb-2">{card.title}</h3>
+              <p class="text-white/50 text-sm leading-relaxed">{card.body}</p>
+              {card.verifyLink && (
+                <a
+                  href={card.verifyLink.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 text-gold text-sm font-medium mt-3 hover:underline"
+                >
+                  {card.verifyLink.label}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              )}
+              {card.drawerCta && (
+                <button
+                  type="button"
+                  data-open-vip-extras
+                  class="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-gold/15 hover:bg-gold/25 text-gold font-semibold text-sm rounded-full border border-gold/40 hover:border-gold/60 shadow-[0_0_16px_rgba(212,175,55,0.18)] hover:shadow-[0_0_22px_rgba(212,175,55,0.32)] transition-all"
+                >
+                  {card.drawerCta}
+                </button>
+              )}
+            </div>
+          ))
+        }
+      </div>
+
+      <div
+        class="fade-up mt-6 rounded-2xl border border-gold/15 bg-gold/[0.04] p-5 sm:p-6 text-center"
+      >
+        <p class="text-white/60 text-sm leading-relaxed mb-3">{copy.expect.rankingTeaser.body}</p>
+        <a
+          href={localizePath(lang, "/ranking/")}
+          class="inline-flex items-center gap-1.5 text-gold font-semibold text-sm hover:underline"
+        >
+          <span>{copy.expect.rankingTeaser.link}</span>
+          <Icon name="arrow-right" class="w-4 h-4" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 sm:py-16 px-4 bg-gradient-to-b from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a]">
+    <div class="max-w-3xl mx-auto">
+      <div class="fade-up text-center mb-4">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">{copy.steps.heading}</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto mb-4"></div>
+        <p class="text-white/40 text-sm">{copy.steps.note}</p>
+      </div>
+
+      <ol class="mt-8 space-y-4">
+        {
+          copy.steps.items.map((step, index) => (
+            <li
+              class="fade-up flex gap-4 bg-[#141414] border border-white/5 rounded-xl p-5"
+              style={`transition-delay:${(index * 0.04).toFixed(2)}s`}
+            >
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-gold/15 text-gold font-bold text-sm flex items-center justify-center">
+                {index + 1}
+              </span>
+              <div>
+                <h3 class="text-base sm:text-lg font-semibold mb-1.5">{step.title}</h3>
+                <p class="text-white/60 text-sm leading-relaxed">{step.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+
+      <div
+        class="fade-up mt-8 rounded-2xl border border-gold/15 bg-[#141414] p-5 sm:p-6 text-center"
+      >
+        <p class="text-white/70 text-sm font-medium mb-4">{copy.quickAsk.heading}</p>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a
+            href={chatUrl(contact.whatsapp.url, t.contact.inquiryMessage)}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-2 rounded-full bg-[#25d366] px-4 py-2 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+          >
+            <img src="/icons/whatsapp.svg" alt="" width="16" height="16" />
+            <span>WhatsApp</span>
+          </a>
+          <a
+            href={chatUrl(contact.telegram.url, t.contact.inquiryMessage)}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-2 rounded-full bg-[#229ed9] px-4 py-2 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+          >
+            <img src="/icons/telegram.svg" alt="" width="16" height="16" />
+            <span>Telegram</span>
+          </a>
+          <a href="#contact" class="text-gold text-sm font-medium hover:underline"
+            >{copy.quickAsk.allContacts}</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 sm:py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="fade-up text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">{copy.recommendations.heading}</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+      </div>
+    </div>
+
+    <QuickMatch lang={lang} />
+
+    <div class="max-w-6xl mx-auto">
+      <h3 class="fade-up text-center text-lg font-semibold text-white/70 mb-6">
+        {copy.recommendations.browseHeading}
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {
+          copy.recommendations.cards.map((card, index) => (
+            <a
+              href={localizePath(lang, `/spa/${card.slug}/`)}
+              class="fade-up group block bg-[#141414] border border-white/5 hover:border-gold/40 rounded-2xl p-5 transition-colors"
+              style={`transition-delay:${(index * 0.03).toFixed(2)}s`}
+            >
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-[11px] uppercase tracking-[0.14em] text-white/35">
+                  {copy.recommendations.wantLabel}
+                </span>
+                <span class="text-gold text-sm font-semibold">{card.want}</span>
+              </div>
+              <h3 class="text-lg font-semibold text-white group-hover:text-gold transition-colors mb-2">
+                {t.spas.venues[card.slug].name}
+              </h3>
+              <p class="text-white/50 text-sm leading-relaxed">{card.body}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 sm:py-16 px-4 bg-gradient-to-b from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a]">
+    <div class="max-w-4xl mx-auto">
+      <div class="fade-up text-center mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">{copy.tips.heading}</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+      </div>
+      <div class="max-w-2xl mx-auto space-y-4">
+        {
+          copy.tips.items.map((tip, index) => (
+            <div
+              class="fade-up flex items-start gap-4 bg-[#141414] border border-white/5 rounded-xl p-4"
+              style={`transition-delay:${(index * 0.04).toFixed(2)}s`}
+            >
+              <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center mt-0.5">
+                <Icon name="sparkles" class="w-4 h-4 text-gold" />
+              </div>
+              <p class="text-white/70 text-sm leading-relaxed pt-1">{tip}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <Testimonials lang={lang} />
+
+  <section id="contact" class="px-4 pb-20 sm:pb-28 scroll-mt-6">
+    <div class="max-w-3xl mx-auto">
+      <div
+        class="bg-gradient-to-r from-[#141414] to-[#1a1a1a] border border-gold/10 rounded-2xl p-8 sm:p-12 text-center"
+      >
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">{copy.cta.heading}</h2>
+        <p class="text-white/50 mb-6 max-w-md mx-auto">{copy.cta.body}</p>
+        <a
+          href={localizePath(lang, "/faq/")}
+          class="inline-flex items-center gap-1.5 text-gold text-sm font-semibold hover:underline mb-8"
+        >
+          {copy.cta.faqLink}
+          <Icon name="arrow-right" class="w-4 h-4" />
+        </a>
+        <ContactChannels lang={lang} />
+      </div>
+    </div>
+  </section>
+
+  <VipExtrasDrawer
+    lang={lang}
+    titleLead={copy.drawer.titleLead}
+    titleAccent={copy.drawer.titleAccent}
+    note={copy.drawer.note}
+    closeLabel={copy.drawer.close}
+  />
+</PageShell>

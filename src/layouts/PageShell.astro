@@ -1,0 +1,71 @@
+---
+import Layout from "./Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import PromoBar from "../components/PromoBar.astro";
+import Footer from "../components/Footer.astro";
+import WeChatModal from "../components/WeChatModal.astro";
+import FloatingContactPill from "../components/FloatingContactPill.astro";
+import type { Locale } from "../i18n/config";
+import type { Crumb } from "../i18n/pages/helpers";
+
+/**
+ * Chrome shared by every page except the home page: navbar, in-flow promo bar,
+ * footer, WeChat modal and the floating chat pill. Pages supply only their body.
+ */
+interface Props {
+  lang: Locale;
+  path: string;
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  breadcrumbs?: Crumb[];
+  schemas?: Record<string, unknown>[];
+  /** Blog pages use the light "paper" theme instead of the dark one. */
+  theme?: "dark" | "paper";
+  /** Locales this page exists in; defaults to all. */
+  alternateLocales?: Locale[];
+  /**
+   * The inline promo bar doubles as the spacer that clears the fixed navbar.
+   * Pages that open with a full-bleed hero turn it off so the artwork runs to
+   * the top of the viewport and the transparent navbar sits over it.
+   */
+  promo?: boolean;
+  /** Optional target for the promo CTA on this page. */
+  promoCtaHref?: string;
+}
+
+const {
+  lang,
+  path,
+  title,
+  description,
+  ogImage,
+  breadcrumbs,
+  schemas,
+  theme = "dark",
+  alternateLocales,
+  promo = true,
+  promoCtaHref,
+} = Astro.props;
+---
+
+<Layout
+  lang={lang}
+  path={path}
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+  alternateLocales={alternateLocales}
+>
+  <div class:list={["min-h-screen", theme === "paper" ? "rm-paper" : "bg-ink text-white"]}>
+    <Navbar lang={lang} path={path} availableLocales={alternateLocales} />
+    {promo && <PromoBar lang={lang} variant="inline" ctaHref={promoCtaHref} />}
+    <slot />
+    <Footer lang={lang} />
+  </div>
+
+  <WeChatModal lang={lang} />
+  <FloatingContactPill lang={lang} />
+</Layout>

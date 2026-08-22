@@ -1,0 +1,141 @@
+---
+import PageShell from "../../layouts/PageShell.astro";
+import Icon from "../../components/Icon.astro";
+import ContactSection from "../../components/ContactSection.astro";
+import Mission from "../../components/Mission.astro";
+import { locales, localizePath, type Locale } from "../../i18n/config";
+import { getAboutCopy } from "../../i18n/pages/about";
+import { site } from "../../data/site";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+const copy = getAboutCopy(lang);
+
+const [introBefore, introAfter = ""] = copy.intro.split("{brand}");
+
+const schemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: copy.meta.title,
+    description: copy.meta.description,
+    url: new URL(localizePath(lang, "/about/"), site.origin).href,
+  },
+];
+---
+
+<PageShell
+  lang={lang}
+  path="/about/"
+  title={copy.meta.title}
+  description={copy.meta.description}
+  breadcrumbs={copy.breadcrumbs}
+  schemas={schemas}
+>
+  <section class="pt-6 sm:pt-10 pb-12 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="fade-up">
+        <p class="text-xs uppercase tracking-[0.3em] text-gold/80 font-semibold mb-4">
+          {copy.eyebrow}
+        </p>
+        <h1 class="text-3xl sm:text-5xl font-bold mb-6 leading-tight">
+          {copy.headingLead} <span class="text-gold">{copy.headingAccent}</span>
+        </h1>
+        <p class="text-white/70 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          {introBefore}<span class="text-gold font-semibold">{copy.brand}</span>{introAfter}
+        </p>
+        <div class="mt-6">
+          <a
+            href={localizePath(lang, "/")}
+            class="group inline-flex items-center text-white/40 hover:text-gold transition-colors text-sm"
+          >
+            <Icon
+              name="arrow-left"
+              class="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1"
+            />
+            {copy.backHome}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="fade-up text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-3">{copy.services.heading}</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {
+          copy.services.cards.map((card) => (
+            <div class="fade-up bg-[#141414] border border-white/5 hover:border-gold/30 rounded-2xl p-6 sm:p-7 transition-colors">
+              <div class="w-12 h-12 mb-4 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center">
+                <Icon name={card.icon} class="w-6 h-6 text-gold" />
+              </div>
+              <h3 class="text-lg font-semibold text-white mb-2">{card.title}</h3>
+              <p class="text-white/60 text-sm leading-relaxed">{card.body}</p>
+              {card.link && (
+                <a
+                  href={localizePath(lang, card.link.path)}
+                  class="inline-flex items-center gap-1 text-gold text-sm font-medium mt-3 hover:underline"
+                >
+                  {card.link.label}
+                </a>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="fade-up text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-3">{copy.trust.heading}</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {
+          copy.trust.stats.map((stat) => (
+            <div class="bg-[#141414] border border-white/5 rounded-2xl p-5 sm:p-6 text-center">
+              <Icon name={stat.icon} class="w-7 h-7 text-gold mx-auto mb-3" />
+              <p class="text-2xl sm:text-3xl font-bold text-gold mb-1">{stat.value}</p>
+              <p class="text-white/50 text-xs sm:text-sm leading-tight">{stat.label}</p>
+            </div>
+          ))
+        }
+      </div>
+      <p class="text-white/40 text-xs sm:text-sm text-center mt-6 max-w-xl mx-auto leading-relaxed">
+        {copy.trust.note}
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="fade-up text-center mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-3">{copy.why.heading}</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+      </div>
+      <div class="fade-up space-y-4 text-white/70 text-sm sm:text-base leading-relaxed">
+        {copy.why.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        <p class="text-gold font-medium">{copy.why.kicker}</p>
+      </div>
+    </div>
+  </section>
+
+  <ContactSection
+    lang={lang}
+    heading={[{ text: `${copy.cta.headingLead} ` }, { text: copy.cta.headingAccent, accent: true }]}
+    intro={copy.cta.body}
+    divider={false}
+    class="py-16 sm:py-20"
+  />
+
+  <Mission lang={lang} />
+</PageShell>
