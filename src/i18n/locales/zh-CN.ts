@@ -460,6 +460,7 @@ const zhCN: Dictionary = {
     optionCopy: '方式二：复制 ID，在微信中搜索',
     copy: '复制微信 ID：AN99348',
     copied: '✓ 已复制！打开微信搜索加我们',
+    manualCopy: '自动复制无法使用，请选中并手动复制微信 ID。',
     close: '关闭',
   },
 

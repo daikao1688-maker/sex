@@ -75,6 +75,7 @@ class FakeElement {
         else classes.delete(name);
         return active;
       },
+      contains: (name) => classes.has(name),
     };
   }
 
@@ -100,7 +101,7 @@ test("every locale exposes pausable motion controls and hides testimonial duplic
   const labels = {
     en: {
       hero: ["Pause background motion", "Resume background motion"],
-      testimonials: ["Pause testimonial motion", "Resume testimonial motion"],
+      testimonials: ["Pause pre-trip planning motion", "Resume pre-trip planning motion"],
     },
     "zh-TW": {
       hero: ["暫停背景動效", "繼續背景動效"],
@@ -134,6 +135,23 @@ test("every locale exposes pausable motion controls and hides testimonial duplic
     clones.forEach((clone) => {
       assert.match(clone, /aria-hidden="true"/, `${locale} repeated testimonial must be hidden from assistive tech`);
     });
+  }
+});
+
+test("every locale exposes a localized manual WeChat copy fallback", async () => {
+  const labels = {
+    en: "Automatic copy unavailable. Select and copy the WeChat ID manually.",
+    "zh-TW": "自動複製無法使用，請選取並手動複製微信 ID。",
+    "zh-CN": "自动复制无法使用，请选中并手动复制微信 ID。",
+    ja: "自動コピーを利用できません。WeChat IDを選択して手動でコピーしてください。",
+  };
+
+  for (const locale of locales) {
+    const html = await readHome(locale);
+    const copyButton = tagWith(html, "data-copy-wechat");
+    const fallbackField = tagWith(html, 'id="wechat-copy-fallback"');
+    assert.equal(attr(copyButton, "data-manual-label"), labels[locale]);
+    assert.equal(attr(fallbackField, "aria-label"), labels[locale]);
   }
 });
 
@@ -231,20 +249,33 @@ test("motion toggles keep their localized accessible names after runtime state c
   assert.equal(testimonialToggle.getAttribute("aria-label"), "LOCALIZED TESTIMONIAL RESUME");
 });
 
-test("every locale gives motion regions an observable state and synchronized hero accessibility", async () => {
+test("every locale keeps decorative hero backdrops hidden while motion state remains observable", async () => {
   for (const locale of locales) {
     const html = await readHome(locale);
     const testimonialTrack = tagWith(html, 'id="testimonial-track"');
     const hero = tagWith(html, "data-hero-motion");
-    const activeBackdrop = tagWith(html, "data-hero-backdrop", 'aria-hidden="false"');
-    const inactiveBackdrop = tagWith(html, "data-hero-backdrop", 'aria-hidden="true"');
+    const backdropBlocks = [
+      ...html.matchAll(/<div\b(?=[^>]*data-hero-backdrop)[^>]*>\s*<img\b[^>]*>/g),
+    ].map((match) => match[0]);
     const activeVenue = tagWith(html, "data-hero-venue-group", 'aria-hidden="false"');
     const inactiveVenue = tagWith(html, "data-hero-venue-group", 'aria-hidden="true"');
 
     assert.match(testimonialTrack, /data-motion-state="running"/, `${locale} testimonial region exposes its motion state`);
     assert.match(hero, /data-motion-state="running"/, `${locale} hero exposes its motion state`);
-    assert.match(activeBackdrop, /is-active/, `${locale} active hero backdrop must be exposed`);
-    assert.doesNotMatch(inactiveBackdrop, /is-active/, `${locale} inactive hero backdrop must be hidden`);
+    assert.equal(backdropBlocks.length, 3, `${locale} must retain all visual Hero layers`);
+    assert.ok(backdropBlocks.some((block) => /\bis-active\b/.test(block)), `${locale} needs one visual active layer`);
+    for (const block of backdropBlocks) {
+      const wrapper = block.match(/^<div\b[^>]*>/)?.[0] ?? "";
+      const image = block.match(/<img\b[^>]*>/)?.[0] ?? "";
+      assert.equal(attr(wrapper, "aria-hidden"), "true", `${locale} decorative Hero layer entered the accessibility tree`);
+      assert.equal(attr(image, "alt"), "", `${locale} decorative Hero image has a non-empty alt`);
+      assert.doesNotMatch(image, /\bdata-alt=/, `${locale} decorative Hero image retains a rotating SEO alt`);
+    }
+    assert.doesNotMatch(
+      html,
+      /Macau sauna concierge|luxury chauffeur pickup/i,
+      `${locale} exposes an English backdrop description`,
+    );
     assert.match(activeVenue, /opacity:1/, `${locale} active hero venue text must be exposed`);
     assert.match(inactiveVenue, /opacity:0/, `${locale} inactive hero venue text must be hidden`);
   }
@@ -272,6 +303,14 @@ test("hero keeps its background cadence when venue text rotates first", async ()
   const toggle = new FakeElement();
   const icon = new FakeElement();
   const backdrops = [new FakeElement(), new FakeElement(), new FakeElement()];
+  const backdropImages = backdrops.map((backdrop, index) => {
+    const image = new FakeElement();
+    image.alt = "";
+    image.dataset.alt = `English SEO phrase ${index + 1}`;
+    backdrop.setAttribute("aria-hidden", "true");
+    backdrop.querySelector = () => image;
+    return image;
+  });
   const venues = [new FakeElement(), new FakeElement()];
   const timers = new Map();
   let nextTimer = 1;
@@ -322,7 +361,13 @@ test("hero keeps its background cadence when venue text rotates first", async ()
   vm.runInNewContext(await heroScript(), { document, window, IntersectionObserver: FakeObserver });
   advanceTo(6000);
 
-  assert.equal(backdrops[1].getAttribute("aria-hidden"), "false", "backdrop rotation must not be reset by venue rotation");
+  assert.equal(backdrops[1].classList.contains("is-active"), true, "the visual backdrop cadence must still rotate");
+  backdrops.forEach((backdrop) =>
+    assert.equal(backdrop.getAttribute("aria-hidden"), "true", "visual rotation must not expose a decorative layer"),
+  );
+  backdropImages.forEach((image) =>
+    assert.equal(image.alt, "", "visual rotation must not assign an English SEO alt"),
+  );
   assert.equal(venues[1].getAttribute("aria-hidden"), "false", "venue rotation must remain synchronized with its visible state");
 });
 
@@ -334,7 +379,10 @@ test("hero motion remains functional when IntersectionObserver is unavailable", 
   const venueGroups = [new FakeElement(), new FakeElement()];
   let scheduled = 0;
 
-  backdrops.forEach((backdrop) => (backdrop.querySelector = () => null));
+  backdrops.forEach((backdrop) => {
+    backdrop.setAttribute("aria-hidden", "true");
+    backdrop.querySelector = () => null;
+  });
   const document = {
     visibilityState: "visible",
     querySelector: (selector) =>
@@ -359,7 +407,7 @@ test("hero motion remains functional when IntersectionObserver is unavailable", 
   vm.runInNewContext(await heroScript(), { document, window });
 
   assert.equal(hero.dataset.motionState, "running", "unsupported observation must not abort hero setup");
-  assert.equal(backdrops[0].getAttribute("aria-hidden"), "false", "the active image must stay exposed");
+  assert.equal(backdrops[0].getAttribute("aria-hidden"), "true", "fallback motion must keep ambience decorative");
   assert.equal(venueGroups[0].getAttribute("aria-hidden"), "false", "the active venue text must stay exposed");
   assert.ok(scheduled >= 3, "fallback mode must continue the image and venue cadence");
 });

@@ -165,6 +165,7 @@ export interface Dictionary {
     optionCopy: string;
     copy: string;
     copied: string;
+    manualCopy: string;
     close: string;
   };
   floatingPill: {

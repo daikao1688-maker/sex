@@ -72,6 +72,68 @@ const componentScript = async (component) => {
     .replace(/: (?:boolean|string)/g, "");
 };
 
+const createWeChatCopyHarness = async (writeText) => {
+  const modal = new FakeElement();
+  const closeButton = new FakeElement();
+  const copyButton = new FakeElement();
+  const copyLabel = new FakeElement();
+  const fallbackField = new FakeElement();
+  const listeners = new Map();
+  let legacyCopyCalls = 0;
+
+  modal.setAttribute("hidden", "");
+  modal.classList = classListFor(modal);
+  modal.querySelectorAll = () => [closeButton, copyButton];
+  copyButton.dataset = {
+    copyWechat: "AN99348",
+    copiedLabel: "COPIED",
+    manualLabel: "COPY MANUALLY",
+  };
+  copyLabel.textContent = "COPY";
+  fallbackField.hidden = true;
+  fallbackField.value = "AN99348";
+  fallbackField.select = () => (fallbackField.selected = true);
+
+  const legacyField = new FakeElement();
+  legacyField.style = {};
+  legacyField.select = () => {};
+  legacyField.remove = () => {};
+  const document = {
+    activeElement: copyButton,
+    body: { style: {}, appendChild() {} },
+    getElementById: (id) =>
+      ({
+        "wechat-modal": modal,
+        "wechat-modal-close": closeButton,
+        "wechat-copy-btn": copyButton,
+        "wechat-copy-label": copyLabel,
+        "wechat-copy-fallback": fallbackField,
+      })[id] ?? null,
+    querySelector: () => null,
+    addEventListener: (name, listener) => listeners.set(name, listener),
+    createElement: () => legacyField,
+    execCommand: () => {
+      legacyCopyCalls += 1;
+      return true;
+    },
+  };
+
+  vm.runInNewContext(await componentScript("WeChatModal.astro"), {
+    document,
+    HTMLElement: FakeElement,
+    navigator: { clipboard: { writeText } },
+    requestAnimationFrame: (callback) => callback(),
+    window: { setTimeout: () => 1, clearTimeout() {} },
+  });
+
+  return {
+    copy: () => copyButton.listeners.get("click")(),
+    copyLabel,
+    fallbackField,
+    legacyCopyCalls: () => legacyCopyCalls,
+  };
+};
+
 test("rapidly reopening the VIP drawer does not let a prior close timer hide it", async () => {
   const drawer = new FakeElement();
   const panel = new FakeElement();
@@ -226,6 +288,34 @@ test("the WeChat modal traps focus and restores the trigger on keyboard and back
   });
   listeners.get("click")({ target: modal });
   assert.equal(modal.getAttribute("aria-hidden"), "true", "backdrop clicks must close the modal");
+});
+
+test("WeChat copy uses the asynchronous Clipboard API and reports success", async () => {
+  let copied = "";
+  const harness = await createWeChatCopyHarness(async (value) => {
+    copied = value;
+  });
+
+  await harness.copy();
+
+  assert.equal(copied, "AN99348");
+  assert.equal(harness.copyLabel.textContent, "COPIED");
+  assert.equal(harness.fallbackField.hidden, true);
+  assert.equal(harness.legacyCopyCalls(), 0);
+});
+
+test("WeChat copy failure exposes a selectable manual fallback without deprecated commands", async () => {
+  const harness = await createWeChatCopyHarness(async () => {
+    throw new Error("clipboard unavailable");
+  });
+
+  await harness.copy();
+
+  assert.equal(harness.legacyCopyCalls(), 0, "copy fallback must not call document.execCommand");
+  assert.equal(harness.fallbackField.hidden, false, "manual copy field must become visible");
+  assert.equal(harness.fallbackField.focused, true, "manual copy field must receive focus");
+  assert.equal(harness.fallbackField.selected, true, "manual copy field must select the ID");
+  assert.equal(harness.copyLabel.textContent, "COPY MANUALLY");
 });
 
 test("VIP tabs move focus and selection with Arrow, Home, and End", async () => {

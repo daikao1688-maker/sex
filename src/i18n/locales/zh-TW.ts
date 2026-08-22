@@ -462,6 +462,7 @@ const zhTW: Dictionary = {
     optionCopy: '方式二：複製 ID，在微信中搜尋',
     copy: '複製微信 ID：AN99348',
     copied: '✓ 已複製！打開微信搜尋加我們',
+    manualCopy: '自動複製無法使用，請選取並手動複製微信 ID。',
     close: '關閉',
   },
 

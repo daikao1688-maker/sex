@@ -54,11 +54,22 @@ const t = getDictionary(lang);
       type="button"
       data-copy-wechat={contact.wechat.id}
       data-copied-label={t.wechat.copied}
+      data-manual-label={t.wechat.manualCopy}
       class="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-3 rounded-lg transition-colors"
     >
       <Icon name="copy" class="w-4 h-4" />
-      <span id="wechat-copy-label">{t.wechat.copy}</span>
+      <span id="wechat-copy-label" aria-live="polite">{t.wechat.copy}</span>
     </button>
+    <input
+      id="wechat-copy-fallback"
+      type="text"
+      value={contact.wechat.id}
+      aria-label={t.wechat.manualCopy}
+      class="mt-3 w-full rounded-lg border border-gold/30 bg-black/50 px-3 py-2 text-center text-sm text-white outline-none focus:border-gold focus:ring-2 focus:ring-gold/50"
+      readonly
+      disabled
+      hidden
+    />
   </div>
 </div>
 
@@ -70,6 +81,7 @@ const t = getDictionary(lang);
     const closeBtn = document.getElementById("wechat-modal-close");
     const copyBtn = document.getElementById("wechat-copy-btn");
     const copyLabel = document.getElementById("wechat-copy-label");
+    const fallbackField = document.getElementById("wechat-copy-fallback") as HTMLInputElement | null;
     const originalLabel = copyLabel?.textContent ?? "";
     let labelTimer: number | undefined;
     let lastTrigger: HTMLElement | null = null;
@@ -117,21 +129,28 @@ const t = getDictionary(lang);
       const id = copyBtn?.dataset.copyWechat;
       if (!id) return;
 
+      let copied = false;
       try {
+        if (!navigator.clipboard?.writeText) throw new Error("Clipboard API unavailable");
         await navigator.clipboard.writeText(id);
+        copied = true;
+        if (fallbackField) {
+          fallbackField.hidden = true;
+          fallbackField.disabled = true;
+        }
       } catch {
-        const field = document.createElement("textarea");
-        field.value = id;
-        field.style.position = "fixed";
-        field.style.opacity = "0";
-        document.body.appendChild(field);
-        field.select();
-        document.execCommand("copy");
-        field.remove();
+        if (fallbackField) {
+          fallbackField.hidden = false;
+          fallbackField.disabled = false;
+          fallbackField.focus();
+          fallbackField.select();
+        }
       }
 
       if (!copyLabel) return;
-      copyLabel.textContent = copyBtn?.dataset.copiedLabel ?? originalLabel;
+      copyLabel.textContent = copied
+        ? copyBtn?.dataset.copiedLabel ?? originalLabel
+        : copyBtn?.dataset.manualLabel ?? originalLabel;
       window.clearTimeout(labelTimer);
       labelTimer = window.setTimeout(() => (copyLabel.textContent = originalLabel), 2000);
     };

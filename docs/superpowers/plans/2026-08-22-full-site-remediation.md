@@ -169,4 +169,3 @@
 - [ ] Remove duplicated data fields and resolve cross-task merge conflicts.
 - [ ] Run `npm test`, `npx astro check`, full static link/schema audit, and browser checks at 360, 789, 1024, 1279, 1280, and 1440 pixels.
 - [ ] Run fresh mobile/desktop Lighthouse comparisons and document remaining field-data limitations.
-

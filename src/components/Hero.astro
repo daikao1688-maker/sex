@@ -16,7 +16,6 @@ const backdrops = [
     smallSrc: "/covers/macau-sauna-night-skyline-768.jpg",
     width: 2048,
     height: 1366,
-    alt: "Macau sauna concierge — Macau night skyline, VIP booking & luxury pickup",
     position: "object-center",
   },
   {
@@ -24,7 +23,6 @@ const backdrops = [
     smallSrc: "/covers/macau-sauna-cotai-casino-skyline-night-768.jpg",
     width: 1600,
     height: 1066,
-    alt: "Macau sauna VIP concierge — Cotai casino skyline at night, luxury chauffeur pickup",
     position: "object-[20%_50%] sm:object-center",
   },
   {
@@ -32,7 +30,6 @@ const backdrops = [
     smallSrc: "/covers/macau-sauna-tower-fireworks-night-768.webp",
     width: 1248,
     height: 832,
-    alt: "Macau sauna concierge for travelers — Macau Tower fireworks at night",
     position: "object-[80%_50%] sm:object-center",
   },
 ];
@@ -50,7 +47,7 @@ const stepIcons = ["message-circle", "car", "star"] as const;
       backdrops.map((image, index) => (
         <div
           class={`hero-backdrop absolute inset-0 ${index === 0 ? "is-active" : ""}`}
-          aria-hidden={index === 0 ? "false" : "true"}
+          aria-hidden="true"
           data-hero-backdrop
           data-zoom-direction={index % 2 === 0 ? "in" : "out"}
         >
@@ -60,8 +57,7 @@ const stepIcons = ["message-circle", "car", "star"] as const;
             sizes="100vw"
             data-src={index === 0 ? undefined : image.src}
             data-srcset={index === 0 ? undefined : `${image.smallSrc} 768w, ${image.src} ${image.width}w`}
-            data-alt={image.alt}
-            alt={index === 0 ? image.alt : ""}
+            alt=""
             width={image.width}
             height={image.height}
             fetchpriority={index === 0 ? "high" : "low"}
@@ -275,9 +271,6 @@ const stepIcons = ["message-circle", "car", "star"] as const;
         const leaving = index === backdropIndex && !active;
         backdrop.classList.toggle("is-active", active);
         backdrop.classList.toggle("is-leaving", leaving);
-        backdrop.setAttribute("aria-hidden", String(!active));
-        const image = backdrop.querySelector?.<HTMLImageElement>("img");
-        if (image) image.alt = active ? image.dataset.alt ?? "" : "";
       });
       backdropIndex = nextIndex;
     };

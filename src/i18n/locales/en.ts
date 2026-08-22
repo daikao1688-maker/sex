@@ -342,7 +342,7 @@ const en: Dictionary = {
     heading: 'Questions Worth Sorting Out Before You Go',
     regionLabel: 'Pre-trip planning topics',
     served: 'A practical checklist for confirming the details',
-    motion: { pause: 'Pause testimonial motion', resume: 'Resume testimonial motion' },
+    motion: { pause: 'Pause pre-trip planning motion', resume: 'Resume pre-trip planning motion' },
     items: [
       {
         quote:
@@ -518,6 +518,7 @@ const en: Dictionary = {
     optionCopy: 'Option 2: Copy the ID and search in WeChat',
     copy: 'Copy WeChat ID: AN99348',
     copied: '✓ Copied! Open WeChat to add us.',
+    manualCopy: 'Automatic copy unavailable. Select and copy the WeChat ID manually.',
     close: 'Close',
   },
 

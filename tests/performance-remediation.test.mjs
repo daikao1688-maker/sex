@@ -401,8 +401,8 @@ test("hero initially fetches only its active source and preloads the next source
   ].map((match) => match[0]);
   assert.equal(backdropBlocks.length, 3);
 
-  const activeImage = backdropBlocks.find((block) => block.includes('aria-hidden="false"')) ?? "";
-  const hiddenImages = backdropBlocks.filter((block) => block.includes('aria-hidden="true"'));
+  const activeImage = backdropBlocks.find((block) => /\bis-active\b/.test(block)) ?? "";
+  const hiddenImages = backdropBlocks.filter((block) => !/\bis-active\b/.test(block));
   assert.match(activeImage, /\ssrc="\/covers\//);
   assert.match(activeImage, /loading="eager"/);
   assert.match(activeImage, /fetchpriority="high"/);
@@ -443,6 +443,7 @@ test("hero initially fetches only its active source and preloads the next source
   });
   const backdrops = images.map((image) => {
     const backdrop = new FakeElement();
+    backdrop.setAttribute("aria-hidden", "true");
     backdrop.querySelector = () => image;
     return backdrop;
   });
@@ -500,7 +501,7 @@ test("hero initially fetches only its active source and preloads the next source
   );
   assert.equal(backdrops[1].getAttribute("aria-hidden"), "true", "preload exposed the next slide early");
   advanceTo(6000);
-  assert.equal(backdrops[1].getAttribute("aria-hidden"), "false", "preloaded slide did not become active");
+  assert.equal(backdrops[1].getAttribute("aria-hidden"), "true", "visual rotation exposed a decorative layer");
 });
 
 test("viewport-role images expose real responsive candidates and intrinsic dimensions", async () => {

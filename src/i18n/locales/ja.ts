@@ -525,6 +525,7 @@ const ja: Dictionary = {
     optionCopy: '方法その2：IDをコピーしてWeChatで検索',
     copy: 'WeChat IDをコピー：AN99348',
     copied: '✓ コピーしました！WeChatを開いて検索してください',
+    manualCopy: '自動コピーを利用できません。WeChat IDを選択して手動でコピーしてください。',
     close: '閉じる',
   },
 

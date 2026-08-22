@@ -38,4 +38,3 @@ Resolve every confirmed issue from the 2026-08-22 read-only audit of the four-lo
 - Dialogs and tabs pass keyboard interaction checks.
 - No relevant browser console errors or layout overflow are present in tested viewports.
 - A fresh Lighthouse comparison shows the blocking Google font request is gone and no performance metric regresses materially because of the remediation.
-
