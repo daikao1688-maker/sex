@@ -151,7 +151,9 @@ const t = getDictionary(lang);
       setBackgroundInert(false);
       document.body.style.overflow = previousBodyOverflow;
       lastTrigger?.focus();
-      window.setTimeout(() => drawer.classList.add("pointer-events-none", "invisible"), 300);
+      window.setTimeout(() => {
+        if (!isOpen()) drawer.classList.add("pointer-events-none", "invisible");
+      }, 300);
     };
 
     document.addEventListener("click", (event) => {
