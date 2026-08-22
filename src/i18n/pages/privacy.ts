@@ -24,7 +24,7 @@ const en: PrivacyCopy = {
   backHome: 'Back to home',
   heading: 'Privacy Notice',
   effectiveDate: 'Last updated: 2026-08-22',
-  summary: 'This site uses Google technology for site measurement and advertising. Contact buttons then take you to a messaging service you choose. The sections below explain those two flows and the information involved.',
+  summary: 'This site uses Google technology for site measurement and advertising. WhatsApp, Telegram and LINE contact links open external services; the WeChat button opens an on-site WeChat QR code and account ID modal. The sections below explain these flows and the information involved.',
   sections: [
     {
       heading: 'Google measurement and advertising',
@@ -69,7 +69,7 @@ const zhTW: PrivacyCopy = {
   backHome: '返回首頁',
   heading: '隱私說明',
   effectiveDate: '最近更新：2026-08-22',
-  summary: '本站使用 Google 技術了解網站及廣告成效；當您選擇聯絡按鈕，則會轉到您選用的通訊服務。以下分開說明兩個流程及當中涉及的資料。',
+  summary: '本站使用 Google 技術了解網站及廣告成效。WhatsApp、Telegram 及 LINE 的聯絡連結會開啟外部服務；WeChat 按鈕則開啟站內 WeChat QR code 與帳戶 ID 視窗。以下說明各個流程及當中涉及的資料。',
   sections: [
     {
       heading: 'Google 成效評估與廣告',
@@ -114,7 +114,7 @@ const zhCN: PrivacyCopy = {
   backHome: '返回首页',
   heading: '隐私说明',
   effectiveDate: '最近更新：2026-08-22',
-  summary: '本站使用 Google 技术了解网站和广告效果；当您选择联系按钮时，则会跳转到您选用的通讯服务。下面分别说明这两个流程和其中涉及的资料。',
+  summary: '本站使用 Google 技术了解网站和广告效果。WhatsApp、Telegram 和 LINE 的联系链接会打开外部服务；WeChat 按钮则打开站内 WeChat 二维码与账户 ID 弹窗。下面说明各个流程和其中涉及的资料。',
   sections: [
     {
       heading: 'Google 效果衡量与广告',
@@ -159,7 +159,7 @@ const ja: PrivacyCopy = {
   backHome: 'ホームに戻る',
   heading: 'プライバシーについて',
   effectiveDate: '更新日：2026-08-22',
-  summary: '当サイトでは、サイトと広告の効果を確認するためにGoogleの技術を使用しています。お問い合わせボタンを選ぶと、ご希望のメッセージサービスへ移動します。それぞれの場面でどのような情報が扱われるかを説明します。',
+  summary: '当サイトでは、サイトと広告の効果を確認するためにGoogleの技術を使用しています。WhatsApp、Telegram、LINEのリンクは外部サービスを開き、WeChatボタンはサイト内のWeChat QRコード・ID画面を表示します。それぞれの場面でどのような情報が扱われるかを説明します。',
   sections: [
     {
       heading: 'Googleによる計測と広告',

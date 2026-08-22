@@ -34,6 +34,14 @@ const region = (html, testId) => {
 const metaDescription = (html) =>
   html.match(/<meta\b(?=[^>]*name="description")(?=[^>]*content="([^"]*)")[^>]*>/)?.[1];
 
+const privacySummary = (html) => {
+  const match = html.match(
+    /<div\s+class="rounded-2xl border border-gold\/15[^>]*>\s*<p[^>]*>([\s\S]*?)<\/p>/,
+  );
+  assert.ok(match, "generated privacy page is missing its summary panel");
+  return visibleText(match[1]);
+};
+
 const policyExpectations = {
   en: {
     heading: "Editorial and Corrections Policy",
@@ -81,6 +89,22 @@ test("privacy pages disclose the deployed Google tags and every outbound messagi
     assert.ok(text.includes("AW-18058018185"), `${locale} omits the deployed Google Ads tag`);
     for (const platform of ["WhatsApp", "WeChat", "Telegram", "LINE"]) {
       assert.ok(text.includes(platform), `${locale} omits outbound handling for ${platform}`);
+    }
+  }
+});
+
+test("privacy summaries distinguish external contact links from the on-site WeChat modal", async () => {
+  const expected = {
+    en: ["WhatsApp, Telegram and LINE", "on-site WeChat QR code and account ID modal"],
+    "zh-TW": ["WhatsApp、Telegram 及 LINE", "站內 WeChat QR code 與帳戶 ID 視窗"],
+    "zh-CN": ["WhatsApp、Telegram 和 LINE", "站内 WeChat 二维码与账户 ID 弹窗"],
+    ja: ["WhatsApp、Telegram、LINE", "サイト内のWeChat QRコード・ID画面"],
+  };
+
+  for (const [locale, markers] of Object.entries(expected)) {
+    const summary = privacySummary(await readPage(locale, "privacy"));
+    for (const marker of markers) {
+      assert.ok(summary.includes(marker), `${locale} privacy summary omits: ${marker}`);
     }
   }
 });
