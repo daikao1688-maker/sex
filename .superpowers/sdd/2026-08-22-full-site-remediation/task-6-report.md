@@ -133,3 +133,60 @@ Modified:
 - TypeScript changes in Hero and Testimonials are type-only. Their runtime tests now transpile the extracted TypeScript and cover cadence, offscreen behavior, and image preparation without changing timing or ARIA logic.
 - Browser viewport and Lighthouse runs are intentionally left to the controller's post-review pass. No field or lab Core Web Vitals claim is made here.
 - The one skipped test still requires a running development server to exercise an unknown URL through the live custom 404 route; its static 404 companions pass.
+
+## Fix Round 1 — regional Chinese language-tag extensions
+
+### Finding resolved
+
+The locale gateway recognized exact `zh-TW`, `zh-HK`, `zh-MO`, `zh-CN`, and `zh-SG` tags but sent valid tags with Unicode or private-use extensions to English. It now treats the `zh-tw-`, `zh-hk-`, and `zh-mo-` prefixes as Traditional Chinese and the `zh-cn-` and `zh-sg-` prefixes as Simplified Chinese.
+
+Regression cases cover `zh-TW-u-nu-hanidec`, `zh-HK-u-ca-chinese`, `zh-MO-x-private`, `zh-CN-u-ca-gregory`, and `zh-SG-x-private`.
+
+### RED
+
+Before changing the gateway implementation:
+
+```sh
+node --test tests/root-locale-redirect.test.mjs
+```
+
+Result: 2 passed and 1 failed. The first extended tag, `zh-TW-u-nu-hanidec`, produced `/en/` instead of `/zh-TW/`.
+
+### GREEN
+
+Focused regression after rebuilding the real gateway output:
+
+```sh
+npm run build && node --test tests/root-locale-redirect.test.mjs
+```
+
+Result: 132 pages built; 3 passed, 0 failed.
+
+Fresh full suite:
+
+```sh
+npm test
+```
+
+Result: 132 pages built; 85 passed, 0 failed, 1 pre-existing live unknown-route test skipped.
+
+Required non-interactive diagnostics:
+
+```sh
+npx astro check
+```
+
+Result: 97 files checked; 0 errors, 0 warnings, 1 existing deprecation hint for the `document.execCommand("copy")` clipboard fallback.
+
+```sh
+git diff --check
+```
+
+Result: clean.
+
+### Scope and concerns
+
+- Modified only the root gateway prefix conditions, its locale regression matrix, and this report.
+- The existing `location.replace` query/fragment preservation and visible no-script fallback links were not changed.
+- No new dependency was required in this fix round.
+- The one existing live-route skip and one existing Astro checker hint remain; there are no new failures, errors, or warnings.

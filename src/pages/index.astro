@@ -82,8 +82,11 @@
           locale = 'ja';
         } else if (
           language === 'zh-tw' ||
+          language.startsWith('zh-tw-') ||
           language === 'zh-hk' ||
+          language.startsWith('zh-hk-') ||
           language === 'zh-mo' ||
+          language.startsWith('zh-mo-') ||
           language === 'zh-hant' ||
           language.startsWith('zh-hant-')
         ) {
@@ -91,7 +94,9 @@
         } else if (
           language === 'zh' ||
           language === 'zh-cn' ||
+          language.startsWith('zh-cn-') ||
           language === 'zh-sg' ||
+          language.startsWith('zh-sg-') ||
           language === 'zh-hans' ||
           language.startsWith('zh-hans-')
         ) {
