@@ -8,6 +8,10 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = getDictionary(lang);
+const links = [
+  ...t.footer.links,
+  { path: "/editorial-policy/", label: t.footer.editorialPolicy },
+];
 ---
 
 <footer class="bg-[#0a0a0a] border-t border-gold/10 py-8">
@@ -17,7 +21,7 @@ const t = getDictionary(lang);
       class="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-5 gap-y-2 mb-5 text-sm"
     >
       {
-        t.footer.links.map((link, index) => (
+        links.map((link, index) => (
           <>
             {index > 0 && (
               <span class="text-white/15" aria-hidden="true">

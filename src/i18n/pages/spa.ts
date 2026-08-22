@@ -73,6 +73,21 @@ export interface SpaPageCopy {
   venues: Partial<Record<VenueSlug, VenueDetail>>;
 }
 
+/**
+ * Uses the first complete sentence of a locale-written venue introduction.
+ * Metadata therefore stays readable without cutting a word or CJK phrase at
+ * an arbitrary character count.
+ */
+export function venueSummary(description: string, lang: Locale): string {
+  const firstParagraph = description.split(/\n\s*\n/u)[0]?.trim() ?? '';
+  const sentence =
+    lang === 'en'
+      ? firstParagraph.match(/^.*?[.!?](?=\s|$)/u)?.[0]
+      : firstParagraph.match(/^.*?[。！？]/u)?.[0];
+
+  return sentence?.trim() || firstParagraph;
+}
+
 
 
 const en: SpaPageCopy = {

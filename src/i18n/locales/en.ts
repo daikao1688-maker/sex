@@ -80,12 +80,14 @@ const en: Dictionary = {
       'clube-rio': {
         name: 'Clube Rio',
         badge: 'New & KTV King',
+        summary: 'Clube Rio is a business-KTV club on the third floor of Hotel Rio in NAPE, with private karaoke rooms and spa options.',
         description:
           'Clube Rio is a business-KTV club that held its grand opening on 30 July 2026 on the 3rd floor of Hotel Rio in the NAPE district — the only karaoke-first venue in the Macau sauna scene, which is why regulars call it the "KTV King" of Macau sauna nightlife. Crystal chandeliers over a wall of red roses in the main lounge, gold-leaf dragon-and-eagle art in the VIP rooms, big party rooms for a whole crew — every room is fully private with premium sound, equally right for business hosting and a night with friends.\n\nThe signature way to play is companion karaoke (坐檯): a companion joins your room to sit with you, sing with you and share drinks. Pair it with the signature package — 1 hour companion karaoke + 1 hour spa massage with free-flow drinks — and the whole night happens in one place. Prefer it quiet? Spa massage can be booked on its own. Open until 4 am, no overnight stay — the freshest pick for a singing, toasting kind of night.',
       },
       'manhao-spa': {
         name: 'Manhao Spa',
         badge: 'Newest & Biggest Show',
+        summary: 'Manhao Spa is a Taipa venue inside Grandview Hotel, with marble-and-gold interiors, a showcase hall and private treatment rooms.',
         description:
           "Manhao Spa is Macau's newest luxury sauna — a Taipa debut that opened 1 May 2026 inside the Grandview Hotel (氹仔君怡酒店), and from the moment you step in, an imperial-luxe tone takes over. A gold crowned 'MH' monogram glows against calacatta marble, and that aesthetic carries through gold-trimmed lockers, marble dining lounges and mural-wrapped corridors that feel more boutique-hotel than typical sauna.\n\nThe marquee draw is Macau's largest model showcase — a multi-tiered, glass-railed catwalk hall washed in deep blue neon that turns selection into a centerpiece moment rather than a side step. Settle afterward into an integrated suite that pairs a hotel-grade bedroom with the venue's signature red waterbed under a single dramatic spotlight, where a multinational therapist team tailors a calm, private massage. Doors run 14:00–04:00, and overnight stays are not offered for now.",
       },
@@ -116,6 +118,7 @@ const en: Dictionary = {
       'empire-sauna': {
         name: 'Empire Sauna',
         badge: 'Newest & Hottest',
+        summary: 'Empire Sauna is a Macau Peninsula venue with a modern, Eastern-influenced interior and a flow built around bathing, private rooms, dining and rest.',
         description:
           'Empire Sauna follows a new-generation high-end direction for 2026: a new venue on the Macau Peninsula with an HK$80 million-class fit-out that blends modern luxury with Eastern Zen aesthetics. From the marble bathing area to the hotel-style suites, the emphasis is not on noisy spectacle, but on connecting arrival, bathing, therapist selection, dining and rest into a more private evening.\n\nIf you want to try a new venue, the features most worth noting at Empire Sauna are its waterbed rooms, themed suites and overnight rest arrangements. Taiwanese, Japanese and other massage styles can be chosen according to your mood. Opening-period offers also change frequently, making it suitable for guests with a higher budget who value the quality of the surroundings and want to avoid the usual routines of older venues. Confirm the same-day therapist schedule and current offers before setting out for a smoother experience.',
       },
@@ -140,12 +143,14 @@ const en: Dictionary = {
       'number-one-sauna': {
         name: 'Number One Sauna',
         badge: 'Biggest Lineup',
+        summary: 'Number One Sauna is marked temporarily closed; this profile retains its former facilities and service details for historical reference.',
         description:
           "Number One Sauna is one of Macau's most popular saunas, fielding one of the largest therapist rosters in the city — more than 130 multinational therapists, spanning Asia and Europe. Its signature dynamic runway showcase has the team appear in groups along the main hall, a spectacular sight you watch unfold before you choose. From the moment you check in, the pace is unhurried: soak in the large bathing pool, ease into the dry and steam rooms, then take your time as this Macau sauna's famous selection show brings the choice to you.\n\nWhen you've found your number, slip into a private room for a one-on-one session — the unhurried indulgence Number One is known for — and round out the night with unlimited complimentary dining, the celebrated steak included. Reclining chairs let you rest or stay overnight at your leisure, so there's no rush to leave. The venue runs on the intimate side, so popular therapists can draw a wait at peak hours — arrive a little early and the evening flows beautifully.",
       },
       'familia-nobre': {
         name: 'Familia Nobre',
         badge: 'Best Value',
+        summary: 'Familia Nobre is a temporarily closed Macau Peninsula venue; this profile is retained for historical reference.',
         description:
           "Familia Nobre is Macau's largest sauna club, sitting on the Macau Peninsula with the most rooms of any venue in the city — so even at peak hours, you step in and a room is waiting, never a queue. What truly sets this Macau sauna apart is the value: it's one of only two venues in Macau that charge no service fee, where the price you see is the price you pay, across a multinational roster of therapists and a range of MOP 2,388 to 6,988.\n\nSettle into the spacious bathing area, then enjoy complimentary steak and cold beer that regulars rave about. When the night winds down, the best overnight facilities in town take over — the most reclining chairs of any venue, generously spaced in a quiet rest area with no noisy shows to disturb you. Rated five stars, Familia Nobre is the easy first stop for newcomers and the natural home for overnight guests and anyone who wants the most for their money.",
       },
@@ -501,6 +506,7 @@ const en: Dictionary = {
       { path: '/contact/', label: 'Contact' },
       { path: '/privacy/', label: 'Privacy' },
     ],
+    editorialPolicy: 'Editorial policy',
     copyright: '© 2026 Macau Sauna Sites. All rights reserved.',
   },
 

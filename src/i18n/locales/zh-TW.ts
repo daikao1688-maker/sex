@@ -450,6 +450,7 @@ const zhTW: Dictionary = {
       { path: '/contact/', label: '聯絡我們' },
       { path: '/privacy/', label: '隱私政策' },
     ],
+    editorialPolicy: '編輯政策',
     copyright: '© 2026 澳門桑拿導航站. All rights reserved.',
   },
 

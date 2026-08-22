@@ -4,9 +4,11 @@ import PageShell from "../../../layouts/PageShell.astro";
 import Icon from "../../../components/Icon.astro";
 import SpaGallery from "../../../components/SpaGallery.astro";
 import ContactChannels from "../../../components/ContactChannels.astro";
+import EditorialEvidence from "../../../components/EditorialEvidence.astro";
 import { getDictionary } from "../../../i18n";
 import { locales, localizePath, type Locale } from "../../../i18n/config";
-import { getSpaPageCopy, spaBreadcrumbs } from "../../../i18n/pages/spa";
+import { getEditorialEvidenceCopy } from "../../../i18n/pages/editorialPolicy";
+import { getSpaPageCopy, spaBreadcrumbs, venueSummary } from "../../../i18n/pages/spa";
 import { resolveVenueDetail } from "../../../lib/spaDetail";
 import { venues } from "../../../data/venues";
 import { getReplacementVenueGallery } from "../../../data/venueGalleries";
@@ -23,10 +25,12 @@ const lang = Astro.params.lang as Locale;
 
 const t = getDictionary(lang);
 const copy = getSpaPageCopy(lang);
+const evidenceCopy = getEditorialEvidenceCopy(lang);
 const detail = resolveVenueDetail(venue, copy, t);
 
 const venueCopy = t.spas.venues[venue.slug];
 const name = venueCopy.name;
+const summary = venueCopy.summary ?? venueSummary(venueCopy.description, lang);
 const path = `/spa/${venue.slug}/`;
 const cover = `/covers/${venue.cover}.jpg`;
 const useWeChatQuickContact = lang === "zh-TW" || lang === "zh-CN";
@@ -64,7 +68,7 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name,
-    description: venueCopy.description.split("\n\n")[0],
+    description: summary,
     url: new URL(localizePath(lang, path), site.origin).href,
     image: new URL(cover, site.origin).href,
     address: { "@type": "PostalAddress", addressCountry: "MO", addressLocality: "Macau" },
@@ -89,7 +93,7 @@ const schemas = [
   lang={lang}
   path={path}
   title={`${name} - ${t.meta.siteName}`}
-  description={venueCopy.description.split("\n\n")[0].slice(0, 180)}
+  description={summary}
   ogImage={cover}
   breadcrumbs={spaBreadcrumbs(copy, name, venue.slug)}
   schemas={schemas}
@@ -157,6 +161,12 @@ const schemas = [
           )
         }
       </div>
+
+      <EditorialEvidence
+        lang={lang}
+        copy={evidenceCopy}
+        temporarilyClosed={venue.temporarilyClosed}
+      />
 
       <div class="mb-12">
         <div data-testid="spa-practical-info" class="fade-up">

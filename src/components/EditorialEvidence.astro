@@ -1,0 +1,66 @@
+---
+import Icon from "./Icon.astro";
+import { localizePath, type Locale } from "../i18n/config";
+import type { EditorialEvidenceCopy } from "../i18n/types";
+
+interface Props {
+  lang: Locale;
+  copy: EditorialEvidenceCopy;
+  temporarilyClosed: boolean;
+}
+
+const { lang, copy, temporarilyClosed } = Astro.props;
+---
+
+<aside
+  data-testid="editorial-evidence"
+  aria-labelledby="editorial-evidence-heading"
+  class="fade-up mb-12 rounded-2xl border border-gold/15 bg-gold/[0.035] p-5 sm:p-6"
+>
+  <div class="flex flex-col gap-2 border-b border-white/5 pb-4 sm:flex-row sm:items-start sm:justify-between">
+    <h2 id="editorial-evidence-heading" class="flex items-center gap-2 text-lg font-semibold text-gold">
+      <Icon name="shield" class="h-5 w-5 shrink-0" />
+      {copy.heading}
+    </h2>
+    <p class="text-xs text-white/45">
+      {copy.lastReviewedLabel}
+      <time datetime="2026-08-22">{copy.lastReviewedDate}</time>
+    </p>
+  </div>
+
+  <dl class="mt-5 grid gap-5 text-sm sm:grid-cols-2">
+    <div>
+      <dt class="mb-1 font-semibold text-white/85">{copy.profileBasisLabel}</dt>
+      <dd class="leading-relaxed text-white/60">{copy.profileBasis}</dd>
+    </div>
+    <div>
+      <dt class="mb-1 font-semibold text-white/85">{copy.verificationLabel}</dt>
+      <dd class="leading-relaxed text-white/60">
+        {temporarilyClosed ? copy.closedStatus : copy.activeStatus}
+        <span class="mt-1 block text-white/45">{copy.unverifiedLabel}</span>
+      </dd>
+    </div>
+    <div class="sm:col-span-2">
+      <dt class="mb-1 font-semibold text-white/85">{copy.directoryLabel}</dt>
+      <dd class="leading-relaxed text-white/60">
+        {copy.directoryDescription}
+        <a
+          href={copy.directoryUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ml-1 inline-flex min-h-11 items-center text-gold hover:underline"
+        >
+          {copy.directoryLink}
+          <span class="sr-only"> ↗</span>
+        </a>
+      </dd>
+    </div>
+  </dl>
+
+  <p class="mt-5 border-t border-white/5 pt-4 text-sm leading-relaxed text-white/55">
+    {copy.correctionPrompt}
+    <a href={localizePath(lang, "/contact/")} class="ml-1 text-gold hover:underline">
+      {copy.correctionLink}
+    </a>
+  </p>
+</aside>

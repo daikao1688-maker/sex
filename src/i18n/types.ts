@@ -70,7 +70,7 @@ export interface Dictionary {
     /** `{count}` = number of cards hidden by the active filter. */
     hiddenNote: string;
     showAll: string;
-    venues: Record<VenueSlug, { name: string; badge: string; description: string }>;
+    venues: Record<VenueSlug, { name: string; badge: string; description: string; summary?: string }>;
   };
   vip: {
     badge: string;
@@ -154,6 +154,7 @@ export interface Dictionary {
   footer: {
     backToTop: string;
     links: Array<{ path: string; label: string }>;
+    editorialPolicy: string;
     copyright: string;
   };
   wechat: {
@@ -175,3 +176,22 @@ export type QuickMatchExperience = 'show' | 'theme' | 'jpkr' | 'new' | 'ktv' | '
 export type QuickMatchWhen = 'now' | 'tonight' | 'tomorrow' | 'sat' | 'sun' | 'other';
 export type QuickMatchFrom = 'border' | 'hotel' | 'airport' | 'other';
 export type FeatureIcon = 'crown' | 'shield' | 'sparkles' | 'clock';
+
+/** Localized disclosure rendered below every venue introduction. */
+export interface EditorialEvidenceCopy {
+  heading: string;
+  lastReviewedLabel: string;
+  lastReviewedDate: string;
+  profileBasisLabel: string;
+  profileBasis: string;
+  verificationLabel: string;
+  activeStatus: string;
+  closedStatus: string;
+  unverifiedLabel: string;
+  directoryLabel: string;
+  directoryDescription: string;
+  directoryLink: string;
+  directoryUrl: string;
+  correctionPrompt: string;
+  correctionLink: string;
+}

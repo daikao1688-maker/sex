@@ -30,3 +30,5 @@ export function interpolate(
 
 export { defaultLocale, locales, localizePath };
 export type { Dictionary, Locale };
+export { getEditorialEvidenceCopy, getEditorialPolicyCopy } from './pages/editorialPolicy';
+export type { EditorialEvidenceCopy } from './types';

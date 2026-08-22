@@ -510,6 +510,7 @@ const ja: Dictionary = {
       { path: '/contact/', label: 'お問い合わせ' },
       { path: '/privacy/', label: 'プライバシーポリシー' },
     ],
+    editorialPolicy: '編集方針',
     copyright: '© 2026 マカオ・サウナ・ガイド. All rights reserved.',
   },
 

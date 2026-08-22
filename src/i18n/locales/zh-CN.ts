@@ -448,6 +448,7 @@ const zhCN: Dictionary = {
       { path: '/contact/', label: '联系我们' },
       { path: '/privacy/', label: '隐私政策' },
     ],
+    editorialPolicy: '编辑政策',
     copyright: '© 2026 澳门桑拿导航站. All rights reserved.',
   },
 
