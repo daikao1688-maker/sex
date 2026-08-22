@@ -75,6 +75,20 @@ test("the navigation uses mobile controls below 1280px and desktop links from 12
   }
 });
 
+test("opening the mobile menu gives the site navigation an opaque black surface", async () => {
+  const openMenuSurfaceClass = "has-[[data-menu-toggle][aria-expanded=true]]:bg-[#0a0a0a]";
+
+  for (const locale of locales) {
+    const html = await readPage(locale, "spa", "clube-rio");
+    const navigationClasses = classList(tagWithAttribute(html, "data-site-nav"));
+
+    assert.ok(
+      navigationClasses.includes(openMenuSurfaceClass),
+      `${locale} mobile menu can open while the top navigation remains transparent`,
+    );
+  }
+});
+
 test("mobile navigation moves language switching below its menu links while desktop keeps its switcher", async () => {
   const hreflangs = ["en", "zh-TW", "zh-CN", "ja"];
 
