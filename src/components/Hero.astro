@@ -237,12 +237,12 @@ const stepIcons = ["message-circle", "car", "star"] as const;
 <script>
   // Cross-fade the hero only while it is visible, in view, and not paused.
   (() => {
-    const hero = document.querySelector("[data-hero-motion]");
-    const toggle = document.querySelector("[data-hero-motion-toggle]");
-    const icon = document.querySelector("[data-hero-motion-icon]");
-    const backdrops = document.querySelectorAll("[data-hero-backdrop]");
-    const venueGroups = document.querySelectorAll("[data-hero-venue-group]");
-    if (!hero || !toggle || backdrops.length < 2 || venueGroups.length < 2) return;
+    const hero = document.querySelector<HTMLElement>("[data-hero-motion]");
+    const toggle = document.querySelector<HTMLButtonElement>("[data-hero-motion-toggle]");
+    const icon = document.querySelector<HTMLElement>("[data-hero-motion-icon]");
+    const backdrops = document.querySelectorAll<HTMLElement>("[data-hero-backdrop]");
+    const venueGroups = document.querySelectorAll<HTMLElement>("[data-hero-venue-group]");
+    if (!hero || !toggle || !icon || backdrops.length < 2 || venueGroups.length < 2) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let manuallyPaused = false;
@@ -259,7 +259,7 @@ const stepIcons = ["message-circle", "car", "star"] as const;
       inViewport &&
       document.visibilityState !== "hidden";
 
-    const syncVenue = (nextIndex) => {
+    const syncVenue = (nextIndex: number) => {
       venueGroups.forEach((group, index) => {
         const active = index === nextIndex;
         group.style.opacity = active ? "1" : "0";
@@ -267,21 +267,21 @@ const stepIcons = ["message-circle", "car", "star"] as const;
       });
     };
 
-    const syncBackdrop = (nextIndex) => {
+    const syncBackdrop = (nextIndex: number) => {
       backdrops.forEach((backdrop, index) => {
         const active = index === nextIndex;
         const leaving = index === backdropIndex && !active;
         backdrop.classList.toggle("is-active", active);
         backdrop.classList.toggle("is-leaving", leaving);
         backdrop.setAttribute("aria-hidden", String(!active));
-        const image = backdrop.querySelector?.("img");
+        const image = backdrop.querySelector?.<HTMLImageElement>("img");
         if (image) image.alt = active ? image.dataset.alt ?? "" : "";
       });
       backdropIndex = nextIndex;
     };
 
-    const prepareBackdrop = (index) => {
-      const image = backdrops[index]?.querySelector?.("img");
+    const prepareBackdrop = (index: number) => {
+      const image = backdrops[index]?.querySelector?.<HTMLImageElement>("img");
       if (!image || image.getAttribute("src")) return;
       const source = image.dataset.src;
       if (!source) return;

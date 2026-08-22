@@ -3,6 +3,7 @@ import { access, readFile } from "node:fs/promises";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import ts from "typescript";
 import vm from "node:vm";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
@@ -37,7 +38,9 @@ const heroScript = async () => {
   const source = await readFile(path.join(projectRoot, "src/components/Hero.astro"), "utf8");
   const script = [...source.matchAll(/<script>([\s\S]*?)<\/script>/g)].at(-1)?.[1];
   assert.ok(script, "Hero must ship its real rotation script");
-  return script;
+  return ts.transpileModule(script, {
+    compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
+  }).outputText;
 };
 
 class FakeElement {

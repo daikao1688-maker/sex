@@ -23,6 +23,28 @@ async function readRedirectScript() {
   return redirectScript[2];
 }
 
+test("root gateway exposes a static fallback link for every supported locale", async () => {
+  const html = await readFile(rootPagePath, "utf8");
+  const fallback = html.match(/<nav\b[^>]*data-root-locale-fallback[^>]*>[\s\S]*?<\/nav>/i)?.[0] ?? "";
+  const expectedLinks = [
+    ["en", "/en/", "English"],
+    ["zh-TW", "/zh-TW/", "繁體中文"],
+    ["zh-CN", "/zh-CN/", "简体中文"],
+    ["ja", "/ja/", "日本語"],
+  ];
+
+  assert.ok(fallback, "root gateway is missing its visible locale fallback navigation");
+  assert.match(fallback, /aria-label="[^"]+"/, "locale fallback navigation needs an accessible name");
+
+  for (const [hreflang, href, label] of expectedLinks) {
+    assert.match(
+      fallback,
+      new RegExp(`<a\\b(?=[^>]*href="${href}")(?=[^>]*hreflang="${hreflang}")[^>]*>[\\s\\S]*?${label}[\\s\\S]*?<\\/a>`),
+      `root gateway is missing the ${label} fallback`,
+    );
+  }
+});
+
 function executeRedirect(script, language, { search = "", hash = "" } = {}) {
   const redirects = [];
   const location = {

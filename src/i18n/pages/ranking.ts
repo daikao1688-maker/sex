@@ -26,7 +26,7 @@ export interface RankingCopy {
       rating: string;
     };
     pricing: { heading: string; priceRange: string; serviceFee: string };
-    overnight: { heading: string; overnight: string; lounge: string };
+    overnight: { heading: string; overnight: string };
     features: { heading: string; ktv: string; themeRooms: string; show: string; isNew: string };
   };
   values: { yes: string; no: string; none: string; multinational: string };
@@ -113,8 +113,7 @@ const en: RankingCopy = {
     },
     overnight: {
       heading: 'Overnight planning',
-      overnight: 'Overnight available',
-      lounge: 'Lounge recliner',
+      overnight: 'Overnight and lounge rest',
     },
     features: {
       heading: 'Experience and facilities',
@@ -124,7 +123,12 @@ const en: RankingCopy = {
       isNew: 'Newer venue',
     },
   },
-  values: { yes: 'Yes', no: '–', none: 'No fee', multinational: 'International team' },
+  values: {
+    yes: 'Yes',
+    no: '–',
+    none: 'No fee',
+    multinational: 'International team',
+  },
   districts: { peninsula: 'Macau Peninsula', taipa: 'Taipa / Cotai' },
   treatments: {
     heading: 'Optional treatments and current offers',
@@ -217,8 +221,7 @@ const ja: RankingCopy = {
     },
     overnight: {
       heading: '宿泊・休憩',
-      overnight: '宿泊対応',
-      lounge: 'リクライニング席',
+      overnight: '宿泊・ラウンジ休憩',
     },
     features: {
       heading: '設備と楽しみ方',
@@ -228,7 +231,12 @@ const ja: RankingCopy = {
       isNew: '比較的新しい店舗',
     },
   },
-  values: { yes: 'あり', no: '–', none: 'なし', multinational: '多国籍チーム' },
+  values: {
+    yes: 'あり',
+    no: '–',
+    none: 'なし',
+    multinational: '多国籍チーム',
+  },
   districts: { peninsula: 'マカオ半島', taipa: 'タイパ／コタイ' },
   treatments: {
     heading: '追加ケアとキャンペーンの確認',
@@ -321,8 +329,7 @@ const zhTW: RankingCopy = {
     },
     overnight: {
       heading: '過夜安排',
-      overnight: '可否過夜',
-      lounge: '大堂躺椅',
+      overnight: '過夜與大堂休息',
     },
     features: {
       heading: '設施與體驗',
@@ -332,7 +339,12 @@ const zhTW: RankingCopy = {
       isNew: '較新會所',
     },
   },
-  values: { yes: '有', no: '–', none: '免收', multinational: '多國籍團隊' },
+  values: {
+    yes: '有',
+    no: '–',
+    none: '免收',
+    multinational: '多國籍團隊',
+  },
   districts: { peninsula: '澳門半島', taipa: '氹仔／路氹' },
   treatments: {
     heading: '加購護理與當期優惠',
@@ -425,8 +437,7 @@ const zhCN: RankingCopy = {
     },
     overnight: {
       heading: '过夜安排',
-      overnight: '能否过夜',
-      lounge: '大厅躺椅',
+      overnight: '过夜与大厅休息',
     },
     features: {
       heading: '设施与体验',
@@ -436,7 +447,12 @@ const zhCN: RankingCopy = {
       isNew: '较新会所',
     },
   },
-  values: { yes: '有', no: '–', none: '免收', multinational: '多国籍团队' },
+  values: {
+    yes: '有',
+    no: '–',
+    none: '免收',
+    multinational: '多国籍团队',
+  },
   districts: { peninsula: '澳门半岛', taipa: '氹仔／路氹' },
   treatments: {
     heading: '加购护理与当期优惠',

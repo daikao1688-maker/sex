@@ -71,9 +71,9 @@ const loop = [0, 1, 2].flatMap((copy) =>
     if (!track) return;
 
     const count = Number(track.dataset.count ?? 0);
-    const toggle = document.querySelector("[data-testimonial-motion-toggle]");
-    const icon = document.querySelector("[data-testimonial-motion-icon]");
-    if (!count || !toggle) return;
+    const toggle = document.querySelector<HTMLButtonElement>("[data-testimonial-motion-toggle]");
+    const icon = document.querySelector<HTMLElement>("[data-testimonial-motion-icon]");
+    if (!count || !toggle || !icon) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let manuallyPaused = false;
@@ -95,7 +95,7 @@ const loop = [0, 1, 2].flatMap((copy) =>
       document.visibilityState !== "hidden";
 
     const loopWidth = () => {
-      const cards = track.querySelectorAll("[data-testimonial-card]");
+      const cards = track.querySelectorAll<HTMLElement>("[data-testimonial-card]");
       const first = cards[0];
       const firstClone = cards[count];
       const measured = firstClone && first ? firstClone.offsetLeft - first.offsetLeft : 0;
@@ -117,7 +117,7 @@ const loop = [0, 1, 2].flatMap((copy) =>
       }
     };
 
-    const step = (timestamp) => {
+    const step = (timestamp: number) => {
       if (!canAnimate()) return;
       if (lastTimestamp) {
         offset += ((timestamp - lastTimestamp) * 28) / 1000;
@@ -146,7 +146,7 @@ const loop = [0, 1, 2].flatMap((copy) =>
       renderState();
     });
     track.addEventListener("focusout", (event) => {
-      if (!track.contains(event.relatedTarget)) {
+      if (!track.contains(event.relatedTarget as Node | null)) {
         focused = false;
         renderState();
       }

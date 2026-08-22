@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import ts from "typescript";
 import vm from "node:vm";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
@@ -24,7 +25,9 @@ const heroScript = async () => {
   const scripts = [...source.matchAll(/<script>([\s\S]*?)<\/script>/g)];
   const script = scripts.at(-1)?.[1];
   assert.ok(script, "Hero must ship a motion-control script");
-  return script;
+  return ts.transpileModule(script, {
+    compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
+  }).outputText;
 };
 
 const testimonialsScript = async () => {
@@ -32,7 +35,9 @@ const testimonialsScript = async () => {
   const scripts = [...source.matchAll(/<script>([\s\S]*?)<\/script>/g)];
   const script = scripts.at(-1)?.[1];
   assert.ok(script, "Testimonials must ship a motion-control script");
-  return script;
+  return ts.transpileModule(script, {
+    compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
+  }).outputText;
 };
 
 class FakeElement {
