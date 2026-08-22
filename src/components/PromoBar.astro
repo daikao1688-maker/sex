@@ -5,7 +5,8 @@ import { localeMeta, localizePath, type Locale } from "../i18n/config";
 interface Props {
   lang: Locale;
   /**
-   * "fixed" overlays the hero and slides away on scroll (home page);
+   * "fixed" overlays the hero, scrolls away natively on phones, and uses the
+   * existing fixed fade treatment from the small breakpoint upward (home page);
    * "inline" sits in the document flow below the navbar (every other page).
    */
   variant?: "fixed" | "inline";
@@ -17,7 +18,7 @@ const { lang, variant = "fixed", ctaHref } = Astro.props;
 
 const placement =
   variant === "fixed"
-    ? "fixed top-[5.5rem] sm:top-[6.5rem]"
+    ? "absolute top-[5.5rem] sm:fixed sm:top-[6.5rem]"
     : "relative mt-[5.5rem] sm:mt-[6.5rem]";
 const t = getDictionary(lang);
 const ctaTarget = ctaHref ?? localizePath(lang, "/#contact");

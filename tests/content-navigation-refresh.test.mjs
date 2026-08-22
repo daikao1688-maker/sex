@@ -41,6 +41,17 @@ test("non-blog promotion links keep their localized homepage contact target", as
   }
 });
 
+test("the homepage promotion scrolls away natively on mobile and only floats on desktop", async () => {
+  for (const locale of locales) {
+    const html = await readPage(locale);
+    const promoClasses = classList(tagWithAttribute(html, 'id="promo-top-bar"'));
+
+    assert.ok(promoClasses.includes("absolute"), `${locale} mobile promo is not in the page scroll layer`);
+    assert.ok(promoClasses.includes("sm:fixed"), `${locale} desktop promo lost its floating treatment`);
+    assert.ok(!promoClasses.includes("fixed"), `${locale} mobile promo still depends on scroll JavaScript`);
+  }
+});
+
 test("the navigation uses mobile controls below 1280px and desktop links from 1280px", async () => {
   for (const locale of locales) {
     const html = await readPage(locale);
