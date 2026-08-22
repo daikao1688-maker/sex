@@ -39,7 +39,7 @@ const schemas = [
 
 const tableWrap =
   "overflow-x-auto overscroll-x-contain rounded-xl border border-white/5 bg-[#0f0f0f]";
-const th = "text-left px-4 py-3 text-xs uppercase tracking-wider text-white/40 font-normal whitespace-nowrap";
+const th = "text-left px-4 py-3 text-xs uppercase tracking-wider text-white/60 font-normal whitespace-nowrap";
 const td = "px-4 py-3 text-sm text-white/70 whitespace-nowrap";
 const venueTd = "px-4 py-3 text-sm font-medium whitespace-nowrap";
 ---
@@ -131,7 +131,7 @@ const venueTd = "px-4 py-3 text-sm font-medium whitespace-nowrap";
         <h2 id="ranking-basics-title" class="text-lg sm:text-xl font-bold mb-3">
           {copy.tables.basics.heading}
         </h2>
-        <p class="text-white/30 text-xs mb-2 sm:hidden">{copy.swipeHint}</p>
+        <p class="text-white/60 text-xs mb-2 sm:hidden">{copy.swipeHint}</p>
         <div
           class={tableWrap}
           data-ranking-table="basics"
@@ -173,7 +173,7 @@ const venueTd = "px-4 py-3 text-sm font-medium whitespace-nowrap";
                     <td class={td}>{copy.values.multinational}</td>
                     <td class={td}>{venue.hours}</td>
                     <td class={td}>
-                      <span class={venue.open24h ? "text-green-400" : "text-white/25"}>
+                      <span class={venue.open24h ? "text-green-400" : "text-white/60"}>
                         {flag(venue.open24h)}
                       </span>
                     </td>
@@ -280,7 +280,7 @@ const venueTd = "px-4 py-3 text-sm font-medium whitespace-nowrap";
                       </span>
                     </td>
                     <td class={td}>
-                      <span class={venue.overnightAllowed ? "text-green-400" : "text-white/25"}>
+                      <span class={venue.overnightAllowed ? "text-green-400" : "text-white/60"}>
                         {flag(venue.overnightAllowed)}
                       </span>
                     </td>
@@ -333,22 +333,22 @@ const venueTd = "px-4 py-3 text-sm font-medium whitespace-nowrap";
                       </span>
                     </td>
                     <td class={td}>
-                      <span class={venue.ktv ? "text-green-400" : "text-white/25"}>
+                      <span class={venue.ktv ? "text-green-400" : "text-white/60"}>
                         {flag(venue.ktv)}
                       </span>
                     </td>
                     <td class={td}>
-                      <span class={venue.themeRooms ? "text-green-400" : "text-white/25"}>
+                      <span class={venue.themeRooms ? "text-green-400" : "text-white/60"}>
                         {flag(venue.themeRooms)}
                       </span>
                     </td>
                     <td class={td}>
-                      <span class={venue.recommendedShow ? "text-green-400" : "text-white/25"}>
+                      <span class={venue.recommendedShow ? "text-green-400" : "text-white/60"}>
                         {flag(venue.recommendedShow)}
                       </span>
                     </td>
                     <td class={td}>
-                      <span class={venue.isNew ? "text-gold" : "text-white/25"}>
+                      <span class={venue.isNew ? "text-gold" : "text-white/60"}>
                         {venue.isNew ? "✦" : copy.values.no}
                       </span>
                     </td>
@@ -381,7 +381,7 @@ const venueTd = "px-4 py-3 text-sm font-medium whitespace-nowrap";
                   {gift.name}
                 </h3>
                 <span class="text-xs whitespace-nowrap">
-                  <span class="text-white/30 line-through">{gift.value}</span>{" "}
+                  <span class="text-white/60 line-through">{gift.value}</span>{" "}
                   <span class="text-green-400 font-semibold">{copy.treatments.free}</span>
                 </span>
               </div>

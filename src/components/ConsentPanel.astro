@@ -1,0 +1,115 @@
+---
+import { getConsentCopy } from "../i18n/consent";
+import { localizePath, type Locale } from "../i18n/config";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const copy = getConsentCopy(lang);
+---
+
+<aside
+  data-consent-panel
+  aria-hidden="true"
+  hidden
+  role="dialog"
+  aria-modal="false"
+  aria-labelledby="consent-panel-title"
+  class="fixed inset-x-3 bottom-3 z-[190] mx-auto max-w-2xl rounded-2xl border border-gold/30 bg-[#141414]/98 p-4 text-white shadow-2xl shadow-black/50 backdrop-blur-md sm:inset-x-6 sm:bottom-6 sm:p-5"
+>
+  <div class="sm:flex sm:items-center sm:gap-6">
+    <div class="min-w-0 flex-1">
+      <h2 id="consent-panel-title" class="text-base font-bold text-gold">{copy.heading}</h2>
+      <p class="mt-1 text-sm leading-relaxed text-white/70">{copy.body}</p>
+      <a
+        href={localizePath(lang, "/privacy/")}
+        class="mt-2 inline-flex min-h-11 items-center text-xs font-medium text-gold-light hover:underline"
+      >
+        {copy.privacyLink}
+      </a>
+    </div>
+    <div class="mt-3 flex shrink-0 gap-2 sm:mt-0 sm:flex-col sm:items-stretch">
+      <button
+        type="button"
+        data-consent-decline
+        class="inline-flex min-h-11 flex-1 items-center justify-center rounded-full border border-white/25 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-white/50 sm:flex-none"
+      >
+        {copy.decline}
+      </button>
+      <button
+        type="button"
+        data-consent-accept
+        class="inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-gold px-4 py-2 text-sm font-bold text-black transition-colors hover:bg-gold-light sm:flex-none"
+      >
+        {copy.accept}
+      </button>
+    </div>
+  </div>
+</aside>
+
+<style is:global>
+  [data-page-background][inert] [data-consent-panel] {
+    visibility: hidden;
+  }
+</style>
+
+<script is:inline data-consent-controller>
+  (() => {
+    const preferenceKey = "relaxmacau:analytics-consent";
+    const panel = document.querySelector("[data-consent-panel]");
+    const accept = document.querySelector("[data-consent-accept]");
+    if (!panel || !accept) return;
+
+    let lastTrigger = null;
+    const readPreference = () => {
+      try {
+        const value = localStorage.getItem(preferenceKey);
+        return value === "granted" || value === "denied" ? value : null;
+      } catch {
+        return null;
+      }
+    };
+    const writePreference = (value) => {
+      try {
+        localStorage.setItem(preferenceKey, value);
+      } catch {
+        // The choice still applies to this page when storage is unavailable.
+      }
+    };
+    const show = (trigger = null) => {
+      lastTrigger = trigger;
+      panel.hidden = false;
+      panel.setAttribute("aria-hidden", "false");
+      requestAnimationFrame(() => accept.focus());
+    };
+    const hide = () => {
+      panel.hidden = true;
+      panel.setAttribute("aria-hidden", "true");
+    };
+    const choose = (value) => {
+      writePreference(value);
+      window.dispatchEvent(new CustomEvent("relaxmacau:analytics-consent", { detail: value }));
+      hide();
+      if (lastTrigger) lastTrigger.focus();
+      lastTrigger = null;
+    };
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      const settings = target?.closest?.("[data-consent-settings]");
+      if (settings) {
+        event.preventDefault();
+        show(settings);
+      } else if (target?.closest?.("[data-consent-accept]")) {
+        choose("granted");
+      } else if (target?.closest?.("[data-consent-decline]")) {
+        choose("denied");
+      }
+    });
+
+    if (readPreference()) hide();
+    else show();
+  })();
+</script>

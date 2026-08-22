@@ -22,7 +22,7 @@ const { lang, copy, temporarilyClosed } = Astro.props;
       <Icon name="shield" class="h-5 w-5 shrink-0" />
       {copy.heading}
     </h2>
-    <p class="text-xs text-white/45">
+    <p class="text-xs text-white/60">
       {copy.lastReviewedLabel}
       <time datetime="2026-08-22">{copy.lastReviewedDate}</time>
     </p>
@@ -37,7 +37,7 @@ const { lang, copy, temporarilyClosed } = Astro.props;
       <dt class="mb-1 font-semibold text-white/85">{copy.verificationLabel}</dt>
       <dd class="leading-relaxed text-white/60">
         {temporarilyClosed ? copy.closedStatus : copy.activeStatus}
-        <span class="mt-1 block text-white/45">{copy.unverifiedLabel}</span>
+        <span class="mt-1 block text-white/60">{copy.unverifiedLabel}</span>
       </dd>
     </div>
     <div class="sm:col-span-2">

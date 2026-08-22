@@ -12,6 +12,7 @@ import { getSpaPageCopy, spaBreadcrumbs, venueSummary } from "../../../i18n/page
 import { resolveVenueDetail } from "../../../lib/spaDetail";
 import { venues } from "../../../data/venues";
 import { getReplacementVenueGallery } from "../../../data/venueGalleries";
+import { venueHeroImageMetadata } from "../../../data/venueHeroImages";
 import { site, contact, chatUrl } from "../../../data/site";
 
 export function getStaticPaths() {
@@ -57,6 +58,16 @@ const heroSource = galleryImages.find((image) =>
   existsSync(`public/media/${image.file}-lg.webp`),
 );
 const heroImage = heroSource ? `/media/${heroSource.file}-lg.webp` : cover;
+const heroSmallImage = heroSource
+  ? `/media/${heroSource.file}-hero-768.webp`
+  : `/covers/${venue.cover}-400.jpg`;
+const heroSmallWidth = heroSource ? 768 : 400;
+const heroDimensions = heroSource
+  ? venueHeroImageMetadata[heroSource.file]
+  : { width: 800, height: 800 };
+if (!heroDimensions) {
+  throw new Error(`Missing intrinsic hero dimensions for ${venue.slug}/${heroSource?.file}`);
+}
 const heroAlt = heroSource ? heroSource.alt : `${name} — Macau premium sauna venue`;
 
 const related = venues
@@ -102,9 +113,12 @@ const schemas = [
   <section data-testid="spa-hero" class="relative h-[50vh] sm:h-[60vh] flex items-end overflow-hidden">
     <img
       src={heroImage}
+      srcset={`${heroSmallImage} ${heroSmallWidth}w, ${heroImage} ${heroDimensions.width}w`}
+      sizes="100vw"
       alt={heroAlt}
-      width="1920"
-      height="1080"
+      width={heroDimensions.width}
+      height={heroDimensions.height}
+      loading="eager"
       fetchpriority="high"
       decoding="async"
       class="absolute inset-0 w-full h-full object-cover"
@@ -148,7 +162,7 @@ const schemas = [
         </p>
         {
           detail.aliases && (
-            <p class="text-white/40 text-sm mt-4">
+            <p class="text-white/60 text-sm mt-4">
               {copy.alsoKnownAs} {detail.aliases}
             </p>
           )
@@ -177,7 +191,7 @@ const schemas = [
             >
               <dt class="mb-1 flex items-center gap-2">
                 <Icon name="badge-dollar-sign" class="h-5 w-5 shrink-0 text-gold" />
-                <span class="text-xs uppercase tracking-wider text-white/40">
+                <span class="text-xs uppercase tracking-wider text-white/60">
                   {copy.labels.referencePrice}
                 </span>
               </dt>
@@ -197,7 +211,7 @@ const schemas = [
             >
               <dt class="mb-1 flex items-center gap-2">
                 <Icon name="users" class="h-5 w-5 shrink-0 text-gold" />
-                <span class="text-xs uppercase tracking-wider text-white/40">{copy.labels.staff}</span>
+                <span class="text-xs uppercase tracking-wider text-white/60">{copy.labels.staff}</span>
               </dt>
               <dd class="ml-7 min-w-0 font-medium leading-relaxed text-white break-words">
                 {practicalStaffValue}
@@ -215,7 +229,7 @@ const schemas = [
             >
               <dt class="mb-1 flex items-center gap-2">
                 <Icon name="clock" class="h-5 w-5 shrink-0 text-gold" />
-                <span class="text-xs uppercase tracking-wider text-white/40">{copy.labels.hours}</span>
+                <span class="text-xs uppercase tracking-wider text-white/60">{copy.labels.hours}</span>
               </dt>
               <dd class="ml-7 min-w-0">
                 <p class="font-medium text-white break-words">{practicalHours}</p>
@@ -229,7 +243,7 @@ const schemas = [
             >
               <dt class="mb-1 flex items-center gap-2">
                 <Icon name="moon" class="h-5 w-5 shrink-0 text-gold" />
-                <span class="text-xs uppercase tracking-wider text-white/40">
+                <span class="text-xs uppercase tracking-wider text-white/60">
                   {copy.labels.overnight}
                 </span>
               </dt>
@@ -254,7 +268,7 @@ const schemas = [
             >
               <dt class="mb-1 flex items-center gap-2">
                 <Icon name="sparkles" class="h-5 w-5 shrink-0 text-gold" />
-                <span class="text-xs uppercase tracking-wider text-white/40">
+                <span class="text-xs uppercase tracking-wider text-white/60">
                   {copy.labels.highlights}
                 </span>
               </dt>
@@ -278,7 +292,7 @@ const schemas = [
             >
               <dt class="mb-1 flex items-center gap-2">
                 <Icon name="tag" class="h-5 w-5 shrink-0 text-gold" />
-                <span class="text-xs uppercase tracking-wider text-white/40">
+                <span class="text-xs uppercase tracking-wider text-white/60">
                   {copy.labels.bestFor}
                 </span>
               </dt>
@@ -293,7 +307,7 @@ const schemas = [
             >
               <dt class="mb-1 flex items-center gap-2">
                 <Icon name="credit-card" class="h-5 w-5 shrink-0 text-gold" />
-                <span class="text-xs uppercase tracking-wider text-white/40">
+                <span class="text-xs uppercase tracking-wider text-white/60">
                   {copy.labels.payment}
                 </span>
               </dt>

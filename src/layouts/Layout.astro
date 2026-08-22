@@ -70,30 +70,40 @@ const fontStacks: Record<Locale, string> = {
   ja: '"Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, -apple-system, sans-serif',
 };
 
-// Production analytics waits for idle time, consent integration, or the first
-// meaningful interaction. A global guard makes repeated signals harmless.
+// Basic Consent Mode: production Google tags remain entirely absent until an
+// explicit stored grant or a grant event from the on-page consent panel.
 const deferredGtagSnippet = `(() => {
   const tagId = ${JSON.stringify(site.googleTagId)};
   const adsId = ${JSON.stringify(site.googleAdsId)};
-  const interactionEvents = ["pointerdown", "keydown", "touchstart", "scroll"];
+  const preferenceKey = "relaxmacau:analytics-consent";
   let started = false;
 
-  const cleanup = () => {
-    interactionEvents.forEach((eventName) => window.removeEventListener(eventName, initialize));
-    window.removeEventListener("relaxmacau:analytics-consent", initialize);
+  const readPreference = () => {
+    try {
+      return localStorage.getItem(preferenceKey);
+    } catch {
+      return null;
+    }
   };
+  const consentState = (value) => ({
+    ad_storage: value,
+    analytics_storage: value,
+    ad_user_data: value,
+    ad_personalization: value,
+  });
 
   const initialize = () => {
+    if (readPreference() !== "granted") return;
     if (started || window.__rmAnalyticsInitialized) return;
     started = true;
     window.__rmAnalyticsInitialized = true;
-    cleanup();
 
     window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
-    gtag("js", new Date());
-    gtag("config", tagId);
-    gtag("config", adsId);
+    window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
+    window.gtag("consent", "default", consentState("granted"));
+    window.gtag("js", new Date());
+    window.gtag("config", tagId);
+    window.gtag("config", adsId);
 
     const script = document.createElement("script");
     script.async = true;
@@ -101,16 +111,19 @@ const deferredGtagSnippet = `(() => {
     document.head.append(script);
   };
 
-  interactionEvents.forEach((eventName) =>
-    window.addEventListener(eventName, initialize, { once: true, passive: true }),
-  );
-  window.addEventListener("relaxmacau:analytics-consent", initialize, { once: true });
+  window.addEventListener("relaxmacau:analytics-consent", (event) => {
+    if (event.detail === "granted") {
+      if (window.__rmAnalyticsInitialized && window.gtag) {
+        window.gtag("consent", "update", consentState("granted"));
+      } else {
+        initialize();
+      }
+    } else if (event.detail === "denied" && window.__rmAnalyticsInitialized && window.gtag) {
+      window.gtag("consent", "update", consentState("denied"));
+    }
+  });
 
-  if ("requestIdleCallback" in window) {
-    window.requestIdleCallback(initialize, { timeout: 3500 });
-  } else {
-    window.setTimeout(initialize, 3500);
-  }
+  initialize();
 })();`;
 
 const siteSchemas = [

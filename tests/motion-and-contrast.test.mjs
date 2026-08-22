@@ -186,6 +186,44 @@ test("hero keeps its background cadence when venue text rotates first", async ()
   assert.equal(venues[1].getAttribute("aria-hidden"), "false", "venue rotation must remain synchronized with its visible state");
 });
 
+test("hero motion remains functional when IntersectionObserver is unavailable", async () => {
+  const hero = new FakeElement();
+  const toggle = new FakeElement();
+  const icon = new FakeElement();
+  const backdrops = [new FakeElement(), new FakeElement()];
+  const venueGroups = [new FakeElement(), new FakeElement()];
+  let scheduled = 0;
+
+  backdrops.forEach((backdrop) => (backdrop.querySelector = () => null));
+  const document = {
+    visibilityState: "visible",
+    querySelector: (selector) =>
+      ({
+        "[data-hero-motion]": hero,
+        "[data-hero-motion-toggle]": toggle,
+        "[data-hero-motion-icon]": icon,
+      })[selector] ?? null,
+    querySelectorAll: (selector) =>
+      ({
+        "[data-hero-backdrop]": backdrops,
+        "[data-hero-venue-group]": venueGroups,
+      })[selector] ?? [],
+    addEventListener() {},
+  };
+  const window = {
+    matchMedia: () => ({ matches: false, addEventListener() {} }),
+    setTimeout: () => ++scheduled,
+    clearTimeout() {},
+  };
+
+  vm.runInNewContext(await heroScript(), { document, window });
+
+  assert.equal(hero.dataset.motionState, "running", "unsupported observation must not abort hero setup");
+  assert.equal(backdrops[0].getAttribute("aria-hidden"), "false", "the active image must stay exposed");
+  assert.equal(venueGroups[0].getAttribute("aria-hidden"), "false", "the active venue text must stay exposed");
+  assert.ok(scheduled >= 3, "fallback mode must continue the image and venue cadence");
+});
+
 test("reduced motion keeps the testimonial region horizontally reachable", async () => {
   const styles = await readFile(path.join(projectRoot, "src/styles/global.css"), "utf8");
   const reducedMotionRules = styles.slice(styles.indexOf("@media (prefers-reduced-motion: reduce)"));
@@ -204,11 +242,12 @@ test("reduced motion keeps the testimonial region horizontally reachable", async
 
 test("testimonial motion stays inactive when viewport observation is unavailable", async () => {
   const track = new FakeElement();
+  const region = new FakeElement();
   const toggle = new FakeElement();
   const icon = new FakeElement();
   track.dataset.count = "2";
   track.querySelectorAll = () => [{ offsetLeft: 0 }, { offsetLeft: 296 }, { offsetLeft: 592 }];
-  track.contains = () => false;
+  region.contains = () => false;
   let animationFrames = 0;
 
   const document = {
@@ -218,6 +257,7 @@ test("testimonial motion stays inactive when viewport observation is unavailable
       ({
         "[data-testimonial-motion-toggle]": toggle,
         "[data-testimonial-motion-icon]": icon,
+        "[data-testimonial-motion-region]": region,
       })[selector] ?? null,
     addEventListener() {},
   };
@@ -231,4 +271,54 @@ test("testimonial motion stays inactive when viewport observation is unavailable
 
   assert.equal(track.dataset.motionState, "paused", "without observation, carousel visibility is unknown and must remain paused");
   assert.equal(animationFrames, 0, "without observation, carousel must not schedule an animation frame");
+});
+
+test("testimonial focus pause covers the track and its shared pause control", async () => {
+  const track = new FakeElement();
+  const region = new FakeElement();
+  const toggle = new FakeElement();
+  const icon = new FakeElement();
+  const outside = new FakeElement();
+  track.dataset.count = "2";
+  track.querySelectorAll = () => [{ offsetLeft: 0 }, { offsetLeft: 296 }, { offsetLeft: 592 }];
+  region.contains = (node) => node === track || node === toggle;
+  let observer;
+  let animationFrames = 0;
+
+  const document = {
+    visibilityState: "visible",
+    getElementById: (id) => (id === "testimonial-track" ? track : null),
+    querySelector: (selector) =>
+      ({
+        "[data-testimonial-motion-toggle]": toggle,
+        "[data-testimonial-motion-icon]": icon,
+        "[data-testimonial-motion-region]": region,
+      })[selector] ?? null,
+    addEventListener() {},
+  };
+  class FakeObserver {
+    constructor(callback) {
+      this.callback = callback;
+      observer = this;
+    }
+
+    observe() {}
+  }
+  const window = {
+    IntersectionObserver: FakeObserver,
+    matchMedia: () => ({ matches: false, addEventListener() {} }),
+    cancelAnimationFrame() {},
+    requestAnimationFrame: () => ++animationFrames,
+  };
+
+  vm.runInNewContext(await testimonialsScript(), { document, window, IntersectionObserver: FakeObserver });
+  observer.callback([{ isIntersecting: true }]);
+  assert.equal(track.dataset.motionState, "running");
+  assert.ok(animationFrames > 0);
+
+  region.listeners.get("focusin")({ target: toggle });
+  assert.equal(track.dataset.motionState, "paused", "focusing the pause button must pause the shared motion region");
+
+  region.listeners.get("focusout")({ relatedTarget: outside });
+  assert.equal(track.dataset.motionState, "running", "leaving the shared region must resume eligible motion");
 });

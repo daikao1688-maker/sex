@@ -23,7 +23,7 @@ const loop = [0, 1, 2].flatMap((copy) =>
       <div class="w-16 h-0.5 bg-gold mx-auto"></div>
     </div>
 
-    <div class="relative">
+    <div class="relative" data-testimonial-motion-region>
       <button
         type="button"
         data-testimonial-motion-toggle
@@ -60,7 +60,7 @@ const loop = [0, 1, 2].flatMap((copy) =>
     </div>
 
     <div class="text-center mt-8">
-      <p class="text-white/40 text-sm">{t.testimonials.served}</p>
+      <p class="text-white/60 text-sm">{t.testimonials.served}</p>
     </div>
   </div>
 </section>
@@ -71,9 +71,10 @@ const loop = [0, 1, 2].flatMap((copy) =>
     if (!track) return;
 
     const count = Number(track.dataset.count ?? 0);
+    const motionRegion = document.querySelector<HTMLElement>("[data-testimonial-motion-region]");
     const toggle = document.querySelector<HTMLButtonElement>("[data-testimonial-motion-toggle]");
     const icon = document.querySelector<HTMLElement>("[data-testimonial-motion-icon]");
-    if (!count || !toggle || !icon) return;
+    if (!count || !motionRegion || !toggle || !icon) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let manuallyPaused = false;
@@ -133,20 +134,20 @@ const loop = [0, 1, 2].flatMap((copy) =>
       manuallyPaused = !manuallyPaused;
       renderState();
     });
-    track.addEventListener("mouseenter", () => {
+    motionRegion.addEventListener("mouseenter", () => {
       hovered = true;
       renderState();
     });
-    track.addEventListener("mouseleave", () => {
+    motionRegion.addEventListener("mouseleave", () => {
       hovered = false;
       renderState();
     });
-    track.addEventListener("focusin", () => {
+    motionRegion.addEventListener("focusin", () => {
       focused = true;
       renderState();
     });
-    track.addEventListener("focusout", (event) => {
-      if (!track.contains(event.relatedTarget as Node | null)) {
+    motionRegion.addEventListener("focusout", (event) => {
+      if (!motionRegion.contains(event.relatedTarget as Node | null)) {
         focused = false;
         renderState();
       }
@@ -161,7 +162,7 @@ const loop = [0, 1, 2].flatMap((copy) =>
           renderState();
         },
         { threshold: 0.1 },
-      ).observe(track);
+      ).observe(motionRegion);
     }
 
     renderState();

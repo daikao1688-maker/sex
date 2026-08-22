@@ -35,6 +35,8 @@ const [offerBefore, offerAfter = ""] = t.promo.offer.split("{month}");
 
 <div
   id="promo-top-bar"
+  data-promo-variant={variant}
+  aria-hidden="false"
   class:list={[
     "left-0 right-0 z-40 w-full overflow-hidden border-b border-red-400/40 glow-red",
     placement,
@@ -84,49 +86,57 @@ const [offerBefore, offerAfter = ""] = t.promo.offer.split("{month}");
     nodes.forEach((node) => (node.textContent = label));
   })();
 
-  // The CTA is intentionally absent on narrow screens; mirror that state in
-  // the accessibility tree and restore its native tab stop on larger screens.
-  (() => {
-    const cta = document.querySelector<HTMLAnchorElement>("[data-promo-cta]");
-    if (!cta) return;
-    const desktop = window.matchMedia("(min-width: 640px)");
-    const syncFocusable = () => {
-      cta.setAttribute("aria-hidden", String(!desktop.matches));
-      if (desktop.matches) cta.removeAttribute("tabindex");
-      else cta.tabIndex = -1;
-    };
-    syncFocusable();
-    desktop.addEventListener("change", syncFocusable);
-  })();
-
-  // Slide the banner away within the first ~80px of scroll so it never floats
-  // over the hero headline as a translucent strip.
+  // The CTA is absent on narrow screens. Fixed home-page bars also leave the
+  // accessibility tree once their scroll fade completes, then return with
+  // their native tab order when the visitor scrolls back to the top.
   (() => {
     const bar = document.getElementById("promo-top-bar");
-    if (!bar || getComputedStyle(bar).position !== "fixed") return;
+    const cta = document.querySelector<HTMLAnchorElement>("[data-promo-cta]");
+    if (!bar || !cta) return;
 
+    const desktop = window.matchMedia("(min-width: 640px)");
+    const fixedVariant =
+      bar.dataset.promoVariant === "fixed" || getComputedStyle(bar).position === "fixed";
     const fadeEnd = 80;
+    let scrolledHidden = false;
     let ticking = false;
 
+    const syncAccessibility = () => {
+      bar.setAttribute("aria-hidden", String(scrolledHidden));
+      bar.inert = scrolledHidden;
+
+      const ctaHidden = scrolledHidden || !desktop.matches;
+      cta.setAttribute("aria-hidden", String(ctaHidden));
+      if (ctaHidden) cta.tabIndex = -1;
+      else cta.removeAttribute("tabindex");
+    };
+
     const update = () => {
-      const progress = Math.min(1, Math.max(0, window.scrollY / fadeEnd));
+      const progress = fixedVariant && desktop.matches
+        ? Math.min(1, Math.max(0, window.scrollY / fadeEnd))
+        : 0;
+      scrolledHidden = progress >= 0.95;
       bar.style.opacity = String(1 - progress);
       bar.style.transform = `translateY(${-progress * 110}%)`;
-      bar.style.pointerEvents = progress > 0.95 ? "none" : "";
+      bar.style.pointerEvents = scrolledHidden ? "none" : "";
+      syncAccessibility();
     };
 
     update();
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          update();
-          ticking = false;
-        });
-      },
-      { passive: true },
-    );
+    if (fixedVariant) {
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            update();
+            ticking = false;
+          });
+        },
+        { passive: true },
+      );
+    }
+    desktop.addEventListener("change", update);
   })();
 </script>

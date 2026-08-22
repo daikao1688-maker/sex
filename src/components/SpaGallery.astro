@@ -88,6 +88,7 @@ const large = (file: string) =>
       role="dialog"
       aria-modal="true"
       aria-label={heading}
+      aria-hidden="true"
     >
       <button
         type="button"
@@ -117,12 +118,22 @@ const large = (file: string) =>
     let lastTrigger: HTMLElement | null = null;
     let previousBodyOverflow = "";
 
+    // The component is rendered inside [data-page-background]. Move the
+    // dialog beside that subtree before making the page itself inert.
+    document.body.append(lightbox);
+
     const isOpen = () => !lightbox.hidden;
+    const setBackgroundInert = (inert: boolean) => {
+      const background = document.querySelector<HTMLElement>("[data-page-background]");
+      if (background) background.inert = inert;
+    };
 
     const close = () => {
       if (!isOpen()) return;
       lightbox.classList.replace("flex", "hidden");
       lightbox.hidden = true;
+      lightbox.setAttribute("aria-hidden", "true");
+      setBackgroundInert(false);
       document.body.style.overflow = previousBodyOverflow;
       lastTrigger?.focus();
       lastTrigger = null;
@@ -137,7 +148,9 @@ const large = (file: string) =>
         image.alt = trigger.dataset.alt ?? "";
         caption.textContent = trigger.dataset.caption ?? "";
         lightbox.hidden = false;
+        lightbox.setAttribute("aria-hidden", "false");
         lightbox.classList.replace("hidden", "flex");
+        setBackgroundInert(true);
         document.body.style.overflow = "hidden";
         requestAnimationFrame(() => closeButton?.focus());
       });

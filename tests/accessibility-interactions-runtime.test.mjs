@@ -11,6 +11,8 @@ class FakeElement {
   constructor() {
     this.attributes = new Map();
     this.classList = new Set();
+    this.dataset = {};
+    this.style = {};
     this.focused = false;
   }
 
@@ -279,23 +281,47 @@ test("VIP tabs move focus and selection with Arrow, Home, and End", async () => 
   assert.equal(gifts.tabIndex, 0);
 });
 
-test("the promo CTA restores and removes its tab stop as its responsive visibility changes", async () => {
+test("the promo CTA follows both responsive and scroll visibility without leaving a keyboard target", async () => {
+  const bar = new FakeElement();
   const cta = new FakeElement();
   cta.setAttribute("aria-hidden", "true");
   cta.setAttribute("tabindex", "-1");
+  bar.querySelectorAll = () => [cta];
   const media = { matches: true, addEventListener: (_, listener) => (media.listener = listener) };
+  const listeners = new Map();
+  const window = {
+    matchMedia: () => media,
+    addEventListener: (name, listener) => listeners.set(name, listener),
+    scrollY: 0,
+  };
   const document = {
     querySelectorAll: () => [],
     querySelector: (selector) => (selector === "[data-promo-cta]" ? cta : null),
-    getElementById: () => null,
+    getElementById: (id) => (id === "promo-top-bar" ? bar : null),
   };
 
   vm.runInNewContext(await componentScript("PromoBar.astro"), {
     document,
-    window: { matchMedia: () => media, addEventListener() {}, scrollY: 0 },
-    getComputedStyle: () => ({ position: "static" }),
-    requestAnimationFrame() {},
+    window,
+    getComputedStyle: () => ({ position: "fixed" }),
+    requestAnimationFrame: (callback) => callback(),
   });
+  assert.equal(bar.getAttribute("aria-hidden"), "false");
+  assert.equal(bar.inert, false);
+  assert.equal(cta.getAttribute("aria-hidden"), "false");
+  assert.equal(cta.getAttribute("tabindex"), null);
+
+  window.scrollY = 80;
+  listeners.get("scroll")();
+  assert.equal(bar.getAttribute("aria-hidden"), "true", "a scrolled-away bar must leave the accessibility tree");
+  assert.equal(bar.inert, true, "a scrolled-away bar must make all descendants inert");
+  assert.equal(cta.getAttribute("aria-hidden"), "true");
+  assert.equal(cta.tabIndex, -1, "a transparent CTA must not remain in keyboard order");
+
+  window.scrollY = 0;
+  listeners.get("scroll")();
+  assert.equal(bar.getAttribute("aria-hidden"), "false", "returning to the top must expose the bar again");
+  assert.equal(bar.inert, false);
   assert.equal(cta.getAttribute("aria-hidden"), "false");
   assert.equal(cta.getAttribute("tabindex"), null);
 
@@ -303,6 +329,71 @@ test("the promo CTA restores and removes its tab stop as its responsive visibili
   media.listener();
   assert.equal(cta.getAttribute("aria-hidden"), "true");
   assert.equal(cta.tabIndex, -1);
+});
+
+test("the spa gallery lightbox makes the page inert and restores it after every close path", async () => {
+  const lightbox = new FakeElement();
+  const image = new FakeElement();
+  const caption = new FakeElement();
+  const closeButton = new FakeElement();
+  const trigger = new FakeElement();
+  const background = new FakeElement();
+  const appended = [];
+  const documentListeners = new Map();
+
+  lightbox.hidden = true;
+  lightbox.setAttribute("aria-hidden", "true");
+  lightbox.classList.add("hidden");
+  trigger.dataset = {
+    src: "/media/venue-lg.webp",
+    alt: "Venue interior",
+    caption: "Venue lounge",
+  };
+  lightbox.querySelector = (selector) =>
+    ({
+      "[data-gallery-image]": image,
+      "[data-gallery-caption]": caption,
+      "[data-gallery-close]": closeButton,
+    })[selector] ?? null;
+
+  for (const element of [lightbox, image, caption, closeButton, trigger, background]) {
+    element.classList = classListFor(element);
+  }
+
+  const document = {
+    activeElement: trigger,
+    body: { style: {}, append: (node) => appended.push(node) },
+    querySelector: (selector) => {
+      if (selector === "[data-gallery-lightbox]") return lightbox;
+      if (selector === "[data-page-background]") return background;
+      return null;
+    },
+    querySelectorAll: (selector) => (selector === "[data-gallery-open]" ? [trigger] : []),
+    addEventListener: (name, listener) => documentListeners.set(name, listener),
+  };
+
+  vm.runInNewContext(await componentScript("SpaGallery.astro"), {
+    document,
+    HTMLElement: FakeElement,
+    requestAnimationFrame: (callback) => callback(),
+  });
+
+  assert.deepEqual(appended, [lightbox], "the lightbox must be moved outside the inert page subtree");
+  trigger.listeners.get("click")();
+  assert.equal(lightbox.hidden, false);
+  assert.equal(lightbox.getAttribute("aria-hidden"), "false");
+  assert.equal(background.inert, true, "opening must make the page background inert");
+  assert.equal(closeButton.focused, true, "opening must focus the close control");
+
+  documentListeners.get("keydown")({ key: "Escape", preventDefault() {} });
+  assert.equal(background.inert, false, "Escape must restore the page background");
+  assert.equal(trigger.focused, true, "Escape must restore the opening trigger");
+
+  trigger.focused = false;
+  trigger.listeners.get("click")();
+  lightbox.listeners.get("click")({ target: lightbox });
+  assert.equal(background.inert, false, "backdrop close must restore the page background");
+  assert.equal(trigger.focused, true, "backdrop close must restore the opening trigger");
 });
 
 test("the floating contact pill restores and removes its tab stop as the hero enters and leaves view", async () => {

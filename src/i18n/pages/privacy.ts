@@ -9,6 +9,7 @@ export interface PrivacyCopy {
   effectiveDate: string;
   summary: string;
   sections: Array<{ heading: string; paragraphs: string[] }>;
+  manageConsent: string;
   contactLink: string;
 }
 
@@ -29,8 +30,9 @@ const en: PrivacyCopy = {
     {
       heading: 'Google measurement and advertising',
       paragraphs: [
-        'On production pages we load the Google tag GT-TXHFV3C5 and Google Ads tag AW-18058018185. They can send Google information about page visits, browser or device details, referring and campaign data, and interactions used to measure site and advertising performance.',
+        'On production pages we offer the Google tag GT-TXHFV3C5 and Google Ads tag AW-18058018185. Google tags do not load and no information is sent to Google through them unless you choose Accept. If you decline or make no choice, the tags remain blocked.',
         'Google may use cookies or similar browser technologies when those tags run. How Google processes that information is governed by Google’s own privacy terms and the controls available in your browser or Google account.',
+        'We store your choice in this browser’s local storage. You can reopen Privacy choices in the footer at any time and withdraw consent; after withdrawal, later pages keep Google tags blocked.',
       ],
     },
     {
@@ -54,6 +56,7 @@ const en: PrivacyCopy = {
       ],
     },
   ],
+  manageConsent: 'Review or withdraw analytics consent',
   contactLink: 'Ask a privacy question →',
 };
 
@@ -74,8 +77,9 @@ const zhTW: PrivacyCopy = {
     {
       heading: 'Google 成效評估與廣告',
       paragraphs: [
-        '正式上線的頁面會載入 Google tag GT-TXHFV3C5 及 Google Ads tag AW-18058018185。標籤可把瀏覽頁面、瀏覽器或裝置資料、來源與廣告活動資料，以及用作評估網站和廣告成效的互動資料傳送給 Google。',
+        '正式上線的頁面提供 Google tag GT-TXHFV3C5 及 Google Ads tag AW-18058018185。除非您選擇「同意」，否則 Google 標籤不會載入，也不會透過這些標籤向 Google 傳送資料。拒絕或未作選擇時，標籤會維持封鎖。',
         '標籤運作時，Google 可能使用 Cookie 或類似的瀏覽器技術。相關資料由 Google 按其私隱條款處理；您亦可使用瀏覽器或 Google 帳戶所提供的控制選項。',
+        '我們會把您的選擇儲存在此瀏覽器的本機儲存空間。您可隨時透過頁尾的「隱私選擇」重新開啟面板並撤回同意；撤回後，日後頁面不會載入 Google 標籤。',
       ],
     },
     {
@@ -99,6 +103,7 @@ const zhTW: PrivacyCopy = {
       ],
     },
   ],
+  manageConsent: '檢視或撤回成效評估同意',
   contactLink: '提出私隱相關問題 →',
 };
 
@@ -119,8 +124,9 @@ const zhCN: PrivacyCopy = {
     {
       heading: 'Google 效果衡量与广告',
       paragraphs: [
-        '正式上线的页面会加载 Google tag GT-TXHFV3C5 和 Google Ads tag AW-18058018185。标签可以向 Google 发送页面访问、浏览器或设备资料、来源与广告活动资料，以及用来衡量网站和广告效果的互动资料。',
+        '正式上线的页面提供 Google tag GT-TXHFV3C5 和 Google Ads tag AW-18058018185。除非您选择“同意”，否则 Google 标签不会加载，也不会通过这些标签向 Google 发送资料。拒绝或未作选择时，标签会保持拦截。',
         '标签运行时，Google 可能使用 Cookie 或类似的浏览器技术。相关资料由 Google 按照其隐私条款处理；您也可以使用浏览器或 Google 账户提供的控制选项。',
+        '我们会把您的选择保存在此浏览器的本地存储中。您可随时通过页尾的“隐私选择”重新打开面板并撤回同意；撤回后，后续页面不会加载 Google 标签。',
       ],
     },
     {
@@ -144,6 +150,7 @@ const zhCN: PrivacyCopy = {
       ],
     },
   ],
+  manageConsent: '查看或撤回效果衡量同意',
   contactLink: '提出隐私相关问题 →',
 };
 
@@ -164,8 +171,9 @@ const ja: PrivacyCopy = {
     {
       heading: 'Googleによる計測と広告',
       paragraphs: [
-        '公開中のページでは、Google tag GT-TXHFV3C5とGoogle Ads tag AW-18058018185を読み込みます。閲覧ページ、ブラウザや端末、参照元やキャンペーン、サイトと広告の効果測定に使う操作情報などがGoogleへ送信される場合があります。',
+        '公開中のページでは、Google tag GT-TXHFV3C5とGoogle Ads tag AW-18058018185を利用できます。「同意する」を選ぶまでGoogleタグは読み込まれず、タグを通じてGoogleへ情報が送信されることもありません。拒否した場合や未選択の場合も、タグはブロックされたままです。',
         'タグの動作時には、GoogleがCookieなどのブラウザ技術を使用する場合があります。Googleでの情報処理には同社のプライバシー規約が適用され、ブラウザやGoogleアカウントの設定から利用できる管理機能もあります。',
+        '選択内容はこのブラウザのローカルストレージに保存します。フッターの「プライバシー設定」からいつでも選択画面を開き、同意を撤回できます。撤回後は、次のページからGoogleタグを読み込みません。',
       ],
     },
     {
@@ -189,6 +197,7 @@ const ja: PrivacyCopy = {
       ],
     },
   ],
+  manageConsent: '計測への同意を確認・撤回する',
   contactLink: 'プライバシーについて問い合わせる →',
 };
 

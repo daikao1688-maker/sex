@@ -3,12 +3,29 @@ import { access, readFile } from "node:fs/promises";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import sharp from "sharp";
 import ts from "typescript";
 import vm from "node:vm";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
 const locales = ["en", "zh-TW", "zh-CN", "ja"];
+const venueSlugs = [
+  "clube-rio",
+  "manhao-spa",
+  "number-nine-sauna",
+  "shang-pin-spa",
+  "majesty-spa",
+  "the-excellent-sauna",
+  "empire-sauna",
+  "east-castle-spa",
+  "victoria-sauna",
+  "m-club",
+  "number-one-sauna",
+  "familia-nobre",
+  "oceanic-royal-spa",
+  "eighteen-sauna",
+];
 
 const readPage = (...segments) =>
   readFile(path.join(distRoot, ...segments, "index.html"), "utf8");
@@ -24,6 +41,41 @@ const localCandidates = (tag) => {
     .split(",")
     .map((candidate) => candidate.trim().split(/\s+/)[0])
     .filter((candidate) => candidate.startsWith("/"));
+};
+
+const responsiveCandidates = (tag) => {
+  const value = attr(tag, "srcset") ?? "";
+  return value
+    .split(",")
+    .map((candidate) => candidate.trim().match(/^(\/\S+)\s+(\d+)w$/))
+    .filter(Boolean)
+    .map((match) => ({ src: match[1], width: Number(match[2]) }));
+};
+
+const metadataCache = new Map();
+const metadataFor = async (src) => {
+  if (!metadataCache.has(src)) {
+    metadataCache.set(src, sharp(path.join(projectRoot, "public", src)).metadata());
+  }
+  return metadataCache.get(src);
+};
+
+const assertTruthfulCandidates = async (tag, label) => {
+  const candidates = responsiveCandidates(tag);
+  assert.ok(candidates.length >= 2, `${label} needs at least two width-described candidates`);
+  for (const candidate of candidates) {
+    const metadata = await metadataFor(candidate.src);
+    assert.equal(metadata.width, candidate.width, `${label} has an inaccurate ${candidate.src} descriptor`);
+  }
+};
+
+const assertTruthfulResponsiveImage = async (tag, label) => {
+  await assertTruthfulCandidates(tag, label);
+  const source = attr(tag, "src");
+  assert.ok(source?.startsWith("/"), `${label} needs a local fallback source`);
+  const metadata = await metadataFor(source);
+  assert.equal(Number(attr(tag, "width")), metadata.width, `${label} width is not intrinsic`);
+  assert.equal(Number(attr(tag, "height")), metadata.height, `${label} height is not intrinsic`);
 };
 
 const assertCandidatesExist = async (tag, label) => {
@@ -75,6 +127,10 @@ class FakeElement {
   addEventListener(name, listener) {
     this.listeners.set(name, listener);
   }
+
+  focus() {
+    this.focused = true;
+  }
 }
 
 test("localized pages use locale-aware system stacks without third-party font requests", async () => {
@@ -96,7 +152,7 @@ test("localized pages use locale-aware system stacks without third-party font re
   }
 });
 
-test("analytics waits for idle or interaction and initializes each Google tag exactly once", async () => {
+test("analytics ignores idle, interaction, and refusal, then initializes exactly once after explicit consent", async () => {
   const html = await readPage("en");
   assert.doesNotMatch(html, /<script\b[^>]*src="https:\/\/www\.googletagmanager\.com/i);
 
@@ -106,25 +162,51 @@ test("analytics waits for idle or interaction and initializes each Google tag ex
   const listeners = new Map();
   const idleCallbacks = [];
   const appended = [];
+  const stored = new Map();
+  const on = (name, callback) => {
+    const callbacks = listeners.get(name) ?? [];
+    callbacks.push(callback);
+    listeners.set(name, callbacks);
+  };
+  const off = (name, callback) => {
+    listeners.set(name, (listeners.get(name) ?? []).filter((entry) => entry !== callback));
+  };
+  const dispatch = (name, event = {}) => {
+    for (const callback of [...(listeners.get(name) ?? [])]) callback(event);
+  };
   const document = {
     createElement: () => ({}),
     head: { append: (node) => appended.push(node) },
   };
   const window = {
-    addEventListener: (name, callback) => listeners.set(name, callback),
-    removeEventListener() {},
+    addEventListener: on,
+    removeEventListener: off,
     requestIdleCallback: (callback) => idleCallbacks.push(callback),
     setTimeout: (callback) => idleCallbacks.push(callback),
   };
   window.window = window;
+  const localStorage = {
+    getItem: (key) => stored.get(key) ?? null,
+    setItem: (key, value) => stored.set(key, String(value)),
+  };
 
-  vm.runInNewContext(loader, { document, window });
+  vm.runInNewContext(loader, { document, localStorage, window });
   assert.equal(appended.length, 0, "analytics loaded before idle or interaction");
   assert.equal(window.dataLayer, undefined, "analytics initialized before idle or interaction");
 
-  listeners.get("pointerdown")?.();
+  dispatch("pointerdown");
   idleCallbacks.forEach((callback) => callback());
-  listeners.get("keydown")?.();
+  dispatch("keydown");
+  dispatch("scroll");
+  assert.equal(appended.length, 0, "idle and ordinary interaction must not load Google tags without consent");
+
+  stored.set("relaxmacau:analytics-consent", "denied");
+  dispatch("relaxmacau:analytics-consent", { detail: "denied" });
+  assert.equal(appended.length, 0, "refusal must not load Google tags");
+
+  stored.set("relaxmacau:analytics-consent", "granted");
+  dispatch("relaxmacau:analytics-consent", { detail: "granted" });
+  dispatch("relaxmacau:analytics-consent", { detail: "granted" });
 
   assert.equal(appended.length, 1, "the Google tag script must be appended exactly once");
   assert.equal(appended[0].src, "https://www.googletagmanager.com/gtag/js?id=GT-TXHFV3C5");
@@ -133,6 +215,100 @@ test("analytics waits for idle or interaction and initializes each Google tag ex
     Array.from(configs, (entry) => entry[1]),
     ["GT-TXHFV3C5", "AW-18058018185"],
   );
+});
+
+test("persisted refusal and later withdrawal keep Google tags blocked on subsequent pages", async () => {
+  const html = await readPage("en");
+  const loader = [...html.matchAll(/<script\b[^>]*data-analytics-loader[^>]*>([\s\S]*?)<\/script>/g)][0]?.[1];
+  const controller = [...html.matchAll(/<script\b[^>]*data-consent-controller[^>]*>([\s\S]*?)<\/script>/g)][0]?.[1];
+  assert.ok(loader, "production pages must include the consent-gated analytics loader");
+  assert.ok(controller, "production pages must include the consent controller");
+
+  const stored = new Map();
+  const runPage = (choice) => {
+    stored.clear();
+    if (choice) stored.set("relaxmacau:analytics-consent", choice);
+    const windowListeners = new Map();
+    const documentListeners = new Map();
+    const appended = [];
+    const panel = new FakeElement();
+    const accept = new FakeElement();
+    const decline = new FakeElement();
+    const settings = new FakeElement();
+    panel.hidden = true;
+    const localStorage = {
+      getItem: (key) => stored.get(key) ?? null,
+      setItem: (key, value) => stored.set(key, String(value)),
+    };
+    const addWindowListener = (name, callback) => {
+      const callbacks = windowListeners.get(name) ?? [];
+      callbacks.push(callback);
+      windowListeners.set(name, callbacks);
+    };
+    const dispatchWindow = (event) => {
+      for (const callback of [...(windowListeners.get(event.type) ?? [])]) callback(event);
+    };
+    const window = {
+      addEventListener: addWindowListener,
+      removeEventListener() {},
+      dispatchEvent: dispatchWindow,
+      setTimeout() {},
+    };
+    window.window = window;
+    const document = {
+      activeElement: settings,
+      createElement: () => ({}),
+      head: { append: (node) => appended.push(node) },
+      querySelector: (selector) =>
+        ({
+          "[data-consent-panel]": panel,
+          "[data-consent-accept]": accept,
+          "[data-consent-decline]": decline,
+        })[selector] ?? null,
+      addEventListener: (name, callback) => documentListeners.set(name, callback),
+    };
+    const CustomEvent = class {
+      constructor(type, init = {}) {
+        this.type = type;
+        this.detail = init.detail;
+      }
+    };
+
+    vm.runInNewContext(loader, { document, localStorage, window });
+    vm.runInNewContext(controller, { CustomEvent, document, HTMLElement: FakeElement, localStorage, requestAnimationFrame: (callback) => callback(), window });
+
+    const click = (selector, target) =>
+      documentListeners.get("click")({
+        preventDefault() {},
+        target: { closest: (candidate) => (candidate === selector ? target : null) },
+      });
+
+    return { accept, appended, click, decline, panel, settings, stored, window };
+  };
+
+  const firstVisit = runPage();
+  assert.equal(firstVisit.panel.hidden, false, "first visit must show the consent panel");
+  assert.equal(firstVisit.appended.length, 0);
+  firstVisit.click("[data-consent-decline]", firstVisit.decline);
+  assert.equal(stored.get("relaxmacau:analytics-consent"), "denied", "refusal must persist");
+  assert.equal(firstVisit.appended.length, 0);
+
+  const refusedVisit = runPage("denied");
+  assert.equal(refusedVisit.panel.hidden, true, "a persisted refusal should not nag on every page");
+  assert.equal(refusedVisit.appended.length, 0, "a persisted refusal must keep tags blocked");
+
+  refusedVisit.click("[data-consent-settings]", refusedVisit.settings);
+  assert.equal(refusedVisit.panel.hidden, false, "the footer/privacy control must reopen consent choices");
+  refusedVisit.click("[data-consent-accept]", refusedVisit.accept);
+  assert.equal(stored.get("relaxmacau:analytics-consent"), "granted", "acceptance must persist");
+  assert.equal(refusedVisit.appended.length, 1, "acceptance must initialize Google tags");
+
+  refusedVisit.click("[data-consent-settings]", refusedVisit.settings);
+  refusedVisit.click("[data-consent-decline]", refusedVisit.decline);
+  assert.equal(stored.get("relaxmacau:analytics-consent"), "denied", "withdrawal must replace prior consent");
+
+  const afterWithdrawal = runPage("denied");
+  assert.equal(afterWithdrawal.appended.length, 0, "withdrawal must keep tags blocked on later pages");
 });
 
 test("the 404 keeps shared branding but omits analytics and remote font payloads", async () => {
@@ -173,6 +349,23 @@ test("hero initially fetches only its active source and preloads the next source
     new FakeElement({ src: "/covers/third.webp", srcset: "/covers/third-960.webp 960w" }),
   ];
   images[0].src = "/covers/active.jpg";
+  const nextSourceAssignments = [];
+  Object.defineProperties(images[1], {
+    srcset: {
+      get: () => images[1].getAttribute("srcset") ?? "",
+      set: (value) => {
+        nextSourceAssignments.push("srcset");
+        images[1].setAttribute("srcset", value);
+      },
+    },
+    src: {
+      get: () => images[1].getAttribute("src") ?? undefined,
+      set: (value) => {
+        nextSourceAssignments.push("src");
+        images[1].setAttribute("src", value);
+      },
+    },
+  });
   const backdrops = images.map((image) => {
     const backdrop = new FakeElement();
     backdrop.querySelector = () => image;
@@ -225,6 +418,11 @@ test("hero initially fetches only its active source and preloads the next source
   assert.equal(images[1].src, undefined, "next hero source loaded too early");
   advanceTo(5000);
   assert.equal(images[1].src, "/covers/next.jpg", "next hero source was not preloaded near rotation");
+  assert.deepEqual(
+    nextSourceAssignments,
+    ["srcset", "src"],
+    "responsive candidates must be assigned before the fallback starts fetching",
+  );
   assert.equal(backdrops[1].getAttribute("aria-hidden"), "true", "preload exposed the next slide early");
   advanceTo(6000);
   assert.equal(backdrops[1].getAttribute("aria-hidden"), "false", "preloaded slide did not become active");
@@ -268,6 +466,50 @@ test("viewport-role images expose real responsive candidates and intrinsic dimen
     assert.equal(attr(thumbnail, "height"), "600");
     assert.equal(attr(thumbnail, "loading"), "lazy");
     assert.ok(attr(thumbnail, "sizes"));
+  }
+});
+
+test("all localized venue heroes use truthful responsive WebP candidates", async () => {
+  for (const locale of locales) {
+    for (const slug of venueSlugs) {
+      const html = await readPage(locale, "spa", slug);
+      const hero = html.match(/<section\b(?=[^>]*data-testid="spa-hero")[\s\S]*?<\/section>/i)?.[0] ?? "";
+      const image = tags(hero, "img")[0] ?? "";
+      const label = `${locale}/${slug} hero`;
+
+      assert.ok(image, `${label} is missing`);
+      assert.equal(attr(image, "loading"), "eager", `${label} should remain the route LCP candidate`);
+      assert.equal(attr(image, "fetchpriority"), "high", `${label} should retain high priority`);
+      assert.equal(attr(image, "decoding"), "async");
+      assert.ok(attr(image, "sizes"), `${label} is missing responsive sizes`);
+      await assertTruthfulResponsiveImage(image, label);
+    }
+  }
+});
+
+test("Best of Month uses existing modern and fallback candidates at low priority", async () => {
+  for (const locale of locales) {
+    const html = await readPage(locale);
+    const pictures = [
+      ...html.matchAll(/<picture\b(?=[^>]*data-bom-picture)[^>]*>[\s\S]*?<\/picture>/gi),
+    ].map((match) => match[0]);
+    assert.equal(pictures.length, 3, `${locale} must keep all three indexable shortlist cards`);
+
+    for (const [index, picture] of pictures.entries()) {
+      const source = tags(picture, "source")[0] ?? "";
+      const image = tags(picture, "img")[0] ?? "";
+      const label = `${locale} Best of Month card ${index + 1}`;
+
+      assert.equal(attr(source, "type"), "image/webp", `${label} needs a modern source`);
+      assert.ok(attr(source, "sizes"), `${label} modern source is missing sizes`);
+      assert.equal(attr(image, "loading"), "lazy", `${label} is below the fold`);
+      assert.equal(attr(image, "fetchpriority"), "low", `${label} must not compete with the Hero LCP`);
+      assert.equal(attr(image, "width"), "800");
+      assert.equal(attr(image, "height"), "800");
+      assert.ok(attr(image, "sizes"), `${label} fallback is missing sizes`);
+      await assertTruthfulCandidates(source, `${label} WebP`);
+      await assertTruthfulResponsiveImage(image, `${label} JPEG`);
+    }
   }
 });
 

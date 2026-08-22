@@ -32,7 +32,7 @@ const cards = copy.cards.map((card, index) => {
     rank: index + 1,
     name: t.spas.venues[card.slug].name,
     href: localizePath(lang, `/spa/${card.slug}/`),
-    cover: `/covers/${venue.cover}.jpg`,
+    coverBase: `/covers/${venue.cover}`,
     district: copy.districts[venue.district],
     price: `${venue.priceMin.toLocaleString("en-US")} – ${venue.priceMax.toLocaleString("en-US")}`,
     hours: venue.open24h ? copy.values.open24h : venue.hours,
@@ -107,16 +107,26 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
               style={`--bom-card-tilt:${index % 2 === 0 ? "1.25deg" : "-1.1deg"}`}
             >
               <div class="relative aspect-[16/9]">
-                <img
-                  src={card.cover}
-                  alt={card.name}
-                  width="800"
-                  height="450"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  decoding="async"
-                  draggable="false"
-                  class="h-full w-full object-cover"
-                />
+                <picture data-bom-picture class="block h-full w-full">
+                  <source
+                    srcset={`${card.coverBase}-400.webp 400w, ${card.coverBase}.webp 800w`}
+                    sizes="(min-width: 640px) 440px, 88vw"
+                    type="image/webp"
+                  />
+                  <img
+                    src={`${card.coverBase}.jpg`}
+                    srcset={`${card.coverBase}-400.jpg 400w, ${card.coverBase}.jpg 800w`}
+                    sizes="(min-width: 640px) 440px, 88vw"
+                    alt={card.name}
+                    width="800"
+                    height="800"
+                    loading="lazy"
+                    fetchpriority="low"
+                    decoding="async"
+                    draggable="false"
+                    class="h-full w-full object-cover"
+                  />
+                </picture>
                 <span class="absolute left-2 top-2 max-w-[70%] truncate rounded-full border border-gold/60 bg-[#0a0a0a]/90 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-gold sm:left-3 sm:top-3 sm:max-w-none sm:px-3 sm:text-[11px] sm:tracking-[0.14em]">
                   {card.award}
                 </span>
