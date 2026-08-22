@@ -102,8 +102,8 @@ const [hiddenBefore, hiddenAfter = ""] = t.spas.hiddenNote.split("{count}");
                       srcset={`/covers/${venue.cover}-400.jpg 400w, /covers/${venue.cover}.jpg 800w`}
                       sizes="(min-width: 1024px) 405px, (min-width: 640px) calc((100vw - 3.5rem) / 2), calc(100vw - 2rem)"
                       alt={`${copy.name} — Macau premium sauna venue`}
-                      loading={index === 0 ? "eager" : "lazy"}
-                      fetchpriority={index === 0 ? "high" : "low"}
+                      loading="lazy"
+                      fetchpriority="low"
                       decoding="async"
                       width="800"
                       height="800"

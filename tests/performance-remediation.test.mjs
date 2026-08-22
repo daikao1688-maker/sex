@@ -236,12 +236,16 @@ test("viewport-role images expose real responsive candidates and intrinsic dimen
     assert.equal(attr(card, "height"), "800");
     assert.ok(attr(card, "sizes"), "spa card is missing responsive sizes");
     await assertCandidatesExist(card, `spa card ${index + 1}`);
-    if (index === 0) {
-      assert.equal(attr(card, "loading"), "eager");
-      assert.equal(attr(card, "fetchpriority"), "high");
-    } else {
-      assert.equal(attr(card, "loading"), "lazy");
-    }
+    assert.equal(
+      attr(card, "loading"),
+      "lazy",
+      `spa card ${index + 1} is below the initial viewport`,
+    );
+    assert.equal(
+      attr(card, "fetchpriority"),
+      "low",
+      `spa card ${index + 1} must not compete with the Hero LCP`,
+    );
   }
 
   const blog = await readPage("en", "blog", "macau-sauna-beginner-guide-2026");

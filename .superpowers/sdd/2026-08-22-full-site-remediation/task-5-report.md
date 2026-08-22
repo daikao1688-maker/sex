@@ -107,8 +107,8 @@ prompt. Task 5 did not add that unrelated toolchain dependency.
   640-pixel blog-cover candidates generated from the checked-in originals with
   Sharp. The 42 new assets total approximately 1.5 MB.
 - Spa cards now use real 400/800 candidates, responsive `sizes`, measured
-  800×800 dimensions, and eager/high priority only for the first viewport-role
-  card; the remaining cards are lazy/low priority.
+  800×800 dimensions, and lazy/low priority for every card because the grid
+  follows the full-screen Hero and BestOfMonth sections.
 - Blog covers now use real 640/full-width candidates, responsive `sizes`,
   measured 1280×720 or 1360×768 dimensions, and explicit above-fold priority.
 - Gallery thumbnails now declare their measured 600×600 dimensions and load
@@ -160,3 +160,52 @@ Modified:
 - A fresh Lighthouse/browser comparison is reserved for Task 6 final
   integration. Task 5 verifies the network/markup contracts deterministically
   but does not claim field or lab Core Web Vitals measurements.
+
+## Fix Round 1 — below-fold SpaGrid image priority
+
+### Finding addressed
+
+The first SpaGrid card was marked `loading="eager"` and
+`fetchpriority="high"`, although SpaGrid renders after the full-screen Hero and
+BestOfMonth. That below-fold request could compete with the actual Hero LCP.
+All SpaGrid images now use `loading="lazy"` and `fetchpriority="low"`.
+
+### RED
+
+Updated the generated-output regression so every SpaGrid image must be
+lazy/low priority, then ran it against the current build before changing the
+component:
+
+```sh
+node --test tests/performance-remediation.test.mjs
+```
+
+Result: 5 passed, 1 failed. The viewport-role test failed on card 1 with
+`'eager' !== 'lazy'`, directly reproducing the priority defect.
+
+### GREEN
+
+Focused Task 1–5 preservation suite:
+
+```sh
+npm run build && node --test \
+  tests/performance-remediation.test.mjs \
+  tests/motion-and-contrast.test.mjs \
+  tests/seo-remediation.test.mjs \
+  tests/trust-and-editorial.test.mjs \
+  tests/not-found-page.test.mjs
+```
+
+Result: 132 pages built; 31 passed, 0 failed.
+
+Fresh full suite:
+
+```sh
+npm test
+```
+
+Result: 132 pages built; 80 passed, 0 failed, 1 pre-existing environment-only
+custom-404 test skipped (81 tests total).
+
+`git diff --check` is clean. The deferred Hero `srcset` ordering Minor and all
+unrelated files were intentionally left unchanged.
