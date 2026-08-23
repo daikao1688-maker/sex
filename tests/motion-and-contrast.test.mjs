@@ -101,19 +101,19 @@ test("every locale exposes pausable motion controls and hides testimonial duplic
   const labels = {
     en: {
       hero: ["Pause background motion", "Resume background motion"],
-      testimonials: ["Pause pre-trip planning motion", "Resume pre-trip planning motion"],
+      testimonials: ["Pause guest review motion", "Resume guest review motion"],
     },
     "zh-TW": {
       hero: ["暫停背景動效", "繼續背景動效"],
-      testimonials: ["暫停行前清單動效", "繼續行前清單動效"],
+      testimonials: ["暫停客戶評價動效", "繼續客戶評價動效"],
     },
     "zh-CN": {
       hero: ["暂停背景动效", "继续背景动效"],
-      testimonials: ["暂停行前清单动效", "继续行前清单动效"],
+      testimonials: ["暂停客户评价动效", "继续客户评价动效"],
     },
     ja: {
       hero: ["背景の動きを一時停止", "背景の動きを再開"],
-      testimonials: ["事前確認リストの動きを一時停止", "事前確認リストの動きを再開"],
+      testimonials: ["お客様の声の動きを一時停止", "お客様の声の動きを再開"],
     },
   };
 
@@ -160,7 +160,7 @@ test("translucent gold testimonial attribution meets AA on its card surface", as
     readHome("en"),
     readFile(path.join(projectRoot, "src/styles/global.css"), "utf8"),
   ]);
-  const author = html.match(/<p\b[^>]*class="[^"]*text-gold\/\d+[^"]*"[^>]*>\s*— Choosing a venue<\/p>/)?.[0];
+  const author = html.match(/<p\b[^>]*class="[^"]*text-gold\/\d+[^"]*"[^>]*>\s*— First-time guest<\/p>/)?.[0];
   assert.ok(author, "generated testimonial attribution is missing its translucent gold token");
 
   const opacity = Number(author.match(/text-gold\/(\d+)/)?.[1]) / 100;

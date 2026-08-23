@@ -59,7 +59,7 @@ const en: Dictionary = {
   spas: {
     heading: 'Featured Saunas',
     intro:
-      'Compare 14 venue profiles, including current closure notices, facilities, reference prices and overnight arrangements.',
+      'Explore 14 popular Macau sauna venues, with updates on prices, opening status, team size and other practical details.',
     filterLabel: 'Filter venues',
     filters: [
       { bucket: 'all', label: 'All' },
@@ -498,7 +498,7 @@ const en: Dictionary = {
   footer: {
     backToTop: '↑ Back to Top',
     links: [
-      { path: '/#spas', label: 'Spas' },
+      { path: '/', label: 'Home' },
       { path: '/ranking/', label: 'Ranking' },
       { path: '/guide/', label: 'Guide' },
       { path: '/faq/', label: 'FAQ' },

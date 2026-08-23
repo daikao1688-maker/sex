@@ -57,7 +57,7 @@ const zhCN: Dictionary = {
 
   spas: {
     heading: '精选会所',
-    intro: '收录 14 家场所・清楚标注暂停营业状态・对比参考价格、设施特色与过夜安排',
+    intro: '收录澳门热门的 14 家桑拿会所，及时更新价格、营业状态、人员数量等实用信息。',
     filterLabel: '筛选会所',
     filters: [
       { bucket: 'all', label: '全部' },
@@ -440,7 +440,7 @@ const zhCN: Dictionary = {
   footer: {
     backToTop: '↑ 返回顶部',
     links: [
-      { path: '/#spas', label: '会所' },
+      { path: '/', label: '首页' },
       { path: '/ranking/', label: '排名' },
       { path: '/guide/', label: '新手指南' },
       { path: '/faq/', label: '常见问题' },

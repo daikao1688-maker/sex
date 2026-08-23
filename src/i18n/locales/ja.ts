@@ -59,7 +59,7 @@ const ja: Dictionary = {
   spas: {
     heading: 'おすすめサウナ',
     intro:
-      'マカオの14店舗を掲載。現在の休業情報、料金の目安、設備の特徴、宿泊可否をまとめて比較できます。',
+      'マカオで人気のサウナ14店を掲載。料金・営業状況・在籍人数など、来店前に知りたい情報を随時更新しています。',
     filterLabel: '店舗を絞り込む',
     filters: [
       { bucket: 'all', label: 'すべて' },
@@ -505,7 +505,7 @@ const ja: Dictionary = {
   footer: {
     backToTop: '↑ トップへ戻る',
     links: [
-      { path: '/#spas', label: 'サウナ一覧' },
+      { path: '/', label: 'ホーム' },
       { path: '/ranking/', label: 'ランキング' },
       { path: '/guide/', label: '遊び方ガイド' },
       { path: '/faq/', label: 'よくある質問' },

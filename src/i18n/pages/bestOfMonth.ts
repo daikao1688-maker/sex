@@ -37,7 +37,7 @@ const en: BestOfMonthCopy = {
   eyebrow: 'Best Sauna of the Month',
   heading: "{venue} leads this month's shortlist",
   intro:
-    "Our editors' pick before you browse all thirteen partner venues — suites, stage, and value, ranked with the same scorecard.",
+    'Our monthly picks reflect recent guest feedback. Tell us your budget, timing and preferences, and we can suggest the venues that suit you best.',
   rankingLink: 'See the full ranking →',
   reviewedStamp: 'Reviewed · {month}',
   stats: { price: 'Typical price', hours: 'Hours', serviceFee: 'Service charge' },
@@ -77,7 +77,7 @@ const ja: BestOfMonthCopy = {
   eyebrow: '今月のベストサウナ',
   heading: '今月のイチオシは{venue}',
   intro:
-    '掲載14軒をご覧いただく前に、編集部の一押しを。内装・ショータイム・コスパを同じ基準で採点しました。',
+    '今月のお客様の声をもとにおすすめ店を選んでいます。ご予算・ご希望の時間・お好みを伺い、条件に合う店舗もご案内します。',
   rankingLink: 'ランキングをすべて見る →',
   reviewedStamp: 'レビュー · {month}',
   stats: { price: '料金の目安', hours: '営業時間', serviceFee: 'サービス料' },
@@ -115,7 +115,7 @@ const zhTW: BestOfMonthCopy = {
   eyebrow: '本月最佳桑拿',
   heading: '本月首選：{venue}',
   intro:
-    '在瀏覽 14 間收錄場所之前，先看編輯精選——裝潢、走秀與性價比，以同一套評分標準排出。',
+    '我們根據當月客戶反饋，做出推薦，我們也會根據您的預算，時間，喜好推薦適合的桑拿房！',
   rankingLink: '查看完整排名 →',
   reviewedStamp: '評測 · {month}',
   stats: { price: '參考價格', hours: '營業時間', serviceFee: '服務費' },
@@ -151,7 +151,7 @@ const zhTW: BestOfMonthCopy = {
 const zhCN: BestOfMonthCopy = {
   eyebrow: '本月最佳桑拿',
   heading: '本月首选：{venue}',
-  intro: '在浏览 14 家收录场所之前，先看编辑精选——装潢、走秀与性价比，以同一套评分标准排出。',
+  intro: '我们会根据当月客户反馈给出推荐，也会结合您的预算、时间和喜好，帮您筛选合适的桑拿会所。',
   rankingLink: '查看完整排名 →',
   reviewedStamp: '评测 · {month}',
   stats: { price: '参考价格', hours: '营业时间', serviceFee: '服务费' },

@@ -31,6 +31,16 @@ const links = [
   { href: localizePath(lang, "/blog/"), label: t.nav.blog },
 ];
 
+const normalizeRoute = (route: string) => {
+  const clean = route.split(/[?#]/)[0] || "/";
+  return clean === "/" ? "/" : `${clean.replace(/\/+$/, "")}/`;
+};
+const currentRoute = normalizeRoute(path);
+const isActiveLink = (href: string) => {
+  const target = normalizeRoute(href.replace(`/${lang}`, "") || "/");
+  return target === "/" ? currentRoute === "/" : currentRoute === target || currentRoute.startsWith(target);
+};
+
 const showLanguageSwitcher = locales.length > 1;
 ---
 
@@ -41,7 +51,7 @@ const showLanguageSwitcher = locales.length > 1;
 >
   <div class="nav-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 sm:h-20">
-      <a href={localizePath(lang, "/")} class="flex min-w-0 flex-1 items-center gap-2">
+      <a href={localizePath(lang, "/")} class="flex min-w-0 flex-1 items-center gap-2" data-nav-home>
         <img src="/favicon.svg" alt={t.nav.brand} width="36" height="36" class="w-8 h-8 shrink-0 sm:w-9 sm:h-9" />
         <span class="nav-brand truncate whitespace-nowrap text-gold font-bold text-base sm:text-2xl tracking-wider">{t.nav.brand}</span>
       </a>
@@ -51,8 +61,11 @@ const showLanguageSwitcher = locales.length > 1;
           links.map((link) => (
             <a
               href={link.href}
-              aria-current={path === link.href.replace(`/${lang}`, "") ? "page" : undefined}
-              class="text-white/70 hover:text-gold transition-colors text-sm tracking-widest uppercase"
+              aria-current={isActiveLink(link.href) ? "page" : undefined}
+              class:list={[
+                "transition-colors text-sm tracking-widest uppercase",
+                isActiveLink(link.href) ? "text-gold" : "text-white/70 hover:text-gold",
+              ]}
             >
               {link.label}
             </a>
@@ -106,13 +119,19 @@ const showLanguageSwitcher = locales.length > 1;
       <div class="flex shrink-0 items-center xl:hidden" data-nav-mobile-controls>
         <button
           type="button"
-          class="text-white/70 hover:text-gold transition-colors p-1"
+          class="group inline-flex min-h-11 min-w-11 items-center justify-center rounded-full text-white/70 transition-colors hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70"
           aria-label={t.nav.menuLabel}
           aria-expanded="false"
           aria-controls="mobile-menu"
+          data-open-label={t.nav.menuLabel}
+          data-close-label={t.nav.closeMenuLabel}
           data-menu-toggle
         >
-          <Icon name="menu" class="w-6 h-6" />
+          <span class="relative block h-5 w-6" aria-hidden="true">
+            <span class="menu-bar menu-bar-top" data-menu-bar="top"></span>
+            <span class="menu-bar menu-bar-middle" data-menu-bar="middle"></span>
+            <span class="menu-bar menu-bar-bottom" data-menu-bar="bottom"></span>
+          </span>
         </button>
       </div>
     </div>
@@ -120,16 +139,23 @@ const showLanguageSwitcher = locales.length > 1;
 
   <div
     id="mobile-menu"
-    class="hidden border-t border-white/5 bg-[#0a0a0a]/95 backdrop-blur-md xl:hidden"
+    class="hidden max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-white/10 bg-[#0a0a0a] shadow-2xl shadow-black/60 sm:max-h-[calc(100dvh-5rem)] xl:hidden"
+    aria-hidden="true"
+    inert
     data-mobile-menu
   >
-    <div class="px-4 py-3 flex flex-col">
+    <div class="flex flex-col px-4 py-3">
       {
         links.map((link) => (
           <a
             href={link.href}
-            aria-current={path === link.href.replace(`/${lang}`, "") ? "page" : undefined}
-            class="py-2.5 text-white/70 hover:text-gold transition-colors text-sm tracking-widest uppercase"
+            aria-current={isActiveLink(link.href) ? "page" : undefined}
+            class:list={[
+              "relative flex min-h-11 items-center border-l-2 px-4 py-2.5 text-sm tracking-widest uppercase transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold/70",
+              isActiveLink(link.href)
+                ? "border-gold bg-white/[0.03] text-white"
+                : "border-transparent text-white/70 hover:border-gold/40 hover:text-gold",
+            ]}
           >
             {link.label}
           </a>
@@ -185,6 +211,49 @@ const showLanguageSwitcher = locales.length > 1;
 </nav>
 
 <style>
+  .menu-bar {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    border-radius: 9999px;
+    background: currentColor;
+    transform-origin: center;
+    transition: transform 220ms ease, opacity 160ms ease;
+  }
+
+  .menu-bar-top {
+    top: 2px;
+  }
+
+  .menu-bar-middle {
+    top: 9px;
+  }
+
+  .menu-bar-bottom {
+    top: 16px;
+  }
+
+  [data-menu-toggle][aria-expanded="true"] .menu-bar-top {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  [data-menu-toggle][aria-expanded="true"] .menu-bar-middle {
+    opacity: 0;
+    transform: scaleX(0.35);
+  }
+
+  [data-menu-toggle][aria-expanded="true"] .menu-bar-bottom {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-bar {
+      transition: none;
+    }
+  }
+
   @media (max-width: 359px) {
     .nav-shell {
       padding-inline: 0.75rem;
@@ -199,41 +268,12 @@ const showLanguageSwitcher = locales.length > 1;
 
 <script>
   const nav = document.querySelector<HTMLElement>("[data-site-nav]");
-
-  // Solid backdrop once the hero starts scrolling away.
-  if (nav) {
-    const solid = ["bg-[#0a0a0a]/90", "backdrop-blur-md"];
-    const update = () => {
-      const scrolled = window.scrollY > 24;
-      nav.classList.toggle("bg-transparent", !scrolled);
-      solid.forEach((cls) => nav.classList.toggle(cls, scrolled));
-    };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-  }
-
+  const homeLink = document.querySelector<HTMLAnchorElement>("[data-nav-home]");
   const menuToggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
   const mobileMenu = document.querySelector<HTMLElement>("[data-mobile-menu]");
-
-  const closeMobileMenu = (restoreFocus = false) => {
-    mobileMenu?.classList.add("hidden");
-    menuToggle?.setAttribute("aria-expanded", "false");
-    if (restoreFocus) menuToggle?.focus();
-  };
-
-  menuToggle?.addEventListener("click", () => {
-    const open = mobileMenu?.classList.toggle("hidden") === false;
-    menuToggle.setAttribute("aria-expanded", String(open));
-  });
-
-  // Close the menu after tapping a link (same-page anchors don't reload).
-  mobileMenu?.querySelectorAll("a").forEach((link) =>
-    link.addEventListener("click", () => {
-      closeMobileMenu();
-    }),
-  );
-
   const languageMenus = document.querySelectorAll<HTMLElement>("[data-lang-menu]");
+  const desktopBreakpoint = window.matchMedia("(min-width: 80rem)");
+  let menuOpenedAtScrollY = window.scrollY;
 
   const closeLanguageMenu = (menu: HTMLElement) => {
     const toggle = menu.querySelector<HTMLButtonElement>("[data-lang-toggle]");
@@ -243,6 +283,69 @@ const showLanguageSwitcher = locales.length > 1;
     toggle?.setAttribute("aria-expanded", "false");
     chevron?.classList.remove("rotate-180");
   };
+
+  const setMobileMenuState = (open: boolean, restoreFocus = false) => {
+    const wasOpen = menuToggle?.getAttribute("aria-expanded") === "true";
+    const focusWasInsideMenu = Boolean(
+      mobileMenu && document.activeElement && mobileMenu.contains(document.activeElement),
+    );
+    mobileMenu?.classList.toggle("hidden", !open);
+    mobileMenu?.setAttribute("aria-hidden", String(!open));
+    mobileMenu?.toggleAttribute("inert", !open);
+    if (mobileMenu) mobileMenu.inert = !open;
+    menuToggle?.setAttribute("aria-expanded", String(open));
+    menuToggle?.setAttribute(
+      "aria-label",
+      open ? menuToggle.dataset.closeLabel ?? "" : menuToggle.dataset.openLabel ?? "",
+    );
+
+    if (!open) {
+      languageMenus.forEach(closeLanguageMenu);
+      if (wasOpen && (restoreFocus || focusWasInsideMenu)) {
+        if (desktopBreakpoint.matches) homeLink?.focus();
+        else menuToggle?.focus();
+      }
+    }
+  };
+
+  const closeMobileMenu = (restoreFocus = false) => setMobileMenuState(false, restoreFocus);
+  const openMobileMenu = () => {
+    menuOpenedAtScrollY = window.scrollY;
+    setMobileMenuState(true);
+  };
+
+  closeMobileMenu();
+
+  // Solid backdrop once the hero starts scrolling away.
+  if (nav) {
+    const solid = ["bg-[#0a0a0a]/90", "backdrop-blur-md"];
+    const update = () => {
+      const scrolled = window.scrollY > 24;
+      nav.classList.toggle("bg-transparent", !scrolled);
+      solid.forEach((cls) => nav.classList.toggle(cls, scrolled));
+      if (
+        menuToggle?.getAttribute("aria-expanded") === "true" &&
+        Math.abs(window.scrollY - menuOpenedAtScrollY) > 4
+      ) {
+        closeMobileMenu();
+      }
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+  }
+
+  menuToggle?.addEventListener("click", () => {
+    const open = menuToggle.getAttribute("aria-expanded") !== "true";
+    if (open) openMobileMenu();
+    else closeMobileMenu();
+  });
+
+  // Close the menu after tapping a link (same-page anchors don't reload).
+  mobileMenu?.querySelectorAll("a").forEach((link) =>
+    link.addEventListener("click", () => {
+      closeMobileMenu();
+    }),
+  );
 
   languageMenus.forEach((menu) => {
     const toggle = menu.querySelector<HTMLButtonElement>("[data-lang-toggle]");
@@ -278,4 +381,10 @@ const showLanguageSwitcher = locales.length > 1;
       }
     });
   });
+
+  desktopBreakpoint.addEventListener("change", (event) => {
+    if (event.matches) closeMobileMenu();
+  });
+
+  window.addEventListener("orientationchange", () => closeMobileMenu(), { passive: true });
 </script>

@@ -4,9 +4,15 @@ import zhCN from './locales/zh-CN';
 import zhTW from './locales/zh-TW';
 import type { Dictionary } from './types';
 import { defaultLocale, locales, localizePath, type Locale } from './config';
+import { testimonials } from './testimonials';
 
 /** Register a new dictionary here after adding its file to `src/i18n/locales/`. */
-const dictionaries: Partial<Record<Locale, Dictionary>> = { en, ja, 'zh-TW': zhTW, 'zh-CN': zhCN };
+const dictionaries: Partial<Record<Locale, Dictionary>> = {
+  en: { ...en, testimonials: testimonials.en },
+  ja: { ...ja, testimonials: testimonials.ja },
+  'zh-TW': { ...zhTW, testimonials: testimonials['zh-TW'] },
+  'zh-CN': { ...zhCN, testimonials: testimonials['zh-CN'] },
+};
 
 export function getDictionary(lang: Locale): Dictionary {
   return dictionaries[lang] ?? (dictionaries[defaultLocale] as Dictionary);

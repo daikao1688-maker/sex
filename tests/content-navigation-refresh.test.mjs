@@ -75,6 +75,33 @@ test("the navigation uses mobile controls below 1280px and desktop links from 12
   }
 });
 
+test("the mobile trigger has a 44px target, three animated bars, and an inert closed menu", async () => {
+  for (const locale of locales) {
+    const html = await readPage(locale);
+    const trigger = html.match(/<button\b[^>]*\sdata-menu-toggle(?:\s|>)[^>]*>/)?.[0] ?? "";
+    const menu = tagWithAttribute(html, "data-mobile-menu");
+
+    assert.ok(trigger, `${locale} menu trigger is missing`);
+    assert.ok(classList(trigger).includes("min-h-11"), `${locale} menu trigger is shorter than 44px`);
+    assert.ok(classList(trigger).includes("min-w-11"), `${locale} menu trigger is narrower than 44px`);
+    assert.match(trigger, /data-open-label=/, `${locale} trigger is missing its localized open label`);
+    assert.match(trigger, /data-close-label=/, `${locale} trigger is missing its localized close label`);
+    assert.equal(
+      (html.match(/data-menu-bar=/g) ?? []).length,
+      3,
+      `${locale} closed hamburger must render three bars that can morph into an X`,
+    );
+    assert.match(menu, /aria-hidden="true"/, `${locale} closed menu remains exposed to assistive technology`);
+    assert.match(menu, /\sinert(?:\s|>)/, `${locale} closed menu remains keyboard-interactive`);
+    assert.ok(classList(menu).includes("overflow-y-auto"), `${locale} short screens cannot scroll within the menu`);
+    assert.ok(classList(menu).includes("overscroll-contain"), `${locale} menu scrolling leaks into the page`);
+    assert.ok(
+      classList(menu).some((name) => name.startsWith("max-h-[calc(100dvh-")),
+      `${locale} mobile menu is not constrained to the viewport`,
+    );
+  }
+});
+
 test("opening the mobile menu gives the site navigation an opaque black surface", async () => {
   const openMenuSurfaceClass = "has-[[data-menu-toggle][aria-expanded=true]]:bg-[#0a0a0a]";
 
@@ -146,6 +173,32 @@ test("desktop and mobile navigation use a localized home link instead of the ven
       `${locale} must show the localized home label in desktop and mobile navigation`,
     );
     assert.ok(!nav.includes(`href="/${locale}/#spas"`), `${locale} still uses the venue-section anchor`);
+
+    const footer = html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0] ?? "";
+    assert.ok(footer.includes(`href="/${locale}/"`), `${locale} footer is missing its localized home link`);
+    assert.ok(footer.includes(`>${homeLabels[locale]}<`), `${locale} footer does not label its home link correctly`);
+    assert.ok(!footer.includes(`href="/${locale}/#spas"`), `${locale} footer still uses the venue-section anchor`);
+  }
+});
+
+test("mobile navigation marks the current section with a visible left rail", async () => {
+  for (const locale of locales) {
+    const home = await readPage(locale);
+    const article = await readPage(locale, "blog", "macau-sauna-beginner-guide-2026");
+    const spa = await readPage(locale, "spa", "clube-rio");
+    const homeMenu = regionBetween(home, 'id="mobile-menu"', "</nav>");
+    const articleMenu = regionBetween(article, 'id="mobile-menu"', "</nav>");
+    const spaMenu = regionBetween(spa, 'id="mobile-menu"', "</nav>");
+
+    const homeTag = homeMenu.match(new RegExp(`<a[^>]+href="/${locale}/"[^>]*>`))?.[0] ?? "";
+    const blogTag = articleMenu.match(new RegExp(`<a[^>]+href="/${locale}/blog/"[^>]*>`))?.[0] ?? "";
+    const spaHomeTag = spaMenu.match(new RegExp(`<a[^>]+href="/${locale}/"[^>]*>`))?.[0] ?? "";
+
+    assert.match(homeTag, /aria-current="page"/, `${locale} homepage is not marked current in the mobile menu`);
+    assert.ok(classList(homeTag).includes("border-gold"), `${locale} current home link has no visible left rail`);
+    assert.match(blogTag, /aria-current="page"/, `${locale} blog article does not mark its Blog parent`);
+    assert.ok(classList(blogTag).includes("border-gold"), `${locale} current Blog link has no visible left rail`);
+    assert.doesNotMatch(spaHomeTag, /aria-current="page"/, `${locale} spa detail incorrectly marks Home as current`);
   }
 });
 
@@ -209,24 +262,70 @@ test("rewritten service copy does not restore unsupported absolutes or unverifia
   }
 });
 
-test("the homepage presents planning scenarios instead of unverifiable customer quotations", async () => {
-  const expectedHeading = {
-    en: "Questions Worth Sorting Out Before You Go",
-    "zh-TW": "出發前，最常需要確認的事",
-    "zh-CN": "出发前，最常需要确认的事",
-    ja: "出発前によく確認されること",
-  };
-  const legacySocialProof = {
-    en: "Notes from Recent Guests",
-    "zh-TW": "旅客回饋",
-    "zh-CN": "访客反馈",
-    ja: "ご利用前後に寄せられた声",
+test("the homepage restores clearly disclosed customer reviews in every locale", async () => {
+  const expected = {
+    en: {
+      heading: "Guest Reviews",
+      disclosure: "Anonymised summaries of feedback shared after bookings",
+      authors: ["First-time guest", "Independent traveller", "Returning guest"],
+    },
+    "zh-TW": {
+      heading: "客戶評價",
+      disclosure: "以下內容為預約後回饋的匿名整理",
+      authors: ["首次到訪客人", "自由行客人", "回訪客人"],
+    },
+    "zh-CN": {
+      heading: "客户评价",
+      disclosure: "以下内容根据预约后的反馈匿名整理",
+      authors: ["首次到访客人", "自由行客人", "回访客人"],
+    },
+    ja: {
+      heading: "お客様の声",
+      disclosure: "予約後に寄せられた感想を、個人が特定されない形で要約しています",
+      authors: ["初めて利用されたお客様", "個人旅行のお客様", "リピーターのお客様"],
+    },
   };
 
   for (const locale of locales) {
     const html = await readPage(locale);
-    assert.ok(html.includes(expectedHeading[locale]), `${locale} is missing the planning-scenario heading`);
-    assert.ok(!html.includes(legacySocialProof[locale]), `${locale} still presents invented social proof`);
+    assert.ok(html.includes(expected[locale].heading), `${locale} is missing the customer-review heading`);
+    assert.ok(html.includes(expected[locale].disclosure), `${locale} is missing the review disclosure`);
+    for (const author of expected[locale].authors) {
+      assert.ok(html.includes(author), `${locale} is missing review attribution: ${author}`);
+    }
+    assert.equal(
+      (html.match(/data-testimonial-card="primary"/g) ?? []).length,
+      3,
+      `${locale} must expose exactly three primary review summaries`,
+    );
+  }
+});
+
+test("homepage venue and monthly-pick introductions use the approved localized copy", async () => {
+  const expected = {
+    en: [
+      "Explore 14 popular Macau sauna venues, with updates on prices, opening status, team size and other practical details.",
+      "Our monthly picks reflect recent guest feedback. Tell us your budget, timing and preferences, and we can suggest the venues that suit you best.",
+    ],
+    "zh-TW": [
+      "收錄澳門熱門的14家桑拿會所，即時更新情報（價格，營業狀態，人員數量等）",
+      "我們根據當月客戶反饋，做出推薦，我們也會根據您的預算，時間，喜好推薦適合的桑拿房！",
+    ],
+    "zh-CN": [
+      "收录澳门热门的 14 家桑拿会所，及时更新价格、营业状态、人员数量等实用信息。",
+      "我们会根据当月客户反馈给出推荐，也会结合您的预算、时间和喜好，帮您筛选合适的桑拿会所。",
+    ],
+    ja: [
+      "マカオで人気のサウナ14店を掲載。料金・営業状況・在籍人数など、来店前に知りたい情報を随時更新しています。",
+      "今月のお客様の声をもとにおすすめ店を選んでいます。ご予算・ご希望の時間・お好みを伺い、条件に合う店舗もご案内します。",
+    ],
+  };
+
+  for (const locale of locales) {
+    const html = await readPage(locale);
+    for (const copy of expected[locale]) {
+      assert.ok(html.includes(copy), `${locale} is missing approved homepage copy: ${copy}`);
+    }
   }
 });
 

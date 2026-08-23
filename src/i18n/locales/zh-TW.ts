@@ -57,7 +57,7 @@ const zhTW: Dictionary = {
 
   spas: {
     heading: '精選會所',
-    intro: '收錄 14 間場所・清楚標示暫停營業狀態・比較參考價格、設施特色與過夜安排',
+    intro: '收錄澳門熱門的14家桑拿會所，即時更新情報（價格，營業狀態，人員數量等）',
     filterLabel: '篩選會所',
     filters: [
       { bucket: 'all', label: '全部' },
@@ -442,7 +442,7 @@ const zhTW: Dictionary = {
   footer: {
     backToTop: '↑ 返回頂部',
     links: [
-      { path: '/#spas', label: '會所' },
+      { path: '/', label: '首頁' },
       { path: '/ranking/', label: '排名' },
       { path: '/guide/', label: '新手指南' },
       { path: '/faq/', label: '常見問題' },
