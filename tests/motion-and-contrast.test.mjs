@@ -97,40 +97,17 @@ class FakeElement {
   }
 }
 
-test("every locale exposes pausable motion controls and hides testimonial duplicates", async () => {
-  const labels = {
-    en: {
-      hero: ["Pause background motion", "Resume background motion"],
-      testimonials: ["Pause guest review motion", "Resume guest review motion"],
-    },
-    "zh-TW": {
-      hero: ["暫停背景動效", "繼續背景動效"],
-      testimonials: ["暫停客戶評價動效", "繼續客戶評價動效"],
-    },
-    "zh-CN": {
-      hero: ["暂停背景动效", "继续背景动效"],
-      testimonials: ["暂停客户评价动效", "继续客户评价动效"],
-    },
-    ja: {
-      hero: ["背景の動きを一時停止", "背景の動きを再開"],
-      testimonials: ["お客様の声の動きを一時停止", "お客様の声の動きを再開"],
-    },
-  };
-
+test("every locale omits manual motion controls while keeping hidden testimonial duplicates", async () => {
   for (const locale of locales) {
     const html = await readHome(locale);
-    const testimonialToggle = tagWith(html, "data-testimonial-motion-toggle");
-    const heroToggle = tagWith(html, "data-hero-motion-toggle");
     const clones = html.match(/<blockquote\b[^>]*data-testimonial-clone[^>]*>/gi) ?? [];
 
-    assert.match(testimonialToggle, /aria-pressed="false"/, `${locale} testimonial control starts unpaused`);
-    assert.match(heroToggle, /aria-pressed="false"/, `${locale} hero control starts unpaused`);
-    assert.equal(attr(heroToggle, "aria-label"), labels[locale].hero[0]);
-    assert.equal(attr(heroToggle, "data-pause-label"), labels[locale].hero[0]);
-    assert.equal(attr(heroToggle, "data-resume-label"), labels[locale].hero[1]);
-    assert.equal(attr(testimonialToggle, "aria-label"), labels[locale].testimonials[0]);
-    assert.equal(attr(testimonialToggle, "data-pause-label"), labels[locale].testimonials[0]);
-    assert.equal(attr(testimonialToggle, "data-resume-label"), labels[locale].testimonials[1]);
+    assert.doesNotMatch(html, /data-hero-motion-toggle/, `${locale} must not expose a hero pause button`);
+    assert.doesNotMatch(
+      html,
+      /data-testimonial-motion-(?:toggle|icon)/,
+      `${locale} must not expose a testimonial pause button`,
+    );
     assert.ok(clones.length > 0, `${locale} carousel must mark repeated cards as clones`);
     clones.forEach((clone) => {
       assert.match(clone, /aria-hidden="true"/, `${locale} repeated testimonial must be hidden from assistive tech`);
@@ -176,77 +153,10 @@ test("translucent gold testimonial attribution meets AA on its card surface", as
   );
 });
 
-test("motion toggles keep their localized accessible names after runtime state changes", async () => {
-  const hero = new FakeElement();
-  const heroToggle = new FakeElement();
-  const heroIcon = new FakeElement();
-  const backdrops = [new FakeElement(), new FakeElement()];
-  const venueGroups = [new FakeElement(), new FakeElement()];
-  heroToggle.dataset = {
-    pauseLabel: "LOCALIZED HERO PAUSE",
-    resumeLabel: "LOCALIZED HERO RESUME",
-  };
-  const heroDocument = {
-    visibilityState: "visible",
-    querySelector: (selector) =>
-      ({
-        "[data-hero-motion]": hero,
-        "[data-hero-motion-toggle]": heroToggle,
-        "[data-hero-motion-icon]": heroIcon,
-      })[selector] ?? null,
-    querySelectorAll: (selector) =>
-      ({
-        "[data-hero-backdrop]": backdrops,
-        "[data-hero-venue-group]": venueGroups,
-      })[selector] ?? [],
-    addEventListener() {},
-  };
-  const heroWindow = {
-    matchMedia: () => ({ matches: false, addEventListener() {} }),
-    setTimeout: () => 1,
-    clearTimeout() {},
-  };
-
-  vm.runInNewContext(await heroScript(), { document: heroDocument, window: heroWindow });
-  assert.equal(heroToggle.getAttribute("aria-label"), "LOCALIZED HERO PAUSE");
-  heroToggle.listeners.get("click")();
-  assert.equal(heroToggle.getAttribute("aria-label"), "LOCALIZED HERO RESUME");
-
-  const track = new FakeElement();
-  const motionRegion = new FakeElement();
-  const testimonialToggle = new FakeElement();
-  const testimonialIcon = new FakeElement();
-  track.dataset.count = "1";
-  track.querySelectorAll = () => [];
-  motionRegion.contains = () => false;
-  testimonialToggle.dataset = {
-    pauseLabel: "LOCALIZED TESTIMONIAL PAUSE",
-    resumeLabel: "LOCALIZED TESTIMONIAL RESUME",
-  };
-  const testimonialDocument = {
-    visibilityState: "visible",
-    getElementById: () => track,
-    querySelector: (selector) =>
-      ({
-        "[data-testimonial-motion-region]": motionRegion,
-        "[data-testimonial-motion-toggle]": testimonialToggle,
-        "[data-testimonial-motion-icon]": testimonialIcon,
-      })[selector] ?? null,
-    addEventListener() {},
-  };
-  const testimonialWindow = {
-    matchMedia: () => ({ matches: false, addEventListener() {} }),
-    cancelAnimationFrame() {},
-    requestAnimationFrame: () => 1,
-  };
-
-  vm.runInNewContext(await testimonialsScript(), {
-    document: testimonialDocument,
-    window: testimonialWindow,
-  });
-  assert.equal(testimonialToggle.getAttribute("aria-label"), "LOCALIZED TESTIMONIAL PAUSE");
-  testimonialToggle.listeners.get("click")();
-  assert.equal(testimonialToggle.getAttribute("aria-label"), "LOCALIZED TESTIMONIAL RESUME");
+test("testimonial motion runtime does not depend on a removed manual control", async () => {
+  const script = await testimonialsScript();
+  assert.doesNotMatch(script, /testimonial-motion-(?:toggle|icon)/);
+  assert.doesNotMatch(script, /manuallyPaused/);
 });
 
 test("every locale keeps decorative hero backdrops hidden while motion state remains observable", async () => {
@@ -300,8 +210,6 @@ test("every locale renders AA action colors and 44-pixel control classes", async
 
 test("hero keeps its background cadence when venue text rotates first", async () => {
   const hero = new FakeElement();
-  const toggle = new FakeElement();
-  const icon = new FakeElement();
   const backdrops = [new FakeElement(), new FakeElement(), new FakeElement()];
   const backdropImages = backdrops.map((backdrop, index) => {
     const image = new FakeElement();
@@ -321,8 +229,6 @@ test("hero keeps its background cadence when venue text rotates first", async ()
     querySelector: (selector) =>
       ({
         "[data-hero-motion]": hero,
-        "[data-hero-motion-toggle]": toggle,
-        "[data-hero-motion-icon]": icon,
       })[selector] ?? null,
     querySelectorAll: (selector) =>
       ({
@@ -373,8 +279,6 @@ test("hero keeps its background cadence when venue text rotates first", async ()
 
 test("hero motion remains functional when IntersectionObserver is unavailable", async () => {
   const hero = new FakeElement();
-  const toggle = new FakeElement();
-  const icon = new FakeElement();
   const backdrops = [new FakeElement(), new FakeElement()];
   const venueGroups = [new FakeElement(), new FakeElement()];
   let scheduled = 0;
@@ -388,8 +292,6 @@ test("hero motion remains functional when IntersectionObserver is unavailable", 
     querySelector: (selector) =>
       ({
         "[data-hero-motion]": hero,
-        "[data-hero-motion-toggle]": toggle,
-        "[data-hero-motion-icon]": icon,
       })[selector] ?? null,
     querySelectorAll: (selector) =>
       ({
@@ -431,8 +333,6 @@ test("reduced motion keeps the testimonial region horizontally reachable", async
 test("testimonial motion stays inactive when viewport observation is unavailable", async () => {
   const track = new FakeElement();
   const region = new FakeElement();
-  const toggle = new FakeElement();
-  const icon = new FakeElement();
   track.dataset.count = "2";
   track.querySelectorAll = () => [{ offsetLeft: 0 }, { offsetLeft: 296 }, { offsetLeft: 592 }];
   region.contains = () => false;
@@ -443,8 +343,6 @@ test("testimonial motion stays inactive when viewport observation is unavailable
     getElementById: (id) => (id === "testimonial-track" ? track : null),
     querySelector: (selector) =>
       ({
-        "[data-testimonial-motion-toggle]": toggle,
-        "[data-testimonial-motion-icon]": icon,
         "[data-testimonial-motion-region]": region,
       })[selector] ?? null,
     addEventListener() {},
@@ -461,15 +359,13 @@ test("testimonial motion stays inactive when viewport observation is unavailable
   assert.equal(animationFrames, 0, "without observation, carousel must not schedule an animation frame");
 });
 
-test("testimonial focus pause covers the track and its shared pause control", async () => {
+test("testimonial focus pause covers the testimonial track", async () => {
   const track = new FakeElement();
   const region = new FakeElement();
-  const toggle = new FakeElement();
-  const icon = new FakeElement();
   const outside = new FakeElement();
   track.dataset.count = "2";
   track.querySelectorAll = () => [{ offsetLeft: 0 }, { offsetLeft: 296 }, { offsetLeft: 592 }];
-  region.contains = (node) => node === track || node === toggle;
+  region.contains = (node) => node === track;
   let observer;
   let animationFrames = 0;
 
@@ -478,8 +374,6 @@ test("testimonial focus pause covers the track and its shared pause control", as
     getElementById: (id) => (id === "testimonial-track" ? track : null),
     querySelector: (selector) =>
       ({
-        "[data-testimonial-motion-toggle]": toggle,
-        "[data-testimonial-motion-icon]": icon,
         "[data-testimonial-motion-region]": region,
       })[selector] ?? null,
     addEventListener() {},
@@ -504,8 +398,8 @@ test("testimonial focus pause covers the track and its shared pause control", as
   assert.equal(track.dataset.motionState, "running");
   assert.ok(animationFrames > 0);
 
-  region.listeners.get("focusin")({ target: toggle });
-  assert.equal(track.dataset.motionState, "paused", "focusing the pause button must pause the shared motion region");
+  region.listeners.get("focusin")({ target: track });
+  assert.equal(track.dataset.motionState, "paused", "focusing the testimonial region must pause its motion");
 
   region.listeners.get("focusout")({ relatedTarget: outside });
   assert.equal(track.dataset.motionState, "running", "leaving the shared region must resume eligible motion");

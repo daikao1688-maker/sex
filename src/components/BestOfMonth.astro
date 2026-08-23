@@ -50,9 +50,9 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
   aria-labelledby="bom-title"
 >
   <div
-    class="mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-[1fr_minmax(0,440px)] lg:gap-14"
+    class="mx-auto grid w-full max-w-6xl grid-cols-[minmax(0,1fr)] items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:gap-14"
   >
-    <div class="fade-up text-center lg:text-left">
+    <div class="fade-up min-w-0 text-center lg:text-left">
       <p
         class="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-gold"
       >
@@ -86,16 +86,15 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
     </div>
 
     <div
-      class="fade-up relative mx-auto w-full max-w-[min(100%,400px)] origin-center sm:max-w-[440px] sm:touch-pan-y lg:mx-0 lg:justify-self-end"
+      class="fade-up relative mx-auto min-w-0 w-full max-w-[min(100%,400px)] origin-center touch-pan-y sm:max-w-[440px] lg:mx-0 lg:justify-self-end"
       data-testid="bom-scorecard"
       data-bom-deck
+      role="region"
+      aria-label={copy.controls.carousel}
     >
       <div
-        class="bom-track overflow-x-auto"
+        class="bom-track min-w-0 w-full"
         data-bom-track
-        role="region"
-        aria-labelledby="bom-title"
-        tabindex="0"
       >
         {
           cards.map((card, index) => (
@@ -103,8 +102,10 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
               href={card.href}
               data-bom-card
               data-bom-heading-value={interpolate(copy.heading, { venue: card.name })}
+              tabindex={index === 0 ? 0 : -1}
+              aria-hidden={index === 0 ? "false" : "true"}
               class="bom-card block overflow-hidden rounded-[16px] border border-gold/35 bg-[#141414] shadow-[0_24px_50px_-18px_rgba(212,175,55,0.28)] transition-[border-color,box-shadow,opacity,transform] duration-500 hover:border-gold/70 hover:shadow-[0_30px_60px_-16px_rgba(212,175,55,0.45)] sm:rounded-[20px]"
-              style={`--bom-card-tilt:${index % 2 === 0 ? "1.25deg" : "-1.1deg"}`}
+              style={`--bom-card-tilt:${index % 2 === 0 ? "1.25deg" : "-1.1deg"};grid-area:1 / 1;pointer-events:${index === 0 ? "auto" : "none"};opacity:${index === 0 ? 1 : 0};visibility:${index === 0 ? "visible" : "hidden"}`}
             >
               <div class="relative aspect-[16/9]">
                 <picture data-bom-picture class="block h-full w-full">
@@ -195,7 +196,8 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
       </div>
 
       <div
-        class="mt-5 hidden items-center justify-center gap-2 sm:mt-6 sm:flex sm:gap-4"
+        class="mt-5 flex items-center justify-center gap-2 sm:mt-6 sm:gap-4"
+        data-bom-controls
         role="group"
         aria-label={copy.controls.carousel}
       >
@@ -249,47 +251,18 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
 
 <style>
   .bom-track {
-    display: flex;
-    gap: 1rem;
-    margin-inline: -0.5rem;
-    padding: 0.5rem 0.5rem 1rem;
-    scroll-padding-inline: 0.5rem;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(212, 175, 55, 0.45) rgba(255, 255, 255, 0.06);
+    display: grid;
+    overflow: visible;
   }
 
   .bom-card {
-    flex: 0 0 min(88vw, 400px);
-    scroll-snap-align: center;
+    grid-area: 1 / 1;
   }
 
   @media (max-width: 639px) {
     .bom-card {
       transform: rotate(var(--bom-card-tilt, 1.25deg));
       transform-origin: center;
-    }
-  }
-
-  @media (min-width: 640px) {
-    .bom-track {
-      display: grid;
-      margin: 0;
-      padding: 0;
-      overflow: visible;
-    }
-
-    .bom-card {
-      grid-area: 1 / 1;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .bom-card:first-child {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
     }
   }
 
@@ -313,7 +286,6 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
     const dots = Array.from(deck.querySelectorAll<HTMLButtonElement>("[data-bom-dot]"));
     const previous = deck.querySelector<HTMLButtonElement>("[data-bom-previous]");
     const next = deck.querySelector<HTMLButtonElement>("[data-bom-next]");
-    const controlledLayout = window.matchMedia("(min-width: 640px)");
     let active = 0;
     let pointerStartX = 0;
     let pointerStartY = 0;
@@ -321,17 +293,6 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
     let suppressClickUntil = 0;
 
     const show = (next: number) => {
-      if (!controlledLayout.matches) {
-        cards.forEach((card) => {
-          card.style.removeProperty("opacity");
-          card.style.removeProperty("visibility");
-          card.style.removeProperty("pointer-events");
-          card.tabIndex = 0;
-          card.removeAttribute("aria-hidden");
-        });
-        return;
-      }
-
       cards.forEach((card, index) => {
         const on = index === next;
         card.style.opacity = on ? "1" : "0";
@@ -370,7 +331,6 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
     dots.forEach((dot) => {
       dot.addEventListener("click", () => select(Number(dot.dataset.bomIndex ?? 0)));
     });
-    controlledLayout.addEventListener("change", () => show(active));
     show(active);
 
     // Keep vertical page scrolling native while treating a deliberate

@@ -29,21 +29,42 @@ function element(html, marker, tagName = "div") {
   return html.slice(start, end + tagName.length + 3);
 }
 
-test("Best of Month keeps all cards indexable in a labelled mobile scroller", async () => {
+test("Best of Month uses labelled previous and next controls instead of a mobile scrollbar", async () => {
   for (const locale of locales) {
     const html = await readPage(locale);
     const section = element(html, 'data-testid="best-of-month"', "section");
 
-    assert.match(openingTag(html, "data-bom-track"), /role="region"/);
-    assert.match(openingTag(html, "data-bom-track"), /aria-labelledby="bom-title"/);
-    assert.match(openingTag(html, "data-bom-track"), /tabindex="0"/);
-    assert.match(openingTag(html, "data-bom-track"), /overflow-x-auto/);
+    const deck = openingTag(html, "data-bom-deck");
+    const track = openingTag(html, "data-bom-track");
+    const controls = openingTag(html, "data-bom-controls");
+
+    assert.match(deck, /role="region"/);
+    assert.match(deck, /aria-label="[^"]+"/);
+    assert.doesNotMatch(track, /overflow-x-auto/);
+    assert.match(controls, /\bflex\b/);
+    assert.doesNotMatch(controls, /\bhidden\b/);
+    assert.match(section, /data-bom-previous/);
+    assert.match(section, /data-bom-next/);
     const cards = [...section.matchAll(/<a\b[^>]*data-bom-card[^>]*>/g)].map(([tag]) => tag);
     assert.equal(cards.length, 3, `${locale} lost shortlist cards`);
-    assert.ok(
-      cards.every((tag) => !tag.includes('aria-hidden="true"')),
-      `${locale} hides shortlist content at build time`,
-    );
+    assert.match(cards[0], /aria-hidden="false"/);
+    assert.match(cards[1], /aria-hidden="true"/);
+    assert.match(cards[2], /aria-hidden="true"/);
+  }
+});
+
+test("Quick Match dynamic result status always includes the numeric score", async () => {
+  const source = await readFile(path.join(projectRoot, "src/components/QuickMatch.astro"), "utf8");
+
+  assert.match(
+    source,
+    /status\.textContent\s*=\s*`\$\{config\.venues\[best\.venue\.slug\]\.name\}\s+\$\{best\.score\}\$\{config\.matchSuffix\}`/,
+  );
+
+  for (const locale of locales) {
+    const html = await readPage(locale);
+    const status = element(html, "data-qm-result-status", "span");
+    assert.match(status, /\d+%/, `${locale} initial Quick Match status omits its score`);
   }
 });
 

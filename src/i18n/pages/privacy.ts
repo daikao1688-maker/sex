@@ -9,14 +9,13 @@ export interface PrivacyCopy {
   effectiveDate: string;
   summary: string;
   sections: Array<{ heading: string; paragraphs: string[] }>;
-  manageConsent: string;
   contactLink: string;
 }
 
 const en: PrivacyCopy = {
   meta: {
     title: 'Privacy Notice | Macau Sauna Sites',
-    description: 'How this site uses Google measurement and advertising tags, and what happens when you contact us through an external messaging app.',
+    description: 'How external messaging links work, what information an enquiry may include, and how those details are used to answer and arrange your request.',
   },
   breadcrumbs: [
     { name: 'Home', path: '/' },
@@ -25,16 +24,8 @@ const en: PrivacyCopy = {
   backHome: 'Back to home',
   heading: 'Privacy Notice',
   effectiveDate: 'Last updated: 2026-08-22',
-  summary: 'This site uses Google technology for site measurement and advertising. WhatsApp, Telegram and LINE contact links open external services; the WeChat button opens an on-site WeChat QR code and account ID modal. The sections below explain these flows and the information involved.',
+  summary: 'WhatsApp, Telegram and LINE contact links open external services; the WeChat button opens an on-site QR code and account ID modal. The sections below explain these contact flows, the information an enquiry may contain and how it is used.',
   sections: [
-    {
-      heading: 'Google measurement and advertising',
-      paragraphs: [
-        'On production pages we offer the Google tag GT-TXHFV3C5 and Google Ads tag AW-18058018185. Google tags do not load and no information is sent to Google through them unless you choose Accept. If you decline or make no choice, the tags remain blocked.',
-        'Google may use cookies or similar browser technologies when those tags run. How Google processes that information is governed by Google’s own privacy terms and the controls available in your browser or Google account.',
-        'We store your choice in this browser’s local storage. You can reopen Privacy choices in the footer at any time and withdraw consent; after withdrawal, later pages keep Google tags blocked.',
-      ],
-    },
     {
       heading: 'WhatsApp, WeChat, Telegram and LINE',
       paragraphs: [
@@ -52,18 +43,17 @@ const en: PrivacyCopy = {
     {
       heading: 'Changes and questions',
       paragraphs: [
-        'If the site’s measurement setup or contact flow changes, we will revise this notice and its date. You can use the same contact channels to ask a privacy question or flag an inaccurate description of how the site works.',
+        'If the contact flow or the way enquiry details are handled changes, we will revise this notice and its date. You can use the same contact channels to ask a privacy question or flag an inaccurate description of how the site works.',
       ],
     },
   ],
-  manageConsent: 'Review or withdraw analytics consent',
   contactLink: 'Ask a privacy question →',
 };
 
 const zhTW: PrivacyCopy = {
   meta: {
     title: '隱私說明 - 澳門桑拿導航站',
-    description: '說明本站使用的 Google 成效評估與廣告標籤，以及轉到外部通訊軟體聯絡我們時會發生甚麼。',
+    description: '說明外部通訊軟體的聯絡流程、查詢可能包含的資料，以及我們如何使用這些內容回覆和協助安排。',
   },
   breadcrumbs: [
     { name: '首頁', path: '/' },
@@ -72,16 +62,8 @@ const zhTW: PrivacyCopy = {
   backHome: '返回首頁',
   heading: '隱私說明',
   effectiveDate: '最近更新：2026-08-22',
-  summary: '本站使用 Google 技術了解網站及廣告成效。WhatsApp、Telegram 及 LINE 的聯絡連結會開啟外部服務；WeChat 按鈕則開啟站內 WeChat QR code 與帳戶 ID 視窗。以下說明各個流程及當中涉及的資料。',
+  summary: 'WhatsApp、Telegram 及 LINE 的聯絡連結會開啟外部服務；WeChat 按鈕則開啟站內 QR code 與帳戶 ID 視窗。以下說明這些聯絡流程、查詢可能包含的內容，以及我們如何使用相關資料。',
   sections: [
-    {
-      heading: 'Google 成效評估與廣告',
-      paragraphs: [
-        '正式上線的頁面提供 Google tag GT-TXHFV3C5 及 Google Ads tag AW-18058018185。除非您選擇「同意」，否則 Google 標籤不會載入，也不會透過這些標籤向 Google 傳送資料。拒絕或未作選擇時，標籤會維持封鎖。',
-        '標籤運作時，Google 可能使用 Cookie 或類似的瀏覽器技術。相關資料由 Google 按其私隱條款處理；您亦可使用瀏覽器或 Google 帳戶所提供的控制選項。',
-        '我們會把您的選擇儲存在此瀏覽器的本機儲存空間。您可隨時透過頁尾的「隱私選擇」重新開啟面板並撤回同意；撤回後，日後頁面不會載入 Google 標籤。',
-      ],
-    },
     {
       heading: 'WhatsApp、WeChat、Telegram 與 LINE',
       paragraphs: [
@@ -99,18 +81,17 @@ const zhTW: PrivacyCopy = {
     {
       heading: '更新與提問',
       paragraphs: [
-        '如網站的成效評估設定或聯絡流程有改動，我們會更新本頁及日期。您亦可透過現有聯絡方式提出私隱問題，或指出本說明與網站實際運作不符之處。',
+        '如聯絡流程或查詢資料的處理方式有改動，我們會更新本頁及日期。您亦可透過現有聯絡方式提出私隱問題，或指出本說明與網站實際運作不符之處。',
       ],
     },
   ],
-  manageConsent: '檢視或撤回成效評估同意',
   contactLink: '提出私隱相關問題 →',
 };
 
 const zhCN: PrivacyCopy = {
   meta: {
     title: '隐私说明 - 澳门桑拿导航站',
-    description: '说明本站使用的 Google 效果衡量与广告标签，以及跳转到外部通讯软件联系我们时会发生什么。',
+    description: '说明外部通讯软件的联系流程、咨询可能包含的资料，以及我们如何使用这些内容回复和协助安排。',
   },
   breadcrumbs: [
     { name: '首页', path: '/' },
@@ -119,16 +100,8 @@ const zhCN: PrivacyCopy = {
   backHome: '返回首页',
   heading: '隐私说明',
   effectiveDate: '最近更新：2026-08-22',
-  summary: '本站使用 Google 技术了解网站和广告效果。WhatsApp、Telegram 和 LINE 的联系链接会打开外部服务；WeChat 按钮则打开站内 WeChat 二维码与账户 ID 弹窗。下面说明各个流程和其中涉及的资料。',
+  summary: 'WhatsApp、Telegram 和 LINE 的联系链接会打开外部服务；WeChat 按钮则打开站内二维码与账户 ID 弹窗。下面说明这些联系流程、咨询可能包含的内容，以及我们如何使用相关资料。',
   sections: [
-    {
-      heading: 'Google 效果衡量与广告',
-      paragraphs: [
-        '正式上线的页面提供 Google tag GT-TXHFV3C5 和 Google Ads tag AW-18058018185。除非您选择“同意”，否则 Google 标签不会加载，也不会通过这些标签向 Google 发送资料。拒绝或未作选择时，标签会保持拦截。',
-        '标签运行时，Google 可能使用 Cookie 或类似的浏览器技术。相关资料由 Google 按照其隐私条款处理；您也可以使用浏览器或 Google 账户提供的控制选项。',
-        '我们会把您的选择保存在此浏览器的本地存储中。您可随时通过页尾的“隐私选择”重新打开面板并撤回同意；撤回后，后续页面不会加载 Google 标签。',
-      ],
-    },
     {
       heading: 'WhatsApp、WeChat、Telegram 与 LINE',
       paragraphs: [
@@ -146,18 +119,17 @@ const zhCN: PrivacyCopy = {
     {
       heading: '更新与提问',
       paragraphs: [
-        '如果网站的效果衡量设置或联系流程发生变化，我们会更新本页和日期。您也可以通过现有联系方式提出隐私问题，或指出本说明与网站实际运行不符的地方。',
+        '如果联系流程或咨询资料的处理方式发生变化，我们会更新本页和日期。您也可以通过现有联系方式提出隐私问题，或指出本说明与网站实际运行不符的地方。',
       ],
     },
   ],
-  manageConsent: '查看或撤回效果衡量同意',
   contactLink: '提出隐私相关问题 →',
 };
 
 const ja: PrivacyCopy = {
   meta: {
     title: 'プライバシーについて｜マカオ・サウナ・ガイド',
-    description: 'Googleの計測・広告タグと、外部メッセージアプリからお問い合わせいただく際の情報の流れをご案内します。',
+    description: '外部メッセージアプリでのお問い合わせの流れ、メッセージに含まれる情報、その利用目的をご案内します。',
   },
   breadcrumbs: [
     { name: 'ホーム', path: '/' },
@@ -166,16 +138,8 @@ const ja: PrivacyCopy = {
   backHome: 'ホームに戻る',
   heading: 'プライバシーについて',
   effectiveDate: '更新日：2026-08-22',
-  summary: '当サイトでは、サイトと広告の効果を確認するためにGoogleの技術を使用しています。WhatsApp、Telegram、LINEのリンクは外部サービスを開き、WeChatボタンはサイト内のWeChat QRコード・ID画面を表示します。それぞれの場面でどのような情報が扱われるかを説明します。',
+  summary: 'WhatsApp、Telegram、LINEのリンクは外部サービスを開き、WeChatボタンはサイト内のQRコード・ID画面を表示します。ここでは、各お問い合わせ方法の流れ、メッセージに含まれる情報、その利用目的をご案内します。',
   sections: [
-    {
-      heading: 'Googleによる計測と広告',
-      paragraphs: [
-        '公開中のページでは、Google tag GT-TXHFV3C5とGoogle Ads tag AW-18058018185を利用できます。「同意する」を選ぶまでGoogleタグは読み込まれず、タグを通じてGoogleへ情報が送信されることもありません。拒否した場合や未選択の場合も、タグはブロックされたままです。',
-        'タグの動作時には、GoogleがCookieなどのブラウザ技術を使用する場合があります。Googleでの情報処理には同社のプライバシー規約が適用され、ブラウザやGoogleアカウントの設定から利用できる管理機能もあります。',
-        '選択内容はこのブラウザのローカルストレージに保存します。フッターの「プライバシー設定」からいつでも選択画面を開き、同意を撤回できます。撤回後は、次のページからGoogleタグを読み込みません。',
-      ],
-    },
     {
       heading: 'WhatsApp、WeChat、Telegram、LINE',
       paragraphs: [
@@ -193,11 +157,10 @@ const ja: PrivacyCopy = {
     {
       heading: '変更とお問い合わせ',
       paragraphs: [
-        '計測設定やお問い合わせの流れを変更した場合は、本ページの内容と日付を更新します。プライバシーに関するご質問や、実際のサイト動作と説明が異なる点も、既存のお問い合わせ窓口からお知らせいただけます。',
+        'お問い合わせの流れや、ご相談内容の取り扱いを変更した場合は、本ページの内容と日付を更新します。プライバシーに関するご質問や、実際のサイト動作と説明が異なる点も、既存のお問い合わせ窓口からお知らせいただけます。',
       ],
     },
   ],
-  manageConsent: '計測への同意を確認・撤回する',
   contactLink: 'プライバシーについて問い合わせる →',
 };
 

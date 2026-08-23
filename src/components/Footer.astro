@@ -1,7 +1,6 @@
 ---
 import { getDictionary } from "../i18n";
 import { localizePath, type Locale } from "../i18n/config";
-import { getConsentCopy } from "../i18n/consent";
 
 interface Props {
   lang: Locale;
@@ -9,7 +8,6 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = getDictionary(lang);
-const consent = getConsentCopy(lang);
 const links = [
   ...t.footer.links,
   { path: "/editorial-policy/", label: t.footer.editorialPolicy },
@@ -39,14 +37,6 @@ const links = [
           </>
         ))
       }
-      <span class="text-white/15" aria-hidden="true">·</span>
-      <button
-        type="button"
-        data-consent-settings
-        class="inline-flex min-h-11 items-center text-white/55 transition-colors hover:text-gold"
-      >
-        {consent.manage}
-      </button>
     </nav>
 
     <div class="flex flex-col items-center text-center gap-3 sm:flex-row sm:justify-center sm:gap-8">

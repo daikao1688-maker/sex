@@ -4,10 +4,8 @@ import PageShell from "../../../layouts/PageShell.astro";
 import Icon from "../../../components/Icon.astro";
 import SpaGallery from "../../../components/SpaGallery.astro";
 import ContactChannels from "../../../components/ContactChannels.astro";
-import EditorialEvidence from "../../../components/EditorialEvidence.astro";
 import { getDictionary } from "../../../i18n";
 import { locales, localizePath, type Locale } from "../../../i18n/config";
-import { getEditorialEvidenceCopy } from "../../../i18n/pages/editorialPolicy";
 import { getSpaPageCopy, spaBreadcrumbs, venueSummary } from "../../../i18n/pages/spa";
 import { resolveVenueDetail } from "../../../lib/spaDetail";
 import { venues } from "../../../data/venues";
@@ -26,7 +24,6 @@ const lang = Astro.params.lang as Locale;
 
 const t = getDictionary(lang);
 const copy = getSpaPageCopy(lang);
-const evidenceCopy = getEditorialEvidenceCopy(lang);
 const detail = resolveVenueDetail(venue, copy, t);
 
 const venueCopy = t.spas.venues[venue.slug];
@@ -175,12 +172,6 @@ const schemas = [
           )
         }
       </div>
-
-      <EditorialEvidence
-        lang={lang}
-        copy={evidenceCopy}
-        temporarilyClosed={venue.temporarilyClosed}
-      />
 
       <div class="mb-12">
         <div data-testid="spa-practical-info" class="fade-up">

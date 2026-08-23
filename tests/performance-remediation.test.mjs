@@ -152,238 +152,15 @@ test("localized pages use locale-aware system stacks without third-party font re
   }
 });
 
-test("analytics ignores idle, interaction, and refusal, then initializes exactly once after explicit consent", async () => {
-  const html = await readPage("en");
-  assert.doesNotMatch(html, /<script\b[^>]*src="https:\/\/www\.googletagmanager\.com/i);
-
-  const loader = [...html.matchAll(/<script\b[^>]*data-analytics-loader[^>]*>([\s\S]*?)<\/script>/g)][0]?.[1];
-  assert.ok(loader, "production pages must include the deferred analytics loader");
-
-  const listeners = new Map();
-  const idleCallbacks = [];
-  const appended = [];
-  const stored = new Map();
-  const on = (name, callback) => {
-    const callbacks = listeners.get(name) ?? [];
-    callbacks.push(callback);
-    listeners.set(name, callbacks);
-  };
-  const off = (name, callback) => {
-    listeners.set(name, (listeners.get(name) ?? []).filter((entry) => entry !== callback));
-  };
-  const dispatch = (name, event = {}) => {
-    for (const callback of [...(listeners.get(name) ?? [])]) callback(event);
-  };
-  const document = {
-    createElement: () => ({}),
-    head: { append: (node) => appended.push(node) },
-  };
-  const window = {
-    addEventListener: on,
-    removeEventListener: off,
-    requestIdleCallback: (callback) => idleCallbacks.push(callback),
-    setTimeout: (callback) => idleCallbacks.push(callback),
-  };
-  window.window = window;
-  const localStorage = {
-    getItem: (key) => stored.get(key) ?? null,
-    setItem: (key, value) => stored.set(key, String(value)),
-  };
-
-  vm.runInNewContext(loader, { document, localStorage, window });
-  assert.equal(appended.length, 0, "analytics loaded before idle or interaction");
-  assert.equal(window.dataLayer, undefined, "analytics initialized before idle or interaction");
-
-  dispatch("pointerdown");
-  idleCallbacks.forEach((callback) => callback());
-  dispatch("keydown");
-  dispatch("scroll");
-  assert.equal(appended.length, 0, "idle and ordinary interaction must not load Google tags without consent");
-
-  stored.set("relaxmacau:analytics-consent", "denied");
-  dispatch("relaxmacau:analytics-consent", { detail: "denied" });
-  assert.equal(appended.length, 0, "refusal must not load Google tags");
-
-  stored.set("relaxmacau:analytics-consent", "granted");
-  dispatch("relaxmacau:analytics-consent", { detail: "granted" });
-  dispatch("relaxmacau:analytics-consent", { detail: "granted" });
-
-  assert.equal(appended.length, 1, "the Google tag script must be appended exactly once");
-  assert.equal(appended[0].src, "https://www.googletagmanager.com/gtag/js?id=GT-TXHFV3C5");
-  const configs = window.dataLayer.filter((entry) => entry[0] === "config");
-  assert.deepEqual(
-    Array.from(configs, (entry) => entry[1]),
-    ["GT-TXHFV3C5", "AW-18058018185"],
-  );
-});
-
-test("explicit acceptance initializes once when consent storage is unavailable", async () => {
-  const html = await readPage("en");
-  const loader = [...html.matchAll(/<script\b[^>]*data-analytics-loader[^>]*>([\s\S]*?)<\/script>/g)][0]?.[1];
-  const controller = [...html.matchAll(/<script\b[^>]*data-consent-controller[^>]*>([\s\S]*?)<\/script>/g)][0]?.[1];
-  assert.ok(loader);
-  assert.ok(controller);
-
-  const windowListeners = new Map();
-  const documentListeners = new Map();
-  const appended = [];
-  const panel = new FakeElement();
-  const accept = new FakeElement();
-  const decline = new FakeElement();
-  const settings = new FakeElement();
-  panel.hidden = true;
-  const localStorage = {
-    getItem: () => {
-      throw new Error("storage unavailable");
-    },
-    setItem: () => {
-      throw new Error("storage unavailable");
-    },
-  };
-  const window = {
-    addEventListener: (name, callback) => {
-      const listeners = windowListeners.get(name) ?? [];
-      listeners.push(callback);
-      windowListeners.set(name, listeners);
-    },
-    dispatchEvent: (event) => {
-      for (const callback of windowListeners.get(event.type) ?? []) callback(event);
-    },
-  };
-  window.window = window;
-  const document = {
-    createElement: () => ({}),
-    head: { append: (node) => appended.push(node) },
-    querySelector: (selector) =>
-      ({
-        "[data-consent-panel]": panel,
-        "[data-consent-accept]": accept,
-      })[selector] ?? null,
-    addEventListener: (name, callback) => documentListeners.set(name, callback),
-  };
-  const CustomEvent = class {
-    constructor(type, init = {}) {
-      this.type = type;
-      this.detail = init.detail;
-    }
-  };
-  const click = (selector, target) =>
-    documentListeners.get("click")({
-      preventDefault() {},
-      target: { closest: (candidate) => (candidate === selector ? target : null) },
-    });
-
-  vm.runInNewContext(loader, { document, localStorage, window });
-  vm.runInNewContext(controller, {
-    CustomEvent,
-    document,
-    localStorage,
-    requestAnimationFrame: (callback) => callback(),
-    window,
-  });
-
-  assert.equal(appended.length, 0, "storage failure must not weaken the pre-consent block");
-  click("[data-consent-decline]", decline);
-  assert.equal(appended.length, 0, "an in-memory refusal must keep Google tags blocked");
-
-  click("[data-consent-settings]", settings);
-  click("[data-consent-accept]", accept);
-  click("[data-consent-accept]", accept);
-  assert.equal(appended.length, 1, "an explicit in-memory grant must initialize Google tags exactly once");
-});
-
-test("persisted refusal and later withdrawal keep Google tags blocked on subsequent pages", async () => {
-  const html = await readPage("en");
-  const loader = [...html.matchAll(/<script\b[^>]*data-analytics-loader[^>]*>([\s\S]*?)<\/script>/g)][0]?.[1];
-  const controller = [...html.matchAll(/<script\b[^>]*data-consent-controller[^>]*>([\s\S]*?)<\/script>/g)][0]?.[1];
-  assert.ok(loader, "production pages must include the consent-gated analytics loader");
-  assert.ok(controller, "production pages must include the consent controller");
-
-  const stored = new Map();
-  const runPage = (choice) => {
-    stored.clear();
-    if (choice) stored.set("relaxmacau:analytics-consent", choice);
-    const windowListeners = new Map();
-    const documentListeners = new Map();
-    const appended = [];
-    const panel = new FakeElement();
-    const accept = new FakeElement();
-    const decline = new FakeElement();
-    const settings = new FakeElement();
-    panel.hidden = true;
-    const localStorage = {
-      getItem: (key) => stored.get(key) ?? null,
-      setItem: (key, value) => stored.set(key, String(value)),
-    };
-    const addWindowListener = (name, callback) => {
-      const callbacks = windowListeners.get(name) ?? [];
-      callbacks.push(callback);
-      windowListeners.set(name, callbacks);
-    };
-    const dispatchWindow = (event) => {
-      for (const callback of [...(windowListeners.get(event.type) ?? [])]) callback(event);
-    };
-    const window = {
-      addEventListener: addWindowListener,
-      removeEventListener() {},
-      dispatchEvent: dispatchWindow,
-      setTimeout() {},
-    };
-    window.window = window;
-    const document = {
-      activeElement: settings,
-      createElement: () => ({}),
-      head: { append: (node) => appended.push(node) },
-      querySelector: (selector) =>
-        ({
-          "[data-consent-panel]": panel,
-          "[data-consent-accept]": accept,
-          "[data-consent-decline]": decline,
-        })[selector] ?? null,
-      addEventListener: (name, callback) => documentListeners.set(name, callback),
-    };
-    const CustomEvent = class {
-      constructor(type, init = {}) {
-        this.type = type;
-        this.detail = init.detail;
-      }
-    };
-
-    vm.runInNewContext(loader, { document, localStorage, window });
-    vm.runInNewContext(controller, { CustomEvent, document, HTMLElement: FakeElement, localStorage, requestAnimationFrame: (callback) => callback(), window });
-
-    const click = (selector, target) =>
-      documentListeners.get("click")({
-        preventDefault() {},
-        target: { closest: (candidate) => (candidate === selector ? target : null) },
-      });
-
-    return { accept, appended, click, decline, panel, settings, stored, window };
-  };
-
-  const firstVisit = runPage();
-  assert.equal(firstVisit.panel.hidden, false, "first visit must show the consent panel");
-  assert.equal(firstVisit.appended.length, 0);
-  firstVisit.click("[data-consent-decline]", firstVisit.decline);
-  assert.equal(stored.get("relaxmacau:analytics-consent"), "denied", "refusal must persist");
-  assert.equal(firstVisit.appended.length, 0);
-
-  const refusedVisit = runPage("denied");
-  assert.equal(refusedVisit.panel.hidden, true, "a persisted refusal should not nag on every page");
-  assert.equal(refusedVisit.appended.length, 0, "a persisted refusal must keep tags blocked");
-
-  refusedVisit.click("[data-consent-settings]", refusedVisit.settings);
-  assert.equal(refusedVisit.panel.hidden, false, "the footer/privacy control must reopen consent choices");
-  refusedVisit.click("[data-consent-accept]", refusedVisit.accept);
-  assert.equal(stored.get("relaxmacau:analytics-consent"), "granted", "acceptance must persist");
-  assert.equal(refusedVisit.appended.length, 1, "acceptance must initialize Google tags");
-
-  refusedVisit.click("[data-consent-settings]", refusedVisit.settings);
-  refusedVisit.click("[data-consent-decline]", refusedVisit.decline);
-  assert.equal(stored.get("relaxmacau:analytics-consent"), "denied", "withdrawal must replace prior consent");
-
-  const afterWithdrawal = runPage("denied");
-  assert.equal(afterWithdrawal.appended.length, 0, "withdrawal must keep tags blocked on later pages");
+test("localized production pages omit consent UI and Google tag payloads", async () => {
+  for (const locale of locales) {
+    const html = await readPage(locale);
+    assert.doesNotMatch(
+      html,
+      /data-(?:analytics-loader|consent-(?:panel|accept|decline|settings|controller))|googletagmanager\.com|GT-TXHFV3C5|AW-18058018185/i,
+      `${locale} still ships removed consent or Google tag behavior`,
+    );
+  }
 });
 
 test("the 404 keeps shared branding but omits analytics and remote font payloads", async () => {
@@ -416,8 +193,6 @@ test("hero initially fetches only its active source and preloads the next source
   });
 
   const hero = new FakeElement();
-  const toggle = new FakeElement();
-  const icon = new FakeElement();
   const images = [
     new FakeElement({}),
     new FakeElement({ src: "/covers/next.jpg", srcset: "/covers/next-960.webp 960w" }),
@@ -455,8 +230,6 @@ test("hero initially fetches only its active source and preloads the next source
     visibilityState: "visible",
     querySelector: (selector) => ({
       "[data-hero-motion]": hero,
-      "[data-hero-motion-toggle]": toggle,
-      "[data-hero-motion-icon]": icon,
     })[selector] ?? null,
     querySelectorAll: (selector) => ({
       "[data-hero-backdrop]": backdrops,

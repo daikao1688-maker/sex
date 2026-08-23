@@ -151,7 +151,7 @@ const clientConfig = {
                 aria-live="polite"
                 aria-atomic="true"
                 class="text-xs font-bold uppercase tracking-[0.14em] text-gold"
-                >{qm.resultLabel}</span
+                >{venueName(best.venue.slug)} {best.score}{qm.matchSuffix}</span
               >
               <span class="text-xs text-white/60"
                 >{interpolate(qm.pickedFrom, { count: venues.length })}</span
@@ -346,7 +346,9 @@ const clientConfig = {
       if (name) name.textContent = copy.name;
 
       const status = $("[data-qm-result-status]");
-      if (status) status.textContent = `${config.venues[best.venue.slug].name} ${config.matchSuffix}`;
+      if (status) {
+        status.textContent = `${config.venues[best.venue.slug].name} ${best.score}${config.matchSuffix}`;
+      }
 
       const score = $("[data-qm-score]");
       if (score) score.textContent = `${best.score}${config.matchSuffix}`;

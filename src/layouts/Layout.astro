@@ -22,8 +22,6 @@ interface Props {
   alternateLocales?: Locale[];
   /** Error and utility pages can opt out of indexing and locale alternates. */
   indexable?: boolean;
-  /** Lightweight utility pages can omit the production analytics loader. */
-  analytics?: boolean;
 }
 
 const {
@@ -37,7 +35,6 @@ const {
   siteSchema = false,
   alternateLocales = locales,
   indexable = true,
-  analytics = true,
 } = Astro.props;
 
 const t = getDictionary(lang);
@@ -69,62 +66,6 @@ const fontStacks: Record<Locale, string> = {
     '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif',
   ja: '"Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, -apple-system, sans-serif',
 };
-
-// Basic Consent Mode: production Google tags remain entirely absent until an
-// explicit stored grant or a grant event from the on-page consent panel.
-const deferredGtagSnippet = `(() => {
-  const tagId = ${JSON.stringify(site.googleTagId)};
-  const adsId = ${JSON.stringify(site.googleAdsId)};
-  const preferenceKey = "relaxmacau:analytics-consent";
-  let started = false;
-
-  const readPreference = () => {
-    try {
-      return localStorage.getItem(preferenceKey);
-    } catch {
-      return null;
-    }
-  };
-  const consentState = (value) => ({
-    ad_storage: value,
-    analytics_storage: value,
-    ad_user_data: value,
-    ad_personalization: value,
-  });
-
-  const initialize = (preference = readPreference()) => {
-    if (preference !== "granted") return;
-    if (started || window.__rmAnalyticsInitialized) return;
-    started = true;
-    window.__rmAnalyticsInitialized = true;
-
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
-    window.gtag("consent", "default", consentState("granted"));
-    window.gtag("js", new Date());
-    window.gtag("config", tagId);
-    window.gtag("config", adsId);
-
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(tagId);
-    document.head.append(script);
-  };
-
-  window.addEventListener("relaxmacau:analytics-consent", (event) => {
-    if (event.detail === "granted") {
-      if (window.__rmAnalyticsInitialized && window.gtag) {
-        window.gtag("consent", "update", consentState("granted"));
-      } else {
-        initialize("granted");
-      }
-    } else if (event.detail === "denied" && window.__rmAnalyticsInitialized && window.gtag) {
-      window.gtag("consent", "update", consentState("denied"));
-    }
-  });
-
-  initialize();
-})();`;
 
 const siteSchemas = [
   {
@@ -234,11 +175,6 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
       ))
     }
 
-    {
-      analytics && import.meta.env.PROD && (
-        <script is:inline data-analytics-loader set:html={deferredGtagSnippet} />
-      )
-    }
   </head>
   <body class="bg-ink text-white" data-inquiry-message={t.contact.inquiryMessage}>
     <slot />

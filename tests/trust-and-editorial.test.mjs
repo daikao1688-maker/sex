@@ -23,14 +23,6 @@ const visibleText = (html) =>
     .replace(/\s+/g, " ")
     .trim();
 
-const region = (html, testId) => {
-  const match = html.match(
-    new RegExp(`<aside\\b[^>]*data-testid="${testId}"[\\s\\S]*?<\\/aside>`),
-  );
-  assert.ok(match, `generated page is missing ${testId}`);
-  return match[0];
-};
-
 const metaDescription = (html) =>
   html.match(/<meta\b(?=[^>]*name="description")(?=[^>]*content="([^"]*)")[^>]*>/)?.[1];
 
@@ -48,45 +40,33 @@ const policyExpectations = {
     prices: "Prices and opening status",
     corrections: "Corrections",
     footer: "Editorial policy",
-    evidence: "Source and review notes",
-    current: "not independently verified",
-    closed: "marked temporarily closed",
   },
   "zh-TW": {
     heading: "編輯與更正政策",
     prices: "價格與營業狀態",
     corrections: "資料更正",
     footer: "編輯政策",
-    evidence: "資料來源與審閱說明",
-    current: "尚未經場館官方資料獨立核實",
-    closed: "標示為暫停營業",
   },
   "zh-CN": {
     heading: "编辑与更正政策",
     prices: "价格与营业状态",
     corrections: "资料更正",
     footer: "编辑政策",
-    evidence: "资料来源与审阅说明",
-    current: "尚未通过场馆官方资料独立核实",
-    closed: "标示为暂停营业",
   },
   ja: {
     heading: "編集・訂正方針",
     prices: "料金と営業状況",
     corrections: "訂正について",
     footer: "編集方針",
-    evidence: "情報源と確認状況",
-    current: "店舗公式情報による独立確認はできていません",
-    closed: "一時休業として掲載",
   },
 };
 
-test("privacy pages disclose the deployed Google tags and every outbound messaging service", async () => {
+test("privacy pages omit removed Google tags and still explain every outbound messaging service", async () => {
   for (const locale of locales) {
-    const text = visibleText(await readPage(locale, "privacy"));
+    const html = await readPage(locale, "privacy");
+    const text = visibleText(html);
 
-    assert.ok(text.includes("GT-TXHFV3C5"), `${locale} omits the deployed Google tag`);
-    assert.ok(text.includes("AW-18058018185"), `${locale} omits the deployed Google Ads tag`);
+    assert.doesNotMatch(html, /GT-TXHFV3C5|AW-18058018185|googletagmanager\.com|data-consent-settings/);
     for (const platform of ["WhatsApp", "WeChat", "Telegram", "LINE"]) {
       assert.ok(text.includes(platform), `${locale} omits outbound handling for ${platform}`);
     }
@@ -95,10 +75,10 @@ test("privacy pages disclose the deployed Google tags and every outbound messagi
 
 test("privacy summaries distinguish external contact links from the on-site WeChat modal", async () => {
   const expected = {
-    en: ["WhatsApp, Telegram and LINE", "on-site WeChat QR code and account ID modal"],
-    "zh-TW": ["WhatsApp、Telegram 及 LINE", "站內 WeChat QR code 與帳戶 ID 視窗"],
-    "zh-CN": ["WhatsApp、Telegram 和 LINE", "站内 WeChat 二维码与账户 ID 弹窗"],
-    ja: ["WhatsApp、Telegram、LINE", "サイト内のWeChat QRコード・ID画面"],
+    en: ["WhatsApp, Telegram and LINE", "WeChat button opens an on-site QR code and account ID modal"],
+    "zh-TW": ["WhatsApp、Telegram 及 LINE", "WeChat 按鈕則開啟站內 QR code 與帳戶 ID 視窗"],
+    "zh-CN": ["WhatsApp、Telegram 和 LINE", "WeChat 按钮则打开站内二维码与账户 ID 弹窗"],
+    ja: ["WhatsApp、Telegram、LINE", "WeChatボタンはサイト内のQRコード・ID画面"],
   };
 
   for (const [locale, markers] of Object.entries(expected)) {
@@ -122,19 +102,14 @@ test("each locale publishes an editorial policy covering volatile facts and corr
   }
 });
 
-test("venue pages show dated evidence notes without presenting profile facts as officially verified", async () => {
-  for (const [locale, expected] of Object.entries(policyExpectations)) {
-    const activeEvidence = region(await readPage(locale, "spa", "clube-rio"), "editorial-evidence");
-    const closedEvidence = region(await readPage(locale, "spa", "eighteen-sauna"), "editorial-evidence");
-    const activeText = visibleText(activeEvidence);
-    const closedText = visibleText(closedEvidence);
-
-    assert.ok(activeText.includes(expected.evidence), `${locale} lacks an evidence heading`);
-    assert.ok(activeText.includes("2026-08-22"), `${locale} lacks the stable audit date`);
-    assert.ok(activeText.includes(expected.current), `${locale} overstates venue-specific verification`);
-    assert.ok(closedText.includes(expected.closed), `${locale} obscures the closed-profile marker`);
-    assert.match(activeEvidence, /https:\/\/www\.dst\.gov\.mo\//);
-    assert.doesNotMatch(activeEvidence, /licen[cs]e\s*(?:no\.?|number|#)/i);
+test("venue pages omit the removed source-and-review panel", async () => {
+  const headings = /Source and review notes|資料來源與審閱說明|资料来源与审阅说明|情報源と確認状況/;
+  for (const locale of locales) {
+    for (const slug of ["clube-rio", "eighteen-sauna"]) {
+      const html = await readPage(locale, "spa", slug);
+      assert.doesNotMatch(html, /data-testid="editorial-evidence"/);
+      assert.doesNotMatch(html, headings);
+    }
   }
 });
 

@@ -88,27 +88,14 @@ test("Chinese editorial policy wording uses natural operating-status and verific
   assert.doesNotMatch(simplified, /开门状态|不表示名录已经证明/);
 });
 
-test("all locales render consent choices and disclose the explicit-consent analytics rule", async () => {
-  const expected = {
-    en: ["Privacy choices", "Accept", "Reject", "unless you choose Accept"],
-    "zh-TW": ["隱私選擇", "同意", "拒絕", "除非您選擇「同意」"],
-    "zh-CN": ["隐私选择", "同意", "拒绝", "除非您选择“同意”"],
-    ja: ["プライバシー設定", "同意する", "拒否する", "「同意する」を選ぶまで"],
-  };
-
-  for (const [locale, phrases] of Object.entries(expected)) {
+test("all locales omit the removed consent controls and analytics rule", async () => {
+  for (const locale of ["en", "zh-TW", "zh-CN", "ja"]) {
     const [home, privacy] = await Promise.all([readPage(locale), readPage(locale, "privacy")]);
-    assert.match(home, /data-consent-panel[^>]*aria-hidden="true"[^>]*hidden/);
-    assert.match(home, /data-consent-accept/);
-    assert.match(home, /data-consent-decline/);
-    assert.match(home, /data-consent-settings/);
-    assert.ok(
-      home.indexOf("data-page-background") < home.indexOf("data-consent-panel") &&
-        home.indexOf("data-consent-panel") < home.indexOf('id="wechat-modal"'),
-      `${locale} consent panel must remain inside the background subtree used by modal inert handling`,
-    );
-    for (const phrase of phrases.slice(0, 3)) assert.ok(home.includes(phrase), `${locale} is missing ${phrase}`);
-    assert.ok(privacy.includes(phrases[3]), `${locale} privacy copy omits the consent gate`);
-    assert.match(privacy, /data-consent-settings/, `${locale} privacy page needs a reopen/withdraw control`);
+    for (const html of [home, privacy]) {
+      assert.doesNotMatch(
+        html,
+        /data-consent-(?:panel|accept|decline|settings|controller)|data-analytics-loader|GT-TXHFV3C5|AW-18058018185|googletagmanager\.com/,
+      );
+    }
   }
 });

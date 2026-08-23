@@ -24,17 +24,6 @@ const loop = [0, 1, 2].flatMap((copy) =>
     </div>
 
     <div class="relative" data-testimonial-motion-region>
-      <button
-        type="button"
-        data-testimonial-motion-toggle
-        data-pause-label={t.testimonials.motion.pause}
-        data-resume-label={t.testimonials.motion.resume}
-        aria-pressed="false"
-        aria-label={t.testimonials.motion.pause}
-        class="absolute right-2 top-2 z-10 flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/20 bg-black/60 text-sm text-white transition-colors hover:border-gold hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-      >
-        <span aria-hidden="true" data-testimonial-motion-icon>❚❚</span>
-      </button>
       <div class="testimonial-viewport">
       <div
         id="testimonial-track"
@@ -74,12 +63,9 @@ const loop = [0, 1, 2].flatMap((copy) =>
 
     const count = Number(track.dataset.count ?? 0);
     const motionRegion = document.querySelector<HTMLElement>("[data-testimonial-motion-region]");
-    const toggle = document.querySelector<HTMLButtonElement>("[data-testimonial-motion-toggle]");
-    const icon = document.querySelector<HTMLElement>("[data-testimonial-motion-icon]");
-    if (!count || !motionRegion || !toggle || !icon) return;
+    if (!count || !motionRegion) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let manuallyPaused = false;
     let hovered = false;
     let focused = false;
     // Without viewport observation, stay conservative and do not animate
@@ -91,7 +77,6 @@ const loop = [0, 1, 2].flatMap((copy) =>
 
     const canAnimate = () =>
       !reducedMotion.matches &&
-      !manuallyPaused &&
       !hovered &&
       !focused &&
       inViewport &&
@@ -108,13 +93,6 @@ const loop = [0, 1, 2].flatMap((copy) =>
     const renderState = () => {
       const running = canAnimate();
       track.dataset.motionState = reducedMotion.matches ? "reduced" : running ? "running" : "paused";
-      toggle.setAttribute("aria-pressed", String(manuallyPaused));
-      toggle.setAttribute(
-        "aria-label",
-        manuallyPaused ? toggle.dataset.resumeLabel ?? "" : toggle.dataset.pauseLabel ?? "",
-      );
-      toggle.toggleAttribute("disabled", reducedMotion.matches);
-      icon.textContent = manuallyPaused ? "▶" : "❚❚";
 
       window.cancelAnimationFrame(animationFrame);
       if (running) {
@@ -135,10 +113,6 @@ const loop = [0, 1, 2].flatMap((copy) =>
       animationFrame = window.requestAnimationFrame(step);
     };
 
-    toggle.addEventListener("click", () => {
-      manuallyPaused = !manuallyPaused;
-      renderState();
-    });
     motionRegion.addEventListener("mouseenter", () => {
       hovered = true;
       renderState();

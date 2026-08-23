@@ -7,8 +7,6 @@ export const site = {
   ogImage: '/covers/macau-sauna-night-skyline.jpg',
   ogImageWidth: 2048,
   ogImageHeight: 1366,
-  googleTagId: 'GT-TXHFV3C5',
-  googleAdsId: 'AW-18058018185',
 } as const;
 
 export const contact = {
