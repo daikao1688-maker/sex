@@ -7,7 +7,7 @@ dateModified: "2026-08-23"
 meta: "Updated Aug 23, 2026 · 9 min read"
 cover: "/blog/macau-sauna-august-guide-2026/01-macau-sauna-majesty-spa-pool.webp"
 coverAlt: "The indoor whirlpool at Majesty Spa, a Macau sauna venue — blue pool water and marble surrounds beneath crystal chandeliers."
-author: "Relax Macau Team"
+author: "Macau Sauna Sites"
 ---
 
 More than two months have passed since the June 2026 market shake-up, and Macau's sauna scene is largely back to normal operations. Mainland therapists have returned, Southeast Asian, Japanese/Korean and European line-ups have gradually filled out, on-site numbers keep climbing, and promotions plus transfer arrangements are back on the table.

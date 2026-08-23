@@ -201,7 +201,7 @@ test("blog structured data uses existing organization identities and an honest m
 
   assert.equal(article.datePublished, "2026-07-26");
   assert.equal(article.dateModified, "2026-08-23");
-  assert.deepEqual(article.author, { "@type": "Organization", name: "Relax Macau Team" });
+  assert.deepEqual(article.author, { "@type": "Organization", name: "Macau Sauna Sites" });
   assert.equal(article.publisher?.["@id"], `${siteOrigin}/#organization`);
   assert.equal(article.publisher?.name, "Macau Sauna Sites");
 });

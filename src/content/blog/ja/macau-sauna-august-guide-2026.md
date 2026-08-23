@@ -7,7 +7,7 @@ dateModified: "2026-08-23"
 meta: "2026/8/23更新 · 9分で読めます"
 cover: "/blog/macau-sauna-august-guide-2026/01-macau-sauna-majesty-spa-pool.webp"
 coverAlt: "マカオ サウナ尊貴スパの屋内ジェットバス——クリスタルシャンデリアの下の青い水面と大理石の池畔。"
-author: "Relax Macau Team"
+author: "Macau Sauna Sites"
 ---
 
 2026年6月の市場調整から2か月以上が経ち、マカオのサウナはほぼ通常営業に戻っています。中国本土のセラピストが再び流入し、東南アジア・日韓・欧米など多国籍のラインナップも徐々に埋まり、各店舗の在籍数は増え続け、キャンペーンや送迎の手配も回復してきました。

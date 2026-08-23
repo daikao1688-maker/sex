@@ -7,7 +7,7 @@ dateModified: "2026-08-23"
 meta: "Updated Aug 23, 2026 · 8 min read"
 cover: "/blog/macau-sauna-overnight-guide-2026/01-macau-sauna-overnight-lounge-recliners.webp"
 coverAlt: "Overnight at a Macau sauna — the lounge rest area of a high-end spa venue, rows of adjustable recliners with blankets under warm lighting."
-author: "Relax Macau Team"
+author: "Macau Sauna Sites"
 ---
 
 Macau has plenty of hotels, but rates aren't low — weekends, concerts, expos and holidays push last-minute bookings even higher. For adult travellers who finish their plans late at night, catch an early ferry or flight, or simply need a wash and a few hours of rest, some Macau saunas offer **overnight lounge recliners with in-house bathing and dining** — an alternative to booking a hotel room.

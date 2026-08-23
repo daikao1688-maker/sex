@@ -41,11 +41,11 @@ test("the blog promotion stays on the article and targets its booking section", 
   }
 });
 
-test("non-blog promotion links keep their localized homepage contact target", async () => {
+test("non-blog promotion links scroll to the page's own contact section", async () => {
   for (const locale of locales) {
     const html = await readPage(locale, "contact");
     const promo = html.match(/<div[^>]+id="promo-top-bar"[\s\S]*?<\/div>\s*<\/div>/)?.[0] ?? "";
-    assert.match(promo, new RegExp(`href="/${locale}/#contact"`));
+    assert.match(promo, /href="#contact"/, `${locale} promo CTA should target the on-page contact section`);
   }
 });
 

@@ -1,6 +1,6 @@
 ---
 import { getDictionary } from "../i18n";
-import { localeMeta, localizePath, type Locale } from "../i18n/config";
+import { localeMeta, type Locale } from "../i18n/config";
 
 interface Props {
   lang: Locale;
@@ -10,7 +10,7 @@ interface Props {
    * "inline" sits in the document flow below the navbar (every other page).
    */
   variant?: "fixed" | "inline";
-  /** Override the default home-page contact target for contextual CTAs. */
+  /** Override the default on-page #contact target for contextual CTAs. */
   ctaHref?: string;
 }
 
@@ -21,7 +21,9 @@ const placement =
     ? "absolute top-[5.5rem] sm:fixed sm:top-[6.5rem]"
     : "relative mt-[5.5rem] sm:mt-[6.5rem]";
 const t = getDictionary(lang);
-const ctaTarget = ctaHref ?? localizePath(lang, "/#contact");
+// Default: scroll to this page's own contact section — every shell page has
+// one except privacy/editorial-policy, which pass an explicit ctaHref.
+const ctaTarget = ctaHref ?? "#contact";
 
 const htmlLang = localeMeta[lang].htmlLang;
 const now = new Date();

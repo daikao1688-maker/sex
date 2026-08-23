@@ -7,7 +7,7 @@ dateModified: "2026-08-23"
 meta: "2026年8月23日更新 · 9 分鐘"
 cover: "/blog/macau-sauna-august-guide-2026/01-macau-sauna-majesty-spa-pool.webp"
 coverAlt: "澳門桑拿尊貴水療的室內按摩浴池——水晶吊燈下的藍色池水與大理石池畔。"
-author: "Relax Macau Team"
+author: "Macau Sauna Sites"
 ---
 
 2026年6月的市場調整已經過去兩個多月，澳門桑拿目前基本恢復正常營運。內地技師重新回流，東南亞、日韓及歐美等不同國籍陣容亦逐步補齊，各場館的現場人數持續增加，優惠與接送安排也陸續恢復。

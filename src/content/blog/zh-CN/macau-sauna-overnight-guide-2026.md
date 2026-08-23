@@ -7,7 +7,7 @@ dateModified: "2026-08-23"
 meta: "2026年8月23日更新 · 8 分钟"
 cover: "/blog/macau-sauna-overnight-guide-2026/01-macau-sauna-overnight-lounge-recliners.webp"
 coverAlt: "澳门桑拿房过夜——高端水疗场馆的大堂休息区，暖黄灯光下一排可调节躺椅与毛毯。"
-author: "Relax Macau Team"
+author: "Macau Sauna Sites"
 ---
 
 澳门酒店选择很多，但房价并不算低，尤其遇上周末、演唱会、展会或节假日，临时订房的成本往往更高。对于深夜才结束行程、翌日一早要赶船或航班，或者只需要简单洗浴和休息几个小时的成年旅客来说，部分澳门桑拿房提供的**大堂躺椅过夜、场内洗浴与餐饮配套**，可以成为酒店以外的另一种安排。

@@ -21,7 +21,7 @@ const blog = defineCollection({
     meta: z.string(),
     cover: z.string(),
     coverAlt: z.string(),
-    author: z.string().default('Relax Macau Team'),
+    author: z.string().default('Macau Sauna Sites'),
     /** Marks stub content that still needs the real article. */
     draftPlaceholder: z.boolean().default(false),
   }),
