@@ -110,7 +110,7 @@ body {
 }
 
 @utility glow-red {
-  animation: redGlow 2s ease-in-out infinite;
+  animation: redGlow 2.5s ease-in-out infinite;
 }
 
 @utility glow-silver {
