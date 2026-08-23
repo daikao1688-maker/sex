@@ -125,14 +125,6 @@ export interface Dictionary {
   blog: {
     heading: string;
     viewAll: string;
-    posts: Array<{
-      slug: string;
-      image: string;
-      alt: string;
-      category: string;
-      title: string;
-      meta: string;
-    }>;
   };
   ctaBand: {
     heading: string;

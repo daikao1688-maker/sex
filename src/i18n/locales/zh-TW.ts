@@ -381,36 +381,6 @@ const zhTW: Dictionary = {
   blog: {
     heading: '最新桑拿攻略',
     viewAll: '查看全部 →',
-    posts: [
-      {
-        slug: 'macau-sauna-overnight-guide-2026',
-        // TODO: swap in /blog/macau-sauna-overnight-guide-2026/01-macau-sauna-number-nine-starlit-bedroom.webp
-        // once the asset is supplied; the venue cover stands in until then.
-        image: '/covers/number-nine-sauna-card.jpg',
-        alt: '澳門桑拿過夜主題套房——玖號水療的星空頂睡房，星光投影天花下的大床與柔和床頭燈。',
-        category: '過夜',
-        title: '澳門桑拿過夜攻略2026：五家可過夜場館、時段真相與一晚流程',
-        meta: '2026年8月 · 4 分鐘',
-      },
-      {
-        slug: 'macau-sauna-september-holidays-2026',
-        // TODO: swap in /blog/macau-sauna-september-holidays-2026/01-macau-sauna-majesty-main-hall.webp
-        image: '/covers/majesty-spa-card.jpg',
-        alt: '澳門桑拿連假期間的迎賓大堂——漁人碼頭尊貴水療，金色環形燈飾與蘭花妝點的迴廊。',
-        category: '行程',
-        title: '澳門桑拿9月預約攻略2026：中秋連假（9/25–27）的提前部署',
-        meta: '2026年8月 · 3 分鐘',
-      },
-      {
-        slug: 'macau-ktv-sauna-clube-rio-2026',
-        // TODO: swap in /blog/macau-ktv-sauna-clube-rio-2026/01-macau-ktv-clube-rio-main-lounge.webp
-        image: '/covers/clube-rio-card.jpg',
-        alt: '澳門KTV水療利澳薈 Clube Rio 主廳——玫瑰花牆之間的橙色真皮沙發與祥雲圖案地毯',
-        category: '新開幕',
-        title: '利澳薈 Clube Rio 開幕情報：澳門商務 KTV＋坐檯陪唱＋水療的一夜新玩法 2026',
-        meta: '2026年8月 · 3 分鐘',
-      },
-    ],
   },
 
   ctaBand: {

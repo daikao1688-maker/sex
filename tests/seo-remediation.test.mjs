@@ -81,7 +81,7 @@ test("canonical, social, and structured-data URLs use the configured site origin
     readPage("zh-TW", "privacy"),
     readPage("zh-CN", "ranking"),
     readPage("ja", "spa", "clube-rio"),
-    readPage("en", "blog", "macau-sauna-beginner-guide-2026"),
+    readPage("en", "blog", "macau-sauna-august-guide-2026"),
   ]);
 
   for (const html of pages) {
@@ -123,7 +123,7 @@ test("the generated sitemap, robots file, and head declaration share one origin"
   }
 });
 
-test("the sitemap contains exactly the 130 localized canonical pages", async () => {
+test("the sitemap contains exactly the 104 localized canonical pages", async () => {
   const sitemap = await readFile(path.join(distRoot, "sitemap-0.xml"), "utf8");
   const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
   const localizedHtmlPaths = (await readdir(distRoot, { recursive: true })).filter(
@@ -139,7 +139,7 @@ test("the sitemap contains exactly the 130 localized canonical pages", async () 
     )
   ).filter(Boolean);
 
-  assert.equal(canonicalUrls.length, 130, "localized canonical page count changed unexpectedly");
+  assert.equal(canonicalUrls.length, 104, "localized canonical page count changed unexpectedly");
   assert.equal(
     sitemapLocations.includes(`${siteOrigin}/`),
     false,
@@ -196,11 +196,11 @@ test("privacy pages publish WebPage structured data", async () => {
 });
 
 test("blog structured data uses existing organization identities and an honest modification date", async () => {
-  const html = await readPage("en", "blog", "macau-sauna-beginner-guide-2026");
+  const html = await readPage("en", "blog", "macau-sauna-august-guide-2026");
   const article = schemaOfType(html, "BlogPosting");
 
-  assert.equal(article.datePublished, "2026-07-17");
-  assert.equal(article.dateModified, article.datePublished);
+  assert.equal(article.datePublished, "2026-07-26");
+  assert.equal(article.dateModified, "2026-08-23");
   assert.deepEqual(article.author, { "@type": "Organization", name: "Relax Macau Team" });
   assert.equal(article.publisher?.["@id"], `${siteOrigin}/#organization`);
   assert.equal(article.publisher?.name, "Macau Sauna Sites");

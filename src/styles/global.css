@@ -88,6 +88,18 @@ body {
   }
 }
 
+@keyframes goldPulse {
+  0%,
+  100% {
+    text-shadow: 0 0 8px rgb(212 175 55 / 0.5);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 18px rgb(212 175 55 / 0.9);
+    transform: scale(1.05);
+  }
+}
+
 @keyframes qmFade {
   from {
     opacity: 0.25;
@@ -150,6 +162,25 @@ body {
   animation: shimmerSweep 4s linear infinite;
 }
 
+@utility pulse-gold {
+  display: inline-block;
+  color: rgb(212 175 55);
+  animation: goldPulse 1.8s ease-in-out infinite;
+}
+
+@utility shimmer-gold-bar {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 40%,
+    rgb(212 175 55 / 0.22) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerSweep 4s linear infinite;
+}
+
 @utility scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -197,7 +228,9 @@ body {
   .glow-red,
   .glow-silver,
   .pulse-red,
+  .pulse-gold,
   .shimmer-gold,
+  .shimmer-gold-bar,
   .shimmer-red {
     animation: none;
   }

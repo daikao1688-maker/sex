@@ -1,6 +1,8 @@
 ---
 import { getDictionary } from "../i18n";
 import { localizePath, type Locale } from "../i18n/config";
+import { getBlogCopy } from "../i18n/pages/blog";
+import { getPostsFor, postSlug } from "../lib/blog";
 
 interface Props {
   lang: Locale;
@@ -8,6 +10,11 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = getDictionary(lang);
+const copy = getBlogCopy(lang);
+
+// Homepage teaser mirrors the blog index: newest posts first, straight from
+// the content collection — no hand-maintained card list to go stale.
+const posts = (await getPostsFor(lang)).slice(0, 3);
 ---
 
 <section class="py-14 sm:py-20 px-4">
@@ -24,15 +31,15 @@ const t = getDictionary(lang);
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {
-          t.blog.posts.map((post) => (
+          posts.map((post) => (
             <a
-              href={localizePath(lang, `/blog/${post.slug}/`)}
+              href={localizePath(lang, `/blog/${postSlug(post)}/`)}
               class="group block rounded-xl overflow-hidden border transition-all bg-[#161616] border-white/10 hover:border-gold/60"
             >
               <div class="aspect-[16/10] overflow-hidden bg-[#1d1d1d]">
                 <img
-                  src={post.image}
-                  alt={post.alt}
+                  src={post.data.cover}
+                  alt={post.data.coverAlt}
                   loading="lazy"
                   decoding="async"
                   class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
@@ -40,12 +47,12 @@ const t = getDictionary(lang);
               </div>
               <div class="p-4">
                 <span class="text-[11px] font-bold uppercase tracking-[0.12em] text-gold">
-                  {post.category}
+                  {copy.categories[post.data.category]}
                 </span>
                 <h3 class="mt-1 text-[0.95rem] font-bold leading-snug line-clamp-2 text-white/90">
-                  {post.title}
+                  {post.data.title}
                 </h3>
-                <p class="mt-2 text-[11px] text-white/60">{post.meta}</p>
+                <p class="mt-2 text-[11px] text-white/60">{post.data.meta}</p>
               </div>
             </a>
           ))

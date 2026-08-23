@@ -29,7 +29,7 @@ const regionBetween = (html, startMarker, endMarker) => {
 
 test("the blog promotion stays on the article and targets its booking section", async () => {
   for (const locale of locales) {
-    const html = await readPage(locale, "blog", "macau-sauna-beginner-guide-2026");
+    const html = await readPage(locale, "blog", "macau-sauna-august-guide-2026");
     const promo = html.match(/<div[^>]+id="promo-top-bar"[\s\S]*?<\/div>\s*<\/div>/)?.[0] ?? "";
 
     assert.match(promo, /href="#prepare-booking"/, `${locale} blog promo leaves the article`);
@@ -184,7 +184,7 @@ test("desktop and mobile navigation use a localized home link instead of the ven
 test("mobile navigation marks the current section with a visible left rail", async () => {
   for (const locale of locales) {
     const home = await readPage(locale);
-    const article = await readPage(locale, "blog", "macau-sauna-beginner-guide-2026");
+    const article = await readPage(locale, "blog", "macau-sauna-august-guide-2026");
     const spa = await readPage(locale, "spa", "clube-rio");
     const homeMenu = regionBetween(home, 'id="mobile-menu"', "</nav>");
     const articleMenu = regionBetween(article, 'id="mobile-menu"', "</nav>");

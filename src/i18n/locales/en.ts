@@ -440,32 +440,6 @@ const en: Dictionary = {
   blog: {
     heading: 'Latest from the Blog',
     viewAll: 'View all →',
-    posts: [
-      {
-        slug: 'macau-sauna-august-guide-2026',
-        image: '/blog/macau-sauna-august-guide-2026/01-macau-sauna-shang-pin-jacuzzi-sauna.webp',
-        alt: 'Macau sauna indoor jacuzzi at Shang Pin Spa, Cotai, Macau — a whirlpool bath beside a wooden sauna cabin, framed by tropical plants.',
-        category: 'Itinerary',
-        title: 'Macau Sauna in August 2026: Heat, Typhoons and Peak Weekends',
-        meta: 'Jul 2026 · 6 min read',
-      },
-      {
-        slug: 'macau-walking-day-sauna-reset',
-        image: '/blog/macau-walking-day-sauna-reset/01-macau-sauna-recliner-lounge.webp',
-        alt: 'Recliner lounge inside a Macau sauna club with navy velvet walls and rows of leather recliners',
-        category: 'Itinerary',
-        title: 'End a Long Walking Day at a Macau Sauna — the Smart Way',
-        meta: 'Jul 2026 · 4 min read',
-      },
-      {
-        slug: 'macau-sauna-six-venues-guide',
-        image: '/blog/macau-sauna-six-venues-guide/01-macau-sauna-marble-baths.webp',
-        alt: 'Marble baths and steam inside a Macau sauna club',
-        category: 'Comparison',
-        title: 'Macau Sauna Guide: The Six Major Venues Compared',
-        meta: 'Jul 2026 · 5 min read',
-      },
-    ],
   },
 
   ctaBand: {

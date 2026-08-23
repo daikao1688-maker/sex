@@ -443,37 +443,6 @@ const ja: Dictionary = {
   blog: {
     heading: 'マカオ サウナ 最新攻略ガイド',
     viewAll: 'すべて見る →',
-    posts: [
-      {
-        slug: 'macau-sauna-overnight-guide-2026',
-        // TODO: swap in /blog/macau-sauna-overnight-guide-2026/01-macau-sauna-number-nine-starlit-bedroom.webp
-        // once the asset is supplied; the venue cover stands in until then.
-        image: '/covers/number-nine-sauna-card.jpg',
-        alt: 'マカオ サウナで泊まる夜のイメージ——ナンバーナイン・スパの星空プロジェクション付きベッドルーム、柔らかな間接照明とベッド。',
-        category: '宿泊',
-        title: 'マカオ サウナで泊まる？宿泊OKの5軒と夜の流れ【2026年8月版】',
-        meta: '2026/8 · 2分で読めます',
-      },
-      {
-        slug: 'macau-sauna-september-holidays-2026',
-        // TODO: swap in /blog/macau-sauna-september-holidays-2026/01-macau-sauna-majesty-main-hall.webp
-        image: '/covers/majesty-spa-card.jpg',
-        alt: 'マカオ サウナの連休を迎えるメインホール——マカオ漁人埠頭の尊貴スパ、金色のリング照明と蘭の花が並ぶ回廊。',
-        category: '行程',
-        title: 'マカオ サウナのシルバーウィーク予約術2026',
-        meta: '2026/8 · 2分で読めます',
-      },
-      {
-        slug: 'macau-ktv-sauna-clube-rio-2026',
-        // TODO: swap in /blog/macau-ktv-sauna-clube-rio-2026/01-macau-ktv-clube-rio-main-lounge.webp
-        image: '/covers/clube-rio-card.jpg',
-        alt: 'マカオのKTVスパ 利澳薈 Clube Rio のメインラウンジ——バラの壁に挟まれたオレンジのレザーソファ',
-        category: '新店',
-        title:
-          'マカオの夜に「飲み放題つきの一晩」という選択肢——利澳薈 Clube Rio オープンノート 2026',
-        meta: '2026/8 · 1分で読めます',
-      },
-    ],
   },
 
   ctaBand: {

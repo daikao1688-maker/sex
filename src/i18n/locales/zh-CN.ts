@@ -381,34 +381,6 @@ const zhCN: Dictionary = {
   blog: {
     heading: '最新桑拿攻略',
     viewAll: '查看全部 →',
-    posts: [
-      {
-        slug: 'macau-sauna-august-guide-2026',
-        image: '/blog/macau-sauna-august-guide-2026/01-macau-sauna-shang-pin-jacuzzi-sauna.webp',
-        alt: '澳门桑拿设施实景：路氹尚品国际水疗馆内，木制桑拿小屋旁的按摩冲浪浴缸与成片热带绿植。',
-        category: '行程',
-        title: '澳门桑拿 8 月行程安排 2026：酷暑日、台风信号日、旺季周末三套方案',
-        meta: '2026年7月 · 5 分钟',
-      },
-      {
-        slug: 'macau-sauna-how-it-works',
-        // TODO: swap in /blog/macau-sauna-how-it-works/01-macau-sauna-excellent-dining.webp
-        // once the asset is supplied; the venue cover stands in until then.
-        image: '/covers/the-excellent-sauna-card.jpg',
-        alt: '澳门桑拿会所格调餐厅与摆好餐具的餐桌',
-        category: '玩法',
-        title: '澳门桑拿怎么玩：一次入场包含什么、可以做几次、能待多久',
-        meta: '2026年7月 · 3 分钟',
-      },
-      {
-        slug: 'macau-walking-day-sauna-reset',
-        image: '/blog/macau-walking-day-sauna-reset/01-macau-sauna-recliner-lounge.webp',
-        alt: '澳门桑拿会所的躺椅休息厅，深蓝绒面墙配成排真皮躺椅',
-        category: '行程',
-        title: '在澳门走了两万步之后：用一场桑拿收尾的正确姿势',
-        meta: '2026年7月 · 3 分钟',
-      },
-    ],
   },
 
   ctaBand: {

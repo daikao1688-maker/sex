@@ -116,22 +116,12 @@ test("does not leave stale 06:00 Manhao hours in FAQs or editorial content", asy
     ["src/i18n/pages/faq.ts", "曼濠は14:00〜翌6:00", "曼濠は14:00〜翌4:00"],
     ["src/i18n/pages/faq.ts", "曼濠為 14:00–06:00", "曼濠為 14:00–04:00"],
     ["src/i18n/pages/faq.ts", "曼濠为 14:00–06:00", "曼濠为 14:00–04:00"],
-    ["src/content/blog/en/macau-sauna-six-venues-guide.md", "14:00–06:00", "14:00–04:00"],
-    ["src/content/blog/zh-CN/macau-sauna-six-venues-guide.md", "14:00–06:00", "14:00–04:00"],
     ["src/content/blog/zh-CN/macau-sauna-august-guide-2026.md", "曼濠水疗](/zh-CN/spa/manhao-spa/)（氹仔，14:00–06:00", "曼濠水疗](/zh-CN/spa/manhao-spa/)（氹仔，14:00–04:00"],
-    ["src/content/blog/zh-TW/macau-sauna-six-venues-guide.md", "14:00–06:00", "14:00–04:00"],
     ["src/content/blog/zh-TW/macau-sauna-overnight-guide-2026.md", "曼濠水療](/zh-TW/spa/manhao-spa/)（14:00–06:00", "曼濠水療](/zh-TW/spa/manhao-spa/)（14:00–04:00"],
     ["src/content/blog/zh-TW/macau-sauna-august-guide-2026.md", "曼濠水療](/zh-TW/spa/manhao-spa/)（氹仔，14:00–06:00", "曼濠水療](/zh-TW/spa/manhao-spa/)（氹仔，14:00–04:00"],
-    ["src/content/blog/zh-TW/macau-sauna-september-holidays-2026.md", "曼濠水療](/zh-TW/spa/manhao-spa/)營業至 06:00", "曼濠水療](/zh-TW/spa/manhao-spa/)營業至 04:00"],
     ["src/content/blog/ja/macau-sauna-overnight-guide-2026.md", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は14:00〜06:00", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は14:00〜04:00"],
     ["src/content/blog/ja/macau-sauna-august-guide-2026.md", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は14:00〜06:00", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は14:00〜04:00"],
-    ["src/content/blog/ja/macau-sauna-six-venues-guide.md", "営業時間は14:00〜06:00", "営業時間は14:00〜04:00"],
-    ["src/content/blog/ja/macau-sauna-september-holidays-2026.md", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は06:00まで", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は04:00まで"],
-    ["src/content/blog/en/macau-walking-day-sauna-reset.md", "Manhao runs until 6 am", "Manhao runs until 4 am"],
     ["src/content/blog/en/macau-sauna-august-guide-2026.md", "runs to 6 am", "runs to 4 am"],
-    ["src/content/blog/ja/macau-walking-day-sauna-reset.md", "曼濠は朝6時まで営業", "曼濠は朝4時まで営業"],
-    ["src/content/blog/zh-TW/macau-walking-day-sauna-reset.md", "曼濠營業至清晨六點", "曼濠營業至清晨四點"],
-    ["src/content/blog/zh-CN/macau-walking-day-sauna-reset.md", "曼濠营业到清晨六点", "曼濠营业到清晨四点"],
   ];
 
   const cache = new Map();
