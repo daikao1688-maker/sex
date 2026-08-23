@@ -104,10 +104,10 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
               data-bom-heading-value={interpolate(copy.heading, { venue: card.name })}
               tabindex={index === 0 ? 0 : -1}
               aria-hidden={index === 0 ? "false" : "true"}
-              class="bom-card block overflow-hidden rounded-[16px] border border-gold/35 bg-[#141414] shadow-[0_24px_50px_-18px_rgba(212,175,55,0.28)] transition-[border-color,box-shadow,opacity,transform] duration-500 hover:border-gold/70 hover:shadow-[0_30px_60px_-16px_rgba(212,175,55,0.45)] sm:rounded-[20px]"
+              class="bom-card relative block overflow-hidden rounded-[16px] shadow-[0_24px_50px_-18px_rgba(212,175,55,0.28)] transition-[box-shadow,opacity,transform] duration-500 hover:shadow-[0_30px_60px_-16px_rgba(212,175,55,0.45)] sm:rounded-[20px]"
               style={`--bom-card-tilt:${index % 2 === 0 ? "1.25deg" : "-1.1deg"};grid-area:1 / 1;pointer-events:${index === 0 ? "auto" : "none"};opacity:${index === 0 ? 1 : 0};visibility:${index === 0 ? "visible" : "hidden"}`}
             >
-              <div class="relative aspect-[16/9]">
+              <div class="relative aspect-[3/2]">
                 <picture data-bom-picture class="block h-full w-full">
                   <source
                     srcset={`${card.coverBase}-400.webp 400w, ${card.coverBase}.webp 800w`}
@@ -142,11 +142,17 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
                 >
                   {interpolate(copy.reviewedStamp, { month: monthLabel })}
                 </span>
+                <span
+                  aria-hidden="true"
+                  class="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/90 via-black/45 to-transparent"
+                ></span>
+                <b class="absolute bottom-2.5 left-3 right-16 truncate text-xl font-black text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] sm:bottom-3.5 sm:left-4 sm:right-20 sm:text-[26px] sm:leading-tight">
+                  {card.name}
+                </b>
               </div>
 
               <div class="relative px-4 pb-4 pt-3.5 sm:px-6 sm:pb-6 sm:pt-5">
                 <div class="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-2">
-                  <b class="text-[17px] font-black text-white sm:text-[21px]">{card.name}</b>
                   <small class="text-[11px] text-white/50 sm:text-[13px]">
                     {card.venue.nameZh} · {card.district}
                   </small>
@@ -257,6 +263,47 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
 
   .bom-card {
     grid-area: 1 / 1;
+    border: 1.5px solid transparent;
+    background:
+      linear-gradient(#151515, #101010) padding-box,
+      linear-gradient(135deg, #f5d67b 0%, #d4af37 40%, #7a5f18 100%) border-box;
+  }
+
+  .bom-card:hover {
+    background:
+      linear-gradient(#181818, #121212) padding-box,
+      linear-gradient(135deg, #ffe9a8 0%, #e6c455 40%, #9a7a24 100%) border-box;
+  }
+
+  /* Gold sheen sweep on hover */
+  .bom-card::after {
+    content: "";
+    position: absolute;
+    top: -20%;
+    bottom: -20%;
+    left: -55%;
+    width: 42%;
+    background: linear-gradient(
+      105deg,
+      transparent 0%,
+      rgba(255, 240, 200, 0.12) 42%,
+      rgba(255, 240, 200, 0.26) 50%,
+      rgba(255, 240, 200, 0.12) 58%,
+      transparent 100%
+    );
+    transform: skewX(-12deg);
+    pointer-events: none;
+  }
+
+  .bom-card:hover::after {
+    transform: skewX(-12deg) translateX(360%);
+    transition: transform 0.9s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bom-card::after {
+      display: none;
+    }
   }
 
   @media (max-width: 639px) {
@@ -291,16 +338,51 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
     let pointerStartY = 0;
     let trackingPointer = false;
     let suppressClickUntil = 0;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-    const show = (next: number) => {
+    const show = (next: number, dir = 1, animate = true) => {
+      const motionOK = animate && !reduceMotion.matches;
       cards.forEach((card, index) => {
         const on = index === next;
-        card.style.opacity = on ? "1" : "0";
-        card.style.visibility = on ? "visible" : "hidden";
-        card.style.pointerEvents = on ? "auto" : "none";
-        card.tabIndex = on ? 0 : -1;
-        card.setAttribute("aria-hidden", String(!on));
-
+        window.clearTimeout(Number(card.dataset.bomHideTimer ?? 0));
+        if (on) {
+          card.style.visibility = "visible";
+          card.style.pointerEvents = "auto";
+          card.tabIndex = 0;
+          card.setAttribute("aria-hidden", "false");
+          if (motionOK) {
+            card.style.transition = "none";
+            card.style.transform = `translateX(${44 * dir}px) scale(0.97)`;
+            card.style.opacity = "0";
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                card.style.transition = "";
+                card.style.transform = "";
+                card.style.opacity = "1";
+              });
+            });
+          } else {
+            card.style.transform = "";
+            card.style.opacity = "1";
+          }
+        } else {
+          card.style.pointerEvents = "none";
+          card.tabIndex = -1;
+          card.setAttribute("aria-hidden", "true");
+          if (motionOK) {
+            card.style.transition = "";
+            card.style.transform = `translateX(${-32 * dir}px) scale(0.97)`;
+            card.style.opacity = "0";
+            const timer = window.setTimeout(() => {
+              if (card.style.opacity === "0") card.style.visibility = "hidden";
+            }, 520);
+            card.dataset.bomHideTimer = String(timer);
+          } else {
+            card.style.transform = "";
+            card.style.opacity = "0";
+            card.style.visibility = "hidden";
+          }
+        }
       });
 
       dots.forEach((dot, dotIndex) => {
@@ -323,7 +405,9 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
     };
 
     const select = (index: number) => {
-      show((index + cards.length) % cards.length);
+      const target = (index + cards.length) % cards.length;
+      const dir = index >= active ? 1 : -1;
+      show(target, dir);
     };
 
     previous?.addEventListener("click", () => select(active - 1));
@@ -331,7 +415,7 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
     dots.forEach((dot) => {
       dot.addEventListener("click", () => select(Number(dot.dataset.bomIndex ?? 0)));
     });
-    show(active);
+    show(active, 1, false);
 
     // Keep vertical page scrolling native while treating a deliberate
     // horizontal movement as carousel navigation.
