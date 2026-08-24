@@ -42,6 +42,14 @@ const consentCopy: Record<Locale, ConsentCopy> = {
     manage: "プライバシー設定",
     privacyLink: "プライバシー説明を読む",
   },
+  ko: {
+    heading: "개인정보 선택",
+    body: "동의하기 전까지 Google 측정 및 광고 태그는 차단된 상태로 유지됩니다. 선택은 나중에 언제든 변경할 수 있습니다.",
+    accept: "동의",
+    decline: "거부",
+    manage: "개인정보 선택",
+    privacyLink: "개인정보 처리방침 읽기",
+  },
 };
 
 export const getConsentCopy = (lang: Locale) => consentCopy[lang];
