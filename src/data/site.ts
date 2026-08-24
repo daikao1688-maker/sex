@@ -14,6 +14,7 @@ export const contact = {
   telegram: { handle: '@am38876', url: 'https://t.me/am38876' },
   wechat: { id: 'gh34366', qr: '/wechat-qr.png' },
   line: { id: '@224vqwdv', url: 'https://line.me/R/ti/p/@224vqwdv' },
+  email: 'yongyuanbusi888@gmail.com',
 } as const;
 
 /** Builds a WhatsApp / Telegram deep link with a pre-filled message. */

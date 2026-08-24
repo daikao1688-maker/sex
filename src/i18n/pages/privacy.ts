@@ -10,6 +10,7 @@ export interface PrivacyCopy {
   summary: string;
   sections: Array<{ heading: string; paragraphs: string[] }>;
   contactLink: string;
+  contactEmailLabel: string;
 }
 
 const en: PrivacyCopy = {
@@ -48,6 +49,7 @@ const en: PrivacyCopy = {
     },
   ],
   contactLink: 'Ask a privacy question →',
+  contactEmailLabel: 'Email: '
 };
 
 const zhTW: PrivacyCopy = {
@@ -86,6 +88,7 @@ const zhTW: PrivacyCopy = {
     },
   ],
   contactLink: '提出私隱相關問題 →',
+  contactEmailLabel: '電郵聯絡：'
 };
 
 const zhCN: PrivacyCopy = {
@@ -124,6 +127,7 @@ const zhCN: PrivacyCopy = {
     },
   ],
   contactLink: '提出隐私相关问题 →',
+  contactEmailLabel: '邮件联系：'
 };
 
 const ja: PrivacyCopy = {
@@ -162,6 +166,7 @@ const ja: PrivacyCopy = {
     },
   ],
   contactLink: 'プライバシーについて問い合わせる →',
+  contactEmailLabel: 'メール：'
 };
 
 export const privacyCopy: Record<Locale, PrivacyCopy> = {

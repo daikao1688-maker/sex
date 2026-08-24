@@ -13,6 +13,7 @@ export interface EditorialPolicyCopy {
   sections: Array<{ heading: string; paragraphs: string[]; items?: string[] }>;
   directory: { heading: string; body: string; label: string; url: string };
   correctionCta: string;
+  contactEmailLabel: string;
 }
 
 const directoryUrls = {
@@ -73,6 +74,7 @@ const en: EditorialPolicyCopy = {
     url: directoryUrls.en,
   },
   correctionCta: 'Send a correction through our contact channels →',
+  contactEmailLabel: 'Email: '
 };
 
 const zhTW: EditorialPolicyCopy = {
@@ -126,6 +128,7 @@ const zhTW: EditorialPolicyCopy = {
     url: directoryUrls['zh-TW'],
   },
   correctionCta: '透過現有聯絡方式提交更正 →',
+  contactEmailLabel: '電郵聯絡：'
 };
 
 const zhCN: EditorialPolicyCopy = {
@@ -179,6 +182,7 @@ const zhCN: EditorialPolicyCopy = {
     url: directoryUrls['zh-CN'],
   },
   correctionCta: '通过现有联系方式提交更正 →',
+  contactEmailLabel: '邮件联系：'
 };
 
 const ja: EditorialPolicyCopy = {
@@ -232,6 +236,7 @@ const ja: EditorialPolicyCopy = {
     url: directoryUrls.ja,
   },
   correctionCta: 'お問い合わせ窓口から訂正を送る →',
+  contactEmailLabel: 'メール：'
 };
 
 const policyCopy: Record<Locale, EditorialPolicyCopy> = {

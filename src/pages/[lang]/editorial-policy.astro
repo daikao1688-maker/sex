@@ -3,7 +3,7 @@ import PageShell from "../../layouts/PageShell.astro";
 import Icon from "../../components/Icon.astro";
 import { getEditorialPolicyCopy } from "../../i18n";
 import { locales, localizePath, type Locale } from "../../i18n/config";
-import { site } from "../../data/site";
+import { site, contact } from "../../data/site";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -86,6 +86,10 @@ const schemas = [
           >
             {copy.correctionCta}
           </a>
+          <p class="mt-2 text-sm text-white/60">
+            {copy.contactEmailLabel}
+            <a href={`mailto:${contact.email}`} class="text-gold hover:underline font-medium">{contact.email}</a>
+          </p>
         </div>
       </div>
     </div>
