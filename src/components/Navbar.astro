@@ -42,6 +42,11 @@ const isActiveLink = (href: string) => {
 };
 
 const showLanguageSwitcher = locales.length > 1;
+
+/** Scroll-swap logo config: paths and the scroll threshold (px). */
+const logoTop = "/logo-cards-back.svg";
+const logoScrolled = "/logo-ace-eight.svg";
+const logoSwapThreshold = 50;
 ---
 
 <nav
@@ -52,7 +57,14 @@ const showLanguageSwitcher = locales.length > 1;
   <div class="nav-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 sm:h-20">
       <a href={localizePath(lang, "/")} class="flex min-w-0 shrink items-center gap-2" data-nav-home>
-        <img src="/favicon.svg" alt={t.nav.brand} width="36" height="36" class="w-8 h-8 shrink-0 sm:w-9 sm:h-9" />
+        <span
+          class="nav-logo-swap relative block w-9 h-9 shrink-0 sm:w-11 sm:h-11"
+          data-logo-swap
+          data-threshold={logoSwapThreshold}
+        >
+          <img src={logoTop} alt={t.nav.brand} width="44" height="44" class="nav-logo nav-logo-top absolute inset-0 h-full w-full" />
+          <img src={logoScrolled} alt="" aria-hidden="true" width="44" height="44" class="nav-logo nav-logo-alt absolute inset-0 h-full w-full" />
+        </span>
         <span class="nav-brand truncate whitespace-nowrap text-gold font-bold text-base sm:text-2xl tracking-wider">{t.nav.brand}</span>
       </a>
 
@@ -211,6 +223,35 @@ const showLanguageSwitcher = locales.length > 1;
 </nav>
 
 <style>
+  /* Scroll-swap logo: cross-fade between the two marks. Both SVGs sit in the
+     DOM from first paint, so the browser fetches both up front — the first
+     swap never waits on the network. */
+  .nav-logo {
+    transition:
+      opacity 240ms ease,
+      transform 240ms ease;
+  }
+
+  .nav-logo-top {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .nav-logo-alt {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  .nav-logo-swap.is-alt .nav-logo-top {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+
+  .nav-logo-swap.is-alt .nav-logo-alt {
+    opacity: 1;
+    transform: scale(1);
+  }
+
   .menu-bar {
     position: absolute;
     left: 0;
@@ -249,6 +290,10 @@ const showLanguageSwitcher = locales.length > 1;
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .nav-logo {
+      transition: none;
+    }
+
     .menu-bar {
       transition: none;
     }
@@ -318,11 +363,14 @@ const showLanguageSwitcher = locales.length > 1;
 
   // Solid backdrop once the hero starts scrolling away.
   if (nav) {
+    const logoSwap = nav.querySelector?.<HTMLElement>("[data-logo-swap]");
+    const logoThreshold = Number(logoSwap?.dataset.threshold ?? 50);
     const solid = ["bg-[#0a0a0a]/90", "backdrop-blur-md"];
     const update = () => {
       const scrolled = window.scrollY > 24;
       nav.classList.toggle("bg-transparent", !scrolled);
       solid.forEach((cls) => nav.classList.toggle(cls, scrolled));
+      logoSwap?.classList.toggle("is-alt", window.scrollY > logoThreshold);
       if (
         menuToggle?.getAttribute("aria-expanded") === "true" &&
         Math.abs(window.scrollY - menuOpenedAtScrollY) > 4

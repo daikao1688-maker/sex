@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">雙蓋牌撲克標誌</title>
+  <desc id="desc">炭黑與香檳金圓章中，兩張酒紅色標準比例撲克牌背面扇形重疊</desc>
+
+  <defs>
+    <linearGradient id="gold" x1="9" y1="7" x2="55" y2="57" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0d98c"/>
+      <stop offset="0.48" stop-color="#d0ad52"/>
+      <stop offset="1" stop-color="#8f691d"/>
+    </linearGradient>
+    <radialGradient id="charcoal" cx="0" cy="0" r="1" gradientTransform="translate(27 24) rotate(48) scale(39)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#29262a"/>
+      <stop offset="1" stop-color="#0d0c0f"/>
+    </radialGradient>
+    <pattern id="weave" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M0 0V5M2.5 0V5" fill="none" stroke="#d0ad52" stroke-width="0.52" opacity="0.62"/>
+    </pattern>
+    <g id="card">
+      <!-- 26 × 36.4 uses the classic 5:7 poker-card proportion. -->
+      <rect x="-13" y="-18.2" width="26" height="36.4" rx="3.6" fill="currentColor" stroke="#070608" stroke-width="3"/>
+      <rect x="-13" y="-18.2" width="26" height="36.4" rx="3.6" fill="none" stroke="#e3c773" stroke-width="1.55"/>
+      <rect x="-10.6" y="-15.8" width="21.2" height="31.6" rx="2.3" fill="none" stroke="#c6a247" stroke-width="1"/>
+      <rect x="-9.1" y="-14.3" width="18.2" height="28.6" rx="1.5" fill="url(#weave)"/>
+      <path d="M0-10.8 6.7 0 0 10.8-6.7 0Z" fill="#260b12" stroke="#e3c773" stroke-width="1.15"/>
+      <path d="M0-6.5 4 0 0 6.5-4 0Z" fill="none" stroke="#c6a247" stroke-width="0.9"/>
+      <path d="M0-2.15 2.15 0 0 2.15-2.15 0Z" fill="#d6b65d"/>
+    </g>
+  </defs>
+
+  <circle cx="32" cy="32" r="30" fill="url(#gold)" stroke="#80601d" stroke-width="0.7"/>
+  <circle cx="32" cy="32" r="27.15" fill="url(#charcoal)"/>
+  <circle cx="32" cy="32" r="25.7" fill="none" stroke="#e3c773" stroke-width="0.7" opacity="0.42"/>
+
+  <!-- The pair fills roughly 80% of the badge width while retaining a clear rim. -->
+  <use href="#card" color="#4d111d" transform="translate(25.5 32.4) rotate(-12)"/>
+  <use href="#card" color="#681827" transform="translate(38.5 32.4) rotate(12)"/>
+</svg>
