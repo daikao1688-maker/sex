@@ -1,10 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="30" fill="#D4AF37"/>
-  <g fill="#0a0a0a" stroke="#D4AF37" stroke-width="1.5" stroke-linejoin="round" transform="translate(32 47)">
-    <path d="M 0 -33 Q 11 -17 0 0 Q -11 -17 0 -33 Z"/>
-    <path transform="rotate(-36)" d="M 0 -27 Q 10 -14 0 0 Q -10 -14 0 -27 Z"/>
-    <path transform="rotate(36)" d="M 0 -27 Q 10 -14 0 0 Q -10 -14 0 -27 Z"/>
-    <path transform="rotate(-72)" d="M 0 -23 Q 10 -12 0 0 Q -10 -12 0 -23 Z"/>
-    <path transform="rotate(72)" d="M 0 -23 Q 10 -12 0 0 Q -10 -12 0 -23 Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">黑桃 A 與紅桃 8 撲克標誌</title>
+  <desc id="desc">炭黑與香檳金圓章中，黑桃 A 與紅桃 8 以標準比例扇形重疊</desc>
+
+  <defs>
+    <linearGradient id="gold" x1="9" y1="7" x2="55" y2="57" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0d98c"/>
+      <stop offset="0.48" stop-color="#d0ad52"/>
+      <stop offset="1" stop-color="#8f691d"/>
+    </linearGradient>
+    <radialGradient id="charcoal" cx="0" cy="0" r="1" gradientTransform="translate(27 24) rotate(48) scale(39)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#29262a"/>
+      <stop offset="1" stop-color="#0d0c0f"/>
+    </radialGradient>
+    <linearGradient id="ivory" x1="-10" y1="-16" x2="11" y2="17" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff9e9"/>
+      <stop offset="1" stop-color="#eadcb9"/>
+    </linearGradient>
+
+    <g id="face-card">
+      <!-- 26 × 36.4 uses the classic 5:7 poker-card proportion. -->
+      <rect x="-13" y="-18.2" width="26" height="36.4" rx="3.6" fill="url(#ivory)" stroke="#070608" stroke-width="3"/>
+      <rect x="-13" y="-18.2" width="26" height="36.4" rx="3.6" fill="none" stroke="#e3c773" stroke-width="1.55"/>
+      <rect x="-10.6" y="-15.8" width="21.2" height="31.6" rx="2.25" fill="none" stroke="#b9933f" stroke-width="0.7" opacity="0.7"/>
+    </g>
+
+    <!-- Standard card ranks and pip silhouettes follow classic French-suited decks. -->
+    <text id="rank-a" x="0" y="0" fill="currentColor" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central">A</text>
+    <text id="rank-eight" x="0" y="0" fill="currentColor" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central">8</text>
+    <path id="spade" d="M7.989 3.103C7.747-.954.242-8.59 0-10.5-.242-8.591-7.747-.955-7.989 3.103c-.169 2.868 1.695 4.057 3.39 4.057 1.835-.022 3.351-2.801 3.873-3.341.242.716-1.603 6.682-2.179 6.682h5.811c-.576 0-2.421-5.966-2.179-6.682.457.496 1.797 3.258 3.874 3.341 1.694-.001 3.557-1.189 3.388-4.057Z" fill="currentColor"/>
+    <path id="heart" d="M3.676-9C.433-9 0-5.523 0-5.523S-.433-9-3.676-9C-5.946-9-8-7.441-8-4.5-8-.614-1.421 3.294 0 9c1.352-5.701 8-9.614 8-13.5C8-7.441 5.946-9 3.676-9Z" fill="currentColor"/>
+  </defs>
+
+  <circle cx="32" cy="32" r="30" fill="url(#gold)" stroke="#80601d" stroke-width="0.7"/>
+  <circle cx="32" cy="32" r="27.15" fill="url(#charcoal)"/>
+  <circle cx="32" cy="32" r="25.7" fill="none" stroke="#e3c773" stroke-width="0.7" opacity="0.42"/>
+
+  <g transform="translate(22.7 32.4) rotate(-11)" color="#111116">
+    <use href="#face-card"/>
+    <use href="#rank-a" transform="translate(-8.65 -10.9) scale(.66)"/>
+    <use href="#spade" transform="translate(-8.65 -5.2) scale(.2)"/>
+    <use href="#spade" transform="scale(.82)"/>
+    <g transform="rotate(180)">
+      <use href="#rank-a" transform="translate(-8.65 -10.9) scale(.66)"/>
+      <use href="#spade" transform="translate(-8.65 -5.2) scale(.2)"/>
+    </g>
+  </g>
+
+  <!-- The heart card is deliberately drawn last so it sits in front. -->
+  <g transform="translate(41.3 32.4) rotate(11)" color="#b51f36">
+    <use href="#face-card"/>
+    <use href="#rank-eight" transform="translate(-8.65 -10.9) scale(.66)"/>
+    <use href="#heart" transform="translate(-8.65 -5.2) scale(.2)"/>
+
+    <use href="#heart" transform="translate(-3.8 -8.2) scale(.3)"/>
+    <use href="#heart" transform="translate(3.8 -8.2) scale(.3)"/>
+    <use href="#heart" transform="translate(0 -4.1) scale(.3)"/>
+    <use href="#heart" transform="translate(-3.8 0) scale(.3)"/>
+    <use href="#heart" transform="translate(3.8 0) scale(.3)"/>
+    <use href="#heart" transform="translate(0 4.1) rotate(180) scale(.3)"/>
+    <use href="#heart" transform="translate(-3.8 8.2) rotate(180) scale(.3)"/>
+    <use href="#heart" transform="translate(3.8 8.2) rotate(180) scale(.3)"/>
+
+    <g transform="rotate(180)">
+      <use href="#rank-eight" transform="translate(-8.65 -10.9) scale(.66)"/>
+      <use href="#heart" transform="translate(-8.65 -5.2) scale(.2)"/>
+    </g>
   </g>
 </svg>
