@@ -76,6 +76,32 @@ test("promotion begins exactly below the 64px mobile and 80px desktop header", a
   }
 });
 
+test("homepage CTA uses two equal buttons per standard phone row and four on desktop", async () => {
+  for (const locale of [...locales, "ko"]) {
+    const html = await readPage(locale);
+    const section = html.match(/<section class="pb-12 px-4">[\s\S]*?<\/section>/)?.[0] ?? "";
+    const actions = section.match(/<div class="[^"]+">(?=<a href="#contact")/)?.[0] ?? "";
+    const actionClasses = classList(actions);
+
+    assert.ok(section, `${locale} homepage is missing the CTA band`);
+    assert.ok(actionClasses.includes("grid-cols-1"), `${locale} CTA cannot fall back on very narrow screens`);
+    assert.ok(
+      actionClasses.includes("min-[360px]:grid-cols-2"),
+      `${locale} CTA does not render two buttons per standard phone row`,
+    );
+    assert.ok(actionClasses.includes("sm:grid-cols-4"), `${locale} CTA does not restore four desktop columns`);
+
+    const links = section.match(/<a\b[^>]*>/g) ?? [];
+    assert.equal(links.length, 4, `${locale} CTA must keep its four actions`);
+    for (const link of links) {
+      const linkClasses = classList(link);
+      assert.ok(linkClasses.includes("w-full"), `${locale} CTA actions do not have equal column widths`);
+      assert.ok(linkClasses.includes("min-h-12"), `${locale} CTA action is shorter than 48px`);
+      assert.ok(linkClasses.includes("justify-center"), `${locale} CTA action label is not centered`);
+    }
+  }
+});
+
 test("the navigation uses mobile controls below 1280px and desktop links from 1280px", async () => {
   for (const locale of locales) {
     const html = await readPage(locale);
