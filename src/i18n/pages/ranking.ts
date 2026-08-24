@@ -467,11 +467,120 @@ const zhCN: RankingCopy = {
   },
 };
 
+const ko: RankingCopy = {
+  meta: {
+    title: '마카오 사우나 비교 2026 - 마카오 사우나 가이드',
+    description:
+      '마카오 14개 사우나 매장의 참고 가격, 지역, 테라피스트 시간대, 숙박 배치, 시설을 비교하고, 일시 휴업 상태도 명확히 표시합니다.',
+  },
+  breadcrumbs: [
+    { name: '홈', path: '/' },
+    { name: '매장 비교', path: '/ranking/' },
+  ],
+  backHome: '홈으로 돌아가기',
+  heading: '마카오 사우나 비교 2026 — 14개 매장 선택법',
+  intro:
+    '이 목록은 편집부가 정리한 선택 제안이며, 장기간 고정된 순위가 아닙니다. 예산, 이용 가능 시간, 소재 지역, 숙박 필요 여부로 먼저 좁히는 편이 별점만 보는 것보다 실용적입니다. 가격, 테라피스트 시간대, 영업 상태는 모두 조정될 수 있으며, 표는 본 사이트의 현재 매장 데이터를 기준으로 합니다. 일시 휴업 매장도 자료 참고용으로 유지됩니다. 출발 전 상세 페이지를 열어 당일 상황을 다시 확인하세요.',
+  topPicks: {
+    heading: '일정 목적별로, 먼저 보기 좋은 5곳',
+    cards: [
+      {
+        slug: 'the-excellent-sauna',
+        emoji: '🎬',
+        label: '테마룸을 경험하고 싶다면',
+        body: '대형 쇼보다 룸 장면과 프라이빗한 페이스를 중시하는 손님에게 적합합니다.',
+      },
+      {
+        slug: 'shang-pin-spa',
+        emoji: '📍',
+        label: '코타이 숙박이라면 편리',
+        body: '리스보에타나 코타이 호텔에 묵으며 이동 시간을 줄이고 싶은 여행자에게 적합합니다.',
+      },
+      {
+        slug: 'manhao-spa',
+        emoji: '🎭',
+        label: '묝대 분위기를 중시한다면',
+        body: '타이파 신규 매장으로, 인상적인 소개 홀이 특징입니다. 현재 숙박은 제공되지 않습니다.',
+      },
+      {
+        slug: 'majesty-spa',
+        emoji: '🛏️',
+        label: '오래 머물 계획이라면',
+        body: '24시간 영업에 숙박 배치가 있습니다. 당일의 룸과 휴게 구역 조건은 미리 확인이 필요합니다.',
+      },
+      {
+        slug: 'number-nine-sauna',
+        emoji: '✨',
+        label: '새로운 시설을 좋아한다면',
+        body: '2026년 오픈, 마카오 반도 소재로 묝대 조명과 테마룸을 갖췄습니다.',
+      },
+    ],
+  },
+  includes: {
+    heading: '비교할 때, 먼저 확인할 6가지',
+    items: [
+      '당일 정상 영업 여부',
+      '총액과 서비스 요금',
+      '매장 영업 및 테라피스트 근무 시간대',
+      '숙박 및 휴게 구역 규칙',
+      '매장별 실제 다이닝과 목욕 시설',
+      '예약 확정 후 픽업과 결제 배치',
+    ],
+  },
+  swipeHint: '← 좌우로 밀어 전체 항목 보기 →',
+  tables: {
+    basics: {
+      heading: '매장 현재 정보',
+      venue: '매장',
+      district: '지역',
+      therapists: '테라피스트 팀',
+      hours: '테라피스트 근무 시간대',
+      open24h: '정상 영업 시 24시간',
+      rating: '편집부 평점',
+    },
+    pricing: {
+      heading: '예산 참고',
+      priceRange: '참고 가격（MOP）',
+      serviceFee: '서비스 요금',
+    },
+    overnight: {
+      heading: '숙박 배치',
+      overnight: '숙박 및 로비 휴식',
+    },
+    features: {
+      heading: '시설과 경험',
+      ktv: 'KTV',
+      themeRooms: '테마룸',
+      show: '소개 쇼',
+      isNew: '비교적 새로운 매장',
+    },
+  },
+  values: {
+    yes: '있음',
+    no: '–',
+    none: '없음',
+    multinational: '다국적 팀',
+  },
+  districts: { peninsula: '마카오 반도', taipa: '타이파／코타이' },
+  treatments: {
+    heading: '추가 케어와 진행 중 혜택',
+    intro:
+      '아래는 흔한 추가 케어 항목으로, 모든 매장·모든 코스에 자동으로 포함되지는 않습니다. 선택 가능 항목, 요금, 혜택 자격은 날짜와 플랜에 따라 달라지므로, 예약 확정 전 견적에 무엇이 포함되는지 먼저 확인하세요.',
+    free: '혜택 확인 필요',
+  },
+  cta: {
+    heading: '아직 어디로 갈지 못 정하셨나요?',
+    body:
+      '예산, 날짜, 계신 지역, 예상 퇴장 시간을 알려주시면 현재 영업 중인 선택지에서 함께 비교하고, 최신 견적과 픽업 배차를 확인해 드립니다.',
+  },
+};
+
 export const rankingCopy: Partial<Record<Locale, RankingCopy>> = {
   en,
   ja,
   'zh-TW': zhTW,
   'zh-CN': zhCN,
+  ko,
 };
 
 export const getRankingCopy = createPageCopy(rankingCopy);

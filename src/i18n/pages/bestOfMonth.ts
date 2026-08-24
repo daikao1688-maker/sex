@@ -184,11 +184,52 @@ const zhCN: BestOfMonthCopy = {
   ],
 };
 
+const ko: BestOfMonthCopy = {
+  eyebrow: '이 달의 베스트 사우나',
+  heading: '이 달의 추천은 {venue}',
+  intro:
+    '이번 달 고객 피드백을 바탕으로 추천 매장을 선정합니다. 예산, 시간, 취향을 알려주시면 조건에 맞는 매장도 안내해 드립니다.',
+  rankingLink: '전체 랭킹 보기 →',
+  reviewedStamp: '리뷰 · {month}',
+  stats: { price: '참고 가격', hours: '영업시간', serviceFee: '서비스 요금' },
+  values: { open24h: '24시간 영업', noServiceFee: '없음' },
+  viewVenue: '매장 보기 →',
+  districts: { peninsula: '마카오 반도', taipa: '타이파' },
+  ratingLabel: '5점 만점에 {rating}점',
+  controls: {
+    carousel: '이 달의 베스트 사우나 캐러셀',
+    previous: '이전 매장 보기',
+    next: '다음 매장 보기',
+    slide: '매장 {total}곳 중 {index}번째 보기: {venue}',
+  },
+  cards: [
+    {
+      slug: 'majesty-spa',
+      award: '이 달의 베스트',
+      quote:
+        '피셔맨즈 워프의 노포. 야간 휴식 포지셔닝이 마카오에서 가장 뚜렷하며, 동남아 가성비와 낮 추가 할인, 서비스 요금 묾셔까지 갖췄습니다.',
+    },
+    {
+      slug: 'manhao-spa',
+      award: '베스트 신규 오픈',
+      quote:
+        '타이파의 2026년 5월 데뷔 — 그랜드뷰 호텔 안에 지어진, 마카오에서 가장 극적인 인테리어.',
+    },
+    {
+      slug: 'number-nine-sauna',
+      award: '베스트 스테이지 쇼',
+      quote:
+        '로열 드래곤 호텔의 2026년 4월 오픈 매장으로, 도시 최고 수준의 묝대 연출을 자랑합니다.',
+    },
+  ],
+};
+
 export const bestOfMonthCopy: Partial<Record<Locale, BestOfMonthCopy>> = {
   en,
   ja,
   'zh-TW': zhTW,
   'zh-CN': zhCN,
+  ko,
 };
 
 export const getBestOfMonthCopy = createPageCopy(bestOfMonthCopy);

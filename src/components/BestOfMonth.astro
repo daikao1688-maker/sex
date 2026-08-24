@@ -19,10 +19,12 @@ const copy = getBestOfMonthCopy(lang);
 
 const htmlLang = localeMeta[lang].htmlLang;
 const now = new Date();
-// "August 2026" in English, "2026年8月" in CJK.
-const monthLabel = /^(zh|ja|ko)/.test(htmlLang)
-  ? `${now.getFullYear()}年${now.getMonth() + 1}月`
-  : new Intl.DateTimeFormat(htmlLang, { month: "long", year: "numeric" }).format(now);
+// "August 2026" in English, "2026年8月" in zh/ja, "2026년 8월" in Korean.
+const monthLabel = htmlLang.startsWith("ko")
+  ? `${now.getFullYear()}년 ${now.getMonth() + 1}월`
+  : /^(zh|ja)/.test(htmlLang)
+    ? `${now.getFullYear()}年${now.getMonth() + 1}月`
+    : new Intl.DateTimeFormat(htmlLang, { month: "long", year: "numeric" }).format(now);
 
 const cards = copy.cards.map((card, index) => {
   const venue = venues.find((entry) => entry.slug === card.slug)!;
@@ -460,9 +462,11 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
   (() => {
     const lang = (document.documentElement.lang || "en").toLowerCase();
     const now = new Date();
-    const label = /^(zh|ja|ko)/.test(lang)
-      ? `${now.getFullYear()}年${now.getMonth() + 1}月`
-      : new Intl.DateTimeFormat(lang, { month: "long", year: "numeric" }).format(now);
+    const label = lang.startsWith("ko")
+      ? `${now.getFullYear()}년 ${now.getMonth() + 1}월`
+      : /^(zh|ja)/.test(lang)
+        ? `${now.getFullYear()}年${now.getMonth() + 1}月`
+        : new Intl.DateTimeFormat(lang, { month: "long", year: "numeric" }).format(now);
 
     document.querySelectorAll<HTMLElement>("[data-bom-month]").forEach((node) => {
       node.textContent = label;

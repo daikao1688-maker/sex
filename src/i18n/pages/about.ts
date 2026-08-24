@@ -89,7 +89,7 @@ const en: AboutCopy = {
       },
       {
         icon: 'clock',
-        value: '4',
+        value: '5',
         label: 'Language versions',
       },
       {
@@ -180,7 +180,7 @@ const ja: AboutCopy = {
       },
       {
         icon: 'clock',
-        value: '4',
+        value: '5',
         label: '対応する言語ページ',
       },
       {
@@ -271,7 +271,7 @@ const zhTW: AboutCopy = {
       },
       {
         icon: 'clock',
-        value: '4',
+        value: '5',
         label: '語言版本',
       },
       {
@@ -362,7 +362,7 @@ const zhCN: AboutCopy = {
       },
       {
         icon: 'clock',
-        value: '4',
+        value: '5',
         label: '语言版本',
       },
       {
@@ -393,11 +393,103 @@ const zhCN: AboutCopy = {
   },
 };
 
+const ko: AboutCopy = {
+  meta: {
+    title: '소개 - 마카오 사우나 가이드',
+    description: '마카오 사우나 가이드가 14개 매장의 정보와 영업 상태를 어떻게 정리하는지, 그리고 예약 전 가격, 시간, 숙박, 픽업 배차를 어떻게 확인해 드리는지 알아보세요.',
+  },
+  breadcrumbs: [
+    {
+      name: '홈',
+      path: '/',
+    },
+    {
+      name: '소개',
+      path: '/about/',
+    },
+  ],
+  eyebrow: '소개',
+  headingLead: '마카오 사우나 정보를',
+  headingAccent: '더 알기 쉽게 정리합니다',
+  intro: '{brand}은(는) 14개 매장을 수록하며, 영업 상태, 가격 범위, 소재 지역, 숙박 배치, 매장 특징을 한 사이트에 모아 항목별로 비교할 수 있게 합니다. 예약 전에는 변동되기 쉬운 정보를 다시 확인해, 마카오 사우나를 처음 알아보는 분도 먼저 이해하고 결정할 수 있도록 돕습니다.',
+  brand: '마카오 사우나 가이드',
+  backHome: '홈으로 돌아가기',
+  services: {
+    heading: '선택을 돕는 방식',
+    cards: [
+      {
+        icon: 'message-circle',
+        title: '정보를 한곳에 정리',
+        body: '모든 매장 페이지는 위치, 가격 범위, 영업 상태, 숙박 옵션, 주요 특징을 같은 방식으로 정리합니다. 실제 차이를 먼저 파악한 뒤, 어떤 매장을 더 알아볼지 결정할 수 있습니다.',
+      },
+      {
+        icon: 'car',
+        title: '이동 수단 함께 확인',
+        body: '픽업이 필요하면 탑승 지점, 예정 시간, 목적지를 알려주세요. 배차 가능 여부를 먼저 확인한 뒤, 출발 전 집결 방식과 일정을 확정해 드립니다.',
+        link: {
+          label: '픽업 배차 방식 보기 →',
+          path: '/shuttle/',
+        },
+      },
+      {
+        icon: 'gift',
+        title: '출발 전 세부 사항 확인',
+        body: '가격, 영업시간, 테라피스트 시간대, 숙박, 행사 내용은 모두 조정될 수 있습니다. 일정에 맞춰 관련 항목을 확인한 뒤, 비용과 포함 내용을 명확히 안내해 드립니다.',
+      },
+      {
+        icon: 'sparkles',
+        title: '한 대화에서 이어서 진행',
+        body: '매장 비교, 예약 문의, 픽업 정보를 같은 대화에 보관합니다. 일정이 바뀌면 최신 상황만 알려주세요. 그 시점에 가능한 선택지를 기준으로 다음 단계를 안내합니다.',
+      },
+    ],
+  },
+  trust: {
+    heading: '이 가이드가 중시하는 것',
+    stats: [
+      {
+        icon: 'users',
+        value: '14',
+        label: '수록 매장 정보',
+      },
+      {
+        icon: 'clock',
+        value: '5',
+        label: '언어 버전',
+      },
+      {
+        icon: 'shield',
+        value: '출발 전',
+        label: '변동 정보 재확인',
+      },
+      {
+        icon: 'sparkles',
+        value: '한 번의 대화',
+        label: '선택과 일정 정리',
+      },
+    ],
+    note: '사이트에는 현재 일시 휴업 중인 매장을 포함해 14개 매장이 수록되어 있습니다. 영업 상태, 가격, 시간대, 테라피스트 배치, 숙박, 픽업은 모두 변동될 수 있으니 출발 전 최신 확인을 기준으로 하세요.',
+  },
+  why: {
+    heading: '이 사이트를 만든 이유',
+    paragraphs: [
+      '마카오 사우나 정보는 여러 웹사이트, 오래된 글, 개인 대화에 흩어져 있는 경우가 많습니다. 영업 상태와 가격은 조정되고, 비슷해 보이는 매장도 위치, 시간대, 예산, 숙박 배치에서 크게 다를 수 있어 처음 오는 분은 특히 판단하기 어렵습니다.',
+      '그래서 마카오 사우나 가이드를 만들어 비교 가능한 정보를 먼저 정리했습니다. 각 매장을 직접 살펴 보실 수 있고, 도움이 필요하시면 날짜, 숙박 지역, 예산, 중요하게 생각하는 조건을 알려주세요. 범위를 좁힌 뒤 일정과 관련된 최신 정보를 확인해 드립니다.',
+    ],
+    kicker: '먼저 정보를 명확히 전하고, 필요를 파악한 뒤에야 적합한 제안을 드립니다.',
+  },
+  cta: {
+    headingLead: '아직 고르지 못한',
+    headingAccent: '매장이 있으신가요?',
+    body: '날짜, 숙박 지역, 예산, 취향을 복내주시면 현재 이용 가능한 매장을 함께 비교해 드립니다.',
+  },
+};
+
 export const aboutCopy: Partial<Record<Locale, AboutCopy>> = {
   en,
   ja,
   'zh-TW': zhTW,
   'zh-CN': zhCN,
+  ko,
 };
 
 export const getAboutCopy = createPageCopy(aboutCopy);

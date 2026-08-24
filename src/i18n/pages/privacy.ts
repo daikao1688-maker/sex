@@ -169,11 +169,51 @@ const ja: PrivacyCopy = {
   contactEmailLabel: 'メール：'
 };
 
+const ko: PrivacyCopy = {
+  meta: {
+    title: '개인정보 안내 - 마카오 사우나 가이드',
+    description: '외부 메신저를 통한 문의 절차, 문의에 포함될 수 있는 정보, 그리고 그 정보를 답변과 예약 지원에 어떻게 사용하는지 안내합니다.',
+  },
+  breadcrumbs: [
+    { name: '홈', path: '/' },
+    { name: '개인정보 안내', path: '/privacy/' },
+  ],
+  backHome: '홈으로 돌아가기',
+  heading: '개인정보 안내',
+  effectiveDate: '최근 업데이트: 2026-08-22',
+  summary: 'WhatsApp, Telegram, LINE 연락 링크는 외부 서비스를 열고, WeChat 버튼은 사이트 내 QR 코드와 계정 ID 모달을 엽니다. 아래에서 이러한 연락 절차, 문의에 포함될 수 있는 내용, 그리고 저희가 해당 정보를 어떻게 사용하는지 설명합니다.',
+  sections: [
+    {
+      heading: 'WhatsApp, WeChat, Telegram, LINE',
+      paragraphs: [
+        'WhatsApp과 Telegram 링크는 짧은 문의 문구가 미리 채워진 상태로 외부 서비스를 엽니다. LINE은 저희 연락처 프로필을 엽니다. WeChat 버튼은 이 사이트에서 QR 코드와 계정 ID만 표시하며, 이후 복내시는 메시지는 WeChat에서 처리됩니다.',
+        'WhatsApp, WeChat, Telegram, LINE을 열거나 사용하면, 각 사업자가 자사 약관에 따라 계정, 기기, 네트워크, 메시지 정보를 처리할 수 있습니다. 이러한 플랫폼은 본 사이트의 일부가 아닙니다.',
+      ],
+    },
+    {
+      heading: '문의 내용에 포함되는 정보',
+      paragraphs: [
+        '메시지에는 날짜, 인원, 예산, 픽업 장소, 문의하려는 매장 등이 포함될 수 있습니다. 저희는 이 내용을 답변에 사용하며, 예약이 필요한 경우 선택하신 매장과의 조율에도 관련 부분을 사용합니다.',
+        '신분증 번호, 카드 정보, 문의와 무관한 개인 정보는 복내지 마세요. 비용은 매장에서 직접 결제합니다.',
+      ],
+    },
+    {
+      heading: '변경 및 문의',
+      paragraphs: [
+        '연락 절차나 문의 정보의 처리 방식이 변경되면 이 페이지와 날짜를 업데이트합니다. 기존 연락 채널을 통해 개인정보 관련 질문을 하시거나, 이 안내와 실제 사이트 운영이 다른 부분을 알려주실 수도 있습니다.',
+      ],
+    },
+  ],
+  contactLink: '개인정보 관련 질문하기 →',
+  contactEmailLabel: '이메일: '
+};
+
 export const privacyCopy: Record<Locale, PrivacyCopy> = {
   en,
   ja,
   'zh-TW': zhTW,
   'zh-CN': zhCN,
+  ko,
 };
 
 export const getPrivacyCopy = createPageCopy(privacyCopy);

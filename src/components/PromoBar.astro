@@ -27,10 +27,12 @@ const ctaTarget = ctaHref ?? "#contact";
 
 const htmlLang = localeMeta[lang].htmlLang;
 const now = new Date();
-// CJK locales render months as a number + 月; everything else gets the long name.
-const currentMonth = /^(zh|ja|ko)/.test(htmlLang)
-  ? `${now.getMonth() + 1}月`
-  : new Intl.DateTimeFormat(htmlLang, { month: "long" }).format(now);
+// zh/ja render months as a number + 月; Korean uses 월; everything else gets the long name.
+const currentMonth = htmlLang.startsWith("ko")
+  ? `${now.getMonth() + 1}월`
+  : /^(zh|ja)/.test(htmlLang)
+    ? `${now.getMonth() + 1}月`
+    : new Intl.DateTimeFormat(htmlLang, { month: "long" }).format(now);
 
 const [offerBefore, offerAfter = ""] = t.promo.offer.split("{month}");
 ---
@@ -189,9 +191,11 @@ const [offerBefore, offerAfter = ""] = t.promo.offer.split("{month}");
 
     const lang = (document.documentElement.lang || "en").toLowerCase();
     const now = new Date();
-    const label = /^(zh|ja|ko)/.test(lang)
-      ? `${now.getMonth() + 1}月`
-      : new Intl.DateTimeFormat(lang, { month: "long" }).format(now);
+    const label = lang.startsWith("ko")
+      ? `${now.getMonth() + 1}월`
+      : /^(zh|ja)/.test(lang)
+        ? `${now.getMonth() + 1}月`
+        : new Intl.DateTimeFormat(lang, { month: "long" }).format(now);
 
     nodes.forEach((node) => (node.textContent = label));
   })();

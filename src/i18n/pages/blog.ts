@@ -155,11 +155,45 @@ const zhCN: BlogCopy = {
   },
 };
 
+const ko: BlogCopy = {
+  meta: {
+    title: '마카오 사우나 블로그 — 비교, 추천, 시장 업데이트 | 마카오 사우나 사이트',
+    description:
+      '직접 취재한 마카오 사우나 가이드, 신규 매장 비교와 시장 업데이트. 마카오가 처음이라면 사우나 가이드부터 시작하세요.',
+  },
+  breadcrumbs: [
+    { name: '홈', path: '/' },
+    { name: '사우나 공략', path: '/blog/' },
+  ],
+  backHome: '홈으로 돌아가기',
+  heading: '사우나 공략',
+  intro: '직접 발로 뛴 마카오 사우나 공략, 신규 매장 비교와 시장 업데이트.',
+  allTopics: '전체 주제',
+  categories: {
+    beginner: '초보 가이드',
+    price: '가격과 예산',
+    compare: '매장 비교',
+    itinerary: '일정과 픽업',
+    experience: '경험과 서비스',
+    news: '최신 소식',
+  },
+  emptyFilter: '이 주제의 글이 아직 없습니다.',
+  post: {
+    allArticles: '전체 글',
+    inThisArticle: '이 글의 내용',
+    related: '함께 읽기',
+    ctaHeading: '예약할 준비가 되셨나요?',
+    ctaBody: '마카오와 타이파 전역 묾셔 전용 7인승 차량. 문의하여 배차하세요.',
+    placeholderNotice: '플레이스홀더 글 — 최종 원고 준비 중.',
+  },
+};
+
 export const blogCopy: Partial<Record<Locale, BlogCopy>> = {
   en,
   ja,
   'zh-TW': zhTW,
   'zh-CN': zhCN,
+  ko,
 };
 
 export const getBlogCopy = createPageCopy(blogCopy);

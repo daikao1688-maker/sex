@@ -21,6 +21,7 @@ const directoryUrls = {
   ja: 'https://www.dst.gov.mo/en/public-services/licensed-entities.html?comType=10&ps=20&pn=1',
   'zh-TW': 'https://www.dst.gov.mo/zh-hant/public-services/licensed-entities.html?comType=10&ps=20&pn=1',
   'zh-CN': 'https://www.dst.gov.mo/zh-hans/public-services/licensed-entities.html?comType=10&ps=20&pn=1',
+  ko: 'https://www.dst.gov.mo/en/public-services/licensed-entities.html?comType=10&ps=20&pn=1',
 } satisfies Record<Locale, string>;
 
 const en: EditorialPolicyCopy = {
@@ -239,11 +240,66 @@ const ja: EditorialPolicyCopy = {
   contactEmailLabel: 'メール：'
 };
 
+const ko: EditorialPolicyCopy = {
+  meta: {
+    title: '편집 및 정정 정책 - 마카오 사우나 사이트',
+    description: '마카오 사우나 사이트가 매장 정보, 가격, 영업 상태, 출처, 독자 정정을 어떻게 검토하는지 안내합니다.',
+  },
+  breadcrumbs: [
+    { name: '홈', path: '/' },
+    { name: '편집 및 정정 정책', path: '/editorial-policy/' },
+  ],
+  backHome: '홈으로 돌아가기',
+  eyebrow: '수시로 변하는 매장 정보를 다루는 방식',
+  heading: '편집 및 정정 정책',
+  lastReviewed: '정책 검토일: 2026-08-22',
+  intro: '이 디렉터리는 편집 가이드이며, 공식 매장 사이트나 정부 등록부가 아닙니다. 프로필에 기록된 내용과 독립적으로 확인된 사실을 구분하고, 현재의 1차 출처를 확인할 수 없을 때는 그 불확실성을 명확히 표시합니다.',
+  sections: [
+    {
+      heading: '검토 대상',
+      paragraphs: [
+        '새 프로필이나 중요한 수정이 게시되기 전에, 저희가 확보한 출처와 대조하여 명칭, 위치 정보, 영업 메모, 가격, 시간, 서비스를 비교합니다. 사진도 의도한 매장을 보여주는지 확인합니다.',
+        '게시된 프로필은 매장이 폐업한 후에도 과거 참고 자료로 유용할 수 있습니다. 폐업 프로필은 명확히 표시되며 현재 랭킹과 예약 안내에서 제외됩니다.',
+      ],
+    },
+    {
+      heading: '가격과 영업 상태',
+      paragraphs: [
+        '가격, 테라피스트 스케줄, 프로모션, 숙박 규칙, 영업 상태는 예고 없이 변경될 수 있습니다. 게시 내용은 참고 정보이며 실시간 견적이 아닙니다. 방문이나 예약 전에 해당 날짜의 정보를 반드시 재확인하세요.',
+        '신뢰할 수 있는 새 정보가 도착하거나, 정정 신고가 접수되거나, 정기 사이트 검토 시 변동성이 큰 항목을 우선 재확인합니다. 매장 페이지에는 최근 편집 검토일이 표시되지만, 그 날짜 이후 변경이 없었음을 보장하지는 않습니다.',
+      ],
+    },
+    {
+      heading: '출처와 검증 범위',
+      paragraphs: [
+        '매장별 공식 출처를 확인할 수 없는 경우, 해당 사실을 공식 출처와 독립적으로 대조하지 못했음을 페이지에 명시합니다. 공백을 메우기 위해 라이선스 번호, 운영자 명칭, 출처 표기를 만들어내지 않습니다.',
+        '마카오 정부 관광청(MGTO) 인가 사업자 디렉터리는 공식 등록 정보를 확인하는 일반적인 입구로 링크됩니다. 디렉터리 링크만으로 매장 프로필의 모든 가격, 서비스, 영업 주장이 검증되는 것은 아닙니다.',
+      ],
+    },
+    {
+      heading: '정정',
+      paragraphs: [
+        '오래된 가격, 폐업·재개 정보 오류, 매장 정보 부정확, 사진 오류를 발견하시면 기존 연락 채널로 페이지 URL, 정정이 필요한 항목, 공유 가능한 출처를 복내주세요. 저희가 신고를 검토하고 내용을 정정하거나 단서를 달며, 같은 사실이 나타나는 관련 페이지도 함께 수정합니다.',
+        '중요한 정정은 해당 콘텐츠에 직접 반영합니다. 미검증 신고를 설명 없이 확정 사실로 바꾸지 않습니다.',
+      ],
+    },
+  ],
+  directory: {
+    heading: '공식 일반 디렉터리',
+    body: 'MGTO 인가 사업자 디렉터리에서 최신 공식 등록 정보를 검색할 수 있습니다.',
+    label: 'MGTO 디렉터리 열기 ↗',
+    url: directoryUrls.ko,
+  },
+  correctionCta: '연락 채널로 정정 복내기 →',
+  contactEmailLabel: '이메일: '
+};
+
 const policyCopy: Record<Locale, EditorialPolicyCopy> = {
   en,
   ja,
   'zh-TW': zhTW,
   'zh-CN': zhCN,
+  ko,
 };
 
 const evidenceCopy: Record<Locale, EditorialEvidenceCopy> = {
@@ -314,6 +370,23 @@ const evidenceCopy: Record<Locale, EditorialEvidenceCopy> = {
     directoryUrl: directoryUrls.ja,
     correctionPrompt: '変更点や、確認に使える資料をご存じですか？',
     correctionLink: '訂正を知らせる',
+  },
+  ko: {
+    heading: '출처 및 검토 안내',
+    lastReviewedLabel: '최근 검토: ',
+    lastReviewedDate: '2026-08-22',
+    profileBasisLabel: '페이지 정보 근거',
+    profileBasis: '이 페이지의 가격, 시간, 서비스, 휴업 표시는 본 사이트가 현재 보유한 편집 기록에서 비롯됩니다.',
+    verificationLabel: '현재 검증 상태',
+    activeStatus: '본 사이트 기록에서 이 매장은 휴업으로 표시되어 있지 않습니다. 방문 전 최신 영업 상태를 확인해 주세요.',
+    closedStatus: '본 사이트는 이 매장을 일시 휴업으로 표시하며, 페이지는 참고용으로만 유지됩니다.',
+    unverifiedLabel: '위의 매장별 정보는 현재의 공식 매장 출처와 독립적으로 검증되지 않았습니다.',
+    directoryLabel: '공식 일반 확인처',
+    directoryDescription: '일반적인 등록 확인에는 MGTO 인가 사업자 디렉터리를 이용하세요. 이 페이지의 모든 주장을 입증하지는 않습니다.',
+    directoryLink: 'MGTO 디렉터리 확인 ↗',
+    directoryUrl: directoryUrls.ko,
+    correctionPrompt: '변경 사항이나 검토할 만한 출처를 알고 계신가요?',
+    correctionLink: '정정 복내기',
   },
 };
 
