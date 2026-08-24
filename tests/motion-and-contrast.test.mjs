@@ -95,6 +95,10 @@ class FakeElement {
   addEventListener(name, listener) {
     this.listeners.set(name, listener);
   }
+
+  removeEventListener(name, listener) {
+    if (this.listeners.get(name) === listener) this.listeners.delete(name);
+  }
 }
 
 test("every locale omits manual motion controls while keeping hidden testimonial duplicates", async () => {
@@ -159,19 +163,22 @@ test("testimonial motion runtime does not depend on a removed manual control", a
   assert.doesNotMatch(script, /manuallyPaused/);
 });
 
-test("every locale keeps decorative hero backdrops hidden while motion state remains observable", async () => {
+test("every locale keeps decorative hero backdrops hidden and renders one venue text surface", async () => {
   for (const locale of locales) {
     const html = await readHome(locale);
     const testimonialTrack = tagWith(html, 'id="testimonial-track"');
     const hero = tagWith(html, "data-hero-motion");
+    const venueViewport = tagWith(html, "data-hero-venues");
+    const venueTexts = html.match(/<span\b(?=[^>]*data-hero-venue-text)[^>]*>/g) ?? [];
     const backdropBlocks = [
       ...html.matchAll(/<div\b(?=[^>]*data-hero-backdrop)[^>]*>\s*<img\b[^>]*>/g),
     ].map((match) => match[0]);
-    const activeVenue = tagWith(html, "data-hero-venue-group", 'aria-hidden="false"');
-    const inactiveVenue = tagWith(html, "data-hero-venue-group", 'aria-hidden="true"');
 
     assert.match(testimonialTrack, /data-motion-state="running"/, `${locale} testimonial region exposes its motion state`);
     assert.match(hero, /data-motion-state="running"/, `${locale} hero exposes its motion state`);
+    assert.ok(attr(venueViewport, "data-hero-venue-groups"), `${locale} must serialize the venue rotation copy`);
+    assert.equal(venueTexts.length, 1, `${locale} must render exactly one venue text surface`);
+    assert.doesNotMatch(html, /data-hero-venue-group(?:[=>\s])/, `${locale} must not stack venue copy layers`);
     assert.equal(backdropBlocks.length, 3, `${locale} must retain all visual Hero layers`);
     assert.ok(backdropBlocks.some((block) => /\bis-active\b/.test(block)), `${locale} needs one visual active layer`);
     for (const block of backdropBlocks) {
@@ -186,8 +193,6 @@ test("every locale keeps decorative hero backdrops hidden while motion state rem
       /Macau sauna concierge|luxury chauffeur pickup/i,
       `${locale} exposes an English backdrop description`,
     );
-    assert.match(activeVenue, /opacity:1/, `${locale} active hero venue text must be exposed`);
-    assert.match(inactiveVenue, /opacity:0/, `${locale} inactive hero venue text must be hidden`);
   }
 });
 
@@ -219,7 +224,11 @@ test("hero keeps its background cadence when venue text rotates first", async ()
     backdrop.querySelector = () => image;
     return image;
   });
-  const venues = [new FakeElement(), new FakeElement()];
+  const venueCopy = ["First venue group", "Second venue group"];
+  const venueViewport = new FakeElement();
+  venueViewport.dataset.heroVenueGroups = JSON.stringify(venueCopy);
+  const venueText = new FakeElement();
+  venueText.textContent = venueCopy[0];
   const timers = new Map();
   let nextTimer = 1;
   let now = 0;
@@ -229,11 +238,12 @@ test("hero keeps its background cadence when venue text rotates first", async ()
     querySelector: (selector) =>
       ({
         "[data-hero-motion]": hero,
+        "[data-hero-venues]": venueViewport,
+        "[data-hero-venue-text]": venueText,
       })[selector] ?? null,
     querySelectorAll: (selector) =>
       ({
         "[data-hero-backdrop]": backdrops,
-        "[data-hero-venue-group]": venues,
       })[selector] ?? [],
     addEventListener() {},
   };
@@ -249,6 +259,12 @@ test("hero keeps its background cadence when venue text rotates first", async ()
       return id;
     },
     clearTimeout: (id) => timers.delete(id),
+    requestAnimationFrame: (callback) => {
+      const id = nextTimer++;
+      timers.set(id, { callback, at: now + 16 });
+      return id;
+    },
+    cancelAnimationFrame: (id) => timers.delete(id),
   };
   const advanceTo = (target) => {
     while (true) {
@@ -265,6 +281,14 @@ test("hero keeps its background cadence when venue text rotates first", async ()
   };
 
   vm.runInNewContext(await heroScript(), { document, window, IntersectionObserver: FakeObserver });
+  advanceTo(4000);
+  assert.equal(venueText.textContent, venueCopy[0], "venue copy changed before the active text fully exited");
+  assert.equal(venueText.classList.contains("is-exiting"), true, "venue copy did not begin its exit transition");
+  const finishVenueExit = venueText.listeners.get("transitionend");
+  assert.equal(typeof finishVenueExit, "function", "venue copy must wait for the real opacity transition");
+  finishVenueExit({ target: venueText, propertyName: "opacity" });
+  assert.equal(venueText.textContent, venueCopy[1], "venue copy did not swap after the exit transition");
+  assert.equal(venueText.classList.contains("is-entering"), true, "new venue copy did not start below the viewport");
   advanceTo(6000);
 
   assert.equal(backdrops[1].classList.contains("is-active"), true, "the visual backdrop cadence must still rotate");
@@ -274,13 +298,18 @@ test("hero keeps its background cadence when venue text rotates first", async ()
   backdropImages.forEach((image) =>
     assert.equal(image.alt, "", "visual rotation must not assign an English SEO alt"),
   );
-  assert.equal(venues[1].getAttribute("aria-hidden"), "false", "venue rotation must remain synchronized with its visible state");
+  assert.equal(venueText.classList.contains("is-exiting"), false, "venue copy remained in its hidden exit state");
+  assert.equal(venueText.classList.contains("is-entering"), false, "venue copy remained in its hidden entry state");
+  assert.equal(venueText.textContent, venueCopy[1], "venue rotation lost its new single-layer copy");
 });
 
 test("hero motion remains functional when IntersectionObserver is unavailable", async () => {
   const hero = new FakeElement();
   const backdrops = [new FakeElement(), new FakeElement()];
-  const venueGroups = [new FakeElement(), new FakeElement()];
+  const venueViewport = new FakeElement();
+  venueViewport.dataset.heroVenueGroups = JSON.stringify(["First venue group", "Second venue group"]);
+  const venueText = new FakeElement();
+  venueText.textContent = "First venue group";
   let scheduled = 0;
 
   backdrops.forEach((backdrop) => {
@@ -292,11 +321,12 @@ test("hero motion remains functional when IntersectionObserver is unavailable", 
     querySelector: (selector) =>
       ({
         "[data-hero-motion]": hero,
+        "[data-hero-venues]": venueViewport,
+        "[data-hero-venue-text]": venueText,
       })[selector] ?? null,
     querySelectorAll: (selector) =>
       ({
         "[data-hero-backdrop]": backdrops,
-        "[data-hero-venue-group]": venueGroups,
       })[selector] ?? [],
     addEventListener() {},
   };
@@ -310,7 +340,7 @@ test("hero motion remains functional when IntersectionObserver is unavailable", 
 
   assert.equal(hero.dataset.motionState, "running", "unsupported observation must not abort hero setup");
   assert.equal(backdrops[0].getAttribute("aria-hidden"), "true", "fallback motion must keep ambience decorative");
-  assert.equal(venueGroups[0].getAttribute("aria-hidden"), "false", "the active venue text must stay exposed");
+  assert.equal(venueText.textContent, "First venue group", "the active venue text must stay exposed");
   assert.ok(scheduled >= 3, "fallback mode must continue the image and venue cadence");
 });
 

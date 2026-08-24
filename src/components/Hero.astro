@@ -9,6 +9,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = getDictionary(lang);
+const venueLineCount = Math.max(...t.hero.venueGroups.map((group) => group.split("\n").length));
 
 const backdrops = [
   {
@@ -74,21 +75,12 @@ const stepIcons = ["message-circle", "car", "star"] as const;
     <p class="hero-tagline-pulse text-sm sm:text-lg md:text-xl font-medium text-gold mb-4">{t.hero.tagline}</p>
 
     <p
-      class="grid text-base min-[430px]:text-lg sm:text-lg text-white/70 mb-6 whitespace-pre-line"
+      class="hero-venue-viewport flex items-center justify-center overflow-hidden text-base min-[430px]:text-lg sm:text-lg text-white/70 mb-6 whitespace-pre-line"
+      style={`--hero-venue-lines:${venueLineCount}`}
       data-hero-venues
+      data-hero-venue-groups={JSON.stringify(t.hero.venueGroups)}
     >
-      {
-        t.hero.venueGroups.map((group, index) => (
-          <span
-            class="transition-opacity duration-300"
-            style={`grid-area:1 / 1;opacity:${index === 0 ? 1 : 0}`}
-            aria-hidden={index === 0 ? "false" : "true"}
-            data-hero-venue-group
-          >
-            {group}
-          </span>
-        ))
-      }
+      <span class="hero-venue-text block w-full" data-hero-venue-text>{t.hero.venueGroups[0]}</span>
     </p>
 
     <div data-testid="hero-icon-row" class="flex items-start justify-center gap-1.5 sm:gap-4 mb-8">
@@ -195,6 +187,33 @@ const stepIcons = ["message-circle", "car", "star"] as const;
     animation: heroTaglinePulse 10s ease-in-out infinite;
   }
 
+  .hero-venue-viewport {
+    height: calc(var(--hero-venue-lines, 2) * 1.5em);
+    line-height: 1.5;
+  }
+
+  .hero-venue-text {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 220ms ease-out,
+      transform 220ms ease-out;
+    will-change: opacity, transform;
+  }
+
+  .hero-venue-text.is-exiting {
+    opacity: 0;
+    transform: translateY(-0.25rem);
+    transition-duration: 180ms;
+    transition-timing-function: ease-in;
+  }
+
+  .hero-venue-text.is-entering {
+    opacity: 0;
+    transform: translateY(0.25rem);
+    transition: none;
+  }
+
   @keyframes heroTaglinePulse {
     0%,
     100% {
@@ -223,6 +242,14 @@ const stepIcons = ["message-circle", "car", "star"] as const;
     .hero-tagline-pulse {
       animation: none;
     }
+
+    .hero-venue-text,
+    .hero-venue-text.is-exiting,
+    .hero-venue-text.is-entering {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 </style>
 
@@ -231,8 +258,18 @@ const stepIcons = ["message-circle", "car", "star"] as const;
   (() => {
     const hero = document.querySelector<HTMLElement>("[data-hero-motion]");
     const backdrops = document.querySelectorAll<HTMLElement>("[data-hero-backdrop]");
-    const venueGroups = document.querySelectorAll<HTMLElement>("[data-hero-venue-group]");
-    if (!hero || backdrops.length < 2 || venueGroups.length < 2) return;
+    const venueViewport = document.querySelector<HTMLElement>("[data-hero-venues]");
+    const venueText = document.querySelector<HTMLElement>("[data-hero-venue-text]");
+    let venueGroups: string[] = [];
+    try {
+      const parsed = JSON.parse(venueViewport?.dataset.heroVenueGroups ?? "[]");
+      if (Array.isArray(parsed) && parsed.every((group) => typeof group === "string")) {
+        venueGroups = parsed;
+      }
+    } catch {
+      venueGroups = [];
+    }
+    if (!hero || backdrops.length < 2 || !venueText || venueGroups.length < 2) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let inViewport = true;
@@ -241,34 +278,82 @@ const stepIcons = ["message-circle", "car", "star"] as const;
     let backdropTimer = 0;
     let backdropPreloadTimer = 0;
     let venueTimer = 0;
-    let venueFadeTimer = 0;
+    let venueFallbackTimer = 0;
+    let venueEnterFrame = 0;
+    let venueTransitionToken = 0;
+    let venueTransitioning = false;
+    let venueExitListener: ((event: TransitionEvent) => void) | null = null;
 
     const canAnimate = () =>
       !reducedMotion.matches &&
       inViewport &&
       document.visibilityState !== "hidden";
 
-    // Sequential fade: the outgoing group must reach opacity 0 before the
-    // incoming one starts fading in, so the stacked texts never overlap.
-    const VENUE_FADE_MS = 300;
+    const requestFrame = (callback: FrameRequestCallback) =>
+      typeof window.requestAnimationFrame === "function"
+        ? window.requestAnimationFrame(callback)
+        : window.setTimeout(() => callback(performance.now()), 16);
+
+    const cancelFrame = (frame: number) => {
+      if (!frame) return;
+      if (typeof window.cancelAnimationFrame === "function") window.cancelAnimationFrame(frame);
+      else window.clearTimeout(frame);
+    };
+
+    const resetVenueTransition = () => {
+      venueTransitionToken += 1;
+      window.clearTimeout(venueFallbackTimer);
+      cancelFrame(venueEnterFrame);
+      if (venueExitListener) venueText.removeEventListener?.("transitionend", venueExitListener);
+      venueExitListener = null;
+      venueFallbackTimer = 0;
+      venueEnterFrame = 0;
+      venueTransitioning = false;
+      venueText.classList.toggle("is-exiting", false);
+      venueText.classList.toggle("is-entering", false);
+    };
 
     const syncVenue = (nextIndex: number) => {
-      const next = venueGroups[nextIndex];
       if (nextIndex === venueIndex) {
-        // Idempotent sync (init / resume): keep the active group exposed.
-        next.style.opacity = "1";
-        next.setAttribute("aria-hidden", "false");
+        venueText.textContent = venueGroups[venueIndex];
+        venueText.classList.toggle("is-exiting", false);
+        venueText.classList.toggle("is-entering", false);
         return;
       }
-      const current = venueGroups[venueIndex];
-      current.style.opacity = "0";
-      current.setAttribute("aria-hidden", "true");
-      venueIndex = nextIndex;
-      window.clearTimeout(venueFadeTimer);
-      venueFadeTimer = window.setTimeout(() => {
-        next.style.opacity = "1";
-        next.setAttribute("aria-hidden", "false");
-      }, VENUE_FADE_MS);
+      if (venueTransitioning) return;
+
+      venueTransitioning = true;
+      const token = ++venueTransitionToken;
+      const finishExit = (event?: TransitionEvent) => {
+        if (event && (event.target !== venueText || event.propertyName !== "opacity")) return;
+        if (token !== venueTransitionToken) return;
+
+        if (venueExitListener) venueText.removeEventListener?.("transitionend", venueExitListener);
+        venueExitListener = null;
+        window.clearTimeout(venueFallbackTimer);
+        venueFallbackTimer = 0;
+
+        venueText.textContent = venueGroups[nextIndex];
+        venueIndex = nextIndex;
+        venueText.classList.toggle("is-exiting", false);
+        venueText.classList.toggle("is-entering", true);
+
+        venueEnterFrame = requestFrame(() => {
+          venueEnterFrame = requestFrame(() => {
+            if (token !== venueTransitionToken) return;
+            venueText.classList.toggle("is-entering", false);
+            venueTransitioning = false;
+            venueEnterFrame = 0;
+          });
+        });
+      };
+
+      venueExitListener = finishExit;
+      venueText.addEventListener("transitionend", finishExit);
+      // Fallback covers browsers that suppress transition events while a tab
+      // is being throttled. A single text node still makes overlap impossible.
+      venueFallbackTimer = window.setTimeout(() => finishExit(), 260);
+      venueText.classList.toggle("is-exiting", true);
     };
 
     const syncBackdrop = (nextIndex: number) => {
@@ -298,7 +383,7 @@ const stepIcons = ["message-circle", "car", "star"] as const;
       window.clearTimeout(backdropTimer);
       window.clearTimeout(backdropPreloadTimer);
       window.clearTimeout(venueTimer);
-      window.clearTimeout(venueFadeTimer);
+      resetVenueTransition();
     };
 
     const queueBackdrop = () => {

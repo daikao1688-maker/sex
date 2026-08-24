@@ -222,7 +222,11 @@ test("hero initially fetches only its active source and preloads the next source
     backdrop.querySelector = () => image;
     return backdrop;
   });
-  const venueGroups = [new FakeElement(), new FakeElement()];
+  const venueViewport = new FakeElement({
+    heroVenueGroups: JSON.stringify(["First venue group", "Second venue group"]),
+  });
+  const venueText = new FakeElement();
+  venueText.textContent = "First venue group";
   const timers = new Map();
   let timerId = 0;
   let now = 0;
@@ -230,10 +234,11 @@ test("hero initially fetches only its active source and preloads the next source
     visibilityState: "visible",
     querySelector: (selector) => ({
       "[data-hero-motion]": hero,
+      "[data-hero-venues]": venueViewport,
+      "[data-hero-venue-text]": venueText,
     })[selector] ?? null,
     querySelectorAll: (selector) => ({
       "[data-hero-backdrop]": backdrops,
-      "[data-hero-venue-group]": venueGroups,
     })[selector] ?? [],
     addEventListener() {},
   };
