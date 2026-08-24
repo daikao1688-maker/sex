@@ -8,7 +8,7 @@ import { defaultLocale, locales, localizePath, type Locale } from './config';
 import { testimonials } from './testimonials';
 
 /** Register a new dictionary here after adding its file to `src/i18n/locales/`. */
-const dictionaries: Partial<Record<Locale, Dictionary>> = {
+const dictionaries: Record<Locale, Dictionary> = {
   en: { ...en, testimonials: testimonials.en },
   ja: { ...ja, testimonials: testimonials.ja },
   ko,
@@ -17,7 +17,7 @@ const dictionaries: Partial<Record<Locale, Dictionary>> = {
 };
 
 export function getDictionary(lang: Locale): Dictionary {
-  return dictionaries[lang] ?? (dictionaries[defaultLocale] as Dictionary);
+  return dictionaries[lang];
 }
 
 /** Reads the active locale out of a URL like `/en/guide/`. */
