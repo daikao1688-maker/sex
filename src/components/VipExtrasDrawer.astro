@@ -118,6 +118,7 @@ const t = getDictionary(lang);
     const closeButton = drawer.querySelector<HTMLButtonElement>("[data-close-vip-extras]");
     let lastTrigger: HTMLElement | null = null;
     let previousBodyOverflow = "";
+    let savedScrollY = 0;
     const isOpen = () => drawer.getAttribute("aria-hidden") === "false";
     const focusable = () =>
       Array.from(
@@ -134,13 +135,15 @@ const t = getDictionary(lang);
       if (isOpen()) return;
       lastTrigger = document.activeElement instanceof HTMLElement ? document.activeElement : null;
       previousBodyOverflow = document.body.style.overflow;
+      savedScrollY = window.scrollY;
       drawer.classList.remove("pointer-events-none", "invisible");
       drawer.setAttribute("aria-hidden", "false");
       scrim.classList.replace("opacity-0", "opacity-100");
       panel.classList.remove(...closed);
       setBackgroundInert(true);
       document.body.style.overflow = "hidden";
-      requestAnimationFrame(() => closeButton?.focus());
+      // preventScroll: focusing on mobile scrolls the page (jumps to top).
+      requestAnimationFrame(() => closeButton?.focus({ preventScroll: true }));
     };
 
     const close = () => {
@@ -150,7 +153,9 @@ const t = getDictionary(lang);
       panel.classList.add(...closed);
       setBackgroundInert(false);
       document.body.style.overflow = previousBodyOverflow;
-      lastTrigger?.focus();
+      lastTrigger?.focus({ preventScroll: true });
+      // Restore scroll in case the browser moved it while the drawer was open.
+      window.scrollTo({ top: savedScrollY, behavior: "instant" });
       window.setTimeout(() => {
         if (!isOpen()) drawer.classList.add("pointer-events-none", "invisible");
       }, 300);

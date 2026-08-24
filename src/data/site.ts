@@ -12,7 +12,7 @@ export const site = {
 export const contact = {
   whatsapp: { number: '8617819124251', url: 'https://wa.me/8617819124251' },
   telegram: { handle: '@am38876', url: 'https://t.me/am38876' },
-  wechat: { id: 'gh34366', qr: '/wechat-qr.png' },
+  wechat: { id: 'gh34366', qr: '/wechat-qr.webp' },
   line: { id: '@224vqwdv', url: 'https://line.me/R/ti/p/@224vqwdv' },
   email: 'yongyuanbusi888@gmail.com',
 } as const;

@@ -86,6 +86,7 @@ const t = getDictionary(lang);
     let labelTimer: number | undefined;
     let lastTrigger: HTMLElement | null = null;
     let previousBodyOverflow = "";
+    let savedScrollY = 0;
 
     const isOpen = () => !modal.hasAttribute("hidden");
     const focusable = () =>
@@ -103,13 +104,16 @@ const t = getDictionary(lang);
       if (isOpen()) return;
       lastTrigger = document.activeElement instanceof HTMLElement ? document.activeElement : null;
       previousBodyOverflow = document.body.style.overflow;
+      savedScrollY = window.scrollY;
       modal.removeAttribute("hidden");
       modal.setAttribute("aria-hidden", "false");
       modal.classList.remove("opacity-0", "pointer-events-none");
       modal.classList.add("opacity-100", "pointer-events-auto");
       setBackgroundInert(true);
       document.body.style.overflow = "hidden";
-      requestAnimationFrame(() => focusable()[0]?.focus());
+      // preventScroll: mobile browsers scroll the page when focusing elements
+      // inside a fixed container, which jumps the page to the top.
+      requestAnimationFrame(() => focusable()[0]?.focus({ preventScroll: true }));
     };
 
     const close = () => {
@@ -119,7 +123,10 @@ const t = getDictionary(lang);
       modal.setAttribute("aria-hidden", "true");
       setBackgroundInert(false);
       document.body.style.overflow = previousBodyOverflow;
-      lastTrigger?.focus();
+      lastTrigger?.focus({ preventScroll: true });
+      // Restore the scroll position in case the browser moved it while the
+      // modal was open (focus scroll-into-view, overflow toggling, URL bar).
+      window.scrollTo({ top: savedScrollY, behavior: "instant" });
       window.setTimeout(() => {
         if (modal.classList.contains("opacity-0")) modal.setAttribute("hidden", "");
       }, 250);

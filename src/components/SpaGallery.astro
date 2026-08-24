@@ -117,6 +117,7 @@ const large = (file: string) =>
     const closeButton = lightbox.querySelector<HTMLButtonElement>("[data-gallery-close]");
     let lastTrigger: HTMLElement | null = null;
     let previousBodyOverflow = "";
+    let savedScrollY = 0;
 
     // The component is rendered inside [data-page-background]. Move the
     // dialog beside that subtree before making the page itself inert.
@@ -135,8 +136,11 @@ const large = (file: string) =>
       lightbox.setAttribute("aria-hidden", "true");
       setBackgroundInert(false);
       document.body.style.overflow = previousBodyOverflow;
-      lastTrigger?.focus();
+      // preventScroll: focusing on mobile scrolls the page (jumps to top).
+      lastTrigger?.focus({ preventScroll: true });
       lastTrigger = null;
+      // Restore scroll in case the browser moved it while the lightbox was open.
+      window.scrollTo({ top: savedScrollY, behavior: "instant" });
     };
 
     document.querySelectorAll<HTMLElement>("[data-gallery-open]").forEach((trigger) => {
@@ -144,6 +148,7 @@ const large = (file: string) =>
         if (!image || !caption) return;
         lastTrigger = trigger;
         previousBodyOverflow = document.body.style.overflow;
+        savedScrollY = window.scrollY;
         image.src = trigger.dataset.src ?? "";
         image.alt = trigger.dataset.alt ?? "";
         caption.textContent = trigger.dataset.caption ?? "";
@@ -152,7 +157,7 @@ const large = (file: string) =>
         lightbox.classList.replace("hidden", "flex");
         setBackgroundInert(true);
         document.body.style.overflow = "hidden";
-        requestAnimationFrame(() => closeButton?.focus());
+        requestAnimationFrame(() => closeButton?.focus({ preventScroll: true }));
       });
     });
 

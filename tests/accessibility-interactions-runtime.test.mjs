@@ -123,7 +123,7 @@ const createWeChatCopyHarness = async (writeText) => {
     HTMLElement: FakeElement,
     navigator: { clipboard: { writeText } },
     requestAnimationFrame: (callback) => callback(),
-    window: { setTimeout: () => 1, clearTimeout() {} },
+    window: { setTimeout: () => 1, clearTimeout() {}, scrollY: 0, scrollTo() {} },
   });
 
   return {
@@ -177,7 +177,7 @@ test("rapidly reopening the VIP drawer does not let a prior close timer hide it"
     document,
     HTMLElement: FakeElement,
     requestAnimationFrame: (callback) => callback(),
-    window: { setTimeout: (callback) => timers.push(callback) },
+    window: { setTimeout: (callback) => timers.push(callback), scrollY: 0, scrollTo() {} },
   };
   vm.runInNewContext(await componentScript("VipExtrasDrawer.astro"), context);
 
@@ -260,7 +260,7 @@ test("the WeChat modal traps focus and restores the trigger on keyboard and back
     HTMLElement: FakeElement,
     navigator: { clipboard: { writeText: async () => {} } },
     requestAnimationFrame: (callback) => callback(),
-    window: { setTimeout: () => 0, clearTimeout() {} },
+    window: { setTimeout: () => 0, clearTimeout() {}, scrollY: 0, scrollTo() {} },
   });
 
   listeners.get("click")({
@@ -466,6 +466,7 @@ test("the spa gallery lightbox makes the page inert and restores it after every 
     document,
     HTMLElement: FakeElement,
     requestAnimationFrame: (callback) => callback(),
+    window: { scrollY: 0, scrollTo() {} },
   });
 
   assert.deepEqual(appended, [lightbox], "the lightbox must be moved outside the inert page subtree");
