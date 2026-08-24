@@ -398,9 +398,9 @@ const zhCN: Dictionary = {
     inquiryMessage: '你好，我想预约澳门桑拿，可以安排吗？',
     channels: {
       whatsapp: '立即联系',
-      telegram: '@Aomensauna',
-      wechat: 'AN99348',
-      line: '16880348',
+      telegram: '@am38876',
+      wechat: 'gh34366',
+      line: '@224vqwdv',
     },
   },
 
@@ -430,7 +430,7 @@ const zhCN: Dictionary = {
     title: '加我们的微信',
     optionScan: '方式一：扫描上方 QR code',
     optionCopy: '方式二：复制 ID，在微信中搜索',
-    copy: '复制微信 ID：AN99348',
+    copy: '复制微信 ID：gh34366',
     copied: '✓ 已复制！打开微信搜索加我们',
     manualCopy: '自动复制无法使用，请选中并手动复制微信 ID。',
     close: '关闭',

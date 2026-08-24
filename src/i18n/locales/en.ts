@@ -458,9 +458,9 @@ const en: Dictionary = {
     inquiryMessage: "I'm interested in Macau sauna. Could you help arrange this?",
     channels: {
       whatsapp: 'Message us',
-      telegram: '@Aomensauna',
-      wechat: 'AN99348',
-      line: '16880348',
+      telegram: '@am38876',
+      wechat: 'gh34366',
+      line: '@224vqwdv',
     },
   },
 
@@ -490,7 +490,7 @@ const en: Dictionary = {
     title: 'Add us on WeChat',
     optionScan: 'Option 1: Scan the QR code above',
     optionCopy: 'Option 2: Copy the ID and search in WeChat',
-    copy: 'Copy WeChat ID: AN99348',
+    copy: 'Copy WeChat ID: gh34366',
     copied: '✓ Copied! Open WeChat to add us.',
     manualCopy: 'Automatic copy unavailable. Select and copy the WeChat ID manually.',
     close: 'Close',

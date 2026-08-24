@@ -460,9 +460,9 @@ const ja: Dictionary = {
     inquiryMessage: 'マカオのサウナに興味があります。日本語でご案内いただけますか？',
     channels: {
       whatsapp: '問い合わせる',
-      telegram: '@Aomensauna',
-      wechat: 'AN99348',
-      line: '16880348',
+      telegram: '@am38876',
+      wechat: 'gh34366',
+      line: '@224vqwdv',
     },
   },
 
@@ -492,7 +492,7 @@ const ja: Dictionary = {
     title: 'WeChatで友だち追加',
     optionScan: '方法その1：上のQRコードを読み取る',
     optionCopy: '方法その2：IDをコピーしてWeChatで検索',
-    copy: 'WeChat IDをコピー：AN99348',
+    copy: 'WeChat IDをコピー：gh34366',
     copied: '✓ コピーしました！WeChatを開いて検索してください',
     manualCopy: '自動コピーを利用できません。WeChat IDを選択して手動でコピーしてください。',
     close: '閉じる',

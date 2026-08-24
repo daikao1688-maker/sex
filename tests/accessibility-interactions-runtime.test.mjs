@@ -85,13 +85,13 @@ const createWeChatCopyHarness = async (writeText) => {
   modal.classList = classListFor(modal);
   modal.querySelectorAll = () => [closeButton, copyButton];
   copyButton.dataset = {
-    copyWechat: "AN99348",
+    copyWechat: "gh34366",
     copiedLabel: "COPIED",
     manualLabel: "COPY MANUALLY",
   };
   copyLabel.textContent = "COPY";
   fallbackField.hidden = true;
-  fallbackField.value = "AN99348";
+  fallbackField.value = "gh34366";
   fallbackField.select = () => (fallbackField.selected = true);
 
   const legacyField = new FakeElement();
@@ -298,7 +298,7 @@ test("WeChat copy uses the asynchronous Clipboard API and reports success", asyn
 
   await harness.copy();
 
-  assert.equal(copied, "AN99348");
+  assert.equal(copied, "gh34366");
   assert.equal(harness.copyLabel.textContent, "COPIED");
   assert.equal(harness.fallbackField.hidden, true);
   assert.equal(harness.legacyCopyCalls(), 0);

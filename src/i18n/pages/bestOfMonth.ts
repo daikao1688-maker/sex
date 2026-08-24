@@ -53,10 +53,10 @@ const en: BestOfMonthCopy = {
   },
   cards: [
     {
-      slug: 'empire-sauna',
+      slug: 'majesty-spa',
       award: 'Best of the Month',
       quote:
-        'The HK$80M new build that resets the bar for Macau saunas — and one of only two with no service charge.',
+        "The Fisherman's Wharf veteran with the clearest overnight positioning in town — Southeast Asian value, extra daytime discounts and no service charge.",
     },
     {
       slug: 'manhao-spa',
@@ -93,10 +93,10 @@ const ja: BestOfMonthCopy = {
   },
   cards: [
     {
-      slug: 'empire-sauna',
+      slug: 'majesty-spa',
       award: '今月のベスト',
       quote:
-        '港幣8,000万を投じた完全新装。マカオ サウナの基準を塗り替えた一軒で、サービス料無料は全澳で2軒だけ。',
+        'フィッシャーマンズワーフの老舗。東南アジア系のコスパと明確な宿泊対応に加え、昼の追加割引とサービス料無料が魅力。',
     },
     {
       slug: 'manhao-spa',
@@ -131,9 +131,9 @@ const zhTW: BestOfMonthCopy = {
   },
   cards: [
     {
-      slug: 'empire-sauna',
+      slug: 'majesty-spa',
       award: '本月最佳',
-      quote: '斥資港幣 8,000 萬的全新會所，重新定義澳門桑拿標準，也是全澳僅兩家免服務費之一。',
+      quote: '漁人碼頭老牌場館，東南亞性價比與過夜定位最清楚，日場加碼優惠與免服務費同樣到位。',
     },
     {
       slug: 'manhao-spa',
@@ -167,9 +167,9 @@ const zhCN: BestOfMonthCopy = {
   },
   cards: [
     {
-      slug: 'empire-sauna',
+      slug: 'majesty-spa',
       award: '本月最佳',
-      quote: '斥资港币 8,000 万的全新会所，重新定义澳门桑拿标准，也是全澳仅两家免服务费之一。',
+      quote: '渔人码头老牌场馆，东南亚性价比与过夜定位最清楚，日场加码优惠与免服务费同样到位。',
     },
     {
       slug: 'manhao-spa',

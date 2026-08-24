@@ -51,8 +51,7 @@ test("every localized venue page omits the editorial evidence panel", async () =
 test("hero keeps automatic rotation without exposing a pause control", async () => {
   const source = await readSource("src/components/Hero.astro");
   assert.doesNotMatch(source, /data-hero-motion-toggle|data-hero-motion-icon|manuallyPaused/);
-  assert.match(source, /}, 6000\);/);
-  assert.match(source, /}, 4500\);/);
+  assert.match(source, /}, 4000\);/);
   for (const locale of locales) assert.doesNotMatch(await readPage(locale), /data-hero-motion-toggle/);
 });
 

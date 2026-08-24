@@ -10,10 +10,10 @@ export const site = {
 } as const;
 
 export const contact = {
-  whatsapp: { number: '85365670348', url: 'https://wa.me/85365670348' },
-  telegram: { handle: '@Aomensauna', url: 'https://t.me/Aomensauna' },
-  wechat: { id: 'AN99348', qr: '/wechat-qr.png' },
-  line: { id: '16880348', url: 'https://line.me/ti/p/VZHFDSZnq9' },
+  whatsapp: { number: '8617819124251', url: 'https://wa.me/8617819124251' },
+  telegram: { handle: '@am38876', url: 'https://t.me/am38876' },
+  wechat: { id: 'gh34366', qr: '/wechat-qr.png' },
+  line: { id: '@224vqwdv', url: 'https://line.me/R/ti/p/@224vqwdv' },
 } as const;
 
 /** Builds a WhatsApp / Telegram deep link with a pre-filled message. */

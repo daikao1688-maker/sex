@@ -43,7 +43,7 @@ const [offerBefore, offerAfter = ""] = t.promo.offer.split("{month}");
     "left-0 right-0 z-40 w-full overflow-hidden border-b border-red-400/40 glow-red",
     placement,
   ]}
-  style="background: linear-gradient(90deg, #0a0404 0%, #2a0a0a 30%, #4a0e0e 50%, #2a0a0a 70%, #0a0404 100%);"
+  style="background: linear-gradient(90deg, #1a0a0a 0%, #2a0e0e 50%, #1a0a0a 100%);"
 >
   <div aria-hidden="true" class="pointer-events-none absolute inset-0 shimmer-red"></div>
   <div
@@ -72,6 +72,114 @@ const [offerBefore, offerAfter = ""] = t.promo.offer.split("{month}");
     </a>
   </div>
 </div>
+
+<style>
+  /* Visual layer ported 1:1 from macau-night.hk's design-overrides.css —
+     dark cherry base, gold CTA, rainbow sheen sweep. */
+  #promo-top-bar {
+    background: linear-gradient(
+      90deg,
+      rgba(15, 10, 18, 0.99),
+      rgba(122, 31, 43, 0.94) 48%,
+      rgba(8, 14, 24, 0.99)
+    ) !important;
+    border-color: rgba(184, 50, 70, 0.34) !important;
+    box-shadow:
+      0 14px 44px rgba(0, 0, 0, 0.38),
+      inset 0 1px rgba(244, 217, 138, 0.08) !important;
+    animation: none !important;
+    backdrop-filter: none;
+  }
+
+  #promo-top-bar::before {
+    position: absolute;
+    z-index: 1;
+    inset: -1px -46%;
+    content: "";
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 34%,
+      rgba(39, 215, 255, 0.08) 43%,
+      rgba(244, 217, 138, 0.55) 50%,
+      rgba(255, 79, 216, 0.2) 53%,
+      rgba(216, 183, 90, 0.13) 60%,
+      transparent 68%
+    );
+    mix-blend-mode: screen;
+    transform: translateX(-58%);
+    animation: rmPromoSweep 4.6s ease-in-out infinite;
+  }
+
+  #promo-top-bar > .relative.max-w-7xl {
+    z-index: 2;
+  }
+
+  #promo-top-bar [aria-hidden="true"] {
+    z-index: 1;
+    background: linear-gradient(
+      110deg,
+      transparent 0%,
+      transparent 42%,
+      rgba(244, 217, 138, 0.18) 50%,
+      rgba(39, 215, 255, 0.08) 54%,
+      transparent 60%,
+      transparent 100%
+    ) !important;
+    opacity: 0.7;
+    animation: rmPromoSoftSweep 6.8s linear infinite !important;
+  }
+
+  #promo-top-bar .text-red-300,
+  #promo-top-bar [data-promo-month] {
+    color: #ff7588 !important;
+    text-shadow: 0 0 18px rgba(184, 50, 70, 0.56) !important;
+    animation: none !important;
+  }
+
+  #promo-top-bar a {
+    color: #101014 !important;
+    background: linear-gradient(180deg, #f7dfa0 0%, #d8b75a 48%, #a9822c 100%) !important;
+    border: 1px solid rgba(244, 217, 138, 0.68);
+    box-shadow: 0 8px 26px rgba(216, 183, 90, 0.3);
+  }
+
+  @keyframes rmPromoSweep {
+    0% {
+      transform: translateX(-58%);
+      opacity: 0;
+    }
+    12% {
+      opacity: 0.88;
+    }
+    52% {
+      opacity: 0.9;
+    }
+    72% {
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(58%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes rmPromoSoftSweep {
+    0% {
+      background-position: -180% 0;
+    }
+    100% {
+      background-position: 240% 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #promo-top-bar::before,
+    #promo-top-bar [aria-hidden="true"] {
+      animation: none !important;
+    }
+  }
+</style>
 
 <script>
   // The month is baked in at build time, so refresh it on every visit.

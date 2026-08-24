@@ -12,25 +12,25 @@ const t = getDictionary(lang);
 
 const backdrops = [
   {
-    src: "/covers/macau-sauna-night-skyline.jpg",
-    smallSrc: "/covers/macau-sauna-night-skyline-768.jpg",
-    width: 2048,
-    height: 1366,
+    src: "/covers/macau-sauna-hero-grand-lisboa-night.webp",
+    smallSrc: "/covers/macau-sauna-hero-grand-lisboa-night-768.webp",
+    width: 1448,
+    height: 1086,
     position: "object-center",
   },
   {
-    src: "/covers/macau-sauna-cotai-casino-skyline-night.jpg",
-    smallSrc: "/covers/macau-sauna-cotai-casino-skyline-night-768.jpg",
-    width: 1600,
-    height: 1066,
-    position: "object-[20%_50%] sm:object-center",
+    src: "/covers/macau-sauna-hero-balcony-police-night.webp",
+    smallSrc: "/covers/macau-sauna-hero-balcony-police-night-768.webp",
+    width: 1448,
+    height: 1086,
+    position: "object-center sm:object-[50%_5%]",
   },
   {
-    src: "/covers/macau-sauna-tower-fireworks-night.webp",
-    smallSrc: "/covers/macau-sauna-tower-fireworks-night-768.webp",
-    width: 1248,
-    height: 832,
-    position: "object-[80%_50%] sm:object-center",
+    src: "/covers/macau-sauna-hero-theme-room-duo-night.webp",
+    smallSrc: "/covers/macau-sauna-hero-theme-room-duo-night-768.webp",
+    width: 1535,
+    height: 1024,
+    position: "object-[50%_10%] sm:object-center",
   },
 ];
 
@@ -49,7 +49,6 @@ const stepIcons = ["message-circle", "car", "star"] as const;
           class={`hero-backdrop absolute inset-0 ${index === 0 ? "is-active" : ""}`}
           aria-hidden="true"
           data-hero-backdrop
-          data-zoom-direction={index % 2 === 0 ? "in" : "out"}
         >
           <img
             src={index === 0 ? image.src : undefined}
@@ -72,7 +71,7 @@ const stepIcons = ["message-circle", "car", "star"] as const;
   <div class="absolute inset-0 z-[1] bg-gradient-to-b from-black/75 via-black/60 to-[#0a0a0a]"></div>
   <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pt-6">
     <h1 class="text-[28px] sm:text-4xl md:text-5xl font-bold mb-3 tracking-wider">{t.hero.title}</h1>
-    <p class="text-sm sm:text-lg md:text-xl font-medium text-gold mb-4">{t.hero.tagline}</p>
+    <p class="hero-tagline-pulse text-sm sm:text-lg md:text-xl font-medium text-gold mb-4">{t.hero.tagline}</p>
 
     <p
       class="grid text-base min-[430px]:text-lg sm:text-lg text-white/70 mb-6 whitespace-pre-line"
@@ -153,11 +152,13 @@ const stepIcons = ["message-circle", "car", "star"] as const;
 </section>
 
 <style>
+  /* Motion spec matches macau-night.hk's HomeHero island: 4s per slide,
+     1.4s ease-in-out cross-fade, 5.4s linear zoom-out (1.08 → 1). */
   .hero-backdrop {
     z-index: 0;
     opacity: 0;
     overflow: hidden;
-    transition: opacity 1.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 1.4s ease-in-out;
     will-change: opacity;
   }
 
@@ -172,50 +173,48 @@ const stepIcons = ["message-circle", "car", "star"] as const;
   }
 
   .hero-backdrop img {
-    transform: scale(1.06);
+    transform: scale(1.08);
+    /* Transition (not keyframes): a leaving slide eases back to 1.08 over
+       the same 5.4s instead of snapping mid-fade — matches framer-motion. */
+    transition: transform 5.4s linear;
     will-change: transform;
   }
 
-  [data-hero-motion][data-motion-state="paused"] .hero-backdrop img {
-    animation-play-state: paused;
+  .hero-backdrop.is-active img {
+    transform: scale(1);
   }
 
-  .hero-backdrop[data-zoom-direction="in"]:is(.is-active, .is-leaving) img {
-    animation: heroZoomIn 7.2s cubic-bezier(0.2, 0.6, 0.4, 1) forwards;
+  .hero-tagline-pulse {
+    animation: heroTaglinePulse 10s ease-in-out infinite;
   }
 
-  .hero-backdrop[data-zoom-direction="out"]:is(.is-active, .is-leaving) img {
-    animation: heroZoomOut 7.2s cubic-bezier(0.2, 0.6, 0.4, 1) forwards;
-  }
-
-  @keyframes heroZoomIn {
-    from {
-      transform: scale(1.03);
+  @keyframes heroTaglinePulse {
+    0%,
+    100% {
+      opacity: 1;
     }
-    to {
-      transform: scale(1.085);
+    25%,
+    75% {
+      opacity: 0.7;
     }
-  }
-
-  @keyframes heroZoomOut {
-    from {
-      transform: scale(1.085);
-    }
-    to {
-      transform: scale(1.03);
+    50% {
+      opacity: 1;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-backdrop {
+    .hero-backdrop,
+    .hero-backdrop img {
       transition: none;
     }
 
     .hero-backdrop img,
-    .hero-backdrop[data-zoom-direction="in"]:is(.is-active, .is-leaving) img,
-    .hero-backdrop[data-zoom-direction="out"]:is(.is-active, .is-leaving) img {
+    .hero-backdrop.is-active img {
+      transform: scale(1.08);
+    }
+
+    .hero-tagline-pulse {
       animation: none;
-      transform: scale(1.06);
     }
   }
 </style>
@@ -255,6 +254,10 @@ const stepIcons = ["message-circle", "car", "star"] as const;
         const leaving = index === backdropIndex && !active;
         backdrop.classList.toggle("is-active", active);
         backdrop.classList.toggle("is-leaving", leaving);
+        if (leaving) {
+          // Detach after the 1.4s fade so the zoom resets for the next pass.
+          window.setTimeout(() => backdrop.classList.toggle("is-leaving", false), 1400);
+        }
       });
       backdropIndex = nextIndex;
     };
@@ -278,13 +281,13 @@ const stepIcons = ["message-circle", "car", "star"] as const;
       const nextIndex = (backdropIndex + 1) % backdrops.length;
       backdropPreloadTimer = window.setTimeout(() => {
         if (canAnimate()) prepareBackdrop(nextIndex);
-      }, 5000);
+      }, 3000);
       backdropTimer = window.setTimeout(() => {
         if (!canAnimate()) return;
         prepareBackdrop(nextIndex);
         syncBackdrop(nextIndex);
         queueBackdrop();
-      }, 6000);
+      }, 4000);
     };
 
     const queueVenue = () => {
@@ -293,7 +296,7 @@ const stepIcons = ["message-circle", "car", "star"] as const;
         venueIndex = (venueIndex + 1) % venueGroups.length;
         syncVenue(venueIndex);
         queueVenue();
-      }, 4500);
+      }, 4000);
     };
 
     const renderState = () => {

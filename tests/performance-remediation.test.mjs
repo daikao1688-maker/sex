@@ -263,9 +263,9 @@ test("hero initially fetches only its active source and preloads the next source
   }
 
   vm.runInNewContext(await heroScript(), { document, window, IntersectionObserver: FakeObserver });
-  advanceTo(4999);
+  advanceTo(2999);
   assert.equal(images[1].src, undefined, "next hero source loaded too early");
-  advanceTo(5000);
+  advanceTo(3000);
   assert.equal(images[1].src, "/covers/next.jpg", "next hero source was not preloaded near rotation");
   assert.deepEqual(
     nextSourceAssignments,
@@ -273,7 +273,7 @@ test("hero initially fetches only its active source and preloads the next source
     "responsive candidates must be assigned before the fallback starts fetching",
   );
   assert.equal(backdrops[1].getAttribute("aria-hidden"), "true", "preload exposed the next slide early");
-  advanceTo(6000);
+  advanceTo(4000);
   assert.equal(backdrops[1].getAttribute("aria-hidden"), "true", "visual rotation exposed a decorative layer");
 });
 
