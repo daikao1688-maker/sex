@@ -80,7 +80,7 @@ const stepIcons = ["message-circle", "car", "star"] as const;
       {
         t.hero.venueGroups.map((group, index) => (
           <span
-            class="transition-opacity duration-700"
+            class="transition-opacity duration-300"
             style={`grid-area:1 / 1;opacity:${index === 0 ? 1 : 0}`}
             aria-hidden={index === 0 ? "false" : "true"}
             data-hero-venue-group
@@ -234,18 +234,34 @@ const stepIcons = ["message-circle", "car", "star"] as const;
     let backdropTimer = 0;
     let backdropPreloadTimer = 0;
     let venueTimer = 0;
+    let venueFadeTimer = 0;
 
     const canAnimate = () =>
       !reducedMotion.matches &&
       inViewport &&
       document.visibilityState !== "hidden";
 
+    // Sequential fade: the outgoing group must reach opacity 0 before the
+    // incoming one starts fading in, so the stacked texts never overlap.
+    const VENUE_FADE_MS = 300;
+
     const syncVenue = (nextIndex: number) => {
-      venueGroups.forEach((group, index) => {
-        const active = index === nextIndex;
-        group.style.opacity = active ? "1" : "0";
-        group.setAttribute("aria-hidden", String(!active));
-      });
+      const next = venueGroups[nextIndex];
+      if (nextIndex === venueIndex) {
+        // Idempotent sync (init / resume): keep the active group exposed.
+        next.style.opacity = "1";
+        next.setAttribute("aria-hidden", "false");
+        return;
+      }
+      const current = venueGroups[venueIndex];
+      current.style.opacity = "0";
+      current.setAttribute("aria-hidden", "true");
+      venueIndex = nextIndex;
+      window.clearTimeout(venueFadeTimer);
+      venueFadeTimer = window.setTimeout(() => {
+        next.style.opacity = "1";
+        next.setAttribute("aria-hidden", "false");
+      }, VENUE_FADE_MS);
     };
 
     const syncBackdrop = (nextIndex: number) => {
@@ -275,6 +291,7 @@ const stepIcons = ["message-circle", "car", "star"] as const;
       window.clearTimeout(backdropTimer);
       window.clearTimeout(backdropPreloadTimer);
       window.clearTimeout(venueTimer);
+      window.clearTimeout(venueFadeTimer);
     };
 
     const queueBackdrop = () => {
@@ -293,8 +310,7 @@ const stepIcons = ["message-circle", "car", "star"] as const;
     const queueVenue = () => {
       venueTimer = window.setTimeout(() => {
         if (!canAnimate()) return;
-        venueIndex = (venueIndex + 1) % venueGroups.length;
-        syncVenue(venueIndex);
+        syncVenue((venueIndex + 1) % venueGroups.length);
         queueVenue();
       }, 4000);
     };
