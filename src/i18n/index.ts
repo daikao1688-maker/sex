@@ -1,5 +1,6 @@
 import en from './locales/en';
 import ja from './locales/ja';
+import ko from './locales/ko';
 import zhCN from './locales/zh-CN';
 import zhTW from './locales/zh-TW';
 import type { Dictionary } from './types';
@@ -10,6 +11,7 @@ import { testimonials } from './testimonials';
 const dictionaries: Partial<Record<Locale, Dictionary>> = {
   en: { ...en, testimonials: testimonials.en },
   ja: { ...ja, testimonials: testimonials.ja },
+  ko,
   'zh-TW': { ...zhTW, testimonials: testimonials['zh-TW'] },
   'zh-CN': { ...zhCN, testimonials: testimonials['zh-CN'] },
 };

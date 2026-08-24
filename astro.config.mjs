@@ -24,6 +24,7 @@ export default defineConfig({
           'zh-TW': 'zh-TW',
           'zh-CN': 'zh-CN',
           ja: 'ja',
+          ko: 'ko',
         },
       },
     }),
@@ -33,7 +34,7 @@ export default defineConfig({
   // what the pages, hreflang tags and language switcher read.
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'zh-TW', 'zh-CN', 'ja'],
+    locales: ['en', 'zh-TW', 'zh-CN', 'ja', 'ko'],
     routing: { prefixDefaultLocale: true },
   },
 

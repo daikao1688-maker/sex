@@ -13,12 +13,13 @@ export const localeMeta = {
   'zh-TW': { label: '繁體中文', short: '繁', htmlLang: 'zh-TW', ogLocale: 'zh_TW', dir: 'ltr' },
   'zh-CN': { label: '简体中文', short: '简', htmlLang: 'zh-CN', ogLocale: 'zh_CN', dir: 'ltr' },
   ja: { label: '日本語', short: 'JA', htmlLang: 'ja', ogLocale: 'ja_JP', dir: 'ltr' },
+  ko: { label: '한국어', short: 'KO', htmlLang: 'ko', ogLocale: 'ko_KR', dir: 'ltr' },
 } as const;
 
 export type Locale = keyof typeof localeMeta;
 
 /** Locales with a translated dictionary — keep in sync with astro.config.mjs. */
-export const locales: Locale[] = ['en', 'zh-TW', 'zh-CN', 'ja'];
+export const locales: Locale[] = ['en', 'zh-TW', 'zh-CN', 'ja', 'ko'];
 
 export const defaultLocale: Locale = 'en';
 
