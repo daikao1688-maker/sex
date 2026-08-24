@@ -18,8 +18,8 @@ const { lang, variant = "fixed", ctaHref } = Astro.props;
 
 const placement =
   variant === "fixed"
-    ? "absolute top-[5.5rem] sm:fixed sm:top-[6.5rem]"
-    : "relative mt-[5.5rem] sm:mt-[6.5rem]";
+    ? "absolute top-16 sm:fixed sm:top-20"
+    : "relative mt-16 sm:mt-20";
 const t = getDictionary(lang);
 // Default: scroll to this page's own contact section — every shell page has
 // one except privacy/editorial-policy, which pass an explicit ctaHref.

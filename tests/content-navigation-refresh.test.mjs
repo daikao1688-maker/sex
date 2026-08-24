@@ -60,6 +60,22 @@ test("the homepage promotion scrolls away natively on mobile and only floats on 
   }
 });
 
+test("promotion begins exactly below the 64px mobile and 80px desktop header", async () => {
+  for (const locale of locales) {
+    const homepage = await readPage(locale);
+    const homepagePromo = classList(tagWithAttribute(homepage, 'id="promo-top-bar"'));
+
+    assert.ok(homepagePromo.includes("top-16"), `${locale} home promo leaves a mobile header gap`);
+    assert.ok(homepagePromo.includes("sm:top-20"), `${locale} home promo leaves a desktop header gap`);
+
+    const contactPage = await readPage(locale, "contact");
+    const inlinePromo = classList(tagWithAttribute(contactPage, 'id="promo-top-bar"'));
+
+    assert.ok(inlinePromo.includes("mt-16"), `${locale} inline promo leaves a mobile header gap`);
+    assert.ok(inlinePromo.includes("sm:mt-20"), `${locale} inline promo leaves a desktop header gap`);
+  }
+});
+
 test("the navigation uses mobile controls below 1280px and desktop links from 1280px", async () => {
   for (const locale of locales) {
     const html = await readPage(locale);
