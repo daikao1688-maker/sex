@@ -20,7 +20,30 @@ async function readPage(locale, ...segments) {
   return readFile(file, "utf8");
 }
 const containsHangul = (value) => /[\uac00-\ud7a3]/.test(value);
-const countHangul = (value) => [...value.matchAll(/[\uac00-\ud7a3]/g)].length;
+const textContent = (html) => html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+
+function mainContent(html) {
+  return html.match(/<main\b[\s\S]*?<\/main>/i)?.[0] ?? "";
+}
+
+function firstHeading(html) {
+  return textContent(mainContent(html).match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? "");
+}
+
+function assertKoreanOwnedPage(html, { route, englishFallback, headingRequired = true }) {
+  const main = mainContent(html);
+  const heading = firstHeading(html);
+
+  assert.ok(containsHangul(main), `/ko${route} must render Korean-visible page content`);
+  if (headingRequired) {
+    assert.ok(containsHangul(heading), `/ko${route} must render a Korean page heading`);
+  }
+  assert.equal(
+    main.includes(englishFallback),
+    false,
+    `/ko${route} still exposes its page-specific English fallback: ${englishFallback}`,
+  );
+}
 
 function scriptContaining(html, marker) {
   const source = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)]
@@ -195,34 +218,36 @@ test("404 recovery provides Korean copy and destinations", async () => {
   );
 });
 
-test("each active page renders Korean-owned copy instead of an English fallback", async () => {
-  const routes = [
-    [],
-    ["about"],
-    ["blog"],
-    ["contact"],
-    ["editorial-policy"],
-    ["faq"],
-    ["guide"],
-    ["privacy"],
-    ["ranking"],
-    ["shuttle"],
-    ["spa", "clube-rio"],
-    ["spa", "eighteen-sauna"],
+test("each active page renders Korean-owned copy instead of its page-specific English fallback", async () => {
+  const pages = [
+    { segments: [], route: "/", englishFallback: "Macau Sauna &amp; Spa — Your VIP Experience" },
+    { segments: ["about"], route: "/about/", englishFallback: "A Clearer Way to Navigate Macau Saunas" },
+    { segments: ["blog"], route: "/blog/", englishFallback: "Blog" },
+    { segments: ["contact"], route: "/contact/", englishFallback: "Contact Us" },
+    { segments: ["editorial-policy"], route: "/editorial-policy/", englishFallback: "Editorial and Corrections Policy" },
+    { segments: ["faq"], route: "/faq/", englishFallback: "FAQ" },
+    { segments: ["guide"], route: "/guide/", englishFallback: "Planning Your First Macau Sauna Visit?" },
+    { segments: ["privacy"], route: "/privacy/", englishFallback: "Privacy Notice" },
+    { segments: ["ranking"], route: "/ranking/", englishFallback: "Macau Sauna Guide 2026 — Compare 14 Venues" },
+    { segments: ["shuttle"], route: "/shuttle/", englishFallback: "Plan Your Macau Sauna Pickup" },
+    { segments: ["spa", "clube-rio"], route: "/spa/clube-rio/", englishFallback: "Clube Rio is a business-KTV club that held its grand opening on 30 July 2026", headingRequired: false },
+    { segments: ["spa", "eighteen-sauna"], route: "/spa/eighteen-sauna/", englishFallback: "18 Sauna formerly operated on the sixth floor of Hotel Golden Dragon", headingRequired: false },
+    { segments: ["blog", "macau-sauna-august-guide-2026"], route: "/blog/macau-sauna-august-guide-2026/", englishFallback: "Macau Sauna August 2026 Guide: 7 Venues Reviewed — Prices, Deals and Pitfalls" },
+    { segments: ["blog", "macau-sauna-overnight-guide-2026"], route: "/blog/macau-sauna-overnight-guide-2026/", englishFallback: "Macau Sauna Overnight Guide 2026: Free Rest, Dining, Open Venues and How to Choose" },
   ];
 
-  for (const route of routes) {
-    const html = await readPage(koreanLocale, ...route);
-    const main = html.match(/<main\b[\s\S]*?<\/main>/i)?.[0] ?? "";
-    assert.ok(
-      countHangul(main) >= 40,
-      `/ko/${route.join("/")} must contain substantial Korean page copy rather than the English fallback`,
-    );
+  for (const page of pages) {
+    assertKoreanOwnedPage(await readPage(koreanLocale, ...page.segments), page);
   }
 
   const homepage = await readPage(koreanLocale);
   const bestOfMonth = homepage.match(/<section\b(?=[^>]*data-testid="best-of-month")[\s\S]*?<\/section>/i)?.[0] ?? "";
-  assert.ok(containsHangul(bestOfMonth), "Korean Best of Month content must not fall back to English");
+  assert.ok(containsHangul(bestOfMonth), "Korean Best of Month heading must not fall back to English");
+  assert.equal(
+    bestOfMonth.includes("leads this month's shortlist"),
+    false,
+    "Korean Best of Month content still exposes its English fallback",
+  );
 });
 
 test("Korean blog entries preserve both public slugs and publication dates", async () => {
@@ -269,13 +294,20 @@ test("all active Korean galleries expose specific Korean alternative text and ca
   let renderedImages = 0;
   for (const [slug, expectedCount] of Object.entries(galleryCounts)) {
     const html = await readPage(koreanLocale, "spa", slug);
-    const alts = [...html.matchAll(/data-alt="([^"]+)"/g)].map((match) => match[1]);
-    const captions = [...html.matchAll(/data-caption="([^"]+)"/g)].map((match) => match[1]);
+    const figures = [...html.matchAll(/<figure\b[^>]*>[\s\S]*?<\/figure>/gi)]
+      .map((match) => match[0])
+      .filter((figure) => figure.includes("data-gallery-open"));
+    const alts = figures.map((figure) =>
+      textContent(figure.match(/<img\b(?=[^>]*\balt="([^"]+)")[^>]*>/i)?.[1] ?? ""),
+    );
+    const captions = figures.map((figure) =>
+      textContent(figure.match(/<figcaption\b[^>]*>([\s\S]*?)<\/figcaption>/i)?.[1] ?? ""),
+    );
 
-    assert.equal(alts.length, expectedCount, `${slug} is missing Korean gallery alt text`);
-    assert.equal(captions.length, expectedCount, `${slug} is missing Korean gallery captions`);
-    assert.equal(new Set(alts).size, expectedCount, `${slug} repeats Korean gallery alt text`);
-    assert.equal(new Set(captions).size, expectedCount, `${slug} repeats Korean gallery captions`);
+    assert.equal(alts.length, expectedCount, `${slug} is missing rendered Korean gallery image alt text`);
+    assert.equal(captions.length, expectedCount, `${slug} is missing rendered Korean gallery figcaptions`);
+    assert.equal(new Set(alts).size, expectedCount, `${slug} repeats Korean gallery image alt text`);
+    assert.equal(new Set(captions).size, expectedCount, `${slug} repeats visible Korean gallery captions`);
     for (const [index, alt] of alts.entries()) {
       assert.ok(containsHangul(alt), `${slug} image ${index + 1} alt text is not Korean`);
       assert.ok(containsHangul(captions[index]), `${slug} image ${index + 1} caption is not Korean`);
@@ -305,7 +337,9 @@ test("Korean static pages complete the 130-URL sitemap and reciprocal hreflang m
   assert.equal(sitemapLocations.length, 130, "sitemap must list 130 localized canonical URLs");
 
   const localizedPaths = (await readdir(path.join(distRoot, koreanLocale), { recursive: true }))
-    .filter((relativePath) => relativePath.endsWith(`${path.sep}index.html`));
+    .filter((relativePath) =>
+      relativePath === "index.html" || relativePath.endsWith(`${path.sep}index.html`),
+    );
   assert.equal(localizedPaths.length, 26, "Korean must ship the same 26 public pages as every other locale");
 
   for (const relativePath of localizedPaths) {
@@ -320,6 +354,15 @@ test("Korean static pages complete the 130-URL sitemap and reciprocal hreflang m
         alternateHref(html, locale),
         `${siteOrigin}/${locale}/${suffix}`,
         `${relativePath} is missing its reciprocal ${locale} alternate`,
+      );
+    }
+    const segments = suffix ? suffix.slice(0, -1).split("/") : [];
+    for (const locale of localeCodes.filter((locale) => locale !== koreanLocale)) {
+      const counterpart = await readPage(locale, ...segments);
+      assert.equal(
+        alternateHref(counterpart, koreanLocale),
+        koreanUrl,
+        `/${locale}/${suffix} is missing its reciprocal Korean alternate`,
       );
     }
     assert.equal(
