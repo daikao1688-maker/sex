@@ -9,3 +9,6 @@
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 </IfModule>
+
+# 自訂 404（GitHub Pages 自動用 /404.html，Hostinger 需顯式聲明）
+ErrorDocument 404 /404.html
