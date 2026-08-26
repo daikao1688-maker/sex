@@ -340,7 +340,7 @@ body {
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--paper-accent-strong);
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 8rem;
 }
 
 .rm-paper .prose-paper h3 {
@@ -348,7 +348,21 @@ body {
   font-size: 1.12rem;
   font-weight: 700;
   color: var(--paper-ink);
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 8rem;
+}
+
+@media (min-width: 40rem) and (max-width: 63.999rem) {
+  .rm-paper .prose-paper h2,
+  .rm-paper .prose-paper h3 {
+    scroll-margin-top: 9rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .rm-paper .prose-paper h2,
+  .rm-paper .prose-paper h3 {
+    scroll-margin-top: 6rem;
+  }
 }
 
 .rm-paper .prose-paper ul,

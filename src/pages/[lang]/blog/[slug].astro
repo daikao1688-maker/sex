@@ -84,6 +84,38 @@ const schemas = [
   promoCtaHref="#prepare-booking"
 >
   <article>
+    {
+      toc.length > 0 && (
+        <nav
+          data-blog-toc-mobile
+          aria-label={copy.post.inThisArticle}
+          aria-hidden="true"
+          inert
+          class="blog-reading-rail fixed top-16 sm:top-20 left-0 right-0 z-40 lg:hidden border-b border-[var(--paper-border)] bg-[var(--paper-bg)]"
+        >
+          <ul
+            data-blog-toc-track
+            class="blog-reading-track flex min-h-12 items-stretch gap-1 overflow-x-auto overscroll-x-contain whitespace-nowrap px-3 pr-10"
+          >
+            {toc.map((heading) => (
+              <li class="flex shrink-0">
+                <a
+                  href={`#${heading.slug}`}
+                  data-blog-toc-link
+                  data-blog-toc-mobile-link
+                  data-toc-id={heading.slug}
+                  title={heading.text}
+                  class="blog-reading-link relative inline-flex min-h-11 max-w-[72vw] shrink-0 items-center truncate px-3 text-sm font-semibold text-[var(--paper-muted)] transition-colors hover:text-[var(--paper-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold/70"
+                >
+                  {heading.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )
+    }
+
     <div class="max-w-6xl mx-auto px-4 pt-6 sm:pt-10 pb-14">
       <a
         href={localizePath(lang, "/blog/")}
@@ -134,31 +166,10 @@ const schemas = [
 
       <div class="mt-9 lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-12">
         <div class="max-w-3xl min-w-0">
-          {
-            toc.length > 0 && (
-              <details class="lg:hidden mb-7 rounded-xl border border-[var(--paper-border)] bg-[var(--paper-card)] px-5 py-4">
-                <summary class="cursor-pointer text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--paper-accent)]">
-                  {copy.post.inThisArticle}
-                </summary>
-                <ul class="mt-3 space-y-1.5">
-                  {toc.map((heading) => (
-                    <li>
-                      <a
-                        href={`#${heading.slug}`}
-                        class="text-[var(--paper-body)] hover:text-[var(--paper-accent)] text-sm transition-colors"
-                      >
-                        {heading.text}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            )
-          }
-
-          <div class="prose-paper">
+          <div class="prose-paper" data-blog-body>
             <Content />
           </div>
+          <div data-blog-reading-end aria-hidden="true" class="h-px"></div>
 
           <div
             id="prepare-booking"
@@ -172,17 +183,20 @@ const schemas = [
 
         {
           toc.length > 0 && (
-            <aside class="hidden lg:block">
+            <aside class="hidden lg:block" data-blog-toc-desktop>
               <div class="sticky top-28">
                 <p class="text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--paper-accent)] mb-3">
                   {copy.post.inThisArticle}
                 </p>
-                <ul class="space-y-2 border-l border-[var(--paper-border)] pl-4">
+                <ul class="max-h-[calc(100dvh-9rem)] space-y-1 overflow-y-auto border-l border-[var(--paper-border)] py-1 pr-1">
                   {toc.map((heading) => (
                     <li>
                       <a
                         href={`#${heading.slug}`}
-                        class="text-[var(--paper-body)] hover:text-[var(--paper-accent)] text-sm leading-snug transition-colors"
+                        data-blog-toc-link
+                        data-blog-toc-desktop-link
+                        data-toc-id={heading.slug}
+                        class="blog-desktop-toc-link -ml-px block border-l-2 border-transparent px-4 py-1.5 text-sm leading-snug text-[var(--paper-body)] transition-colors hover:text-[var(--paper-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold/70"
                       >
                         {heading.text}
                       </a>
@@ -221,3 +235,74 @@ const schemas = [
     </div>
   </article>
 </PageShell>
+
+<style>
+  .blog-reading-rail {
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-100%);
+    box-shadow: 0 8px 22px rgb(38 34 26 / 0.08);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease,
+      visibility 180ms;
+  }
+
+  .blog-reading-rail.is-visible {
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .blog-reading-track {
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .blog-reading-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .blog-reading-link::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1rem;
+    height: 3px;
+    border-radius: 9999px;
+    background: #d4af37;
+    content: "";
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 180ms ease;
+  }
+
+  .blog-reading-link[aria-current="location"] {
+    color: var(--paper-accent-strong);
+  }
+
+  .blog-reading-link[aria-current="location"]::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  .blog-desktop-toc-link[aria-current="location"] {
+    border-color: #d4af37;
+    background: rgb(212 175 55 / 0.1);
+    color: var(--paper-accent-strong);
+    font-weight: 700;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blog-reading-rail,
+    .blog-reading-link::after {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import { initBlogReadingNavigation } from "../../../scripts/blog-reading-navigation.mjs";
+
+  initBlogReadingNavigation();
+</script>
