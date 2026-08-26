@@ -22,8 +22,13 @@ body {
 }
 
 /* --- Scroll-reveal ------------------------------------------------------ */
-/* Elements start faded; an IntersectionObserver adds .in-view once visible. */
+/* Content remains visible until JavaScript confirms scroll-reveal support. */
 .fade-up {
+  opacity: 1;
+  transform: none;
+}
+
+.motion-ready .fade-up {
   opacity: 0;
   transform: translateY(20px);
   transition:
@@ -31,7 +36,7 @@ body {
     transform 0.4s ease-out;
 }
 
-.fade-up.in-view {
+.motion-ready .fade-up.in-view {
   opacity: 1;
   transform: none;
 }
@@ -192,11 +197,37 @@ body {
 
 /* --- Testimonial transform carousel ------------------------------------ */
 .testimonial-viewport {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+}
+
+.testimonial-viewport.is-animated {
   overflow: hidden;
+  scroll-snap-type: none;
+}
+
+.testimonial-viewport .testimonial-track [data-testimonial-clone] {
+  display: none;
+}
+
+.testimonial-viewport.is-animated .testimonial-track [data-testimonial-clone] {
+  display: flex;
+}
+
+.testimonial-viewport .testimonial-track > blockquote {
+  scroll-snap-align: start;
+}
+
+.testimonial-viewport.is-animated .testimonial-track > blockquote {
+  scroll-snap-align: none;
 }
 
 .testimonial-track {
   width: max-content;
+}
+
+.testimonial-viewport.is-animated .testimonial-track {
   will-change: transform;
 }
 
@@ -216,7 +247,7 @@ body {
     scroll-behavior: auto;
   }
 
-  .fade-up {
+  .motion-ready .fade-up {
     opacity: 1;
     transform: none;
     transition: none;

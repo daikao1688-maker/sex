@@ -128,6 +128,20 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
 <!doctype html>
 <html lang={meta.htmlLang} dir={meta.dir} style={`--font-sans:${fontStacks[lang]}`}>
   <head>
+    <script is:inline>
+      (() => {
+        try {
+          if (
+            "IntersectionObserver" in window &&
+            !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ) {
+            document.documentElement.classList.add("motion-ready");
+          }
+        } catch {
+          // Content is visible by default when motion capability checks fail.
+        }
+      })();
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
@@ -183,19 +197,33 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
     <slot />
 
     <script>
-      // Reveals `.fade-up` blocks once they scroll into view.
-      const observer = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (!entry.isIntersecting) continue;
-            entry.target.classList.add("in-view");
-            observer.unobserve(entry.target);
-          }
-        },
-        { rootMargin: "0px 0px -10% 0px", threshold: 0.05 },
-      );
+      // Reveal content immediately when scroll observation is unavailable;
+      // only supported browsers opt into the hidden reveal start state.
+      const revealAll = () => {
+        document.querySelectorAll(".fade-up:not(.in-view)").forEach((el) => el.classList.add("in-view"));
+      };
 
-      document.querySelectorAll(".fade-up:not(.in-view)").forEach((el) => observer.observe(el));
+      if (!document.documentElement.classList.contains("motion-ready")) {
+        revealAll();
+      } else {
+        try {
+          const observer = new window.IntersectionObserver(
+            (entries) => {
+              for (const entry of entries) {
+                if (!entry.isIntersecting) continue;
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+              }
+            },
+            { rootMargin: "0px 0px -10% 0px", threshold: 0.05 },
+          );
+
+          document.querySelectorAll(".fade-up:not(.in-view)").forEach((el) => observer.observe(el));
+        } catch {
+          document.documentElement.classList.remove("motion-ready");
+          revealAll();
+        }
+      }
     </script>
   </body>
 </html>

@@ -20,6 +20,8 @@ const name = (slug: (typeof venues)[number]["slug"]) => t.spas.venues[slug].name
 const href = (slug: string) => localizePath(lang, `/spa/${slug}/`);
 const price = (value: number) => value.toLocaleString("en-US");
 const stars = (rating: number) => "★".repeat(rating) + "☆".repeat(5 - rating);
+const ratingLabel = (rating: number) => `${copy.tables.basics.rating}: ${rating} / 5`;
+const newStatusLabel = `${copy.tables.features.isNew}: ${copy.values.yes}`;
 const flag = (value: boolean) => (value ? copy.values.yes : copy.values.no);
 const activeVenues = venues.filter((venue) => !venue.temporarilyClosed);
 
@@ -177,7 +179,11 @@ const venueTd = "px-4 py-3 text-sm font-medium whitespace-nowrap";
                         {flag(venue.open24h)}
                       </span>
                     </td>
-                    <td class={`${td} text-gold`}>{stars(venue.rating)}</td>
+                    <td class={`${td} text-gold`}>
+                      <span data-ranking-rating role="img" aria-label={ratingLabel(venue.rating)}>
+                        <span aria-hidden="true">{stars(venue.rating)}</span>
+                      </span>
+                    </td>
                   </tr>
                 ))
               }
@@ -240,6 +246,9 @@ const venueTd = "px-4 py-3 text-sm font-medium whitespace-nowrap";
             </tbody>
           </table>
         </div>
+        <p class="mt-3 text-xs leading-relaxed text-white/50" data-ranking-price-note>
+          {copy.tables.pricing.note}
+        </p>
       </div>
 
       <div>
@@ -348,9 +357,18 @@ const venueTd = "px-4 py-3 text-sm font-medium whitespace-nowrap";
                       </span>
                     </td>
                     <td class={td}>
-                      <span class={venue.isNew ? "text-gold" : "text-white/60"}>
-                        {venue.isNew ? "✦" : copy.values.no}
-                      </span>
+                      {venue.isNew ? (
+                        <span
+                          data-ranking-new-status
+                          role="img"
+                          aria-label={newStatusLabel}
+                          class="text-gold"
+                        >
+                          <span aria-hidden="true">✦</span>
+                        </span>
+                      ) : (
+                        <span class="text-white/60">{copy.values.no}</span>
+                      )}
                     </td>
                   </tr>
                 ))

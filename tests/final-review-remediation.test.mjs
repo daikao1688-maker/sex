@@ -89,7 +89,7 @@ test("Chinese editorial policy wording uses natural operating-status and verific
 });
 
 test("all locales omit the removed consent controls and analytics rule", async () => {
-  for (const locale of ["en", "zh-TW", "zh-CN", "ja"]) {
+  for (const locale of ["en", "zh-TW", "zh-CN", "ja", "ko"]) {
     const [home, privacy] = await Promise.all([readPage(locale), readPage(locale, "privacy")]);
     for (const html of [home, privacy]) {
       assert.doesNotMatch(

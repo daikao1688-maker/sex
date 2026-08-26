@@ -207,7 +207,7 @@ test("blog structured data uses existing organization identities and an honest m
   assert.equal(article.publisher?.name, "Macau Sauna Sites");
 });
 
-test("closed venue schema omits current commercial and opening claims", async () => {
+test("venue schema avoids presenting package estimates as formal offers", async () => {
   for (const slug of closedVenueSlugs) {
     const html = await readPage("en", "spa", slug);
     const business = schemaOfType(html, "LocalBusiness");
@@ -225,7 +225,10 @@ test("closed venue schema omits current commercial and opening claims", async ()
 
   const active = schemaOfType(await readPage("en", "spa", "clube-rio"), "LocalBusiness");
   assert.ok(active.priceRange, "active venues lost priceRange");
-  assert.ok(active.makesOffer, "active venues lost their offer schema");
+  assert.equal("makesOffer" in active, false, "package estimates must not be published as formal offers");
+  assert.equal("offers" in active, false, "package estimates must not be published as formal offers");
+  assert.equal("lowPrice" in active, false, "venue schema must not imply a guaranteed low price");
+  assert.equal("highPrice" in active, false, "venue schema must not imply a guaranteed high price");
 });
 
 test("current ranking ItemLists exclude closed venues without hiding them from the page", async () => {

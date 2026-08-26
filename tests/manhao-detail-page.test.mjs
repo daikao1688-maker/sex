@@ -6,7 +6,7 @@ import path from "node:path";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
-const locales = ["en", "zh-TW", "zh-CN", "ja"];
+const locales = ["en", "zh-TW", "zh-CN", "ja", "ko"];
 
 async function readBuiltPage(...segments) {
   return readFile(path.join(distRoot, ...segments, "index.html"), "utf8");
@@ -42,14 +42,14 @@ test("renders the approved Manhao copy and venue-specific practical facts", asyn
   assert.doesNotMatch(text, /MOP 888 - 5,388/);
 });
 
-test("keeps Manhao price and hours consistent across all four locale builds and JSON-LD", async () => {
+test("keeps Manhao price and hours consistent across all locale builds and honest JSON-LD", async () => {
   for (const locale of locales) {
     const html = await readBuiltPage(locale, "spa", "manhao-spa");
     const text = visibleText(html);
     assert.match(text, /MOP 2,488 - 6,088/, `${locale} price`);
     assert.match(text, /14:00 – 04:00/, `${locale} hours`);
-    assert.match(html, /"lowPrice":2488/, `${locale} lowPrice schema`);
-    assert.match(html, /"highPrice":6088/, `${locale} highPrice schema`);
+    assert.match(html, /"priceRange":"MOP 2488 – 6088"/, `${locale} priceRange schema`);
+    assert.doesNotMatch(html, /"(?:lowPrice|highPrice|makesOffer|offers)"/, `${locale} must not claim a formal offer`);
   }
 });
 

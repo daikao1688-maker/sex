@@ -48,13 +48,17 @@ const cardClass =
   "flex min-h-11 items-center gap-4 bg-[#141414] border border-white/5 hover:border-gold/30 rounded-xl p-2.5 transition-all duration-300 group text-left w-full";
 ---
 
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div
+  class="grid grid-cols-1 gap-4 sm:grid-cols-2"
+  data-contact-channels
+  data-floating-actions-exclusion
+>
   {
     channels.map((channel) =>
       channel.kind === "wechat" ? (
         <button type="button" data-wechat-trigger data-contact-channel class={cardClass}>
           <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
-            <img src={channel.icon} alt={channel.name} class="w-7 h-7 rounded-md" />
+            <img src={channel.icon} alt={channel.name} width="28" height="28" class="w-7 h-7 rounded-md" />
           </div>
           <div>
             <div class="text-white/60 text-xs mb-1">{channel.name}</div>
@@ -64,7 +68,7 @@ const cardClass =
       ) : (
         <a href={channel.href} target="_blank" rel="noopener noreferrer" data-contact-channel class={cardClass}>
           <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
-            <img src={channel.icon} alt={channel.name} class="w-7 h-7 rounded-md" />
+            <img src={channel.icon} alt={channel.name} width="28" height="28" class="w-7 h-7 rounded-md" />
           </div>
           <div>
             <div class="text-white/60 text-xs mb-1">{channel.name}</div>

@@ -40,8 +40,8 @@ const en: BestOfMonthCopy = {
     'Our monthly picks reflect recent guest feedback. Tell us your budget, timing and preferences, and we can suggest the venues that suit you best.',
   rankingLink: 'See the full ranking →',
   reviewedStamp: 'Reviewed · {month}',
-  stats: { price: 'Typical price', hours: 'Hours', serviceFee: 'Service charge' },
-  values: { open24h: '24 hours', noServiceFee: 'None' },
+  stats: { price: 'Typical package', hours: 'Hours', serviceFee: 'Separate service fee' },
+  values: { open24h: '24 hours', noServiceFee: 'No separate surcharge' },
   viewVenue: 'View venue →',
   districts: { peninsula: 'Peninsula', taipa: 'Taipa' },
   ratingLabel: 'Rated {rating} out of 5',
@@ -80,8 +80,8 @@ const ja: BestOfMonthCopy = {
     '今月のお客様の声をもとにおすすめ店を選んでいます。ご予算・ご希望の時間・お好みを伺い、条件に合う店舗もご案内します。',
   rankingLink: 'ランキングをすべて見る →',
   reviewedStamp: 'レビュー · {month}',
-  stats: { price: '料金の目安', hours: '営業時間', serviceFee: 'サービス料' },
-  values: { open24h: '24時間営業', noServiceFee: 'なし' },
+  stats: { price: '主なコース目安', hours: '営業時間', serviceFee: '別途サービス料' },
+  values: { open24h: '24時間営業', noServiceFee: '別途加算なし' },
   viewVenue: '店舗を見る →',
   districts: { peninsula: 'マカオ半島', taipa: 'タイパ' },
   ratingLabel: '5段階中{rating}',
@@ -118,8 +118,8 @@ const zhTW: BestOfMonthCopy = {
     '我們根據當月客戶反饋，做出推薦，我們也會根據您的預算，時間，喜好推薦適合的桑拿房！',
   rankingLink: '查看完整排名 →',
   reviewedStamp: '評測 · {month}',
-  stats: { price: '參考價格', hours: '營業時間', serviceFee: '服務費' },
-  values: { open24h: '24 小時營業', noServiceFee: '免服務費' },
+  stats: { price: '常見套餐價格', hours: '營業時間', serviceFee: '另收服務費' },
+  values: { open24h: '24 小時營業', noServiceFee: '不另收服務費' },
   viewVenue: '查看會所 →',
   districts: { peninsula: '澳門半島', taipa: '氹仔' },
   ratingLabel: '五星中的 {rating} 星',
@@ -154,8 +154,8 @@ const zhCN: BestOfMonthCopy = {
   intro: '我们会根据当月客户反馈给出推荐，也会结合您的预算、时间和喜好，帮您筛选合适的桑拿会所。',
   rankingLink: '查看完整排名 →',
   reviewedStamp: '评测 · {month}',
-  stats: { price: '参考价格', hours: '营业时间', serviceFee: '服务费' },
-  values: { open24h: '24 小时营业', noServiceFee: '免服务费' },
+  stats: { price: '常见套餐价格', hours: '营业时间', serviceFee: '另收服务费' },
+  values: { open24h: '24 小时营业', noServiceFee: '不另收服务费' },
   viewVenue: '查看会所 →',
   districts: { peninsula: '澳门半岛', taipa: '氹仔' },
   ratingLabel: '五星中的 {rating} 星',
@@ -185,19 +185,19 @@ const zhCN: BestOfMonthCopy = {
 };
 
 const ko: BestOfMonthCopy = {
-  eyebrow: '이 달의 베스트 사우나',
-  heading: '이 달의 추천은 {venue}',
+  eyebrow: '이달의 베스트 사우나',
+  heading: '이달의 추천은 {venue}',
   intro:
     '이번 달 고객 피드백을 바탕으로 추천 매장을 선정합니다. 예산, 시간, 취향을 알려주시면 조건에 맞는 매장도 안내해 드립니다.',
   rankingLink: '전체 랭킹 보기 →',
   reviewedStamp: '리뷰 · {month}',
-  stats: { price: '참고 가격', hours: '영업시간', serviceFee: '서비스 요금' },
-  values: { open24h: '24시간 영업', noServiceFee: '없음' },
+  stats: { price: '주요 패키지', hours: '영업시간', serviceFee: '별도 서비스 요금' },
+  values: { open24h: '24시간 영업', noServiceFee: '별도 부과 없음' },
   viewVenue: '매장 보기 →',
   districts: { peninsula: '마카오 반도', taipa: '타이파' },
   ratingLabel: '5점 만점에 {rating}점',
   controls: {
-    carousel: '이 달의 베스트 사우나 캐러셀',
+    carousel: '이달의 베스트 사우나 캐러셀',
     previous: '이전 매장 보기',
     next: '다음 매장 보기',
     slide: '매장 {total}곳 중 {index}번째 보기: {venue}',
@@ -205,9 +205,9 @@ const ko: BestOfMonthCopy = {
   cards: [
     {
       slug: 'majesty-spa',
-      award: '이 달의 베스트',
+      award: '이달의 베스트',
       quote:
-        '피셔맨즈 워프의 노포. 야간 휴식 포지셔닝이 마카오에서 가장 뚜렷하며, 동남아 가성비와 낮 추가 할인, 서비스 요금 묾셔까지 갖췄습니다.',
+        '피셔맨즈 워프의 노포. 야간 휴식 포지셔닝이 마카오에서 가장 뚜렷하며, 동남아 가성비와 낮 추가 할인, 서비스 요금 무료까지 갖췄습니다.',
     },
     {
       slug: 'manhao-spa',
@@ -219,7 +219,7 @@ const ko: BestOfMonthCopy = {
       slug: 'number-nine-sauna',
       award: '베스트 스테이지 쇼',
       quote:
-        '로열 드래곤 호텔의 2026년 4월 오픈 매장으로, 도시 최고 수준의 묝대 연출을 자랑합니다.',
+        '로열 드래곤 호텔의 2026년 4월 오픈 매장으로, 도시 최고 수준의 무대 연출을 자랑합니다.',
     },
   ],
 };

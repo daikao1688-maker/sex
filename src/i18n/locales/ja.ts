@@ -70,6 +70,7 @@ const ja: Dictionary = {
       { bucket: 'ktv', label: 'KTV' },
     ],
     learnMore: '詳しく見る',
+    imageAltSuffix: 'マカオの高級サウナ施設',
     temporarilyClosed: '一時休業中',
     temporarilyClosedNotice:
       'この店舗は現在一時休業中で、ご利用およびご予約は承っておりません。ほかの店舗をご覧いただくか、ご希望に合う店舗をご案内しますのでお問い合わせください。',
@@ -486,7 +487,7 @@ const ja: Dictionary = {
       { path: '/privacy/', label: 'プライバシーポリシー' },
     ],
     editorialPolicy: '編集方針',
-    copyright: '© 2026 マカオ・サウナ・ガイド. All rights reserved.',
+    copyright: '© 2026 マカオ・サウナ・ガイド。無断転載を禁じます。',
   },
 
   wechat: {

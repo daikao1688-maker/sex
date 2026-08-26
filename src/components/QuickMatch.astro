@@ -191,7 +191,7 @@ const clientConfig = {
                 </div>
               </div>
 
-              <div class="p-3 sm:p-4">
+              <div class="p-3 sm:p-4" data-qm-actions data-floating-actions-exclusion>
                 <p class="mb-2.5 text-[11px] font-bold tracking-[0.08em] text-white/55">
                   {qm.bookNow}
                 </p>
@@ -223,7 +223,7 @@ const clientConfig = {
                     title="WeChat"
                     class="flex min-h-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] py-2 transition-colors hover:bg-white/[0.08]"
                   >
-                    <img src="/icons/wechat.svg" alt="WeChat" class="h-5 w-5 rounded-md" />
+                    <img src="/icons/wechat.svg" alt="WeChat" width="20" height="20" class="h-5 w-5 rounded-md" />
                   </button>
                   <a
                     href={contact.line.url}
@@ -233,7 +233,7 @@ const clientConfig = {
                     title="LINE"
                     class="flex min-h-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] py-2 transition-colors hover:bg-white/[0.08]"
                   >
-                    <img src="/icons/line.svg" alt="LINE" class="h-5 w-5 rounded-md" />
+                    <img src="/icons/line.svg" alt="LINE" width="20" height="20" class="h-5 w-5 rounded-md" />
                   </a>
                 </div>
               </div>
@@ -251,6 +251,8 @@ const clientConfig = {
                     <img
                       src={`/covers/${item.venue.cover}.jpg`}
                       alt={venueName(item.venue.slug)}
+                      width="44"
+                      height="44"
                       class="h-11 w-11 flex-shrink-0 rounded-lg object-cover"
                       loading="lazy"
                     />
@@ -368,7 +370,7 @@ const clientConfig = {
           .map((item) => {
             const alt = config.venues[item.venue.slug];
             return `<button type="button" data-qm-alternate data-slug="${item.venue.slug}" class="flex min-h-11 items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.02] p-2 text-left transition-colors hover:border-gold/30 hover:bg-white/[0.05]">
-                <img src="${alt.cover}" alt="${alt.name}" class="h-11 w-11 flex-shrink-0 rounded-lg object-cover" loading="lazy" />
+                <img src="${alt.cover}" alt="${alt.name}" width="44" height="44" class="h-11 w-11 flex-shrink-0 rounded-lg object-cover" loading="lazy" />
                 <span class="min-w-0 flex-1">
                   <span class="block truncate text-[13px] font-bold text-white">${alt.name}</span>
                   <span class="block text-[11px] font-semibold text-gold">${item.score}${config.matchSuffix}</span>

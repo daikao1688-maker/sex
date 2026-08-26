@@ -44,6 +44,7 @@ export interface Venue {
   /** Therapist on-duty window, as printed on the ranking table. */
   hours: string;
   /** Venue service fee on top of the listed price. */
+  /** Service fee added separately on top of the displayed package price. */
   serviceFee: '10%' | '15%' | 'none';
   ktv: boolean;
   themeRooms: boolean;
@@ -142,7 +143,7 @@ export const venues: Venue[] = [
     jpkr: true,
     isNew: false,
     rating: 5,
-    buckets: ['overnight', 'value', 'new'],
+    buckets: ['overnight', 'value'],
     accent: 'gold',
     temporarilyClosed: false,
   },

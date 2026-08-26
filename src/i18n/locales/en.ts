@@ -70,6 +70,7 @@ const en: Dictionary = {
       { bucket: 'ktv', label: 'KTV' },
     ],
     learnMore: 'Learn More',
+    imageAltSuffix: 'Macau premium sauna venue',
     temporarilyClosed: 'Temporarily Closed',
     temporarilyClosedNotice:
       'This venue is temporarily closed and is not accepting guests or bookings at this time. Please browse other venues or contact us for a suitable alternative.',

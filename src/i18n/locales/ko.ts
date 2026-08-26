@@ -70,6 +70,7 @@ const ko: Dictionary = {
       { bucket: 'ktv', label: 'KTV' },
     ],
     learnMore: '자세히 보기',
+    imageAltSuffix: '마카오 프리미엄 사우나 시설',
     temporarilyClosed: '임시 휴업',
     temporarilyClosedNotice:
       '현재 임시 휴업 중으로 방문과 예약을 받지 않습니다. 다른 업소를 살펴보거나 적합한 대안을 문의해 주세요.',

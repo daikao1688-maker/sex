@@ -7,6 +7,7 @@ import path from "node:path";
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
 const locales = ["en", "zh-TW", "zh-CN", "ja"];
+const allLocales = [...locales, "ko"];
 
 const readHome = (locale) => readFile(path.join(distRoot, locale, "index.html"), "utf8");
 
@@ -61,6 +62,50 @@ test("every locale homepage keeps visually hidden floating and promo controls ou
     ]) {
       assert.match(tag, /aria-hidden="true"/, `${locale} hidden ${name} must be hidden from assistive tech`);
       assert.match(tag, /tabindex="-1"/, `${locale} hidden ${name} must be skipped by Tab`);
+    }
+  }
+});
+
+test("Quick Match and contact actions expose collision targets without adding empty mobile padding", async () => {
+  for (const locale of allLocales) {
+    const html = await readHome(locale);
+    const quickMatchActions = tagWith(html, "data-qm-actions");
+    const contactChannels = tagWith(html, "data-contact-channels");
+
+    assert.match(quickMatchActions, /data-floating-actions-exclusion/, `${locale} Quick Match actions need a collision marker`);
+    assert.match(contactChannels, /data-floating-actions-exclusion/, `${locale} contact actions need a collision marker`);
+    assert.doesNotMatch(quickMatchActions, /\bpb-28\b/, `${locale} Quick Match must not add an empty 112px tail`);
+    assert.doesNotMatch(contactChannels, /\bpb-28\b/, `${locale} contact cards must not add an empty 112px tail`);
+  }
+});
+
+test("the VIP drawer layers above floating actions and contact images declare their intrinsic size", async () => {
+  for (const locale of allLocales) {
+    const guide = await readFile(path.join(distRoot, locale, "guide", "index.html"), "utf8");
+    const drawer = tagWith(guide, "data-vip-extras-drawer");
+    const floatingActions = tagWith(guide, 'id="floating-actions"');
+    const qr = tagWith(guide, 'src="/wechat-qr.webp"');
+    const iconTags = [...guide.matchAll(/<img\b[^>]*src="\/icons\/(?:wechat|whatsapp|telegram|line)\.svg"[^>]*>/g)].map(
+      (match) => match[0],
+    );
+
+    assert.match(drawer, /z-\[130\]/, `${locale} VIP drawer must stack above floating actions`);
+    assert.match(floatingActions, /z-\[120\]/, `${locale} floating action layer changed unexpectedly`);
+    assert.match(qr, /width="665"/, `${locale} WeChat QR needs its intrinsic width`);
+    assert.match(qr, /height="657"/, `${locale} WeChat QR needs its intrinsic height`);
+    assert.ok(iconTags.length >= 8, `${locale} is missing contact and Quick Match icons`);
+    for (const icon of iconTags) {
+      assert.match(icon, /width="\d+"/, `${locale} contact icon needs an intrinsic width`);
+      assert.match(icon, /height="\d+"/, `${locale} contact icon needs an intrinsic height`);
+    }
+
+    const quickMatchCovers = [...guide.matchAll(/<img\b[^>]*src="\/covers\/[^\"]+\.jpg"[^>]*class="h-11 w-11[^>]*>/g)].map(
+      (match) => match[0],
+    );
+    assert.ok(quickMatchCovers.length >= 2, `${locale} is missing initial Quick Match alternatives`);
+    for (const cover of quickMatchCovers) {
+      assert.match(cover, /width="44"/, `${locale} initial Quick Match cover needs an intrinsic width`);
+      assert.match(cover, /height="44"/, `${locale} initial Quick Match cover needs an intrinsic height`);
     }
   }
 });

@@ -8,7 +8,7 @@ import vm from "node:vm";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
-const locales = ["en", "zh-TW", "zh-CN", "ja"];
+const locales = ["en", "zh-TW", "zh-CN", "ja", "ko"];
 
 const readHome = (locale) => readFile(path.join(distRoot, locale, "index.html"), "utf8");
 
@@ -61,6 +61,16 @@ const testimonialsScript = async () => {
   }).outputText;
 };
 
+const layoutMotionScript = async () => {
+  const source = await readFile(path.join(projectRoot, "src/layouts/Layout.astro"), "utf8");
+  const scripts = [...source.matchAll(/<script>([\s\S]*?)<\/script>/g)];
+  const script = scripts.at(-1)?.[1];
+  assert.ok(script, "Layout must ship a scroll-reveal script");
+  return ts.transpileModule(script, {
+    compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
+  }).outputText;
+};
+
 class FakeElement {
   constructor() {
     this.attributes = new Map();
@@ -69,6 +79,8 @@ class FakeElement {
     this.listeners = new Map();
     const classes = new Set();
     this.classList = {
+      add: (name) => classes.add(name),
+      remove: (name) => classes.delete(name),
       toggle: (name, force) => {
         const active = force ?? !classes.has(name);
         if (active) classes.add(name);
@@ -96,22 +108,45 @@ class FakeElement {
     this.listeners.set(name, listener);
   }
 
+  querySelector() {
+    return null;
+  }
+
+  querySelectorAll() {
+    return [];
+  }
+
   removeEventListener(name, listener) {
     if (this.listeners.get(name) === listener) this.listeners.delete(name);
   }
 }
 
-test("every locale omits manual motion controls while keeping hidden testimonial duplicates", async () => {
+test("every locale provides a localized testimonial pause control while keeping hidden duplicates", async () => {
+  const labels = {
+    en: "Pause guest review motion",
+    "zh-TW": "暫停客戶評價動效",
+    "zh-CN": "暂停客户评价动效",
+    ja: "お客様の声の動きを一時停止",
+    ko: "고객 후기 모션 일시 정지",
+  };
+
   for (const locale of locales) {
     const html = await readHome(locale);
     const clones = html.match(/<blockquote\b[^>]*data-testimonial-clone[^>]*>/gi) ?? [];
+    const control = tagWith(html, "data-testimonial-motion-toggle");
+    const viewport = tagWith(html, "data-testimonial-viewport");
+    const track = tagWith(html, 'id="testimonial-track"');
 
     assert.doesNotMatch(html, /data-hero-motion-toggle/, `${locale} must not expose a hero pause button`);
-    assert.doesNotMatch(
-      html,
-      /data-testimonial-motion-(?:toggle|icon)/,
-      `${locale} must not expose a testimonial pause button`,
-    );
+    assert.equal(attr(viewport, "tabindex"), "0", `${locale} testimonial scroller must be keyboard reachable`);
+    assert.equal(attr(viewport, "role"), "region", `${locale} testimonial scroller must expose a landmark role`);
+    assert.ok(attr(viewport, "aria-label"), `${locale} testimonial scroller must have an accessible name`);
+    assert.equal(attr(track, "role"), undefined, `${locale} non-focusable inner track must not own the region role`);
+    assert.equal(attr(control, "aria-label"), labels[locale], `${locale} pause control needs its localized label`);
+    assert.equal(attr(control, "aria-controls"), "testimonial-track", `${locale} pause control must name its target`);
+    assert.equal(attr(control, "aria-pressed"), undefined, `${locale} action-label control must not mix in toggle semantics`);
+    assert.match(control, /\shidden(?:\s|>)/, `${locale} pause control must stay hidden until autoplay is available`);
+    assert.match(control, /min-h-11/, `${locale} pause control needs a 44px touch target`);
     assert.ok(clones.length > 0, `${locale} carousel must mark repeated cards as clones`);
     clones.forEach((clone) => {
       assert.match(clone, /aria-hidden="true"/, `${locale} repeated testimonial must be hidden from assistive tech`);
@@ -125,6 +160,7 @@ test("every locale exposes a localized manual WeChat copy fallback", async () =>
     "zh-TW": "自動複製無法使用，請選取並手動複製微信 ID。",
     "zh-CN": "自动复制无法使用，请选中并手动复制微信 ID。",
     ja: "自動コピーを利用できません。WeChat IDを選択して手動でコピーしてください。",
+    ko: "자동 복사를 사용할 수 없습니다. WeChat ID를 선택해 직접 복사해 주세요.",
   };
 
   for (const locale of locales) {
@@ -157,10 +193,56 @@ test("translucent gold testimonial attribution meets AA on its card surface", as
   );
 });
 
-test("testimonial motion runtime does not depend on a removed manual control", async () => {
-  const script = await testimonialsScript();
-  assert.doesNotMatch(script, /testimonial-motion-(?:toggle|icon)/);
-  assert.doesNotMatch(script, /manuallyPaused/);
+test("scroll reveal stays visible without JavaScript and only enables its hidden start state after supported setup", async () => {
+  const styles = await readFile(path.join(projectRoot, "src/styles/global.css"), "utf8");
+  const fade = styles.match(/\.fade-up\s*\{([\s\S]*?)\n\}/)?.[1] ?? "";
+  const motionReady = styles.match(/\.motion-ready\s+\.fade-up\s*\{([\s\S]*?)\n\}/)?.[1] ?? "";
+  assert.doesNotMatch(fade, /opacity:\s*0/, "no-JS content must not start transparent");
+  assert.match(motionReady, /opacity:\s*0/, "only explicitly motion-ready documents may start a reveal hidden");
+
+  const element = new FakeElement();
+  const rootClasses = new Set();
+  const document = {
+    documentElement: { classList: { add: (name) => rootClasses.add(name), contains: (name) => rootClasses.has(name) } },
+    querySelectorAll: () => [element],
+  };
+
+  vm.runInNewContext(await layoutMotionScript(), { document, window: {} });
+
+  assert.equal(rootClasses.has("motion-ready"), false, "unsupported observers must not enable hidden reveal styles");
+  assert.equal(element.classList.contains("in-view"), true, "unsupported observers must reveal every fade-up element");
+});
+
+test("scroll reveal opts in before body paint and fails open when observer setup throws", async () => {
+  const source = await readFile(path.join(projectRoot, "src/layouts/Layout.astro"), "utf8");
+  const head = source.slice(source.indexOf("<head>"), source.indexOf("</head>"));
+  assert.match(head, /motion-ready/, "supported reveal motion must opt in from the document head");
+
+  const element = new FakeElement();
+  const rootClasses = new Set(["motion-ready"]);
+  const document = {
+    documentElement: {
+      classList: {
+        add: (name) => rootClasses.add(name),
+        remove: (name) => rootClasses.delete(name),
+        contains: (name) => rootClasses.has(name),
+      },
+    },
+    querySelectorAll: () => [element],
+  };
+  class BrokenObserver {
+    constructor() {
+      throw new Error("observer setup failed");
+    }
+  }
+
+  vm.runInNewContext(await layoutMotionScript(), {
+    document,
+    window: { IntersectionObserver: BrokenObserver },
+  });
+
+  assert.equal(rootClasses.has("motion-ready"), false, "failed setup must remove the hidden reveal state");
+  assert.equal(element.classList.contains("in-view"), true, "failed setup must reveal every content block");
 });
 
 test("every locale keeps decorative hero backdrops hidden and renders one venue text surface", async () => {
@@ -174,7 +256,7 @@ test("every locale keeps decorative hero backdrops hidden and renders one venue 
       ...html.matchAll(/<div\b(?=[^>]*data-hero-backdrop)[^>]*>\s*<img\b[^>]*>/g),
     ].map((match) => match[0]);
 
-    assert.match(testimonialTrack, /data-motion-state="running"/, `${locale} testimonial region exposes its motion state`);
+    assert.match(testimonialTrack, /data-motion-state="paused"/, `${locale} testimonial region starts truthfully paused`);
     assert.match(hero, /data-motion-state="running"/, `${locale} hero exposes its motion state`);
     assert.ok(attr(venueViewport, "data-hero-venue-groups"), `${locale} must serialize the venue rotation copy`);
     assert.equal(venueTexts.length, 1, `${locale} must render exactly one venue text surface`);
@@ -202,14 +284,16 @@ test("every locale renders AA action colors and 44-pixel control classes", async
     const whatsapp = tagWith(html, "data-qm-whatsapp");
     const telegram = tagWith(html, "data-qm-telegram");
     const filter = tagWith(html, 'data-bucket="all"');
-    const contactCard = tagWith(html, "data-contact-channel");
+    const contactCard = html.match(/<[^>]*\bdata-contact-channel(?:\s|=|>)[^>]*>/i)?.[0];
     const quickMatchOption = tagWith(html, "data-qm-option");
+    const desktopRankingLink = tagWith(html, `href="/${locale}/ranking/"`, "tracking-widest");
 
     assert.match(whatsapp, /text-\[#071f12\]/, `${locale} WhatsApp action needs a dark AA foreground`);
     assert.match(telegram, /text-\[#061923\]/, `${locale} Telegram action needs a dark AA foreground`);
     assert.match(filter, /min-h-11/, `${locale} spa filter needs a 44px target`);
-    assert.match(contactCard, /min-h-11/, `${locale} contact channel needs a 44px target`);
+    assert.match(contactCard ?? "", /min-h-11/, `${locale} contact channel needs a 44px target`);
     assert.match(quickMatchOption, /min-h-11/, `${locale} quick-match choices need 44px targets`);
+    assert.match(desktopRankingLink, /min-h-11/, `${locale} desktop navigation links need 44px targets`);
   }
 });
 
@@ -346,6 +430,8 @@ test("hero motion remains functional when IntersectionObserver is unavailable", 
 
 test("reduced motion keeps the testimonial region horizontally reachable", async () => {
   const styles = await readFile(path.join(projectRoot, "src/styles/global.css"), "utf8");
+  const baseViewportRules = styles.match(/\.testimonial-viewport\s*\{([\s\S]*?)\n\}/)?.[1] ?? "";
+  assert.match(baseViewportRules, /overflow-x:\s*auto/, "no-JS visitors must get a horizontally scrollable list");
   const reducedMotionRules = styles.slice(styles.indexOf("@media (prefers-reduced-motion: reduce)"));
 
   assert.match(
@@ -360,9 +446,16 @@ test("reduced motion keeps the testimonial region horizontally reachable", async
   );
 });
 
-test("testimonial motion stays inactive when viewport observation is unavailable", async () => {
+test("testimonial falls back to a horizontal scroll list when viewport observation is unavailable", async () => {
+  const styles = await readFile(path.join(projectRoot, "src/styles/global.css"), "utf8");
+  const cloneRules = styles.match(/\.testimonial-viewport\s+\.testimonial-track\s+\[data-testimonial-clone\]\s*\{([\s\S]*?)\n\}/)?.[1] ?? "";
+  assert.match(cloneRules, /display:\s*none/, "the static scroll list must hide duplicate loop cards");
+
   const track = new FakeElement();
   const region = new FakeElement();
+  const viewport = new FakeElement();
+  const control = new FakeElement();
+  control.dataset = { pauseLabel: "Pause", resumeLabel: "Resume" };
   track.dataset.count = "2";
   track.querySelectorAll = () => [{ offsetLeft: 0 }, { offsetLeft: 296 }, { offsetLeft: 592 }];
   region.contains = () => false;
@@ -374,6 +467,8 @@ test("testimonial motion stays inactive when viewport observation is unavailable
     querySelector: (selector) =>
       ({
         "[data-testimonial-motion-region]": region,
+        "[data-testimonial-viewport]": viewport,
+        "[data-testimonial-motion-toggle]": control,
       })[selector] ?? null,
     addEventListener() {},
   };
@@ -385,17 +480,64 @@ test("testimonial motion stays inactive when viewport observation is unavailable
 
   vm.runInNewContext(await testimonialsScript(), { document, window });
 
-  assert.equal(track.dataset.motionState, "paused", "without observation, carousel visibility is unknown and must remain paused");
+  assert.equal(track.dataset.motionState, "paused", "without observation, carousel must stop autoplay");
+  assert.equal(viewport.classList.contains("is-animated"), false, "unsupported observation must retain the static scroll list");
+  assert.equal(control.hidden, true, "unsupported observation must not offer a pause action for stopped content");
   assert.equal(animationFrames, 0, "without observation, carousel must not schedule an animation frame");
+});
+
+test("testimonial stays scrollable until viewport observation reports its first state", async () => {
+  const track = new FakeElement();
+  const region = new FakeElement();
+  const viewport = new FakeElement();
+  const control = new FakeElement();
+  control.dataset = { pauseLabel: "Pause", resumeLabel: "Resume" };
+  track.dataset.count = "2";
+  track.querySelectorAll = () => [{ offsetLeft: 0 }, { offsetLeft: 296 }, { offsetLeft: 592 }];
+
+  const document = {
+    visibilityState: "visible",
+    getElementById: (id) => (id === "testimonial-track" ? track : null),
+    querySelector: (selector) =>
+      ({
+        "[data-testimonial-motion-region]": region,
+        "[data-testimonial-viewport]": viewport,
+        "[data-testimonial-motion-toggle]": control,
+      })[selector] ?? null,
+    addEventListener() {},
+  };
+  class SilentObserver {
+    observe() {}
+  }
+  const window = {
+    IntersectionObserver: SilentObserver,
+    matchMedia: () => ({ matches: false, addEventListener() {} }),
+    cancelAnimationFrame() {},
+    requestAnimationFrame: () => 1,
+  };
+
+  vm.runInNewContext(await testimonialsScript(), { document, window, IntersectionObserver: SilentObserver });
+
+  assert.equal(track.dataset.motionState, "paused");
+  assert.equal(
+    viewport.classList.contains("is-animated"),
+    false,
+    "an observer that never reports must retain the fail-open horizontal list",
+  );
+  assert.equal(control.hidden, true, "a pause action must stay hidden until autoplay can actually initialize");
 });
 
 test("testimonial focus pause covers the testimonial track", async () => {
   const track = new FakeElement();
   const region = new FakeElement();
+  const viewport = new FakeElement();
   const outside = new FakeElement();
+  const control = new FakeElement();
+  control.dataset = { pauseLabel: "Pause", resumeLabel: "Resume" };
   track.dataset.count = "2";
   track.querySelectorAll = () => [{ offsetLeft: 0 }, { offsetLeft: 296 }, { offsetLeft: 592 }];
   region.contains = (node) => node === track;
+  viewport.contains = (node) => node === track || node === viewport;
   let observer;
   let animationFrames = 0;
 
@@ -405,6 +547,8 @@ test("testimonial focus pause covers the testimonial track", async () => {
     querySelector: (selector) =>
       ({
         "[data-testimonial-motion-region]": region,
+        "[data-testimonial-viewport]": viewport,
+        "[data-testimonial-motion-toggle]": control,
       })[selector] ?? null,
     addEventListener() {},
   };
@@ -426,6 +570,7 @@ test("testimonial focus pause covers the testimonial track", async () => {
   vm.runInNewContext(await testimonialsScript(), { document, window, IntersectionObserver: FakeObserver });
   observer.callback([{ isIntersecting: true }]);
   assert.equal(track.dataset.motionState, "running");
+  assert.equal(control.hidden, false, "supported autoplay must expose its pause action");
   assert.ok(animationFrames > 0);
 
   region.listeners.get("focusin")({ target: track });
@@ -433,4 +578,28 @@ test("testimonial focus pause covers the testimonial track", async () => {
 
   region.listeners.get("focusout")({ relatedTarget: outside });
   assert.equal(track.dataset.motionState, "running", "leaving the shared region must resume eligible motion");
+
+  control.listeners.get("click")();
+  assert.equal(track.dataset.motionState, "paused", "the visible pause control must stop autoplay");
+  assert.equal(control.getAttribute("aria-pressed"), null, "the action-label control must not expose contradictory toggle state");
+  assert.equal(control.getAttribute("aria-label"), control.dataset.resumeLabel, "the paused control must announce resume");
+
+  control.listeners.get("click")();
+  assert.equal(track.dataset.motionState, "running", "the visible resume action must restart autoplay");
+  assert.equal(control.getAttribute("aria-label"), control.dataset.pauseLabel, "the running control must announce pause");
+});
+
+test("floating contact pulse, ranking symbols, and new-status text are reduced-motion and screen-reader safe", async () => {
+  const [floating, ranking] = await Promise.all([
+    readFile(path.join(projectRoot, "src/components/FloatingContactPill.astro"), "utf8"),
+    readFile(path.join(distRoot, "en", "ranking", "index.html"), "utf8"),
+  ]);
+  const rating = tagWith(ranking, "data-ranking-rating");
+  const newest = tagWith(ranking, "data-ranking-new-status");
+
+  assert.match(floating, /animate-ping[^"\n]*motion-reduce:animate-none/, "the contact pulse must stop for reduced motion");
+  assert.match(rating, /aria-label="Editorial score: \d+ \/ 5"/, "star ratings need a numeric accessible label");
+  assert.match(ranking, /data-ranking-rating[^>]*>\s*<span aria-hidden="true">/, "star characters must be decorative");
+  assert.match(newest, /aria-label="Newer venue: Yes"/, "new-status symbols need a localized affirmative label");
+  assert.match(ranking, /data-ranking-new-status[^>]*>\s*<span aria-hidden="true">/, "new-status symbols must be decorative");
 });

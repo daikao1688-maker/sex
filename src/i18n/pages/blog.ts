@@ -183,7 +183,7 @@ const ko: BlogCopy = {
     inThisArticle: '이 글의 내용',
     related: '함께 읽기',
     ctaHeading: '예약할 준비가 되셨나요?',
-    ctaBody: '마카오와 타이파 전역 묾셔 전용 7인승 차량. 문의하여 배차하세요.',
+    ctaBody: '마카오와 타이파 전역 무료 전용 7인승 차량. 문의하여 배차하세요.',
     placeholderNotice: '플레이스홀더 글 — 최종 원고 준비 중.',
   },
 };

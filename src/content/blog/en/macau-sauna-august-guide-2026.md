@@ -112,7 +112,7 @@ Promotions have tightened versus June and prices have edged up. Don't be sold by
 
 ## Empire Sauna: Fastest-Rising Reputation, Strongest Chinese Line-up
 
-![The lobby of Empire Sauna — dark marble flooring and the branded reception counter](/blog/macau-sauna-august-guide-2026/02-macau-sauna-empire-sauna-lobby.webp)
+<img src="/blog/macau-sauna-august-guide-2026/02-macau-sauna-empire-sauna-lobby.webp" alt="The lobby of Empire Sauna — dark marble flooring and the branded reception counter" width="1280" height="720" loading="lazy" decoding="async" />
 
 If any venue stands out for recent word-of-mouth growth, it's [Empire Sauna](/en/spa/empire-sauna/). Numbers keep climbing, and service quality and overall reputation have visibly improved. Compared with rivals, its edge is high-quality Chinese therapists — ideal for guests who prioritise communication, service attitude and room experience. The house is also generous with lobby treatments: some booking plans include two ~20-minute add-on sessions.
 
@@ -137,7 +137,7 @@ The MOP 1,088 entry plan currently includes a 90-minute basic massage, and the l
 
 ## East Castle Spa (Golden Castle): Role-Play Themes Officially Back
 
-![The warm indoor pool at East Castle Spa — a soaking pool beneath a starry screen wall and curved ceiling](/blog/macau-sauna-august-guide-2026/03-macau-sauna-east-castle-pool.webp)
+<img src="/blog/macau-sauna-august-guide-2026/03-macau-sauna-east-castle-pool.webp" alt="The warm indoor pool at East Castle Spa — a soaking pool beneath a starry screen wall and curved ceiling" width="1280" height="720" loading="lazy" decoding="async" />
 
 After absorbing part of the former M CLUB roster, [East Castle Spa](/en/spa/east-castle-spa/) has clearly strengthened its line-up. More importantly, its signature scripted role-play and theme rooms are back. Very few Macau venues offer full scripted interaction, and East Castle is the most direct choice on that track.
 
@@ -182,7 +182,7 @@ If your schedule is tight and you want to start in the afternoon, The Excellent 
 
 ## Manhao Spa: Taipa's Low-Key Newcomer — Decent Hardware, Thin Roster
 
-![A shower room at Manhao Spa — black-and-gold mosaic walls with wooden buckets and a gold daybed](/blog/macau-sauna-august-guide-2026/04-macau-sauna-manhao-shower-room.webp)
+<img src="/blog/macau-sauna-august-guide-2026/04-macau-sauna-manhao-shower-room.webp" alt="A shower room at Manhao Spa — black-and-gold mosaic walls with wooden buckets and a gold daybed" width="1280" height="720" loading="lazy" decoding="async" />
 
 [Manhao Spa](/en/spa/manhao-spa/) (Taipa, runs to 4 am) is a relatively low-key new venue: fewer people know it, and actual traffic is nowhere near Shang Pin's concentration. Its hardware and soft facilities are essentially complete — decor, pricing and the Taipa location are all competitive — but the most obvious weakness remains therapist headcount.
 

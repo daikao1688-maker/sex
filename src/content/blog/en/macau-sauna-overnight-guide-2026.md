@@ -54,7 +54,7 @@ After entry or qualifying spend, guests rest until morning on adjustable recline
 
 ### Private Rest Rooms
 
-![A private rest room in a Macau sauna — a large bed with a warm bedside lamp in a dark wood interior](/blog/macau-sauna-overnight-guide-2026/02-macau-sauna-private-rest-room.webp)
+<img src="/blog/macau-sauna-overnight-guide-2026/02-macau-sauna-private-rest-room.webp" alt="A private rest room in a Macau sauna — a large bed with a warm bedside lamp in a dark wood interior" width="1280" height="720" loading="lazy" decoding="async" />
 
 Some venues have private sleeping rooms or rest suites — far better privacy and sleep quality than the lounge. But private rooms may come with conditions:
 
@@ -67,7 +67,7 @@ So always separate the two ideas: **"overnight allowed" does not mean "a free pr
 
 ## Is Dining Really Free?
 
-![Late-night complimentary dining at a Macau sauna — wonton noodles, congee, fruit and hot tea](/blog/macau-sauna-overnight-guide-2026/03-macau-sauna-late-night-supper.webp)
+<img src="/blog/macau-sauna-overnight-guide-2026/03-macau-sauna-late-night-supper.webp" alt="Late-night complimentary dining at a Macau sauna — wonton noodles, congee, fruit and hot tea" width="1280" height="720" loading="lazy" decoding="async" />
 
 Most Macau saunas bundle basic dining into the entry or package — you eat while bathing, resting or waiting, without paying hotel-restaurant à la carte prices. Typical offerings include hot simple dishes, congee/noodles/rice, soups, fruit, soft drinks and tea; some venues run designated ordering windows.
 

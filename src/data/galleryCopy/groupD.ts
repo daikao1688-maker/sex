@@ -34,7 +34,7 @@ export const galleryCopyGroupD = {
     "zh-TW": { alt: "藍色飾牆旁的綠色躺椅休息區", caption: "厚實綠色躺椅沿花紋地毯排列，每席備有毛巾，發光藍牆為空間注入冷色層次。" },
     "zh-CN": { alt: "蓝色饰墙旁的绿色躺椅休息区", caption: "厚实绿色躺椅沿花纹地毯排列，每席备有毛巾，发光蓝墙为空间注入冷色层次。" },
     ja: { alt: "青い装飾壁に沿って並ぶ緑のリクライナー", caption: "厚みのある緑のチェアにタオルを用意し、柄入りラグと光る青い壁で穏やかな休憩空間に整えています。" },
-    ko: { alt: "블루 텍스처 벽 옆에 늘어선 그린 리큐라이너", caption: "두툼한 그린 체어에 타월을 비치하고, 패턴 러그와 빛나는 블루 벽으로 편안한 휴식 공간을 완성했습니다." },
+    ko: { alt: "블루 텍스처 벽 옆에 늘어선 그린 리클라이너", caption: "두툼한 그린 체어에 타월을 비치하고, 패턴 러그와 빛나는 블루 벽으로 편안한 휴식 공간을 완성했습니다." },
   },
   "macau-sauna-spa-empire-placed-20260624-06": {
     en: { alt: "Double-height dining hall with mirrored ceiling and blue screen", caption: "Rows of cream chairs extend beneath mirrored ceiling panels while a long blue display lights the far wall." },
@@ -55,7 +55,7 @@ export const galleryCopyGroupD = {
     "zh-TW": { alt: "明亮木質休息室內的米色躺椅", caption: "米色皮革躺椅留有寬裕間距，每席放置毛巾，柔色地毯與木牆維持安靜氛圍。" },
     "zh-CN": { alt: "明亮木质休息室内的米色躺椅", caption: "米色皮革躺椅留有宽裕间距，每席放置毛巾，柔色地毯与木墙维持安静氛围。" },
     ja: { alt: "明るい木目の休憩室に並ぶベージュのリクライナー", caption: "ゆとりを持って置かれた革張りチェアにタオルを備え、淡いラグと木壁で静かにまとめています。" },
-    ko: { alt: "밝은 우드 패널 휴게실의 크림 리큐라이너", caption: "여유 있게 놓인 가죽 체어에 타월을 갖추고, 연한 러그와 우드 벽으로 차분하게 정리했습니다." },
+    ko: { alt: "밝은 우드 패널 휴게실의 크림 리클라이너", caption: "여유 있게 놓인 가죽 체어에 타월을 갖추고, 연한 러그와 우드 벽으로 차분하게 정리했습니다." },
   },
   "macau-sauna-spa-empire-placed-20260624-09": {
     en: { alt: "Modern bedroom with dark bed and illuminated blue wall panel", caption: "A dark upholstered bed faces full-height glass, balanced by warm wood flooring and a cool blue illuminated feature." },
@@ -97,7 +97,7 @@ export const galleryCopyGroupD = {
     "zh-TW": { alt: "藍色燈光下分排排列的灰色躺椅", caption: "灰色皮革躺椅分層排列，深藍天花和牆面柔光帶營造近似影院的安靜氣氛。" },
     "zh-CN": { alt: "蓝色灯光下分排排列的灰色躺椅", caption: "灰色皮革躺椅分层排列，深蓝天花和墙面柔光带营造近似影院的安静氛围。" },
     ja: { alt: "青い間接照明の下に並ぶグレーのリクライナー", caption: "グレーの革張りチェアを段状に配置し、濃紺の天井と壁の光でシアターのように静かに整えています。" },
-    ko: { alt: "블루 앰비언트 조명 아래 줄지은 그레이 리큐라이너", caption: "그레이 가죽 체어를 단차 형태로 배치하고, 딥블루 천장과 벽 조명으로 시어터처럼 차분하게 꾸몄습니다." },
+    ko: { alt: "블루 앰비언트 조명 아래 줄지은 그레이 리클라이너", caption: "그레이 가죽 체어를 단차 형태로 배치하고, 딥블루 천장과 벽 조명으로 시어터처럼 차분하게 꾸몄습니다." },
   },
   "macau-sauna-spa-elite-placed-20260624-03": {
     en: { alt: "Grey double bed with striped feature wall", caption: "A neatly made bed with rolled towels sits against a graphic black-and-white striped wall in a compact room." },
@@ -118,14 +118,14 @@ export const galleryCopyGroupD = {
     "zh-TW": { alt: "藍色線燈與分隔躺椅的休息廳", caption: "矮隔板把灰色躺椅分成較安靜的座席區，牆面藍色線燈沿長形空間延伸。" },
     "zh-CN": { alt: "蓝色线灯与分隔躺椅的休息厅", caption: "矮隔板把灰色躺椅分成较安静的座席区，墙面蓝色线灯沿长形空间延伸。" },
     ja: { alt: "青いライン照明と仕切り付きリクライナーの休憩室", caption: "低い間仕切りでグレーのチェアを区切り、壁沿いに伸びる青い光が細長い空間を照らしています。" },
-    ko: { alt: "블루 라인 조명과 파티션으로 나뉜 리큐라이너 휴게실", caption: "낮은 파티션으로 그레이 체어를 구역 나누고, 벽을 따라 뻗는 블루 조명이 긴 공간을 비춥니다." },
+    ko: { alt: "블루 라인 조명과 파티션으로 나뉜 리클라이너 휴게실", caption: "낮은 파티션으로 그레이 체어 구역을 나누고, 벽을 따라 뻗는 블루 조명이 긴 공간을 비춥니다." },
   },
   "macau-sauna-spa-elite-placed-20260624-06": {
     en: { alt: "Close view of grey recliners with footrests", caption: "Deep grey recliners with broad footrests line the carpeted room, each seat separated by its own arm console." },
     "zh-TW": { alt: "設有寬腳托的灰色皮革躺椅", caption: "深灰躺椅沿地毯整齊並排，寬闊腳托與獨立扶手控制台讓每個座位界線清楚。" },
     "zh-CN": { alt: "设有宽脚托的灰色皮革躺椅", caption: "深灰躺椅沿地毯整齐并排，宽阔脚托与独立扶手控制台让每个座位界线清楚。" },
     ja: { alt: "幅広いフットレストを備えたグレーの革製リクライナー", caption: "深いグレーのチェアがカーペット上に整列し、大きな足置きと各席のアームコンソールが見えます。" },
-    ko: { alt: "와이드 풋레스트를 갖춘 그레이 리큐라이너 클로즈업", caption: "딥그레이 체어가 카펫 위에 정렬되고, 넓은 풋레스트와 좌석별 암 콘솔이 보입니다." },
+    ko: { alt: "와이드 풋레스트를 갖춘 그레이 리클라이너 클로즈업", caption: "딥그레이 체어가 카펫 위에 정렬되고, 넓은 풋레스트와 좌석별 암 콘솔이 보입니다." },
   },
   "macau-sauna-spa-elite-placed-20260624-07": {
     en: { alt: "Long blue corridor with wooden doors and purple ceiling lights", caption: "A carpeted hallway runs between dark blue walls and evenly spaced timber doors, capped by a thin ribbon of purple light." },
@@ -195,7 +195,7 @@ export const galleryCopyGroupD = {
     "zh-TW": { alt: "矮隔板與綠植分區的皮革躺椅休息廳", caption: "深色皮革躺椅分佈在半獨立座席間，矮隔板劃分空間，後方發光綠植柔化整體色調。" },
     "zh-CN": { alt: "矮隔板与绿植分区的皮革躺椅休息厅", caption: "深色皮革躺椅分布在半独立座席间，矮隔板划分空间，后方发光绿植柔化整体色调。" },
     ja: { alt: "低い仕切りと緑で区切られた革張りリクライナーの休憩室", caption: "濃色のチェアを半個室状に配置し、低いパネルと奥のライトアップされた緑が空間を穏やかに分けています。" },
-    ko: { alt: "낮은 파티션과 그린으로 구획한 레더 리큐라이너 라운지", caption: "다크 체어를 반개방 형태로 배치하고, 낮은 패널과 뒤편의 라이트업된 그린이 공간을 차분하게 나눕니다." },
+    ko: { alt: "낮은 파티션과 그린으로 구획한 레더 리클라이너 라운지", caption: "다크 체어를 반개방 형태로 배치하고, 낮은 패널과 뒤편의 라이트업된 그린이 공간을 차분하게 나눕니다." },
   },
   "macau-sauna-spa-number-one-gallery-202607-06": {
     en: { alt: "Warm wood corridor with glowing geometric wall panels", caption: "A wood-floored passage runs between a luminous grid wall and a darker slatted ceiling, with greenery visible at the far end." },
@@ -209,14 +209,14 @@ export const galleryCopyGroupD = {
     "zh-TW": { alt: "紅色發光抽象牆畫與木質走廊", caption: "暖木牆面沿通道延伸，一幅大型紅色發光抽象畫成為走廊中最醒目的視覺標記。" },
     "zh-CN": { alt: "红色发光抽象墙画与木质走廊", caption: "暖木墙面沿通道延伸，一幅大型红色发光抽象画成为走廊中最醒目的视觉标记。" },
     ja: { alt: "赤く光る抽象画を配した木目の廊下", caption: "温かな木壁が続く通路に大きな赤い発光アートを置き、廊下の印象的なアクセントにしています。" },
-    ko: { alt: "레드 발권 추상 월아트를 배치한 우드 코리도", caption: "따뜻한 우드 벽이 이어지는 통로에 대형 레드 발광 아트를 두어 복도의 인상적인 포인트로 삼았습니다." },
+    ko: { alt: "레드 발광 추상 월아트를 배치한 우드 코리도", caption: "따뜻한 우드 벽이 이어지는 통로에 대형 레드 발광 아트를 두어 복도의 인상적인 포인트로 삼았습니다." },
   },
   "macau-sauna-spa-number-one-gallery-202607-08": {
     en: { alt: "Four-poster bed beneath a mirrored geometric ceiling", caption: "A neatly prepared dark bed sits within a tall frame, reflected in angular ceiling mirrors and surrounded by warm wood walls." },
     "zh-TW": { alt: "幾何鏡面天花下的四柱深色睡床", caption: "整齊鋪設的深色睡床置於高框架內，幾何鏡面天花映照暖木牆面與房內燈光。" },
     "zh-CN": { alt: "几何镜面天花下的四柱深色睡床", caption: "整齐铺设的深色睡床置于高框架内，几何镜面天花映照暖木墙面与房内灯光。" },
     ja: { alt: "幾何学的な鏡面天井の下にある四柱式の濃色ベッド", caption: "高いフレームに収まる濃色ベッドを、角度のある鏡面天井が温かな木壁や照明とともに映しています。" },
-    ko: { alt: "기하학 미러 천장 아래의 포스터 침대", caption: "높은 프레임 안의 다크 침대를, 각진 미러 천장이 따뜻한 우드 벽과 조명과 함께 비춥니다." },
+    ko: { alt: "기하학 미러 천장 아래의 캐노피 침대", caption: "높은 프레임 안의 다크 침대를, 각진 미러 천장이 따뜻한 우드 벽과 조명과 함께 비춥니다." },
   },
   "macau-sauna-spa-number-one-gallery-202607-09": {
     en: { alt: "Modern lounge with glowing white and orange barrel chairs", caption: "White and orange illuminated chairs form a conversation circle on the wood floor, opening toward a dark bar and video wall." },
@@ -230,6 +230,6 @@ export const galleryCopyGroupD = {
     "zh-TW": { alt: "大型粉紅花卉壁畫旁的深色雙人床", caption: "低矮炭灰色睡床靠著暖棕牆面，落地粉紅花卉壁畫為沉穩房間加入柔和焦點。" },
     "zh-CN": { alt: "大型粉红花卉壁画旁的深色双人床", caption: "低矮炭灰色睡床靠着暖棕墙面，落地粉红花卉壁画为沉稳房间加入柔和焦点。" },
     ja: { alt: "大きなピンクの花壁画に沿う濃色のダブルベッド", caption: "低いチャコール色のベッドを温かな茶色の壁に置き、床から天井までの花の壁画を柔らかな主役にしています。" },
-    ko: { alt: "대형 핑크 플라워 벽화 곁의 다크 더블 침대", caption: "낮은 차콜 침대를 따뜻한 브라운 벽에 두고, 바닥부터 천장까지의 플라워 벽화를 부드러운 주역으로 삼았습니다." },
+    ko: { alt: "대형 핑크 플라워 벽화 곁의 다크 더블 침대", caption: "낮은 차콜 침대를 따뜻한 브라운 벽에 두고, 바닥부터 천장까지의 플라워 벽화를 부드러운 포인트로 삼았습니다." },
   },
 } satisfies GalleryCopyMap;

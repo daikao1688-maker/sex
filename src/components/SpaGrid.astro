@@ -96,7 +96,7 @@ const pausedBuckets = [...new Set(closedVenues.flatMap((venue) => venue.buckets)
                       src={`/covers/${venue.cover}.jpg`}
                       srcset={`/covers/${venue.cover}-400.jpg 400w, /covers/${venue.cover}.jpg 800w`}
                       sizes="(min-width: 1024px) 405px, (min-width: 640px) calc((100vw - 3.5rem) / 2), calc(100vw - 2rem)"
-                      alt={`${copy.name} — Macau premium sauna venue`}
+                      alt={`${copy.name} — ${t.spas.imageAltSuffix}`}
                       loading="lazy"
                       fetchpriority="low"
                       decoding="async"

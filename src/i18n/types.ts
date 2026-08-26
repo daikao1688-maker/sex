@@ -64,6 +64,7 @@ export interface Dictionary {
     filterLabel: string;
     filters: Array<{ bucket: string; label: string }>;
     learnMore: string;
+    imageAltSuffix: string;
     temporarilyClosed: string;
     temporarilyClosedNotice: string;
     pausedCard: { badge: string; description: string };

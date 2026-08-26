@@ -279,7 +279,7 @@ const ko: EditorialPolicyCopy = {
     {
       heading: '정정',
       paragraphs: [
-        '오래된 가격, 폐업·재개 정보 오류, 매장 정보 부정확, 사진 오류를 발견하시면 기존 연락 채널로 페이지 URL, 정정이 필요한 항목, 공유 가능한 출처를 복내주세요. 저희가 신고를 검토하고 내용을 정정하거나 단서를 달며, 같은 사실이 나타나는 관련 페이지도 함께 수정합니다.',
+        '오래된 가격, 폐업·재개 정보 오류, 매장 정보 부정확, 사진 오류를 발견하시면 기존 연락 채널로 페이지 URL, 정정이 필요한 항목, 공유 가능한 출처를 보내주세요. 저희가 신고를 검토하고 내용을 정정하거나 단서를 달며, 같은 사실이 나타나는 관련 페이지도 함께 수정합니다.',
         '중요한 정정은 해당 콘텐츠에 직접 반영합니다. 미검증 신고를 설명 없이 확정 사실로 바꾸지 않습니다.',
       ],
     },
@@ -290,7 +290,7 @@ const ko: EditorialPolicyCopy = {
     label: 'MGTO 디렉터리 열기 ↗',
     url: directoryUrls.ko,
   },
-  correctionCta: '연락 채널로 정정 복내기 →',
+  correctionCta: '연락 채널로 정정 보내기 →',
   contactEmailLabel: '이메일: '
 };
 
@@ -386,7 +386,7 @@ const evidenceCopy: Record<Locale, EditorialEvidenceCopy> = {
     directoryLink: 'MGTO 디렉터리 확인 ↗',
     directoryUrl: directoryUrls.ko,
     correctionPrompt: '변경 사항이나 검토할 만한 출처를 알고 계신가요?',
-    correctionLink: '정정 복내기',
+    correctionLink: '정정 보내기',
   },
 };
 

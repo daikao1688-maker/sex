@@ -112,7 +112,7 @@ author: "Macau Sauna Sites"
 
 ## 巨亨桑拿：8 月口碑回升最快，国人阵容最有优势
 
-![巨亨桑拿大堂——深色大理石地面与品牌接待柜台](/blog/macau-sauna-august-guide-2026/02-macau-sauna-empire-sauna-lobby.webp)
+<img src="/blog/macau-sauna-august-guide-2026/02-macau-sauna-empire-sauna-lobby.webp" alt="巨亨桑拿大堂——深色大理石地面与品牌接待柜台" width="1280" height="720" loading="lazy" decoding="async" />
 
 如果要选出近期好评增长最明显的场馆，[巨亨桑拿](/zh-CN/spa/empire-sauna/)很难被忽略。巨亨目前人数持续增加，服务质量和整体口碑都有明显提升；相比其他场馆，它在高质量国人技师方面更有优势，适合重视沟通、服务态度和房间体验的客人。场馆在大堂按摩护理方面亦比较慷慨，部分预约方案可安排两项约 20 分钟的加值护理。
 
@@ -137,7 +137,7 @@ MOP 1,088 的入门方案目前包含 90 分钟基础按摩，价目已包含 5%
 
 ## 东方皇堡水疗（金堡）：剧本主题正式恢复
 
-![东方皇堡水疗的室内暖水池——星空屏幕墙与弧形天花下的泡池空间](/blog/macau-sauna-august-guide-2026/03-macau-sauna-east-castle-pool.webp)
+<img src="/blog/macau-sauna-august-guide-2026/03-macau-sauna-east-castle-pool.webp" alt="东方皇堡水疗的室内暖水池——星空屏幕墙与弧形天花下的泡池空间" width="1280" height="720" loading="lazy" decoding="async" />
 
 [东方皇堡水疗](/zh-CN/spa/east-castle-spa/)在吸收部分晋会技师后，整体阵容明显得到补强。更重要的是，场馆已重新恢复过往最具辨识度的剧本与主题房特色。目前澳门主打完整剧本互动的场馆非常有限，东方皇堡可视为这条赛道中最直接的选择。
 
@@ -182,7 +182,7 @@ MOP 1,088 的入门方案目前包含 90 分钟基础按摩，价目已包含 5%
 
 ## 曼濠水疗：氹仔低调新场，硬件不差但人数仍是短板
 
-![曼濠水疗的淋浴间——黑金马赛克墙面配木桶与金色长榻](/blog/macau-sauna-august-guide-2026/04-macau-sauna-manhao-shower-room.webp)
+<img src="/blog/macau-sauna-august-guide-2026/04-macau-sauna-manhao-shower-room.webp" alt="曼濠水疗的淋浴间——黑金马赛克墙面配木桶与金色长榻" width="1280" height="720" loading="lazy" decoding="async" />
 
 [曼濠水疗](/zh-CN/spa/manhao-spa/)（氹仔，14:00–04:00）是目前比较低调的新场，知道的人不算多，实际客流也没有尚品那么集中。它的硬件和软件配套基本完整，装修、价格与氹仔地理位置都不差，但目前最明显的短板依然是技师数量。
 

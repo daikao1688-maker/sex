@@ -25,7 +25,7 @@ export interface RankingCopy {
       open24h: string;
       rating: string;
     };
-    pricing: { heading: string; priceRange: string; serviceFee: string };
+    pricing: { heading: string; priceRange: string; serviceFee: string; note: string };
     overnight: { heading: string; overnight: string };
     features: { heading: string; ktv: string; themeRooms: string; show: string; isNew: string };
   };
@@ -108,8 +108,10 @@ const en: RankingCopy = {
     },
     pricing: {
       heading: 'Budget reference',
-      priceRange: 'Indicative range (MOP)',
-      serviceFee: 'Service fee',
+      priceRange: 'Typical package range (MOP)',
+      serviceFee: 'Separate service fee',
+      note:
+        'These ranges describe typical service packages, not entry-only prices. Final totals vary by package tier, room, staff selection, taxes and add-ons. “No separate surcharge” may mean the fee is already included in the displayed price; confirm an itemized quote before visiting.',
     },
     overnight: {
       heading: 'Overnight planning',
@@ -126,7 +128,7 @@ const en: RankingCopy = {
   values: {
     yes: 'Yes',
     no: '–',
-    none: 'No fee',
+    none: 'No separate surcharge',
     multinational: 'International team',
   },
   districts: { peninsula: 'Macau Peninsula', taipa: 'Taipa / Cotai' },
@@ -216,8 +218,10 @@ const ja: RankingCopy = {
     },
     pricing: {
       heading: '予算の目安',
-      priceRange: '参考料金（MOP）',
-      serviceFee: 'サービス料',
+      priceRange: '一般パッケージ目安（MOP）',
+      serviceFee: '別途サービス料',
+      note:
+        '各レンジは入場料のみではありません。一般的なサービスパッケージの目安で、コース、部屋、指名、税金、追加項目により総額が変わります。「別途加算なし」は表示料金に含まれる場合もあるため、来店前に明細付きの最終料金をご確認ください。',
     },
     overnight: {
       heading: '宿泊・休憩',
@@ -234,7 +238,7 @@ const ja: RankingCopy = {
   values: {
     yes: 'あり',
     no: '–',
-    none: 'なし',
+    none: '別途加算なし',
     multinational: '多国籍チーム',
   },
   districts: { peninsula: 'マカオ半島', taipa: 'タイパ／コタイ' },
@@ -324,8 +328,10 @@ const zhTW: RankingCopy = {
     },
     pricing: {
       heading: '預算參考',
-      priceRange: '參考價格（MOP）',
-      serviceFee: '服務費',
+      priceRange: '一般套餐參考範圍（MOP）',
+      serviceFee: '另收服務費',
+      note:
+        '價格範圍是一般服務套餐的參考，不是單純入場費。最終總額會因套餐級別、房型、指定人員、稅項及加購而變動；「不另收服務費」也可能代表費用已計入標示價格，出發前請確認明細報價。',
     },
     overnight: {
       heading: '過夜安排',
@@ -342,7 +348,7 @@ const zhTW: RankingCopy = {
   values: {
     yes: '有',
     no: '–',
-    none: '免收',
+    none: '不另收服務費',
     multinational: '多國籍團隊',
   },
   districts: { peninsula: '澳門半島', taipa: '氹仔／路氹' },
@@ -432,8 +438,10 @@ const zhCN: RankingCopy = {
     },
     pricing: {
       heading: '预算参考',
-      priceRange: '参考价格（MOP）',
-      serviceFee: '服务费',
+      priceRange: '一般套餐参考范围（MOP）',
+      serviceFee: '另收服务费',
+      note:
+        '价格范围是一般服务套餐的参考，不是单纯入场费。最终总额会因套餐级别、房型、指定人员、税费及加购而变化；“不另收服务费”也可能表示费用已计入标示价格，出发前请确认明细报价。',
     },
     overnight: {
       heading: '过夜安排',
@@ -450,7 +458,7 @@ const zhCN: RankingCopy = {
   values: {
     yes: '有',
     no: '–',
-    none: '免收',
+    none: '不另收服务费',
     multinational: '多国籍团队',
   },
   districts: { peninsula: '澳门半岛', taipa: '氹仔／路氹' },
@@ -499,7 +507,7 @@ const ko: RankingCopy = {
       {
         slug: 'manhao-spa',
         emoji: '🎭',
-        label: '묝대 분위기를 중시한다면',
+        label: '무대 분위기를 중시한다면',
         body: '타이파 신규 매장으로, 인상적인 소개 홀이 특징입니다. 현재 숙박은 제공되지 않습니다.',
       },
       {
@@ -512,7 +520,7 @@ const ko: RankingCopy = {
         slug: 'number-nine-sauna',
         emoji: '✨',
         label: '새로운 시설을 좋아한다면',
-        body: '2026년 오픈, 마카오 반도 소재로 묝대 조명과 테마룸을 갖췄습니다.',
+        body: '2026년 오픈, 마카오 반도 소재로 무대 조명과 테마룸을 갖췄습니다.',
       },
     ],
   },
@@ -540,8 +548,10 @@ const ko: RankingCopy = {
     },
     pricing: {
       heading: '예산 참고',
-      priceRange: '참고 가격（MOP）',
-      serviceFee: '서비스 요금',
+      priceRange: '일반 패키지 참고 범위 (MOP)',
+      serviceFee: '별도 서비스 요금',
+      note:
+        '가격 범위는 입장료만을 뜻하지 않습니다. 일반 서비스 패키지 기준의 참고치이며, 코스 등급, 룸, 지명, 세금 및 추가 항목에 따라 총액이 달라집니다. “별도 부과 없음”은 표시 가격에 이미 포함된 경우도 있으므로 방문 전 항목별 최종 견적을 확인하세요.',
     },
     overnight: {
       heading: '숙박 배치',
@@ -558,7 +568,7 @@ const ko: RankingCopy = {
   values: {
     yes: '있음',
     no: '–',
-    none: '없음',
+    none: '별도 부과 없음',
     multinational: '다국적 팀',
   },
   districts: { peninsula: '마카오 반도', taipa: '타이파／코타이' },

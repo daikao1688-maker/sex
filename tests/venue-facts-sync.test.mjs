@@ -7,6 +7,10 @@ import path from "node:path";
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
 
+async function readBuiltHome(locale) {
+  return readFile(path.join(distRoot, locale, "index.html"), "utf8");
+}
+
 async function readBuiltPage(locale, slug) {
   return readFile(path.join(distRoot, locale, "spa", slug, "index.html"), "utf8");
 }
@@ -101,6 +105,68 @@ test("renders the revised venue facts in every locale", async () => {
         );
       }
     }
+  }
+});
+
+test("Shang Pin stays out of the new-venue filter when its venue fact is not new", async () => {
+  for (const locale of ["en", "zh-TW", "zh-CN", "ja", "ko"]) {
+    const html = await readBuiltHome(locale);
+    const card = html.match(
+      new RegExp(`data-buckets="([^"]*)"[\\s\\S]{0,600}href="/${locale}/spa/shang-pin-spa/"`),
+    );
+
+    assert.ok(card, `${locale} homepage is missing the Shang Pin card`);
+    assert.ok(
+      !card[1].split(/\s+/).includes("new"),
+      `${locale} puts Shang Pin in the new filter although its isNew fact is false`,
+    );
+  }
+});
+
+test("ranking prices describe package ranges and distinguish fees included in the displayed price", async () => {
+  const expectations = {
+    en: {
+      range: "Typical package range (MOP)",
+      note: "not entry-only prices",
+      noSurcharge: "No separate surcharge",
+    },
+    "zh-TW": {
+      range: "一般套餐參考範圍（MOP）",
+      note: "不是單純入場費",
+      noSurcharge: "不另收服務費",
+    },
+    "zh-CN": {
+      range: "一般套餐参考范围（MOP）",
+      note: "不是单纯入场费",
+      noSurcharge: "不另收服务费",
+    },
+    ja: {
+      range: "一般パッケージ目安（MOP）",
+      note: "入場料のみではありません",
+      noSurcharge: "別途加算なし",
+    },
+    ko: {
+      range: "일반 패키지 참고 범위 (MOP)",
+      note: "입장료만을 뜻하지 않습니다",
+      noSurcharge: "별도 부과 없음",
+    },
+  };
+
+  for (const [locale, expected] of Object.entries(expectations)) {
+    const html = await readFile(path.join(distRoot, locale, "ranking", "index.html"), "utf8");
+    const pricingStart = html.indexOf('id="ranking-pricing-title"');
+    const pricingEnd = html.indexOf('id="ranking-overnight-title"', pricingStart);
+    const pricingSection = html.slice(pricingStart, pricingEnd);
+    const empireRow = (pricingSection.match(/<tr\b[\s\S]*?<\/tr>/g) ?? []).find((row) =>
+      row.includes(`href="/${locale}/spa/empire-sauna/"`),
+    ) ?? "";
+
+    assert.ok(pricingSection.includes(expected.range), `${locale} ranking must identify the values as package ranges`);
+    assert.ok(pricingSection.includes(expected.note), `${locale} ranking must explain what the range includes`);
+    assert.ok(
+      empireRow.includes(expected.noSurcharge),
+      `${locale} Empire row must describe the fee as having no separate surcharge`,
+    );
   }
 });
 

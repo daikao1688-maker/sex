@@ -7,6 +7,7 @@ import path from "node:path";
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
 const locales = ["en", "zh-TW", "zh-CN", "ja"];
+const allLocales = [...locales, "ko"];
 
 const readPage = (locale, ...segments) =>
   readFile(path.join(distRoot, locale, ...segments, "index.html"), "utf8");
@@ -38,6 +39,24 @@ test("the blog promotion stays on the article and targets its booking section", 
       1,
       `${locale} blog must expose one booking-section anchor`,
     );
+  }
+});
+
+test("the blog listing promotion routes to localized contact and uses an ink-on-gold active filter", async () => {
+  for (const locale of allLocales) {
+    const html = await readPage(locale, "blog");
+    const promo = html.match(/<div[^>]+id="promo-top-bar"[\s\S]*?<\/div>\s*<\/div>/)?.[0] ?? "";
+    const activeFilter = tagWithAttribute(html, 'data-filter-cat="all"');
+    const activeClasses = classList(activeFilter);
+
+    assert.match(
+      promo,
+      new RegExp(`href="/${locale}/contact/"`),
+      `${locale} blog listing promo must leave the listing for localized contact`,
+    );
+    assert.ok(activeClasses.includes("bg-gold"), `${locale} active blog filter needs a gold background`);
+    assert.ok(activeClasses.includes("text-black"), `${locale} active blog filter needs dark text`);
+    assert.ok(!activeClasses.includes("text-white"), `${locale} active blog filter must not use white text`);
   }
 });
 
@@ -98,6 +117,24 @@ test("homepage CTA uses two equal buttons per standard phone row and four on des
       assert.ok(linkClasses.includes("w-full"), `${locale} CTA actions do not have equal column widths`);
       assert.ok(linkClasses.includes("min-h-12"), `${locale} CTA action is shorter than 48px`);
       assert.ok(linkClasses.includes("justify-center"), `${locale} CTA action label is not centered`);
+    }
+  }
+});
+
+test("homepage hero keeps one dominant gold action and subordinates its two secondary actions", async () => {
+  for (const locale of allLocales) {
+    const html = await readPage(locale);
+    const primary = html.match(/<a\b[^>]*href="#spas"[^>]*>/)?.[0] ?? "";
+    const marker = html.indexOf("data-hero-secondary-cta");
+    const secondary = html.slice(marker, html.indexOf("</div>", marker));
+    const secondaryLinks = secondary.match(/<a\b[^>]*>/g) ?? [];
+
+    assert.ok(classList(primary).includes("bg-gold"), `${locale} hero primary CTA must remain gold`);
+    assert.equal(secondaryLinks.length, 2, `${locale} hero must retain both secondary actions`);
+    for (const link of secondaryLinks) {
+      const classes = classList(link);
+      assert.ok(classes.includes("border-white/25"), `${locale} hero secondary CTAs need a quieter border`);
+      assert.ok(classes.includes("text-white/80"), `${locale} hero secondary CTAs need subordinate text`);
     }
   }
 });

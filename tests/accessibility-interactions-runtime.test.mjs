@@ -487,11 +487,14 @@ test("the spa gallery lightbox makes the page inert and restores it after every 
   assert.equal(trigger.focused, true, "backdrop close must restore the opening trigger");
 });
 
-test("the floating contact pill restores and removes its tab stop as the hero enters and leaves view", async () => {
+test("floating actions restore their tab stops only when they do not cover marked page actions", async () => {
   const pill = new FakeElement();
   const backToTop = new FakeElement();
   const progressRing = new FakeElement();
   const hero = new FakeElement();
+  const exclusion = new FakeElement();
+  const windowListeners = new Map();
+  let exclusionRect = { left: 0, right: 200, top: 200, bottom: 300 };
   let observer;
   pill.setAttribute("aria-hidden", "true");
   pill.setAttribute("tabindex", "-1");
@@ -499,12 +502,16 @@ test("the floating contact pill restores and removes its tab stop as the hero en
   for (const element of [pill, backToTop, progressRing]) element.classList = classListFor(element);
   progressRing.style = {};
   backToTop.querySelector = () => progressRing;
+  pill.getBoundingClientRect = () => ({ left: 250, right: 390, top: 740, bottom: 784 });
+  backToTop.getBoundingClientRect = () => ({ left: 346, right: 390, top: 684, bottom: 728 });
+  exclusion.getBoundingClientRect = () => exclusionRect;
 
   const document = {
     documentElement: { scrollHeight: 2000 },
     getElementById: (id) =>
       ({ "floating-contact-pill": pill, "floating-back-to-top": backToTop })[id] ?? null,
     querySelector: (selector) => (selector === '[data-testid="hero-icon-row"]' ? hero : null),
+    querySelectorAll: (selector) => (selector === "[data-floating-actions-exclusion]" ? [exclusion] : []),
   };
   class FakeObserver {
     constructor(callback) {
@@ -515,15 +522,17 @@ test("the floating contact pill restores and removes its tab stop as the hero en
     observe() {}
   }
 
+  const window = {
+    matchMedia: () => ({ matches: false }),
+    scrollY: 640,
+    innerHeight: 800,
+    addEventListener: (name, listener) => windowListeners.set(name, listener),
+    scrollTo() {},
+  };
+
   vm.runInNewContext(await componentScript("FloatingContactPill.astro"), {
     document,
-    window: {
-      matchMedia: () => ({ matches: false }),
-      scrollY: 0,
-      innerHeight: 800,
-      addEventListener() {},
-      scrollTo() {},
-    },
+    window,
     IntersectionObserver: FakeObserver,
     requestAnimationFrame: (callback) => callback(),
   });
@@ -531,6 +540,19 @@ test("the floating contact pill restores and removes its tab stop as the hero en
   observer.callback([{ intersectionRatio: 0 }]);
   assert.equal(pill.getAttribute("aria-hidden"), "false");
   assert.equal(pill.getAttribute("tabindex"), null);
+  assert.equal(backToTop.getAttribute("aria-hidden"), "false");
+
+  exclusionRect = { left: 240, right: 390, top: 680, bottom: 790 };
+  windowListeners.get("scroll")();
+  assert.equal(pill.getAttribute("aria-hidden"), "true", "overlapping page actions must hide the contact pill");
+  assert.equal(pill.tabIndex, -1, "a collision-hidden pill must leave the tab order");
+  assert.equal(backToTop.getAttribute("aria-hidden"), "true", "overlapping page actions must hide back-to-top");
+  assert.equal(backToTop.tabIndex, -1, "a collision-hidden back-to-top must leave the tab order");
+
+  exclusionRect = { left: 0, right: 200, top: 200, bottom: 300 };
+  windowListeners.get("scroll")();
+  assert.equal(pill.getAttribute("aria-hidden"), "false", "the pill must return after the collision clears");
+  assert.equal(backToTop.getAttribute("aria-hidden"), "false", "back-to-top must return after the collision clears");
 
   observer.callback([{ intersectionRatio: 1 }]);
   assert.equal(pill.getAttribute("aria-hidden"), "true");

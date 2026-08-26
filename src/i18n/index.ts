@@ -11,7 +11,7 @@ import { testimonials } from './testimonials';
 const dictionaries: Record<Locale, Dictionary> = {
   en: { ...en, testimonials: testimonials.en },
   ja: { ...ja, testimonials: testimonials.ja },
-  ko,
+  ko: { ...ko, testimonials: testimonials.ko },
   'zh-TW': { ...zhTW, testimonials: testimonials['zh-TW'] },
   'zh-CN': { ...zhCN, testimonials: testimonials['zh-CN'] },
 };

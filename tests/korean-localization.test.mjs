@@ -273,6 +273,150 @@ test("Korean blog entries preserve both public slugs and publication dates", asy
   }
 });
 
+test("Korean public pages do not publish known corrupted Korean tokens", async () => {
+  const corruptedTokens = [
+    "묾셔",
+    "복내",
+    "복낼",
+    "핫두고",
+    "이륾니다",
+    "예약핫든",
+    "정볼",
+    "물숍",
+    "묣숍",
+    "묝대",
+    "장멸",
+    "큘브",
+    "리큐라이너",
+    "리큐라이닝",
+    "개실",
+    "퇴관",
+    "에리어",
+    "보관핵",
+    "다륾",
+    "선택핫",
+    "취소핫",
+    "확인핫",
+    "건배핫",
+    "조걼",
+    "이륾",
+    "볞빛",
+    "배에되고",
+    "세멘대",
+    "진엄된",
+    "안날되어",
+    "추加入",
+    "깸깸",
+    "수멧",
+    "용매 그림",
+    "용매 아트",
+    "전통莞式",
+    "오륵며",
+    "드러낸며",
+    "클리식",
+    "전방향 크림 시트",
+    "토르 미러",
+    "앰버 광주",
+    "레드 발권",
+    "중고 가격대",
+    "재적 수",
+    "식별도",
+    "소프트 면",
+    "휴업한 건축물",
+    "전속 협력가",
+    "식재와",
+    "혼상",
+    "체험감",
+    "안마의자 휴게 열",
+    "최대형 사우나",
+    "중영문 명칭",
+    "퍼플 광벽",
+    "포스터 침대",
+    "부드러운 주역",
+    "살펴 보실",
+    "이 달의",
+  ];
+  const localizedPaths = (await readdir(path.join(distRoot, koreanLocale), { recursive: true }))
+    .filter((relativePath) =>
+      relativePath === "index.html" || relativePath.endsWith(`${path.sep}index.html`),
+    );
+
+  for (const relativePath of localizedPaths) {
+    const html = await readFile(path.join(distRoot, koreanLocale, relativePath), "utf8");
+    for (const token of corruptedTokens) {
+      assert.equal(
+        html.includes(token),
+        false,
+        `${relativePath} publishes the corrupted Korean token: ${token}`,
+      );
+    }
+  }
+});
+
+test("Korean high-traffic pages publish natural localized wording", async () => {
+  const contact = await readPage(koreanLocale, "contact");
+  const clubeRio = await readPage(koreanLocale, "spa", "clube-rio");
+  const overnight = await readPage(koreanLocale, "blog", "macau-sauna-overnight-guide-2026");
+  const august = await readPage(koreanLocale, "blog", "macau-sauna-august-guide-2026");
+  const homepage = await readPage(koreanLocale);
+
+  assert.ok(contact.includes("메시지를 보낸 후"), "Korean contact FAQ must use 보낸");
+  assert.ok(clubeRio.includes("무료 픽업"), "Korean Clube Rio page must advertise 무료 픽업");
+  assert.ok(clubeRio.includes("클루브 리오"), "Korean Clube Rio page must use its established Korean name");
+  assert.ok(clubeRio.includes("금박 용·독수리"), "Korean Clube Rio gallery must name the dragon-and-eagle artwork");
+  assert.ok(overnight.includes("심야 추가 입장료"), "Korean overnight guide must name the late-night surcharge naturally");
+  assert.ok(overnight.includes("수면만을 목적으로"), "Korean overnight guide must preserve the sleep-only warning");
+  assert.ok(overnight.includes("중상위 가격대"), "Korean overnight guide must describe Empire's price band correctly");
+  assert.ok(overnight.includes("결제 내역을 확인"), "Korean overnight guide must tell guests to check their bill naturally");
+  assert.ok(august.includes("전반적인 품질 차이"), "Korean August guide must describe the overall quality gap naturally");
+  assert.ok(august.includes("피트니스룸과 복싱룸"), "Korean August guide must translate gym without implying luggage");
+  assert.ok(august.includes("당일 테라피스트의 컨디션"), "Korean August guide must identify whose condition guests should assess");
+  assert.ok(august.includes("휴업한 업소"), "Korean August guide must refer to shuttered venues rather than buildings");
+  assert.ok(homepage.includes("이달의 베스트"), "Korean homepage must use the standard 이달의 spelling");
+});
+
+test("Japanese blog pages do not publish Chinese residue", async () => {
+  const chineseResidue = ["主题", "客流", "辨识度", "梯队"];
+  const posts = ["macau-sauna-august-guide-2026", "macau-sauna-overnight-guide-2026"];
+
+  for (const slug of posts) {
+    const html = await readPage("ja", "blog", slug);
+    for (const residue of chineseResidue) {
+      assert.equal(
+        html.includes(residue),
+        false,
+        `/ja/blog/${slug}/ publishes Chinese residue: ${residue}`,
+      );
+    }
+  }
+});
+
+test("SpaGrid image alternatives and footer copyright use each locale's language", async () => {
+  const locales = {
+    "zh-TW": { altSuffix: "澳門高級桑拿會所", copyright: "版權所有" },
+    "zh-CN": { altSuffix: "澳门高端桑拿会所", copyright: "保留所有权利" },
+    ja: { altSuffix: "マカオの高級サウナ施設", copyright: "無断転載を禁じます" },
+  };
+
+  for (const [locale, expected] of Object.entries(locales)) {
+    const html = await readPage(locale);
+    const spaGrid = html.match(/<section\b(?=[^>]*\bid="spas")[\s\S]*?<\/section>/i)?.[0] ?? "";
+
+    assert.ok(spaGrid.includes(expected.altSuffix), `/${locale}/ SpaGrid must use a localized image alt suffix`);
+    assert.equal(
+      spaGrid.includes("Macau premium sauna venue"),
+      false,
+      `/${locale}/ SpaGrid must not publish the fixed English image alt suffix`,
+    );
+    assert.ok(html.includes(expected.copyright), `/${locale}/ footer copyright must use localized wording`);
+    assert.equal(
+      html.includes("All rights reserved."),
+      false,
+      `/${locale}/ footer must not publish English copyright wording`,
+    );
+  }
+});
+
 test("all active Korean galleries expose specific Korean alternative text and captions", async () => {
   const galleryCounts = {
     "clube-rio": 5,

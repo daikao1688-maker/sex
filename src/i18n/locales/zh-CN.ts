@@ -68,6 +68,7 @@ const zhCN: Dictionary = {
       { bucket: 'ktv', label: 'KTV' },
     ],
     learnMore: '了解更多',
+    imageAltSuffix: '澳门高端桑拿会所',
     temporarilyClosed: '暂停营业',
     temporarilyClosedNotice:
       '此会所目前暂停营业，暂不接待客人或提供预约服务。欢迎浏览其他会所，或联系我们为您推荐合适选择。',
@@ -424,7 +425,7 @@ const zhCN: Dictionary = {
       { path: '/privacy/', label: '隐私政策' },
     ],
     editorialPolicy: '编辑政策',
-    copyright: '© 2026 澳门桑拿导航站. All rights reserved.',
+    copyright: '© 2026 澳门桑拿导航站。保留所有权利。',
   },
 
   wechat: {

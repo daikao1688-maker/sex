@@ -54,7 +54,7 @@ author: "Macau Sauna Sites"
 
 ### 独立休息房
 
-![澳门桑拿独立休息房——深色木质调的私人睡房，大床配暖光床头灯](/blog/macau-sauna-overnight-guide-2026/02-macau-sauna-private-rest-room.webp)
+<img src="/blog/macau-sauna-overnight-guide-2026/02-macau-sauna-private-rest-room.webp" alt="澳门桑拿独立休息房——深色木质调的私人睡房，大床配暖光床头灯" width="1280" height="720" loading="lazy" decoding="async" />
 
 部分场馆设有独立睡房或休息包厢，私密度和睡眠体感会比大堂好。但独立房可能存在以下条件：
 
@@ -67,7 +67,7 @@ author: "Macau Sauna Sites"
 
 ## 餐饮真的免费吗？
 
-![澳门桑拿免费餐饮——深夜供应的云吞面、粥品、水果与热茶](/blog/macau-sauna-overnight-guide-2026/03-macau-sauna-late-night-supper.webp)
+<img src="/blog/macau-sauna-overnight-guide-2026/03-macau-sauna-late-night-supper.webp" alt="澳门桑拿免费餐饮——深夜供应的云吞面、粥品、水果与热茶" width="1280" height="720" loading="lazy" decoding="async" />
 
 多数澳门桑拿会把基础餐饮包含在入场或套餐配套内，客人可以在洗浴、休息或等待期间用餐，不需要按照酒店餐厅的单点价格再次结账。常见供应包括热食简餐、粥粉面饭、汤品、水果、软饮与茶水，部分场馆设指定时段点餐。
 

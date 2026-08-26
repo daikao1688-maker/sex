@@ -181,7 +181,7 @@ export const eighteenSaunaDetails: Record<Locale, VenueDetail> = {
     features: [
       "원형 욕조와 냉탕",
       "드라이·스팀 사우나",
-      "리큐라이너 휴게실",
+      "리클라이너 휴게실",
       "그룹 소개 홀",
       "과거 안내에 다이닝과 숙박 배치가 기재되어 있었음",
     ],
@@ -192,7 +192,7 @@ export const eighteenSaunaDetails: Record<Locale, VenueDetail> = {
       },
       {
         title: "옛 시설을 비교 자료로 활용",
-        body: "과거 공개 자료에는 대형 목욕 구역, 드라이·스팀 사우나, 냉탕, 리큐라이너 휴게실, 그룹 소개 홀이 안날되어 있었습니다.",
+        body: "과거 공개 자료에는 대형 목욕 구역, 드라이·스팀 사우나, 냉탕, 리클라이너 휴게실, 그룹 소개 홀이 안내되어 있었습니다.",
       },
       {
         title: "옛 가격대의 한계에 유의",

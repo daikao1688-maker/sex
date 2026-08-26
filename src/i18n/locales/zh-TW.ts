@@ -68,6 +68,7 @@ const zhTW: Dictionary = {
       { bucket: 'ktv', label: 'KTV' },
     ],
     learnMore: '了解更多',
+    imageAltSuffix: '澳門高級桑拿會所',
     temporarilyClosed: '暫停營業',
     temporarilyClosedNotice:
       '此會所目前暫停營業，暫不接待客人或提供預約服務。歡迎瀏覽其他會所，或聯絡我們為您推薦合適選擇。',
@@ -424,7 +425,7 @@ const zhTW: Dictionary = {
       { path: '/privacy/', label: '隱私政策' },
     ],
     editorialPolicy: '編輯政策',
-    copyright: '© 2026 澳門桑拿導航站. All rights reserved.',
+    copyright: '© 2026 澳門桑拿導航站。版權所有。',
   },
 
   wechat: {
