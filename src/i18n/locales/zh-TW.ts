@@ -71,6 +71,7 @@ const zhTW: Dictionary = {
     temporarilyClosed: '暫停營業',
     temporarilyClosedNotice:
       '此會所目前暫停營業，暫不接待客人或提供預約服務。歡迎瀏覽其他會所，或聯絡我們為您推薦合適選擇。',
+    pausedCard: { badge: '暫停營業', description: '以下場館目前暫停營業，場館頁面保留供參考。' },
     browseOtherVenues: '查看其他會所',
     contactForAlternative: '聯絡我們推薦選擇',
     hiddenNote: '另有 {count} 間未顯示・',

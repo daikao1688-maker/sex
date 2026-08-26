@@ -64,12 +64,13 @@ test("renders the closed Oceanic Royal Spa homepage card without a glow frame", 
   for (const locale of Object.keys(localeExpectations)) {
     const home = await readFile(path.join(distRoot, locale, "index.html"), "utf8");
     const venuePath = `/${locale}/spa/${slug}/`;
-    const cardTag = home
-      .match(/<a\b[^>]*>/g)
-      ?.find((tag) => tag.includes(`href="${venuePath}"`));
 
-    assert.ok(cardTag, `${locale} homepage is missing the Oceanic Royal Spa card link`);
-    assert.match(cardTag, /\bborder-gold\/25\b/, `${locale} Oceanic card is not using the plain frame`);
-    assert.doesNotMatch(cardTag, /\bglow-(?:red|gold|silver)\b/, `${locale} Oceanic card still uses a glow frame`);
+    // Closed venues now live inside the consolidated paused card; that card
+    // carries the plain frame and no glow, and keeps the venue linked.
+    const pausedCard = home.match(/<div\b[^>]*data-testid="spa-paused-card"[^>]*>/g)?.[0];
+    assert.ok(pausedCard, `${locale} homepage is missing the paused-venues card`);
+    assert.match(pausedCard, /\bborder-gold\/25\b/, `${locale} paused card is not using the plain frame`);
+    assert.doesNotMatch(pausedCard, /\bglow-(?:red|gold|silver)\b/, `${locale} paused card still uses a glow frame`);
+    assert.ok(home.includes(`href="${venuePath}"`), `${locale} paused card is missing the Oceanic Royal Spa link`);
   }
 });

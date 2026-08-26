@@ -73,6 +73,7 @@ const ja: Dictionary = {
     temporarilyClosed: '一時休業中',
     temporarilyClosedNotice:
       'この店舗は現在一時休業中で、ご利用およびご予約は承っておりません。ほかの店舗をご覧いただくか、ご希望に合う店舗をご案内しますのでお問い合わせください。',
+    pausedCard: { badge: '一時休業中', description: '以下の店舗は現在一時休業中です。店舗ページは参考用に残しています。' },
     browseOtherVenues: 'ほかの店舗を見る',
     contactForAlternative: '代わりの店舗を相談する',
     hiddenNote: 'あと {count} 件は非表示・',

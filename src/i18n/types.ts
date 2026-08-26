@@ -66,6 +66,7 @@ export interface Dictionary {
     learnMore: string;
     temporarilyClosed: string;
     temporarilyClosedNotice: string;
+    pausedCard: { badge: string; description: string };
     browseOtherVenues: string;
     contactForAlternative: string;
     /** `{count}` = number of cards hidden by the active filter. */

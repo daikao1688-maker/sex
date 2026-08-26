@@ -73,6 +73,7 @@ const ko: Dictionary = {
     temporarilyClosed: '임시 휴업',
     temporarilyClosedNotice:
       '현재 임시 휴업 중으로 방문과 예약을 받지 않습니다. 다른 업소를 살펴보거나 적합한 대안을 문의해 주세요.',
+    pausedCard: { badge: '일시 휴업', description: '아래 업소는 현재 일시 휴업 중입니다. 업소 페이지는 참고용으로 유지됩니다.' },
     browseOtherVenues: '다른 업소 보기',
     contactForAlternative: '대안 문의하기',
     hiddenNote: '{count}곳 더 숨김 ·',

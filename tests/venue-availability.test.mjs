@@ -37,11 +37,21 @@ const closedCopy = {
 test("labels temporarily closed venues accurately and shows a clear detail-page notice", async () => {
   for (const [locale, copy] of Object.entries(closedCopy)) {
     const homepage = await readFile(path.join(distRoot, locale, "index.html"), "utf8");
+    // Paused venues collapse into one consolidated card on the homepage grid.
+    assert.equal(
+      (homepage.match(/data-testid="spa-paused-card"/g) ?? []).length,
+      1,
+      `${locale} homepage must render one consolidated paused-venues card`,
+    );
     assert.equal(
       (homepage.match(/data-testid="spa-temporarily-closed-badge"/g) ?? []).length,
-      temporarilyClosedSlugs.length,
-      `${locale} homepage must label every temporarily closed venue`,
+      0,
+      `${locale} homepage must not render individual closed badges anymore`,
     );
+    for (const slug of temporarilyClosedSlugs) {
+      const linkCount = (homepage.match(new RegExp(`/${locale}/spa/${slug}/`, "g")) ?? []).length;
+      assert.ok(linkCount >= 1, `${locale} paused card must keep ${slug} linked (avatar button)`);
+    }
 
     for (const slug of temporarilyClosedSlugs) {
       const detail = await readFile(path.join(distRoot, locale, "spa", slug, "index.html"), "utf8");

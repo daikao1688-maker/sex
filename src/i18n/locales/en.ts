@@ -73,6 +73,7 @@ const en: Dictionary = {
     temporarilyClosed: 'Temporarily Closed',
     temporarilyClosedNotice:
       'This venue is temporarily closed and is not accepting guests or bookings at this time. Please browse other venues or contact us for a suitable alternative.',
+    pausedCard: { badge: 'Temporarily closed', description: 'These venues are currently closed — pages kept for reference.' },
     browseOtherVenues: 'Browse other venues',
     contactForAlternative: 'Contact us for an alternative',
     hiddenNote: '{count} more hidden ·',

@@ -71,6 +71,7 @@ const zhCN: Dictionary = {
     temporarilyClosed: '暂停营业',
     temporarilyClosedNotice:
       '此会所目前暂停营业，暂不接待客人或提供预约服务。欢迎浏览其他会所，或联系我们为您推荐合适选择。',
+    pausedCard: { badge: '暂停营业', description: '以下场馆目前暂停营业，场馆页面保留供参考。' },
     browseOtherVenues: '查看其他会所',
     contactForAlternative: '联系我们推荐选择',
     hiddenNote: '另有 {count} 间未显示・',
