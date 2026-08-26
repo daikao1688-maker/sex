@@ -61,3 +61,11 @@ test("best-of-month constrains its mobile carousel inside a zero-minimum grid tr
   assert.match(source, /data-bom-deck[\s\S]*?min-w-0/);
   assert.match(source, /class="bom-track[^\"]*\bmin-w-0\b[^\"]*\bw-full\b/);
 });
+
+test("best-of-month renders its review stamp on an explicit foreground layer", async () => {
+  const html = await readPage("en");
+  const stamp = html.match(/<span\b(?=[^>]*data-bom-stamp)[^>]*>/i)?.[0] ?? "";
+
+  assert.ok(stamp, "best-of-month review stamp is missing");
+  assert.match(stamp, /class="[^"]*\bz-10\b[^"]*"/, "review stamp can be covered by the image fade");
+});
