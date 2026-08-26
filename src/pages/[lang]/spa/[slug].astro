@@ -4,6 +4,7 @@ import PageShell from "../../../layouts/PageShell.astro";
 import Icon from "../../../components/Icon.astro";
 import SpaGallery from "../../../components/SpaGallery.astro";
 import ContactChannels from "../../../components/ContactChannels.astro";
+import VipExtrasDrawer from "../../../components/VipExtrasDrawer.astro";
 import { getDictionary } from "../../../i18n";
 import { locales, localizePath, type Locale } from "../../../i18n/config";
 import { getSpaPageCopy, spaBreadcrumbs, venueSummary } from "../../../i18n/pages/spa";
@@ -433,9 +434,31 @@ const schemas = [
           </div>
         </div>
 
+        {
+          !venue.temporarilyClosed && (
+            <div
+              data-testid="spa-flow-vip-reminder"
+              class="mt-8 flex items-start gap-3 rounded-xl border border-gold/15 bg-gold/[0.04] p-4"
+            >
+              <span class="text-xl leading-none" aria-hidden="true">🎁</span>
+              <div>
+                <p class="text-gold font-semibold text-sm">{copy.vipReminder.title}</p>
+                <p class="text-white/60 text-sm mt-1 leading-relaxed">{copy.vipReminder.body}</p>
+                <button
+                  type="button"
+                  data-open-vip-extras
+                  class="mt-3 inline-flex min-h-11 items-center gap-1 rounded-full border border-gold/50 px-4 py-2 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
+                >
+                  {copy.vipReminder.cta}
+                </button>
+              </div>
+            </div>
+          )
+        }
+
         <div
           data-testid="spa-flow-concierge-reminder"
-          class="mt-8 flex items-start gap-3 rounded-xl border border-gold/15 bg-gold/[0.04] p-4"
+          class="mt-4 flex items-start gap-3 rounded-xl border border-gold/15 bg-gold/[0.04] p-4"
         >
           <span class="text-xl leading-none" aria-hidden="true">🚗</span>
           <div>
@@ -519,4 +542,16 @@ const schemas = [
       <ContactChannels lang={lang} />
     </div>
   </section>
+
+  {
+    !venue.temporarilyClosed && (
+      <VipExtrasDrawer
+        lang={lang}
+        titleLead={copy.vipDrawer.titleLead}
+        titleAccent={copy.vipDrawer.titleAccent}
+        note={copy.vipDrawer.note}
+        closeLabel={copy.vipDrawer.close}
+      />
+    )
+  }
 </PageShell>

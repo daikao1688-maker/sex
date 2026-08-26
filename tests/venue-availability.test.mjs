@@ -34,6 +34,39 @@ const closedCopy = {
   },
 };
 
+test("open venue pages offer the VIP extras reminder and drawer; closed pages do not", async () => {
+  for (const locale of Object.keys(closedCopy)) {
+    const openPage = await readFile(
+      path.join(distRoot, locale, "spa", "number-nine-sauna", "index.html"),
+      "utf8",
+    );
+    assert.ok(
+      openPage.includes('data-testid="spa-flow-vip-reminder"'),
+      `${locale} open venue is missing the VIP extras reminder`,
+    );
+    assert.ok(
+      openPage.includes("data-open-vip-extras"),
+      `${locale} open venue reminder must trigger the VIP extras drawer`,
+    );
+    assert.ok(
+      openPage.includes("data-vip-extras-drawer"),
+      `${locale} open venue must render the VIP extras drawer`,
+    );
+
+    for (const slug of temporarilyClosedSlugs) {
+      const closedPage = await readFile(path.join(distRoot, locale, "spa", slug, "index.html"), "utf8");
+      assert.ok(
+        !closedPage.includes('data-testid="spa-flow-vip-reminder"'),
+        `${locale}/${slug} must not promise VIP extras while bookings are paused`,
+      );
+      assert.ok(
+        !closedPage.includes("data-vip-extras-drawer"),
+        `${locale}/${slug} must not render the VIP extras drawer`,
+      );
+    }
+  }
+});
+
 test("labels temporarily closed venues accurately and shows a clear detail-page notice", async () => {
   for (const [locale, copy] of Object.entries(closedCopy)) {
     const homepage = await readFile(path.join(distRoot, locale, "index.html"), "utf8");

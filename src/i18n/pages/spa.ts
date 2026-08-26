@@ -58,6 +58,10 @@ export interface SpaPageCopy {
   };
   paymentMethods: string[];
   concierge: { title: string; body: string };
+  /** VIP extras reminder inside the flow section (open venues only). */
+  vipReminder: { title: string; body: string; cta: string };
+  /** Copy for the VipExtrasDrawer opened from the reminder. */
+  vipDrawer: { titleLead: string; titleAccent: string; note: string; close: string };
   cta: { headingLead: string; headingAccent: string; body: string };
   breadcrumbHome: string;
   breadcrumbList: string;
@@ -138,6 +142,17 @@ const en: SpaPageCopy = {
   concierge: {
     title: 'And your free return ride is waiting',
     body: 'When you\'re done — after your meal, right after your service, anytime — just text us. The same luxury vehicle takes you to your hotel, the airport, the ferry terminal, or anywhere in Macau. Same zero cost as the pickup.',
+  },
+  vipReminder: {
+    title: "Don't forget — your VIP perk is on us",
+    body: "Book through us and pick any 1 of 8 VIP extras, delivered by professional therapists: back scrub, leg massage, head massage, foot massage, manicure, pedicure, hand massage, or ear cleaning. We tell the venue you're coming, so you can simply choose when you arrive.",
+    cta: 'See all 8 extras →',
+  },
+  vipDrawer: {
+    titleLead: 'Your',
+    titleAccent: 'VIP Extras',
+    note: "Pick any 1 — we let the venue know you're coming, so you can simply choose on arrival.",
+    close: 'Close VIP extras list',
   },
   cta: {
     headingLead: 'Book Your',
@@ -1623,6 +1638,17 @@ const ja: SpaPageCopy = {
     title: '帰りの無料送迎もご用意しています',
     body: 'お帰りの際は——お食事のあと、サービス終了直後、どのタイミングでも——LINEで一言ご連絡ください。同じ高級車がお迎えにあがり、ホテル・空港・フェリーターミナル、マカオ市内ならどこへでもお送りします。送迎と同じく、もちろん無料です。',
   },
+  vipReminder: {
+    title: 'お忘れなく——VIP 特典をご用意しています',
+    body: '当サイトからのご予約で、8つの VIP 特典からお好きな1つをお選びいただけます。プロのセラピストによる背中スクラブ・レッグマッサージ・ヘッドマッサージ・足裏マッサージ・ハンドネイルケア・フットネイルケア・ハンドマッサージ・耳かきの中から選べます。ご到着は事前に店舗へお知らせするので、当日その場でお選びください。',
+    cta: '8つの特典を見る →',
+  },
+  vipDrawer: {
+    titleLead: 'あなたの',
+    titleAccent: 'VIP 特典',
+    note: 'お好きな1つを——ご到着は事前に店舗へお知らせします。当日その場でお選びください。',
+    close: 'VIP 特典一覧を閉じる',
+  },
   cta: {
     headingLead: 'あなたの',
     headingAccent: 'VIP体験を',
@@ -3081,6 +3107,17 @@ const zhTW: SpaPageCopy = {
   concierge: {
     title: '您的免費回程接送也已備妥',
     body: '當您結束時——餐飲後、服務剛結束、任何時間——只需傳訊息給我們。同一輛豪華專車會回來接您，送往您的酒店、機場、碼頭，或澳門境內任何地點。與接送同樣零費用。',
+  },
+  vipReminder: {
+    title: '別忘了——我們為您準備的 VIP 尊享',
+    body: '通過我們預約，可任選 1 項 VIP 尊享——由專業技師為您服務。包含擦背服務、腿部按摩、頭部按摩、足底按摩、修手指甲、修腳指甲、手部按摩、採耳。我們會事先通知場地您的到訪，到場時可直接挑選。',
+    cta: '查看全部 8 項 →',
+  },
+  vipDrawer: {
+    titleLead: '您的',
+    titleAccent: 'VIP 尊享',
+    note: '任選 1 項——我們會事先通知場地您的到訪，到場時可直接挑選。',
+    close: '關閉 VIP 尊享清單',
   },
   cta: {
     headingLead: '預約您的',
@@ -4548,6 +4585,17 @@ const zhCN: SpaPageCopy = {
   concierge: {
     title: '您的免费回程接送也已备妥',
     body: '当您结束时——餐饮后、服务刚结束、任何时间——只需发信息给我们。同一辆豪华专车会回来接您，送往您的酒店、机场、码头，或澳门境内任何地点。与接送同样零费用。',
+  },
+  vipReminder: {
+    title: '别忘了——我们为您准备的 VIP 尊享',
+    body: '通过我们预约，可任选 1 项 VIP 尊享——由专业技师为您服务。包含擦背服务、腿部按摩、头部按摩、足底按摩、修手指甲、修脚指甲、手部按摩、采耳。我们会事先通知场地您的到访，到场时可直接挑选。',
+    cta: '查看全部 8 项 →',
+  },
+  vipDrawer: {
+    titleLead: '您的',
+    titleAccent: 'VIP 尊享',
+    note: '任选 1 项——我们会事先通知场地您的到访，到场时可直接挑选。',
+    close: '关闭 VIP 尊享清单',
   },
   cta: {
     headingLead: '预约您的',
@@ -6020,6 +6068,17 @@ const ko: SpaPageCopy = {
   concierge: {
     title: '무료 귀가 차량도 준비되어 있습니다',
     body: '이용이 끝나면 — 식사 후, 서비스 직후, 언제든지 — 메시지 한 통만 보내주세요. 같은 고급 차량이 호텔, 공항, 페리 터미널 등 마카오 어디든 모셔다 드립니다. 픽업과 마찬가지로 완전 무료입니다.',
+  },
+  vipReminder: {
+    title: '잊지 마세요 — 준비해 둔 VIP 혜택',
+    body: '저희를 통해 예약하시면 8가지 VIP 혜택 중 1가지를 고르실 수 있습니다. 전문 테라피스트가 제공하는 등 스크럽·다리 마사지·헤드 마사지·발 마사지·손톱 케어·발톱 케어·핸드 마사지·귀이개 중에서 선택하세요. 도착을 미리 업소에 알려 드리니, 현장에서 바로 고르시면 됩니다.',
+    cta: '8가지 혜택 보기 →',
+  },
+  vipDrawer: {
+    titleLead: '당신의',
+    titleAccent: 'VIP 혜택',
+    note: '1가지 선택 — 도착을 미리 업소에 알려 드리니, 현장에서 바로 고르시면 됩니다.',
+    close: 'VIP 혜택 목록 닫기',
   },
   cta: {
     headingLead: '당신의',
