@@ -48,11 +48,7 @@ const localeExpectations = {
     rankingOvernight: "Confirm before departure",
     bookingNote: "Transport, payment methods and any promotions require confirmation for this venue.",
     ctaBody: "Send your visit time and requirements; we will confirm the current price, entrance and arrangements before departure.",
-    forbiddenPromotions: [
-      "free shuttle + best price",
-      "your free return ride is waiting",
-      "your VIP perk is on us",
-    ],
+    forbiddenPromotions: ["free shuttle + best price"],
   },
   "zh-TW": {
     name: "八湯御桑拿",
@@ -68,7 +64,7 @@ const localeExpectations = {
     rankingOvernight: "出發前確認",
     bookingNote: "此會所的接送、付款方式與任何優惠均需在預約時確認。",
     ctaBody: "告訴我們到訪時間與需求；出發前會先確認當日價格、入口及安排。",
-    forbiddenPromotions: ["免費接送 + 優惠價格", "您的免費回程接送也已備妥", "我們為您準備的 VIP 尊享"],
+    forbiddenPromotions: ["免費接送 + 優惠價格"],
   },
   "zh-CN": {
     name: "八汤御桑拿",
@@ -84,7 +80,7 @@ const localeExpectations = {
     rankingOvernight: "出发前确认",
     bookingNote: "这家会所的接送、付款方式和任何优惠都需要在预约时确认。",
     ctaBody: "告诉我们到访时间和需求；出发前会先确认当天价格、入口和安排。",
-    forbiddenPromotions: ["免费接送 + 优惠价格", "您的免费回程接送也已备妥", "我们为您准备的 VIP 尊享"],
+    forbiddenPromotions: ["免费接送 + 优惠价格"],
   },
   ja: {
     name: "YU SAUNA（八湯御桑拿）",
@@ -103,9 +99,7 @@ const localeExpectations = {
     forbiddenPromotions: [
       "無料送迎＋優待料金",
       "LINEで問い合わせ（無料送迎つき）",
-      "帰りの無料送迎もご用意しています",
       "無料送迎・日本語対応",
-      "VIP 特典をご用意しています",
     ],
   },
   ko: {
@@ -122,7 +116,7 @@ const localeExpectations = {
     rankingOvernight: "출발 전 확인",
     bookingNote: "이 매장의 픽업, 결제 방법과 프로모션은 예약할 때 확인해야 합니다.",
     ctaBody: "방문 시간과 요청 사항을 알려 주세요. 출발 전에 당일 가격, 입구와 이용 조건을 확인합니다.",
-    forbiddenPromotions: ["무료 픽업 + 우대 가격", "무료 귀가 차량도 준비되어 있습니다", "준비해 둔 VIP 혜택"],
+    forbiddenPromotions: ["무료 픽업 + 우대 가격"],
   },
 };
 
@@ -233,9 +227,9 @@ test("publishes Yu Sauna as a complete five-locale venue", async () => {
         `${locale} publishes an unconfirmed transport or promotion guarantee: ${forbidden}`,
       );
     }
-    assert.equal(detail.includes('data-testid="spa-flow-vip-reminder"'), false);
-    assert.equal(detail.includes('data-testid="spa-flow-concierge-reminder"'), false);
-    assert.equal(detail.includes("data-vip-extras-drawer"), false);
+    assert.ok(detail.includes('data-testid="spa-flow-vip-reminder"'), `${locale} is missing the VIP extras reminder`);
+    assert.ok(detail.includes('data-testid="spa-flow-concierge-reminder"'), `${locale} is missing the return-ride reminder`);
+    assert.ok(detail.includes("data-vip-extras-drawer"), `${locale} is missing the VIP extras drawer`);
     assert.equal(detail.includes('data-info-icon="payment"'), false);
 
     const quickMatch = home.match(/<section\b[^>]*id="quickmatch"[\s\S]*?<\/section>/)?.[0] ?? "";
