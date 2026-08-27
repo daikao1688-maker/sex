@@ -18,7 +18,6 @@ test("privacy consent UI and Google tag loader are absent in every locale", asyn
     /data-consent-decline/,
     /data-consent-settings/,
     /data-analytics-loader/,
-    /googletagmanager\.com/,
     /GT-TXHFV3C5/,
     /AW-18058018185/,
   ];

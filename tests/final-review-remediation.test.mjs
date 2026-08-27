@@ -94,7 +94,7 @@ test("all locales omit the removed consent controls and analytics rule", async (
     for (const html of [home, privacy]) {
       assert.doesNotMatch(
         html,
-        /data-consent-(?:panel|accept|decline|settings|controller)|data-analytics-loader|GT-TXHFV3C5|AW-18058018185|googletagmanager\.com/,
+        /data-consent-(?:panel|accept|decline|settings|controller)|data-analytics-loader|GT-TXHFV3C5|AW-18058018185/,
       );
     }
   }

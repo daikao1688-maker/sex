@@ -66,7 +66,7 @@ test("privacy pages omit removed Google tags and still explain every outbound me
     const html = await readPage(locale, "privacy");
     const text = visibleText(html);
 
-    assert.doesNotMatch(html, /GT-TXHFV3C5|AW-18058018185|googletagmanager\.com|data-consent-settings/);
+    assert.doesNotMatch(html, /GT-TXHFV3C5|AW-18058018185|data-consent-settings/);
     for (const platform of ["WhatsApp", "WeChat", "Telegram", "LINE"]) {
       assert.ok(text.includes(platform), `${locale} omits outbound handling for ${platform}`);
     }

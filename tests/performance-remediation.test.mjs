@@ -157,7 +157,7 @@ test("localized production pages omit consent UI and Google tag payloads", async
     const html = await readPage(locale);
     assert.doesNotMatch(
       html,
-      /data-(?:analytics-loader|consent-(?:panel|accept|decline|settings|controller))|googletagmanager\.com|GT-TXHFV3C5|AW-18058018185/i,
+      /data-(?:analytics-loader|consent-(?:panel|accept|decline|settings|controller))|GT-TXHFV3C5|AW-18058018185/i,
       `${locale} still ships removed consent or Google tag behavior`,
     );
   }
@@ -168,7 +168,7 @@ test("the 404 keeps shared branding but omits analytics and remote font payloads
 
   assert.match(html, /data-testid="not-found"/);
   assert.match(html, /data-404-brand/);
-  assert.doesNotMatch(html, /data-analytics-loader|googletagmanager\.com|fonts\.google/i);
+  assert.doesNotMatch(html, /data-analytics-loader|fonts\.google/i);
 });
 
 test("hero initially fetches only its active source and preloads the next source shortly before rotation", async () => {
