@@ -26,7 +26,6 @@ export const replacementVenueGalleryFiles: Partial<Record<VenueSlug, readonly st
     "macau-sauna-spa-yu-sauna-gallery-20260827-01",
     "macau-sauna-spa-yu-sauna-gallery-20260827-02",
     "macau-sauna-spa-yu-sauna-gallery-20260827-03",
-    "macau-sauna-spa-yu-sauna-gallery-20260827-04",
     "macau-sauna-spa-yu-sauna-gallery-20260827-05",
     "macau-sauna-spa-yu-sauna-gallery-20260827-06",
     "macau-sauna-spa-yu-sauna-gallery-20260827-07",

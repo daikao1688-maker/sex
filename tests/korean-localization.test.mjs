@@ -420,7 +420,7 @@ test("SpaGrid image alternatives and footer copyright use each locale's language
 test("all active Korean galleries expose specific Korean alternative text and captions", async () => {
   const galleryCounts = {
     "clube-rio": 5,
-    "yu-sauna": 11,
+    "yu-sauna": 10,
     "manhao-spa": 11,
     "number-nine-sauna": 7,
     "shang-pin-spa": 11,
@@ -461,7 +461,7 @@ test("all active Korean galleries expose specific Korean alternative text and ca
     renderedImages += expectedCount;
   }
 
-  assert.equal(renderedImages, 179, "Korean pages must expose all 179 active gallery descriptions");
+  assert.equal(renderedImages, 178, "Korean pages must expose all 178 active gallery descriptions");
 });
 
 test("Korean server and client month labels use Korean month and year forms", async () => {

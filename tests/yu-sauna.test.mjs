@@ -208,8 +208,8 @@ test("publishes Yu Sauna as a complete five-locale venue", async () => {
     assert.ok(detail.match(/data-spa-service-fee[^<]*10%/), `${locale} is missing the 10% fee`);
     assert.equal(
       (detail.match(/<button[^>]*data-gallery-open/g) ?? []).length,
-      11,
-      `${locale} does not render all eleven owner-supplied photos`,
+      10,
+      `${locale} does not render the ten remaining owner-supplied photos`,
     );
 
     assert.ok(home.includes(`/${locale}/spa/${slug}/`), `${locale} homepage is missing Yu Sauna`);
@@ -240,6 +240,24 @@ test("publishes Yu Sauna as a complete five-locale venue", async () => {
 
     const quickMatch = home.match(/<section\b[^>]*id="quickmatch"[\s\S]*?<\/section>/)?.[0] ?? "";
     assert.ok(quickMatch.includes(`/${locale}/spa/${slug}/`), `${locale} Quick Match cannot recommend Yu Sauna`);
+  }
+});
+
+test("removes only the selected fourth Yu Sauna gallery photo", async () => {
+  const removed = "macau-sauna-spa-yu-sauna-gallery-20260827-04";
+  const retainedBefore = "macau-sauna-spa-yu-sauna-gallery-20260827-03";
+  const retainedAfter = "macau-sauna-spa-yu-sauna-gallery-20260827-05";
+
+  for (const locale of Object.keys(localeExpectations)) {
+    const detail = await readFile(path.join(distRoot, locale, "spa", slug, "index.html"), "utf8");
+    assert.equal(
+      detail.includes(`/media/${removed}-lg.webp`),
+      false,
+      `${locale} still renders the selected dry-sauna photo`,
+    );
+    assert.ok(detail.includes(`/media/${leadImage}-lg.webp`), `${locale} changed the requested lead photo`);
+    assert.ok(detail.includes(`/media/${retainedBefore}-lg.webp`), `${locale} removed the preceding photo`);
+    assert.ok(detail.includes(`/media/${retainedAfter}-lg.webp`), `${locale} removed the following photo`);
   }
 });
 
