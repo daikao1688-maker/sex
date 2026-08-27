@@ -22,32 +22,28 @@ export const yuSaunaDetails: Record<Locale, VenueDetail> = {
     ],
     flow: [
       {
-        title: "Confirm the visit in writing",
-        body: "Ask for the package, arrival time, included items and an itemised total. August 2026 public information lists sauna-only entry from MOP 1,299, Shanghai-style massage at MOP 2,199 and general packages from MOP 2,899 to 6,999, with a separate 10% service fee.",
+        title: 'Book your session',
+        body: "Tell us your party size, arrival time and preferences; during the opening period we recommend booking ahead. We notify the venue in advance so you walk straight in, and your free pick of 1 VIP extra is held for you.",
       },
       {
-        title: "Go to the third-floor entrance",
-        body: "Yu Sauna is on the third floor of New Orient Landmark Hotel, 555 Avenida da Amizade. Use the entrance confirmed in your booking message when you arrive.",
+        title: 'Arrive at New Orient Landmark Hotel',
+        body: "The venue is on the 3rd floor of New Orient Landmark Hotel, 555 Avenida da Amizade in NAPE — about 2 km from the Outer Harbour Ferry Terminal and 1 km from Fisherman's Wharf. We can also arrange a free private car from anywhere in Macau.",
       },
       {
-        title: "Change and shower first",
-        body: "Store valuables, change and begin in the partitioned shower area. Ask staff which bathing and steam facilities are open that day before moving on.",
+        title: 'Change and bathe',
+        body: 'Check in at reception, take your locker band and change; sauna-only entry starts at MOP 1,299 as the minimum spend. Soak in the hot pool hall first, then alternate between the timber dry sauna and the glass-fronted steam room to warm up fully.',
       },
       {
-        title: "Choose heat at your own pace",
-        body: "Move between the timber dry sauna, glass-fronted steam room and hot pool according to your comfort. Take breaks and hydrate rather than treating every facility as a required step.",
+        title: 'Dine and rest',
+        body: 'A dining lounge with dark wood, long tables and recliners is there for a break after bathing; ask what food and drinks are served when you book.',
       },
       {
-        title: "Pause in the lounge",
-        body: "The dining area and long rows of recliners provide a quieter interval between bathing and a booked service. Confirm what food or drinks are included instead of assuming they are part of every package.",
+        title: 'Choose your therapist',
+        body: 'The floor manager introduces the multinational therapist lineup so you can pick by preference. Therapists are on duty 13:00–06:00; mention any specific requests when booking.',
       },
       {
-        title: "Reconfirm the private-room service",
-        body: "Before entering a private room, check the selected service, duration, room arrangement and any add-ons. The final charge should match the itemised amount confirmed at arrival.",
-      },
-      {
-        title: "Arrange overnight rest and departure",
-        body: "The venue operates 24 hours, with therapists mainly on duty from 13:00 to 06:00. Overnight stays are available; ask about the rest area and arrangements when booking.",
+        title: 'Massage service',
+        body: 'Shanghai-style massage is MOP 2,199; packages run entry (2,899–3,399), popular (3,599–4,899) and premium (5,599–5,999), with the Japanese-themed package at 6,999. All services take place in private rooms with a bathtub; a second session (double time) adds 999–3,900 depending on the package. A 10% service fee applies to all spending.',
       },
     ],
     gallery: [],
@@ -79,32 +75,28 @@ export const yuSaunaDetails: Record<Locale, VenueDetail> = {
     ],
     flow: [
       {
-        title: "先取得書面總價",
-        body: "說明到場時間與想選的項目，要求列清包含內容與最終總價。2026 年 8 月公開資料列出淨桑拿 MOP 1,299、上海式按摩 MOP 2,199，一般套餐 MOP 2,899–6,999，所有消費另收 10% 服務費。",
+        title: '預約場次',
+        body: '告訴我們人數、預計到場時間與偏好；新開幕期間建議提早預約。我們會先通知場館，您到場後直接入場，並為您保留免費任選 1 項 VIP 加值服務的資格。',
       },
       {
-        title: "前往酒店三樓",
-        body: "八湯御桑拿位於友誼大馬路 555 號新東方置地酒店 3 樓；抵達後按預約訊息所確認的入口進場。",
+        title: '抵達新東方置地酒店',
+        body: '場館位於澳門新口岸友誼大馬路 555 號新東方置地酒店 3 樓，距外港碼頭約 2 公里、漁人碼頭約 1 公里。也可以由我們安排免費專車，澳門全區上門接送。',
       },
       {
-        title: "更衣後先淋浴",
-        body: "把證件與貴重物品妥善收起，更衣後先使用分隔淋浴區；再向職員確認當天開放的熱池與蒸房。",
+        title: '更衣沐浴',
+        body: '前台登記領取手牌後更衣，淨桑拿以 MOP 1,299 作最低消費起算。建議先到熱池大廳浸泡放鬆，再交替使用木質乾蒸房與玻璃蒸房，讓身體充分暖開。',
       },
       {
-        title: "按身體狀態使用熱區",
-        body: "木質乾蒸房、玻璃蒸房與熱池可以按喜好安排，不必每項都用。期間補充水分，感到不適便立即離開高溫區。",
+        title: '餐飲休息',
+        body: '場內設餐飲休息區，深色木質空間配長桌與休閒座椅，沐浴後正好稍作歇息；餐飲供應細節請在預約時一併確認。',
       },
       {
-        title: "到餐飲或躺椅區休息",
-        body: "餐飲區與長排躺椅適合在沐浴和預約項目之間稍作停留；餐飲是否包含在套餐內，應在點選前問清楚。",
+        title: '挑選技師',
+        body: '現場經理會介紹多國籍技師陣容，按您的喜好挑選。技師當班時段為 13:00 至翌日 06:00，有指定需求可在預約時先行說明。',
       },
       {
-        title: "入房前重核項目",
-        body: "進入獨立房前再次確認服務內容、時長、房型與加購項目，結帳金額應與到場時確認的明細一致。",
-      },
-      {
-        title: "安排過夜休息與離場",
-        body: "場館採 24 小時營業，技師主要當班時段為 13:00 至翌日 06:00。場內可過夜，休息區安排請於預約時查詢。",
+        title: '按摩服務',
+        body: '上海式按摩 MOP 2,199；套餐分入門（2,899–3,399）、人氣（3,599–4,899）、尊享（5,599–5,999）三等級，日式主題套餐 6,999。所有服務在附設浴缸的獨立按摩房進行；加購第二節（雙鐘）依套餐 999–3,900。所有消費另收 10% 服務費。',
       },
     ],
     gallery: [],
@@ -136,32 +128,28 @@ export const yuSaunaDetails: Record<Locale, VenueDetail> = {
     ],
     flow: [
       {
-        title: "先取得书面总价",
-        body: "说明到场时间与想选的项目，要求列清包含内容和最终总价。2026 年 8 月公开资料列出净桑拿 MOP 1,299、上海式按摩 MOP 2,199，一般套餐 MOP 2,899–6,999，所有消费另收 10% 服务费。",
+        title: '预约场次',
+        body: '告诉我们人数、预计到场时间与偏好；开业初期建议提前预约。我们会预先通知场馆，您到场后直接入场，并为您保留免费任选 1 项 VIP 加值服务的资格。',
       },
       {
-        title: "前往酒店三楼",
-        body: "八汤御桑拿位于友谊大马路 555 号新东方置地酒店 3 楼；抵达后按预约信息所确认的入口进场。",
+        title: '抵达新东方置地酒店',
+        body: '场馆位于澳门新口岸友谊大马路 555 号新东方置地酒店 3 楼，距外港码头约 2 公里、渔人码头约 1 公里。也可由我们安排免费专车，澳门全区上门接送。',
       },
       {
-        title: "更衣后先淋浴",
-        body: "把证件与贵重物品妥善收起，更衣后先使用分隔淋浴区；再向工作人员确认当天开放的热池和蒸房。",
+        title: '更衣沐浴',
+        body: '前台登记领取手牌后更衣，净桑拿以 MOP 1,299 为最低消费起算。建议先到热池大厅浸泡放松，再交替使用木质干蒸房与玻璃蒸房，让身体充分暖开。',
       },
       {
-        title: "按身体状态使用热区",
-        body: "木质干蒸房、玻璃蒸房与热池可以按喜好安排，不必每项都用。期间补充水分，感到不适就立即离开高温区。",
+        title: '餐饮休息',
+        body: '场内设餐饮休息区，深色木质空间配长桌与休闲座椅，沐浴后正好稍作歇息；餐饮供应细节请在预约时一并确认。',
       },
       {
-        title: "到餐饮或躺椅区休息",
-        body: "餐饮区与长排躺椅适合在沐浴和预约项目之间稍作停留；餐饮是否包含在套餐内，应在点选前问清楚。",
+        title: '挑选技师',
+        body: '现场经理会介绍多国籍技师阵容，按您的喜好挑选。技师当班时段为 13:00 至翌日 06:00，有指定需求可在预约时先行说明。',
       },
       {
-        title: "进房前重核项目",
-        body: "进入独立房前再次确认服务内容、时长、房型与加购项目，结账金额应与到场时确认的明细一致。",
-      },
-      {
-        title: "安排过夜休息与离场",
-        body: "场馆采用 24 小时营业，技师主要当班时段为 13:00 至次日 06:00。场内可过夜，休息区安排请于预约时查询。",
+        title: '按摩服务',
+        body: '上海式按摩 MOP 2,199；套餐分入门（2,899–3,399）、人气（3,599–4,899）、尊享（5,599–5,999）三等级，日式主题套餐 6,999。所有服务在附设浴缸的独立按摩房进行；加购第二节（双钟）依套餐 999–3,900。所有消费另收 10% 服务费。',
       },
     ],
     gallery: [],
@@ -193,32 +181,28 @@ export const yuSaunaDetails: Record<Locale, VenueDetail> = {
     ],
     flow: [
       {
-        title: "内訳付きの合計金額を確認",
-        body: "到着時刻と希望内容を伝え、含まれる項目と合計金額を書面で確認します。2026年8月の公開情報では、サウナのみMOP 1,299、上海式マッサージMOP 2,199、一般パッケージMOP 2,899〜6,999、別途10%のサービス料です。",
+        title: '来店を予約',
+        body: '人数・到着時間・ご希望をお知らせください。オープン初期は事前予約がおすすめです。店舗へ事前に連絡するので到着後そのまま入場でき、無料で選べる VIP 特典 1 つ分もキープされます。',
       },
       {
-        title: "ホテル3階の入口へ",
-        body: "YU SAUNAは友誼大馬路555号New Orient Landmark Hotelの3階にあります。到着後は予約メッセージで確認した入口から入館してください。",
+        title: 'ニューオリエントランドマークホテルへ',
+        body: '場所はマカオ新口岸（NAPE）の友誼大馬路 555 号、ホテル 3 階です。アウターハーバーフェリーターミナルから約 2 km、フィッシャーマンズワーフから約 1 km。マカオ全域への無料送迎車も手配できます。',
       },
       {
-        title: "着替え後はシャワーから",
-        body: "貴重品を保管して着替え、仕切り付きシャワーを利用します。その日に使える浴槽とサウナをスタッフに確認してから進みます。",
+        title: '更衣と入浴',
+        body: 'フロントで受付を済ませリストバンドを受け取ったら更衣を。サウナのみの利用は MOP 1,299 が最低消費の目安です。まず温浴プールでほぐれてから、木製ドライサウナとガラス張りスチームルームを交互に使い、体を十分に温めましょう。',
       },
       {
-        title: "体調に合わせて温浴設備を選ぶ",
-        body: "ドライサウナ、スチームルーム、温水浴槽は体調と好みに合わせて利用します。無理に全部を回らず、水分補給と休憩を優先してください。",
+        title: '食事と休憩',
+        body: 'ダークウッド調のダイニングラウンジにはロングテーブルとリクライナーがあり、入浴後の休憩に最適です。提供される飲食の内容は予約時にご確認ください。',
       },
       {
-        title: "ラウンジでひと休み",
-        body: "ダイニングとリクライニングラウンジは、入浴と予約サービスの間の休憩に使えます。飲食が料金に含まれるかは注文前に確認します。",
+        title: 'セラピスト選び',
+        body: 'フロアマネージャーが多国籍のセラピスト陣を紹介するので、お好みでお選びください。勤務時間は 13:00〜翌 06:00。指名などのご希望は予約時にお伝えください。',
       },
       {
-        title: "個室に入る前に内容を再確認",
-        body: "サービス内容、時間、部屋、追加項目をもう一度確認し、精算額が到着時の明細と一致しているか確かめます。",
-      },
-      {
-        title: "宿泊休憩と退館を手配",
-        body: "施設は24時間営業で、セラピストの主な勤務時間は13:00〜翌06:00です。宿泊可能ですが、休憩スペースの手配は予約時にお問い合わせください。",
+        title: 'マッサージサービス',
+        body: '上海式マッサージは MOP 2,199。パッケージは入門（2,899–3,399）・人気（3,599–4,899）・プレミアム（5,599–5,999）の 3 段階と、和テーマの 6,999 コース。施術はすべてバスタブ付き個室で行われます。2 セット目（ダブル）の追加はコースにより 999–3,900。すべての消費に 10% のサービス料が別途かかります。',
       },
     ],
     gallery: [],
@@ -250,32 +234,28 @@ export const yuSaunaDetails: Record<Locale, VenueDetail> = {
     ],
     flow: [
       {
-        title: "항목별 최종 금액 확인",
-        body: "도착 시각과 원하는 항목을 알리고 포함 내용과 합계를 서면으로 받습니다. 2026년 8월 공개 정보에는 사우나만 이용 시 MOP 1,299, 상하이식 마사지 MOP 2,199, 일반 패키지 MOP 2,899~6,999, 별도 서비스 요금 10%로 안내되어 있습니다.",
+        title: '방문 예약',
+        body: '인원, 도착 시간, 선호 사항을 알려 주세요. 오픈 초기에는 미리 예약하시는 것이 좋습니다. 업소에 미리 연락해 두므로 도착 후 바로 입장할 수 있고, 무료 VIP 특전 1가지 선택권도 확보해 드립니다.',
       },
       {
-        title: "호텔 3층 입구로 이동",
-        body: "YU SAUNA는 Avenida da Amizade 555의 New Orient Landmark Hotel 3층에 있습니다. 도착 후 예약 메시지에서 확인한 입구로 입장하세요.",
+        title: '뉴 오리엔트 랜드마크 호텔 도착',
+        body: '업소는 마카오 NAPE(신커우안) 아베니다 다 아미자데 555호 호텔 3층에 있습니다. 아우터 하버 페리 터미널에서 약 2km, 피셔맨스 워프에서 약 1km 거리입니다. 마카오 전역 무료 전용 차량 픽업도 예약할 수 있습니다.',
       },
       {
-        title: "환복 후 샤워부터 시작",
-        body: "귀중품을 보관하고 옷을 갈아입은 뒤 파티션 샤워 공간을 이용합니다. 당일 운영하는 온탕과 사우나를 직원에게 확인한 후 이동하세요.",
+        title: '탈의와 입욕',
+        body: '프런트에서 체크인 후 팔찌를 받고 탈의하세요. 사우나만 이용하면 MOP 1,299가 최소 소비 기준입니다. 먼저 온탕 홀에서 몸을 푼 뒤, 우드 드라이 사우나와 유리 스팀룸을 번갈아 이용하며 몸을 충분히 데우세요.',
       },
       {
-        title: "몸 상태에 맞춰 온열 시설 이용",
-        body: "드라이 사우나, 스팀룸, 온탕은 컨디션과 취향에 맞게 선택합니다. 모든 시설을 억지로 이용하지 말고 수분 섭취와 휴식을 우선하세요.",
+        title: '식사와 휴식',
+        body: '다크 우드 톤의 다이닝 라운지에 긴 테이블과 리클라이너가 있어 입욕 후 쉬기에 좋습니다. 제공되는 식음료 내용은 예약 시 확인해 주세요.',
       },
       {
-        title: "라운지에서 쉬기",
-        body: "다이닝과 긴 리클라이너 라운지는 목욕과 예약 서비스 사이에 쉬기 좋습니다. 음식과 음료가 패키지에 포함되는지는 주문 전에 확인하세요.",
+        title: '테라피스트 선택',
+        body: '플로어 매니저가 다국적 테라피스트 라인업을 소개하므로 취향대로 고르시면 됩니다. 근무 시간은 13:00–익일 06:00이며, 지정 등 원하는 사항은 예약 시 미리 말씀해 주세요.',
       },
       {
-        title: "독립 룸 입장 전 재확인",
-        body: "서비스 종류, 시간, 룸 배치와 추가 항목을 다시 확인하고, 결제 금액이 도착 때 받은 항목별 합계와 같은지 확인합니다.",
-      },
-      {
-        title: "숙박 휴식과 퇴장 일정 조율",
-        body: "시설은 24시간 운영하며 테라피스트의 주요 근무 시간은 13:00~다음 날 06:00입니다. 숙박할 수 있으며 휴식 공간 배정은 예약할 때 문의하세요.",
+        title: '마사지 서비스',
+        body: '상하이식 마사지는 MOP 2,199. 패키지는 입문(2,899–3,399), 인기(3,599–4,899), 프리미엄(5,599–5,999) 3단계와 일본식 테마 6,999 코스가 있습니다. 모든 서비스는 욕조가 딸린 독립 룸에서 진행되며, 두 번째 세션(더블) 추가는 패키지에 따라 999–3,900입니다. 모든 소비에 10% 봉사료가 별도 부과됩니다.',
       },
     ],
     gallery: [],
