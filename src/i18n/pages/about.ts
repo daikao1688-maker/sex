@@ -32,7 +32,7 @@ export interface AboutCopy {
 const en: AboutCopy = {
   meta: {
     title: 'About Us - Macau Sauna Sites',
-    description: 'Learn how Macau Sauna Sites organises information on 14 venue profiles, keeps changing details in view, and helps visitors compare their options before booking.',
+    description: 'Learn how Macau Sauna Sites organises information on 15 venue profiles, keeps changing details in view, and helps visitors compare their options before booking.',
   },
   breadcrumbs: [
     {
@@ -47,7 +47,7 @@ const en: AboutCopy = {
   eyebrow: 'About',
   headingLead: 'A Clearer Way to',
   headingAccent: 'Navigate Macau Saunas',
-  intro: '{brand} brings 14 venue profiles into one practical guide. We organise opening status, price ranges, locations, overnight arrangements and venue features, then reconfirm details that may change before a booking. The aim is simple: help you compare the options without having to piece everything together yourself.',
+  intro: '{brand} brings 15 venue profiles into one practical guide. We organise opening status, price ranges, locations, overnight arrangements and venue features, then reconfirm details that may change before a booking. The aim is simple: help you compare the options without having to piece everything together yourself.',
   brand: 'Macau Sauna Sites',
   backHome: 'Back to Home',
   services: {
@@ -84,7 +84,7 @@ const en: AboutCopy = {
     stats: [
       {
         icon: 'users',
-        value: '14',
+        value: '15',
         label: 'Venue profiles listed',
       },
       {
@@ -103,7 +103,7 @@ const en: AboutCopy = {
         label: 'Shortlist and logistics together',
       },
     ],
-    note: 'The directory contains 14 venue profiles, including venues that may be temporarily closed. Opening status, prices, hours, staff availability, overnight arrangements and transport can change, so the latest details should always be reconfirmed before a visit.',
+    note: 'The directory contains 15 venue profiles, including venues that may be temporarily closed. Opening status, prices, hours, staff availability, overnight arrangements and transport can change, so the latest details should always be reconfirmed before a visit.',
   },
   why: {
     heading: 'Why we built the site',
@@ -123,7 +123,7 @@ const en: AboutCopy = {
 const ja: AboutCopy = {
   meta: {
     title: '私たちについて - マカオ・サウナ・ガイド',
-    description: 'マカオのサウナ14店舗について、営業状況、料金の目安、場所、宿泊可否などを整理し、来店前の比較と確認をお手伝いするサイトです。',
+    description: 'マカオのサウナ15店舗について、営業状況、料金の目安、場所、宿泊可否などを整理し、来店前の比較と確認をお手伝いするサイトです。',
   },
   breadcrumbs: [
     {
@@ -138,7 +138,7 @@ const ja: AboutCopy = {
   eyebrow: '私たちについて',
   headingLead: 'マカオのサウナ選びを',
   headingAccent: 'わかりやすく',
-  intro: '{brand} は、マカオのサウナ14店舗について、営業状況、料金の目安、場所、宿泊可否、各店の特徴を一か所にまとめた案内サイトです。予約前には、変更されやすい情報をあらためて確認します。初めての方でも、必要な情報を探し回らずに比較できることを目指しています。',
+  intro: '{brand} は、マカオのサウナ15店舗について、営業状況、料金の目安、場所、宿泊可否、各店の特徴を一か所にまとめた案内サイトです。予約前には、変更されやすい情報をあらためて確認します。初めての方でも、必要な情報を探し回らずに比較できることを目指しています。',
   brand: 'マカオ・サウナ・ガイド',
   backHome: 'ホームに戻る',
   services: {
@@ -175,7 +175,7 @@ const ja: AboutCopy = {
     stats: [
       {
         icon: 'users',
-        value: '14',
+        value: '15',
         label: '掲載している店舗',
       },
       {
@@ -194,7 +194,7 @@ const ja: AboutCopy = {
         label: '候補と移動をまとめて整理',
       },
     ],
-    note: '当サイトには、営業中の店舗だけでなく、一時休業中の店舗を含む14件の情報を掲載しています。営業状況、料金、営業時間、スタッフの勤務状況、宿泊、送迎は変更される場合があるため、来店前に最新情報をご確認ください。',
+    note: '当サイトには、営業中の店舗だけでなく、一時休業中の店舗を含む15件の情報を掲載しています。営業状況、料金、営業時間、スタッフの勤務状況、宿泊、送迎は変更される場合があるため、来店前に最新情報をご確認ください。',
   },
   why: {
     heading: 'このサイトを作った理由',
@@ -214,7 +214,7 @@ const ja: AboutCopy = {
 const zhTW: AboutCopy = {
   meta: {
     title: '關於我們 - 澳門桑拿導航站',
-    description: '了解澳門桑拿導航站如何整理 14 間場所資料、標示營業狀態，並在預約前協助核實價格、時段、過夜及接送安排。',
+    description: '了解澳門桑拿導航站如何整理 15 間場所資料、標示營業狀態，並在預約前協助核實價格、時段、過夜及接送安排。',
   },
   breadcrumbs: [
     {
@@ -229,7 +229,7 @@ const zhTW: AboutCopy = {
   eyebrow: '關於我們',
   headingLead: '把澳門桑拿資訊',
   headingAccent: '整理得更清楚',
-  intro: '{brand} 收錄 14 間場所，將營業狀態、價格範圍、所在區域、過夜安排與場所特色放在同一個網站，方便您逐間比較。預約前，我們亦會就容易變動的資料再次核實，讓第一次接觸澳門桑拿的人也能先看懂、再決定。',
+  intro: '{brand} 收錄 15 間場所，將營業狀態、價格範圍、所在區域、過夜安排與場所特色放在同一個網站，方便您逐間比較。預約前，我們亦會就容易變動的資料再次核實，讓第一次接觸澳門桑拿的人也能先看懂、再決定。',
   brand: '澳門桑拿導航站',
   backHome: '返回首頁',
   services: {
@@ -266,7 +266,7 @@ const zhTW: AboutCopy = {
     stats: [
       {
         icon: 'users',
-        value: '14',
+        value: '15',
         label: '收錄會所資料',
       },
       {
@@ -285,7 +285,7 @@ const zhTW: AboutCopy = {
         label: '整理選擇與行程',
       },
     ],
-    note: '網站收錄 14 間場所，當中亦包括目前暫停營業的場所。營業狀態、價格、時段、技師安排、過夜及接送均可能變動，請在出發前以最新確認為準。',
+    note: '網站收錄 15 間場所，當中亦包括目前暫停營業的場所。營業狀態、價格、時段、技師安排、過夜及接送均可能變動，請在出發前以最新確認為準。',
   },
   why: {
     heading: '為何建立這個網站',
@@ -305,7 +305,7 @@ const zhTW: AboutCopy = {
 const zhCN: AboutCopy = {
   meta: {
     title: '关于我们 - 澳门桑拿导航站',
-    description: '了解澳门桑拿导航站如何整理 14 家场所的信息和营业状态，并在预约前协助确认价格、时段、过夜及接送安排。',
+    description: '了解澳门桑拿导航站如何整理 15 家场所的信息和营业状态，并在预约前协助确认价格、时段、过夜及接送安排。',
   },
   breadcrumbs: [
     {
@@ -320,7 +320,7 @@ const zhCN: AboutCopy = {
   eyebrow: '关于我们',
   headingLead: '把澳门桑拿信息',
   headingAccent: '整理得更清楚',
-  intro: '{brand} 收录了 14 家场所，把营业状态、价格范围、所在区域、过夜安排和场所特点集中到同一个网站，方便逐项比较。预约前，我们也会重新确认容易变化的信息，让第一次了解澳门桑拿的人可以先看明白，再做决定。',
+  intro: '{brand} 收录了 15 家场所，把营业状态、价格范围、所在区域、过夜安排和场所特点集中到同一个网站，方便逐项比较。预约前，我们也会重新确认容易变化的信息，让第一次了解澳门桑拿的人可以先看明白，再做决定。',
   brand: '澳门桑拿导航站',
   backHome: '返回首页',
   services: {
@@ -357,7 +357,7 @@ const zhCN: AboutCopy = {
     stats: [
       {
         icon: 'users',
-        value: '14',
+        value: '15',
         label: '收录会所信息',
       },
       {
@@ -376,7 +376,7 @@ const zhCN: AboutCopy = {
         label: '整理选择与行程',
       },
     ],
-    note: '网站收录 14 家场所，其中也包括目前暂停营业的场所。营业状态、价格、时段、技师安排、过夜和接送都可能变化，请以出发前的最新确认为准。',
+    note: '网站收录 15 家场所，其中也包括目前暂停营业的场所。营业状态、价格、时段、技师安排、过夜和接送都可能变化，请以出发前的最新确认为准。',
   },
   why: {
     heading: '为什么建立这个网站',
@@ -396,7 +396,7 @@ const zhCN: AboutCopy = {
 const ko: AboutCopy = {
   meta: {
     title: '소개 - 마카오 사우나 가이드',
-    description: '마카오 사우나 가이드가 14개 매장의 정보와 영업 상태를 어떻게 정리하는지, 그리고 예약 전 가격, 시간, 숙박, 픽업 배차를 어떻게 확인해 드리는지 알아보세요.',
+    description: '마카오 사우나 가이드가 15개 매장의 정보와 영업 상태를 어떻게 정리하는지, 그리고 예약 전 가격, 시간, 숙박, 픽업 배차를 어떻게 확인해 드리는지 알아보세요.',
   },
   breadcrumbs: [
     {
@@ -411,7 +411,7 @@ const ko: AboutCopy = {
   eyebrow: '소개',
   headingLead: '마카오 사우나 정보를',
   headingAccent: '더 알기 쉽게 정리합니다',
-  intro: '{brand}은(는) 14개 매장을 수록하며, 영업 상태, 가격 범위, 소재 지역, 숙박 배치, 매장 특징을 한 사이트에 모아 항목별로 비교할 수 있게 합니다. 예약 전에는 변동되기 쉬운 정보를 다시 확인해, 마카오 사우나를 처음 알아보는 분도 먼저 이해하고 결정할 수 있도록 돕습니다.',
+  intro: '{brand}은(는) 15개 매장을 수록하며, 영업 상태, 가격 범위, 소재 지역, 숙박 배치, 매장 특징을 한 사이트에 모아 항목별로 비교할 수 있게 합니다. 예약 전에는 변동되기 쉬운 정보를 다시 확인해, 마카오 사우나를 처음 알아보는 분도 먼저 이해하고 결정할 수 있도록 돕습니다.',
   brand: '마카오 사우나 가이드',
   backHome: '홈으로 돌아가기',
   services: {
@@ -448,7 +448,7 @@ const ko: AboutCopy = {
     stats: [
       {
         icon: 'users',
-        value: '14',
+        value: '15',
         label: '수록 매장 정보',
       },
       {
@@ -467,7 +467,7 @@ const ko: AboutCopy = {
         label: '선택과 일정 정리',
       },
     ],
-    note: '사이트에는 현재 일시 휴업 중인 매장을 포함해 14개 매장이 수록되어 있습니다. 영업 상태, 가격, 시간대, 테라피스트 배치, 숙박, 픽업은 모두 변동될 수 있으니 출발 전 최신 확인을 기준으로 하세요.',
+    note: '사이트에는 현재 일시 휴업 중인 매장을 포함해 15개 매장이 수록되어 있습니다. 영업 상태, 가격, 시간대, 테라피스트 배치, 숙박, 픽업은 모두 변동될 수 있으니 출발 전 최신 확인을 기준으로 하세요.',
   },
   why: {
     heading: '이 사이트를 만든 이유',

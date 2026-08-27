@@ -4,7 +4,7 @@ const en: Dictionary = {
   meta: {
     title: 'Macau Sauna Sites | Luxury VIP Booking & Free Shuttle',
     description:
-      'Compare 14 Macau sauna and spa listings, including current closure notices, reference prices, facilities and private shuttle support.',
+      'Compare 15 Macau sauna and spa listings, including current closure notices, reference prices, facilities and private shuttle support.',
     siteName: 'Macau Sauna Sites',
     ogImageAlt: 'Macau Sauna & Spa 2026 | Luxury VIP Booking & Free Shuttle',
   },
@@ -33,7 +33,7 @@ const en: Dictionary = {
     title: 'Macau Sauna & Spa — Your VIP Experience',
     tagline: 'Complimentary 24/7 Private Shuttle Pickup & Return',
     venueGroups: [
-      'Clube Rio, Number Nine Spa\nEmpire Sauna, Manhao Spa\nShang Pin Spa, Number One Sauna',
+      'Clube Rio, Yu Sauna, Number Nine Spa\nEmpire Sauna, Manhao Spa\nShang Pin Spa, Majesty Spa',
       'Familia Nobre, East Castle Spa\nVictoria Sauna\nMajesty Spa, M CLUB',
     ],
     steps: [
@@ -59,7 +59,7 @@ const en: Dictionary = {
   spas: {
     heading: 'Featured Saunas',
     intro:
-      'Explore 14 popular Macau sauna venues, with updates on prices, opening status, team size and other practical details.',
+      'Explore 15 popular Macau sauna venues, with updates on prices, opening status, team size and other practical details.',
     filterLabel: 'Filter venues',
     filters: [
       { bucket: 'all', label: 'All' },
@@ -86,6 +86,14 @@ const en: Dictionary = {
         summary: 'Clube Rio is a business-KTV club on the third floor of Hotel Rio in NAPE, with private karaoke rooms and spa options.',
         description:
           'Clube Rio is a business-KTV club that held its grand opening on 30 July 2026 on the 3rd floor of Hotel Rio in the NAPE district — the only karaoke-first venue in the Macau sauna scene, which is why regulars call it the "KTV King" of Macau sauna nightlife. Crystal chandeliers over a wall of red roses in the main lounge, gold-leaf dragon-and-eagle art in the VIP rooms, big party rooms for a whole crew — every room is fully private with premium sound, equally right for business hosting and a night with friends.\n\nThe signature way to play is companion karaoke (坐檯): a companion joins your room to sit with you, sing with you and share drinks. Pair it with the signature package — 1 hour companion karaoke + 1 hour spa massage with free-flow drinks — and the whole night happens in one place. Prefer it quiet? Spa massage can be booked on its own. Open until 4 am, no overnight stay — the freshest pick for a singing, toasting kind of night.',
+      },
+      'yu-sauna': {
+        name: 'Yu Sauna',
+        badge: 'NAPE · Bathing & Rest',
+        summary:
+          'Yu Sauna is a NAPE venue inside New Orient Landmark Hotel, with dry and steam rooms, showers, a hot pool and a recliner lounge.',
+        description:
+          'Yu Sauna (YU SAUNA) opened on 26 August 2026 on the third floor of New Orient Landmark Hotel in NAPE, Macau, close to Macau Fisherman\'s Wharf and the Outer Harbour Ferry Terminal. Its central NAPE location makes it convenient whether arriving by ferry or staying in the Macau Peninsula hotel district.\n\nThe venue was fully refurbished in 2025, blending Japanese Zen restraint with refined Chinese details. Facilities include a Japanese cypress dry sauna, a full-height glass steam room, a spacious hot-pool hall and treatment rooms with private bathtubs. Timber latticework, a red-lantern corridor and the dining-rest area echo one another to create a quiet, polished and layered spa atmosphere.\n\nYu Sauna operates 24 hours. Therapists are mainly on duty from 13:00 to 06:00 the following day, with a multinational team. Charges cover sauna-only access, Shanghai-style massage and several spa-package tiers; the Japanese-themed package is the venue\'s highest tier. A 10% service fee applies to all spending.',
       },
       'manhao-spa': {
         name: 'Manhao Spa',

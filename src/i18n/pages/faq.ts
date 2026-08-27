@@ -77,7 +77,7 @@ const en: FaqCopy = {
       items: [
         {
           question: 'What are the operating hours?',
-          answer: 'Empire, Shang Pin, Number Nine, Majesty and The Excellent run 24 hours. Manhao opens 14:00–04:00. At The Excellent, therapist shifts run 13:00–05:00; therapist shifts at other venues vary — see each venue page, or we\'ll confirm when you book.',
+          answer: 'Yu Sauna, Empire, Shang Pin, Number Nine, Majesty and The Excellent are publicly listed as running 24 hours. Manhao opens 14:00–04:00. Yu Sauna lists therapist hours of 13:00–06:00, while shifts at other venues vary — see each venue page, or we\'ll confirm when you book.',
         },
         {
           question: 'When are the most staff available?',
@@ -147,7 +147,7 @@ const en: FaqCopy = {
         },
         {
           question: 'Is this a spa or a sauna? What\'s the difference?',
-          answer: 'In Macau, "sauna" and "spa" usually mean the same kind of all-in-one club — bathing, dry and wet steam, dining, massage treatments and, at some venues, overnight rest in one place. Our directory covers 14 venue profiles, including temporarily closed locations; always reconfirm the operator, licence and current status before visiting.',
+          answer: 'In Macau, "sauna" and "spa" usually mean the same kind of all-in-one club — bathing, dry and wet steam, dining, massage treatments and, at some venues, overnight rest in one place. Our directory covers 15 venue profiles, including temporarily closed locations; always reconfirm the operator, licence and current status before visiting.',
         },
       ],
     },
@@ -207,7 +207,7 @@ const ja: FaqCopy = {
         },
         {
           question: 'マカオ サウナはどの店がおすすめですか？',
-          answer: 'ご予算・エリア・好みのタイプ（日本人／韓国人のスタッフが多い店、設備が新しい店、宿泊向きの店など）によっておすすめは変わります。当サイトでは14店舗の情報と休業状況を整理しています。LINEでご希望をお知らせいただければ、営業中の選択肢から条件に合う店舗をご案内します。料金、営業状況、許可情報は来店前にあらためてご確認ください。',
+          answer: 'ご予算・エリア・好みのタイプ（日本人／韓国人のスタッフが多い店、設備が新しい店、宿泊向きの店など）によっておすすめは変わります。当サイトでは15店舗の情報と休業状況を整理しています。LINEでご希望をお知らせいただければ、営業中の選択肢から条件に合う店舗をご案内します。料金、営業状況、許可情報は来店前にあらためてご確認ください。',
         },
       ],
     },
@@ -241,7 +241,7 @@ const ja: FaqCopy = {
       items: [
         {
           question: '営業時間を教えてください。何時に行くのがいい？',
-          answer: '巨亨・尚品・玖号・尊貴・極品は24時間営業。曼濠は14:00〜翌4:00です。極品の女の子の出勤時間帯は13:00〜翌5:00で、その他の店舗は異なります。詳細は各店舗ページをご確認いただくか、ご予約時にご案内します。',
+          answer: 'YU SAUNA・巨亨・尚品・玖号・尊貴・極品は公開情報で24時間営業と案内されています。曼濠は14:00〜翌4:00です。YU SAUNAのスタッフ対応時間は13:00〜翌6:00で、その他の店舗も勤務時間帯が異なります。詳細は各店舗ページをご確認いただくか、ご予約時にご案内します。',
         },
         {
           question: '女の子の人数が一番そろう時間帯はいつですか？',
@@ -323,7 +323,7 @@ const ja: FaqCopy = {
         },
         {
           question: 'スパ（水療）とサウナ（桑拿）はどう違うのですか？',
-          answer: 'マカオでは、「サウナ（桑拿）」と「スパ（水療）」が、入浴、ドライ／スチームサウナ、食事、施術、店舗によっては宿泊休憩までをまとめた施設を指すことがあります。日本の一般的なサウナ施設とは内容が異なります。当サイトは一時休業中を含む14店舗を掲載しています。営業状況、料金、営業許可、送迎条件は変わるため、来店前に最新情報をご確認ください。',
+          answer: 'マカオでは、「サウナ（桑拿）」と「スパ（水療）」が、入浴、ドライ／スチームサウナ、食事、施術、店舗によっては宿泊休憩までをまとめた施設を指すことがあります。日本の一般的なサウナ施設とは内容が異なります。当サイトは一時休業中を含む15店舗を掲載しています。営業状況、料金、営業許可、送迎条件は変わるため、来店前に最新情報をご確認ください。',
         },
       ],
     },
@@ -397,7 +397,7 @@ const zhTW: FaqCopy = {
       items: [
         {
           question: '營業時間？',
-          answer: '巨亨、尚品、玖號、尊貴與極品 24 小時營業；曼濠為 14:00–04:00。極品技師當班時段為 13:00–05:00，其他場館技師當班時段不一，詳情見各場館頁面，或預約時由專人確認。',
+          answer: '八湯御、巨亨、尚品、玖號、尊貴與極品的公開資料標示 24 小時營業；曼濠為 14:00–04:00。八湯御技師時段為 13:00–06:00，其他場館亦有不同當班時段，詳情見各場館頁面，或預約時由專人確認。',
         },
         {
           question: '幾點技師比較多？',
@@ -467,7 +467,7 @@ const zhTW: FaqCopy = {
         },
         {
           question: '這是 spa（水療）還是桑拿？有什麼分別？',
-          answer: '在澳門，「桑拿」與「水療（spa）」通常指結合沐浴、乾濕蒸、餐飲、按摩護理，以及部分場所的過夜休息設施，並非單純的三溫暖或單項按摩店。本站收錄 14 間場所，當中包括暫停營業的舊場資料；營業狀態、營運方及牌照資訊均應在到訪前再次確認。',
+          answer: '在澳門，「桑拿」與「水療（spa）」通常指結合沐浴、乾濕蒸、餐飲、按摩護理，以及部分場所的過夜休息設施，並非單純的三溫暖或單項按摩店。本站收錄 15 間場所，當中包括暫停營業的舊場資料；營業狀態、營運方及牌照資訊均應在到訪前再次確認。',
         },
       ],
     },
@@ -541,7 +541,7 @@ const zhCN: FaqCopy = {
       items: [
         {
           question: '营业时间？',
-          answer: '巨亨、尚品、玖号、尊贵与极品 24 小时营业；曼濠为 14:00–04:00。极品技师当班时段为 13:00–05:00，其他场馆技师当班时段不一，详情见各场馆页面，或预约时由专人确认。',
+          answer: '八汤御、巨亨、尚品、玖号、尊贵与极品的公开资料标注 24 小时营业；曼濠为 14:00–04:00。八汤御技师时段为 13:00–06:00，其他场馆也有不同当班时段，详情见各场馆页面，或预约时由专人确认。',
         },
         {
           question: '几点技师比较多？',
@@ -611,7 +611,7 @@ const zhCN: FaqCopy = {
         },
         {
           question: '这是 spa（水疗）还是桑拿？有什么分别？',
-          answer: '在澳门，「桑拿」与「水疗（spa）」通常指结合沐浴、干湿蒸、餐饮、按摩护理，以及部分场所的过夜休息设施，并非单纯的三温暖或单项按摩店。本站收录 14 家场所，其中包括暂停营业的旧场资料；营业状态、运营方和牌照信息都应在到访前再次确认。',
+          answer: '在澳门，「桑拿」与「水疗（spa）」通常指结合沐浴、干湿蒸、餐饮、按摩护理，以及部分场所的过夜休息设施，并非单纯的三温暖或单项按摩店。本站收录 15 家场所，其中包括暂停营业的旧场资料；营业状态、运营方和牌照信息都应在到访前再次确认。',
         },
       ],
     },
@@ -685,7 +685,7 @@ const ko: FaqCopy = {
       items: [
         {
           question: '영업시간은 어떻게 되나요?',
-          answer: '엠파이어, 샹핀, 넘버 나인, 마제스티, 디 엑설런트는 24시간 영업, 만하오는 14:00–04:00입니다. 디 엑설런트의 테라피스트 근무 시간대는 13:00–05:00이고, 다른 매장은 시간대가 각각 다릅니다. 자세한 내용은 각 매장 페이지를 보시거나 예약 시 담당자가 확인해 드립니다.',
+          answer: 'YU SAUNA, 엠파이어, 샹핀, 넘버 나인, 마제스티, 디 엑설런트는 공개 정보상 24시간 영업이며, 만하오는 14:00–04:00입니다. YU SAUNA의 직원 대응 시간은 13:00–06:00이고 다른 매장도 근무 시간대가 각각 다릅니다. 자세한 내용은 각 매장 페이지를 보시거나 예약 시 담당자가 확인해 드립니다.',
         },
         {
           question: '몇 시에 테라피스트가 가장 많나요?',
@@ -755,7 +755,7 @@ const ko: FaqCopy = {
         },
         {
           question: '스파(水療)와 사우나(桑拿)는 무엇이 다른가요?',
-          answer: '마카오에서 「사우나」와 「스파(spa)」는 일반적으로 입욕, 드라이·스팀 사우나, 다이닝, 마사지 케어, 일부 매장의 야간 휴식 시설을 결합한 곳을 가리키며, 단순한 찜질방이나 단일 마사지숍이 아닙니다. 본 사이트는 일시 휴업 매장의 과거 자료를 포함해 14개 매장을 수록하고 있습니다. 영업 상태, 운영사, 라이선스 정보는 방문 전 반드시 다시 확인하세요.',
+          answer: '마카오에서 「사우나」와 「스파(spa)」는 일반적으로 입욕, 드라이·스팀 사우나, 다이닝, 마사지 케어, 일부 매장의 야간 휴식 시설을 결합한 곳을 가리키며, 단순한 찜질방이나 단일 마사지숍이 아닙니다. 본 사이트는 일시 휴업 매장의 과거 자료를 포함해 15개 매장을 수록하고 있습니다. 영업 상태, 운영사, 라이선스 정보는 방문 전 반드시 다시 확인하세요.',
         },
       ],
     },

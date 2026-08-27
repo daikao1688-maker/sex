@@ -3,6 +3,7 @@ import { galleryCopyGroupB } from "./groupB";
 import { galleryCopyGroupC } from "./groupC";
 import { galleryCopyGroupD } from "./groupD";
 import { galleryCopyGroupE } from "./groupE";
+import { galleryCopyGroupF } from "./groupF";
 import type { GalleryCopyMap } from "./types";
 
 export const replacementVenueGalleryCopy: GalleryCopyMap = {
@@ -11,4 +12,5 @@ export const replacementVenueGalleryCopy: GalleryCopyMap = {
   ...galleryCopyGroupC,
   ...galleryCopyGroupD,
   ...galleryCopyGroupE,
+  ...galleryCopyGroupF,
 };

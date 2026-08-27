@@ -6,6 +6,7 @@
 
 export const venueSlugs = [
   'clube-rio',
+  'yu-sauna',
   'manhao-spa',
   'number-nine-sauna',
   'shang-pin-spa',
@@ -36,6 +37,8 @@ export interface Venue {
   priceMin: number;
   priceMax: number;
   overnightAllowed: boolean;
+  /** The venue may support overnight rest, but availability and terms are not guaranteed. */
+  overnightRequiresConfirmation?: boolean;
   open24h: boolean;
   /** Approximate number of therapists currently represented on the venue page. */
   staffCount?: number;
@@ -80,6 +83,29 @@ export const venues: Venue[] = [
     rating: 5,
     buckets: ['ktv', 'new'],
     accent: 'red',
+    temporarilyClosed: false,
+  },
+  {
+    slug: 'yu-sauna',
+    nameZh: '八湯御桑拿',
+    cover: 'yu-sauna-card',
+    district: 'peninsula',
+    priceMin: 2899,
+    priceMax: 6999,
+    overnightAllowed: true,
+    overnightRequiresConfirmation: true,
+    open24h: true,
+    staffTeam: true,
+    hours: '13:00 - 06:00',
+    serviceFee: '10%',
+    ktv: false,
+    themeRooms: true,
+    recommendedShow: false,
+    jpkr: false,
+    isNew: true,
+    rating: 4,
+    buckets: ['theme', 'new'],
+    accent: 'gold',
     temporarilyClosed: false,
   },
   {

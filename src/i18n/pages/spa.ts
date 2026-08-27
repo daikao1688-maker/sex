@@ -2,6 +2,7 @@ import type { Locale } from '../config';
 import type { VenueSlug } from '../../data/venues';
 import { createPageCopy, type Crumb } from './helpers';
 import { eighteenSaunaDetails } from './eighteenSauna';
+import { yuSaunaDetails } from './yuSauna';
 
 /** Editorial detail for one venue. Venues without an entry fall back to copy
  *  derived from the shared venue data — see `src/lib/spaDetail.ts`. */
@@ -19,6 +20,14 @@ export interface VenueDetail {
   website?: { url: string; label: string; display: string };
   overnightValue?: string;
   overnightNote?: string;
+  /** Venue-specific neutral contact copy for facts that still need confirmation. */
+  bookingNote?: string;
+  contactCta?: string;
+  ctaBody?: string;
+  /** Override shared payment badges when venue support has not been confirmed. */
+  paymentMethods?: string[];
+  /** Hide shared gift and shuttle guarantees when they are not verified for this venue. */
+  suppressPromotionalClaims?: boolean;
 }
 
 export interface SpaPageCopy {
@@ -7501,6 +7510,12 @@ const ko: SpaPageCopy = {
     },
   },
 };
+
+en.venues['yu-sauna'] = yuSaunaDetails.en;
+ja.venues['yu-sauna'] = yuSaunaDetails.ja;
+zhTW.venues['yu-sauna'] = yuSaunaDetails['zh-TW'];
+zhCN.venues['yu-sauna'] = yuSaunaDetails['zh-CN'];
+ko.venues['yu-sauna'] = yuSaunaDetails.ko;
 
 en.venues['eighteen-sauna'] = eighteenSaunaDetails.en;
 ja.venues['eighteen-sauna'] = eighteenSaunaDetails.ja;

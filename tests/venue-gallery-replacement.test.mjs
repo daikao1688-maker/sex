@@ -13,6 +13,7 @@ const locales = ["en", "zh-TW", "zh-CN", "ja"];
 
 const replacementGalleries = {
   "clube-rio": { lead: "macau-sauna-spa-clube-rio-repaired-01", count: 5 },
+  "yu-sauna": { lead: "macau-sauna-spa-yu-sauna-gallery-20260827-01", count: 11 },
   "manhao-spa": { lead: "macau-sauna-spa-manhao-placed-20260624-01", count: 11 },
   "number-nine-sauna": { lead: "macau-sauna-spa-number-nine-placed-20260624-01", count: 7 },
   "shang-pin-spa": { lead: "macau-sauna-spa-elite-placed-20260624-01", count: 11 },
@@ -23,7 +24,7 @@ const replacementGalleries = {
   "victoria-sauna": { lead: "macau-sauna-spa-victoria-gallery-202607-01", count: 8 },
   "m-club": { lead: "macau-sauna-spa-mclub-gallery-202607-02", count: 22 },
   "number-one-sauna": { lead: "macau-sauna-spa-number-one-gallery-202607-01", count: 10 },
-  "familia-nobre": { lead: "macau-sauna-spa-familia-nobre-gallery-202607-01", count: 10 },
+  "familia-nobre": { lead: "macau-sauna-spa-familia-nobre-gallery-202607-01", count: 9 },
   "eighteen-sauna": { lead: "macau-sauna-spa-eighteen-gallery-202607-01", count: 7 },
 };
 
@@ -37,6 +38,7 @@ const allVenueLeadImages = {
 
 const coverBasenames = {
   "clube-rio": "clube-rio-card",
+  "yu-sauna": "yu-sauna-card",
   "manhao-spa": "manhao-spa-card",
   "number-nine-sauna": "number-nine-sauna-card",
   "shang-pin-spa": "shang-pin-spa-card",
@@ -119,7 +121,31 @@ test("gives every gallery image specific, non-templated copy in all four languag
     }
   }
 
-  assert.equal(renderedImageCount, 676, "the four localized galleries must render exactly 676 image cards");
+  assert.equal(renderedImageCount, 716, "the four localized galleries must render exactly 716 image cards");
+});
+
+test("removes only the selected Familia Nobre staircase photo", async () => {
+  const removed = "macau-sauna-spa-familia-nobre-gallery-202607-03";
+  const retained = "macau-sauna-spa-familia-nobre-gallery-202607-05";
+
+  for (const locale of locales) {
+    const page = await readFile(path.join(distRoot, locale, "spa", "familia-nobre", "index.html"), "utf8");
+    assert.equal(page.includes(`/media/${removed}-lg.webp`), false, `${locale} still renders the selected staircase photo`);
+    assert.ok(page.includes(`/media/${retained}-lg.webp`), `${locale} removed the staircase photo that should remain`);
+  }
+
+  for (const suffix of ["lg", "thumb"]) {
+    assert.equal(
+      existsSync(path.join(projectRoot, "public", "media", `${removed}-${suffix}.webp`)),
+      false,
+      `the removed staircase ${suffix} asset still exists`,
+    );
+    assert.equal(
+      existsSync(path.join(projectRoot, "public", "media", `${retained}-${suffix}.webp`)),
+      true,
+      `the retained staircase ${suffix} asset was deleted`,
+    );
+  }
 });
 
 test("removes legacy gallery files while retaining the Oceanic album", async () => {

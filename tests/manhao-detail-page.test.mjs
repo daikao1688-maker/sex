@@ -72,11 +72,20 @@ test("renders semantic icons for every shared practical-info row on every venue 
 
     for (const slug of slugs) {
       const html = await readBuiltPage(locale, "spa", slug);
-      for (const icon of requiredIcons) {
+      const verifiedIcons =
+        slug === "yu-sauna" ? requiredIcons.filter((icon) => icon !== "payment") : requiredIcons;
+      for (const icon of verifiedIcons) {
         assert.match(
           html,
           new RegExp(`data-info-icon="${icon}"`),
           `${locale}/${slug} is missing ${icon}`,
+        );
+      }
+      if (slug === "yu-sauna") {
+        assert.doesNotMatch(
+          html,
+          /data-info-icon="payment"/,
+          `${locale}/${slug} must not publish unverified payment methods`,
         );
       }
     }

@@ -228,7 +228,7 @@ test("each active page renders Korean-owned copy instead of its page-specific En
     { segments: ["faq"], route: "/faq/", englishFallback: "FAQ" },
     { segments: ["guide"], route: "/guide/", englishFallback: "Planning Your First Macau Sauna Visit?" },
     { segments: ["privacy"], route: "/privacy/", englishFallback: "Privacy Notice" },
-    { segments: ["ranking"], route: "/ranking/", englishFallback: "Macau Sauna Guide 2026 — Compare 14 Venues" },
+    { segments: ["ranking"], route: "/ranking/", englishFallback: "Macau Sauna Guide 2026 — Compare 15 Venues" },
     { segments: ["shuttle"], route: "/shuttle/", englishFallback: "Plan Your Macau Sauna Pickup" },
     { segments: ["spa", "clube-rio"], route: "/spa/clube-rio/", englishFallback: "Clube Rio is a business-KTV club that held its grand opening on 30 July 2026", headingRequired: false },
     { segments: ["spa", "eighteen-sauna"], route: "/spa/eighteen-sauna/", englishFallback: "18 Sauna formerly operated on the sixth floor of Hotel Golden Dragon", headingRequired: false },
@@ -420,6 +420,7 @@ test("SpaGrid image alternatives and footer copyright use each locale's language
 test("all active Korean galleries expose specific Korean alternative text and captions", async () => {
   const galleryCounts = {
     "clube-rio": 5,
+    "yu-sauna": 11,
     "manhao-spa": 11,
     "number-nine-sauna": 7,
     "shang-pin-spa": 11,
@@ -430,7 +431,7 @@ test("all active Korean galleries expose specific Korean alternative text and ca
     "victoria-sauna": 8,
     "m-club": 22,
     "number-one-sauna": 10,
-    "familia-nobre": 10,
+    "familia-nobre": 9,
     "oceanic-royal-spa": 9,
     "eighteen-sauna": 7,
   };
@@ -460,7 +461,7 @@ test("all active Korean galleries expose specific Korean alternative text and ca
     renderedImages += expectedCount;
   }
 
-  assert.equal(renderedImages, 169, "Korean pages must expose all 169 active gallery descriptions");
+  assert.equal(renderedImages, 179, "Korean pages must expose all 179 active gallery descriptions");
 });
 
 test("Korean server and client month labels use Korean month and year forms", async () => {
@@ -475,16 +476,16 @@ test("Korean server and client month labels use Korean month and year forms", as
   assert.equal(runPromoMonthRefresh(promoScript), "8월", "client month refresh must use the Korean 월 suffix");
 });
 
-test("Korean static pages complete the 130-URL sitemap and reciprocal hreflang mesh", async () => {
+test("Korean static pages complete the 135-URL sitemap and reciprocal hreflang mesh", async () => {
   const sitemap = await readFile(path.join(distRoot, "sitemap-0.xml"), "utf8");
   const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-  assert.equal(sitemapLocations.length, 130, "sitemap must list 130 localized canonical URLs");
+  assert.equal(sitemapLocations.length, 135, "sitemap must list 135 localized canonical URLs");
 
   const localizedPaths = (await readdir(path.join(distRoot, koreanLocale), { recursive: true }))
     .filter((relativePath) =>
       relativePath === "index.html" || relativePath.endsWith(`${path.sep}index.html`),
     );
-  assert.equal(localizedPaths.length, 26, "Korean must ship the same 26 public pages as every other locale");
+  assert.equal(localizedPaths.length, 27, "Korean must ship the same 27 public pages as every other locale");
 
   for (const relativePath of localizedPaths) {
     const html = await readFile(path.join(distRoot, koreanLocale, relativePath), "utf8");

@@ -23,6 +23,10 @@ const stars = (rating: number) => "★".repeat(rating) + "☆".repeat(5 - rating
 const ratingLabel = (rating: number) => `${copy.tables.basics.rating}: ${rating} / 5`;
 const newStatusLabel = `${copy.tables.features.isNew}: ${copy.values.yes}`;
 const flag = (value: boolean) => (value ? copy.values.yes : copy.values.no);
+const overnightValue = (venue: (typeof venues)[number]) =>
+  venue.overnightRequiresConfirmation
+    ? copy.values.confirm
+    : flag(venue.overnightAllowed);
 const activeVenues = venues.filter((venue) => !venue.temporarilyClosed);
 
 const schemas = [
@@ -289,8 +293,14 @@ const venueTd = "px-4 py-3 text-sm font-medium whitespace-nowrap";
                       </span>
                     </td>
                     <td class={td}>
-                      <span class={venue.overnightAllowed ? "text-green-400" : "text-white/60"}>
-                        {flag(venue.overnightAllowed)}
+                      <span
+                        class={venue.overnightRequiresConfirmation
+                          ? "text-amber-300"
+                          : venue.overnightAllowed
+                            ? "text-green-400"
+                            : "text-white/60"}
+                      >
+                        {overnightValue(venue)}
                       </span>
                     </td>
                   </tr>

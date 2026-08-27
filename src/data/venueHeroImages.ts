@@ -10,6 +10,7 @@ export interface VenueHeroImageMetadata {
  */
 export const venueHeroImageMetadata: Record<string, VenueHeroImageMetadata> = {
   "macau-sauna-spa-clube-rio-repaired-01": { width: 1448, height: 1086 },
+  "macau-sauna-spa-yu-sauna-gallery-20260827-01": { width: 1067, height: 800 },
   "macau-sauna-spa-east-castle-gallery-202607-02": { width: 1448, height: 1086 },
   "macau-sauna-spa-eighteen-gallery-202607-01": { width: 1280, height: 720 },
   "macau-sauna-spa-elite-placed-20260624-01": { width: 1280, height: 960 },

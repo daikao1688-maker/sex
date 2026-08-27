@@ -47,6 +47,7 @@ const practicalStaffNote =
   detail.staffNote ??
   (venue.staffCount || venue.staffTeam ? copy.labels.staffNationalities : undefined);
 const practicalHours = venue.open24h ? copy.labels.openAllDay : venue.hours;
+const paymentMethods = detail.paymentMethods ?? copy.paymentMethods;
 
 /**
  * Hero backdrop: the venue's lead gallery photo at full size, falling back to
@@ -194,7 +195,11 @@ const schemas = [
                 <a
                   href="#contact"
                   class="mt-1 inline-flex min-h-11 items-center text-sm text-gold transition-colors hover:text-gold-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70"
-                  >{venue.temporarilyClosed ? t.spas.contactForAlternative : copy.labels.discountCta}</a
+                  >{
+                    venue.temporarilyClosed
+                      ? t.spas.contactForAlternative
+                      : detail.contactCta ?? copy.labels.discountCta
+                  }</a
                 >
               </dd>
             </div>
@@ -295,26 +300,25 @@ const schemas = [
               </dd>
             </div>
 
-            <div
-              data-info-icon="payment"
-              class="px-5 py-4"
-            >
-              <dt class="mb-1 flex items-center gap-2">
-                <Icon name="credit-card" class="h-5 w-5 shrink-0 text-gold" />
-                <span class="text-xs uppercase tracking-wider text-white/60">
-                  {copy.labels.payment}
-                </span>
-              </dt>
-              <dd class="ml-7 mt-2 flex min-w-0 flex-wrap gap-2">
-                {
-                  copy.paymentMethods.map((method) => (
-                    <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
-                      {method}
+            {
+              paymentMethods.length > 0 && (
+                <div data-info-icon="payment" class="px-5 py-4">
+                  <dt class="mb-1 flex items-center gap-2">
+                    <Icon name="credit-card" class="h-5 w-5 shrink-0 text-gold" />
+                    <span class="text-xs uppercase tracking-wider text-white/60">
+                      {copy.labels.payment}
                     </span>
-                  ))
-                }
-              </dd>
-            </div>
+                  </dt>
+                  <dd class="ml-7 mt-2 flex min-w-0 flex-wrap gap-2">
+                    {paymentMethods.map((method) => (
+                      <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
+                        {method}
+                      </span>
+                    ))}
+                  </dd>
+                </div>
+              )
+            }
           </dl>
 
           {
@@ -345,7 +349,7 @@ const schemas = [
                 data-testid="spa-quick-contact"
                 class="mt-4 rounded-2xl border border-gold/15 bg-gold/[0.04] p-4 text-center"
               >
-                <p class="text-white/70 text-sm mb-3">{copy.labels.quickBook}</p>
+                <p class="text-white/70 text-sm mb-3">{detail.bookingNote ?? copy.labels.quickBook}</p>
                 <div class="flex flex-wrap items-center justify-center gap-3">
                   <a
                     href={chatUrl(contact.whatsapp.url, t.contact.inquiryMessage)}
@@ -379,7 +383,7 @@ const schemas = [
                     )
                   }
                   <a href="#contact" class="text-gold text-sm font-medium hover:underline"
-                    >{copy.labels.allContacts}</a
+                    >{detail.contactCta ?? copy.labels.allContacts}</a
                   >
                 </div>
               </div>
@@ -435,7 +439,7 @@ const schemas = [
         </div>
 
         {
-          !venue.temporarilyClosed && (
+          !venue.temporarilyClosed && !detail.suppressPromotionalClaims && (
             <div
               data-testid="spa-flow-vip-reminder"
               class="mt-8 flex items-start gap-3 rounded-xl border border-gold/15 bg-gold/[0.04] p-4"
@@ -456,19 +460,25 @@ const schemas = [
           )
         }
 
-        <div
-          data-testid="spa-flow-concierge-reminder"
-          class="mt-4 flex items-start gap-3 rounded-xl border border-gold/15 bg-gold/[0.04] p-4"
-        >
-          <span class="text-xl leading-none" aria-hidden="true">🚗</span>
-          <div>
-            <p class="text-gold font-semibold text-sm">{copy.concierge.title}</p>
-            <p class="text-white/60 text-sm mt-1 leading-relaxed">{copy.concierge.body}</p>
-          </div>
-        </div>
+        {
+          !detail.suppressPromotionalClaims && (
+            <div
+              data-testid="spa-flow-concierge-reminder"
+              class="mt-4 flex items-start gap-3 rounded-xl border border-gold/15 bg-gold/[0.04] p-4"
+            >
+              <span class="text-xl leading-none" aria-hidden="true">🚗</span>
+              <div>
+                <p class="text-gold font-semibold text-sm">{copy.concierge.title}</p>
+                <p class="text-white/60 text-sm mt-1 leading-relaxed">{copy.concierge.body}</p>
+              </div>
+            </div>
+          )
+        }
 
         <p class="mt-6 text-center text-sm text-white/50">
-          <a href="#contact" class="text-gold hover:underline">{copy.labels.moreInfo}</a>
+          <a href="#contact" class="text-gold hover:underline">
+            {detail.contactCta ?? copy.labels.moreInfo}
+          </a>
         </p>
       </div>
 
@@ -535,7 +545,7 @@ const schemas = [
             <h2 class="text-3xl sm:text-4xl font-bold mb-4">
               {copy.cta.headingLead} <span class="text-gold">{copy.cta.headingAccent}</span>
             </h2>
-            <p class="text-white/60 mb-8 max-w-xl mx-auto">{copy.cta.body}</p>
+            <p class="text-white/60 mb-8 max-w-xl mx-auto">{detail.ctaBody ?? copy.cta.body}</p>
           </>
         )
       }
@@ -544,7 +554,7 @@ const schemas = [
   </section>
 
   {
-    !venue.temporarilyClosed && (
+    !venue.temporarilyClosed && !detail.suppressPromotionalClaims && (
       <VipExtrasDrawer
         lang={lang}
         titleLead={copy.vipDrawer.titleLead}

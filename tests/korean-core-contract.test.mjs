@@ -65,7 +65,7 @@ test("all Korean core venue cards own concise summaries", async () => {
   const spas = property(dictionary, "spas").initializer;
   const venues = property(spas, "venues").initializer;
   assert.ok(ts.isObjectLiteralExpression(venues), "venues must be an object literal");
-  assert.equal(venues.properties.length, 14, "Korean core dictionary must retain all 14 venue cards");
+  assert.equal(venues.properties.length, 15, "Korean core dictionary must retain all 15 venue cards");
 
   for (const venue of venues.properties) {
     assert.ok(ts.isPropertyAssignment(venue), "each venue must be a property assignment");

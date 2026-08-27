@@ -7,6 +7,7 @@ const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 
 const venueCovers = {
   "clube-rio-card": "macau-sauna-spa-clube-rio-repaired-01",
+  "yu-sauna-card": "macau-sauna-spa-yu-sauna-gallery-20260827-01",
   "manhao-spa-card": "macau-sauna-spa-manhao-placed-20260624-01",
   "number-nine-sauna-card": "macau-sauna-spa-number-nine-placed-20260624-01",
   "shang-pin-spa-card": "macau-sauna-spa-elite-placed-20260624-01",
@@ -23,20 +24,23 @@ const venueCovers = {
 
 for (const [cover, leadImage] of Object.entries(venueCovers)) {
   const source = path.join(projectRoot, "public", "media", `${leadImage}-lg.webp`);
-  const pipeline = sharp(source).resize(800, 800, {
-    fit: "cover",
-    position: "centre",
-  });
+  for (const size of [800, 400]) {
+    const suffix = size === 400 ? "-400" : "";
+    const pipeline = sharp(source).resize(size, size, {
+      fit: "cover",
+      position: "centre",
+    });
 
-  const [webp, jpeg] = await Promise.all([
-    pipeline.clone().webp({ quality: 86 }).toBuffer(),
-    pipeline.clone().jpeg({ quality: 86, mozjpeg: true }).toBuffer(),
-  ]);
+    const [webp, jpeg] = await Promise.all([
+      pipeline.clone().webp({ quality: 86 }).toBuffer(),
+      pipeline.clone().jpeg({ quality: 86, mozjpeg: true }).toBuffer(),
+    ]);
 
-  await Promise.all([
-    writeFile(path.join(projectRoot, "public", "covers", `${cover}.webp`), webp),
-    writeFile(path.join(projectRoot, "public", "covers", `${cover}.jpg`), jpeg),
-  ]);
+    await Promise.all([
+      writeFile(path.join(projectRoot, "public", "covers", `${cover}${suffix}.webp`), webp),
+      writeFile(path.join(projectRoot, "public", "covers", `${cover}${suffix}.jpg`), jpeg),
+    ]);
+  }
 }
 
 console.log(`Synced ${Object.keys(venueCovers).length} venue covers from gallery lead images.`);

@@ -727,28 +727,6 @@ export const galleryCopyGroupC = {
       caption: "인물화와 서예 패널, 구름 문양이 다크 복도를 감싸고, 머리 위의 레드 랜턴이 따뜻한 극장 무드를 더합니다.",
     },
   },
-  "macau-sauna-spa-familia-nobre-gallery-202607-03": {
-    en: {
-      alt: "Purple-lit staircase with gold handrails",
-      caption: "Blue-violet step lights climb between polished gold rails toward a geometric illuminated ceiling and dark mural walls.",
-    },
-    "zh-TW": {
-      alt: "金色扶手與紫藍踏步燈的樓梯",
-      caption: "紫藍踏步燈沿金色扶手之間向上延伸，幾何發光天花與深色壁畫增添神秘感。",
-    },
-    "zh-CN": {
-      alt: "金色扶手与紫蓝踏步灯的楼梯",
-      caption: "紫蓝踏步灯沿金色扶手之间向上延伸，几何发光天花与深色壁画增添神秘感。",
-    },
-    ja: {
-      alt: "金色の手すりと紫青の段差照明がある階段",
-      caption: "紫と青の光が金色の手すりの間を上へ導き、幾何学的な光天井と濃色の壁画が神秘的な雰囲気をつくります。",
-    },
-    ko: {
-      alt: "골드 난간과 퍼플·블루 스텝 조명의 계단",
-      caption: "퍼플·블루 조명이 골드 난간 사이로 위로 이어지고, 기하학 발광 천장과 다크 벽화가 신비로운 분위기를 만듭니다.",
-    },
-  },
   "macau-sauna-spa-familia-nobre-gallery-202607-05": {
     en: {
       alt: "Symmetrical black staircase edged in blue light",

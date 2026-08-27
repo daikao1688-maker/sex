@@ -85,7 +85,7 @@ const en: GuideCopy = {
     ],
     rankingTeaser: {
       body:
-        'Ready to compare price bands, areas, staff hours, overnight rules and facilities across all 14 profiles?',
+        'Ready to compare price bands, areas, staff hours, overnight rules and facilities across all 15 profiles?',
       link: 'Open the comparison',
     },
   },
@@ -310,7 +310,7 @@ const ja: GuideCopy = {
       },
     ],
     rankingTeaser: {
-      body: '14店の料金目安、エリア、出勤時間、宿泊条件、設備をまとめて比べたい方はこちら。',
+      body: '15店の料金目安、エリア、出勤時間、宿泊条件、設備をまとめて比べたい方はこちら。',
       link: '店舗比較を見る',
     },
   },
@@ -535,7 +535,7 @@ const zhTW: GuideCopy = {
       },
     ],
     rankingTeaser: {
-      body: '想一次比較 14 間會所的價格、地區、技師時段、過夜規則與設施？',
+      body: '想一次比較 15 間會所的價格、地區、技師時段、過夜規則與設施？',
       link: '查看會所比較',
     },
   },
@@ -760,7 +760,7 @@ const zhCN: GuideCopy = {
       },
     ],
     rankingTeaser: {
-      body: '想一次对比 14 家会所的价格、区域、技师时段、过夜规则和设施？',
+      body: '想一次对比 15 家会所的价格、区域、技师时段、过夜规则和设施？',
       link: '查看会所对比',
     },
   },
@@ -985,7 +985,7 @@ const ko: GuideCopy = {
       },
     ],
     rankingTeaser: {
-      body: '14개 매장의 가격, 지역, 테라피스트 시간대, 숙박 규칙, 시설을 한 번에 비교하고 싶으신가요?',
+      body: '15개 매장의 가격, 지역, 테라피스트 시간대, 숙박 규칙, 시설을 한 번에 비교하고 싶으신가요?',
       link: '매장 비교 보기',
     },
   },

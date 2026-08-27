@@ -241,7 +241,7 @@ const zhTW: ShuttleCopy = {
     heading: '還沒選好場館？',
     links: [
       {
-        label: '14 間桑拿排名與價格',
+        label: '15 間桑拿排名與價格',
         path: '/ranking/',
       },
       {
@@ -321,7 +321,7 @@ const zhCN: ShuttleCopy = {
     heading: '还没选好场馆？',
     links: [
       {
-        label: '14 家桑拿排名与价格',
+        label: '15 家桑拿排名与价格',
         path: '/ranking/',
       },
       {
@@ -401,7 +401,7 @@ const ko: ShuttleCopy = {
     heading: '아직 매장을 고르지 못하셨나요?',
     links: [
       {
-        label: '14개 사우나 랭킹과 가격',
+        label: '15개 사우나 랭킹과 가격',
         path: '/ranking/',
       },
       {

@@ -29,7 +29,7 @@ export interface RankingCopy {
     overnight: { heading: string; overnight: string };
     features: { heading: string; ktv: string; themeRooms: string; show: string; isNew: string };
   };
-  values: { yes: string; no: string; none: string; multinational: string };
+  values: { yes: string; no: string; confirm: string; none: string; multinational: string };
   districts: { peninsula: string; taipa: string };
   treatments: { heading: string; intro: string; free: string };
   cta: { heading: string; body: string };
@@ -39,14 +39,14 @@ const en: RankingCopy = {
   meta: {
     title: 'Macau Sauna Ranking 2026 - Macau Sauna Sites',
     description:
-      'Compare 14 Macau sauna venue profiles by reference price range, area, hours, overnight options and facilities, with current closure notices.',
+      'Compare 15 Macau sauna venue profiles by reference price range, area, hours, overnight options and facilities, with current closure notices.',
   },
   breadcrumbs: [
     { name: 'Home', path: '/' },
     { name: 'Venue comparison', path: '/ranking/' },
   ],
   backHome: 'Back to home',
-  heading: 'Macau Sauna Guide 2026 — Compare 14 Venues',
+  heading: 'Macau Sauna Guide 2026 — Compare 15 Venues',
   intro:
     'This is an editorial comparison, not a fixed league table. Start with your budget, available time, preferred area and whether you need an overnight option. Prices, staff hours and operating status can change; the tables use the current venue data on this site, and a venue may remain listed for reference while temporarily closed. Open its detail page and confirm again before you travel.',
   topPicks: {
@@ -128,6 +128,7 @@ const en: RankingCopy = {
   values: {
     yes: 'Yes',
     no: '–',
+    confirm: 'Confirm before departure',
     none: 'No separate surcharge',
     multinational: 'International team',
   },
@@ -149,14 +150,14 @@ const ja: RankingCopy = {
   meta: {
     title: 'マカオ・サウナ比較2026 - マカオ・サウナ・ガイド',
     description:
-      'マカオのサウナ14店を、料金目安・エリア・営業時間・宿泊可否・設備で比較。休業情報と来店前の確認ポイントもご案内します。',
+      'マカオのサウナ15店を、料金目安・エリア・営業時間・宿泊可否・設備で比較。休業情報と来店前の確認ポイントもご案内します。',
   },
   breadcrumbs: [
     { name: 'ホーム', path: '/' },
     { name: '店舗比較', path: '/ranking/' },
   ],
   backHome: 'ホームへ戻る',
-  heading: 'マカオ・サウナ比較2026 — 14店の選び方',
+  heading: 'マカオ・サウナ比較2026 — 15店の選び方',
   intro:
     'このページは編集部による選び方の目安で、順位が固定されたランキングではありません。まずは予算、滞在時間、希望エリア、宿泊の要否で候補を絞るのがおすすめです。料金、スタッフの出勤時間、営業状況は変わることがあります。表は当サイトの店舗データをもとに表示しており、一時休業中の店舗も資料として掲載されます。出発前に各詳細ページと当日の案内をご確認ください。',
   topPicks: {
@@ -238,6 +239,7 @@ const ja: RankingCopy = {
   values: {
     yes: 'あり',
     no: '–',
+    confirm: '出発前に確認',
     none: '別途加算なし',
     multinational: '多国籍チーム',
   },
@@ -259,14 +261,14 @@ const zhTW: RankingCopy = {
   meta: {
     title: '澳門桑拿比較 2026 - 澳門桑拿導航站',
     description:
-      '比較澳門 14 間桑拿場所的參考價格、地區、技師時段、過夜安排與設備，並清楚標示暫停營業狀態。',
+      '比較澳門 15 間桑拿場所的參考價格、地區、技師時段、過夜安排與設備，並清楚標示暫停營業狀態。',
   },
   breadcrumbs: [
     { name: '首頁', path: '/' },
     { name: '會所比較', path: '/ranking/' },
   ],
   backHome: '返回首頁',
-  heading: '澳門桑拿比較 2026 — 14 間場所怎樣選',
+  heading: '澳門桑拿比較 2026 — 15 間場所怎樣選',
   intro:
     '這份名單是編輯整理的選擇建議，不是永遠不變的名次。先按預算、可用時間、所在區域及是否需要過夜縮窄範圍，會比只看星級實際。價格、技師時段與營業狀態都可能調整；表格以本站目前的會所資料顯示，暫停營業的會所仍會保留作資料參考。出發前請打開詳情頁，並再次確認當日情況。',
   topPicks: {
@@ -348,6 +350,7 @@ const zhTW: RankingCopy = {
   values: {
     yes: '有',
     no: '–',
+    confirm: '出發前確認',
     none: '不另收服務費',
     multinational: '多國籍團隊',
   },
@@ -369,14 +372,14 @@ const zhCN: RankingCopy = {
   meta: {
     title: '澳门桑拿对比 2026 - 澳门桑拿导航站',
     description:
-      '对比澳门 14 家桑拿场所的参考价格、区域、技师时段、过夜安排与设施，并清楚标注暂停营业状态。',
+      '对比澳门 15 家桑拿场所的参考价格、区域、技师时段、过夜安排与设施，并清楚标注暂停营业状态。',
   },
   breadcrumbs: [
     { name: '首页', path: '/' },
     { name: '会所对比', path: '/ranking/' },
   ],
   backHome: '返回首页',
-  heading: '澳门桑拿对比 2026 — 14 家场所怎么选',
+  heading: '澳门桑拿对比 2026 — 15 家场所怎么选',
   intro:
     '这份名单是编辑整理的选择建议，并不是长期固定的名次。先按预算、可用时间、所在区域和是否需要过夜筛选，通常比只看星级更实用。价格、技师时段和营业状态都可能调整；表格以本站当前的会所数据为准，暂停营业的会所也会保留作为资料参考。出发前请打开详情页，并再次确认当天情况。',
   topPicks: {
@@ -458,6 +461,7 @@ const zhCN: RankingCopy = {
   values: {
     yes: '有',
     no: '–',
+    confirm: '出发前确认',
     none: '不另收服务费',
     multinational: '多国籍团队',
   },
@@ -479,14 +483,14 @@ const ko: RankingCopy = {
   meta: {
     title: '마카오 사우나 비교 2026 - 마카오 사우나 가이드',
     description:
-      '마카오 14개 사우나 매장의 참고 가격, 지역, 테라피스트 시간대, 숙박 배치, 시설을 비교하고, 일시 휴업 상태도 명확히 표시합니다.',
+      '마카오 15개 사우나 매장의 참고 가격, 지역, 테라피스트 시간대, 숙박 배치, 시설을 비교하고, 일시 휴업 상태도 명확히 표시합니다.',
   },
   breadcrumbs: [
     { name: '홈', path: '/' },
     { name: '매장 비교', path: '/ranking/' },
   ],
   backHome: '홈으로 돌아가기',
-  heading: '마카오 사우나 비교 2026 — 14개 매장 선택법',
+  heading: '마카오 사우나 비교 2026 — 15개 매장 선택법',
   intro:
     '이 목록은 편집부가 정리한 선택 제안이며, 장기간 고정된 순위가 아닙니다. 예산, 이용 가능 시간, 소재 지역, 숙박 필요 여부로 먼저 좁히는 편이 별점만 보는 것보다 실용적입니다. 가격, 테라피스트 시간대, 영업 상태는 모두 조정될 수 있으며, 표는 본 사이트의 현재 매장 데이터를 기준으로 합니다. 일시 휴업 매장도 자료 참고용으로 유지됩니다. 출발 전 상세 페이지를 열어 당일 상황을 다시 확인하세요.',
   topPicks: {
@@ -568,6 +572,7 @@ const ko: RankingCopy = {
   values: {
     yes: '있음',
     no: '–',
+    confirm: '출발 전 확인',
     none: '별도 부과 없음',
     multinational: '다국적 팀',
   },

@@ -4,7 +4,7 @@ const ko: Dictionary = {
   meta: {
     title: '마카오 사우나 가이드 | 럭셔리 VIP 예약 및 무료 셔틀',
     description:
-      '현재 휴업 안내, 참고 가격, 시설, 전용 셔틀 지원을 포함해 마카오의 사우나·스파 14곳을 비교해 보세요.',
+      '현재 휴업 안내, 참고 가격, 시설, 전용 셔틀 지원을 포함해 마카오의 사우나·스파 15곳을 비교해 보세요.',
     siteName: '마카오 사우나 가이드',
     ogImageAlt: '마카오 사우나 & 스파 2026 | 럭셔리 VIP 예약 및 무료 셔틀',
   },
@@ -33,7 +33,7 @@ const ko: Dictionary = {
     title: '마카오 사우나 & 스파 — 나만의 VIP 경험',
     tagline: '마카오 전역 24시간 무료 전용 픽업·귀환 셔틀',
     venueGroups: [
-      'Clube Rio, Number Nine Spa\nEmpire Sauna, Manhao Spa\nShang Pin Spa, Number One Sauna',
+      'Clube Rio, YU SAUNA\nNumber Nine Spa, Empire Sauna\nManhao Spa, Shang Pin Spa',
       'Familia Nobre, East Castle Spa\nVictoria Sauna\nMajesty Spa, M CLUB',
     ],
     steps: [
@@ -59,7 +59,7 @@ const ko: Dictionary = {
   spas: {
     heading: '추천 사우나',
     intro:
-      '가격, 영업 상태, 직원 규모 등 실용적인 최신 정보와 함께 마카오의 인기 사우나 14곳을 살펴보세요.',
+      '가격, 영업 상태, 직원 규모 등 실용적인 최신 정보와 함께 마카오의 인기 사우나 15곳을 살펴보세요.',
     filterLabel: '업소 필터',
     filters: [
       { bucket: 'all', label: '전체' },
@@ -87,6 +87,14 @@ const ko: Dictionary = {
           'Clube Rio는 NAPE 지역 Hotel Rio 3층에 자리한 비즈니스 KTV 클럽으로, 독립 노래방과 스파 옵션을 갖추고 있습니다.',
         description:
           'Clube Rio(클루브 리오)는 2026년 7월 30일 NAPE 지역 Hotel Rio 3층에서 그랜드 오픈한 비즈니스 KTV 클럽입니다. 마카오 사우나 업계에서 노래방을 앞세운 유일한 업소라 단골들은 이곳을 마카오 사우나 나이트라이프의 “KTV 킹”이라고 부릅니다. 메인 라운지의 붉은 장미 벽 위 크리스털 샹들리에, VIP룸의 금박 용·독수리 장식, 일행 전체가 들어갈 대형 파티룸까지 모든 공간이 고급 음향을 갖춘 완전 독립형이라 비즈니스 접대와 친구들과의 밤 모두에 어울립니다.\n\n대표 이용 방식은 동반 가라오케(坐檯)입니다. 파트너가 룸에 함께 앉아 노래하고 술자리를 나누며, 1시간 동반 가라오케와 1시간 스파 마사지, 음료 무제한을 묶은 시그니처 패키지를 선택하면 한곳에서 밤 일정을 이어갈 수 있습니다. 조용한 시간을 원한다면 스파 마사지만 별도로 예약할 수도 있습니다. 새벽 4시까지 운영하며 야간 숙박은 제공하지 않습니다.',
+      },
+      'yu-sauna': {
+        name: 'YU SAUNA',
+        badge: 'NAPE · 목욕과 휴식',
+        summary:
+          'YU SAUNA는 NAPE의 New Orient Landmark Hotel 안에 있으며 드라이·스팀 사우나, 온탕, 샤워, 다이닝과 리클라이너 라운지를 갖췄습니다.',
+        description:
+          'YU SAUNA(八湯御桑拿)는 2026년 8월 26일 새롭게 개장했으며 마카오 NAPE의 New Orient Landmark Hotel 3층에 있습니다. 마카오 피셔맨스 워프와 외항 페리 터미널에 가깝고 NAPE 중심부의 교통 이점을 갖춰, 페리로 입국하거나 마카오 반도 호텔가에서 이동할 때 모두 편리합니다.\n\n시설은 2025년에 전면 리노베이션을 마쳤으며 일본식 젠의 차분함과 중국식 우아함을 조화시켰습니다. 일본식 편백나무 드라이 사우나, 전면 유리 스팀룸, 넓은 온탕 홀, 독립 욕조가 있는 마사지 룸을 갖췄고, 우드 격자와 붉은 등롱 복도, 다이닝 휴게 공간이 어우러져 조용하고 세련되며 깊이감 있는 스파 분위기를 만듭니다.\n\nYU SAUNA는 24시간 운영합니다. 테라피스트의 주요 근무 시간은 13:00부터 다음 날 06:00까지이며 다국적 팀을 운영합니다. 요금 항목은 사우나 단독 이용, 상하이식 마사지, 여러 등급의 스파 패키지로 구성되고 일본식 테마 패키지가 매장 내 최고 등급입니다. 모든 이용 금액에는 10% 서비스 요금이 별도로 부과됩니다.',
       },
       'manhao-spa': {
         name: 'Manhao Spa (만하오 스파)',

@@ -22,6 +22,19 @@ export const replacementVenueGalleryFiles: Partial<Record<VenueSlug, readonly st
     "macau-sauna-spa-clube-rio-repaired-04",
     "macau-sauna-spa-clube-rio-repaired-05",
   ],
+  "yu-sauna": [
+    "macau-sauna-spa-yu-sauna-gallery-20260827-01",
+    "macau-sauna-spa-yu-sauna-gallery-20260827-02",
+    "macau-sauna-spa-yu-sauna-gallery-20260827-03",
+    "macau-sauna-spa-yu-sauna-gallery-20260827-04",
+    "macau-sauna-spa-yu-sauna-gallery-20260827-05",
+    "macau-sauna-spa-yu-sauna-gallery-20260827-06",
+    "macau-sauna-spa-yu-sauna-gallery-20260827-07",
+    "macau-sauna-spa-yu-sauna-gallery-20260827-08",
+    "macau-sauna-spa-yu-sauna-gallery-20260827-09",
+    "macau-sauna-spa-yu-sauna-gallery-20260827-10",
+    "macau-sauna-spa-yu-sauna-gallery-20260827-11",
+  ],
   "manhao-spa": [
     "macau-sauna-spa-manhao-placed-20260624-01",
     "macau-sauna-spa-manhao-placed-20260624-02",
@@ -182,7 +195,6 @@ export const replacementVenueGalleryFiles: Partial<Record<VenueSlug, readonly st
   ],
   "familia-nobre": [
     "macau-sauna-spa-familia-nobre-gallery-202607-01",
-    "macau-sauna-spa-familia-nobre-gallery-202607-03",
     "macau-sauna-spa-familia-nobre-gallery-202607-05",
     "macau-sauna-spa-familia-nobre-gallery-202607-06",
     "macau-sauna-spa-familia-nobre-gallery-202607-07",
