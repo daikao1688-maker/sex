@@ -281,7 +281,7 @@ export const venues: Venue[] = [
     rating: 4,
     buckets: ['overnight'],
     accent: 'silver',
-    temporarilyClosed: true,
+    temporarilyClosed: false,
   },
   {
     slug: 'm-club',

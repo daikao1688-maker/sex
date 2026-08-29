@@ -11,9 +11,39 @@ const temporarilyClosedSlugs = [
   "number-one-sauna",
   "familia-nobre",
   "oceanic-royal-spa",
-  "victoria-sauna",
   "eighteen-sauna",
 ];
+
+const restoredVenue = "victoria-sauna";
+const restoredCopy = {
+  en: "Victoria Sauna has resumed operations",
+  "zh-TW": "凱旋桑拿已恢復營業",
+  "zh-CN": "凯旋桑拿已恢复营业",
+  ja: "ヴィクトリアサウナは営業を再開",
+  ko: "빅토리아 사우나는 영업을 재개",
+};
+
+const schemas = (html) =>
+  [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(
+    (match) => JSON.parse(match[1]),
+  );
+
+const schemaOfType = (html, type) => {
+  const schema = schemas(html).find((candidate) => candidate["@type"] === type);
+  assert.ok(schema, `generated page is missing ${type} schema`);
+  return schema;
+};
+
+const section = (html, id) =>
+  html.match(new RegExp(`<section\\b(?=[^>]*\\bid="${id}")[\\s\\S]*?<\\/section>`, "i"))?.[0] ?? "";
+
+const rowContaining = (table, marker) => {
+  const markerIndex = table.indexOf(marker);
+  if (markerIndex < 0) return "";
+  const start = table.lastIndexOf("<tr", markerIndex);
+  const end = table.indexOf("</tr>", markerIndex);
+  return start < 0 || end < 0 ? "" : table.slice(start, end + 5);
+};
 
 const closedCopy = {
   en: {
@@ -115,6 +145,77 @@ test("labels temporarily closed venues accurately and shows a clear detail-page 
     assert.ok(
       !activeDetail.includes('data-testid="spa-temporarily-closed-actions"'),
       `${locale}/number-nine-sauna must retain its normal booking actions`,
+    );
+  }
+});
+
+test("restores Victoria Sauna across listings, booking surfaces, and current guidance", async () => {
+  for (const [locale, resumedCopy] of Object.entries(restoredCopy)) {
+    const [homepage, detail, ranking, guide, overnightGuide] = await Promise.all([
+      readFile(path.join(distRoot, locale, "index.html"), "utf8"),
+      readFile(path.join(distRoot, locale, "spa", restoredVenue, "index.html"), "utf8"),
+      readFile(path.join(distRoot, locale, "ranking", "index.html"), "utf8"),
+      readFile(path.join(distRoot, locale, "guide", "index.html"), "utf8"),
+      readFile(
+        path.join(distRoot, locale, "blog", "macau-sauna-overnight-guide-2026", "index.html"),
+        "utf8",
+      ),
+    ]);
+
+    assert.match(
+      homepage,
+      new RegExp(
+        `<div\\b[^>]*data-buckets="[^"]*"[^>]*>\\s*<a\\b[^>]*href="/${locale}/spa/${restoredVenue}/"`,
+      ),
+      `${locale} homepage must render Victoria Sauna as a normal venue card`,
+    );
+
+    const pausedCardStart = homepage.indexOf('data-testid="spa-paused-card"');
+    const pausedCardEnd = homepage.indexOf("</section>", pausedCardStart);
+    const pausedCard = homepage.slice(pausedCardStart, pausedCardEnd);
+    assert.doesNotMatch(
+      pausedCard,
+      new RegExp(`/${locale}/spa/${restoredVenue}/`),
+      `${locale} paused-venues card still contains Victoria Sauna`,
+    );
+
+    assert.doesNotMatch(detail, /data-testid="spa-temporarily-closed-(?:notice|actions|contact)"/);
+    assert.match(detail, /data-testid="spa-quick-contact"/);
+    assert.match(detail, /data-testid="spa-flow-vip-reminder"/);
+    assert.match(detail, /data-vip-extras-drawer/);
+
+    const quickMatch = section(homepage, "quickmatch");
+    const quickMatchConfigRaw = quickMatch.match(
+      /<script\b[^>]*data-qm-config[^>]*>([\s\S]*?)<\/script>/,
+    )?.[1];
+    assert.ok(quickMatchConfigRaw, `${locale} Quick Match config is missing`);
+    const quickMatchConfig = JSON.parse(quickMatchConfigRaw);
+    assert.equal(
+      quickMatchConfig.venues[restoredVenue]?.href,
+      `/${locale}/spa/${restoredVenue}/`,
+      `${locale} Quick Match still excludes Victoria Sauna`,
+    );
+
+    const basicsTable = ranking.match(
+      /<div\b[^>]*data-ranking-table="basics"[\s\S]*?<\/table>/,
+    )?.[0] ?? "";
+    const restoredRow = rowContaining(basicsTable, `/${locale}/spa/${restoredVenue}/`);
+    assert.ok(restoredRow, `${locale} ranking table is missing Victoria Sauna`);
+    assert.doesNotMatch(restoredRow, /data-ranking-closed-status/);
+
+    const rankingList = schemaOfType(ranking, "ItemList");
+    assert.ok(
+      rankingList.itemListElement.some((item) => item.url.endsWith(`/spa/${restoredVenue}/`)),
+      `${locale} current ranking still excludes Victoria Sauna`,
+    );
+
+    const business = schemaOfType(detail, "LocalBusiness");
+    assert.ok(business.priceRange, `${locale} Victoria Sauna schema is still marked closed`);
+    assert.ok(guide.includes(resumedCopy), `${locale} guide still describes Victoria Sauna as closed`);
+    assert.match(
+      overnightGuide,
+      new RegExp(`href="/${locale}/spa/${restoredVenue}/"`),
+      `${locale} overnight guide does not list Victoria Sauna as operating`,
     );
   }
 });

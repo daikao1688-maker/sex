@@ -253,7 +253,7 @@ test("each active page renders Korean-owned copy instead of its page-specific En
 test("Korean blog entries preserve both public slugs and publication dates", async () => {
   const posts = [
     ["macau-sauna-august-guide-2026", "2026-07-26", "2026-08-23"],
-    ["macau-sauna-overnight-guide-2026", "2026-08-11", "2026-08-23"],
+    ["macau-sauna-overnight-guide-2026", "2026-08-11", "2026-08-29"],
   ];
 
   for (const [slug, date, dateModified] of posts) {

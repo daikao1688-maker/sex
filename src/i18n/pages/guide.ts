@@ -224,7 +224,7 @@ const en: GuideCopy = {
         want: 'Researching a quieter format',
         slug: 'victoria-sauna',
         body:
-          'The profile explains a quieter, spacious style for future comparison. Victoria Sauna is temporarily closed and is not a current booking option.',
+          'Victoria Sauna has resumed operations and is again a current option for visitors who prefer a quieter, spacious venue. Confirm the same-day lineup, room availability and overnight arrangements before departure.',
       },
       {
         want: 'Researching KTV and cyber styling',
@@ -449,7 +449,7 @@ const ja: GuideCopy = {
         want: '静かな店舗の参考を探す',
         slug: 'victoria-sauna',
         body:
-          '落ち着いた広めの空間を比較するための参考ページです。現在は一時休業中で、予約は受け付けていません。',
+          'ヴィクトリアサウナは営業を再開し、静かで広々とした店舗を好む方の選択肢に戻りました。当日の在籍、個室、宿泊条件は出発前に確認してください。',
       },
       {
         want: 'KTVと近未来的な内装を比較',
@@ -674,7 +674,7 @@ const zhTW: GuideCopy = {
         want: '研究清靜型會所',
         slug: 'victoria-sauna',
         body:
-          '頁面保留作比較清靜、寬敞路線的資料。凱旋桑拿現時暫停營業，並非當下可預約選項。',
+          '凱旋桑拿已恢復營業，現可重新列入偏好清靜、寬敞路線的選擇。當日技師陣容、房間與過夜安排仍應在出發前確認。',
       },
       {
         want: '研究 KTV 與未來感設計',
@@ -899,7 +899,7 @@ const zhCN: GuideCopy = {
         want: '了解安静型会所',
         slug: 'victoria-sauna',
         body:
-          '页面保留作为安静、宽敞路线的对比资料。凯旋桑拿目前暂停营业，并不是当前可预约选项。',
+          '凯旋桑拿已恢复营业，现在可重新列入偏好安静、宽敞路线的选择。当天技师阵容、房间与过夜安排仍应在出发前确认。',
       },
       {
         want: '了解 KTV 和未来感设计',
@@ -1124,7 +1124,7 @@ const ko: GuideCopy = {
         want: '조용한 매장 알아보기',
         slug: 'victoria-sauna',
         body:
-          '조용하고 넓은 시설을 선호할 때 참고할 비교 자료로 페이지가 유지됩니다. 빅토리아 사우나는 현재 일시 휴업 중으로, 지금 예약 가능한 선택지가 아닙니다.',
+          '빅토리아 사우나는 영업을 재개해 조용하고 넓은 매장을 선호하는 분의 선택지로 돌아왔습니다. 당일 인원, 객실과 야간 휴식 조건은 출발 전에 확인하세요.',
       },
       {
         want: 'KTV와 미래감각 디자인 알아보기',

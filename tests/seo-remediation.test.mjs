@@ -19,7 +19,6 @@ const locales = {
 };
 
 const closedVenueSlugs = [
-  "victoria-sauna",
   "m-club",
   "number-one-sauna",
   "familia-nobre",
@@ -240,6 +239,10 @@ test("current ranking ItemLists exclude closed venues without hiding them from t
     assert.equal(itemUrls.some((url) => url.endsWith(`/spa/${slug}/`)), false, `${slug} remains ranked`);
     assert.ok(html.includes(`href="/en/spa/${slug}/"`), `${slug} disappeared from the visible comparison`);
   }
+  assert.ok(
+    itemUrls.some((url) => url.endsWith("/spa/victoria-sauna/")),
+    "Victoria Sauna did not return to the current ranking",
+  );
   assert.deepEqual(
     ranking.itemListElement.map((item) => item.position),
     ranking.itemListElement.map((_, index) => index + 1),

@@ -11,7 +11,6 @@ const temporarilyClosed = new Set([
   "number-one-sauna",
   "familia-nobre",
   "oceanic-royal-spa",
-  "victoria-sauna",
   "eighteen-sauna",
 ]);
 

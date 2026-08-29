@@ -1,10 +1,10 @@
 ---
 title: "Macau Sauna Overnight Guide 2026: Free Rest, Dining, Open Venues and How to Choose"
-description: "Macau hotel rates aren't cheap, and some sauna venues offer overnight lounge recliners plus bathing and dining packages. This 2026 guide covers overnight arrangements at Majesty Spa, Shang Pin Spa, Number Nine Spa and Empire Sauna, the closed-venue list, free vs paid rest rooms, the full overnight flow and key precautions."
+description: "Macau hotel rates aren't cheap, and some sauna venues offer overnight lounge recliners plus bathing and dining packages. This 2026 guide covers overnight arrangements at Majesty Spa, Shang Pin Spa, Number Nine Spa, Victoria Sauna and Empire Sauna, the closed-venue list, free vs paid rest rooms, the full overnight flow and key precautions."
 category: "experience"
 date: "2026-08-11"
-dateModified: "2026-08-23"
-meta: "Updated Aug 23, 2026 · 8 min read"
+dateModified: "2026-08-29"
+meta: "Updated Aug 29, 2026 · 8 min read"
 cover: "/blog/macau-sauna-overnight-guide-2026/01-macau-sauna-overnight-lounge-recliners.webp"
 coverAlt: "Overnight at a Macau sauna — the lounge rest area of a high-end spa venue, rows of adjustable recliners with blankets under warm lighting."
 author: "Macau Sauna Sites"
@@ -16,9 +16,9 @@ One thing must be clear first: **overnight at a sauna is not a free hotel stay**
 
 ## Major Changes in Macau's 2026 Sauna Market
 
-In the first half of 2026, Macau's sauna market went through a clear reshuffle. Number One Sauna, Oceanic Royal Spa, Familia Nobre, Victoria Sauna, 18 Sauna and M CLUB should no longer be visited based on old guides.
+In the first half of 2026, Macau's sauna market went through a clear reshuffle. Number One Sauna, Oceanic Royal Spa, Familia Nobre, 18 Sauna and M CLUB should no longer be visited based on old guides. Victoria Sauna has since resumed operations and is included again among current options.
 
-Venues still worth focusing on: [Majesty Spa](/en/spa/majesty-spa/), [Shang Pin Spa](/en/spa/shang-pin-spa/), [Number Nine Spa](/en/spa/number-nine-sauna/), [Manhao Spa](/en/spa/manhao-spa/), [Empire Sauna](/en/spa/empire-sauna/) and [East Castle Spa](/en/spa/east-castle-spa/). For each venue's latest positioning and pricing, see the [venue overview](/en/#spas) and the [ranking page](/en/ranking/).
+Venues still worth focusing on: [Majesty Spa](/en/spa/majesty-spa/), [Shang Pin Spa](/en/spa/shang-pin-spa/), [Number Nine Spa](/en/spa/number-nine-sauna/), [Victoria Sauna](/en/spa/victoria-sauna/), [Manhao Spa](/en/spa/manhao-spa/), [Empire Sauna](/en/spa/empire-sauna/) and [East Castle Spa](/en/spa/east-castle-spa/). For each venue's latest positioning and pricing, see the [venue overview](/en/#spas) and the [ranking page](/en/ranking/).
 
 Operating status, hours and overnight policies can change on short notice — reconfirm on the day, booked or not.
 
@@ -31,6 +31,7 @@ Operating status, hours and overnight policies can change on short notice — re
 | [Majesty Spa](/en/spa/majesty-spa/) | Open | Supported; room availability varies | Lounge rest area / private rest room | ★★★★★ |
 | [Shang Pin Spa](/en/spa/shang-pin-spa/) | Open | Supported | Free lounge recliners / paid private room | ★★★★★ |
 | [Number Nine Spa](/en/spa/number-nine-sauna/) | Open | Ask on the day | Shared lounge recliners | ★★★★☆ |
+| [Victoria Sauna](/en/spa/victoria-sauna/) | Open | Supported; confirm same-day availability | Quiet lounge recliners / private rest room after 3:00 am | ★★★★☆ |
 | [Empire Sauna](/en/spa/empire-sauna/) | Open | Ask on the day | Premium rest area / recliners | ★★★★☆ |
 | [Manhao Spa](/en/spa/manhao-spa/) | Open | Currently not an overnight option | Short rest within opening hours | — |
 | [East Castle Spa](/en/spa/east-castle-spa/) | Open | Currently no overnight | Rest within opening hours | — |
@@ -162,11 +163,12 @@ So the value case is: **you already have a spa session planned, and you rest unt
 
 ## Wrap-up: How to Choose an Overnight Sauna in Macau
 
-In 2026, several established Macau saunas have stopped or paused operations — Number One Sauna, Familia Nobre, Victoria Sauna, 18 Sauna, M CLUB and Oceanic Royal Spa should not be in any real overnight itinerary. Among the venues still open:
+In 2026, several established Macau saunas stopped or paused operations — Number One Sauna, Familia Nobre, 18 Sauna, M CLUB and Oceanic Royal Spa should not be in any real overnight itinerary. Victoria Sauna has resumed operations and is again among the venues currently open:
 
 - **Majesty Spa**: best for those who value sleep, a peninsula location and private rest rooms
 - **Shang Pin Spa**: best for Cotai guests fine with free lounge recliners
 - **Number Nine Spa**: a short shared-area rest after an evening session
+- **Victoria Sauna**: a quieter peninsula option with overnight rest arrangements; confirm room availability before departure
 - **Empire Sauna**: for those who value new-venue hardware and premium rest spaces
 - **Manhao Spa**: currently not an overnight choice
 - **East Castle Spa**: currently no overnight — not an accommodation plan
