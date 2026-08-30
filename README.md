@@ -32,11 +32,18 @@ All commands are run from the root of the project, from a terminal:
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
 | `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:8866`      |
+| `bun dev`             | Starts local dev server at `localhost:7777`      |
 | `bun build`           | Build your production site to `./dist/`          |
 | `bun preview`         | Preview your build locally, before deploying     |
 | `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `bun astro -- --help` | Get help using the Astro CLI                     |
+
+## Article publishing and `llms.txt`
+
+- Add each article as Markdown under `src/content/blog/<locale>/<slug>.md` and satisfy the schema in `src/content.config.ts`.
+- Do not maintain a separate article list in `llms.txt`. The build endpoint at `src/pages/llms.txt.ts` reads the same content collection and localized routing helpers as the blog pages.
+- Every `bun build` regenerates `dist/llms.txt`; any newly built localized article is included automatically. The regression test compares the generated list with every localized article emitted to `dist/`.
+- Never edit `dist/llms.txt` by hand because `dist/` is a build artifact and the next build replaces it.
 
 ## 👀 Want to learn more?
 

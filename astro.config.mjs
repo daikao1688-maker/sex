@@ -12,7 +12,7 @@ const siteOrigin = new URL(
 export default defineConfig({
   site: siteOrigin,
   trailingSlash: 'ignore',
-  server: { port: 8866 },
+  server: { port: 7777 },
 
   integrations: [
     sitemap({
