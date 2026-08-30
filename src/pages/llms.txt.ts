@@ -96,7 +96,7 @@ export const GET: APIRoute = async () => {
     '',
   ].join('\n');
 
-  return new Response(markdown, {
+  return new Response(`\uFEFF${markdown}`, {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },
   });
 };

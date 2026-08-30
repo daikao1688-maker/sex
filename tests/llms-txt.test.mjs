@@ -11,7 +11,8 @@ const siteOrigin = new URL(
 ).origin;
 const locales = ["en", "zh-TW", "zh-CN", "ja", "ko"];
 
-const readLlmsTxt = () => readFile(path.join(distRoot, "llms.txt"), "utf8");
+const llmsTxtPath = path.join(distRoot, "llms.txt");
+const readLlmsTxt = async () => (await readFile(llmsTxtPath, "utf8")).replace(/^\uFEFF/, "");
 
 const markdownLinks = (markdown) =>
   [...markdown.matchAll(/^- \[[^\]]+\]\((https?:\/\/[^)]+)\)(?:: .*)?$/gm)].map(
@@ -37,6 +38,23 @@ const artifactFor = (url) => {
   }
   return path.join(distRoot, pathname.slice(1));
 };
+
+test("the generated llms.txt starts with a UTF-8 byte-order mark", async () => {
+  const bytes = await readFile(llmsTxtPath);
+  assert.deepEqual(
+    [...bytes.subarray(0, 3)],
+    [0xef, 0xbb, 0xbf],
+    "llms.txt needs a UTF-8 BOM so browsers do not guess a legacy encoding",
+  );
+});
+
+test("the Hostinger deploy artifact declares UTF-8 and revalidation for llms.txt", async () => {
+  const htaccess = await readFile(path.join(distRoot, ".htaccess"), "utf8");
+  const llmsHeaders = htaccess.match(/<Files\s+"llms\.txt">([\s\S]*?)<\/Files>/)?.[1];
+  assert.ok(llmsHeaders, "the Hostinger .htaccess is missing an llms.txt response block");
+  assert.match(llmsHeaders, /Header set Content-Type "text\/plain; charset=UTF-8"/);
+  assert.match(llmsHeaders, /Header set Cache-Control "no-cache"/);
+});
 
 test("the build emits a well-structured root llms.txt with valid production links", async () => {
   const markdown = await readLlmsTxt();
