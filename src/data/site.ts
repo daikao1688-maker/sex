@@ -4,9 +4,9 @@ const origin = new URL(import.meta.env.SITE).origin;
 
 export const site = {
   origin,
-  ogImage: '/covers/macau-sauna-night-skyline.jpg',
-  ogImageWidth: 2048,
-  ogImageHeight: 1366,
+  ogImage: '/covers/macau-sauna-cotai-casino-skyline-night.jpg',
+  ogImageWidth: 1600,
+  ogImageHeight: 1066,
 } as const;
 
 export const contact = {

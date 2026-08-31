@@ -73,6 +73,9 @@ const schemas = [
   title={`${post.data.title} | ${t.meta.siteName}`}
   description={post.data.description}
   ogImage={post.data.cover}
+  ogImageAlt={post.data.coverAlt}
+  ogImageWidth={1280}
+  ogImageHeight={720}
   breadcrumbs={[
     { name: copy.breadcrumbs[0].name, path: "/" },
     { name: copy.heading, path: "/blog/" },

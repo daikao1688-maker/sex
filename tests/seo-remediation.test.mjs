@@ -3,6 +3,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import sharp from "sharp";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
@@ -53,6 +54,13 @@ const schemaOfType = (html, type) => {
   return schema;
 };
 
+const localizedHtmlPaths = async () =>
+  (await readdir(distRoot, { recursive: true })).filter(
+    (relativePath) =>
+      relativePath.endsWith(`${path.sep}index.html`) &&
+      Object.keys(locales).some((locale) => relativePath.startsWith(`${locale}${path.sep}`)),
+  );
+
 const internalSchemaUrlProperties = new Set([
   "@id",
   "image",
@@ -96,6 +104,72 @@ test("canonical, social, and structured-data URLs use the configured site origin
   }
 });
 
+test("published HTML does not expose the retired red-moon skyline artwork", async () => {
+  const retiredPath = "/covers/macau-sauna-night-skyline.jpg";
+
+  for (const relativePath of await localizedHtmlPaths()) {
+    const html = await readFile(path.join(distRoot, relativePath), "utf8");
+    assert.equal(
+      html.includes(retiredPath),
+      false,
+      `${relativePath} still publishes the retired skyline artwork`,
+    );
+  }
+});
+
+test("localized homepages describe the editorial site without claiming a physical LocalBusiness", async () => {
+  for (const locale of Object.keys(locales)) {
+    const html = await readPage(locale);
+    const pageSchemas = schemas(html);
+
+    assert.equal(
+      pageSchemas.some((schema) => schema["@type"] === "LocalBusiness"),
+      false,
+      `/${locale}/ still marks the editorial guide as a physical LocalBusiness`,
+    );
+    assert.ok(pageSchemas.some((schema) => schema["@type"] === "Organization"));
+    assert.ok(pageSchemas.some((schema) => schema["@type"] === "WebSite"));
+  }
+});
+
+test("Open Graph image dimensions match the assets published for each page type", async () => {
+  const pages = [
+    ["zh-CN", "about"],
+    ["en", "spa", "clube-rio"],
+    ["en", "blog", "macau-sauna-august-guide-2026"],
+  ];
+
+  for (const segments of pages) {
+    const html = await readPage(...segments);
+    const imageUrl = metaContent(html, "property", "og:image");
+    assert.ok(imageUrl, `/${segments.join("/")}/ is missing og:image`);
+    const pathname = decodeURIComponent(new URL(imageUrl).pathname).replace(/^\//, "");
+    const metadata = await sharp(path.join(projectRoot, "public", pathname)).metadata();
+
+    assert.equal(
+      Number(metaContent(html, "property", "og:image:width")),
+      metadata.width,
+      `${imageUrl} publishes the wrong Open Graph width`,
+    );
+    assert.equal(
+      Number(metaContent(html, "property", "og:image:height")),
+      metadata.height,
+      `${imageUrl} publishes the wrong Open Graph height`,
+    );
+
+    if (segments.includes("spa") || segments.includes("blog")) {
+      const visibleImageAlt = html.match(
+        /<img\b(?=[^>]*\bfetchpriority="high")(?=[^>]*\balt="([^"]+)")[^>]*>/,
+      )?.[1];
+      const ogImageAlt = metaContent(html, "property", "og:image:alt");
+
+      assert.ok(visibleImageAlt, `/${segments.join("/")}/ has no primary image alternative`);
+      assert.equal(ogImageAlt, visibleImageAlt, `${imageUrl} publishes a generic image alternative`);
+      assert.equal(metaContent(html, "name", "twitter:image:alt"), visibleImageAlt);
+    }
+  }
+});
+
 test("the generated sitemap, robots file, and head declaration share one origin", async () => {
   const [home, sitemapIndex, sitemap, robots] = await Promise.all([
     readPage("en"),
@@ -126,14 +200,10 @@ test("the generated sitemap, robots file, and head declaration share one origin"
 test("the sitemap contains exactly the 135 localized canonical pages", async () => {
   const sitemap = await readFile(path.join(distRoot, "sitemap-0.xml"), "utf8");
   const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-  const localizedHtmlPaths = (await readdir(distRoot, { recursive: true })).filter(
-    (relativePath) =>
-      relativePath.endsWith(`${path.sep}index.html`) &&
-      Object.keys(locales).some((locale) => relativePath.startsWith(`${locale}${path.sep}`)),
-  );
+  const localizedPages = await localizedHtmlPaths();
   const canonicalUrls = (
     await Promise.all(
-      localizedHtmlPaths.map(async (relativePath) =>
+      localizedPages.map(async (relativePath) =>
         canonicalHref(await readFile(path.join(distRoot, relativePath), "utf8")),
       ),
     )

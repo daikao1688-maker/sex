@@ -6,7 +6,7 @@ const en: Dictionary = {
     description:
       'Compare 15 Macau sauna and spa listings, including current closure notices, reference prices, facilities and private shuttle support.',
     siteName: 'Macau Sauna Sites',
-    ogImageAlt: 'Macau Sauna & Spa 2026 | Luxury VIP Booking & Free Shuttle',
+    ogImageAlt: 'Macau peninsula casino skyline and bridge illuminated at night',
   },
 
   nav: {

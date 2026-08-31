@@ -411,8 +411,13 @@ body {
 }
 
 .rm-paper .prose-paper table {
+  display: block;
   width: 100%;
+  max-width: 100%;
   margin: 1.3rem 0;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
   border-collapse: collapse;
   font-size: 0.92rem;
 }

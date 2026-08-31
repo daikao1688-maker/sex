@@ -5,7 +5,7 @@ const zhTW: Dictionary = {
     title: '澳門桑拿2026 - 澳門桑拿導航站',
     description: '整理 15 間澳門桑拿及水療場所，提供營業狀態、參考價格、設施與專車接送資訊，方便出發前比較。',
     siteName: '澳門桑拿導航站',
-    ogImageAlt: '澳門桑拿2026 - 澳門桑拿導航站',
+    ogImageAlt: '夜幕下燈光璀璨的澳門半島酒店天際線與跨海大橋',
   },
 
   nav: {

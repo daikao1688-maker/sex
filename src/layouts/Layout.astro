@@ -13,11 +13,14 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
   /** Emitted as BreadcrumbList; there is no visible breadcrumb nav in the design. */
   breadcrumbs?: Crumb[];
   /** Page-specific JSON-LD (FAQPage, HowTo, Service, …). */
   schemas?: Record<string, unknown>[];
-  /** Home renders the site-wide LocalBusiness/Organization/WebSite triple. */
+  /** Home renders the site-wide Organization/WebSite pair. */
   siteSchema?: boolean;
   /** Locales this page exists in; defaults to all. Blog posts differ per locale. */
   alternateLocales?: Locale[];
@@ -31,6 +34,9 @@ const {
   title,
   description,
   ogImage = site.ogImage,
+  ogImageAlt,
+  ogImageWidth = site.ogImageWidth,
+  ogImageHeight = site.ogImageHeight,
   breadcrumbs = [],
   schemas = [],
   siteSchema = false,
@@ -40,6 +46,7 @@ const {
 
 const t = getDictionary(lang);
 const meta = localeMeta[lang];
+const pageOgImageAlt = ogImageAlt ?? t.meta.ogImageAlt;
 
 const suppliedTitle = title ?? t.meta.title;
 const pageTitle = suppliedTitle.includes(t.meta.siteName)
@@ -70,24 +77,6 @@ const fontStacks: Record<Locale, string> = {
 };
 
 const siteSchemas = [
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${site.origin}/#business`,
-    name: t.meta.siteName,
-    description: t.meta.description,
-    url: canonical,
-    image: [
-      new URL("/covers/macau-sauna-night-skyline.jpg", site.origin).href,
-      new URL("/covers/macau-sauna-cotai-casino-skyline-night.jpg", site.origin).href,
-      new URL("/covers/macau-sauna-tower-fireworks-night.webp", site.origin).href,
-    ],
-    logo: new URL("/favicon.svg", site.origin).href,
-    priceRange: "$$ – $$$",
-    address: { "@type": "PostalAddress", addressCountry: "MO", addressLocality: "Macau" },
-    areaServed: { "@type": "Country", name: "Macau" },
-    sameAs: ["https://t.me/am38876"],
-  },
   {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -173,14 +162,14 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
     ))}
     <meta property="og:site_name" content={t.meta.siteName} />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:image:width" content={String(site.ogImageWidth)} />
-    <meta property="og:image:height" content={String(site.ogImageHeight)} />
-    <meta property="og:image:alt" content={t.meta.ogImageAlt} />
+    <meta property="og:image:width" content={String(ogImageWidth)} />
+    <meta property="og:image:height" content={String(ogImageHeight)} />
+    <meta property="og:image:alt" content={pageOgImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={ogImageUrl} />
-    <meta name="twitter:image:alt" content={t.meta.ogImageAlt} />
+    <meta name="twitter:image:alt" content={pageOgImageAlt} />
 
     {/* Version query busts stale favicon caches (browser favicon DB + CDN's
         7-day max-age on /favicon.svg). Bump when the icon changes. */}

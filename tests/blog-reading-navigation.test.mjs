@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
+const globalCssPath = path.join(projectRoot, "src", "styles", "global.css");
 const locales = ["en", "zh-TW", "zh-CN", "ja", "ko"];
 
 const readArticle = (locale) =>
@@ -32,6 +33,20 @@ const regionBetween = (html, startMarker, endMarker) => {
 
 const markedTags = (html, marker, tagName) =>
   (html.match(new RegExp(`<${tagName}\\b[^>]*>`, "g")) ?? []).filter((tag) => tag.includes(marker));
+
+test("Markdown tables keep narrow-screen overflow inside the table", async () => {
+  const css = await readFile(globalCssPath, "utf8");
+  const tableRule = css.match(/\.rm-paper \.prose-paper table\s*\{([^}]*)\}/)?.[1] ?? "";
+
+  assert.match(tableRule, /display:\s*block/, "Markdown tables need an independent scroll box");
+  assert.match(tableRule, /max-width:\s*100%/, "Markdown tables must stay inside the article column");
+  assert.match(tableRule, /overflow-x:\s*auto/, "wide Markdown tables must scroll horizontally");
+  assert.match(
+    tableRule,
+    /overscroll-behavior-inline:\s*contain/,
+    "horizontal table gestures must not move the whole page",
+  );
+});
 
 test("blog articles render one accessible mobile reading rail with the same H2 destinations as the body", async () => {
   for (const locale of locales) {

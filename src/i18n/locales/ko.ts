@@ -6,7 +6,7 @@ const ko: Dictionary = {
     description:
       '현재 휴업 안내, 참고 가격, 시설, 전용 셔틀 지원을 포함해 마카오의 사우나·스파 15곳을 비교해 보세요.',
     siteName: '마카오 사우나 가이드',
-    ogImageAlt: '마카오 사우나 & 스파 2026 | 럭셔리 VIP 예약 및 무료 셔틀',
+    ogImageAlt: '밤의 마카오 반도 호텔 스카이라인과 불이 켜진 해상 다리',
   },
 
   nav: {

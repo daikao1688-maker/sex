@@ -5,7 +5,7 @@ const zhCN: Dictionary = {
     title: '澳门桑拿2026 - 澳门桑拿导航站',
     description: '整理 15 家澳门桑拿及水疗场所，提供营业状态、参考价格、设施与专车接送信息，方便出发前比较。',
     siteName: '澳门桑拿导航站',
-    ogImageAlt: '澳门桑拿2026 - 澳门桑拿导航站',
+    ogImageAlt: '夜幕下灯光璀璨的澳门半岛酒店天际线与跨海大桥',
   },
 
   nav: {
