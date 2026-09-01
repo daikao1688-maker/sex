@@ -11,6 +11,9 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    /** Optional concise metadata while the on-page editorial headline stays intact. */
+    seoTitle: z.string().optional(),
+    metaDescription: z.string().optional(),
     /** Matches a key in the blog page copy's `categories` map. */
     category: z.enum(['beginner', 'price', 'compare', 'itinerary', 'experience', 'news']),
     /** ISO date; drives ordering and the printed month. */

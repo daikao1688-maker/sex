@@ -5,8 +5,8 @@ category: "news"
 date: "2026-09-01"
 dateModified: "2026-09-01"
 meta: "2026年9月1日更新 · 10 分鐘"
-cover: "/blog/macau-sauna-august-guide-2026/01-macau-sauna-majesty-spa-pool.webp"
-coverAlt: "澳門桑拿市場近況——室內暖水按摩池與現代化水療設施。"
+cover: "/blog/macau-sauna-market-update-september-2026/01-macau-sauna-theme-room-costume-experience.webp"
+coverAlt: "澳門桑拿主題房內三位成年女性分別穿著護士、警察與秘書造型服裝。"
 author: "Macau Sauna Sites"
 ---
 

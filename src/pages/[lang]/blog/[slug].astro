@@ -6,7 +6,13 @@ import ContactChannels from "../../../components/ContactChannels.astro";
 import { getDictionary } from "../../../i18n";
 import { locales, localizePath, type Locale } from "../../../i18n/config";
 import { getBlogCopy } from "../../../i18n/pages/blog";
-import { getPostsFor, localesForSlug, postSlug, tableOfContents } from "../../../lib/blog";
+import {
+  blogCoverPresentation,
+  getPostsFor,
+  localesForSlug,
+  postSlug,
+  tableOfContents,
+} from "../../../lib/blog";
 import { site } from "../../../data/site";
 
 export async function getStaticPaths() {
@@ -33,13 +39,9 @@ const toc = tableOfContents(headings);
 
 const alternateLocales = await localesForSlug(slug);
 const related = (await getPostsFor(lang)).filter((other) => postSlug(other) !== slug).slice(0, 3);
-const coverExtension = post.data.cover.match(/\.(?:jpe?g|webp)$/i)?.[0] ?? "";
-const responsiveCover = post.data.cover.replace(coverExtension, `-640${coverExtension}`);
-// The checked-in blog hero inventory is uniform by format: WebP covers are
-// 1280×720 and the one JPEG cover is 1360×768.
-const coverDimensions = coverExtension.toLowerCase() === ".jpg"
-  ? { width: 1360, height: 768 }
-  : { width: 1280, height: 720 };
+const cover = blogCoverPresentation(post.data.cover);
+const seoTitle = post.data.seoTitle ?? post.data.title;
+const metaDescription = post.data.metaDescription ?? post.data.description;
 
 const schemas = [
   {
@@ -70,12 +72,15 @@ const schemas = [
 <PageShell
   lang={lang}
   path={path}
-  title={`${post.data.title} | ${t.meta.siteName}`}
-  description={post.data.description}
+  title={`${seoTitle} | ${t.meta.siteName}`}
+  description={metaDescription}
   ogImage={post.data.cover}
   ogImageAlt={post.data.coverAlt}
-  ogImageWidth={1280}
-  ogImageHeight={720}
+  ogImageWidth={cover.width}
+  ogImageHeight={cover.height}
+  ogType="article"
+  articlePublishedTime={post.data.date}
+  articleModifiedTime={post.data.dateModified ?? post.data.date}
   breadcrumbs={[
     { name: copy.breadcrumbs[0].name, path: "/" },
     { name: copy.heading, path: "/blog/" },
@@ -155,12 +160,12 @@ const schemas = [
       <div class="mt-8 overflow-hidden rounded-2xl border border-[var(--paper-border)] bg-[#eee7d7]">
         <img
           src={post.data.cover}
-          srcset={`${responsiveCover} 640w, ${post.data.cover} ${coverDimensions.width}w`}
+          srcset={cover.srcset}
           sizes="(min-width: 1152px) 1152px, calc(100vw - 2rem)"
           alt={post.data.coverAlt}
           class="w-full h-auto object-cover"
-          width={coverDimensions.width}
-          height={coverDimensions.height}
+          width={cover.width}
+          height={cover.height}
           loading="eager"
           fetchpriority="high"
           decoding="async"

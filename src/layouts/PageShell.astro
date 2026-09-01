@@ -21,6 +21,9 @@ interface Props {
   ogImageAlt?: string;
   ogImageWidth?: number;
   ogImageHeight?: number;
+  ogType?: "website" | "article";
+  articlePublishedTime?: string;
+  articleModifiedTime?: string;
   breadcrumbs?: Crumb[];
   schemas?: Record<string, unknown>[];
   /** Blog pages use the light "paper" theme instead of the dark one. */
@@ -46,6 +49,9 @@ const {
   ogImageAlt,
   ogImageWidth,
   ogImageHeight,
+  ogType,
+  articlePublishedTime,
+  articleModifiedTime,
   breadcrumbs,
   schemas,
   theme = "dark",
@@ -72,6 +78,9 @@ const skipLabels: Record<Locale, string> = {
   ogImageAlt={ogImageAlt}
   ogImageWidth={ogImageWidth}
   ogImageHeight={ogImageHeight}
+  ogType={ogType}
+  articlePublishedTime={articlePublishedTime}
+  articleModifiedTime={articleModifiedTime}
   breadcrumbs={breadcrumbs}
   schemas={schemas}
   alternateLocales={alternateLocales}

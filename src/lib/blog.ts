@@ -3,6 +3,37 @@ import { defaultLocale, locales, type Locale } from '../i18n/config';
 
 export type BlogPost = CollectionEntry<'blog'>;
 
+export interface BlogCoverPresentation {
+  src: string;
+  responsiveSrc: string;
+  srcset: string;
+  width: number;
+  height: number;
+}
+
+/**
+ * Every checked-in blog cover owns a 640px companion next to its full-size
+ * source. Keep article, listing, and homepage discovery images on one contract
+ * so mobile cards never fall back to the 1280px asset by accident.
+ */
+export function blogCoverPresentation(cover: string): BlogCoverPresentation {
+  const extension = cover.match(/\.(?:jpe?g|webp)$/i)?.[0];
+  if (!extension) throw new Error(`Unsupported blog cover format: ${cover}`);
+
+  const responsiveSrc = cover.replace(extension, `-640${extension}`);
+  const jpeg = /^\.jpe?g$/i.test(extension);
+  const width = jpeg ? 1360 : 1280;
+  const height = jpeg ? 768 : 720;
+
+  return {
+    src: cover,
+    responsiveSrc,
+    srcset: `${responsiveSrc} 640w, ${cover} ${width}w`,
+    width,
+    height,
+  };
+}
+
 /** Splits the collection id, which is `<lang>/<slug>`. */
 export function postSlug(post: BlogPost): string {
   return post.id.split('/').slice(1).join('/');

@@ -2,7 +2,7 @@
 import { getDictionary } from "../i18n";
 import { localizePath, type Locale } from "../i18n/config";
 import { getBlogCopy } from "../i18n/pages/blog";
-import { getPostsFor, postSlug } from "../lib/blog";
+import { blogCoverPresentation, getPostsFor, postSlug } from "../lib/blog";
 
 interface Props {
   lang: Locale;
@@ -14,7 +14,9 @@ const copy = getBlogCopy(lang);
 
 // Homepage teaser mirrors the blog index: newest posts first, straight from
 // the content collection — no hand-maintained card list to go stale.
-const posts = (await getPostsFor(lang)).slice(0, 3);
+const posts = (await getPostsFor(lang))
+  .slice(0, 3)
+  .map((post) => ({ post, cover: blogCoverPresentation(post.data.cover) }));
 ---
 
 <section class="py-14 sm:py-20 px-4">
@@ -31,7 +33,7 @@ const posts = (await getPostsFor(lang)).slice(0, 3);
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {
-          posts.map((post) => (
+          posts.map(({ post, cover }) => (
             <a
               href={localizePath(lang, `/blog/${postSlug(post)}/`)}
               class="group block rounded-xl overflow-hidden border transition-all bg-[#161616] border-white/10 hover:border-gold/60"
@@ -39,7 +41,11 @@ const posts = (await getPostsFor(lang)).slice(0, 3);
               <div class="aspect-[16/10] overflow-hidden bg-[#1d1d1d]">
                 <img
                   src={post.data.cover}
+                  srcset={cover.srcset}
+                  sizes="(min-width: 1024px) 320px, (min-width: 640px) calc(50vw - 2rem), calc(100vw - 2rem)"
                   alt={post.data.coverAlt}
+                  width={cover.width}
+                  height={cover.height}
                   loading="lazy"
                   decoding="async"
                   class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
