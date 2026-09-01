@@ -476,10 +476,10 @@ test("Korean server and client month labels use Korean month and year forms", as
   assert.equal(runPromoMonthRefresh(promoScript), "8월", "client month refresh must use the Korean 월 suffix");
 });
 
-test("Korean static pages complete the 135-URL sitemap and reciprocal hreflang mesh", async () => {
+test("Korean static pages complete the 136-URL sitemap and reciprocal hreflang mesh", async () => {
   const sitemap = await readFile(path.join(distRoot, "sitemap-0.xml"), "utf8");
   const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-  assert.equal(sitemapLocations.length, 135, "sitemap must list 135 localized canonical URLs");
+  assert.equal(sitemapLocations.length, 136, "sitemap must list 136 localized canonical URLs");
 
   const localizedPaths = (await readdir(path.join(distRoot, koreanLocale), { recursive: true }))
     .filter((relativePath) =>
