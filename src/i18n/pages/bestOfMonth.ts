@@ -53,6 +53,12 @@ const en: BestOfMonthCopy = {
   },
   cards: [
     {
+      slug: 'number-nine-sauna',
+      award: 'Best stage show',
+      quote:
+        'April 2026 opening in the Royal Dragon Hotel with the best stage production in the city.',
+    },
+    {
       slug: 'majesty-spa',
       award: 'Best of the Month',
       quote:
@@ -63,12 +69,6 @@ const en: BestOfMonthCopy = {
       award: 'Best new opening',
       quote:
         "Taipa's May-2026 debut — the most theatrical interior in Macau, built inside the Grandview Hotel.",
-    },
-    {
-      slug: 'number-nine-sauna',
-      award: 'Best stage show',
-      quote:
-        'April 2026 opening in the Royal Dragon Hotel with the best stage production in the city.',
     },
   ],
 };
@@ -93,6 +93,11 @@ const ja: BestOfMonthCopy = {
   },
   cards: [
     {
+      slug: 'number-nine-sauna',
+      award: 'ショータイムがベスト',
+      quote: '2026年4月、御龍酒店にオープン。市内随一の演出を誇るメインステージのショータイム。',
+    },
+    {
       slug: 'majesty-spa',
       award: '今月のベスト',
       quote:
@@ -102,11 +107,6 @@ const ja: BestOfMonthCopy = {
       slug: 'manhao-spa',
       award: '新店ベスト',
       quote: '2026年5月、氹仔の君怡酒店にオープン。マカオでもっとも劇場的な内装が味わえます。',
-    },
-    {
-      slug: 'number-nine-sauna',
-      award: 'ショータイムがベスト',
-      quote: '2026年4月、御龍酒店にオープン。市内随一の演出を誇るメインステージのショータイム。',
     },
   ],
 };
@@ -131,6 +131,11 @@ const zhTW: BestOfMonthCopy = {
   },
   cards: [
     {
+      slug: 'number-nine-sauna',
+      award: '最佳走秀',
+      quote: '2026 年 4 月於御龍酒店開幕，擁有全城最出色的舞台走秀。',
+    },
+    {
       slug: 'majesty-spa',
       award: '本月最佳',
       quote: '漁人碼頭老牌場館，東南亞性價比與過夜定位最清楚，日場加碼優惠與免服務費同樣到位。',
@@ -139,11 +144,6 @@ const zhTW: BestOfMonthCopy = {
       slug: 'manhao-spa',
       award: '最佳新場',
       quote: '2026 年 5 月進駐氹仔君怡酒店，全澳最具戲劇感的裝潢。',
-    },
-    {
-      slug: 'number-nine-sauna',
-      award: '最佳走秀',
-      quote: '2026 年 4 月於御龍酒店開幕，擁有全城最出色的舞台走秀。',
     },
   ],
 };
@@ -167,6 +167,11 @@ const zhCN: BestOfMonthCopy = {
   },
   cards: [
     {
+      slug: 'number-nine-sauna',
+      award: '最佳走秀',
+      quote: '2026 年 4 月于御龙酒店开幕，拥有全城最出色的舞台走秀。',
+    },
+    {
       slug: 'majesty-spa',
       award: '本月最佳',
       quote: '渔人码头老牌场馆，东南亚性价比与过夜定位最清楚，日场加码优惠与免服务费同样到位。',
@@ -175,11 +180,6 @@ const zhCN: BestOfMonthCopy = {
       slug: 'manhao-spa',
       award: '最佳新场',
       quote: '2026 年 5 月进驻氹仔君怡酒店，全澳最具戏剧感的装潢。',
-    },
-    {
-      slug: 'number-nine-sauna',
-      award: '最佳走秀',
-      quote: '2026 年 4 月于御龙酒店开幕，拥有全城最出色的舞台走秀。',
     },
   ],
 };
@@ -204,6 +204,12 @@ const ko: BestOfMonthCopy = {
   },
   cards: [
     {
+      slug: 'number-nine-sauna',
+      award: '베스트 스테이지 쇼',
+      quote:
+        '로열 드래곤 호텔의 2026년 4월 오픈 매장으로, 도시 최고 수준의 무대 연출을 자랑합니다.',
+    },
+    {
       slug: 'majesty-spa',
       award: '이달의 베스트',
       quote:
@@ -214,12 +220,6 @@ const ko: BestOfMonthCopy = {
       award: '베스트 신규 오픈',
       quote:
         '타이파의 2026년 5월 데뷔 — 그랜드뷰 호텔 안에 지어진, 마카오에서 가장 극적인 인테리어.',
-    },
-    {
-      slug: 'number-nine-sauna',
-      award: '베스트 스테이지 쇼',
-      quote:
-        '로열 드래곤 호텔의 2026년 4월 오픈 매장으로, 도시 최고 수준의 무대 연출을 자랑합니다.',
     },
   ],
 };
