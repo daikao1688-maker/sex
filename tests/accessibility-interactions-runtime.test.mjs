@@ -4,6 +4,7 @@ import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import vm from "node:vm";
+import ts from "typescript";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 
@@ -65,11 +66,9 @@ const componentScript = async (component) => {
   const scripts = [...source.matchAll(/<script>([\s\S]*?)<\/script>/g)];
   const script = scripts.at(-1)?.[1];
   assert.ok(script, `${component} must ship a client interaction script`);
-  return script
-    .replace(/<([A-Z][A-Za-z0-9]*)>/g, "")
-    .replace(/: (?:HTMLElement|HTMLButtonElement|number) \| (?:null|undefined)/g, "")
-    .replace(/ as [A-Z][A-Za-z0-9]*(?: \| null)?/g, "")
-    .replace(/: (?:boolean|string)/g, "");
+  return ts.transpileModule(script, {
+    compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
+  }).outputText;
 };
 
 const createWeChatCopyHarness = async (writeText) => {

@@ -62,6 +62,11 @@ export interface SpaPageCopy {
     features: string;
     gallery: string;
     viewLarger: string;
+    previousPhoto: string;
+    nextPhoto: string;
+    gallerySwipeHint: string;
+    /** Named placeholders let each locale order the photo count naturally. */
+    galleryPhotoCount: string;
     flow: string;
     moreInfo: string;
     related: string;
@@ -144,6 +149,10 @@ const en: SpaPageCopy = {
     features: 'Features',
     gallery: 'Gallery',
     viewLarger: 'View larger',
+    previousPhoto: 'Previous photo',
+    nextPhoto: 'Next photo',
+    gallerySwipeHint: 'Swipe left or right to browse',
+    galleryPhotoCount: 'Photo {current} of {total}',
     flow: 'Detailed Flow',
     moreInfo: 'Want to know more? Contact us for detailed info',
     related: 'Other Popular Spas',
@@ -1644,6 +1653,10 @@ const ja: SpaPageCopy = {
     features: '特徴・サービス',
     gallery: '店内ギャラリー',
     viewLarger: '拡大して見る',
+    previousPhoto: '前の写真',
+    nextPhoto: '次の写真',
+    gallerySwipeHint: '左右にスワイプして写真を切り替え',
+    galleryPhotoCount: '全{total}枚中{current}枚目',
     flow: '詳しい流れ',
     moreInfo: 'もっと詳しく知りたい方は、LINEで問い合わせ（無料送迎つき）｜日本語対応で初めてでも安心',
     related: 'その他の人気サウナ',
@@ -3119,6 +3132,10 @@ const zhTW: SpaPageCopy = {
     features: '特色服務',
     gallery: '會所相冊',
     viewLarger: '查看大圖',
+    previousPhoto: '上一張相片',
+    nextPhoto: '下一張相片',
+    gallerySwipeHint: '左右滑動切換相片',
+    galleryPhotoCount: '第 {current} 張相片，共 {total} 張',
     flow: '詳細流程',
     moreInfo: '想了解更多？聯繫我們獲取詳細資訊',
     related: '其他熱門會所',
@@ -4601,7 +4618,11 @@ const zhCN: SpaPageCopy = {
     allContacts: '联系我们获取优惠 →',
     features: '特色服务',
     gallery: '会所相册',
-    viewLarger: '查看大圖',
+    viewLarger: '查看大图',
+    previousPhoto: '上一张照片',
+    nextPhoto: '下一张照片',
+    gallerySwipeHint: '左右滑动切换照片',
+    galleryPhotoCount: '第 {current} 张照片，共 {total} 张',
     flow: '详细流程',
     moreInfo: '想了解更多？联系我们获取详细资讯',
     related: '其他热门会所',
@@ -6090,6 +6111,10 @@ const ko: SpaPageCopy = {
     features: '특징',
     gallery: '갤러리',
     viewLarger: '크게 보기',
+    previousPhoto: '이전 사진',
+    nextPhoto: '다음 사진',
+    gallerySwipeHint: '좌우로 밀어 사진 보기',
+    galleryPhotoCount: '사진 {total}장 중 {current}번째',
     flow: '이용 흐름',
     moreInfo: '더 궁금한 점이 있으신가요? 문의하시면 자세히 안내해 드립니다',
     related: '다른 인기 스파',

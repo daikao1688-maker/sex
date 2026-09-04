@@ -15,9 +15,14 @@ interface Props {
   heading: string;
   viewLarger: string;
   closeLabel: string;
+  previousLabel: string;
+  nextLabel: string;
+  swipeHint: string;
+  photoCountTemplate: string;
 }
 
-const { images, fallbackImage, fallbackAlt, heading, viewLarger, closeLabel } = Astro.props;
+const { images, fallbackImage, fallbackAlt, heading, viewLarger, closeLabel,
+  previousLabel, nextLabel, swipeHint, photoCountTemplate } = Astro.props;
 
 const available = images.filter((image) => existsSync(`public/media/${image.file}-thumb.webp`));
 const large = (file: string) =>
@@ -84,7 +89,7 @@ const large = (file: string) =>
     <div
       data-gallery-lightbox
       hidden
-      class="fixed inset-0 z-[150] hidden items-center justify-center bg-black/90 p-4"
+      class="fixed inset-0 z-[150] hidden items-center justify-center overflow-y-auto overscroll-contain bg-black/95 px-4 pb-6 pt-20"
       role="dialog"
       aria-modal="true"
       aria-label={heading}
@@ -94,15 +99,42 @@ const large = (file: string) =>
         type="button"
         data-gallery-close
         aria-label={closeLabel}
-        class="absolute right-4 top-4 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/70 text-white shadow-lg shadow-black/30 backdrop-blur-md transition-colors hover:border-gold/60 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold sm:right-6 sm:top-6"
+        class="fixed right-4 top-4 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/70 text-white shadow-lg shadow-black/30 backdrop-blur-md transition-colors hover:border-gold/60 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold sm:right-6 sm:top-6"
       >
         <Icon name="close" class="h-5 w-5" />
       </button>
 
-      <figure class="max-w-4xl">
-        <img data-gallery-image src="" alt="" class="max-h-[75vh] w-auto rounded-xl" />
-        <figcaption data-gallery-caption class="mt-3 text-center text-sm text-white/60" />
-      </figure>
+      <div class="my-auto w-full max-w-5xl">
+        <figure class="flex flex-col items-center gap-3">
+          <img
+            data-gallery-image src="" alt="" draggable="false"
+            class="max-h-[max(8rem,calc(100dvh-17rem))] w-auto max-w-full select-none rounded-xl object-contain [touch-action:pan-y_pinch-zoom] sm:max-h-[max(8rem,calc(100dvh-15rem))]"
+          />
+          <figcaption data-gallery-caption tabindex="0" class="max-h-20 overflow-y-auto rounded-sm text-center text-sm leading-relaxed text-white/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold" />
+        </figure>
+        <div class="mt-4 flex items-center justify-center gap-6">
+          <button
+            type="button" data-gallery-prev hidden={available.length < 2}
+            aria-label={previousLabel} title={previousLabel}
+            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-white/5 text-gold transition-colors hover:bg-gold/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+          >
+            <Icon name="arrow-left" class="h-5 w-5" />
+          </button>
+          <span
+            data-gallery-counter data-count-template={photoCountTemplate}
+            role="status" aria-live="polite" aria-atomic="true"
+            class="min-w-16 text-center text-sm font-medium tabular-nums text-white/90"
+          />
+          <button
+            type="button" data-gallery-next hidden={available.length < 2}
+            aria-label={nextLabel} title={nextLabel}
+            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-white/5 text-gold transition-colors hover:bg-gold/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+          >
+            <Icon name="arrow-right" class="h-5 w-5" />
+          </button>
+        </div>
+        {available.length > 1 && <p class="gallery-swipe-hint mt-3 text-center text-xs text-white/50">{swipeHint}</p>}
+      </div>
     </div>
   )
 }
@@ -115,6 +147,12 @@ const large = (file: string) =>
     const image = lightbox.querySelector<HTMLImageElement>("[data-gallery-image]");
     const caption = lightbox.querySelector<HTMLElement>("[data-gallery-caption]");
     const closeButton = lightbox.querySelector<HTMLButtonElement>("[data-gallery-close]");
+    const previousButton = lightbox.querySelector<HTMLButtonElement>("[data-gallery-prev]");
+    const nextButton = lightbox.querySelector<HTMLButtonElement>("[data-gallery-next]");
+    const counter = lightbox.querySelector<HTMLElement>("[data-gallery-counter]");
+    const triggers = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-open]"));
+    let currentIndex = 0;
+    let swipeStart: { id: number; x: number; y: number } | null = null;
     let lastTrigger: HTMLElement | null = null;
     let previousBodyOverflow = "";
     let savedScrollY = 0;
@@ -124,6 +162,28 @@ const large = (file: string) =>
     document.body.append(lightbox);
 
     const isOpen = () => !lightbox.hidden;
+    const isZoomed = () => (window.visualViewport?.scale ?? 1) > 1.05;
+    const showPhoto = (index: number) => {
+      if (!image || !caption || !triggers.length) return;
+      currentIndex = (index + triggers.length) % triggers.length;
+      const trigger = triggers[currentIndex];
+      image.src = trigger.dataset.src ?? "";
+      image.alt = trigger.dataset.alt ?? "";
+      caption.textContent = trigger.dataset.caption ?? "";
+      caption.scrollTop = 0;
+      if (counter) {
+        counter.textContent = `${currentIndex + 1} / ${triggers.length}`;
+        counter.setAttribute("aria-label", (counter.dataset.countTemplate ?? "{current} / {total}")
+          .replace("{current}", String(currentIndex + 1))
+          .replace("{total}", String(triggers.length)));
+      }
+    };
+    const navigate = (direction: number) => {
+      if (isOpen() && triggers.length > 1) showPhoto(currentIndex + direction);
+    };
+    for (const button of [previousButton, nextButton]) {
+      if (button) button.hidden = triggers.length < 2;
+    }
     const setBackgroundInert = (inert: boolean) => {
       const background = document.querySelector<HTMLElement>("[data-page-background]");
       if (background) background.inert = inert;
@@ -131,6 +191,7 @@ const large = (file: string) =>
 
     const close = () => {
       if (!isOpen()) return;
+      swipeStart = null;
       lightbox.classList.replace("flex", "hidden");
       lightbox.hidden = true;
       lightbox.setAttribute("aria-hidden", "true");
@@ -143,15 +204,13 @@ const large = (file: string) =>
       window.scrollTo({ top: savedScrollY, behavior: "instant" });
     };
 
-    document.querySelectorAll<HTMLElement>("[data-gallery-open]").forEach((trigger) => {
+    triggers.forEach((trigger, index) => {
       trigger.addEventListener("click", () => {
         if (!image || !caption) return;
         lastTrigger = trigger;
         previousBodyOverflow = document.body.style.overflow;
         savedScrollY = window.scrollY;
-        image.src = trigger.dataset.src ?? "";
-        image.alt = trigger.dataset.alt ?? "";
-        caption.textContent = trigger.dataset.caption ?? "";
+        showPhoto(index);
         lightbox.hidden = false;
         lightbox.setAttribute("aria-hidden", "false");
         lightbox.classList.replace("hidden", "flex");
@@ -162,6 +221,26 @@ const large = (file: string) =>
     });
 
     closeButton?.addEventListener("click", close);
+    previousButton?.addEventListener("click", () => navigate(-1));
+    nextButton?.addEventListener("click", () => navigate(1));
+    image?.addEventListener("pointerdown", (event) => {
+      // A second finger cancels navigation so native pinch zoom remains available.
+      swipeStart = null;
+      if (!isOpen() || !event.isPrimary || event.pointerType === "mouse" || isZoomed()) return;
+      swipeStart = { id: event.pointerId, x: event.clientX, y: event.clientY };
+      image.setPointerCapture(event.pointerId);
+    });
+    image?.addEventListener("pointercancel", () => { swipeStart = null; });
+    image?.addEventListener("pointerup", (event) => {
+      const start = swipeStart;
+      swipeStart = null;
+      if (!start || start.id !== event.pointerId || isZoomed()) return;
+      const dx = event.clientX - start.x;
+      const dy = event.clientY - start.y;
+      if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        navigate(dx < 0 ? 1 : -1);
+      }
+    });
     lightbox.addEventListener("click", (event) => {
       if (event.target === lightbox) close();
     });
@@ -170,10 +249,33 @@ const large = (file: string) =>
       if (event.key === "Escape") {
         event.preventDefault();
         close();
-      } else if (event.key === "Tab" && closeButton) {
+      } else if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
         event.preventDefault();
-        closeButton.focus();
+        navigate(event.key === "ArrowLeft" ? -1 : 1);
+      } else if (event.key === "Tab") {
+        // Captions can scroll on small screens, so they must remain in the
+        // keyboard cycle even when this gallery has only one photograph.
+        const controls = [closeButton, caption, previousButton, nextButton]
+          .filter((control): control is HTMLElement => Boolean(control && !control.hidden));
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        const active = document.activeElement;
+        if (first && (event.shiftKey ? active === first : active === last)) {
+          event.preventDefault();
+          (event.shiftKey ? last : first).focus();
+        } else if (first && !lightbox.contains(active)) {
+          event.preventDefault();
+          first.focus();
+        }
       }
     });
   })();
 </script>
+
+<style>
+  [data-gallery-prev][hidden],
+  [data-gallery-next][hidden] { display: none; }
+  @media (hover: hover) and (pointer: fine) {
+    .gallery-swipe-hint { display: none; }
+  }
+</style>
