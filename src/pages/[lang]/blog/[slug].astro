@@ -240,6 +240,17 @@ const schemas = [
           </div>
         )
       }
+      <div class="mt-8 flex max-w-3xl justify-center sm:mt-10">
+        <a
+          href={localizePath(lang, "/blog/")}
+          data-blog-return-link
+          data-floating-actions-exclusion
+          class="inline-flex min-h-12 max-w-full items-center justify-center gap-2 rounded-full border border-[var(--paper-accent)] bg-[var(--paper-bg)] px-6 py-3 text-sm font-medium leading-snug text-[var(--paper-accent)] transition-colors hover:bg-[var(--paper-card)] hover:text-[var(--paper-accent-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--paper-accent)] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--paper-bg)] motion-reduce:transition-none"
+        >
+          <Icon name="arrow-left" class="h-4 w-4 shrink-0" />
+          <span>{copy.post.backToAllArticles}</span>
+        </a>
+      </div>
     </div>
   </article>
 </PageShell>

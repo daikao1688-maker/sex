@@ -32,6 +32,9 @@ export interface VenueDetail {
 
 export interface SpaPageCopy {
   backHome: string;
+  backToVenueList: string;
+  /** {venue} is replaced with the current localized venue name. */
+  inquiry: { booking: string; closed: string };
   alsoKnownAs: string;
   labels: {
     referencePrice: string;
@@ -108,6 +111,11 @@ export function venueSummary(description: string, lang: Locale): string {
 
 const en: SpaPageCopy = {
   backHome: 'Back to Home',
+  backToVenueList: 'Back to venue list',
+  inquiry: {
+    booking: "Hello, I'd like to book a visit to {venue}. Could you help arrange it?",
+    closed: 'Hello, I saw that {venue} is temporarily closed. Could you recommend a similar venue?',
+  },
   alsoKnownAs: 'Also known as：',
   labels: {
     referencePrice: 'Typical Package Range',
@@ -1603,6 +1611,11 @@ const en: SpaPageCopy = {
 
 const ja: SpaPageCopy = {
   backHome: 'トップに戻る',
+  backToVenueList: '店舗一覧に戻る',
+  inquiry: {
+    booking: 'こんにちは。{venue}を予約したいのですが、手配をお願いできますか？',
+    closed: 'こんにちは。{venue}が一時休業中と拝見しました。似たお店を紹介していただけますか？',
+  },
   alsoKnownAs: '別名：',
   labels: {
     referencePrice: '主なコース料金の目安',
@@ -3074,6 +3087,11 @@ const ja: SpaPageCopy = {
 
 const zhTW: SpaPageCopy = {
   backHome: '返回首頁',
+  backToVenueList: '返回會所列表',
+  inquiry: {
+    booking: '你好，我想預約{venue}，可以安排嗎？',
+    closed: '你好，我看到{venue}暫停營業，請問有類似的場所可以推薦嗎？',
+  },
   alsoKnownAs: '亦稱：',
   labels: {
     referencePrice: '常見套餐價格範圍',
@@ -4552,6 +4570,11 @@ const zhTW: SpaPageCopy = {
 
 const zhCN: SpaPageCopy = {
   backHome: '返回首页',
+  backToVenueList: '返回会所列表',
+  inquiry: {
+    booking: '你好，我想预约{venue}，可以安排吗？',
+    closed: '你好，我看到{venue}暂停营业，请问有类似的场所可以推荐吗？',
+  },
   alsoKnownAs: '亦称：',
   labels: {
     referencePrice: '常见套餐价格范围',
@@ -6034,6 +6057,11 @@ const zhCN: SpaPageCopy = {
 
 const ko: SpaPageCopy = {
   backHome: '홈으로 돌아가기',
+  backToVenueList: '업소 목록으로 돌아가기',
+  inquiry: {
+    booking: '안녕하세요. {venue} 이용을 예약하고 싶습니다. 예약을 도와주실 수 있나요?',
+    closed: '안녕하세요. {venue}의 임시 휴업 안내를 봤습니다. 비슷한 업소를 추천해 주실 수 있나요?',
+  },
   alsoKnownAs: '다른 명칭:',
   labels: {
     referencePrice: '주요 패키지 가격대',

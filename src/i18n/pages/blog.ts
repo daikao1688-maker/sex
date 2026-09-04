@@ -14,6 +14,7 @@ export interface BlogCopy {
   emptyFilter: string;
   post: {
     allArticles: string;
+    backToAllArticles: string;
     inThisArticle: string;
     related: string;
     ctaHeading: string;
@@ -48,6 +49,7 @@ const en: BlogCopy = {
   emptyFilter: 'No articles in this topic yet.',
   post: {
     allArticles: 'All articles',
+    backToAllArticles: 'Back to all articles',
     inThisArticle: 'In this article',
     related: 'Keep reading',
     ctaHeading: 'Ready to book?',
@@ -81,6 +83,7 @@ const ja: BlogCopy = {
   emptyFilter: 'このトピックの記事はまだありません。',
   post: {
     allArticles: '記事一覧',
+    backToAllArticles: '記事一覧に戻る',
     inThisArticle: 'この記事の内容',
     related: 'あわせて読みたい',
     ctaHeading: 'まずはLINEで問い合わせ',
@@ -114,6 +117,7 @@ const zhTW: BlogCopy = {
   emptyFilter: '此主題目前沒有文章。',
   post: {
     allArticles: '所有文章',
+    backToAllArticles: '返回所有文章',
     inThisArticle: '本文重點',
     related: '延伸閱讀',
     ctaHeading: '準備預約？',
@@ -147,6 +151,7 @@ const zhCN: BlogCopy = {
   emptyFilter: '此主题暂无文章。',
   post: {
     allArticles: '所有文章',
+    backToAllArticles: '返回所有文章',
     inThisArticle: '本文重点',
     related: '延伸阅读',
     ctaHeading: '准备预约？',
@@ -180,6 +185,7 @@ const ko: BlogCopy = {
   emptyFilter: '이 주제의 글이 아직 없습니다.',
   post: {
     allArticles: '전체 글',
+    backToAllArticles: '전체 글 목록으로 돌아가기',
     inThisArticle: '이 글의 내용',
     related: '함께 읽기',
     ctaHeading: '예약할 준비가 되셨나요?',

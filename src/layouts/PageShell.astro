@@ -38,6 +38,10 @@ interface Props {
   promo?: boolean;
   /** Optional target for the promo CTA on this page. */
   promoCtaHref?: string;
+  /** Context supplied by venue pages; other pages retain general enquiries. */
+  inquiryMessage?: string;
+  /** Native destination for the floating contact entry. */
+  contactHref?: string;
 }
 
 const {
@@ -58,6 +62,8 @@ const {
   alternateLocales,
   promo = true,
   promoCtaHref,
+  inquiryMessage,
+  contactHref,
 } = Astro.props;
 
 const skipLabels: Record<Locale, string> = {
@@ -84,6 +90,7 @@ const skipLabels: Record<Locale, string> = {
   breadcrumbs={breadcrumbs}
   schemas={schemas}
   alternateLocales={alternateLocales}
+  inquiryMessage={inquiryMessage}
 >
   <a
     href="#main-content"
@@ -99,7 +106,7 @@ const skipLabels: Record<Locale, string> = {
       <slot />
     </main>
     <Footer lang={lang} />
-    <FloatingContactPill lang={lang} />
+    <FloatingContactPill lang={lang} href={contactHref} />
   </div>
 
   <WeChatModal lang={lang} />

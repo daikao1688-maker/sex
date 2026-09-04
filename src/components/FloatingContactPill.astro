@@ -5,9 +5,11 @@ import Icon from "./Icon.astro";
 
 interface Props {
   lang: Locale;
+  /** Pages with contextual contact cards can link to their own contact section. */
+  href?: string;
 }
 
-const { lang } = Astro.props;
+const { lang, href = localizePath(lang, "/contact/") } = Astro.props;
 const t = getDictionary(lang);
 ---
 
@@ -60,7 +62,7 @@ const t = getDictionary(lang);
 
   <a
     id="floating-contact-pill"
-    href={localizePath(lang, "/contact/")}
+    href={href}
     aria-label={t.floatingPill.aria}
     aria-hidden="true"
     tabindex="-1"

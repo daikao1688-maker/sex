@@ -29,6 +29,8 @@ interface Props {
   alternateLocales?: Locale[];
   /** Error and utility pages can opt out of indexing and locale alternates. */
   indexable?: boolean;
+  /** Page-specific enquiry shared by the page's contact links. */
+  inquiryMessage?: string;
 }
 
 const {
@@ -48,6 +50,7 @@ const {
   siteSchema = false,
   alternateLocales = locales,
   indexable = true,
+  inquiryMessage,
 } = Astro.props;
 
 const t = getDictionary(lang);
@@ -196,7 +199,7 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
 
     <GoogleAdsTag />
   </head>
-  <body class="bg-ink text-white" data-inquiry-message={t.contact.inquiryMessage}>
+  <body class="bg-ink text-white" data-inquiry-message={inquiryMessage ?? t.contact.inquiryMessage}>
     <slot />
 
     <script>

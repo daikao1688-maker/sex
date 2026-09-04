@@ -29,6 +29,8 @@ const detail = resolveVenueDetail(venue, copy, t);
 
 const venueCopy = t.spas.venues[venue.slug];
 const name = venueCopy.name;
+const inquiryMessage = (venue.temporarilyClosed ? copy.inquiry.closed : copy.inquiry.booking)
+  .replace("{venue}", () => name);
 const summary = venueCopy.summary ?? venueSummary(venueCopy.description, lang);
 const path = `/spa/${venue.slug}/`;
 const cover = `/covers/${venue.cover}.jpg`;
@@ -105,6 +107,8 @@ const schemas = [
   breadcrumbs={spaBreadcrumbs(copy, name, venue.slug)}
   schemas={schemas}
   promo={false}
+  inquiryMessage={inquiryMessage}
+  contactHref="#contact"
 >
   <section data-testid="spa-hero" class="relative h-[50vh] sm:h-[60vh] flex items-end overflow-hidden">
     <img
@@ -355,7 +359,7 @@ const schemas = [
                 <p class="text-white/70 text-sm mb-3">{detail.bookingNote ?? copy.labels.quickBook}</p>
                 <div class="flex flex-wrap items-center justify-center gap-3">
                   <a
-                    href={chatUrl(contact.whatsapp.url, t.contact.inquiryMessage)}
+                    href={chatUrl(contact.whatsapp.url, inquiryMessage)}
                     target="_blank"
                     rel="noopener"
                     class="inline-flex items-center gap-2 rounded-full bg-[#25d366] px-4 py-2 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
@@ -375,7 +379,7 @@ const schemas = [
                       </button>
                     ) : (
                       <a
-                        href={chatUrl(contact.telegram.url, t.contact.inquiryMessage)}
+                        href={chatUrl(contact.telegram.url, inquiryMessage)}
                         target="_blank"
                         rel="noopener"
                         data-testid="spa-quick-contact-secondary"
@@ -552,7 +556,18 @@ const schemas = [
           </>
         )
       }
-      <ContactChannels lang={lang} />
+      <ContactChannels lang={lang} message={inquiryMessage} />
+      <div class="mt-8 flex justify-center sm:mt-10">
+        <a
+          href={localizePath(lang, "/#spas")}
+          data-spa-return-link
+          data-floating-actions-exclusion
+          class="inline-flex min-h-12 max-w-full items-center justify-center gap-2 rounded-full border border-gold/60 bg-ink px-6 py-3 text-sm font-medium leading-snug text-gold transition-colors hover:border-gold hover:bg-gold/10 hover:text-gold-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-ink motion-reduce:transition-none"
+        >
+          <Icon name="arrow-left" class="h-4 w-4 shrink-0" />
+          <span>{copy.backToVenueList}</span>
+        </a>
+      </div>
     </div>
   </section>
 
