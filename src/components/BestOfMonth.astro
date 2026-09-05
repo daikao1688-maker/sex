@@ -26,12 +26,14 @@ const monthLabel = htmlLang.startsWith("ko")
     ? `${now.getFullYear()}年${now.getMonth() + 1}月`
     : new Intl.DateTimeFormat(htmlLang, { month: "long", year: "numeric" }).format(now);
 
+const rankSymbols = ["🏆", "🥈", "🥉"];
 const cards = copy.cards.map((card, index) => {
   const venue = venues.find((entry) => entry.slug === card.slug)!;
   return {
     ...card,
     venue,
     rank: index + 1,
+    rankSymbol: rankSymbols[index],
     name: t.spas.venues[card.slug].name,
     href: localizePath(lang, `/spa/${card.slug}/`),
     coverBase: `/covers/${venue.cover}`,
@@ -42,7 +44,7 @@ const cards = copy.cards.map((card, index) => {
   };
 });
 
-const heading = interpolate(copy.heading, { venue: cards[0].name });
+const heading = `${cards[0].rankSymbol} ${interpolate(copy.heading, { venue: cards[0].name })}`;
 ---
 
 <section
@@ -103,7 +105,7 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
             <a
               href={card.href}
               data-bom-card
-              data-bom-heading-value={interpolate(copy.heading, { venue: card.name })}
+              data-bom-heading-value={`${card.rankSymbol} ${interpolate(copy.heading, { venue: card.name })}`}
               tabindex={index === 0 ? 0 : -1}
               aria-hidden={index === 0 ? "false" : "true"}
               class="bom-card relative block overflow-hidden rounded-[16px] shadow-[0_24px_50px_-18px_rgba(212,175,55,0.28)] transition-[box-shadow,opacity,transform] duration-500 hover:shadow-[0_30px_60px_-16px_rgba(212,175,55,0.45)] sm:rounded-[20px]"
@@ -133,8 +135,9 @@ const heading = interpolate(copy.heading, { venue: cards[0].name });
                 <span class="absolute left-2 top-2 max-w-[70%] truncate rounded-full border border-gold/60 bg-[#0a0a0a]/90 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-gold sm:left-3 sm:top-3 sm:max-w-none sm:px-3 sm:text-[11px] sm:tracking-[0.14em]">
                   {card.award}
                 </span>
-                <span class="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-gold text-sm font-black text-black shadow-[0_0_16px_rgba(212,175,55,0.55)] sm:right-3 sm:top-3 sm:h-[34px] sm:w-[34px]">
-                  #{card.rank}
+                <span class="absolute right-2 top-2 inline-flex h-9 items-center justify-center gap-1 rounded-full border border-gold/50 bg-[#0a0a0a]/90 px-2.5 text-gold shadow-lg sm:right-3 sm:top-3 sm:h-10">
+                  <span aria-hidden="true" class="text-xl leading-none">{card.rankSymbol}</span>
+                  <span class="text-xs font-black">#{card.rank}</span>
                 </span>
                 <span
                   aria-hidden="true"
