@@ -4,9 +4,10 @@ const origin = new URL(import.meta.env.SITE).origin;
 
 export const site = {
   origin,
-  ogImage: '/covers/macau-sauna-cotai-casino-skyline-night.jpg',
-  ogImageWidth: 1600,
-  ogImageHeight: 1066,
+  // JPEG sharing copy of the homepage's first hero image; keep dimensions in sync.
+  ogImage: '/covers/macau-sauna-hero-grand-lisboa-night-share.jpg',
+  ogImageWidth: 1448,
+  ogImageHeight: 1086,
 } as const;
 
 export const contact = {

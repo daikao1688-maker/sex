@@ -104,16 +104,21 @@ test("canonical, social, and structured-data URLs use the configured site origin
   }
 });
 
-test("published HTML does not expose the retired red-moon skyline artwork", async () => {
-  const retiredPath = "/covers/macau-sauna-night-skyline.jpg";
+test("published HTML does not expose retired skyline sharing artwork", async () => {
+  const retiredPaths = [
+    "/covers/macau-sauna-night-skyline.jpg",
+    "/covers/macau-sauna-cotai-casino-skyline-night.jpg",
+  ];
 
   for (const relativePath of await localizedHtmlPaths()) {
     const html = await readFile(path.join(distRoot, relativePath), "utf8");
-    assert.equal(
-      html.includes(retiredPath),
-      false,
-      `${relativePath} still publishes the retired skyline artwork`,
-    );
+    for (const retiredPath of retiredPaths) {
+      assert.equal(
+        html.includes(retiredPath),
+        false,
+        `${relativePath} still publishes ${retiredPath}`,
+      );
+    }
   }
 });
 

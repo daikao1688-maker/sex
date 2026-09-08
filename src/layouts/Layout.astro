@@ -186,9 +186,10 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
     <meta name="twitter:image" content={ogImageUrl} />
     <meta name="twitter:image:alt" content={pageOgImageAlt} />
 
-    {/* Version query busts stale favicon caches (browser favicon DB + CDN's
-        7-day max-age on /favicon.svg). Bump when the icon changes. */}
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+    {/* Keep the version in sync for both formats. The unversioned root ICO
+        also serves image/document tabs that have no HTML icon declaration. */}
+    <link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48 64x64 128x128 256x256" href="/favicon.ico?v=3" />
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg?v=3" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     {

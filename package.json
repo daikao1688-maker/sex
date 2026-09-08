@@ -7,8 +7,10 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "icons:sync": "node scripts/sync-favicon.mjs",
+    "prebuild": "npm run icons:sync",
     "build": "astro build",
-    "test": "astro build && node --test tests/*.test.mjs",
+    "test": "npm run build && node --test tests/*.test.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

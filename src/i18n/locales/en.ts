@@ -6,7 +6,7 @@ const en: Dictionary = {
     description:
       'Compare 15 Macau sauna and spa listings, including current closure notices, reference prices, facilities and private shuttle support.',
     siteName: 'Macau Sauna Sites',
-    ogImageAlt: 'Macau peninsula casino skyline and bridge illuminated at night',
+    ogImageAlt: 'A woman in a champagne-colored dress beside the Macau waterfront at night',
   },
 
   nav: {

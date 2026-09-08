@@ -1,6 +1,11 @@
 # Hostinger (Apache/LiteSpeed) cache policy
 # HTML：每次重新驗證（部署後訪客即時拿到最新版，ETag 讓 304 很便宜）
 <IfModule mod_headers.c>
+  # 穩定圖標路徑每次重新驗證，避免圖片直鏈長期使用舊 favicon.ico。
+  <FilesMatch "^favicon\.(ico|svg)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+
   # llms.txt 含多語言內容：明確聲明 UTF-8，避免瀏覽器按舊式編碼猜測
   <Files "llms.txt">
     Header set Content-Type "text/plain; charset=UTF-8"
