@@ -445,6 +445,18 @@ const zhTW: Dictionary = {
     close: '關閉',
   },
 
+  kakaotalk: {
+    name: 'KakaoTalk',
+    title: '在 KakaoTalk 加我們為好友',
+    optionScan: '方式一：掃描上方 QR 碼',
+    optionCopy: '方式二：複製 ID {id}，在 KakaoTalk 中搜尋',
+    copy: '複製 KakaoTalk ID：{id}',
+    copied: '✓ 已複製！請打開 KakaoTalk 搜尋此 ID',
+    manualCopy: '自動複製無法使用，請選取並手動複製 KakaoTalk ID。',
+    close: '關閉',
+    qrAlt: 'KakaoTalk ID {id} 的 QR 碼',
+  },
+
   floatingPill: {
     label: '客服',
     aria: '聯繫客服 — 前往聯繫區',

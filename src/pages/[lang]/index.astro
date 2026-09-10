@@ -15,6 +15,7 @@ import ContactSection from "../../components/ContactSection.astro";
 import Mission from "../../components/Mission.astro";
 import Footer from "../../components/Footer.astro";
 import WeChatModal from "../../components/WeChatModal.astro";
+import KakaoTalkModal from "../../components/KakaoTalkModal.astro";
 import FloatingContactPill from "../../components/FloatingContactPill.astro";
 import { locales, type Locale } from "../../i18n/config";
 
@@ -61,4 +62,5 @@ const skipLabels: Record<Locale, string> = {
   </div>
 
   <WeChatModal lang={lang} />
+  <KakaoTalkModal lang={lang} />
 </Layout>

@@ -3,7 +3,7 @@ import { getDictionary } from "../i18n";
 import type { Locale } from "../i18n/config";
 import { contact, chatUrl } from "../data/site";
 
-/** The four messaging-channel cards. Used on the home page and every subpage. */
+/** Shared messaging-channel cards for the home page and subpages. */
 interface Props {
   lang: Locale;
   /** Overrides the default enquiry text pre-filled into WhatsApp / Telegram. */
@@ -42,6 +42,12 @@ const channels = [
     name: "LINE",
     value: t.contact.channels.line,
   },
+  {
+    kind: "kakaotalk" as const,
+    icon: "/icons/kakaotalk.svg",
+    name: t.kakaotalk.name,
+    value: contact.kakaotalk.id,
+  },
 ];
 
 const cardClass =
@@ -55,10 +61,18 @@ const cardClass =
 >
   {
     channels.map((channel) =>
-      channel.kind === "wechat" ? (
-        <button type="button" data-wechat-trigger data-contact-channel class={cardClass}>
+      channel.kind !== "link" ? (
+        <button
+          type="button"
+          data-wechat-trigger={channel.kind === "wechat" || undefined}
+          data-kakaotalk-trigger={channel.kind === "kakaotalk" || undefined}
+          data-contact-channel
+          aria-haspopup="dialog"
+          aria-controls={`${channel.kind}-modal`}
+          class:list={[cardClass, channel.kind === "kakaotalk" && "sm:col-span-2"]}
+        >
           <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
-            <img src={channel.icon} alt={channel.name} width="28" height="28" class="w-7 h-7 rounded-md" />
+            <img src={channel.icon} alt={channel.kind === "kakaotalk" ? "" : channel.name} width="28" height="28" class="w-7 h-7 rounded-md" />
           </div>
           <div>
             <div class="text-white/60 text-xs mb-1">{channel.name}</div>

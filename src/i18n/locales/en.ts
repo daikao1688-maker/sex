@@ -506,6 +506,18 @@ const en: Dictionary = {
     close: 'Close',
   },
 
+  kakaotalk: {
+    name: 'KakaoTalk',
+    title: 'Add us on KakaoTalk',
+    optionScan: 'Option 1: Scan the QR code above',
+    optionCopy: 'Option 2: Copy ID {id} and search in KakaoTalk',
+    copy: 'Copy KakaoTalk ID: {id}',
+    copied: '✓ Copied! Open KakaoTalk and search for our ID.',
+    manualCopy: 'Automatic copy unavailable. Select and copy the KakaoTalk ID manually.',
+    close: 'Close',
+    qrAlt: 'KakaoTalk QR code for ID {id}',
+  },
+
   floatingPill: {
     label: 'Chat',
     aria: 'Chat with us — jump to contact section',

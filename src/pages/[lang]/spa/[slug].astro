@@ -358,14 +358,28 @@ const schemas = [
               >
                 <p class="text-white/70 text-sm mb-3">{detail.bookingNote ?? copy.labels.quickBook}</p>
                 <div class="flex flex-wrap items-center justify-center gap-3">
-                  <a
-                    href={chatUrl(contact.whatsapp.url, inquiryMessage)}
-                    target="_blank"
-                    rel="noopener"
-                    class="inline-flex items-center gap-2 rounded-full bg-[#25d366] px-4 py-2 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
-                  >
-                    <img src="/icons/whatsapp.svg" alt="" width="16" height="16" />WhatsApp
-                  </a>
+                  {
+                    lang === "ko" ? (
+                      <button
+                        type="button"
+                        data-kakaotalk-trigger
+                        aria-haspopup="dialog"
+                        aria-controls="kakaotalk-modal"
+                        class="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#FEE500] px-4 py-2 text-sm font-bold text-black transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FEE500]"
+                      >
+                        <img src="/icons/kakaotalk.svg" alt="" width="16" height="16" />{t.kakaotalk.name}
+                      </button>
+                    ) : (
+                      <a
+                        href={chatUrl(contact.whatsapp.url, inquiryMessage)}
+                        target="_blank"
+                        rel="noopener"
+                        class="inline-flex items-center gap-2 rounded-full bg-[#25d366] px-4 py-2 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+                      >
+                        <img src="/icons/whatsapp.svg" alt="" width="16" height="16" />WhatsApp
+                      </a>
+                    )
+                  }
                   {
                     useWeChatQuickContact ? (
                       <button

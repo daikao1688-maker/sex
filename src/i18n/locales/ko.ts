@@ -369,6 +369,18 @@ const ko: Dictionary = {
     close: '닫기',
   },
 
+  kakaotalk: {
+    name: '카카오톡',
+    title: '카카오톡에서 친구 추가',
+    optionScan: '방법 1: 위 QR 코드 스캔',
+    optionCopy: '방법 2: ID를 복사한 뒤 카카오톡에서 {id} 검색',
+    copy: '카카오톡 ID 복사: {id}',
+    copied: '✓ 복사했습니다. 카카오톡을 열어 ID를 검색해 주세요.',
+    manualCopy: '자동 복사를 사용할 수 없습니다. 카카오톡 ID를 선택해 직접 복사해 주세요.',
+    close: '닫기',
+    qrAlt: '카카오톡 ID {id} QR 코드',
+  },
+
   floatingPill: { label: '채팅', aria: '채팅 문의 — 연락처 섹션으로 이동' },
 };
 

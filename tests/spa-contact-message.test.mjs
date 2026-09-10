@@ -61,7 +61,8 @@ for (const [locale, copy] of Object.entries(messages)) {
       const links = chatLinks(html);
       assert.ok(links.some((link) => link.hostname === "wa.me"), "WhatsApp must remain available");
       assert.ok(links.some((link) => link.hostname === "t.me"), "Telegram must remain available");
-      const expectedLinkCount = closed ? 2 : ["zh-TW", "zh-CN"].includes(locale) ? 3 : 4;
+      // Chinese quick panels use a WeChat dialog; Korean panels use a KakaoTalk dialog.
+      const expectedLinkCount = closed ? 2 : ["zh-TW", "zh-CN", "ko"].includes(locale) ? 3 : 4;
       assert.equal(links.length, expectedLinkCount, "retain every quick and bottom contact link for this locale");
 
       for (const link of links) {

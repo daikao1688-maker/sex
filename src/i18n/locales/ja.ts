@@ -508,6 +508,18 @@ const ja: Dictionary = {
     close: '閉じる',
   },
 
+  kakaotalk: {
+    name: 'KakaoTalk',
+    title: 'KakaoTalkで友だち追加',
+    optionScan: '方法1：上のQRコードを読み取る',
+    optionCopy: '方法2：IDをコピーしてKakaoTalkで検索',
+    copy: 'IDをコピー：{id}',
+    copied: '✓ コピーしました！KakaoTalkを開いてIDを検索してください',
+    manualCopy: '自動コピーを利用できません。KakaoTalk IDを選択して手動でコピーしてください。',
+    close: '閉じる',
+    qrAlt: 'KakaoTalk ID {id}のQRコード',
+  },
+
   floatingPill: {
     label: '相談',
     aria: 'LINEで問い合わせ — お問い合わせ欄へ',

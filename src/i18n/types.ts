@@ -162,6 +162,17 @@ export interface Dictionary {
     manualCopy: string;
     close: string;
   };
+  kakaotalk: {
+    name: string;
+    title: string;
+    optionScan: string;
+    optionCopy: string;
+    copy: string;
+    copied: string;
+    manualCopy: string;
+    close: string;
+    qrAlt: string;
+  };
   floatingPill: {
     label: string;
     aria: string;

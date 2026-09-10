@@ -445,6 +445,18 @@ const zhCN: Dictionary = {
     close: '关闭',
   },
 
+  kakaotalk: {
+    name: 'KakaoTalk',
+    title: '在 KakaoTalk 添加我们为好友',
+    optionScan: '方式一：扫描上方二维码',
+    optionCopy: '方式二：复制 ID {id}，在 KakaoTalk 中搜索',
+    copy: '复制 KakaoTalk ID：{id}',
+    copied: '✓ 已复制！请打开 KakaoTalk 搜索此 ID',
+    manualCopy: '自动复制无法使用，请选中并手动复制 KakaoTalk ID。',
+    close: '关闭',
+    qrAlt: 'KakaoTalk ID {id} 的二维码',
+  },
+
   floatingPill: {
     label: '客服',
     aria: '联系客服 — 前往联系区',
