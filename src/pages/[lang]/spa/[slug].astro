@@ -35,6 +35,8 @@ const summary = venueCopy.summary ?? venueSummary(venueCopy.description, lang);
 const path = `/spa/${venue.slug}/`;
 const cover = `/covers/${venue.cover}.jpg`;
 const useWeChatQuickContact = lang === "zh-TW" || lang === "zh-CN";
+// Keep the Korean quick-contact pair equal even when the localized labels differ.
+const koreanQuickContactClass = "inline-flex min-h-11 w-full min-w-0 items-center justify-center gap-2 rounded-full px-3 py-2 text-sm font-bold leading-5 whitespace-nowrap sm:px-4 transition-colors hover:brightness-95 active:brightness-90 focus-visible:outline-2 focus-visible:outline-offset-4";
 const galleryImages = getReplacementVenueGallery(venue.slug, lang) ?? detail.gallery;
 
 const price = `MOP ${venue.priceMin.toLocaleString("en-US")} - ${venue.priceMax.toLocaleString("en-US")}`;
@@ -357,7 +359,7 @@ const schemas = [
                 class="mt-4 rounded-2xl border border-gold/15 bg-gold/[0.04] p-4 text-center"
               >
                 <p class="text-white/70 text-sm mb-3">{detail.bookingNote ?? copy.labels.quickBook}</p>
-                <div class="flex flex-wrap items-center justify-center gap-3">
+                <div class={lang === "ko" ? "mx-auto grid w-full max-w-xs grid-cols-2 items-center gap-3" : "flex flex-wrap items-center justify-center gap-3"}>
                   {
                     lang === "ko" ? (
                       <button
@@ -365,7 +367,7 @@ const schemas = [
                         data-kakaotalk-trigger
                         aria-haspopup="dialog"
                         aria-controls="kakaotalk-modal"
-                        class="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#FEE500] px-4 py-2 text-sm font-bold text-black transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FEE500]"
+                        class:list={[koreanQuickContactClass, "bg-[#FEE500] text-black focus-visible:outline-[#FEE500]"]}
                       >
                         <img src="/icons/kakaotalk.svg" alt="" width="16" height="16" />{t.kakaotalk.name}
                       </button>
@@ -397,13 +399,17 @@ const schemas = [
                         target="_blank"
                         rel="noopener"
                         data-testid="spa-quick-contact-secondary"
-                        class="inline-flex items-center gap-2 rounded-full bg-[#229ed9] px-4 py-2 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+                        class:list={[
+                          lang === "ko" ? koreanQuickContactClass : "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold transition-transform hover:-translate-y-0.5",
+                          "bg-[#229ed9] text-white",
+                          lang === "ko" && "focus-visible:outline-[#229ed9]",
+                        ]}
                       >
                         <img src="/icons/telegram.svg" alt="" width="16" height="16" />Telegram
                       </a>
                     )
                   }
-                  <a href="#contact" class="text-gold text-sm font-medium hover:underline"
+                  <a href="#contact" class:list={["text-gold text-sm font-medium hover:underline", lang === "ko" && "col-span-2 justify-self-center"]}
                     >{detail.contactCta ?? copy.labels.allContacts}</a
                   >
                 </div>

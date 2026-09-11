@@ -92,3 +92,18 @@ test("keeps WhatsApp as the primary quick contact in all other languages", async
     }
   }
 });
+
+test("Korean quick-contact actions share equal touch-target sizing and a separate helper row", async () => {
+  for (const slug of await activeSpaSlugs("ko")) {
+    const markup = await quickContactMarkup("ko", slug);
+    const buttons = [...markup.matchAll(/<(?:button|a)\b[^>]*(?:data-kakaotalk-trigger|data-testid="spa-quick-contact-secondary")[^>]*>/g)]
+      .map(([tag]) => new Set(tag.match(/class="([^"]*)"/)[1].split(/\s+/)));
+    assert.equal(buttons.length, 2);
+    for (const classes of buttons) {
+      assert.ok(classes.has("min-h-11"), `${slug}: both actions need a 44px touch target`);
+      assert.ok(classes.has("w-full") && classes.has("justify-center"), `${slug}: fill equal columns and center content`);
+    }
+    assert.match(markup, /<div class="[^"]*\bgrid-cols-2\b[^"]*">/);
+    assert.match(markup, /<a href="#contact" class="[^"]*\bcol-span-2\b[^"]*">/);
+  }
+});
