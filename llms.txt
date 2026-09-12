@@ -1,0 +1,100 @@
+﻿# Macau Sauna Sites
+
+> Independent multilingual editorial guide to Macau sauna and spa venues, practical visit planning, venue status, and travel information.
+
+This file is generated during every production build. Venue availability and commercial details can change; use the linked pages as editorial references and confirm time-sensitive details before travel.
+
+## Language Editions
+
+- [English](https://macao-sex.com/en/): Localized homepage and venue directory.
+- [繁體中文](https://macao-sex.com/zh-TW/): Localized homepage and venue directory.
+- [简体中文](https://macao-sex.com/zh-CN/): Localized homepage and venue directory.
+- [日本語](https://macao-sex.com/ja/): Localized homepage and venue directory.
+- [한국어](https://macao-sex.com/ko/): Localized homepage and venue directory.
+
+## Core Site Resources
+
+- [English: Ranking](https://macao-sex.com/en/ranking/): Venue comparison and editorial shortlist.
+- [English: Guide](https://macao-sex.com/en/guide/): Planning, booking, and visit guidance.
+- [English: FAQ](https://macao-sex.com/en/faq/): Frequently asked questions and direct answers.
+- [English: About](https://macao-sex.com/en/about/): Site purpose and editorial scope.
+- [English: Blog](https://macao-sex.com/en/blog/): Article index for this language.
+- [English: Shuttle](https://macao-sex.com/en/shuttle/): Transport and shuttle planning information.
+- [English: Contact](https://macao-sex.com/en/contact/): Contact channels and same-day information requests.
+- [English: Privacy](https://macao-sex.com/en/privacy/): Privacy and data-use information.
+- [English: Editorial policy](https://macao-sex.com/en/editorial-policy/): How information is reviewed, corrected, and disclosed.
+- [繁體中文: 排名](https://macao-sex.com/zh-TW/ranking/): Venue comparison and editorial shortlist.
+- [繁體中文: 新手指南](https://macao-sex.com/zh-TW/guide/): Planning, booking, and visit guidance.
+- [繁體中文: 常見問題](https://macao-sex.com/zh-TW/faq/): Frequently asked questions and direct answers.
+- [繁體中文: 關於我們](https://macao-sex.com/zh-TW/about/): Site purpose and editorial scope.
+- [繁體中文: 桑拿攻略](https://macao-sex.com/zh-TW/blog/): Article index for this language.
+- [繁體中文: 免費接送](https://macao-sex.com/zh-TW/shuttle/): Transport and shuttle planning information.
+- [繁體中文: 聯絡我們](https://macao-sex.com/zh-TW/contact/): Contact channels and same-day information requests.
+- [繁體中文: 隱私政策](https://macao-sex.com/zh-TW/privacy/): Privacy and data-use information.
+- [繁體中文: 編輯政策](https://macao-sex.com/zh-TW/editorial-policy/): How information is reviewed, corrected, and disclosed.
+- [简体中文: 排名](https://macao-sex.com/zh-CN/ranking/): Venue comparison and editorial shortlist.
+- [简体中文: 新手指南](https://macao-sex.com/zh-CN/guide/): Planning, booking, and visit guidance.
+- [简体中文: 常见问题](https://macao-sex.com/zh-CN/faq/): Frequently asked questions and direct answers.
+- [简体中文: 关于我们](https://macao-sex.com/zh-CN/about/): Site purpose and editorial scope.
+- [简体中文: 桑拿攻略](https://macao-sex.com/zh-CN/blog/): Article index for this language.
+- [简体中文: 免费接送](https://macao-sex.com/zh-CN/shuttle/): Transport and shuttle planning information.
+- [简体中文: 联系我们](https://macao-sex.com/zh-CN/contact/): Contact channels and same-day information requests.
+- [简体中文: 隐私政策](https://macao-sex.com/zh-CN/privacy/): Privacy and data-use information.
+- [简体中文: 编辑政策](https://macao-sex.com/zh-CN/editorial-policy/): How information is reviewed, corrected, and disclosed.
+- [日本語: ランキング](https://macao-sex.com/ja/ranking/): Venue comparison and editorial shortlist.
+- [日本語: 遊び方ガイド](https://macao-sex.com/ja/guide/): Planning, booking, and visit guidance.
+- [日本語: よくある質問](https://macao-sex.com/ja/faq/): Frequently asked questions and direct answers.
+- [日本語: 当サイトについて](https://macao-sex.com/ja/about/): Site purpose and editorial scope.
+- [日本語: サウナ攻略](https://macao-sex.com/ja/blog/): Article index for this language.
+- [日本語: 無料送迎](https://macao-sex.com/ja/shuttle/): Transport and shuttle planning information.
+- [日本語: お問い合わせ](https://macao-sex.com/ja/contact/): Contact channels and same-day information requests.
+- [日本語: プライバシーポリシー](https://macao-sex.com/ja/privacy/): Privacy and data-use information.
+- [日本語: 編集方針](https://macao-sex.com/ja/editorial-policy/): How information is reviewed, corrected, and disclosed.
+- [한국어: 랭킹](https://macao-sex.com/ko/ranking/): Venue comparison and editorial shortlist.
+- [한국어: 이용 가이드](https://macao-sex.com/ko/guide/): Planning, booking, and visit guidance.
+- [한국어: 자주 묻는 질문](https://macao-sex.com/ko/faq/): Frequently asked questions and direct answers.
+- [한국어: 소개](https://macao-sex.com/ko/about/): Site purpose and editorial scope.
+- [한국어: 블로그](https://macao-sex.com/ko/blog/): Article index for this language.
+- [한국어: 셔틀](https://macao-sex.com/ko/shuttle/): Transport and shuttle planning information.
+- [한국어: 문의](https://macao-sex.com/ko/contact/): Contact channels and same-day information requests.
+- [한국어: 개인정보처리방침](https://macao-sex.com/ko/privacy/): Privacy and data-use information.
+- [한국어: 편집 정책](https://macao-sex.com/ko/editorial-policy/): How information is reviewed, corrected, and disclosed.
+
+## Published Articles
+
+- [Macau Sauna Market Update — September 2026: Yu Sauna Opens, Victoria Returns and Nine Major Venues Assessed](https://macao-sex.com/en/blog/macau-sauna-market-update-september-2026/): English; published 2026-09-01. Macau's sauna market shifted again in September 2026 as Yu Sauna launched with a 100-plus roster and Victoria Sauna reopened under a new team. This update assesses Empire, Shang Pin, Majesty, Manhao, East Castle, Number Nine and The Excellent, covering the latest observed line-ups, promotions and venue-selection guidance.
+- [Macau Sauna Overnight Guide 2026: Free Rest, Dining, Open Venues and How to Choose](https://macao-sex.com/en/blog/macau-sauna-overnight-guide-2026/): English; published 2026-08-11. Macau hotel rates aren't cheap, and some sauna venues offer overnight lounge recliners plus bathing and dining packages. This 2026 guide covers overnight arrangements at Majesty Spa, Shang Pin Spa, Number Nine Spa, Victoria Sauna and Empire Sauna, the closed-venue list, free vs paid rest rooms, the full overnight flow and key precautions.
+- [Macau Sauna August 2026 Guide: 7 Venues Reviewed — Prices, Deals and Pitfalls](https://macao-sex.com/en/blog/macau-sauna-august-guide-2026/): English; published 2026-07-26. Macau's sauna scene has largely recovered by August 2026. This guide covers the latest status, price references, promotions, recommended arrival times and spending pitfalls for Majesty Spa, Shang Pin Spa, Empire Sauna, East Castle Spa, The Excellent Sauna, Manhao Spa and Number Nine Spa.
+- [澳門桑拿市場近況2026年9月｜八湯御開業、凱旋回歸與各場館最新分析](https://macao-sex.com/zh-TW/blog/macau-sauna-market-update-september-2026/): 繁體中文; published 2026-09-01. 2026年9月澳門桑拿市場再次洗牌，八湯御百人級陣容強勢開業，凱旋桑拿由新團隊重新回歸。本文整理巨亨、尚品、尊貴、曼濠、東方皇堡、玖號及極品的最新場況、優惠變化、陣容特色與選場建議。
+- [澳門桑拿房過夜攻略2026：免費休息、餐飲、正常營業名單與選場建議](https://macao-sex.com/zh-TW/blog/macau-sauna-overnight-guide-2026/): 繁體中文; published 2026-08-11. 澳門酒店房價不低，部分桑拿房提供大堂躺椅過夜、洗浴及餐飲配套。本文整理2026年澳門桑拿房過夜攻略：尊貴水療、尚品國際水療、玖號水療、凱旋桑拿、巨亨桑拿的過夜安排，以及已停業場館名單、免費與付費休息房差異、完整流程和注意事項。
+- [澳門桑拿2026年8月最新攻略：7間場館近況、價格、優惠與避坑指南](https://macao-sex.com/zh-TW/blog/macau-sauna-august-guide-2026/): 繁體中文; published 2026-07-26. 2026年8月澳門桑拿市場已逐步恢復，本文整理尊貴水療、尚品國際水療、巨亨桑拿、東方皇堡水療、極品桑拿、曼濠水療及玖號水療的最新近況、價格參考、優惠活動、建議到場時間與消費避坑重點。
+- [澳门桑拿市场近况2026年9月｜八汤御开业、凯旋回归与各场馆最新分析](https://macao-sex.com/zh-CN/blog/macau-sauna-market-update-september-2026/): 简体中文; published 2026-09-01. 2026年9月澳门桑拿市场再次洗牌，八汤御百人级阵容强势开业，凯旋桑拿由新团队重新回归。本文整理巨亨、尚品、尊贵、曼濠、东方皇堡、玖号及极品的最新场况、优惠变化、阵容特色与选场建议。
+- [澳门桑拿房过夜攻略2026：免费休息、餐饮、正常营业名单与选场建议](https://macao-sex.com/zh-CN/blog/macau-sauna-overnight-guide-2026/): 简体中文; published 2026-08-11. 澳门酒店房价不低，部分桑拿房提供大堂躺椅过夜、洗浴及餐饮配套。本文整理2026年澳门桑拿房过夜攻略：尊贵水疗、尚品国际水疗、玖号水疗、凯旋桑拿、巨亨桑拿的过夜安排，以及已停业场馆名单、免费与付费休息房差异、完整流程和注意事项。
+- [澳门桑拿2026年8月最新攻略：7间场馆近况、价格、优惠与避坑指南](https://macao-sex.com/zh-CN/blog/macau-sauna-august-guide-2026/): 简体中文; published 2026-07-26. 2026年8月澳门桑拿市场已逐步恢复，本文整理尊贵水疗、尚品国际水疗、巨亨桑拿、东方皇堡水疗、极品桑拿、曼濠水疗及玖号水疗的最新近况、价格参考、优惠活动、建议到场时间与消费避坑重点。
+- [マカオ サウナ市場2026年9月最新動向｜YU SAUNA開業・ヴィクトリアサウナ再開と店舗別分析](https://macao-sex.com/ja/blog/macau-sauna-market-update-september-2026/): 日本語; published 2026-09-01. 2026年9月のマカオ サウナ市場は、100人規模のYU SAUNA開業とヴィクトリアサウナ再開で再び変動期へ。主要9店舗の現況、短期キャンペーン、ラインナップの特徴と選び方を、観察日を明記して整理します。
+- [マカオ サウナ宿泊攻略2026：無料休憩・食事・営業中リストと店選びのコツ](https://macao-sex.com/ja/blog/macau-sauna-overnight-guide-2026/): 日本語; published 2026-08-11. マカオのホテルは安くありません。一部のサウナではラウンジのリクライニング泊と入浴・食事のセットが使えます。2026年版の宿泊攻略として、尊貴スパ・尚品スパ・玖號・ヴィクトリア・巨亨の宿泊対応、休業リスト、無料と有料の休憩室の違い、一晩の流れと注意点をまとめました。
+- [マカオ サウナ2026年8月最新攻略：7店舗の現況・料金・キャンペーンと失敗しない選び方](https://macao-sex.com/ja/blog/macau-sauna-august-guide-2026/): 日本語; published 2026-07-26. 2026年8月のマカオ サウナ市場は回復傾向にあります。尊貴スパ、尚品スパ、巨亨、東方皇堡、極品、曼濠スパ、玖號の最新状況、料金の目安、キャンペーン、おすすめの来店時間、会計時の注意点をまとめました。
+- [마카오 사우나 시장 2026년 9월 최신 동향: YU SAUNA 개장·Victoria Sauna 재영업과 매장별 분석](https://macao-sex.com/ko/blog/macau-sauna-market-update-september-2026/): 한국어; published 2026-09-01. 2026년 9월 마카오 사우나 시장이 다시 재편되고 있습니다. 100명대 라인업으로 문을 연 YU SAUNA와 새 운영진으로 재영업한 Victoria Sauna를 비롯해 엠파이어, 샹핀, 마제스티, 만하오, 이스트 캐슬, 넘버 나인, 디 엑설런트의 최근 흐름과 혜택, 선택 포인트를 정리했습니다.
+- [마카오 사우나 야간 휴식 공략 2026: 무료 휴게, 다이닝, 영업 중 매장 리스트와 선택법](https://macao-sex.com/ko/blog/macau-sauna-overnight-guide-2026/): 한국어; published 2026-08-11. 마카오 호텔 요금은 저렴하지 않습니다. 일부 사우나에서는 라운지 리클라이너 야간 휴식과 입욕·다이닝 세트를 이용할 수 있습니다. 2026년판 야간 휴식 공략으로, 마제스티 스파·샹핀 스파·넘버 나인·빅토리아·엠파이어의 야간 대응, 휴업 리스트, 무료와 유료 휴게실의 차이, 하룻밤의 흐름과 주의점을 정리했습니다.
+- [마카오 사우나 2026년 8월 최신 공략: 7개 매장 현황, 가격, 혜택과 실패하지 않는 선택법](https://macao-sex.com/ko/blog/macau-sauna-august-guide-2026/): 한국어; published 2026-07-26. 2026년 8월 마카오 사우나 시장이 회복세로 돌아섰습니다. 마제스티 스파, 샹핀 스파, 엠파이어, 이스트 캐슬, 디 엑설런트, 만하오 스파, 넘버 나인의 최신 현황, 참고 가격, 캠페인, 추천 방문 시간, 결제 주의점을 정리했습니다.
+
+## Current Venue Guides
+
+- [Clube Rio](https://macao-sex.com/en/spa/clube-rio/): Editorial guide for a venue currently listed as operating. Clube Rio is a business-KTV club on the third floor of Hotel Rio in NAPE, with private karaoke rooms and spa options.
+- [Yu Sauna](https://macao-sex.com/en/spa/yu-sauna/): Editorial guide for a venue currently listed as operating. Yu Sauna is a NAPE venue inside New Orient Landmark Hotel, with dry and steam rooms, showers, a hot pool and a recliner lounge.
+- [Manhao Spa](https://macao-sex.com/en/spa/manhao-spa/): Editorial guide for a venue currently listed as operating. Manhao Spa is a Taipa venue inside Grandview Hotel, with marble-and-gold interiors, a showcase hall and private treatment rooms.
+- [Number Nine Spa](https://macao-sex.com/en/spa/number-nine-sauna/): Editorial guide for a venue currently listed as operating. Number Nine Spa is located inside the Royal Dragon Hotel and is one of the new venues in central Macau attracting considerable attention in 2026.
+- [Shang Pin Spa](https://macao-sex.com/en/spa/shang-pin-spa/): Editorial guide for a venue currently listed as operating. Shang Pin Spa is located at L2 R95 on the second floor of Lisboeta Macau and is one of the newer upscale spa venues in Cotai.
+- [Majesty Spa](https://macao-sex.com/en/spa/majesty-spa/): Editorial guide for a venue currently listed as operating. Majesty Spa is located inside Harbourview Hotel at Macau Fisherman's Wharf and focuses on an opulent setting and comfortable overnight stays.
+- [The Excellent Sauna](https://macao-sex.com/en/spa/the-excellent-sauna/): Editorial guide for a venue currently listed as operating. The Excellent Sauna is tucked inside the Grand Emperor Hotel on the Macau Peninsula and follows a boutique themed-room concept.
+- [Empire Sauna](https://macao-sex.com/en/spa/empire-sauna/): Editorial guide for a venue currently listed as operating. Empire Sauna is a Macau Peninsula venue with a modern, Eastern-influenced interior and a flow built around bathing, private rooms, dining and rest.
+- [East Castle Spa](https://macao-sex.com/en/spa/east-castle-spa/): Editorial guide for a venue currently listed as operating. East Castle Spa is memorable not because the venue is extravagant, but because it turns its “theme” into a complete experience.
+- [Victoria Sauna](https://macao-sex.com/en/spa/victoria-sauna/): Editorial guide for a venue currently listed as operating. Victoria Sauna is a low-key Macau sauna.
+
+## Temporarily Closed Venue References
+
+- [M CLUB](https://macao-sex.com/en/spa/m-club/): Reference only; the site currently lists this venue as temporarily closed. MCLUB has a clear positioning: rather than following the traditional large-pool-and-lobby format, it focuses on a tech-forward look, a party atmosphere and themed rooms.
+- [Number One Sauna](https://macao-sex.com/en/spa/number-one-sauna/): Reference only; the site currently lists this venue as temporarily closed. Number One Sauna is marked temporarily closed; this profile retains its former facilities and service details for historical reference.
+- [Familia Nobre](https://macao-sex.com/en/spa/familia-nobre/): Reference only; the site currently lists this venue as temporarily closed. Familia Nobre is a temporarily closed Macau Peninsula venue; this profile is retained for historical reference.
+- [Oceanic Royal Spa](https://macao-sex.com/en/spa/oceanic-royal-spa/): Reference only; the site currently lists this venue as temporarily closed. Oceanic Royal Spa is a Taipa venue shaped around an evening-in-one-place experience.
+- [18 Sauna](https://macao-sex.com/en/spa/eighteen-sauna/): Reference only; the site currently lists this venue as temporarily closed. 18 Sauna formerly operated on the sixth floor of Hotel Golden Dragon on the Macau Peninsula.

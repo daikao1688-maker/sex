@@ -1,0 +1,25 @@
+# Hostinger (Apache/LiteSpeed) cache policy
+# HTML：每次重新驗證（部署後訪客即時拿到最新版，ETag 讓 304 很便宜）
+<IfModule mod_headers.c>
+  # 穩定圖標路徑每次重新驗證，避免圖片直鏈長期使用舊 favicon.ico。
+  <FilesMatch "^favicon\.(ico|svg)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+
+  # llms.txt 含多語言內容：明確聲明 UTF-8，避免瀏覽器按舊式編碼猜測
+  <Files "llms.txt">
+    Header set Content-Type "text/plain; charset=UTF-8"
+    Header set Cache-Control "no-cache"
+  </Files>
+
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # 構建資產（/_astro/ 帶內容 hash）：長期快取
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# 自訂 404（GitHub Pages 自動用 /404.html，Hostinger 需顯式聲明）
+ErrorDocument 404 /404.html

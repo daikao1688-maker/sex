@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://macao-sex.com/sitemap-index.xml
