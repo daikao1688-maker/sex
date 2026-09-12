@@ -8,30 +8,30 @@ import sharp from "sharp";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
-const siteOrigin = (process.env.PUBLIC_SITE_ORIGIN ?? "https://macao-sex.com").replace(/\/$/, "");
+const siteOrigin = (process.env.PUBLIC_SITE_ORIGIN ?? "https://sex-macau.com").replace(/\/$/, "");
 const slug = "macau-sauna-market-update-september-2026";
 const cover = "/blog/" + slug + "/01-macau-sauna-theme-room-costume-experience.webp";
 const responsiveCover =
   "/blog/" + slug + "/01-macau-sauna-theme-room-costume-experience-640.webp";
 const localeExpectations = {
   en: {
-    title: "Macau Sauna Market Update — September 2026",
-    heading: /Macau Sauna Market.*September 2026/i,
+    title: "Macau Sauna Market Update: September 2026",
+    heading: /Macau[’']s Sauna Market in September 2026/i,
     leadVenue: "Yu Sauna",
     coverAlt:
-      "Three adult women in a Macau theme room, one in nurse-inspired attire, one in police-inspired attire and one in secretary attire.",
+      "Three adults in themed outfits in a Macau venue's themed room, wearing nurse-inspired, police-inspired and office attire.",
   },
   "zh-TW": {
     title: "澳門桑拿市場近況2026年9月｜八湯御開業、凱旋回歸與各場館最新分析",
     heading: /2026年9月澳門桑拿市場/,
     leadVenue: "八湯御桑拿",
-    coverAlt: "澳門桑拿主題房內三位成年女性分別穿著護士、警察與秘書造型服裝。",
+    coverAlt: "三位成年人身穿不同主題造型服裝，站在澳門場館的室內空間。",
   },
   "zh-CN": {
     title: "澳门桑拿市场近况2026年9月｜八汤御开业、凯旋回归与各场馆最新分析",
     heading: /2026年9月澳门桑拿市场/,
     leadVenue: "八汤御桑拿",
-    coverAlt: "澳门桑拿主题房内三位成年女性分别穿着护士、警察与秘书造型服装。",
+    coverAlt: "三位成年人身穿不同主题造型服装，站在澳门场馆的室内空间。",
   },
   ja: {
     title: "マカオ サウナ市場2026年9月最新動向｜YU SAUNA開業・ヴィクトリアサウナ再開と店舗別分析",
@@ -43,7 +43,7 @@ const localeExpectations = {
     title: "마카오 사우나 시장 2026년 9월 최신 동향: YU SAUNA 개장·Victoria Sauna 재영업과 매장별 분석",
     heading: /2026년 9월.*마카오 사우나 시장/,
     leadVenue: "YU SAUNA",
-    coverAlt: "테마룸에서 각각 간호사풍, 경찰풍, 비서풍 의상을 입은 성인 여성 세 명.",
+    coverAlt: "테마룸에서 간호사, 경찰관, 사무직 콘셉트의 의상을 각각 입은 성인 여성 세 명.",
   },
 };
 const locales = Object.keys(localeExpectations);
@@ -179,7 +179,7 @@ test("the English report uses concise search metadata without shortening its edi
 
   assert.ok(title.length <= 70, `English title is ${title.length} characters`);
   assert.ok(description.length <= 160, `English description is ${description.length} characters`);
-  assert.match(h1, /Nine Major Venues Assessed/);
+  assert.match(h1, /Nine Venues Reviewed/);
 });
 
 test("each localized September report preserves the editorial structure and local venue links", async () => {

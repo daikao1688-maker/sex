@@ -8,7 +8,7 @@ import vm from "node:vm";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
-const siteOrigin = new URL(process.env.PUBLIC_SITE_ORIGIN ?? "https://macao-sex.com").origin;
+const siteOrigin = new URL(process.env.PUBLIC_SITE_ORIGIN ?? "https://sex-macau.com").origin;
 const koreanLocale = "ko";
 const localeCodes = ["en", "zh-TW", "zh-CN", "ja", koreanLocale];
 
@@ -370,7 +370,7 @@ test("Korean high-traffic pages publish natural localized wording", async () => 
   assert.ok(overnight.includes("결제 내역을 확인"), "Korean overnight guide must tell guests to check their bill naturally");
   assert.ok(august.includes("전반적인 품질 차이"), "Korean August guide must describe the overall quality gap naturally");
   assert.ok(august.includes("피트니스룸과 복싱룸"), "Korean August guide must translate gym without implying luggage");
-  assert.ok(august.includes("당일 테라피스트의 컨디션"), "Korean August guide must identify whose condition guests should assess");
+  assert.ok(august.includes("당일 담당 직원의 컨디션"), "Korean August guide must identify whose condition guests should assess");
   assert.ok(august.includes("휴업한 업소"), "Korean August guide must refer to shuttered venues rather than buildings");
   assert.ok(homepage.includes("이달의 베스트"), "Korean homepage must use the standard 이달의 spelling");
 });

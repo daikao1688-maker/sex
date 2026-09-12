@@ -1,6 +1,6 @@
 ---
-title: "Macau Sauna August 2026 Guide: 7 Venues Reviewed — Prices, Deals and Pitfalls"
-description: "Macau's sauna scene has largely recovered by August 2026. This guide covers the latest status, price references, promotions, recommended arrival times and spending pitfalls for Majesty Spa, Shang Pin Spa, Empire Sauna, East Castle Spa, The Excellent Sauna, Manhao Spa and Number Nine Spa."
+title: "Macau Sauna August 2026 Guide: 7 Venues, Prices and Visitor Notes"
+description: "An August 2026 overview of operating status, reference prices, promotions, arrival times and billing details at Majesty Spa, Shang Pin Spa, Empire Sauna, East Castle Spa, The Excellent Sauna, Manhao Spa and Number Nine Spa."
 category: "compare"
 date: "2026-07-26"
 dateModified: "2026-08-23"
@@ -10,18 +10,18 @@ coverAlt: "The indoor whirlpool at Majesty Spa, a Macau sauna venue — blue poo
 author: "Macau Sauna Sites"
 ---
 
-More than two months have passed since the June 2026 market shake-up, and Macau's sauna scene is largely back to normal operations. Mainland therapists have returned, Southeast Asian, Japanese/Korean and European line-ups have gradually filled out, on-site numbers keep climbing, and promotions plus transfer arrangements are back on the table.
+More than two months after the June 2026 market changes, Macau's sauna venues have largely resumed normal operations. Staff from mainland China have returned, teams from Southeast Asia, Japan, Korea and Europe have gradually grown, and promotions and transfer arrangements are available again.
 
-But the market's shape is nothing like before. In the old days, mega-venues like Number One Sauna and Oceanic Royal Spa could concentrate huge crowds and therapist rosters, creating a clear siphon effect. Today, fewer venues operate, yet the workforce is spread far more evenly — no single house can claim the title of "Macau's number one" for now.
+The market now has a different structure. Large venues such as Number One Sauna and Oceanic Royal Spa once drew a substantial share of staff and guests. Fewer venues operate today, but staff are spread more evenly, with no clear market leader at present.
 
-Macau saunas in August 2026 feel like a **warring-states era**. Every venue has its strengths and obvious weaknesses. Rather than asking which one is objectively best, choose by price, location, signature experiences, service attitude, overnight needs and arrival time — find the one that actually fits you.
+In August 2026, Macau's sauna market offers **several options with different strengths**. Price, location, facilities, service arrangements, overnight needs and arrival time provide a more useful basis for choosing than an overall ranking.
 
-> **Heads up:** Therapist counts, promotions, price lists, service fees and campaign rules all shift with scheduling and market conditions. This article reflects the market as of August 2026 — reconfirm the day's status and final charges before you go.
+> **Visitor note:** Staffing levels, promotions, price lists, service fees and campaign rules vary with scheduling and market conditions. This article reflects the market as of August 2026 — reconfirm the day's status and final charges before visiting.
 
 ## Macau Sauna Market Highlights — August 2026
 
 - The June adjustment is over; operations have stabilised across venues
-- Mainland therapists have returned; multinational line-ups are largely restored
+- Staff from mainland China have returned; teams with a range of national backgrounds are largely in place again
 - Fewer venues than at the peak, but staff are distributed more evenly
 - No dominant leader like the Number One / Oceanic Royal era
 - Competition has shifted from "scale" to "price, environment, experiences and service"
@@ -29,35 +29,37 @@ Macau saunas in August 2026 feel like a **warring-states era**. Every venue has 
 - Majesty Spa runs extra daytime discounts plus a buy-one-get-one campaign
 - Private transfers and some lobby massage treatments can still be confirmed in advance
 
-The overall quality gap between venues is smaller than people assume. What really separates a good night from a bad one is the day's roster, crowd levels, the line-up viewing environment, the manager's arrangements and room conditions.
+The differences between venues may be smaller than their publicity suggests. The day's staffing, crowd levels, staff introduction process, management arrangements and room conditions can all affect the visit.
+
+The price tables retain the menu labels used in this guide so that visitors can compare tiers. Confirm the actual inclusions and conditions with the venue.
 
 ## The 7 Venues at a Glance
 
-| Venue | Strongest right now | Main weakness | Best for |
+| Venue | Current features | Points to check | Visit considerations |
 |---|---|---|---|
-| [Majesty Spa](/en/spa/majesty-spa/) | Southeast Asian value, daytime deals, overnight rooms | Designated lobby masseuse may cost extra | Price-conscious, SE Asian line-up, overnight |
-| [Shang Pin Spa](/en/spa/shang-pin-spa/) | Widest nationality mix, more Caucasian & JP/KR, bubble bath | Heavy evening crowds; service consistency varies | Multinational line-ups, Cotai stays, bubble bath |
-| [Empire Sauna](/en/spa/empire-sauna/) | Chinese therapist line-up, service reputation, luxe hardware | Average dining; prices nudged up | Chinese line-up, room quality, service |
-| [East Castle Spa](/en/spa/east-castle-spa/) | Macau's most complete role-play theme venue | Theme-room surcharges need asking first | Role-play and character themes |
+| [Majesty Spa](/en/spa/majesty-spa/) | Daytime offers, overnight rooms, mainly Southeast Asian staff | Requesting specific lobby massage staff may cost extra | Budget and overnight arrangements |
+| [Shang Pin Spa](/en/spa/shang-pin-spa/) | Broad staff mix, including Caucasian, Japanese and Korean staff; bubble-bath package | Heavy evening crowds; service consistency varies | Cotai location and bathing packages |
+| [Empire Sauna](/en/spa/empire-sauna/) | Established Chinese team, service reputation, upgraded facilities | Average dining; prices have edged up | Room quality and service arrangements |
+| [East Castle Spa](/en/spa/east-castle-spa/) | A broad range of themed rooms and scripted scenarios | Confirm theme-room surcharges first | Themed settings and scenario-based sessions |
 | [The Excellent Sauna](/en/spa/the-excellent-sauna/) | Earliest afternoon opening; crowds recovering | Still not a large venue | Afternoon visits, boutique-house fans |
-| [Manhao Spa](/en/spa/manhao-spa/) | Taipa location, balanced decor and pricing | Therapist count still thin | Taipa stays, decor lovers, crowd-averse |
-| [Number Nine Spa](/en/spa/number-nine-sauna/) | Best line-up lighting and viewing distance | Menu tiers are confusing | Line-up viewing experience, new multinational venue |
+| [Manhao Spa](/en/spa/manhao-spa/) | Taipa location, balanced decor and pricing | Smaller staff team | Taipa stays, setting and quieter visits |
+| [Number Nine Spa](/en/spa/number-nine-sauna/) | Comfortable lighting and distance during staff introductions | Menu tiers are confusing | Introduction process and a newer venue |
 
-## Majesty Spa: August's Value and Overnight Favourite
+## Majesty Spa: Daytime Offers and Overnight Arrangements
 
-[Majesty Spa](/en/spa/majesty-spa/) remains one of Macau's strongest value plays this August. The roster covers multiple nationalities, but Southeast Asian therapists are the backbone, and the price ladder is easy to navigate.
+[Majesty Spa](/en/spa/majesty-spa/) remains a practical option for comparing costs this August. Its team includes several nationalities, with staff from Southeast Asia forming the largest group, and its pricing tiers are relatively easy to follow.
 
 ### Extra Daytime Discount
 
-Daily from **14:00–20:00**, booking a designated therapist tier takes another MOP 500 off on top of the base MOP 100 discount — roughly **MOP 600** in total. Great for flexible travellers: if you don't need the full evening line-up, afternoons are quieter and cheaper.
+Daily from **14:00–20:00**, bookings in designated staff tiers receive an additional MOP 500 discount on top of the base MOP 100 discount — roughly **MOP 600** in total. For visitors with flexible schedules, afternoons offer lower prices and fewer crowds, though fewer staff may be on duty than in the evening.
 
 ### Buy-One-Get-One Campaign
 
-Pick the Vietnamese tier at about **MOP 3,799** and, under the day's rules, a second base-tier Vietnamese therapist is bundled in. Confirm before ordering whether a top-up applies, whether the second therapist is selectable, and whether it stacks with other discounts.
+Under the day's rules, a booking in the Vietnamese staff tier at about **MOP 3,799** includes an additional arrangement with a second staff member from the basic Vietnamese tier. Confirm any top-up, whether that second staff member is assigned or can be requested, and whether other discounts can be combined.
 
 ### Spending Notes
 
-Majesty's complimentary lobby massage is normally assigned by the house; requesting a specific masseuse may add about **MOP 500**. Small tips are customary — bring a few MOP 20 notes — but tipping follows the service and your own willingness; it is not a fixed charge.
+Majesty normally assigns the staff member for its complimentary lobby massage; requesting someone specific may add about **MOP 500**. Small tips are customary, so a few MOP 20 notes may be useful, but tipping depends on the service received and your own willingness. It is not a fixed charge.
 
 ### Price Reference
 
@@ -75,17 +77,17 @@ Majesty's complimentary lobby massage is normally assigned by the house; request
 
 Majesty still offers overnight rest and private-room arrangements — a practical pick if you don't want to head back to a hotel late and have a ferry or flight the next morning. Details in our [Macau sauna overnight guide](/en/blog/macau-sauna-overnight-guide-2026/).
 
-**August verdict: Southeast Asian value, daytime discounts and overnight capability are the standouts**.
+**August assessment: daytime discounts and overnight arrangements are the main practical features, with comparatively accessible pricing in the Southeast Asian staff tiers**.
 
-## Shang Pin Spa: Busiest Crowds, Widest Nationality Mix
+## Shang Pin Spa: A Broad Staff Mix and Busy Evening Hours
 
-Since the June shake-up, [Shang Pin Spa](/en/spa/shang-pin-spa/) has seen some of the strongest crowd growth. Its nationality coverage is currently the most complete — Caucasian and Japanese/Korean line-ups stand out, with Southeast Asian and Chinese therapists also on board.
+Since the June changes, [Shang Pin Spa](/en/spa/shang-pin-spa/) has seen substantial growth in guest numbers. Its team has a broad mix of backgrounds, including a notable number of Caucasian, Japanese and Korean staff, alongside Southeast Asian and Chinese staff.
 
 The crowd surge brings new problems: after **21:00**, queues and waits become common, and service flow occasionally wobbles under load. Don't rush the peak window on reputation alone.
 
-### Line-up Format
+### Staff Introduction Process
 
-Shang Pin runs viewing rounds of varying sizes — sometimes a large group, sometimes a slimmer one. If the first round doesn't click, simply wait for the next; there's no need to decide under floor pressure.
+Shang Pin introduces staff in groups of varying sizes. Visitors who need more time to understand the available arrangements can wait for the next introduction instead of making an immediate decision.
 
 ### Prices and Fees
 
@@ -104,17 +106,17 @@ Promotions have tightened versus June and prices have edged up. Don't be sold by
 ### When to Arrive
 
 - Dodging queues: aim for 17:00–20:30
-- Fullest line-up: evening hours
+- More staff on duty: evening hours
 - After 21:00: crowds concentrate; expect waiting
-- First round not for you: wait for the next one
+- Need more time after the first introduction: wait for the next group
 
-**August verdict: the widest nationality mix and the signature bubble bath — but peak hours get crowded**.
+**August assessment: a broad staff mix and a distinctive bubble-bath package, with crowding to consider at peak times**.
 
-## Empire Sauna: Fastest-Rising Reputation, Strongest Chinese Line-up
+## Empire Sauna: Service Reputation and Room Facilities
 
 <img src="/blog/macau-sauna-august-guide-2026/02-macau-sauna-empire-sauna-lobby.webp" alt="The lobby of Empire Sauna — dark marble flooring and the branded reception counter" width="1280" height="720" loading="lazy" decoding="async" />
 
-If any venue stands out for recent word-of-mouth growth, it's [Empire Sauna](/en/spa/empire-sauna/). Numbers keep climbing, and service quality and overall reputation have visibly improved. Compared with rivals, its edge is high-quality Chinese therapists — ideal for guests who prioritise communication, service attitude and room experience. The house is also generous with lobby treatments: some booking plans include two ~20-minute add-on sessions.
+[Empire Sauna](/en/spa/empire-sauna/) has received increasingly positive word of mouth as staffing levels have grown. Its Chinese team is a notable part of that reputation, particularly in comments about communication, service attitude and the overall room experience. Some booking plans also include two additional lobby treatment sessions of about 20 minutes each.
 
 ### Price Reference
 
@@ -129,21 +131,21 @@ The MOP 1,088 entry plan currently includes a 90-minute basic massage, and the l
 
 ### Strengths and Weaknesses
 
-**Strengths**: a standout Chinese line-up; polished rooms and water-bed suites; rapidly rising service reputation; quality marble wet areas and lounges; fees included in the sticker price, so checkout is straightforward.
+**Strengths**: a well-regarded Chinese team; upgraded rooms, including waterbed-equipped treatment rooms; improving service reputation; marble bathing areas and lounges; and listed prices that include fees, making the bill easier to understand.
 
 **Weaknesses**: dining is merely passable; headcount hasn't reached peak Oceanic Royal levels; new-venue processes may still have minor teething issues.
 
-**August verdict: for well-reviewed, better-looking Chinese therapists, Empire is the current priority pick**.
+**August assessment: Empire is worth considering for its Chinese team's service reputation and the quality of its rooms and shared facilities**.
 
-## East Castle Spa (Golden Castle): Role-Play Themes Officially Back
+## East Castle Spa (Golden Castle): Themed Rooms Available Again
 
 <img src="/blog/macau-sauna-august-guide-2026/03-macau-sauna-east-castle-pool.webp" alt="The warm indoor pool at East Castle Spa — a soaking pool beneath a starry screen wall and curved ceiling" width="1280" height="720" loading="lazy" decoding="async" />
 
-After absorbing part of the former M CLUB roster, [East Castle Spa](/en/spa/east-castle-spa/) has clearly strengthened its line-up. More importantly, its signature scripted role-play and theme rooms are back. Very few Macau venues offer full scripted interaction, and East Castle is the most direct choice on that track.
+After some former M CLUB staff joined, [East Castle Spa](/en/spa/east-castle-spa/) expanded its team. Its themed rooms and scripted, scenario-based sessions are available again. These remain relatively uncommon among Macau venues and are a defining feature of East Castle.
 
 ### Key Features
 
-Theme rooms include prison, hospital, classroom, office and airplane cabin, plus a gym and boxing room, a golf course, and security-check and restaurant scenarios. The real key isn't the decor — it's whether the therapist knows the role and can carry the script. When choosing, communication and willingness to engage often matter more than looks alone.
+Themed rooms include prison, hospital, classroom, office and airplane-cabin settings, plus a gym and boxing room, a golf course, and security-check and restaurant scenarios. Beyond the decor, staff familiarity with the scenario, clear communication and participation in the scripted session affect the experience. These are useful points to discuss when confirming the arrangements.
 
 ### Price Reference
 
@@ -155,15 +157,15 @@ Theme rooms include prison, hospital, classroom, office and airplane cabin, plus
 | Golf theme add-on | ~500 |
 | Service fee & tourism tax | ~10% + 5% |
 
-Before entering a room, confirm the final price including the theme room, therapist, service fee, tourism tax and any extras.
+Before entering a room, confirm the final price, including the themed room, assigned staff tier, service fee, tourism tax and any extras.
 
-**August verdict: for full scripted role-play and scenario rooms, look at East Castle first**.
+**August assessment: East Castle remains a relevant option for themed rooms and scripted, scenario-based sessions**.
 
 ## The Excellent Sauna: Earliest Afternoon Start, Crowds Recovering
 
 With several large venues gone, [The Excellent Sauna](/en/spa/the-excellent-sauna/) has seen both traffic and on-site numbers rise. It opens early and the managers are proactive — attractive for travellers who want an afternoon session.
 
-Key strengths: therapists start earlier in the afternoon, suiting time-tight or early-slot travellers; a clear boutique-house feel; recognisable theme rooms and water beds; and usually less pressure when choosing.
+Its staff begin earlier in the afternoon, which suits visitors with limited time. The smaller venue also offers themed rooms and waterbed-equipped treatment rooms, with a generally less hurried introduction and booking process.
 
 ### Price Reference
 
@@ -178,15 +180,15 @@ Key strengths: therapists start earlier in the afternoon, suiting time-tight or 
 
 If your schedule is tight and you want to start in the afternoon, The Excellent remains a very practical choice.
 
-**August verdict: the most convenient afternoon slot — for those who don't want to wait until evening**.
+**August assessment: a convenient afternoon option for visitors who need to finish before evening**.
 
-## Manhao Spa: Taipa's Low-Key Newcomer — Decent Hardware, Thin Roster
+## Manhao Spa: A Quieter Taipa Venue with a Smaller Team
 
 <img src="/blog/macau-sauna-august-guide-2026/04-macau-sauna-manhao-shower-room.webp" alt="A shower room at Manhao Spa — black-and-gold mosaic walls with wooden buckets and a gold daybed" width="1280" height="720" loading="lazy" decoding="async" />
 
-[Manhao Spa](/en/spa/manhao-spa/) (Taipa, runs to 4 am) is a relatively low-key new venue: fewer people know it, and actual traffic is nowhere near Shang Pin's concentration. Its hardware and soft facilities are essentially complete — decor, pricing and the Taipa location are all competitive — but the most obvious weakness remains therapist headcount.
+[Manhao Spa](/en/spa/manhao-spa/) in Taipa operates until 4 am and remains a relatively low-profile new venue. Guest numbers are lower than at Shang Pin. Its main facilities and amenities are in place, and its decor, pricing and Taipa location compare reasonably with other venues, though the staff team remains smaller.
 
-As one of the few venues currently operating in Taipa, Manhao still has room to grow. A new house needs a sharp promotional hook first, then gradually attracts more therapists and guests; that process rarely happens overnight.
+As one of the few venues currently operating in Taipa, Manhao still has room to grow. Establishing a clearer market position may help it gradually attract more staff and guests, though that process takes time.
 
 ### Price Reference
 
@@ -201,15 +203,15 @@ As one of the few venues currently operating in Taipa, Manhao still has room to 
 
 ### Who Is It For?
 
-Travellers staying in Taipa or Cotai who want to dodge Shang Pin's evening crowds, care about decor (the red water bed and rest areas), accept a mid-sized roster and don't need a giant line-up spectacle.
+Travellers staying in Taipa or Cotai who prefer to avoid Shang Pin's evening crowds, value the setting — including rooms with red waterbeds and the rest areas — and are comfortable with a moderately sized team and fewer staff introductions.
 
-**August verdict: a low-key Taipa alternative — environment and pricing are fine, but headcount still needs building**.
+**August assessment: a quieter Taipa alternative with reasonable facilities and pricing, though staffing levels remain a consideration**.
 
-## Number Nine Spa: The Most Comfortable Line-up Viewing, the Most Confusing Menu
+## Number Nine Spa: Comfortable Introductions, a Detailed Price Menu
 
-[Number Nine Spa](/en/spa/number-nine-sauna/) went quiet for a stretch, lost some staff, and has since returned to a steadier state. The multinational roster is largely complete — Southeast Asian-led, Chinese second, with a limited but present selection of Japanese/Korean and Caucasian therapists.
+[Number Nine Spa](/en/spa/number-nine-sauna/) has returned to steadier operations after a quieter period and some staff departures. Its team mainly comprises Southeast Asian staff, followed by Chinese staff, with smaller numbers of Japanese, Korean and Caucasian staff also present.
 
-Its current highlight is the viewing environment: lighting is bright enough, distance neither too close nor too far, faces easy to read, the floor size isn't dizzying, and the selection doesn't feel thin. Among Macau's current line-up formats, Number Nine's viewing comfort ranks near the top.
+The staff introduction area is a notable feature. Lighting and distance allow clear, comfortable introductions, while the room layout and group size make the process manageable without feeling limited. It compares favourably with the introduction arrangements at other current venues.
 
 ### Price Reference
 
@@ -223,33 +225,33 @@ Its current highlight is the viewing environment: lighting is bright enough, dis
 | Service fee | 10% extra |
 | Common booking discount | ~200 |
 
-Number Nine's real problem isn't the venue but the menu: too many categories, confusing on first read. Southeast Asian, Chinese, Caucasian, JP/KR and various treatment names all coexist — confirm the final total before paying.
+Number Nine's menu takes time to understand. Categories for Southeast Asian, Chinese, Caucasian and Japanese/Korean staff appear alongside various treatment names. Confirm the inclusions and final total before paying.
 
-**August verdict: an excellent viewing experience — for guests who care about lighting, distance and clarity when choosing**.
+**August assessment: a comfortable staff introduction process, with lighting, distance and clear communication as practical considerations**.
 
 ## The Simplest Way to Choose in August 2026
 
 | Your priority | Look at first |
 |---|---|
-| SE Asian value + overnight | Majesty Spa |
-| Widest nationality mix + bubble bath | Shang Pin Spa |
-| Quality Chinese line-up + room hardware | Empire Sauna |
-| Scripted role-play & theme rooms | East Castle Spa |
+| Daytime package prices and overnight rest | Majesty Spa |
+| Broad staff mix and bubble-bath package | Shang Pin Spa |
+| Service reputation and room facilities | Empire Sauna |
+| Scripted scenarios and themed rooms | East Castle Spa |
 | Earliest afternoon start | The Excellent Sauna |
 | Taipa environment, fewer crowds | Manhao Spa |
-| Best line-up lighting & distance | Number Nine Spa |
+| Comfortable lighting and distance during introductions | Number Nine Spa |
 
 No venue wins every category right now. The sensible approach isn't chasing online rankings — decide what you care about most, then pick the venue that matches. For each venue's latest status and pricing, also see the [venue overview](/en/#spas) and the [ranking page](/en/ranking/).
 
 ## Deals and Billing Pitfalls — August 2026
 
-**1. A discount is not the final bill**. Venues may advertise MOP 100, MOP 200 or a limited MOP 600 off, but the final amount can still include service fees, tourism tax, room-type charges, designated-staff fees, bubble-bath or theme-room add-ons, two-person plan top-ups and card surcharges. Before paying, ask directly: **"After all discounts, service fees and add-ons, what is the final total?"**
+**1. A discount is not the final bill**. Venues may advertise MOP 100, MOP 200 or a limited MOP 600 off, but the final amount can still include service fees, tourism tax, room-type charges, designated-staff fees, bubble-bath or theme-room add-ons, top-ups for arrangements involving a second staff member and card surcharges. Before paying, ask directly: **"After all discounts, service fees and add-ons, what is the final total?"**
 
-**2. Don't choose by tier names alone**. Even within one tier, quality varies. Judge the person in front of you that day — condition, attitude, specialties — not the fanciness of the label.
+**2. Don't choose by tier names alone**. Arrangements can vary within the same tier. Ask about the staff member's availability, service approach and relevant experience on the day, rather than relying only on a promotional label.
 
 **3. Shang Pin may queue after 9 pm**. To cut waiting, arrive before 20:30 or confirm that night's traffic first.
 
-**4. Majesty's designated lobby masseuse may cost extra**. Complimentary treatments are house-assigned; requesting someone specific can add about MOP 500.
+**4. Requesting specific lobby massage staff at Majesty may cost extra**. The venue assigns staff for complimentary treatments; requesting someone specific can add about MOP 500.
 
 **5. New venues still have teething issues**. Empire, Manhao and Number Nine have better hardware, but service flow, staff stability and shift-to-shift consistency can vary.
 
@@ -260,27 +262,27 @@ No venue wins every category right now. The sensible approach isn't chasing onli
 | Venue | Suggested time | Why |
 |---|---|---|
 | Majesty Spa | 14:00–20:00 | Catch the extra daytime discount |
-| Shang Pin Spa | 17:00–20:30 | Line-up fills in; beat the post-21:00 queue |
-| Empire Sauna | After 19:00 | Chinese and high tiers usually complete |
-| East Castle Spa | Evening | Theme rooms and therapists easier to arrange |
-| The Excellent Sauna | From afternoon | Early therapist start — the early-bird edge |
+| Shang Pin Spa | 17:00–20:30 | More staff are on duty; arrive before the post-21:00 queue |
+| Empire Sauna | After 19:00 | More Chinese staff and staff in higher menu tiers are usually available |
+| East Castle Spa | Evening | Themed rooms and staffing easier to arrange |
+| The Excellent Sauna | From afternoon | Staff begin earlier in the afternoon |
 | Manhao Spa | Evening | On-site numbers usually fuller than afternoons |
-| Number Nine Spa | Evening | Line-up count, lighting and atmosphere at their best |
+| Number Nine Spa | Evening | Fuller staffing and suitable conditions for introductions |
 
 ## Has Macau's Sauna Scene Really Recovered?
 
-By operations, therapist return and revived promotions, August 2026 has clearly moved past early June's slump. But this recovery isn't a return to the old duopoly where Number One and Oceanic Royal siphoned the market — it's a more dispersed landscape: fewer venues, more evenly spread staff, differentiated strengths, price/location/service as the battlegrounds, and no clear leader for now.
+Normal operations, returning staff and renewed promotions suggest that August 2026 has moved beyond early June's downturn. The market is more dispersed than when Number One and Oceanic Royal attracted most activity: fewer venues are operating, staff are spread more evenly, and price, location and service help distinguish the options. No clear leader has emerged.
 
-This may hold for a while. If shuttered sites reopen under new teams, competition will intensify further — though names, operating models and rosters may not resemble the past.
+This may continue for a while. If closed venues reopen under new teams, competition may increase, though their names, operating models and staffing may differ from the past.
 
-For travellers, dispersion isn't bad news. Big venues used to mean peak-hour crowds, queues and favourites getting picked fast. With resources spread out, every house has its own strength — and your choices have multiplied.
+For travellers, this broader distribution can be useful. Large venues often brought peak-hour crowds, queues and limited availability for frequently requested staff. A wider spread of staff and guests offers more choice among venues with different strengths.
 
 ## August 2026 Market Wrap-up
 
-Macau saunas have no new overlord. Majesty wins on value and overnight stays; Shang Pin absorbs the crowds with its multinational mix and bubble bath; Empire rises fast on its Chinese line-up, service and hardware; East Castle revives scripted themes; The Excellent owns the afternoon; Manhao waits for headcount; Number Nine builds identity on a comfortable, clear viewing floor.
+There is no clear overall leader among Macau's sauna venues. Majesty offers competitive package prices and overnight rest; Shang Pin combines a broad staff mix with a bubble-bath package; Empire's Chinese team, service reputation and facilities have drawn attention; East Castle has resumed its scripted themed sessions; The Excellent offers earlier afternoon arrangements; Manhao is still building its team; and Number Nine provides a comfortable staff introduction area.
 
-This month's selection logic compresses into one line:
+The main considerations for this month are:
 
-**For budget overnights, Majesty; for nationalities, Shang Pin; for Chinese therapists, Empire; for role-play, East Castle; for afternoons, The Excellent; for Taipa without crowds, Manhao; for the viewing experience, Number Nine**.
+**Consider Majesty for package prices and overnight rest; Shang Pin for its staff mix and bathing package; Empire for service and facilities; East Castle for themed scenarios; The Excellent for afternoon visits; Manhao for a quieter Taipa location; and Number Nine for its introduction process**.
 
-Once you have a date and budget, [contact us](/en/contact/) with your headcount, timing and preferences — we'll match the venue to that day's actual line-up. Guests booking through us get the entry fee waived plus a free private transfer anywhere in Macau (see [shuttle details](/en/shuttle/)). Final prices and promotions follow each venue's latest notice and are confirmed by our team at booking.
+Once you have a date and budget, [contact us](/en/contact/) with your group size, timing and preferences so we can check the day's available arrangements. Guests booking through us get the entry fee waived plus a free private transfer anywhere in Macau (see [shuttle details](/en/shuttle/)). Final prices and promotions follow each venue's latest notice and are confirmed by our team at booking.

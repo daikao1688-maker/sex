@@ -8,7 +8,7 @@ import sharp from "sharp";
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
 const siteOrigin = new URL(
-  process.env.PUBLIC_SITE_ORIGIN ?? "https://macao-sex.com",
+  process.env.PUBLIC_SITE_ORIGIN ?? "https://sex-macau.com",
 ).origin;
 
 const locales = {

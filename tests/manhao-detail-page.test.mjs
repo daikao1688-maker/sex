@@ -130,7 +130,7 @@ test("does not leave stale 06:00 Manhao hours in FAQs or editorial content", asy
     ["src/content/blog/zh-TW/macau-sauna-august-guide-2026.md", "曼濠水療](/zh-TW/spa/manhao-spa/)（氹仔，14:00–06:00", "曼濠水療](/zh-TW/spa/manhao-spa/)（氹仔，14:00–04:00"],
     ["src/content/blog/ja/macau-sauna-overnight-guide-2026.md", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は14:00〜06:00", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は14:00〜04:00"],
     ["src/content/blog/ja/macau-sauna-august-guide-2026.md", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は14:00〜06:00", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は14:00〜04:00"],
-    ["src/content/blog/en/macau-sauna-august-guide-2026.md", "runs to 6 am", "runs to 4 am"],
+    ["src/content/blog/en/macau-sauna-august-guide-2026.md", "operates until 6 am", "operates until 4 am"],
   ];
 
   const cache = new Map();

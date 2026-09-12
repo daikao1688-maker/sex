@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 const siteOrigin = new URL(
-  process.env.PUBLIC_SITE_ORIGIN ?? 'https://macao-sex.com',
+  process.env.PUBLIC_SITE_ORIGIN ?? 'https://sex-macau.com',
 ).origin;
 
 // https://astro.build/config

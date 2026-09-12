@@ -2,6 +2,13 @@
 
 Astro website source repository: `git@github.com:daikao1688-maker/sex.git`.
 
+## Production domain
+
+The default production URL is **https://sex-macau.com/**. Canonical URLs,
+language alternates, social metadata, structured data, sitemaps, `robots.txt`,
+and `llms.txt` use this origin. `PUBLIC_SITE_ORIGIN` can override it at build
+time; leave that variable unset or set it to `https://sex-macau.com` for production.
+
 ## Local development
 
 Requires Node.js 22.12.0 or newer. Install dependencies with `npm ci`, then run

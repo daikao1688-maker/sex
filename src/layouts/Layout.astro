@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import GoogleAdsTag from "../components/GoogleAdsTag.astro";
 import { localeMeta, locales, defaultLocale, localizePath, type Locale } from "../i18n/config";
 import { getDictionary } from "../i18n";
 import { site } from "../data/site";
@@ -197,8 +196,6 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
         <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
       ))
     }
-
-    <GoogleAdsTag />
   </head>
   <body class="bg-ink text-white" data-inquiry-message={inquiryMessage ?? t.contact.inquiryMessage}>
     <slot />
