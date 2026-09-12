@@ -12,7 +12,7 @@ const siteOrigin = new URL(
 export default defineConfig({
   site: siteOrigin,
   trailingSlash: 'ignore',
-  server: { port: 7777 },
+  server: { host: '127.0.0.1', port: 1717 },
 
   integrations: [
     sitemap({
@@ -39,6 +39,8 @@ export default defineConfig({
   },
 
   vite: {
+    server: { strictPort: true },
+    preview: { strictPort: true },
     plugins: [tailwindcss()]
   }
 });

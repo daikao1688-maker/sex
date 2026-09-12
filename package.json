@@ -6,7 +6,10 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --background",
+    "dev:stop": "astro dev stop",
+    "dev:status": "astro dev status",
+    "dev:logs": "astro dev logs",
     "icons:sync": "node scripts/sync-favicon.mjs",
     "prebuild": "npm run icons:sync",
     "build": "astro build",
