@@ -26,7 +26,7 @@ interface Props {
   siteSchema?: boolean;
   /** Locales this page exists in; defaults to all. Blog posts differ per locale. */
   alternateLocales?: Locale[];
-  /** Error and utility pages can opt out of indexing and locale alternates. */
+  /** Error and utility pages omit canonical URLs and locale alternates; all pages are noindex. */
   indexable?: boolean;
   /** Page-specific enquiry shared by the page's contact links. */
   inquiryMessage?: string;
@@ -145,9 +145,10 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
+    <meta name="robots" content="noindex, follow" />
 
     {
-      indexable ? (
+      indexable && (
         <Fragment>
           <link rel="canonical" href={canonical} />
           {alternates.map((alt) => (
@@ -155,8 +156,6 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
           ))}
           <link rel="alternate" hreflang="x-default" href={xDefault} />
         </Fragment>
-      ) : (
-        <meta name="robots" content="noindex, follow" />
       )
     }
 

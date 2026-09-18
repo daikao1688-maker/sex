@@ -1,6 +1,9 @@
 # Hostinger (Apache/LiteSpeed) cache policy
 # HTML：每次重新驗證（部署後訪客即時拿到最新版，ETag 讓 304 很便宜）
 <IfModule mod_headers.c>
+  # 全站禁止搜尋索引，包括圖片及其他非 HTML 資源。
+  Header always set X-Robots-Tag "noindex, follow"
+
   # 穩定圖標路徑每次重新驗證，避免圖片直鏈長期使用舊 favicon.ico。
   <FilesMatch "^favicon\.(ico|svg)$">
     Header set Cache-Control "no-cache"

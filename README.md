@@ -9,6 +9,21 @@ language alternates, social metadata, structured data, sitemaps, `robots.txt`,
 and `llms.txt` use this origin. `PUBLIC_SITE_ORIGIN` can override it at build
 time; leave that variable unset or set it to `https://sex-macau.com` for production.
 
+## Search indexing disabled
+
+All HTML pages, including all five languages, the root language gateway, and the
+404 page, contain a `robots` meta tag with `noindex`. The deployment files
+`public/.htaccess` (Hostinger/Apache/LiteSpeed) and `public/_headers` (hosts that
+support this format) also apply `X-Robots-Tag: noindex, follow` to every response,
+including images and other static resources.
+
+Keep crawling allowed in `robots.txt` so search engines can read these directives.
+The existing sitemap is retained to help crawlers revisit previously indexed URLs;
+it does not override `noindex`. Normal browsing and language switching still work.
+Already indexed pages are removed after search engines recrawl them, not immediately
+when the code is deployed. Publish the complete `html` branch, including `.htaccess`,
+then verify the live page metadata and response headers.
+
 ## Local development
 
 Requires Node.js 22.12.0 or newer. Install dependencies with `npm ci`, then run

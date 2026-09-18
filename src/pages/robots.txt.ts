@@ -1,5 +1,7 @@
 import type { APIRoute } from 'astro';
 
+// Keep crawling available so search engines can read the site's noindex rules.
+// The existing sitemap also lets crawlers revisit previously indexed URLs.
 const robotsTxt = (sitemapUrl: URL) => `User-agent: *
 Allow: /
 
