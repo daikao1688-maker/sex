@@ -70,6 +70,16 @@ const ko: Dictionary = {
       { bucket: 'ktv', label: 'KTV' },
     ],
     learnMore: '자세히 보기',
+    stats: {
+      price: '가격',
+      hours: '관리사 근무 시간',
+      serviceFee: '서비스료',
+      open24h: '24시간',
+      noServiceFee: '서비스료 없음',
+      ratingLabel: '편집자 평점 {rating}점',
+      ratingTitle: '편집자 평가',
+    },
+    districts: { peninsula: '마카오 반도', taipa: '타이파 · 코타이' },
     imageAltSuffix: '마카오 프리미엄 사우나 시설',
     temporarilyClosed: '임시 휴업',
     temporarilyClosedNotice:
@@ -334,6 +344,7 @@ const ko: Dictionary = {
     heading: '궁금한 점을 알려주세요',
     intro: '필요한 정보를 언제든 문의하세요. 하루 24시간 가능한 한 빠르게 답변드립니다.',
     inquiryMessage: '마카오 사우나 이용에 관심이 있습니다. 예약과 이동을 도와주실 수 있나요?',
+    viewQr: 'QR 보기',
     channels: { whatsapp: '메시지 보내기', telegram: '@am38876', wechat: 'gh34366', line: '@224vqwdv' },
   },
 

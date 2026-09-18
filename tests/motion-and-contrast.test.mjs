@@ -304,6 +304,10 @@ test("hero keeps its background cadence when venue text rotates first", async ()
     const image = new FakeElement();
     image.alt = "";
     image.dataset.alt = `English SEO phrase ${index + 1}`;
+    image.setAttribute("src", `/covers/hero-${index}.webp`);
+    image.complete = true;
+    image.naturalWidth = 1448;
+    image.decode = async () => {};
     backdrop.setAttribute("aria-hidden", "true");
     backdrop.querySelector = () => image;
     return image;
@@ -350,7 +354,7 @@ test("hero keeps its background cadence when venue text rotates first", async ()
     },
     cancelAnimationFrame: (id) => timers.delete(id),
   };
-  const advanceTo = (target) => {
+  const advanceTo = async (target) => {
     while (true) {
       const due = [...timers.entries()]
         .filter(([, timer]) => timer.at <= target)
@@ -360,12 +364,13 @@ test("hero keeps its background cadence when venue text rotates first", async ()
       timers.delete(id);
       now = timer.at;
       timer.callback();
+      await new Promise((resolve) => setImmediate(resolve));
     }
     now = target;
   };
 
   vm.runInNewContext(await heroScript(), { document, window, IntersectionObserver: FakeObserver });
-  advanceTo(4000);
+  await advanceTo(4000);
   assert.equal(venueText.textContent, venueCopy[0], "venue copy changed before the active text fully exited");
   assert.equal(venueText.classList.contains("is-exiting"), true, "venue copy did not begin its exit transition");
   const finishVenueExit = venueText.listeners.get("transitionend");
@@ -373,7 +378,7 @@ test("hero keeps its background cadence when venue text rotates first", async ()
   finishVenueExit({ target: venueText, propertyName: "opacity" });
   assert.equal(venueText.textContent, venueCopy[1], "venue copy did not swap after the exit transition");
   assert.equal(venueText.classList.contains("is-entering"), true, "new venue copy did not start below the viewport");
-  advanceTo(6000);
+  await advanceTo(6000);
 
   assert.equal(backdrops[1].classList.contains("is-active"), true, "the visual backdrop cadence must still rotate");
   backdrops.forEach((backdrop) =>

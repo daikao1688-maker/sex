@@ -19,7 +19,11 @@ export function resolveVenueDetail(
   t: Dictionary,
 ): ResolvedVenueDetail {
   const written = copy.venues[venue.slug];
-  if (written) return { ...written, isPlaceholder: false };
+  if (written) return {
+    ...written,
+    features: written.features.map((feature) => feature.replaceAll('{ratingStars}', '⭐'.repeat(venue.rating))),
+    isPlaceholder: false,
+  };
 
   const badge = t.spas.venues[venue.slug].badge;
 

@@ -1,3 +1,5 @@
+import { getVenueRating, type VenueRating } from './venueRatings';
+
 /**
  * Locale-neutral venue facts: slugs, imagery, pricing and the feature flags the
  * Quick Match scorer reads. All prose (name, badge, description) lives in the
@@ -55,7 +57,7 @@ export interface Venue {
   /** Venue is known for a Japanese / Korean therapist lineup. */
   jpkr: boolean;
   isNew: boolean;
-  rating: number;
+  rating: VenueRating;
   /** Buckets the filter pills match against. */
   buckets: string[];
   accent: VenueAccent;
@@ -63,7 +65,7 @@ export interface Venue {
   temporarilyClosed: boolean;
 }
 
-export const venues: Venue[] = [
+const venueDetails: Omit<Venue, 'rating'>[] = [
   {
     slug: 'clube-rio',
     nameZh: '利澳薈',
@@ -80,7 +82,6 @@ export const venues: Venue[] = [
     recommendedShow: false,
     jpkr: false,
     isNew: true,
-    rating: 5,
     buckets: ['ktv', 'new'],
     accent: 'red',
     temporarilyClosed: false,
@@ -103,7 +104,6 @@ export const venues: Venue[] = [
     recommendedShow: false,
     jpkr: false,
     isNew: true,
-    rating: 4,
     buckets: ['theme', 'new'],
     accent: 'gold',
     temporarilyClosed: false,
@@ -124,7 +124,6 @@ export const venues: Venue[] = [
     recommendedShow: true,
     jpkr: false,
     isNew: true,
-    rating: 5,
     buckets: ['lineup', 'new'],
     accent: 'gold',
     temporarilyClosed: false,
@@ -146,7 +145,6 @@ export const venues: Venue[] = [
     recommendedShow: true,
     jpkr: true,
     isNew: true,
-    rating: 5,
     buckets: ['new'],
     accent: 'gold',
     temporarilyClosed: false,
@@ -168,7 +166,6 @@ export const venues: Venue[] = [
     recommendedShow: false,
     jpkr: true,
     isNew: false,
-    rating: 5,
     buckets: ['overnight', 'value'],
     accent: 'gold',
     temporarilyClosed: false,
@@ -190,7 +187,6 @@ export const venues: Venue[] = [
     recommendedShow: false,
     jpkr: false,
     isNew: false,
-    rating: 4,
     buckets: ['overnight', 'ktv'],
     accent: 'gold',
     temporarilyClosed: false,
@@ -212,7 +208,6 @@ export const venues: Venue[] = [
     recommendedShow: false,
     jpkr: false,
     isNew: false,
-    rating: 3,
     buckets: ['theme', 'overnight'],
     accent: 'gold',
     temporarilyClosed: false,
@@ -234,7 +229,6 @@ export const venues: Venue[] = [
     recommendedShow: false,
     jpkr: true,
     isNew: true,
-    rating: 5,
     buckets: ['new'],
     accent: 'gold',
     temporarilyClosed: false,
@@ -256,7 +250,6 @@ export const venues: Venue[] = [
     recommendedShow: false,
     jpkr: false,
     isNew: false,
-    rating: 4,
     buckets: ['theme', 'value'],
     accent: 'silver',
     temporarilyClosed: false,
@@ -278,7 +271,6 @@ export const venues: Venue[] = [
     recommendedShow: false,
     jpkr: false,
     isNew: false,
-    rating: 4,
     buckets: ['overnight'],
     accent: 'silver',
     temporarilyClosed: false,
@@ -300,7 +292,6 @@ export const venues: Venue[] = [
     recommendedShow: false,
     jpkr: false,
     isNew: false,
-    rating: 4,
     buckets: ['theme', 'ktv'],
     accent: 'plain',
     temporarilyClosed: true,
@@ -322,7 +313,6 @@ export const venues: Venue[] = [
     recommendedShow: true,
     jpkr: false,
     isNew: false,
-    rating: 5,
     buckets: ['lineup'],
     accent: 'plain',
     temporarilyClosed: true,
@@ -344,7 +334,6 @@ export const venues: Venue[] = [
     recommendedShow: false,
     jpkr: false,
     isNew: false,
-    rating: 5,
     buckets: ['value'],
     accent: 'plain',
     temporarilyClosed: true,
@@ -366,7 +355,6 @@ export const venues: Venue[] = [
     recommendedShow: true,
     jpkr: true,
     isNew: false,
-    rating: 5,
     buckets: ['lineup', 'theme', 'overnight'],
     accent: 'plain',
     temporarilyClosed: true,
@@ -388,12 +376,16 @@ export const venues: Venue[] = [
     recommendedShow: true,
     jpkr: false,
     isNew: false,
-    rating: 4,
     buckets: ['lineup', 'value', 'overnight'],
     accent: 'plain',
     temporarilyClosed: true,
   },
 ];
+
+export const venues: Venue[] = venueDetails.map((venue) => ({
+  ...venue,
+  rating: getVenueRating(venue.slug),
+}));
 
 /** Venues currently open and eligible for Quick Match recommendations. */
 export const bookableVenues = venues.filter((venue) => !venue.temporarilyClosed);

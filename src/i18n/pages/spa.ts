@@ -310,7 +310,7 @@ const en: SpaPageCopy = {
       ],
       bestFor: 'Largest model showcase / Taipa luxury debut',
       features: [
-        'Recommended ⭐⭐⭐⭐⭐',
+        'Recommended {ratingStars}',
         'Newest Taipa opening — 1 May 2026',
         'Macau\'s largest model showcase / catwalk hall',
         'Signature red waterbed in spotlit suites',
@@ -545,7 +545,7 @@ const en: SpaPageCopy = {
       ],
       bestFor: 'Japanese-style experience',
       features: [
-        'Recommended rating: ⭐⭐⭐⭐⭐',
+        'Recommended rating: {ratingStars}',
         'Free therapist add-on with selected packages',
         'Japanese-style bubble bath',
         'international service standards',
@@ -662,7 +662,7 @@ const en: SpaPageCopy = {
       ],
       bestFor: 'Luxury environment / overnight stays',
       features: [
-        'Rating ⭐⭐⭐⭐',
+        'Rating {ratingStars}',
         'The most luxurious decor in Macau',
         'a talent show with scenic views',
         'over ten themed rooms',
@@ -760,7 +760,7 @@ const en: SpaPageCopy = {
       ],
       bestFor: 'Flexible schedule / themed rooms',
       features: [
-        'Rating ⭐⭐⭐',
+        'Rating {ratingStars}',
         'Grand Emperor Hotel main building',
         'brand new themed rooms',
         'various exciting themes',
@@ -874,7 +874,7 @@ const en: SpaPageCopy = {
       ],
       bestFor: 'Newest luxury / themed-suite debut',
       features: [
-        'Recommended ⭐⭐⭐⭐⭐',
+        'Recommended {ratingStars}',
         'Newest premium opening — 15 May 2026',
         'HK$80M luxury build',
         'Themed suites with hotel-grade amenities',
@@ -994,7 +994,7 @@ const en: SpaPageCopy = {
       ],
       bestFor: 'Themed rooms / roleplay',
       features: [
-        'Rating ⭐⭐⭐⭐',
+        'Rating {ratingStars}',
         '20+ Themed Scenario Rooms',
         'Macau Script-Killing Pioneer',
         'Japanese Themed Experiences',
@@ -1092,7 +1092,7 @@ const en: SpaPageCopy = {
       ],
       bestFor: 'Quiet, private experience',
       features: [
-        'Rating ⭐⭐⭐⭐',
+        'Rating {ratingStars}',
         'Focus on Service Quality',
         'Spacious Rest Areas',
         'Quiet & Relaxing Environment',
@@ -1190,7 +1190,7 @@ const en: SpaPageCopy = {
       ],
       bestFor: 'Luxury themed experience',
       features: [
-        'Rating ⭐⭐⭐⭐',
+        'Rating {ratingStars}',
         'High-Tech Cyberpunk Style',
         'Rich Themed Room Selection',
         'Script-Killing Experiences',
@@ -1318,7 +1318,7 @@ const en: SpaPageCopy = {
       ],
       bestFor: 'First-time visitors',
       features: [
-        'Rating ⭐⭐⭐⭐⭐',
+        'Rating {ratingStars}',
         'Popular sauna in Macau',
         'multi-nationality options',
         'high quality guaranteed',
@@ -1429,7 +1429,7 @@ const en: SpaPageCopy = {
       ],
       bestFor: 'Best value seekers',
       features: [
-        'Rating ⭐⭐⭐⭐⭐',
+        'Rating {ratingStars}',
         'Macau\'s largest sauna',
         'with the most rooms',
         'stable service',
@@ -1812,7 +1812,7 @@ const ja: SpaPageCopy = {
       ],
       bestFor: '最大のショータイム舞台／氹仔の高級マカオ サウナ',
       features: [
-        'おすすめ度⭐⭐⭐⭐⭐',
+        'おすすめ度{ratingStars}',
         '2026年5月1日 氹仔に新規オープン',
         '全マカオ最大のショータイム・キャットウォークホール',
         '看板の赤いウォーターベッド（スポットライト個室）',
@@ -2043,7 +2043,7 @@ const ja: SpaPageCopy = {
       ],
       bestFor: '日本式の体験を求める方',
       features: [
-        'おすすめ度⭐⭐⭐⭐⭐',
+        'おすすめ度{ratingStars}',
         '対象コースでセラピスト無料特典',
         '日本式 泡泡浴',
         '国際水準のサービス',
@@ -2158,7 +2158,7 @@ const ja: SpaPageCopy = {
       ],
       bestFor: '豪華な空間／宿泊（24時間）の本命',
       features: [
-        'おすすめ度⭐⭐⭐⭐',
+        'おすすめ度{ratingStars}',
         'マカオ最高峰の豪華内装',
         '景色を眺めるショータイム形式',
         '10種類以上のテーマルーム',
@@ -2254,7 +2254,7 @@ const ja: SpaPageCopy = {
       ],
       bestFor: '昼スタート／テーマ体験',
       features: [
-        '推奨度⭐⭐⭐',
+        '推奨度{ratingStars}',
         'グランドエンペラーホテル本館',
         '新しいテーマルーム',
         '多彩なテーマ',
@@ -2366,7 +2366,7 @@ const ja: SpaPageCopy = {
       ],
       bestFor: '最新の高級店／テーマスイート狙いに',
       features: [
-        'おすすめ度⭐⭐⭐⭐⭐',
+        'おすすめ度{ratingStars}',
         '【2026年最新版】2026年5月15日 新規オープン',
         '港幣8,000万の高級内装',
         'ホテル級テーマスイート',
@@ -2484,7 +2484,7 @@ const ja: SpaPageCopy = {
       ],
       bestFor: 'テーマルーム／ロールプレイ体験',
       features: [
-        'おすすめ度⭐⭐⭐⭐',
+        'おすすめ度{ratingStars}',
         'テーマルーム20室以上',
         'マカオ・テーマ系の元祖',
         'シチュエーション体験',
@@ -2580,7 +2580,7 @@ const ja: SpaPageCopy = {
       ],
       bestFor: '静かでプライベートな体験を求める方',
       features: [
-        'おすすめ度⭐⭐⭐⭐',
+        'おすすめ度{ratingStars}',
         'サービスの質にこだわり',
         '広々とした休憩エリア',
         '静かでくつろげる空間',
@@ -2676,7 +2676,7 @@ const ja: SpaPageCopy = {
       ],
       bestFor: '豪華なテーマ体験',
       features: [
-        'おすすめ度⭐⭐⭐⭐',
+        'おすすめ度{ratingStars}',
         'テック感あふれる内装',
         '豊富なテーマ個室',
         'テーマ演出体験',
@@ -2802,7 +2802,7 @@ const ja: SpaPageCopy = {
       ],
       bestFor: '初めての方',
       features: [
-        'おすすめ度⭐⭐⭐⭐⭐',
+        'おすすめ度{ratingStars}',
         'マカオの人気サウナ',
         '多国籍から選べる',
         '日本語対応・無料送迎',
@@ -2911,7 +2911,7 @@ const ja: SpaPageCopy = {
       ],
       bestFor: 'コスパ重視の方に',
       features: [
-        'おすすめ度⭐⭐⭐⭐⭐',
+        'おすすめ度{ratingStars}',
         'マカオ最大級のサウナ',
         '部屋数が最多',
         '安定したサービス',
@@ -3291,7 +3291,7 @@ const zhTW: SpaPageCopy = {
       ],
       bestFor: '最大走秀舞台／氹仔奢華首選',
       features: [
-        '推薦指數⭐⭐⭐⭐⭐',
+        '推薦指數{ratingStars}',
         '2026年5月1日氹仔全新開業',
         '全澳最大走秀大廳',
         '招牌紅色水床聚光燈房型',
@@ -3522,7 +3522,7 @@ const zhTW: SpaPageCopy = {
       ],
       bestFor: '日式體驗愛好者',
       features: [
-        '推薦指數⭐⭐⭐⭐⭐',
+        '推薦指數{ratingStars}',
         '惠顧指定套式送師傅工',
         '日式泡泡浴',
         '國際化的服務標準',
@@ -3637,7 +3637,7 @@ const zhTW: SpaPageCopy = {
       ],
       bestFor: '豪華環境／過夜首選',
       features: [
-        '推薦指數⭐⭐⭐⭐',
+        '推薦指數{ratingStars}',
         '澳門最奢華裝修',
         '走秀看風景模式',
         '十多種主題房間',
@@ -3738,7 +3738,7 @@ const zhTW: SpaPageCopy = {
       ],
       bestFor: '時間靈活／主題體驗',
       features: [
-        '推薦指數⭐⭐⭐',
+        '推薦指數{ratingStars}',
         '英皇娛樂酒店本館',
         '全新主題房間',
         '多種特色主題',
@@ -3854,7 +3854,7 @@ const zhTW: SpaPageCopy = {
       ],
       bestFor: '最新奢華／主題套房首選',
       features: [
-        '推薦指數⭐⭐⭐⭐⭐',
+        '推薦指數{ratingStars}',
         '2026年5月15日全新開業',
         '港幣8,000萬奢華打造',
         '酒店級主題套房',
@@ -3972,7 +3972,7 @@ const zhTW: SpaPageCopy = {
       ],
       bestFor: '主題場景房／情境體驗',
       features: [
-        '推薦指數⭐⭐⭐⭐',
+        '推薦指數{ratingStars}',
         '20+ 主題情景房間',
         '澳門主題情境開創者',
         '情景主題體驗',
@@ -4068,7 +4068,7 @@ const zhTW: SpaPageCopy = {
       ],
       bestFor: '追求安靜私密體驗',
       features: [
-        '推薦指數⭐⭐⭐⭐',
+        '推薦指數{ratingStars}',
         '注重服務質量',
         '寬敞休息區域',
         '安靜放鬆環境',
@@ -4164,7 +4164,7 @@ const zhTW: SpaPageCopy = {
       ],
       bestFor: '豪華主題體驗',
       features: [
-        '推薦指數⭐⭐⭐⭐',
+        '推薦指數{ratingStars}',
         '科技感風格',
         '豐富主題房間',
         '主題情境體驗',
@@ -4290,7 +4290,7 @@ const zhTW: SpaPageCopy = {
       ],
       bestFor: '首次體驗者',
       features: [
-        '推薦指數⭐⭐⭐⭐⭐',
+        '推薦指數{ratingStars}',
         '澳門熱門桑拿',
         '多國籍選擇',
         '高質量保證',
@@ -4399,7 +4399,7 @@ const zhTW: SpaPageCopy = {
       ],
       bestFor: '追求性價比',
       features: [
-        '推薦指數⭐⭐⭐⭐⭐',
+        '推薦指數{ratingStars}',
         '澳門最大型桑拿',
         '房間數量最多',
         '服務穩定',
@@ -4782,7 +4782,7 @@ const zhCN: SpaPageCopy = {
       overnightValue: '不可过夜',
       overnightNote: '— 过渡期暂不提供过夜，即将恢复24小时及过夜',
       features: [
-        '推荐指数⭐⭐⭐⭐⭐',
+        '推荐指数{ratingStars}',
         '2026年5月1日氹仔全新开业',
         '全澳最大走秀大厅',
         '招牌红色水床聚光灯房型',
@@ -5013,7 +5013,7 @@ const zhCN: SpaPageCopy = {
       ],
       bestFor: '日式体验爱好者',
       features: [
-        '推荐指数⭐⭐⭐⭐⭐',
+        '推荐指数{ratingStars}',
         '惠顾指定套式送师傅工',
         '日式泡泡浴',
         '国际化的服务标准',
@@ -5128,7 +5128,7 @@ const zhCN: SpaPageCopy = {
       ],
       bestFor: '豪华环境／过夜首选',
       features: [
-        '推荐指数⭐⭐⭐⭐',
+        '推荐指数{ratingStars}',
         '澳门最奢华装修',
         '走秀看风景模式',
         '十多种主题房间',
@@ -5229,7 +5229,7 @@ const zhCN: SpaPageCopy = {
       ],
       bestFor: '时间灵活／主题体验',
       features: [
-        '推荐指数⭐⭐⭐',
+        '推荐指数{ratingStars}',
         '英皇娱乐酒店本馆',
         '全新主题房间',
         '多种特色主题',
@@ -5345,7 +5345,7 @@ const zhCN: SpaPageCopy = {
       ],
       bestFor: '最新奢华／主题套房首选',
       features: [
-        '推荐指数⭐⭐⭐⭐⭐',
+        '推荐指数{ratingStars}',
         '2026年5月15日全新开业',
         '港币8,000万奢华打造',
         '酒店级主题套房',
@@ -5463,7 +5463,7 @@ const zhCN: SpaPageCopy = {
       ],
       bestFor: '主题场景房／情境体验',
       features: [
-        '推荐指数⭐⭐⭐⭐',
+        '推荐指数{ratingStars}',
         '20+ 主题情景房间',
         '澳门主题情境开创者',
         '情景主题体验',
@@ -5559,7 +5559,7 @@ const zhCN: SpaPageCopy = {
       ],
       bestFor: '追求安静私密体验',
       features: [
-        '推荐指数⭐⭐⭐⭐',
+        '推荐指数{ratingStars}',
         '注重服务质量',
         '宽敞休息区域',
         '安静放松环境',
@@ -5655,7 +5655,7 @@ const zhCN: SpaPageCopy = {
       ],
       bestFor: '豪华主题体验',
       features: [
-        '推荐指数⭐⭐⭐⭐',
+        '推荐指数{ratingStars}',
         '科技感风格',
         '丰富主题房间',
         '主题情境体验',
@@ -5781,7 +5781,7 @@ const zhCN: SpaPageCopy = {
       ],
       bestFor: '首次体验者',
       features: [
-        '推荐指数⭐⭐⭐⭐⭐',
+        '推荐指数{ratingStars}',
         '澳门热门桑拿',
         '多国籍选择',
         '高质量保证',
@@ -5890,7 +5890,7 @@ const zhCN: SpaPageCopy = {
       ],
       bestFor: '追求性价比',
       features: [
-        '推荐指数⭐⭐⭐⭐⭐',
+        '推荐指数{ratingStars}',
         '澳门最大型桑拿',
         '房间数量最多',
         '服务稳定',
@@ -6270,7 +6270,7 @@ const ko: SpaPageCopy = {
       ],
       bestFor: '최대 쇼 스테이지 / 타이파 럭셔리를 원하는 분',
       features: [
-        '추천 지수 ⭐⭐⭐⭐⭐',
+        '추천 지수 {ratingStars}',
         '2026년 5월 1일 타이파 그랜드 오픈',
         '마카오 최대 규모 쇼 홀',
         '대표 레드 워터베드 스폿라이트 룸',
@@ -6501,7 +6501,7 @@ const ko: SpaPageCopy = {
       ],
       bestFor: '일본식 경험을 좋아하는 분',
       features: [
-        '추천 지수 ⭐⭐⭐⭐⭐',
+        '추천 지수 {ratingStars}',
         '지정 코스 이용 시 마사지 시술 무료',
         '일식 버블 바스',
         '국제적인 서비스 기준',
@@ -6616,7 +6616,7 @@ const ko: SpaPageCopy = {
       ],
       bestFor: '럭셔리한 환경 / 야간 휴식을 원하는 분',
       features: [
-        '추천 지수 ⭐⭐⭐⭐',
+        '추천 지수 {ratingStars}',
         '마카오에서 가장 럭셔리한 인테리어',
         '경치를 볼 수 있는 쇼 방식',
         '10여 종의 테마룸',
@@ -6717,7 +6717,7 @@ const ko: SpaPageCopy = {
       ],
       bestFor: '시간이 유동적인 분 / 테마 체험',
       features: [
-        '추천 지수 ⭐⭐⭐',
+        '추천 지수 {ratingStars}',
         '그랜드 엠퍼러 호텔 본관',
         '새로운 테마룸',
         '다양한 특색 테마',
@@ -6833,7 +6833,7 @@ const ko: SpaPageCopy = {
       ],
       bestFor: '최신 럭셔리 / 테마 스위트를 원하는 분',
       features: [
-        '추천 지수 ⭐⭐⭐⭐⭐',
+        '추천 지수 {ratingStars}',
         '2026년 5월 15일 그랜드 오픈',
         'HK$8,000만 럭셔리 시공',
         '호텔급 테마 스위트',
@@ -6951,7 +6951,7 @@ const ko: SpaPageCopy = {
       ],
       bestFor: '테마룸 / 시추에이션 체험',
       features: [
-        '추천 지수 ⭐⭐⭐⭐',
+        '추천 지수 {ratingStars}',
         '20종 이상의 테마룸',
         '마카오 테마 시추에이션의 개척자',
         '장면 테마 체험',
@@ -7047,7 +7047,7 @@ const ko: SpaPageCopy = {
       ],
       bestFor: '조용하고 프라이빗한 경험을 원하는 분',
       features: [
-        '추천 지수 ⭐⭐⭐⭐',
+        '추천 지수 {ratingStars}',
         '서비스 퀄리티 중시',
         '넓은 휴게 공간',
         '조용한 휴식 환경',
@@ -7143,7 +7143,7 @@ const ko: SpaPageCopy = {
       ],
       bestFor: '럭셔리한 테마 체험',
       features: [
-        '추천 지수 ⭐⭐⭐⭐',
+        '추천 지수 {ratingStars}',
         '테크 감성 스타일',
         '풍부한 테마룸',
         '테마 시추에이션 체험',
@@ -7269,7 +7269,7 @@ const ko: SpaPageCopy = {
       ],
       bestFor: '처음 경험하는 분',
       features: [
-        '추천 지수 ⭐⭐⭐⭐⭐',
+        '추천 지수 {ratingStars}',
         '마카오 인기 사우나',
         '다국적 선택지',
         '높은 퀄리티 보장',
@@ -7378,7 +7378,7 @@ const ko: SpaPageCopy = {
       ],
       bestFor: '가성비를 추구하는 분',
       features: [
-        '추천 지수 ⭐⭐⭐⭐⭐',
+        '추천 지수 {ratingStars}',
         '마카오 최대 규모 사우나',
         '가장 많은 객실 수',
         '안정적인 서비스',

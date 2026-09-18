@@ -64,6 +64,19 @@ export interface Dictionary {
     filterLabel: string;
     filters: Array<{ bucket: string; label: string }>;
     learnMore: string;
+    /** Card stat-row labels + short values (price / hours / service fee). */
+    stats: {
+      price: string;
+      hours: string;
+      serviceFee: string;
+      open24h: string;
+      noServiceFee: string;
+      /** `{rating}` = 1–5 editor rating shown as gold stars. */
+      ratingLabel: string;
+      /** Visible label identifying these scores as editorial ratings. */
+      ratingTitle: string;
+    };
+    districts: { peninsula: string; taipa: string };
     imageAltSuffix: string;
     temporarilyClosed: string;
     temporarilyClosedNotice: string;
@@ -141,6 +154,7 @@ export interface Dictionary {
     intro: string;
     /** Default text pre-filled into WhatsApp / Telegram deep links. */
     inquiryMessage: string;
+    viewQr: string;
     channels: { whatsapp: string; telegram: string; wechat: string; line: string };
   };
   mission: {

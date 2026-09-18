@@ -152,7 +152,7 @@ test("places Yu Sauna as the first homepage venue card in every locale", async (
   }
 });
 
-test("reserves the red homepage frame for the first-place Yu Sauna card", async () => {
+test("uses the shared card styling on every homepage venue card", async () => {
   for (const locale of Object.keys(localeExpectations)) {
     const home = await readFile(path.join(distRoot, locale, "index.html"), "utf8");
     const spaGrid = home.match(/<section\b(?=[^>]*\bid="spas")[\s\S]*?<\/section>/i)?.[0] ?? "";
@@ -161,12 +161,13 @@ test("reserves the red homepage frame for the first-place Yu Sauna card", async 
         /<div\b[^>]*data-buckets="[^"]*"[^>]*>\s*<a\b[^>]*href="([^"]+)"[^>]*class="([^"]+)"/gi,
       ),
     ].map((match) => ({ href: match[1], className: match[2] }));
-    const redFrameCards = venueCards.filter((card) => card.className.includes("border-red-400/60"));
+    const styledCards = venueCards.filter((card) => card.className.includes("spa-card"));
 
+    assert.ok(venueCards.length > 0, `${locale} homepage renders no venue cards`);
     assert.deepEqual(
-      redFrameCards.map((card) => card.href),
-      [`/${locale}/spa/${slug}/`],
-      `${locale} gives the red frame to a card other than the first-place Yu Sauna card`,
+      styledCards.map((card) => card.href),
+      venueCards.map((card) => card.href),
+      `${locale} has venue cards without the shared card styling`,
     );
   }
 });

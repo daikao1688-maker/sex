@@ -1,5 +1,5 @@
 ---
-import { getDictionary } from "../i18n";
+import { getDictionary, interpolate } from "../i18n";
 import { localizePath, type Locale } from "../i18n/config";
 import { venues, type VenueAccent } from "../data/venues";
 
@@ -10,6 +10,9 @@ interface Props {
 const { lang } = Astro.props;
 const t = getDictionary(lang);
 
+const formatPrice = (venue: (typeof venues)[number]) =>
+  `${venue.priceMin.toLocaleString("en-US")} – ${venue.priceMax.toLocaleString("en-US")}`;
+
 const frames: Record<VenueAccent, string> = {
   red: "border-2 border-red-400/60 hover:border-red-400/80 glow-red",
   gold: "border-2 border-gold/60 hover:border-gold/80 glow-gold",
@@ -17,11 +20,11 @@ const frames: Record<VenueAccent, string> = {
   plain: "border border-gold/25 hover:border-gold/40",
 };
 
-const badges: Record<VenueAccent, string> = {
-  red: "bg-red-400 text-white",
-  gold: "bg-gold text-black",
-  silver: "bg-gold text-black",
-  plain: "bg-gold text-black",
+const accentDots: Record<VenueAccent, string> = {
+  red: "bg-red-400",
+  gold: "bg-gold",
+  silver: "bg-white/70",
+  plain: "bg-gold/60",
 };
 
 // The count renders inside a <strong>, so split the sentence around it.
@@ -76,7 +79,7 @@ const pausedBuckets = [...new Set(closedVenues.flatMap((venue) => venue.buckets)
       {
         openVenues.map((venue, index) => {
           const copy = t.spas.venues[venue.slug];
-          // The red frame marks the first homepage result; badge colors remain venue-specific.
+          // Red belongs to the first homepage card, not to a particular venue.
           const frameAccent: VenueAccent =
             index === 0 ? "red" : venue.accent === "red" ? "gold" : venue.accent;
           return (
@@ -87,14 +90,10 @@ const pausedBuckets = [...new Set(closedVenues.flatMap((venue) => venue.buckets)
             >
               <a
                 href={localizePath(lang, `/spa/${venue.slug}/`)}
-                class={`group block bg-[#141414] rounded-2xl overflow-hidden transition-all duration-500 shadow-lg hover:shadow-gold/5 ${frames[frameAccent]}`}
+                class={`spa-card group relative isolate overflow-hidden rounded-2xl bg-ink transition-colors duration-200 ${frames[frameAccent]}`}
+                data-frame={frameAccent}
               >
-                <div class="relative aspect-[4/3] overflow-hidden">
-                  <span
-                    class={`absolute top-3 right-3 z-10 text-xs font-bold px-2.5 py-1 rounded-full shadow-lg ${badges[venue.accent]}`}
-                  >
-                    {copy.badge}
-                  </span>
+                <div class="spa-card-media absolute inset-0 -z-10 overflow-hidden">
                   <picture>
                     <source
                       srcset={`/covers/${venue.cover}-400.webp 400w, /covers/${venue.cover}.webp 800w`}
@@ -111,21 +110,71 @@ const pausedBuckets = [...new Set(closedVenues.flatMap((venue) => venue.buckets)
                       decoding="async"
                       width="800"
                       height="800"
-                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      class="h-full w-full object-cover"
                     />
                   </picture>
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                  <span
+                    aria-hidden="true"
+                    class="pointer-events-none absolute inset-0 bg-black/15"
+                  />
                 </div>
-                <div class="p-5">
-                  <h3 class="text-lg font-semibold text-white group-hover:text-gold transition-colors duration-300 mb-2">
+
+                <span class="spa-card-badge relative m-3 self-start rounded-full border border-gold/60 bg-black/80 px-3 py-1.5 text-xs font-semibold leading-relaxed tracking-wide text-gold">
+                  {copy.badge}
+                </span>
+
+                <div class="spa-card-content relative mt-auto px-4 pb-5 pt-16 sm:px-5">
+                  <h3 class="spa-card-title text-xl font-bold leading-snug text-white transition-colors duration-200 group-hover:text-gold-light group-focus-visible:text-gold-light sm:text-[22px]">
                     {copy.name}
+                    <span
+                      aria-hidden="true"
+                      class={`spa-card-accent ml-2 inline-block h-1.5 w-1.5 rotate-45 align-middle ${accentDots[venue.accent]}`}
+                    />
                   </h3>
-                  <p class="text-white/60 text-sm leading-relaxed line-clamp-2 whitespace-pre-line">
+
+                  <div class="my-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <small class="text-xs text-white/75">
+                      {t.spas.districts[venue.district]}
+                    </small>
+                    <p
+                      class="text-sm tracking-[0.18em] text-gold"
+                      role="img"
+                      aria-label={interpolate(t.spas.stats.ratingLabel, { rating: venue.rating })}
+                    >
+                      {"★".repeat(venue.rating)}
+                    </p>
+                  </div>
+
+                  <p class="spa-card-description text-sm leading-relaxed text-white/75 line-clamp-2 whitespace-pre-line">
                     {copy.description}
                   </p>
-                  <div class="mt-4 flex items-center text-gold text-sm font-medium opacity-70 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
-                    <span>{t.spas.learnMore}</span>
-                    <span class="ml-1 transition-transform group-hover:translate-x-1">→</span>
+
+                  <div class="spa-card-stats mt-3 grid grid-cols-3 gap-2 border-t border-white/20 pt-3 text-xs">
+                    <div class="min-w-0">
+                      <span class="mb-1 block leading-snug text-white/65">{t.spas.stats.price}</span>
+                      <b class="block break-words text-xs leading-snug text-white tabular-nums sm:text-[13px]">
+                        {formatPrice(venue)}
+                      </b>
+                    </div>
+                    <div class="min-w-0">
+                      <span class="mb-1 block leading-snug text-white/65">{t.spas.stats.hours}</span>
+                      <b class="block break-words text-xs leading-snug text-white tabular-nums sm:text-[13px]">
+                        {venue.open24h ? t.spas.stats.open24h : venue.hours}
+                      </b>
+                    </div>
+                    <div class="min-w-0">
+                      <span class="mb-1 block leading-snug text-white/65">{t.spas.stats.serviceFee}</span>
+                      <b class="block break-words text-xs leading-snug text-white tabular-nums sm:text-[13px]">
+                        {venue.serviceFee === "none" ? t.spas.stats.noServiceFee : `+${venue.serviceFee}`}
+                      </b>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 flex items-center">
+                    <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-gold group-hover:text-gold-light group-focus-visible:text-gold-light">
+                      {t.spas.learnMore}
+                      <span class="spa-card-arrow" aria-hidden="true">→</span>
+                    </span>
                   </div>
                 </div>
               </a>
@@ -142,7 +191,7 @@ const pausedBuckets = [...new Set(closedVenues.flatMap((venue) => venue.buckets)
             data-buckets={pausedBuckets}
           >
             <div
-              class="flex h-full flex-col rounded-2xl border border-gold/25 bg-[#141414] p-5"
+              class="flex h-full flex-col rounded-[16px] border border-gold/25 bg-[#141414] p-5 sm:rounded-[20px]"
               data-testid="spa-paused-card"
             >
               <span class="inline-block self-start px-4 py-1.5 rounded-full border border-gold/60 text-gold text-sm font-bold tracking-wide mb-3">
@@ -189,6 +238,81 @@ const pausedBuckets = [...new Set(closedVenues.flatMap((venue) => venue.buckets)
     </p>
   </div>
 </section>
+
+<style>
+  /* Keep content in normal flow so long translations / zoom can grow the
+     card. The photograph fills the whole surface, behind the lower copy. */
+  .spa-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 28rem;
+  }
+
+  .spa-card-badge {
+    max-width: calc(100% - 1.5rem);
+    overflow-wrap: anywhere;
+  }
+
+  .spa-card-content {
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(0 0 0 / 0.78) 4rem,
+      rgb(0 0 0 / 0.93) 72%,
+      rgb(0 0 0 / 0.98)
+    );
+  }
+
+  .spa-card-title {
+    overflow-wrap: anywhere;
+  }
+
+  .spa-card:focus-visible {
+    outline: 2px solid var(--color-gold-light);
+    outline-offset: 4px;
+  }
+
+  .spa-card:active {
+    border-color: var(--color-gold-light);
+  }
+
+  @media (min-width: 640px) {
+    .spa-card {
+      min-height: 30rem;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .spa-card-media img,
+    .spa-card-arrow {
+      transition: transform 300ms ease-out;
+    }
+
+    .spa-card:hover .spa-card-media img {
+      transform: scale(1.04);
+    }
+
+    .spa-card:hover .spa-card-arrow {
+      transform: translateX(3px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .spa-card,
+    .spa-card-title,
+    .spa-card-media img,
+    .spa-card-arrow {
+      animation: none;
+      transition: none;
+    }
+
+    .spa-card:hover .spa-card-media img,
+    .spa-card:hover .spa-card-arrow {
+      transform: none;
+    }
+  }
+</style>
 
 <script>
   (() => {

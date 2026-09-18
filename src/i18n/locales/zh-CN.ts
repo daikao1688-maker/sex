@@ -1,3 +1,4 @@
+import { getVenueRating } from '../../data/venueRatings';
 import type { Dictionary } from '../types';
 
 const zhCN: Dictionary = {
@@ -68,6 +69,16 @@ const zhCN: Dictionary = {
       { bucket: 'ktv', label: 'KTV' },
     ],
     learnMore: '了解更多',
+    stats: {
+      price: '参考价',
+      hours: '当班时段',
+      serviceFee: '服务费',
+      open24h: '24 小时',
+      noServiceFee: '免服务费',
+      ratingLabel: '编辑评分 {rating} 分',
+      ratingTitle: '编辑评级',
+    },
+    districts: { peninsula: '澳门半岛', taipa: '氹仔 · 路氹' },
     imageAltSuffix: '澳门高端桑拿会所',
     temporarilyClosed: '暂停营业',
     temporarilyClosedNotice:
@@ -155,7 +166,7 @@ const zhCN: Dictionary = {
         name: '豪门桑拿殿',
         badge: '最高性价比',
         description:
-          '豪门桑拿殿是全澳规模最大的经典澳门桑拿水疗会所，坐落澳门半岛，房间数量更是全澳之最——即使在高峰时段，一踏进门便有房可进，几乎无需等候。这家澳门桑拿真正的过人之处在于性价比：全澳仅两家之一的免服务费政策，标价即最终价，没有任何隐藏收费，80 多位来自八个国家的技师任你选择，价格范围 MOP 2,388 至 6,988。\n\n先在宽敞的沐浴空间里尽情放松，再享用客人口碑极佳的免费牛排与冻啤。夜深时，全澳最佳的过夜设施接手——躺椅数量最多、间距宽敞，休息区安静无嘈杂表演打扰，过夜舒适自在。推荐指数五星，豪门桑拿殿是许多人初次体验澳门桑拿的首选，也是过夜与精打细算者的理想之选。',
+          '豪门桑拿殿是全澳规模最大的经典澳门桑拿水疗会所，坐落澳门半岛，房间数量更是全澳之最——即使在高峰时段，一踏进门便有房可进，几乎无需等候。这家澳门桑拿真正的过人之处在于性价比：全澳仅两家之一的免服务费政策，标价即最终价，没有任何隐藏收费，80 多位来自八个国家的技师任你选择，价格范围 MOP 2,388 至 6,988。\n\n先在宽敞的沐浴空间里尽情放松，再享用客人口碑极佳的免费牛排与冻啤。夜深时，全澳最佳的过夜设施接手——躺椅数量最多、间距宽敞，休息区安静无嘈杂表演打扰，过夜舒适自在。推荐指数{rating}星，豪门桑拿殿是许多人初次体验澳门桑拿的首选，也是过夜与精打细算者的理想之选。'.replace('{rating}', String(getVenueRating('familia-nobre'))),
       },
       'oceanic-royal-spa': {
         name: '帝湖水疗',
@@ -405,6 +416,7 @@ const zhCN: Dictionary = {
     heading: '联系我们',
     intro: '随时欢迎您的咨询，我们将竭诚为您服务',
     inquiryMessage: '你好，我想预约澳门桑拿，可以安排吗？',
+    viewQr: '查看 QR',
     channels: {
       whatsapp: '立即联系',
       telegram: '@am38876',

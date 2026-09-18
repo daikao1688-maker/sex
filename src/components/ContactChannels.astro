@@ -2,6 +2,7 @@
 import { getDictionary } from "../i18n";
 import type { Locale } from "../i18n/config";
 import { contact, chatUrl } from "../data/site";
+import Icon from "./Icon.astro";
 
 /** Shared messaging-channel cards for the home page and subpages. */
 interface Props {
@@ -51,11 +52,13 @@ const channels = [
 ];
 
 const cardClass =
-  "flex min-h-11 items-center gap-4 bg-[#141414] border border-white/5 hover:border-gold/30 rounded-xl p-2.5 transition-all duration-300 group text-left w-full";
+  "contact-channel-card flex min-h-11 items-center gap-4 bg-white/[0.035] border border-gold/20 hover:border-gold/60 rounded-2xl p-2.5 transition-colors duration-300 group text-left w-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold motion-reduce:transition-none";
+const iconClass =
+  "contact-channel-icon flex h-12 w-12 flex-none items-center justify-center rounded-full border border-gold/50 transition-colors group-hover:border-gold/70 motion-reduce:transition-none";
 ---
 
 <div
-  class="grid grid-cols-1 gap-4 sm:grid-cols-2"
+  class="contact-channels grid grid-cols-1 gap-4 sm:grid-cols-2"
   data-contact-channels
   data-floating-actions-exclusion
 >
@@ -71,25 +74,56 @@ const cardClass =
           aria-controls={`${channel.kind}-modal`}
           class:list={[cardClass, channel.kind === "kakaotalk" && "sm:col-span-2"]}
         >
-          <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+          <div class={iconClass}>
             <img src={channel.icon} alt={channel.kind === "kakaotalk" ? "" : channel.name} width="28" height="28" class="w-7 h-7 rounded-md" />
           </div>
-          <div>
+          <div class="min-w-0 break-words">
             <div class="text-white/60 text-xs mb-1">{channel.name}</div>
             <div class="text-white font-medium">{channel.value}</div>
           </div>
+          <span class="contact-channel-qr ml-auto flex-none whitespace-nowrap rounded-full border border-gold/60 bg-black/55 px-4 py-1.5 text-xs text-gold transition-colors group-hover:border-gold/70 motion-reduce:transition-none">
+            {t.contact.viewQr}
+          </span>
         </button>
       ) : (
         <a href={channel.href} target="_blank" rel="noopener noreferrer" data-contact-channel class={cardClass}>
-          <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+          <div class={iconClass}>
             <img src={channel.icon} alt={channel.name} width="28" height="28" class="w-7 h-7 rounded-md" />
           </div>
-          <div>
+          <div class="min-w-0 break-words">
             <div class="text-white/60 text-xs mb-1">{channel.name}</div>
             <div class="text-white font-medium">{channel.value}</div>
           </div>
+          <span
+            class="contact-channel-arrow ml-auto flex h-7 w-7 flex-none items-center justify-center rounded-full border border-gold/50 text-gold transition-transform duration-300 group-hover:translate-x-0.5 motion-reduce:transition-none motion-reduce:transform-none"
+            aria-hidden="true"
+          >
+            <Icon name="arrow-right" class="h-4 w-4" />
+          </span>
         </a>
       ),
     )
   }
 </div>
+
+<style>
+  .contact-channels {
+    container-type: inline-size;
+  }
+
+  /* FAQ and article panels can be much narrower than the viewport itself. */
+  @container (max-width: 300px) {
+    .contact-channel-card {
+      gap: 0.5rem;
+    }
+
+    .contact-channel-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .contact-channel-qr {
+      padding-inline: 0.5rem;
+    }
+  }
+</style>

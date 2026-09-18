@@ -11,6 +11,12 @@ const { lang } = Astro.props;
 const t = getDictionary(lang);
 const venueLineCount = Math.max(...t.hero.venueGroups.map((group) => group.split("\n").length));
 
+// Every locale's hero title contains an uppercase "VIP" segment — wrap it for
+// the metallic gold treatment. Falls back to the plain title if absent.
+const vipIndex = t.hero.title.indexOf("VIP");
+const titleBefore = vipIndex >= 0 ? t.hero.title.slice(0, vipIndex) : t.hero.title;
+const titleAfter = vipIndex >= 0 ? t.hero.title.slice(vipIndex + 3) : "";
+
 const backdrops = [
   {
     src: "/covers/macau-sauna-hero-grand-lisboa-night.webp",
@@ -69,42 +75,47 @@ const stepIcons = ["message-circle", "car", "star"] as const;
       ))
     }
   </div>
-  <div class="absolute inset-0 z-[1] bg-gradient-to-b from-black/75 via-black/60 to-[#0a0a0a]"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-b from-black/75 via-black/65 to-[#0a0a0a]"></div>
   <div class="relative z-10 text-center px-4 max-w-4xl mx-auto pt-6">
-    <h1 class="text-[28px] sm:text-4xl md:text-5xl font-bold mb-3 tracking-wider">{t.hero.title}</h1>
-    <p class="hero-tagline-pulse text-sm sm:text-lg md:text-xl font-medium text-gold mb-4">{t.hero.tagline}</p>
+    <h1 class="hero-title-reveal text-[28px] sm:text-4xl md:text-5xl font-bold mb-1 tracking-wider">
+      {titleBefore}{vipIndex >= 0 && <span class="hero-vip-metallic">VIP</span>}{titleAfter}
+    </h1>
+    <span class="hero-title-rule" aria-hidden="true"></span>
+    <p class="hero-enter text-sm sm:text-lg md:text-xl font-medium text-gold mb-5 mt-3" style="--enter-delay: 0.3s">
+      {t.hero.tagline}
+    </p>
 
     <p
-      class="hero-venue-viewport flex items-center justify-center overflow-hidden text-base min-[430px]:text-lg sm:text-lg text-white/70 mb-6 whitespace-pre-line"
-      style={`--hero-venue-lines:${venueLineCount}`}
+      class="hero-enter hero-venue-viewport flex items-center justify-center overflow-hidden text-sm min-[430px]:text-base sm:text-base text-white/70 mb-7 sm:mb-8 whitespace-pre-line"
+      style={`--hero-venue-lines:${venueLineCount}; --enter-delay: 0.6s`}
       data-hero-venues
       data-hero-venue-groups={JSON.stringify(t.hero.venueGroups)}
     >
       <span class="hero-venue-text block w-full" data-hero-venue-text>{t.hero.venueGroups[0]}</span>
     </p>
 
-    <div data-testid="hero-icon-row" class="flex items-start justify-center gap-1.5 sm:gap-4 mb-8">
+    <div data-testid="hero-icon-row" class="flex items-start justify-center gap-1.5 sm:gap-4 mb-10 sm:mb-11">
       {
         t.hero.steps.map((step, index) => (
           <>
             {index > 0 && (
-              <span class="text-gold text-base sm:text-xl font-black mt-2 sm:mt-3">→</span>
+              <span class="hero-enter text-gold/70 text-base sm:text-xl font-medium mt-2 sm:mt-3" style={`--enter-delay: ${0.9 + index * 0.18}s`} aria-hidden="true">→</span>
             )}
-            <div class="fade-up flex flex-col items-center gap-1" style={`transition-delay:${index * 0.12}s`}>
-              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gold/50 border border-gold/50 flex items-center justify-center">
-                <Icon name={stepIcons[index]} class="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
+            <div class="hero-enter flex flex-col items-center gap-1.5" style={`--enter-delay: ${0.9 + index * 0.18}s`}>
+              <div class="hero-step-icon w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center">
+                <Icon name={stepIcons[index]} class="w-5 h-5 sm:w-6 sm:h-6 text-gold-light" />
               </div>
               <span class="text-white font-semibold text-sm min-[400px]:text-base min-[430px]:text-lg sm:text-lg whitespace-nowrap">
                 {step.title.map((segment) => (
                   <span class={segment.accent ? "text-gold" : undefined}>{segment.text}</span>
                 ))}
               </span>
-              <span class="text-xs min-[430px]:text-base sm:text-base text-center">
+              <span class="text-xs min-[430px]:text-sm sm:text-sm leading-relaxed text-center">
                 {step.desc.map((line, lineIndex) => (
                   <>
                     {lineIndex > 0 && <br />}
                     {line.map((segment) => (
-                      <span class={segment.accent ? "text-gold font-bold" : "text-white"}>
+                      <span class={segment.accent && index === 2 ? "text-gold/90 font-medium" : "text-white/70"}>
                         {segment.text}
                       </span>
                     ))}
@@ -117,24 +128,26 @@ const stepIcons = ["message-circle", "car", "star"] as const;
       }
     </div>
 
-    <div class="flex flex-col items-center gap-3 w-full max-w-[280px] mx-auto">
-      <a
-        href="#spas"
-        class="glow-gold relative flex min-h-11 items-center justify-center overflow-hidden w-full px-6 py-2.5 bg-gold hover:bg-gold-dark text-black font-semibold rounded-full transition-colors duration-300 tracking-wider text-center"
-      >
-        <span aria-hidden="true" class="shimmer-gold pointer-events-none absolute inset-0"></span>
-        <span class="relative">↓ {t.hero.exploreCta}</span>
-      </a>
-      <div class="flex w-full gap-3" data-hero-secondary-cta>
+    <div class="hero-actions flex flex-col items-center gap-3 w-full max-w-[280px] mx-auto">
+      <div class="hero-enter w-full" style="--enter-delay: 1.45s">
+        <a
+          href="#spas"
+          class="hero-cta hero-cta-primary relative flex min-h-11 items-center justify-center overflow-hidden w-full px-6 py-2.5 bg-gold hover:bg-gold-dark text-black font-semibold rounded-full transition-colors duration-300 tracking-wider text-center"
+        >
+          <span aria-hidden="true" class="hero-cta-sheen pointer-events-none absolute inset-0"></span>
+          <span class="relative">↓ {t.hero.exploreCta}</span>
+        </a>
+      </div>
+      <div class="hero-enter flex w-full gap-3" style="--enter-delay: 1.6s" data-hero-secondary-cta>
         <a
           href="#vip-treats"
-          class="flex min-h-11 flex-1 items-center justify-center px-3 py-2.5 border border-white/25 bg-black/20 text-white/80 hover:border-gold/50 hover:text-gold rounded-full transition-all duration-300 text-sm text-center"
+          class="hero-cta flex min-h-11 flex-1 items-center justify-center px-3 py-2.5 border border-white/25 bg-black/20 text-white/80 hover:border-gold/50 hover:text-gold rounded-full transition-all duration-300 text-sm text-center"
         >
           {t.hero.howItWorksCta}
         </a>
         <a
           href="#contact"
-          class="flex min-h-11 flex-1 items-center justify-center px-3 py-2.5 border border-white/25 bg-black/20 text-white/80 hover:border-gold/50 hover:text-gold rounded-full transition-all duration-300 text-sm text-center"
+          class="hero-cta flex min-h-11 flex-1 items-center justify-center px-3 py-2.5 border border-white/25 bg-black/20 text-white/80 hover:border-gold/50 hover:text-gold rounded-full transition-all duration-300 text-sm text-center"
         >
           {t.hero.bookCta}
         </a>
@@ -183,13 +196,133 @@ const stepIcons = ["message-circle", "car", "star"] as const;
     transform: scale(1.08);
   }
 
-  .hero-tagline-pulse {
-    animation: heroTaglinePulse 10s ease-in-out infinite;
+  /* One entrance timeline, independent of the page's scroll-reveal observer:
+     title → tagline → venues → individual steps → primary/secondary actions. */
+
+  .hero-title-reveal {
+    /* Keep wrapping stable throughout the reveal, including narrow screens. */
+    letter-spacing: 0.025em;
+    animation: heroTitleReveal 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes heroTitleReveal {
+    from {
+      opacity: 0;
+      filter: blur(8px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  /* Keep the metallic finish still once the heading has appeared. */
+  .hero-vip-metallic {
+    background: linear-gradient(
+      180deg,
+      #f5d67b 0%,
+      #b8912b 45%,
+      #ffe9a8 50%,
+      #8a6d1f 55%,
+      #e8c96b 100%
+    );
+    background-size: 100% 220%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Fallback: no background-clip support → solid gold instead of invisible. */
+  @supports not (background-clip: text) {
+    .hero-vip-metallic {
+      background: none;
+      color: #d4af37;
+    }
+  }
+
+  .hero-title-rule {
+    display: block;
+    width: 56px;
+    height: 2px;
+    margin: 8px auto 0;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    animation: heroRuleDraw 0.4s ease-out 0.2s forwards;
+  }
+
+  @keyframes heroRuleDraw {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .hero-enter {
+    animation: heroEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1) var(--enter-delay, 0s) both;
+  }
+
+  @keyframes heroEnter {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* A single sweep finishes the entrance without competing with the copy. */
+  .hero-cta-sheen {
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 70%
+    );
+    transform: translateX(-110%);
+    animation: heroSweep 0.65s ease-in-out 1.8s both;
+  }
+
+  @keyframes heroSweep {
+    from {
+      transform: translateX(-110%);
+    }
+    to {
+      transform: translateX(110%);
+    }
+  }
+
+  /* Steady rings support the steps without three competing pulse loops. */
+  .hero-step-icon {
+    background: rgba(212, 175, 55, 0.08);
+    border: 1.5px solid rgba(212, 175, 55, 0.75);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+  }
+
+  .hero-cta-primary {
+    box-shadow: 0 0 22px rgba(212, 175, 55, 0.22);
+  }
+
+  /* Keyboard users can reach the actions before their scheduled entrance. */
+  .hero-actions:focus-within .hero-enter {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Entrance lives on wrappers so it cannot override button press feedback. */
+  .hero-cta {
+    transition-property: color, background-color, border-color, transform;
+  }
+
+  .hero-cta:active {
+    transform: scale(0.97);
+    transition-duration: 150ms;
   }
 
   .hero-venue-viewport {
-    height: calc(var(--hero-venue-lines, 2) * 1.5em);
-    line-height: 1.5;
+    height: calc(var(--hero-venue-lines, 2) * 1.65em);
+    line-height: 1.65;
   }
 
   .hero-venue-text {
@@ -214,20 +347,6 @@ const stepIcons = ["message-circle", "car", "star"] as const;
     transition: none;
   }
 
-  @keyframes heroTaglinePulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    25%,
-    75% {
-      opacity: 0.7;
-    }
-    50% {
-      opacity: 1;
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .hero-backdrop,
     .hero-backdrop img {
@@ -239,8 +358,26 @@ const stepIcons = ["message-circle", "car", "star"] as const;
       transform: scale(1.08);
     }
 
-    .hero-tagline-pulse {
+    .hero-title-reveal,
+    .hero-enter,
+    .hero-title-rule {
       animation: none;
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    .hero-title-rule {
+      transform: scaleX(1);
+    }
+
+    .hero-cta-sheen {
+      animation: none;
+      display: none;
+    }
+
+    .hero-cta:active {
+      transform: none;
     }
 
     .hero-venue-text,
@@ -277,6 +414,9 @@ const stepIcons = ["message-circle", "car", "star"] as const;
     let venueIndex = 0;
     let backdropTimer = 0;
     let backdropPreloadTimer = 0;
+    let backdropCycleToken = 0;
+    const backdropReady = new Map<number, Promise<boolean>>();
+    const failedBackdrops = new Set<number>();
     let venueTimer = 0;
     let venueFallbackTimer = 0;
     let venueEnterFrame = 0;
@@ -370,16 +510,55 @@ const stepIcons = ["message-circle", "car", "star"] as const;
       backdropIndex = nextIndex;
     };
 
-    const prepareBackdrop = (index: number) => {
+    const prepareBackdrop = (index: number): Promise<boolean> => {
+      const pending = backdropReady.get(index);
+      if (pending) return pending;
       const image = backdrops[index]?.querySelector?.<HTMLImageElement>("img");
-      if (!image || image.getAttribute("src")) return;
-      const source = image.dataset.src;
-      if (!source) return;
-      if (image.dataset.srcset) image.srcset = image.dataset.srcset;
-      image.src = source;
+      const source = image?.getAttribute("src") || image?.dataset.src;
+      if (!image || !source) {
+        failedBackdrops.add(index);
+        return Promise.resolve(false);
+      }
+
+      const ready = new Promise<boolean>((resolve) => {
+        const cleanup = () => {
+          image.removeEventListener("load", loaded);
+          image.removeEventListener("error", failed);
+        };
+        const failed = () => {
+          cleanup();
+          failedBackdrops.add(index);
+          resolve(false);
+        };
+        const loaded = async () => {
+          cleanup();
+          if (!image.naturalWidth) return failed();
+          try {
+            if (typeof image.decode === "function") await image.decode();
+            resolve(true);
+          } catch {
+            failed();
+          }
+        };
+        image.addEventListener("load", loaded);
+        image.addEventListener("error", failed);
+        // Fetch only the scheduled image, even if native lazy loading would
+        // otherwise defer an inactive layer. Cached images need no load event.
+        image.loading = "eager";
+        if (!image.getAttribute("src")) {
+          if (image.dataset.srcset) image.srcset = image.dataset.srcset;
+          image.src = source;
+        }
+        if (image.complete) void loaded();
+      });
+      backdropReady.set(index, ready);
+      return ready;
     };
 
     const stopTimers = () => {
+      // A load/decode already in flight can finish after pause and resume.
+      // It may populate the ready cache, but must not resume an old cycle.
+      backdropCycleToken += 1;
       window.clearTimeout(backdropTimer);
       window.clearTimeout(backdropPreloadTimer);
       window.clearTimeout(venueTimer);
@@ -387,15 +566,22 @@ const stepIcons = ["message-circle", "car", "star"] as const;
     };
 
     const queueBackdrop = () => {
-      const nextIndex = (backdropIndex + 1) % backdrops.length;
+      let nextIndex = (backdropIndex + 1) % backdrops.length;
+      while (nextIndex !== backdropIndex && failedBackdrops.has(nextIndex)) {
+        nextIndex = (nextIndex + 1) % backdrops.length;
+      }
+      if (nextIndex === backdropIndex) return;
+      const token = backdropCycleToken;
       backdropPreloadTimer = window.setTimeout(() => {
-        if (canAnimate()) prepareBackdrop(nextIndex);
+        if (token === backdropCycleToken && canAnimate()) void prepareBackdrop(nextIndex);
       }, 3000);
       backdropTimer = window.setTimeout(() => {
-        if (!canAnimate()) return;
-        prepareBackdrop(nextIndex);
-        syncBackdrop(nextIndex);
-        queueBackdrop();
+        if (token !== backdropCycleToken || !canAnimate()) return;
+        void prepareBackdrop(nextIndex).then((ready) => {
+          if (token !== backdropCycleToken || !canAnimate()) return;
+          if (ready) syncBackdrop(nextIndex);
+          queueBackdrop();
+        });
       }, 4000);
     };
 

@@ -1,3 +1,4 @@
+import { getVenueRating } from '../../data/venueRatings';
 import type { Dictionary } from '../types';
 
 const en: Dictionary = {
@@ -70,6 +71,16 @@ const en: Dictionary = {
       { bucket: 'ktv', label: 'KTV' },
     ],
     learnMore: 'Learn More',
+    stats: {
+      price: 'Price',
+      hours: 'Therapist hours',
+      serviceFee: 'Service fee',
+      open24h: '24 hours',
+      noServiceFee: 'No service fee',
+      ratingLabel: 'Editor rating {rating} out of 5',
+      ratingTitle: 'Editor rating',
+    },
+    districts: { peninsula: 'Macau Peninsula', taipa: 'Taipa · Cotai' },
     imageAltSuffix: 'Macau premium sauna venue',
     temporarilyClosed: 'Temporarily Closed',
     temporarilyClosedNotice:
@@ -163,7 +174,7 @@ const en: Dictionary = {
         badge: 'Best Value',
         summary: 'Familia Nobre is a temporarily closed Macau Peninsula venue; this profile is retained for historical reference.',
         description:
-          "Familia Nobre is Macau's largest sauna club, sitting on the Macau Peninsula with the most rooms of any venue in the city — so even at peak hours, you step in and a room is waiting, never a queue. What truly sets this Macau sauna apart is the value: it's one of only two venues in Macau that charge no service fee, where the price you see is the price you pay, across a multinational roster of therapists and a range of MOP 2,388 to 6,988.\n\nSettle into the spacious bathing area, then enjoy complimentary steak and cold beer that regulars rave about. When the night winds down, the best overnight facilities in town take over — the most reclining chairs of any venue, generously spaced in a quiet rest area with no noisy shows to disturb you. Rated five stars, Familia Nobre is the easy first stop for newcomers and the natural home for overnight guests and anyone who wants the most for their money.",
+          "Familia Nobre is Macau's largest sauna club, sitting on the Macau Peninsula with the most rooms of any venue in the city — so even at peak hours, you step in and a room is waiting, never a queue. What truly sets this Macau sauna apart is the value: it's one of only two venues in Macau that charge no service fee, where the price you see is the price you pay, across a multinational roster of therapists and a range of MOP 2,388 to 6,988.\n\nSettle into the spacious bathing area, then enjoy complimentary steak and cold beer that regulars rave about. When the night winds down, the best overnight facilities in town take over — the most reclining chairs of any venue, generously spaced in a quiet rest area with no noisy shows to disturb you. Rated {rating} out of five stars, Familia Nobre is the easy first stop for newcomers and the natural home for overnight guests and anyone who wants the most for their money.".replace('{rating}', String(getVenueRating('familia-nobre'))),
       },
       'oceanic-royal-spa': {
         name: 'Oceanic Royal Spa',
@@ -466,6 +477,7 @@ const en: Dictionary = {
     intro:
       'We take pride in your satisfaction. Reach out anytime — we reply within minutes, 24 hours a day.',
     inquiryMessage: "I'm interested in Macau sauna. Could you help arrange this?",
+    viewQr: 'View QR',
     channels: {
       whatsapp: 'Message us',
       telegram: '@am38876',
