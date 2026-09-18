@@ -18,7 +18,6 @@ for (const extension of [".html", ".js"]) {
       assert.ok(!content.includes("AW-18409047939"), `${file} contains the removed Ads ID or conversion destination`);
       assert.ok(!content.includes("googletagmanager.com/gtag/js"), `${file} still loads gtag.js`);
       assert.doesNotMatch(content, /\bgtag\s*\(\s*["']event["']\s*,\s*["']conversion["']/, `${file} still sends conversion events`);
-      assert.doesNotMatch(content, /\bwindow\.dataLayer\s*=/, `${file} still initializes the removed dataLayer`);
     }
   });
 }

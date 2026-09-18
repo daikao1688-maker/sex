@@ -24,6 +24,17 @@ Already indexed pages are removed after search engines recrawl them, not immedia
 when the code is deployed. Publish the complete `html` branch, including `.htaccess`,
 then verify the live page metadata and response headers.
 
+## Google Tag Manager
+
+Container `GTM-NF5S83BB` is included on all pages, including the root language
+gateway and 404 page. `GoogleTagManagerHead.astro` renders the inline bootstrap
+first in `<head>`; `GoogleTagManagerBody.astro` renders the noscript iframe
+immediately after `<body>`. Both the shared layout and root gateway use these
+components. Manage and publish conversion tags and triggers in GTM; installing
+these snippets alone does not verify that conversion events are being recorded.
+The previously removed direct Google Ads tag `AW-18409047939` remains absent
+from the website source and generated files. Search indexing remains disabled.
+
 ## Local development
 
 Requires Node.js 22.12.0 or newer. Install dependencies with `npm ci`, then run

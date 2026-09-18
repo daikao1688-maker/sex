@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import GoogleTagManagerHead from "../components/GoogleTagManagerHead.astro";
+import GoogleTagManagerBody from "../components/GoogleTagManagerBody.astro";
 import { localeMeta, locales, defaultLocale, localizePath, type Locale } from "../i18n/config";
 import { getDictionary } from "../i18n";
 import { site } from "../data/site";
@@ -126,6 +128,8 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
 <!doctype html>
 <html lang={meta.htmlLang} dir={meta.dir} style={`--font-sans:${fontStacks[lang]}`}>
   <head>
+    <GoogleTagManagerHead />
+    <meta charset="utf-8" />
     <script is:inline>
       (() => {
         try {
@@ -140,7 +144,6 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
         }
       })();
     </script>
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
@@ -197,6 +200,7 @@ const structuredData = [...(siteSchema ? siteSchemas : []), ...breadcrumbSchema,
     }
   </head>
   <body class="bg-ink text-white" data-inquiry-message={inquiryMessage ?? t.contact.inquiryMessage}>
+    <GoogleTagManagerBody />
     <slot />
 
     <script>
