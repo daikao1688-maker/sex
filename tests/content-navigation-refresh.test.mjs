@@ -28,35 +28,37 @@ const regionBetween = (html, startMarker, endMarker) => {
   return html.slice(start, end);
 };
 
-test("the blog promotion stays on the article and targets its booking section", async () => {
-  for (const locale of locales) {
-    const html = await readPage(locale, "blog", "macau-sauna-august-guide-2026");
-    const promo = html.match(/<div[^>]+id="promo-top-bar"[\s\S]*?<\/div>\s*<\/div>/)?.[0] ?? "";
-
-    assert.match(promo, /href="#prepare-booking"/, `${locale} blog promo leaves the article`);
-    assert.equal(
-      (html.match(/id="prepare-booking"/g) ?? []).length,
-      1,
-      `${locale} blog must expose one booking-section anchor`,
+test("homepages omit the blog teaser when no articles are published", async () => {
+  for (const locale of allLocales) {
+    const html = await readPage(locale);
+    assert.doesNotMatch(html, /<[^>]+\bdata-blog-teaser(?:\s|=|>)/, `${locale} still renders an empty blog teaser`);
+    assert.doesNotMatch(
+      html,
+      new RegExp(`href="/${locale}/blog/[^"/]+/"`),
+      `${locale} homepage still links to a removed article`,
     );
   }
 });
 
-test("the blog listing promotion routes to localized contact and uses an ink-on-gold active filter", async () => {
+test("empty blog listings retain localized contact promotion and show a visible empty state without filters", async () => {
   for (const locale of allLocales) {
     const html = await readPage(locale, "blog");
     const promo = html.match(/<div[^>]+id="promo-top-bar"[\s\S]*?<\/div>\s*<\/div>/)?.[0] ?? "";
-    const activeFilter = tagWithAttribute(html, 'data-filter-cat="all"');
-    const activeClasses = classList(activeFilter);
+    const emptyTag = tagWithAttribute(html, "data-blog-empty");
 
     assert.match(
       promo,
       new RegExp(`href="/${locale}/contact/"`),
       `${locale} blog listing promo must leave the listing for localized contact`,
     );
-    assert.ok(activeClasses.includes("bg-gold"), `${locale} active blog filter needs a gold background`);
-    assert.ok(activeClasses.includes("text-black"), `${locale} active blog filter needs dark text`);
-    assert.ok(!activeClasses.includes("text-white"), `${locale} active blog filter must not use white text`);
+    assert.ok(!classList(emptyTag).includes("hidden"), `${locale} empty state is hidden before JavaScript runs`);
+    assert.doesNotMatch(emptyTag, /\s(?:hidden|aria-hidden="true")(?:\s|>)/, `${locale} empty state is hidden`);
+    assert.match(html, /<p\b[^>]*data-blog-empty[^>]*>\s*[^<\s][^<]*<\/p>/, `${locale} empty state has no message`);
+    assert.doesNotMatch(
+      html,
+      /<[^>]+\bdata-(?:blog-card|blog-filter|filter-cat)(?:\s|=|>)/,
+      `${locale} empty blog still renders article cards or filters`,
+    );
   }
 });
 
@@ -261,21 +263,21 @@ test("desktop and mobile navigation use a localized home link instead of the ven
 });
 
 test("mobile navigation marks the current section with a visible left rail", async () => {
-  for (const locale of locales) {
+  for (const locale of allLocales) {
     const home = await readPage(locale);
-    const article = await readPage(locale, "blog", "macau-sauna-august-guide-2026");
+    const blog = await readPage(locale, "blog");
     const spa = await readPage(locale, "spa", "clube-rio");
     const homeMenu = regionBetween(home, 'id="mobile-menu"', "</nav>");
-    const articleMenu = regionBetween(article, 'id="mobile-menu"', "</nav>");
+    const blogMenu = regionBetween(blog, 'id="mobile-menu"', "</nav>");
     const spaMenu = regionBetween(spa, 'id="mobile-menu"', "</nav>");
 
     const homeTag = homeMenu.match(new RegExp(`<a[^>]+href="/${locale}/"[^>]*>`))?.[0] ?? "";
-    const blogTag = articleMenu.match(new RegExp(`<a[^>]+href="/${locale}/blog/"[^>]*>`))?.[0] ?? "";
+    const blogTag = blogMenu.match(new RegExp(`<a[^>]+href="/${locale}/blog/"[^>]*>`))?.[0] ?? "";
     const spaHomeTag = spaMenu.match(new RegExp(`<a[^>]+href="/${locale}/"[^>]*>`))?.[0] ?? "";
 
     assert.match(homeTag, /aria-current="page"/, `${locale} homepage is not marked current in the mobile menu`);
     assert.ok(classList(homeTag).includes("border-gold"), `${locale} current home link has no visible left rail`);
-    assert.match(blogTag, /aria-current="page"/, `${locale} blog article does not mark its Blog parent`);
+    assert.match(blogTag, /aria-current="page"/, `${locale} blog listing does not mark Blog as current`);
     assert.ok(classList(blogTag).includes("border-gold"), `${locale} current Blog link has no visible left rail`);
     assert.doesNotMatch(spaHomeTag, /aria-current="page"/, `${locale} spa detail incorrectly marks Home as current`);
   }

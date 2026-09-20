@@ -119,18 +119,12 @@ test("does not render venue official-website areas on any detail page", async ()
   }
 });
 
-test("does not leave stale 06:00 Manhao hours in FAQs or editorial content", async () => {
+test("does not leave stale 06:00 Manhao hours in FAQs", async () => {
   const expectations = [
     ["src/i18n/pages/faq.ts", "Manhao opens 14:00–06:00", "Manhao opens 14:00–04:00"],
     ["src/i18n/pages/faq.ts", "曼濠は14:00〜翌6:00", "曼濠は14:00〜翌4:00"],
     ["src/i18n/pages/faq.ts", "曼濠為 14:00–06:00", "曼濠為 14:00–04:00"],
     ["src/i18n/pages/faq.ts", "曼濠为 14:00–06:00", "曼濠为 14:00–04:00"],
-    ["src/content/blog/zh-CN/macau-sauna-august-guide-2026.md", "曼濠水疗](/zh-CN/spa/manhao-spa/)（氹仔，14:00–06:00", "曼濠水疗](/zh-CN/spa/manhao-spa/)（氹仔，14:00–04:00"],
-    ["src/content/blog/zh-TW/macau-sauna-overnight-guide-2026.md", "曼濠水療](/zh-TW/spa/manhao-spa/)（14:00–06:00", "曼濠水療](/zh-TW/spa/manhao-spa/)（14:00–04:00"],
-    ["src/content/blog/zh-TW/macau-sauna-august-guide-2026.md", "曼濠水療](/zh-TW/spa/manhao-spa/)（氹仔，14:00–06:00", "曼濠水療](/zh-TW/spa/manhao-spa/)（氹仔，14:00–04:00"],
-    ["src/content/blog/ja/macau-sauna-overnight-guide-2026.md", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は14:00〜06:00", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は14:00〜04:00"],
-    ["src/content/blog/ja/macau-sauna-august-guide-2026.md", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は14:00〜06:00", "曼濠スパ（Manhao）](/ja/spa/manhao-spa/)は14:00〜04:00"],
-    ["src/content/blog/en/macau-sauna-august-guide-2026.md", "operates until 6 am", "operates until 4 am"],
   ];
 
   const cache = new Map();

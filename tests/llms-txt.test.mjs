@@ -28,9 +28,6 @@ const section = (markdown, heading) => {
   return markdown.slice(contentStart, next === -1 ? markdown.length : next);
 };
 
-const canonicalHref = (html) =>
-  html.match(/<link\b(?=[^>]*\brel="canonical")(?=[^>]*\bhref="([^"]+)")[^>]*>/)?.[1];
-
 const artifactFor = (url) => {
   const pathname = new URL(url).pathname;
   if (pathname.endsWith("/")) {
@@ -77,31 +74,17 @@ test("the build emits a well-structured root llms.txt with valid production link
   }
 });
 
-test("llms.txt automatically lists every localized article emitted by the build", async () => {
+test("llms.txt explicitly reports no published articles and the build contains no article routes", async () => {
   const markdown = await readLlmsTxt();
-  const articleLinks = markdownLinks(section(markdown, "Published Articles")).sort();
+  const articleSection = section(markdown, "Published Articles");
+  const articleLinks = markdownLinks(articleSection);
   const articleFiles = (await readdir(distRoot, { recursive: true })).filter((relativePath) => {
     const parts = relativePath.split(path.sep);
     return parts.length >= 4 && parts[1] === "blog" && parts.at(-1) === "index.html";
   });
-  const builtArticleLinks = (
-    await Promise.all(
-      articleFiles.map(async (relativePath) => {
-        const canonical = canonicalHref(
-          await readFile(path.join(distRoot, relativePath), "utf8"),
-        );
-        assert.ok(canonical, `${relativePath} is missing its canonical URL`);
-        return canonical;
-      }),
-    )
-  ).sort();
-
-  assert.ok(builtArticleLinks.length > 0, "the build emitted no localized articles");
-  assert.deepEqual(
-    articleLinks,
-    builtArticleLinks,
-    "llms.txt diverges from the localized articles generated from the content collection",
-  );
+  assert.equal(articleSection.trim(), "There are currently no published articles.");
+  assert.deepEqual(articleLinks, [], "llms.txt still links to removed articles");
+  assert.deepEqual(articleFiles, [], "the build still emits removed article routes");
 });
 
 test("llms.txt exposes every shared footer resource and mirrors the venue availability groups", async () => {

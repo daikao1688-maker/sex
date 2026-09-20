@@ -12,7 +12,7 @@
     "dev:logs": "astro dev logs",
     "icons:sync": "node scripts/sync-favicon.mjs",
     "prebuild": "npm run icons:sync",
-    "build": "astro build",
+    "build": "astro build --force",
     "test": "npm run build && node --test tests/*.test.mjs",
     "preview": "astro preview",
     "astro": "astro"

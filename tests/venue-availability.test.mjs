@@ -151,15 +151,11 @@ test("labels temporarily closed venues accurately and shows a clear detail-page 
 
 test("restores Victoria Sauna across listings, booking surfaces, and current guidance", async () => {
   for (const [locale, resumedCopy] of Object.entries(restoredCopy)) {
-    const [homepage, detail, ranking, guide, overnightGuide] = await Promise.all([
+    const [homepage, detail, ranking, guide] = await Promise.all([
       readFile(path.join(distRoot, locale, "index.html"), "utf8"),
       readFile(path.join(distRoot, locale, "spa", restoredVenue, "index.html"), "utf8"),
       readFile(path.join(distRoot, locale, "ranking", "index.html"), "utf8"),
       readFile(path.join(distRoot, locale, "guide", "index.html"), "utf8"),
-      readFile(
-        path.join(distRoot, locale, "blog", "macau-sauna-overnight-guide-2026", "index.html"),
-        "utf8",
-      ),
     ]);
 
     assert.match(
@@ -212,10 +208,5 @@ test("restores Victoria Sauna across listings, booking surfaces, and current gui
     const business = schemaOfType(detail, "LocalBusiness");
     assert.ok(business.priceRange, `${locale} Victoria Sauna schema is still marked closed`);
     assert.ok(guide.includes(resumedCopy), `${locale} guide still describes Victoria Sauna as closed`);
-    assert.match(
-      overnightGuide,
-      new RegExp(`href="/${locale}/spa/${restoredVenue}/"`),
-      `${locale} overnight guide does not list Victoria Sauna as operating`,
-    );
   }
 });

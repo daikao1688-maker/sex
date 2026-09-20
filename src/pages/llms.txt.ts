@@ -85,6 +85,7 @@ export const GET: APIRoute = async () => {
     '## Published Articles',
     '',
     ...articleLinks,
+    ...(articleLinks.length ? [] : ['There are currently no published articles.']),
     '',
     '## Current Venue Guides',
     '',

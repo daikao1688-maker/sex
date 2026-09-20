@@ -19,7 +19,8 @@ const posts = (await getPostsFor(lang))
   .map((post) => ({ post, cover: blogCoverPresentation(post.data.cover) }));
 ---
 
-<section class="py-14 sm:py-20 px-4">
+{posts.length > 0 && (
+<section class="py-14 sm:py-20 px-4" data-blog-teaser>
   <div class="max-w-5xl mx-auto">
     <div class="fade-up">
       <div class="flex items-end justify-between mb-8">
@@ -67,3 +68,4 @@ const posts = (await getPostsFor(lang))
     </div>
   </div>
 </section>
+)}

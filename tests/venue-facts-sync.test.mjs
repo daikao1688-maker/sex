@@ -301,12 +301,13 @@ test("does not publish stale The Excellent hours or overnight claims", async () 
     "src/i18n/pages/faq.ts",
     "src/i18n/pages/guide.ts",
   ];
-  for (const locale of ["en", "ja", "zh-TW", "zh-CN"]) {
-    const blogDir = path.join(projectRoot, "src", "content", "blog", locale);
-    const entries = await readdir(blogDir);
-    for (const entry of entries.filter((name) => name.endsWith(".md"))) {
-      sources.push(path.join("src", "content", "blog", locale, entry));
-    }
+  const blogDir = path.join(projectRoot, "src", "content", "blog");
+  const blogEntries = await readdir(blogDir, { recursive: true }).catch((error) => {
+    if (error.code === "ENOENT") return [];
+    throw error;
+  });
+  for (const entry of blogEntries.filter((name) => name.endsWith(".md"))) {
+    sources.push(path.join("src", "content", "blog", entry));
   }
 
   const staleLinePattern =

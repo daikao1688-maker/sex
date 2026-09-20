@@ -94,9 +94,17 @@ All commands are run from the root of the project, from a terminal:
 
 ## Article publishing and `llms.txt`
 
+- The three 2026 August, overnight, and September articles and their five-language
+  editions were removed on 2026-09-21. The blog remains available with an empty
+  state; its homepage teaser hides when there are no published articles.
+- Deploy deletions from the `html` branch as well as additions. The Hostinger
+  `.htaccess` returns HTTP 410 for the retired article URLs, including their
+  `index.html` variants, to prevent leftover uploaded HTML from being served.
+- The build refreshes Astro's content cache with `--force` so removing the last
+  articles cannot leave previously cached posts in the generated site.
 - Add each article as Markdown under `src/content/blog/<locale>/<slug>.md` and satisfy the schema in `src/content.config.ts`.
 - Do not maintain a separate article list in `llms.txt`. The build endpoint at `src/pages/llms.txt.ts` reads the same content collection and localized routing helpers as the blog pages.
-- Every `bun build` regenerates `dist/llms.txt`; any newly built localized article is included automatically. The regression test compares the generated list with every localized article emitted to `dist/`.
+- Every `bun build` regenerates `dist/llms.txt`; any newly built localized article is included automatically. Regression tests currently verify the empty article list and the absence of the removed article URLs throughout `dist/`.
 - Never edit `dist/llms.txt` by hand because `dist/` is a build artifact and the next build replaces it.
 
 ## 👀 Want to learn more?

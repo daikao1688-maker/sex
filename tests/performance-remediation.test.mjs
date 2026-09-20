@@ -304,14 +304,11 @@ test("viewport-role images expose real responsive candidates and intrinsic dimen
     );
   }
 
-  const blog = await readPage("en", "blog", "macau-sauna-august-guide-2026");
-  const cover = tags(blog, "img").find((tag) => tag.includes("01-macau-sauna-majesty-spa-pool")) ?? "";
-  assert.equal(attr(cover, "width"), "1280");
-  assert.equal(attr(cover, "height"), "720");
-  assert.equal(attr(cover, "loading"), "eager");
-  assert.equal(attr(cover, "fetchpriority"), "high");
-  assert.ok(attr(cover, "sizes"));
-  await assertCandidatesExist(cover, "blog cover");
+  const hero = tags(home, "img").find((tag) => attr(tag, "fetchpriority") === "high") ?? "";
+  assert.ok(hero, "the homepage is missing its high-priority hero image");
+  assert.equal(attr(hero, "loading"), "eager");
+  assert.ok(attr(hero, "sizes"));
+  await assertTruthfulResponsiveImage(hero, "homepage hero");
 
   const gallery = await readPage("en", "spa", "clube-rio");
   const thumbnails = tags(gallery, "img").filter((tag) => attr(tag, "src")?.includes("-thumb.webp"));

@@ -89,7 +89,7 @@ test("canonical, social, and structured-data URLs use the configured site origin
     readPage("zh-TW", "privacy"),
     readPage("zh-CN", "ranking"),
     readPage("ja", "spa", "clube-rio"),
-    readPage("en", "blog", "macau-sauna-august-guide-2026"),
+    readPage("ko", "blog"),
   ]);
 
   for (const html of pages) {
@@ -141,7 +141,7 @@ test("Open Graph image dimensions match the assets published for each page type"
   const pages = [
     ["zh-CN", "about"],
     ["en", "spa", "clube-rio"],
-    ["en", "blog", "macau-sauna-august-guide-2026"],
+    ["en", "blog"],
   ];
 
   for (const segments of pages) {
@@ -162,7 +162,7 @@ test("Open Graph image dimensions match the assets published for each page type"
       `${imageUrl} publishes the wrong Open Graph height`,
     );
 
-    if (segments.includes("spa") || segments.includes("blog")) {
+    if (segments.includes("spa")) {
       const visibleImageAlt = html.match(
         /<img\b(?=[^>]*\bfetchpriority="high")(?=[^>]*\balt="([^"]+)")[^>]*>/,
       )?.[1];
@@ -202,7 +202,7 @@ test("the generated sitemap, robots file, and head declaration share one origin"
   }
 });
 
-test("the sitemap contains exactly the 140 localized canonical pages", async () => {
+test("the sitemap contains exactly the 125 remaining localized canonical pages", async () => {
   const sitemap = await readFile(path.join(distRoot, "sitemap-0.xml"), "utf8");
   const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
   const localizedPages = await localizedHtmlPaths();
@@ -214,7 +214,7 @@ test("the sitemap contains exactly the 140 localized canonical pages", async () 
     )
   ).filter(Boolean);
 
-  assert.equal(canonicalUrls.length, 140, "localized canonical page count changed unexpectedly");
+  assert.equal(canonicalUrls.length, 125, "localized canonical page count changed unexpectedly");
   assert.equal(
     sitemapLocations.includes(`${siteOrigin}/`),
     false,
@@ -270,15 +270,19 @@ test("privacy pages publish WebPage structured data", async () => {
   }
 });
 
-test("blog structured data uses existing organization identities and an honest modification date", async () => {
-  const html = await readPage("en", "blog", "macau-sauna-august-guide-2026");
-  const article = schemaOfType(html, "BlogPosting");
+test("empty localized blog indexes retain Blog schema without publishing article identities", async () => {
+  for (const locale of Object.keys(locales)) {
+    const html = await readPage(locale, "blog");
+    const blog = schemaOfType(html, "Blog");
 
-  assert.equal(article.datePublished, "2026-07-26");
-  assert.equal(article.dateModified, "2026-08-23");
-  assert.deepEqual(article.author, { "@type": "Organization", name: "Macau Sauna Sites" });
-  assert.equal(article.publisher?.["@id"], `${siteOrigin}/#organization`);
-  assert.equal(article.publisher?.name, "Macau Sauna Sites");
+    assert.equal(blog.url, `${siteOrigin}/${locale}/blog/`);
+    assert.deepEqual(blog.blogPost, [], `${locale} blog schema still lists removed articles`);
+    assert.doesNotMatch(
+      JSON.stringify(schemas(html)),
+      /"@type":"BlogPosting"/,
+      `${locale} empty blog index still publishes BlogPosting schema`,
+    );
+  }
 });
 
 test("venue schema avoids presenting package estimates as formal offers", async () => {

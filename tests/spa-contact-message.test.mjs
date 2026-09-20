@@ -80,11 +80,20 @@ for (const [locale, copy] of Object.entries(messages)) {
 
 test("general pages keep general enquiries instead of inheriting a venue name", async () => {
   for (const [locale, copy] of Object.entries(messages)) {
-    for (const route of ["contact/", "guide/", "blog/macau-sauna-overnight-guide-2026/"]) {
+    for (const route of ["contact/", "guide/", "faq/"]) {
       const html = await readFile(new URL(`../dist/${locale}/${route}index.html`, import.meta.url), "utf8");
       const links = chatLinks(html, true);
-      assert.ok(links.length >= 2);
+      assert.ok(links.length >= 2, `${locale}/${route} must retain its general contact cards`);
       for (const link of links) assert.equal(link.searchParams.get("text"), copy.general);
     }
+  }
+});
+
+test("blog indexes retain general enquiry context and localized contact destinations", async () => {
+  for (const [locale, copy] of Object.entries(messages)) {
+    const html = await readFile(new URL(`../dist/${locale}/blog/index.html`, import.meta.url), "utf8");
+    const bodyMessage = html.match(/<body\b[^>]*\bdata-inquiry-message="([^"]*)"/)?.[1] ?? "";
+    assert.equal(decodeHtml(bodyMessage), copy.general, `${locale} blog index must use general enquiry context`);
+    assert.match(html, new RegExp(`<a\\b[^>]*\\bhref="/${locale}/contact/"`));
   }
 });

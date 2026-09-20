@@ -26,3 +26,8 @@
 
 # 自訂 404（GitHub Pages 自動用 /404.html，Hostinger 需顯式聲明）
 ErrorDocument 404 /404.html
+
+# 已移除的文章：即使部署時殘留舊 HTML，也不再提供正文。
+<IfModule mod_alias.c>
+  RedirectMatch 410 "^/(en|zh-TW|zh-CN|ja|ko)/blog/(macau-sauna-august-guide-2026|macau-sauna-overnight-guide-2026|macau-sauna-market-update-september-2026)(/index\.html|/)?$"
+</IfModule>

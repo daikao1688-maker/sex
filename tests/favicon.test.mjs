@@ -44,7 +44,7 @@ test("all localized pages and the 404 declare versioned ICO fallback and scalabl
   const files = (await readdir(dist, { recursive: true })).filter((file) =>
     file === "404.html" || /^(en|zh-TW|zh-CN|ja|ko)\/.*index\.html$/.test(file),
   );
-  assert.ok(files.length > 140);
+  assert.equal(files.length, 126, "check all 125 localized pages and the 404 page");
   for (const file of files) {
     const html = await readFile(path.join(dist, file), "utf8");
     const icons = [...html.matchAll(/<link\b[^>]*\brel="icon"[^>]*>/g)].map((match) => match[0]);
