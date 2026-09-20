@@ -49,7 +49,7 @@ const practicalStaffValue =
       : copy.labels.staffValue);
 const practicalStaffNote =
   detail.staffNote ??
-  (venue.staffCount || venue.staffTeam ? copy.labels.staffNationalities : undefined);
+  (venue.staffCount ? copy.labels.staffNationalities : undefined);
 const practicalHours = venue.open24h ? copy.labels.openAllDay : venue.hours;
 const paymentMethods = detail.paymentMethods ?? copy.paymentMethods;
 

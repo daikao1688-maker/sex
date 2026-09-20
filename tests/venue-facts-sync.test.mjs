@@ -33,7 +33,7 @@ const localeFacts = {
   en: {
     openAllDay: "Open 24 hours",
     staffHours: "Staff:",
-    nationalities: "China, Vietnam, Thailand, Taiwan, Japan, Korea, Russia, Ukraine",
+    nationalities: "Multinational therapists",
     team: "Multinational therapist team",
     overnightLabel: "Overnight",
     overnightAvailable: "Available",
@@ -41,7 +41,7 @@ const localeFacts = {
   "zh-TW": {
     openAllDay: "24小時營業",
     staffHours: "技師",
-    nationalities: "中、越、泰、台、日、韓、俄、烏",
+    nationalities: "多國技師",
     team: "多國籍技師團隊",
     overnightLabel: "過夜",
     overnightAvailable: "可過夜",
@@ -49,7 +49,7 @@ const localeFacts = {
   "zh-CN": {
     openAllDay: "24小时营业",
     staffHours: "技师",
-    nationalities: "中、越、泰、台、日、韩、俄、乌",
+    nationalities: "多国技师",
     team: "多国籍技师团队",
     overnightLabel: "过夜",
     overnightAvailable: "可过夜",
@@ -57,7 +57,7 @@ const localeFacts = {
   ja: {
     openAllDay: "24時間営業",
     staffHours: "女の子",
-    nationalities: "中国、ベトナム、タイ、台湾、日本、韓国、ロシア、ウクライナ",
+    nationalities: "多国籍セラピスト",
     team: "多国籍セラピストチーム",
     overnightLabel: "宿泊（24時間）",
     overnightAvailable: "宿泊OK",
@@ -84,7 +84,7 @@ test("renders the revised venue facts in every locale", async () => {
       const staffValue = facts.staff === "team" ? copy.team : facts.staff;
 
       assert.ok(
-        text.includes(`${staffValue} | ${copy.nationalities}`),
+        text.includes(facts.staff === "team" ? staffValue : `${staffValue} | ${copy.nationalities}`),
         `${locale}/${slug} is missing the revised staff lineup`,
       );
       assert.ok(

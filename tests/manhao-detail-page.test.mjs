@@ -36,7 +36,7 @@ test("renders the approved Manhao copy and venue-specific practical facts", asyn
     /最有辨识度的是大型走秀大厅与红色水床套房。.*营业时段、过夜和优惠建议预约前再确认。/,
   );
   assert.match(text, /MOP 2,488 - 6,088/);
-  assert.match(text, /多国籍技师团队 \| 中、越、泰、台、日、韩、俄、乌/);
+  assert.match(text, /多国籍技师团队/);
   assert.match(text, /14:00 – 04:00/);
   assert.match(text, /不可过夜 — 过渡期暂不提供过夜，即将恢复24小时及过夜/);
   assert.doesNotMatch(text, /MOP 888 - 5,388/);
