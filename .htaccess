@@ -31,3 +31,9 @@ ErrorDocument 404 /404.html
 <IfModule mod_alias.c>
   RedirectMatch 410 "^/(en|zh-TW|zh-CN|ja|ko)/blog/(macau-sauna-august-guide-2026|macau-sauna-overnight-guide-2026|macau-sauna-market-update-september-2026)(/index\.html|/)?$"
 </IfModule>
+
+# Hidden venues: generated from src/data/venueVisibility.json.
+<IfModule mod_alias.c>
+  RedirectMatch 404 "^/(en|zh-TW|zh-CN|ja|ko)/spa/(clube-rio)(/index\.html|/)?$"
+  RedirectMatch 404 "^/(covers|media)/(macau-sauna-spa-)?(clube-rio)-[^/]+$"
+</IfModule>
