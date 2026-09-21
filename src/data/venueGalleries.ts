@@ -49,7 +49,6 @@ export const replacementVenueGalleryFiles: Partial<Record<VenueSlug, readonly st
   ],
   "number-nine-sauna": [
     "macau-sauna-spa-number-nine-placed-20260624-01",
-    "macau-sauna-spa-number-nine-placed-20260624-02",
     "macau-sauna-spa-number-nine-placed-20260624-03",
     "macau-sauna-spa-number-nine-placed-20260624-04",
     "macau-sauna-spa-number-nine-placed-20260624-05",

@@ -15,7 +15,7 @@ const replacementGalleries = {
   "clube-rio": { lead: "macau-sauna-spa-clube-rio-repaired-01", count: 5 },
   "yu-sauna": { lead: "macau-sauna-spa-yu-sauna-gallery-20260827-01", count: 10 },
   "manhao-spa": { lead: "macau-sauna-spa-manhao-placed-20260624-01", count: 11 },
-  "number-nine-sauna": { lead: "macau-sauna-spa-number-nine-placed-20260624-01", count: 7 },
+  "number-nine-sauna": { lead: "macau-sauna-spa-number-nine-placed-20260624-01", count: 6 },
   "shang-pin-spa": { lead: "macau-sauna-spa-elite-placed-20260624-01", count: 11 },
   "majesty-spa": { lead: "macau-sauna-spa-majesty-gallery-202607-01", count: 25 },
   "the-excellent-sauna": { lead: "macau-sauna-spa-excellent-gallery-202607-01", count: 14 },
@@ -121,7 +121,7 @@ test("gives every gallery image specific, non-templated copy in all four languag
     }
   }
 
-  assert.equal(renderedImageCount, 712, "the four localized galleries must render exactly 712 image cards");
+  assert.equal(renderedImageCount, 708, "the four localized galleries must render exactly 708 image cards");
 });
 
 test("removes only the selected Familia Nobre staircase photo", async () => {

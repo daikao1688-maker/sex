@@ -134,28 +134,6 @@ export const galleryCopyGroupA = {
       caption: "대형 별 애니메이션이 거울 바닥과 단상에 반사되고, 마젠타 조명이 공간 전체를 화려한 파티 톤으로 물들입니다.",
     },
   },
-  "macau-sauna-spa-number-nine-placed-20260624-02": {
-    en: {
-      alt: "Red padded metal chair against a dark tiled wall",
-      caption: "Deep red padding and a black metal frame stand out against a grid of dark crimson wall tiles.",
-    },
-    "zh-TW": {
-      alt: "深紅磁磚牆前的紅墊金屬座椅",
-      caption: "黑色金屬框架配上深紅軟墊，與後方格狀暗紅牆面形成強烈而一致的視覺。",
-    },
-    "zh-CN": {
-      alt: "深红瓷砖墙前的红垫金属座椅",
-      caption: "黑色金属框架配上深红软垫，与后方格状暗红墙面形成强烈而统一的视觉。",
-    },
-    ja: {
-      alt: "深紅のタイル壁を背景にした赤いパッド付き金属チェア",
-      caption: "黒い金属フレームと深い赤のクッションが、格子状の暗赤色の壁面にくっきり映えています。",
-    },
-    ko: {
-      alt: "진홍 타일 벽 앞에 놓인 레드 패드 메탈 체어",
-      caption: "블랙 메탈 프레임에 딥레드 패드를 결합한 의자가 격자무늬 진홍 벽면과 강렬하면서도 통일된 대비를 이룹니다.",
-    },
-  },
   "macau-sauna-spa-number-nine-placed-20260624-03": {
     en: {
       alt: "Magenta bedroom with double bed and mirrored wall",
