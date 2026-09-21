@@ -28,7 +28,7 @@ export interface RankingCopy {
     };
     pricing: { heading: string; priceRange: string; serviceFee: string; note: string };
     overnight: { heading: string; overnight: string };
-    features: { heading: string; ktv: string; themeRooms: string; show: string; isNew: string };
+    features: { heading: string; ktv: string; themeRooms: string; isNew: string };
   };
   values: { yes: string; no: string; confirm: string; none: string; multinational: string };
   districts: { peninsula: string; taipa: string };
@@ -56,8 +56,8 @@ const en: RankingCopy = {
       {
         slug: 'the-excellent-sauna',
         emoji: '🎬',
-        label: 'For themed rooms',
-        body: 'A compact choice if room concepts matter more to you than a large show hall.',
+        label: 'For varied room designs',
+        body: "A compact venue with rooms in different styles; confirm the facilities and massage options included in your package.",
       },
       {
         slug: 'shang-pin-spa',
@@ -68,8 +68,8 @@ const en: RankingCopy = {
       {
         slug: 'manhao-spa',
         emoji: '🎭',
-        label: 'For stage atmosphere',
-        body: 'A newer Taipa venue centred on a prominent presentation hall; no overnight stay.',
+        label: 'For a spacious hall',
+        body: "A newer Taipa venue with a spacious hall and bathing facilities; no overnight stay.",
       },
       {
         slug: 'majesty-spa',
@@ -81,7 +81,7 @@ const en: RankingCopy = {
         slug: 'number-nine-sauna',
         emoji: '✨',
         label: 'For newer facilities',
-        body: 'A 2026 opening with stage lighting and themed rooms in central Macau.',
+        body: "A 2026 opening with newer interiors in central Macau.",
       },
     ],
   },
@@ -112,7 +112,7 @@ const en: RankingCopy = {
       priceRange: 'Typical package range (MOP)',
       serviceFee: 'Separate service fee',
       note:
-        'These ranges describe typical service packages, not entry-only prices. Final totals vary by package tier, room, staff selection, taxes and add-ons. “No separate surcharge” may mean the fee is already included in the displayed price; confirm an itemized quote before visiting.',
+        "These ranges describe venue package prices, not entry-only prices. Ask which massage treatment, duration and facilities the quote covers, and confirm taxes, service charges and optional extras. “No separate surcharge” may mean the fee is already included in the displayed price.",
     },
     overnight: {
       heading: 'Overnight planning',
@@ -122,7 +122,6 @@ const en: RankingCopy = {
       heading: 'Experience and facilities',
       ktv: 'KTV',
       themeRooms: 'Theme rooms',
-      show: 'Presentation show',
       isNew: 'Newer venue',
     },
   },
@@ -167,8 +166,8 @@ const ja: RankingCopy = {
       {
         slug: 'the-excellent-sauna',
         emoji: '🎬',
-        label: 'テーマルーム重視',
-        body: '大規模なショーより、趣向の異なる個室を楽しみたい方向けです。',
+        label: '客室デザインを重視',
+        body: "さまざまな内装の部屋を備えたコンパクトな店舗。利用できる設備とプランに含まれるマッサージをご確認ください。",
       },
       {
         slug: 'shang-pin-spa',
@@ -179,8 +178,8 @@ const ja: RankingCopy = {
       {
         slug: 'manhao-spa',
         emoji: '🎭',
-        label: 'ステージの雰囲気',
-        body: 'タイパの新しい店舗。印象的な紹介ホールが中心で、宿泊には対応していません。',
+        label: '広いホールを重視',
+        body: "広いホールと入浴設備を備えたタイパの新しい店舗。宿泊休憩には対応していません。",
       },
       {
         slug: 'majesty-spa',
@@ -192,7 +191,7 @@ const ja: RankingCopy = {
         slug: 'number-nine-sauna',
         emoji: '✨',
         label: '新しい設備',
-        body: '2026年開業。ステージ照明とテーマルームを備えたマカオ中心部の店舗です。',
+        body: "2026年開業。新しい内装が特徴のマカオ中心部の店舗です。",
       },
     ],
   },
@@ -223,7 +222,7 @@ const ja: RankingCopy = {
       priceRange: '一般パッケージ目安（MOP）',
       serviceFee: '別途サービス料',
       note:
-        '各レンジは入場料のみではありません。一般的なサービスパッケージの目安で、コース、部屋、指名、税金、追加項目により総額が変わります。「別途加算なし」は表示料金に含まれる場合もあるため、来店前に明細付きの最終料金をご確認ください。',
+        "各レンジは店舗のプラン料金の目安で、入場料のみの表示ではありません。見積もりに含まれるマッサージの種類、時間、設備に加え、税金、サービス料、追加項目をご確認ください。「別途加算なし」は表示料金に含まれる場合もあります。",
     },
     overnight: {
       heading: '宿泊・休憩',
@@ -233,7 +232,6 @@ const ja: RankingCopy = {
       heading: '設備と楽しみ方',
       ktv: 'KTV',
       themeRooms: 'テーマルーム',
-      show: '紹介ショー',
       isNew: '比較的新しい店舗',
     },
   },
@@ -278,8 +276,8 @@ const zhTW: RankingCopy = {
       {
         slug: 'the-excellent-sauna',
         emoji: '🎬',
-        label: '想玩主題房',
-        body: '比起大型走秀，更適合重視房間情境與私密節奏的客人。',
+        label: '多種房間設計',
+        body: "設有多種不同風格房間的小型會所，預約前請確認套餐包含的設施及按摩項目。",
       },
       {
         slug: 'shang-pin-spa',
@@ -290,8 +288,8 @@ const zhTW: RankingCopy = {
       {
         slug: 'manhao-spa',
         emoji: '🎭',
-        label: '重視舞台氣氛',
-        body: '氹仔新場，以顯眼的介紹大廳為特色；目前不設過夜。',
+        label: '重視寬敞大廳',
+        body: "氹仔較新的會所，設寬敞大廳與沐浴設施，不提供過夜留宿。",
       },
       {
         slug: 'majesty-spa',
@@ -303,7 +301,7 @@ const zhTW: RankingCopy = {
         slug: 'number-nine-sauna',
         emoji: '✨',
         label: '喜歡較新設施',
-        body: '2026 年開業，位於澳門半島，設舞台燈光與主題房。',
+        body: "2026 年開業，位於澳門半島，設有較新的裝潢。",
       },
     ],
   },
@@ -334,7 +332,7 @@ const zhTW: RankingCopy = {
       priceRange: '一般套餐參考範圍（MOP）',
       serviceFee: '另收服務費',
       note:
-        '價格範圍是一般服務套餐的參考，不是單純入場費。最終總額會因套餐級別、房型、指定人員、稅項及加購而變動；「不另收服務費」也可能代表費用已計入標示價格，出發前請確認明細報價。',
+        "表內範圍為會所套餐參考價，並非單獨入場費。請確認報價包含的按摩項目、時長及設施，以及稅項、服務費和自選項目。「不另收服務費」也可能表示費用已包含在展示價格內。",
     },
     overnight: {
       heading: '過夜安排',
@@ -344,7 +342,6 @@ const zhTW: RankingCopy = {
       heading: '設施與體驗',
       ktv: 'KTV',
       themeRooms: '主題房',
-      show: '介紹表演',
       isNew: '較新會所',
     },
   },
@@ -389,8 +386,8 @@ const zhCN: RankingCopy = {
       {
         slug: 'the-excellent-sauna',
         emoji: '🎬',
-        label: '想体验主题房',
-        body: '相比大型走秀，更适合看重房间场景和私密节奏的客人。',
+        label: '多种房间设计',
+        body: "设有多种不同风格房间的小型会所，预约前请确认套餐包含的设施及按摩项目。",
       },
       {
         slug: 'shang-pin-spa',
@@ -401,8 +398,8 @@ const zhCN: RankingCopy = {
       {
         slug: 'manhao-spa',
         emoji: '🎭',
-        label: '看重舞台氛围',
-        body: '氹仔新场，以醒目的介绍大厅为特色；目前不提供过夜。',
+        label: '看重宽敞大厅',
+        body: "氹仔较新的会所，设宽敞大厅与沐浴设施，不提供过夜留宿。",
       },
       {
         slug: 'majesty-spa',
@@ -414,7 +411,7 @@ const zhCN: RankingCopy = {
         slug: 'number-nine-sauna',
         emoji: '✨',
         label: '喜欢较新设施',
-        body: '2026 年开业，位于澳门半岛，设有舞台灯光和主题房。',
+        body: "2026 年开业，位于澳门半岛，设有较新的装潢。",
       },
     ],
   },
@@ -445,7 +442,7 @@ const zhCN: RankingCopy = {
       priceRange: '一般套餐参考范围（MOP）',
       serviceFee: '另收服务费',
       note:
-        '价格范围是一般服务套餐的参考，不是单纯入场费。最终总额会因套餐级别、房型、指定人员、税费及加购而变化；“不另收服务费”也可能表示费用已计入标示价格，出发前请确认明细报价。',
+        "表内范围为会所套餐参考价，并非单独入场费。请确认报价包含的按摩项目、时长及设施，以及税项、服务费和自选项目。“不另收服务费”也可能表示费用已包含在展示价格内。",
     },
     overnight: {
       heading: '过夜安排',
@@ -455,7 +452,6 @@ const zhCN: RankingCopy = {
       heading: '设施与体验',
       ktv: 'KTV',
       themeRooms: '主题房',
-      show: '介绍表演',
       isNew: '较新会所',
     },
   },
@@ -500,8 +496,8 @@ const ko: RankingCopy = {
       {
         slug: 'the-excellent-sauna',
         emoji: '🎬',
-        label: '테마룸을 경험하고 싶다면',
-        body: '대형 쇼보다 룸 장면과 프라이빗한 페이스를 중시하는 손님에게 적합합니다.',
+        label: '다양한 객실 디자인',
+        body: "다양한 디자인의 객실을 갖춘 아담한 매장입니다. 패키지에 포함된 시설과 마사지 항목을 확인하세요.",
       },
       {
         slug: 'shang-pin-spa',
@@ -512,8 +508,8 @@ const ko: RankingCopy = {
       {
         slug: 'manhao-spa',
         emoji: '🎭',
-        label: '무대 분위기를 중시한다면',
-        body: '타이파 신규 매장으로, 인상적인 소개 홀이 특징입니다. 현재 숙박은 제공되지 않습니다.',
+        label: '넓은 홀을 중시한다면',
+        body: "넓은 홀과 목욕 시설을 갖춘 타이파의 신규 매장으로, 숙박은 제공하지 않습니다.",
       },
       {
         slug: 'majesty-spa',
@@ -525,7 +521,7 @@ const ko: RankingCopy = {
         slug: 'number-nine-sauna',
         emoji: '✨',
         label: '새로운 시설을 좋아한다면',
-        body: '2026년 오픈, 마카오 반도 소재로 무대 조명과 테마룸을 갖췄습니다.',
+        body: "2026년 오픈한 마카오 반도의 매장으로 새로운 인테리어가 특징입니다.",
       },
     ],
   },
@@ -556,7 +552,7 @@ const ko: RankingCopy = {
       priceRange: '일반 패키지 참고 범위 (MOP)',
       serviceFee: '별도 서비스 요금',
       note:
-        '가격 범위는 입장료만을 뜻하지 않습니다. 일반 서비스 패키지 기준의 참고치이며, 코스 등급, 룸, 지명, 세금 및 추가 항목에 따라 총액이 달라집니다. “별도 부과 없음”은 표시 가격에 이미 포함된 경우도 있으므로 방문 전 항목별 최종 견적을 확인하세요.',
+        "표의 범위는 매장 패키지 참고 가격이며 입장료만을 뜻하지 않습니다. 견적에 포함된 마사지 항목, 시간, 시설과 함께 세금, 서비스 요금, 선택 옵션을 확인하세요. 별도 부과가 없다는 표현은 표시 가격에 이미 포함되어 있다는 뜻일 수도 있습니다.",
     },
     overnight: {
       heading: '숙박 배치',
@@ -566,7 +562,6 @@ const ko: RankingCopy = {
       heading: '시설과 경험',
       ktv: 'KTV',
       themeRooms: '테마룸',
-      show: '소개 쇼',
       isNew: '비교적 새로운 매장',
     },
   },

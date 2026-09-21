@@ -1,4 +1,3 @@
-import { getVenueRating } from '../../data/venueRatings';
 import type { Dictionary } from '../types';
 
 const en: Dictionary = {
@@ -60,13 +59,13 @@ const en: Dictionary = {
   spas: {
     heading: 'Featured Saunas',
     intro:
-      'Explore {venueCount} popular Macau sauna venues, with updates on prices, opening status, team size and other practical details.',
+      'Compare {venueCount} Macau sauna venues by reference prices, opening status and facilities.',
     filterLabel: 'Filter venues',
     filters: [
       { bucket: 'all', label: 'All' },
       { bucket: 'theme', label: 'Theme' },
       { bucket: 'value', label: 'Value' },
-      { bucket: 'lineup', label: 'Lineup' },
+      { bucket: 'taipa', label: 'Taipa' },
       { bucket: 'new', label: 'New' },
       { bucket: 'ktv', label: 'KTV' },
     ],
@@ -108,47 +107,47 @@ const en: Dictionary = {
       },
       'manhao-spa': {
         name: 'Manhao Spa',
-        badge: 'Newest & Biggest Show',
+        badge: 'Opened in 2026',
         summary: 'Manhao Spa is a Taipa venue inside Grandview Hotel, with marble-and-gold interiors, a showcase hall and private treatment rooms.',
         description:
-          "Manhao Spa is Macau's newest luxury sauna — a Taipa debut that opened 1 May 2026 inside the Grandview Hotel (氹仔君怡酒店), and from the moment you step in, an imperial-luxe tone takes over. A gold crowned 'MH' monogram glows against calacatta marble, and that aesthetic carries through gold-trimmed lockers, marble dining lounges and mural-wrapped corridors that feel more boutique-hotel than typical sauna.\n\nThe marquee draw is Macau's largest model showcase — a multi-tiered, glass-railed catwalk hall washed in deep blue neon that turns selection into a centerpiece moment rather than a side step. Settle afterward into an integrated suite that pairs a hotel-grade bedroom with the venue's signature red waterbed under a single dramatic spotlight, where a multinational therapist team tailors a calm, private massage. Doors run 14:00–04:00, and overnight stays are not offered for now.",
+          "Manhao Spa opened in May 2026 inside Grandview Hotel in Taipa, near The Venetian Macao and Galaxy Macau. Generous spaces, marble finishes and gold accents give the venue an elegant, luxurious feel, with room to slow down after a day around the city.\n\nThe marble bathing area has two bathing pools, a Finnish sauna and a steam room. Whether you prefer a soak, dry heat or gentle steam, you can take your time and enjoy a relaxed break from your itinerary.",
       },
       'number-nine-sauna': {
         name: 'Number Nine Spa',
-        badge: 'Newest & Japan-Korea',
+        badge: 'New & Modern Facilities',
         description:
-          "Number Nine Spa is located inside the Royal Dragon Hotel and is one of the new venues in central Macau attracting considerable attention in 2026. Its strengths are its newness and sense of stagecraft: clean-lined gold and marble elements, together with a main stage, lighting and an LED screen, turn therapist introductions into a small-scale performance and create a stronger visual impression than a traditional hall.\n\nRooms in red, pink-purple, blue-violet and other moods are paired with starry ceilings, suiting guests who want to move from lively energy to quiet within a single evening. Japanese-, Korean- and Balinese-style massages are frequently mentioned selling points. Opening promotions for the new venue change from time to time, making it suitable for guests who want to try new facilities, prefer a Japanese and Korean therapist lineup, and value a clean, straightforward process.",
+          'Number Nine Spa opened in 2026 inside the Royal Dragon Hotel in central Macau. Gold and marble finishes, lighting, LED screens and a spacious hall give the venue a modern character.\n\nRooms combine red, pink-purple or blue-purple palettes with starry ceilings. Japanese, Korean and Balinese-style massage options sit alongside bathing and rest facilities. Compare the treatments, durations and prices before booking, and confirm which offers are available on your date.',
       },
       'shang-pin-spa': {
         name: 'Shang Pin Spa',
         badge: 'Great Value',
         description:
-          "Shang Pin Spa is located at L2 R95 on the second floor of Lisboeta Macau and is one of the newer upscale spa venues in Cotai. Public information describes a space of about 20,000 square feet, designed in a Japanese style and equipped with a whirlpool bath, sauna and Japanese bathing room. The overall atmosphere is bright and clean, feeling more like a modern hotel spa than a traditional older venue.\n\nIts appeal lies in being refined without being noisy. Waterbed rooms and two-person package promotions are frequently mentioned features. For guests staying at Lisboeta Macau, Grand Lisboa Palace or elsewhere in Cotai who want a mid-to-high-priced venue with a comfortable pace, Shang Pin is a good fit.",
+          'Shang Pin Spa occupies Level 2, unit L2 R95, at Lisboeta Macau in Cotai. Public descriptions put the venue at around 20,000 square feet, with Japanese-inspired interiors, whirlpool baths, sauna facilities and Japanese-style bathing rooms. The setting is bright and clean, with the feel of a modern hotel spa.\n\nSpacious bathing areas and quiet lounges offer a place to pause between sightseeing stops. Guests staying at Lisboeta, Grand Lisboa Palace or elsewhere in Cotai can plan a visit around their itinerary. Confirm treatment details, prices and current offers before booking.',
       },
       'majesty-spa': {
         name: 'Majesty Spa',
         badge: 'Most Luxury',
         description:
-          "Majesty Spa is located inside Harbourview Hotel at Macau Fisherman's Wharf and focuses on an opulent setting and comfortable overnight stays. Gold, marble, a spacious hall and a range of themed suites shape the first impression. Rather than relying simply on a large lineup, it brings bathing, therapist selection, room choice, KTV and rest arrangements together in one complete flow.\n\nMajesty Spa best suits guests who see a sauna visit as a full evening of relaxation, not just a short massage. You can begin with the introductions in the hall, then choose a KTV party room or a role-play themed room. If you want to stay and rest late at night, its private-room arrangements are a particularly notable selling point. For guests with a mid-to-high budget who value the setting and quality of sleep, it should feel like a good match.",
+          'Majesty Spa is located inside Harbourview Hotel at Macau Fisherman\'s Wharf, with ornate interiors, a spacious hall and comfortable rest areas. Gold and marble finishes connect bathing facilities, KTV rooms, dining areas and more than ten room styles.\n\nGuests can bathe or dine before discussing massage options and room arrangements. If you plan to rest late into the night, confirm the availability and charges for recliners or private rest rooms. Check the treatment duration, included services and total price before booking.',
       },
       'the-excellent-sauna': {
         name: 'The Excellent Sauna',
         badge: '24 Hours',
         description:
-          'The Excellent Sauna is tucked inside the Grand Emperor Hotel on the Macau Peninsula and follows a boutique themed-room concept. It does not rely on oversized spectacle. Instead, it turns DJ, office, medical and cinema settings into distinctive room types. Guests who simply want to relax can choose a traditional private room.\n\nThe pace here is relatively quiet, making it suitable for guests who do not want to choose in a crowded hall. Bathe and use the sauna first, then choose a room type and therapist according to your mood; afterwards, you can settle in for an overnight stay in the 24-hour rest area. If your schedule is flexible and your budget is mid-range, The Excellent is a lighter alternative to a large venue.',
+          'The Excellent Sauna is located inside Grand Emperor Hotel on the Macau Peninsula. Its compact layout includes rooms with a variety of interior designs as well as traditional room types, alongside bathing, sauna and rest facilities.\n\nStart by checking the facilities, then compare massage options by treatment, duration and budget. The venue has a 24-hour rest area; confirm availability and charges before requesting an overnight stay or a particular room.',
       },
       'empire-sauna': {
         name: 'Empire Sauna',
         badge: 'Newest & Hottest',
-        summary: 'Empire Sauna is a Macau Peninsula venue with a modern, Eastern-influenced interior and a flow built around bathing, private rooms, dining and rest.',
+        summary: 'Empire Sauna opened on the Macau Peninsula in 2026, combining modern luxury with Eastern-inspired interiors.',
         description:
-          'Empire Sauna follows a new-generation high-end direction for 2026: a new venue on the Macau Peninsula with an HK$80 million-class fit-out that blends modern luxury with Eastern Zen aesthetics. From the marble bathing area to the hotel-style suites, the emphasis is not on noisy spectacle, but on connecting arrival, bathing, therapist selection, dining and rest into a more private evening.\n\nIf you want to try a new venue, the features most worth noting at Empire Sauna are its waterbed rooms, themed suites and overnight rest arrangements. Taiwanese, Japanese and other massage styles can be chosen according to your mood. Opening-period offers also change frequently, making it suitable for guests with a higher budget who value the quality of the surroundings and want to avoid the usual routines of older venues. Confirm the same-day therapist schedule and current offers before setting out for a smoother experience.',
+          'Empire Sauna opened on the Macau Peninsula in 2026, combining modern luxury with Eastern-inspired interiors. Marble bathing areas, hotel-style suites, dining and rest spaces form a complete leisure setting.\n\nFacilities include waterbed rooms, suites in different styles and overnight rest arrangements, with Taiwanese, Japanese and other massage styles offered. Compare the treatment, duration and facilities you need, and confirm availability, the total price and any opening offers before booking.',
       },
       'east-castle-spa': {
         name: 'East Castle Spa',
-        badge: 'Theme Rooms',
+        badge: 'Varied Room Designs',
         description:
-          'East Castle Spa is memorable not because the venue is extravagant, but because it turns its “theme” into a complete experience. Located on the third and fourth floors of the Casa Real Hotel, a team from the same group has built prison, classroom, medical, aircraft-cabin, office, boxing-ring and other settings into the rooms.\n\nThis venue suits people who are no longer satisfied with the conventional bath-and-massage routine. Relax in the bathing area, take your time over a meal, then choose a therapist and room type according to how you feel that day. There is no pressuring fixed rhythm inside, which leaves more room for exploration. If you want a distinctive Macau themed sauna at a mid-range budget that can feel fresh on each visit, East Castle Spa should be a good fit.',
+          "East Castle Spa occupies the third and fourth floors of Casa Real Hotel. Spacious bathing areas and clean, well-appointed private rooms are central to the setting, with different room styles and carefully considered interiors.\n\nThe atmosphere is quiet and refined, suited to guests who want to slow down and rest. Professional staff and comfortable surroundings help keep the visit relaxed and unhurried.",
       },
       'victoria-sauna': {
         name: 'Victoria Sauna',
@@ -160,21 +159,21 @@ const en: Dictionary = {
         name: 'M CLUB',
         badge: 'Cyberpunk & KTV',
         description:
-          'MCLUB has a clear positioning: rather than following the traditional large-pool-and-lobby format, it focuses on a tech-forward look, a party atmosphere and themed rooms. Located inside the Waldo Hotel, neon lighting, panoramic visuals, KTV rooms and Japanese hot-spring rooms give the venue a younger feel. It suits groups of friends as well as guests who want to try a different kind of experience.\n\nThe themed DNA it shares with East Castle Spa is presented here in a more forward-looking way. You can first warm up in the KTV or lounge, then choose from 3D, starry-sky, office, gaming or soaking room types according to availability. The overall pace is not built around the pressure of a crowd, but around taking time to explore. If you prefer visual impact, interaction and a nightlife atmosphere, MCLUB will be more memorable than a traditional sauna.',
+          'MCLUB is located inside Waldo Hotel and is currently temporarily closed. It is not accepting guests or bookings. This page retains earlier venue information for reference.\n\nPreviously documented facilities include neon lighting, panoramic visuals, KTV, lounge areas and rooms with varied interior designs. Photos and facility descriptions do not indicate current availability. Any reopening date, services and prices must be checked against future announcements from the venue.',
       },
       'number-one-sauna': {
         name: 'Number One Sauna',
-        badge: 'Biggest Lineup',
-        summary: 'Number One Sauna is marked temporarily closed; this profile retains its former facilities and service details for historical reference.',
+        badge: 'Temporarily Closed',
+        summary: 'Number One Sauna is currently temporarily closed and is not accepting guests or bookings.',
         description:
-          "Number One Sauna is one of Macau's most popular saunas, fielding one of the largest therapist rosters in the city — more than 130 multinational therapists, spanning Asia and Europe. Its signature dynamic runway showcase has the team appear in groups along the main hall, a spectacular sight you watch unfold before you choose. From the moment you check in, the pace is unhurried: soak in the large bathing pool, ease into the dry and steam rooms, then take your time as this Macau sauna's famous selection show brings the choice to you.\n\nWhen you've found your number, slip into a private room for a one-on-one session — the unhurried indulgence Number One is known for — and round out the night with unlimited complimentary dining, the celebrated steak included. Reclining chairs let you rest or stay overnight at your leisure, so there's no rush to leave. The venue runs on the intimate side, so popular therapists can draw a wait at peak hours — arrive a little early and the evening flows beautifully.",
+          'Number One Sauna is currently temporarily closed and is not accepting guests or bookings. This page retains former facilities and operating information for historical reference.\n\nEarlier facilities included a large bathing pool, dry and steam sauna rooms, dining areas and recliner lounges. Previous prices, hours and overnight arrangements are not current offers. If the venue reopens, confirm its latest facilities, services and charges before planning a visit.',
       },
       'familia-nobre': {
         name: 'Familia Nobre',
         badge: 'Best Value',
-        summary: 'Familia Nobre is a temporarily closed Macau Peninsula venue; this profile is retained for historical reference.',
+        summary: 'Familia Nobre is a Macau Peninsula venue that is currently temporarily closed, with no visits or bookings available.',
         description:
-          "Familia Nobre is Macau's largest sauna club, sitting on the Macau Peninsula with the most rooms of any venue in the city — so even at peak hours, you step in and a room is waiting, never a queue. What truly sets this Macau sauna apart is the value: it's one of only two venues in Macau that charge no service fee, where the price you see is the price you pay, across a multinational roster of therapists and a range of MOP 2,388 to 6,988.\n\nSettle into the spacious bathing area, then enjoy complimentary steak and cold beer that regulars rave about. When the night winds down, the best overnight facilities in town take over — the most reclining chairs of any venue, generously spaced in a quiet rest area with no noisy shows to disturb you. Rated {rating} out of five stars, Familia Nobre is the easy first stop for newcomers and the natural home for overnight guests and anyone who wants the most for their money.".replace('{rating}', String(getVenueRating('familia-nobre'))),
+          'Familia Nobre is a Macau Peninsula venue that is currently temporarily closed, with no visits or bookings available. This page preserves former venue information for reference.\n\nEarlier records describe bathing areas, dining spaces, rooms and recliner lounges. Historical prices, the former no-service-fee policy and overnight arrangements are not current offers. Any reopening and updated terms must be checked against future announcements from the venue.',
       },
       'oceanic-royal-spa': {
         name: 'Oceanic Royal Spa',
@@ -198,7 +197,7 @@ const en: Dictionary = {
       'We take care of everything for you — recommendation, transport, VIP entry, VIP Extras, and your ride home.',
     tabHow: 'How It Works',
     tabGifts: 'VIP Extras',
-    giftsHeader: 'Pick 1 — served by pretty girls!',
+    giftsHeader: 'Choose 1 massage or care extra',
     columns: { item: 'Service Item', value: 'Value', ours: 'Our VIP' },
     free: 'Free',
     gifts: [
@@ -297,9 +296,9 @@ const en: Dictionary = {
       large: '5+ people',
     },
     experienceOptions: {
-      show: 'Main Stage Show',
-      theme: 'Theme Rooms',
-      jpkr: 'JP / KR Staff',
+      value: 'Budget first',
+      theme: 'Room designs',
+      taipa: 'Taipa / Cotai',
       new: 'Newest',
       ktv: 'KTV Rooms',
       classic: 'Classic Names',
@@ -338,18 +337,18 @@ const en: Dictionary = {
     items: [
       {
         icon: 'crown',
-        title: 'Selection Show',
-        desc: 'See therapists live and pick your match — widest selection in Macau',
+        title: "Transparent Pricing",
+        desc: 'All charges explained in advance',
       },
       {
         icon: 'shield',
-        title: 'Private 1-on-1 Sessions',
-        desc: 'Private room, completely undisturbed — just you and your therapist',
+        title: "Find the Right Sauna for You",
+        desc: "More expensive does not mean better. The right fit matters most!",
       },
       {
         icon: 'sparkles',
-        title: 'Themed Rooms',
-        desc: '20+ themed scenarios with fully customizable roleplay',
+        title: "Licensed Saunas in Macau",
+        desc: "You can look up the operating licences of all saunas listed on this website through the Macao Government Tourism Office.",
       },
       {
         icon: 'clock',

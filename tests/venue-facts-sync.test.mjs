@@ -132,17 +132,17 @@ test("ranking prices describe package ranges and distinguish fees included in th
     },
     "zh-TW": {
       range: "一般套餐參考範圍（MOP）",
-      note: "不是單純入場費",
+      note: "並非單獨入場費",
       noSurcharge: "不另收服務費",
     },
     "zh-CN": {
       range: "一般套餐参考范围（MOP）",
-      note: "不是单纯入场费",
+      note: "并非单独入场费",
       noSurcharge: "不另收服务费",
     },
     ja: {
       range: "一般パッケージ目安（MOP）",
-      note: "入場料のみではありません",
+      note: "入場料のみの表示ではありません",
       noSurcharge: "別途加算なし",
     },
     ko: {
@@ -172,36 +172,36 @@ test("ranking prices describe package ranges and distinguish fees included in th
 
 const zhCnDescriptionMarkers = {
   "number-nine-sauna": [
-    "玖号水疗位于御龙酒店内，是 2026 年澳门市中心很受关注的新场之一。",
-    "房型方面，红色、粉紫、蓝紫等不同氛围房搭配星空天花",
+    "玖号水疗位于御龙酒店内，是 2026 年开业的市中心水疗会所。",
+    "房间以红色、粉紫和蓝紫等色调搭配星空天花",
   ],
   "shang-pin-spa": [
-    "尚品国际水疗位于澳门葡京人二楼 L2 R95，属于路氹区较新的高端水疗场。",
-    "它的吸引力在于精致而不吵。",
+    "尚品国际水疗位于澳门葡京人二楼 L2 R95，属于路氹区较新的高端水疗场所。",
+    "宽敞的沐浴区与安静的休息空间，适合在游览之间放慢脚步。",
   ],
   "majesty-spa": [
-    "尊贵水疗位于澳门渔人码头励庭海景酒店内，主打的是华丽环境与留宿舒适度。",
-    "最适合尊贵水疗的客人，是想把桑拿当成一晚放松行程",
+    "尊贵水疗位于澳门渔人码头励庭海景酒店内，以华丽装修、宽敞大厅和舒适的休息空间为特色。",
+    "客人可先泡浴或用餐，再按需要了解按摩项目与房间安排。",
   ],
   "the-excellent-sauna": [
-    "极品桑拿藏在澳门半岛英皇娱乐酒店内，走的是精品型主题房路线。",
-    "这里的节奏相对清静，适合不想在人海大厅里做选择的客人。",
+    "极品桑拿位于澳门半岛英皇娱乐酒店内，采用较精致的空间规划",
+    "馆内设 24 小时休息区；需要过夜或指定房型，请于预约前确认供应及费用。",
   ],
   "empire-sauna": [
-    "巨亨桑拿走的是 2026 新派高端路线",
-    "如果你想试新场，巨亨最值得留意的是水床房、主题套房与可过夜休息安排。",
+    "巨亨桑拿是澳门半岛于 2026 年开业的水疗会所",
+    "馆内设有水床房、多款不同设计的套房及过夜休息安排",
   ],
   "east-castle-spa": [
-    "东方皇堡水疗的记忆点，不在于把场地做得多浮夸，而是把「主题」做成完整体验。",
-    "这里适合已经不满足于传统泡浴加按摩流程的人。",
+    "东方皇堡水疗位于皇家金堡酒店 3、4 楼，以宽敞的沐浴空间和整洁完善的私人房间为特色。",
+    "会所整体氛围安静雅致，适合希望放慢节奏、从容休息的客人。",
   ],
   "victoria-sauna": [
     "凯旋桑拿是一间低调型澳门桑拿，没有太强的网红感",
     "它的亮点在性价比与留宿便利。",
   ],
   "m-club": [
-    "晋会 MCLUB 的定位很清楚：不是传统大池大厅路线，而是科技感、派对感和主题房。",
-    "与东方皇堡同系的主题基因在这里被做得更前卫。",
+    "晋会 MCLUB 位于华都酒店内，目前暂停营业，暂不接待客人或提供预约服务。",
+    "图片与设施记录不代表目前可使用",
   ],
 };
 
@@ -216,34 +216,34 @@ test("renders the approved Simplified Chinese introductions", async () => {
 
 const translatedDescriptionMarkers = {
   "zh-TW": {
-    "number-nine-sauna": ["玖號水療位於御龍酒店內", "房型方面，紅色、粉紫、藍紫"],
-    "shang-pin-spa": ["尚品國際水療位於澳門葡京人二樓 L2 R95", "它的吸引力在於精緻而不吵。"],
-    "majesty-spa": ["尊貴水療位於澳門漁人碼頭勵庭海景酒店內", "最適合尊貴水療的客人"],
-    "the-excellent-sauna": ["極品桑拿藏在澳門半島英皇娛樂酒店內", "這裡的節奏相對清靜"],
-    "empire-sauna": ["巨亨桑拿走的是 2026 新派高端路線", "如果你想試新場"],
-    "east-castle-spa": ["東方皇堡水療的記憶點", "這裡適合已經不滿足於傳統泡浴加按摩流程的人。"],
+    "number-nine-sauna": ["玖號水療位於御龍酒店內", "房間以紅色、粉紫和藍紫等色調搭配星空天花"],
+    "shang-pin-spa": ["尚品國際水療位於澳門葡京人二樓 L2 R95", "寬敞的沐浴區與安靜的休息空間"],
+    "majesty-spa": ["尊貴水療位於澳門漁人碼頭勵庭海景酒店內", "客人可先泡浴或用餐，再按需要了解按摩項目與房間安排。"],
+    "the-excellent-sauna": ["極品桑拿位於澳門半島英皇娛樂酒店內", "館內設 24 小時休息區"],
+    "empire-sauna": ["巨亨桑拿是澳門半島於 2026 年開業的水療會所", "館內設有水床房、多款不同設計的套房及過夜休息安排"],
+    "east-castle-spa": ["東方皇堡水療位於皇家金堡酒店 3、4 樓", "會所整體氛圍安靜雅緻，適合希望放慢節奏、從容休息的客人。"],
     "victoria-sauna": ["凱旋桑拿是一間低調型澳門桑拿", "它的亮點在性價比與留宿便利。"],
-    "m-club": ["晉會 MCLUB 的定位很清楚", "與東方皇堡同系的主題基因"],
+    "m-club": ["晉會 MCLUB 位於華都酒店內，目前暫停營業", "圖片與設施記錄不代表目前可使用"],
   },
   en: {
-    "number-nine-sauna": ["Number Nine Spa is located inside the Royal Dragon Hotel", "Rooms in red, pink-purple, blue-violet"],
-    "shang-pin-spa": ["Shang Pin Spa is located at L2 R95 on the second floor of Lisboeta Macau", "Its appeal lies in being refined without being noisy."],
-    "majesty-spa": ["Majesty Spa is located inside Harbourview Hotel at Macau Fisherman's Wharf", "Majesty Spa best suits guests"],
-    "the-excellent-sauna": ["The Excellent Sauna is tucked inside the Grand Emperor Hotel", "The pace here is relatively quiet"],
-    "empire-sauna": ["Empire Sauna follows a new-generation high-end direction for 2026", "If you want to try a new venue"],
-    "east-castle-spa": ["East Castle Spa is memorable not because the venue is extravagant", "This venue suits people who are no longer satisfied"],
+    "number-nine-sauna": ["Number Nine Spa opened in 2026 inside the Royal Dragon Hotel", "Rooms combine red, pink-purple or blue-purple palettes with starry ceilings."],
+    "shang-pin-spa": ["Shang Pin Spa occupies Level 2, unit L2 R95, at Lisboeta Macau", "Spacious bathing areas and quiet lounges offer a place to pause between sightseeing stops."],
+    "majesty-spa": ["Majesty Spa is located inside Harbourview Hotel at Macau Fisherman's Wharf", "Guests can bathe or dine before discussing massage options and room arrangements."],
+    "the-excellent-sauna": ["The Excellent Sauna is located inside Grand Emperor Hotel", "The venue has a 24-hour rest area"],
+    "empire-sauna": ["Empire Sauna opened on the Macau Peninsula in 2026", "Facilities include waterbed rooms, suites in different styles and overnight rest arrangements"],
+    "east-castle-spa": ["East Castle Spa occupies the third and fourth floors of Casa Real Hotel.", "The atmosphere is quiet and refined, suited to guests who want to slow down and rest."],
     "victoria-sauna": ["Victoria Sauna is a low-key Macau sauna.", "Its highlights are value for money"],
-    "m-club": ["MCLUB has a clear positioning", "The themed DNA it shares with East Castle Spa"],
+    "m-club": ["MCLUB is located inside Waldo Hotel and is currently temporarily closed.", "Photos and facility descriptions do not indicate current availability."],
   },
   ja: {
-    "number-nine-sauna": ["ナンバーナインスパは御龍酒店", "客室は、赤、ピンクパープル、ブルーパープル"],
-    "shang-pin-spa": ["シャンピンスパは、リスボエタ・マカオの2階、L2 R95", "魅力は、洗練されていながら騒がしくないことです。"],
-    "majesty-spa": ["マジェスティスパは、マカオ・フィッシャーマンズワーフ", "マジェスティスパに特に合うのは"],
-    "the-excellent-sauna": ["エクセレントサウナはマカオ半島のグランドエンペラーホテル内", "ここは比較的静かなペース"],
-    "empire-sauna": ["エンパイアサウナ（巨亨桑拿）は、2026年らしい新世代の高級路線", "新しい施設を試したいなら"],
-    "east-castle-spa": ["イーストキャッスルスパ（東方皇堡水療）の印象に残る点", "従来の入浴とマッサージだけの流れでは物足りない方"],
+    "number-nine-sauna": ["ナンバーナインスパは、2026年にマカオ中心部の御龍酒店", "客室は赤、ピンクパープル、ブルーパープル"],
+    "shang-pin-spa": ["シャンピンスパは、リスボエタ・マカオの2階、L2 R95", "広い入浴エリアと落ち着いた休憩スペース"],
+    "majesty-spa": ["マジェスティスパは、マカオ・フィッシャーマンズワーフ", "リクライニングチェアや個別休憩室の空きと料金を事前に確認してください。"],
+    "the-excellent-sauna": ["エクセレントサウナは、マカオ半島のグランドエンペラーホテル内", "24時間利用の休憩エリアがあります"],
+    "empire-sauna": ["エンパイアサウナは、2026年にマカオ半島で開業した施設です。", "ウォーターベッドを備えた部屋や異なる内装の客室、宿泊休憩の設備"],
+    "east-castle-spa": ["イーストキャッスルスパ（東方皇堡水療）は、カーサ・レアル・ホテル（皇家金堡酒店）の3階と4階にあります。", "館内は静かで上品な雰囲気に包まれ、慌ただしさを離れて休みたい方に向いています。"],
     "victoria-sauna": ["ヴィクトリアサウナ（凱旋桑拿）は、控えめなタイプ", "魅力はコストパフォーマンスと宿泊のしやすさです。"],
-    "m-club": ["エムクラブ（晉會 MCLUB）の方向性は明確です。", "イーストキャッスルスパ（東方皇堡水療）と同系列"],
+    "m-club": ["エムクラブ（MCLUB）はワルドホテル内の施設で、現在は一時休業中です。", "写真や設備紹介は現在利用できることを示すものではありません。"],
   },
 };
 
@@ -260,7 +260,8 @@ test("renders the approved introductions in every translated locale", async () =
 
 test("renders the revised Majesty and Victoria highlights in Simplified Chinese", async () => {
   const majesty = visibleText(await readBuiltPage("zh-CN", "majesty-spa"));
-  assert.ok(majesty.includes("买一送一（详情预约时说明）"));
+  assert.ok(!majesty.includes("买一送一（详情预约时说明）"), "Majesty must not retain the removed BOGO promotion");
+  assert.ok(majesty.includes("十多种不同风格房间"), "Majesty must retain the requested room-design description");
 
   const victoria = visibleText(await readBuiltPage("zh-CN", "victoria-sauna"));
   for (const highlight of [
@@ -275,8 +276,8 @@ test("renders the revised Majesty and Victoria highlights in Simplified Chinese"
 
 test("keeps The Excellent service fee consistent with the shared venue fact", async () => {
   const expectedFeeCopy = {
-    en: "A 10% service fee applies",
-    ja: "サービス料は10%です",
+    en: "with a 10% service charge",
+    ja: "別途10%のサービス料がかかります",
     "zh-TW": "另收 10% 服務費",
     "zh-CN": "另收 10% 服务费",
   };
@@ -288,7 +289,10 @@ test("keeps The Excellent service fee consistent with the shared venue fact", as
   ];
 
   for (const [locale, expected] of Object.entries(expectedFeeCopy)) {
-    const text = visibleText(await readBuiltPage(locale, "the-excellent-sauna"));
+    const html = await readBuiltPage(locale, "the-excellent-sauna");
+    const relatedStart = html.indexOf('id="related"');
+    assert.ok(relatedStart > 0, `${locale}/the-excellent-sauna is missing the related-venues boundary`);
+    const text = visibleText(html.slice(0, relatedStart));
     assert.ok(text.includes(expected), `${locale}/the-excellent-sauna is missing the 10% service fee`);
     for (const stale of staleFeeCopy) {
       assert.ok(!text.includes(stale), `${locale}/the-excellent-sauna still contains: ${stale}`);
@@ -344,8 +348,8 @@ test("keeps shared FAQ and guide claims aligned with venue-specific facts", asyn
     "Japanese FAQ still presents one therapist shift as universal",
   );
   assert.ok(
-    faq.includes("出勤時間は店ごとにおおむね13:00〜翌06:00の範囲"),
-    "Japanese FAQ is missing the venue-specific therapist-hours guidance",
+    faq.includes("店舗が24時間営業でも、すべてのマッサージを終日受けられるとは限りません"),
+    "Japanese FAQ must distinguish venue opening hours from massage availability",
   );
 
   const guide = await readFile(path.join(projectRoot, "src/i18n/pages/guide.ts"), "utf8");

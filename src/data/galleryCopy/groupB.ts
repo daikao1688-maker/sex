@@ -531,28 +531,6 @@ export const galleryCopyGroupB = {
       caption: "타원형 창 아래 넓은 그레이 시트 두 개를 놓고, 화이트 패널로 밝은 기내 풍경을 재현했습니다.",
     },
   },
-  "macau-sauna-spa-mclub-gallery-202607-07": {
-    en: {
-      alt: "Red booth room with wall screens and drinks counter",
-      caption: "Bright red booth seating, framed display screens, and a compact drinks counter give the room a bold retro diner look.",
-    },
-    "zh-TW": {
-      alt: "紅色卡座與飲品櫃的復古主題房",
-      caption: "鮮紅卡座、牆上展示螢幕與小型飲品櫃組成大膽醒目的復古餐吧場景。",
-    },
-    "zh-CN": {
-      alt: "红色卡座与饮品柜的复古主题房",
-      caption: "鲜红卡座、墙上展示屏与小型饮品柜组成大胆醒目的复古餐吧场景。",
-    },
-    ja: {
-      alt: "赤いボックス席とドリンクカウンターのレトロな部屋",
-      caption: "鮮やかな赤のボックス席に壁面モニターと小さなドリンクカウンターを合わせ、レトロダイナー風に仕上げています。",
-    },
-    ko: {
-      alt: "레드 부스와 월 스크린, 드링크 카운터의 레트로 룸",
-      caption: "선명한 레드 부스 좌석에 벽면 디스플레이와 콤팩트 드링크 카운터를 더해 레트로 다이너 무드로 완성했습니다.",
-    },
-  },
   "macau-sauna-spa-mclub-gallery-202607-08": {
     en: {
       alt: "Purple-lit aircraft cabin with rows of reclining seats",
@@ -595,50 +573,6 @@ export const galleryCopyGroupB = {
     ko: {
       alt: "레드·골드 플뢰르 드 리스를 장식한 블랙 소품 디스플레이",
       caption: "블랙 패딩 배경에 레드·골드 문장이 도드라지고, 다크 소품과 말아둔 타월이 정연하게 배치되어 있습니다.",
-    },
-  },
-  "macau-sauna-spa-mclub-gallery-202607-10": {
-    en: {
-      alt: "Close-up of a red strap with fleur-de-lis clasp",
-      caption: "A polished red-and-gold fleur-de-lis clasp fastens the red strap, shown in close detail against a warm backdrop.",
-    },
-    "zh-TW": {
-      alt: "紅色皮帶上的百合徽章扣環特寫",
-      caption: "拋光紅金百合徽章扣住鮮紅皮帶，近距離構圖清楚呈現金屬與皮革的細節。",
-    },
-    "zh-CN": {
-      alt: "红色皮带上的百合徽章扣环特写",
-      caption: "抛光红金百合徽章扣住鲜红皮带，近距离构图清楚呈现金属与皮革的细节。",
-    },
-    ja: {
-      alt: "赤いストラップに付いた百合紋章の留め具",
-      caption: "赤金のフルール・ド・リス型留め具が鮮やかなストラップをつなぎ、金属と革の質感を近接で見せています。",
-    },
-    ko: {
-      alt: "플뢰르 드 리스 클래스프가 달린 레드 스트랩 클로즈업",
-      caption: "레드·골드 플뢰르 드 리스 형태의 클래스프가 스트랩을 고정하고, 메탈과 레더의 디테일을 근접으로 보여줍니다.",
-    },
-  },
-  "macau-sauna-spa-mclub-gallery-202607-12": {
-    en: {
-      alt: "Red leather accessories arranged under crimson light",
-      caption: "Padded cuffs, straps, and textured rope are displayed in layers beneath saturated red lighting.",
-    },
-    "zh-TW": {
-      alt: "紅光下陳列的皮革配件與繩索",
-      caption: "軟墊束帶、皮革配件與紋理繩索分層擺放，飽和紅光強化了整組道具的戲劇效果。",
-    },
-    "zh-CN": {
-      alt: "红光下陈列的皮革配件与绳索",
-      caption: "软垫束带、皮革配件与纹理绳索分层摆放，饱和红光强化了整组道具的戏剧效果。",
-    },
-    ja: {
-      alt: "深紅の光の下に並べた革小物とロープ",
-      caption: "パッド入りのカフやストラップ、質感のあるロープを重ねて展示し、濃い赤の照明で劇的に見せています。",
-    },
-    ko: {
-      alt: "크림슨 조명 아래 진열된 레더 액세서리",
-      caption: "패딩 커프와 스트랩, 텍스처 로프를 겹쳐 진열하고, 깊은 레드 조명으로 드라마틱하게 연출했습니다.",
     },
   },
   "macau-sauna-spa-mclub-gallery-202607-13": {
@@ -796,28 +730,6 @@ export const galleryCopyGroupB = {
       caption: "빛나는 매립 풀을 다크 스톤으로 둘러싸고, 앰버빛 숲 영상을 벽 가득 띄워 자연 속에 있는 듯한 몰입감을 만듭니다.",
     },
   },
-  "macau-sauna-spa-mclub-placed-20260624-09": {
-    en: {
-      alt: "Masks and colourful themed accessories on a dark table",
-      caption: "Black and purple masks sit beside small colourful props and a branded card, carefully arranged on the wooden surface.",
-    },
-    "zh-TW": {
-      alt: "深色桌面上的面具與彩色主題配件",
-      caption: "黑色與紫色面具配上小巧彩色道具和標誌卡片，在木質桌面上整齊陳列。",
-    },
-    "zh-CN": {
-      alt: "深色桌面上的面具与彩色主题配件",
-      caption: "黑色与紫色面具配上小巧彩色道具和标志卡片，在木质桌面上整齐陈列。",
-    },
-    ja: {
-      alt: "濃色のテーブルに並べた仮面とカラフルな小物",
-      caption: "黒と紫のマスクに小さな色彩豊かな小物とロゴ入りカードを添え、木の天板に整然と並べています。",
-    },
-    ko: {
-      alt: "다크 테이블에 나란한 마스크와 컬러풀한 소품",
-      caption: "블랙과 퍼플 마스크에 작은 컬러 소품과 로고 카드를 곁들여, 우드 상판 위에 정연하게 진열했습니다.",
-    },
-  },
   "macau-sauna-spa-mclub-placed-20260624-10": {
     en: {
       alt: "Entertainment lounge with pool table and cinema mural",
@@ -882,28 +794,6 @@ export const galleryCopyGroupB = {
     ko: {
       alt: "블루 리클라이닝 체어와 개별 스크린의 밝은 트리트먼트룸",
       caption: "미러가 있는 깨끗한 실내에 블루 체어와 낮은 쿠션 벤치를 늘어놓고, 각 좌석의 스크린과 웜톤 벽 조명으로 편안하게 꾸몄습니다.",
-    },
-  },
-  "macau-sauna-spa-mclub-placed-20260624-14": {
-    en: {
-      alt: "Red themed room with hanging leather accessories",
-      caption: "Leather straps and metal chains hang from a dark frame, backed by saturated red curtains and neatly arranged prop cases.",
-    },
-    "zh-TW": {
-      alt: "紅色布幕前懸掛皮革配件的主題房",
-      caption: "皮革束帶與金屬鏈懸掛在深色框架上，飽和紅色布幕和整齊道具箱強化了舞台式陳設。",
-    },
-    "zh-CN": {
-      alt: "红色布幕前悬挂皮革配件的主题房",
-      caption: "皮革束带与金属链悬挂在深色框架上，饱和红色布幕和整齐道具箱强化了舞台式陈设。",
-    },
-    ja: {
-      alt: "赤いカーテンの前に革小物を吊るしたテーマルーム",
-      caption: "濃色のフレームに革のストラップと金属チェーンを掛け、深紅のカーテンと整えた小物ケースで舞台風に演出しています。",
-    },
-    ko: {
-      alt: "레드 커튼 앞에 레더 액세서리를 걸어둔 콘셉트룸",
-      caption: "다크 프레임에 레더 스트랩과 메탈 체인을 걸고, 딥레드 커튼과 정돈된 소품 케이스로 무대풍으로 연출했습니다.",
     },
   },
 } satisfies GalleryCopyMap;

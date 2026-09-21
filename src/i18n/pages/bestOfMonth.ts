@@ -54,15 +54,15 @@ const en: BestOfMonthCopy = {
   cards: [
     {
       slug: 'number-nine-sauna',
-      award: 'Best stage show',
+      award: "Newer facilities pick",
       quote:
-        'April 2026 opening in the Royal Dragon Hotel with the best stage production in the city.',
+        "Opened in April 2026 at the Royal Dragon Hotel, with newer interiors in central Macau.",
     },
     {
       slug: 'majesty-spa',
       award: 'Best of the Month',
       quote:
-        "The Fisherman's Wharf veteran with the clearest overnight positioning in town — Southeast Asian value, extra daytime discounts and no service charge.",
+        "A Fisherman's Wharf venue with overnight facilities, daytime offers and no separate service charge. Confirm the current package and rest arrangements before visiting.",
     },
     {
       slug: 'manhao-spa',
@@ -94,14 +94,14 @@ const ja: BestOfMonthCopy = {
   cards: [
     {
       slug: 'number-nine-sauna',
-      award: 'ショータイムがベスト',
-      quote: '2026年4月、御龍酒店にオープン。市内随一の演出を誇るメインステージのショータイム。',
+      award: "新しい設備のおすすめ",
+      quote: "2026年4月に御龍酒店で開業。マカオ中心部に位置し、新しい内装が特徴です。",
     },
     {
       slug: 'majesty-spa',
       award: '今月のベスト',
       quote:
-        'フィッシャーマンズワーフの老舗。東南アジア系のコスパと明確な宿泊対応に加え、昼の追加割引とサービス料無料が魅力。',
+        "フィッシャーマンズワーフの店舗。宿泊休憩の設備、昼の特典、別途サービス料なしの案内が特徴です。最新のプランと休憩条件をご確認ください。",
     },
     {
       slug: 'manhao-spa',
@@ -132,13 +132,13 @@ const zhTW: BestOfMonthCopy = {
   cards: [
     {
       slug: 'number-nine-sauna',
-      award: '最佳走秀',
-      quote: '2026 年 4 月於御龍酒店開幕，擁有全城最出色的舞台走秀。',
+      award: "新設施推薦",
+      quote: "2026 年 4 月於御龍酒店開業，位於澳門半島，設有較新的裝潢。",
     },
     {
       slug: 'majesty-spa',
       award: '本月最佳',
-      quote: '漁人碼頭老牌場館，東南亞性價比與過夜定位最清楚，日場加碼優惠與免服務費同樣到位。',
+      quote: "漁人碼頭場館，設過夜休息設施，提供日場優惠及不另收服務費的安排。到訪前請確認最新套餐與休息條件。",
     },
     {
       slug: 'manhao-spa',
@@ -168,13 +168,13 @@ const zhCN: BestOfMonthCopy = {
   cards: [
     {
       slug: 'number-nine-sauna',
-      award: '最佳走秀',
-      quote: '2026 年 4 月于御龙酒店开幕，拥有全城最出色的舞台走秀。',
+      award: "新设施推荐",
+      quote: "2026 年 4 月于御龙酒店开业，位于澳门半岛，设有较新的装潢。",
     },
     {
       slug: 'majesty-spa',
       award: '本月最佳',
-      quote: '渔人码头老牌场馆，东南亚性价比与过夜定位最清楚，日场加码优惠与免服务费同样到位。',
+      quote: "渔人码头场馆，设过夜休息设施，提供日场优惠及不另收服务费的安排。到访前请确认最新套餐与休息条件。",
     },
     {
       slug: 'manhao-spa',
@@ -205,15 +205,15 @@ const ko: BestOfMonthCopy = {
   cards: [
     {
       slug: 'number-nine-sauna',
-      award: '베스트 스테이지 쇼',
+      award: "새로운 시설 추천",
       quote:
-        '로열 드래곤 호텔의 2026년 4월 오픈 매장으로, 도시 최고 수준의 무대 연출을 자랑합니다.',
+        "2026년 4월 로열 드래곤 호텔에 오픈한 마카오 반도의 매장으로, 새로운 인테리어를 갖췄습니다.",
     },
     {
       slug: 'majesty-spa',
       award: '이달의 베스트',
       quote:
-        '피셔맨즈 워프의 노포. 야간 휴식 포지셔닝이 마카오에서 가장 뚜렷하며, 동남아 가성비와 낮 추가 할인, 서비스 요금 무료까지 갖췄습니다.',
+        "피셔맨즈 워프의 매장으로 야간 휴식 시설, 낮 시간대 혜택, 별도 서비스 요금 없는 요금제를 안내합니다. 방문 전에 최신 패키지와 휴식 조건을 확인하세요.",
     },
     {
       slug: 'manhao-spa',

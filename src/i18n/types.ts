@@ -194,7 +194,7 @@ export interface Dictionary {
 }
 
 export type QuickMatchGroup = 'solo' | 'pair' | 'small' | 'large';
-export type QuickMatchExperience = 'show' | 'theme' | 'jpkr' | 'new' | 'ktv' | 'classic';
+export type QuickMatchExperience = 'value' | 'theme' | 'taipa' | 'new' | 'ktv' | 'classic';
 export type QuickMatchWhen = 'now' | 'tonight' | 'tomorrow' | 'sat' | 'sun' | 'other';
 export type QuickMatchFrom = 'border' | 'hotel' | 'airport' | 'other';
 export type FeatureIcon = 'crown' | 'shield' | 'sparkles' | 'clock';

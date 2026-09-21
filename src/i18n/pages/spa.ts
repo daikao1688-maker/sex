@@ -288,15 +288,14 @@ const en: SpaPageCopy = {
       aliases: 'Manhao Spa Macau, 曼濠水療',
       highlights: [
         'Newest Taipa 2026',
-        'Biggest model showcase',
+        'Spacious stage',
         'Signature red waterbed',
         'Imperial marble luxe',
       ],
-      bestFor: 'Largest model showcase / Taipa luxury debut',
+      bestFor: 'A spacious stage / luxury in Taipa',
       features: [
-        'Recommended {ratingStars}',
         'Newest Taipa opening — 1 May 2026',
-        'Macau\'s largest model showcase / catwalk hall',
+        'Spacious stage hall',
         'Signature red waterbed in spotlit suites',
         'Integrated bedroom + waterbed luxury suites',
         'Calacatta-marble lounges and changing rooms',
@@ -320,16 +319,16 @@ const en: SpaPageCopy = {
           body: 'Take complimentary food and drinks in the marble-topped dining lounge — quiet, hotel-grade seating with a private bar feel, designed for taking your time before or after service.',
         },
         {
-          title: 'Macau\'s Largest Model Showcase',
-          body: 'The marquee feature: a multi-tiered glass-railed catwalk hall lit in deep blue neon, which Manhao positions as the largest model showcase in Macau. The runway-scale presentation makes the selection process a centerpiece experience rather than a side step. Once you\'ve decided, the manager confirms the price tier (MOP 2,488 – 6,088).',
+          title: 'Spacious Stage',
+          body: 'A defining feature is the spacious stage hall, where glass balustrades span multiple levels under deep blue neon lighting. The scale of the stage and layered lighting make this a striking focal point of Manhao Spa.',
         },
         {
           title: 'Integrated Suite & Signature Waterbed',
           body: 'Treatment rooms are integrated suites — premium bedroom finishes (mural-papered walls, oversized bed, sofa, lamps) combined with the venue\'s signature red waterbed lit by a single dramatic spotlight. The two surfaces share one private room so you don\'t have to relocate during service.',
         },
         {
-          title: '60-Minute Service',
-          body: 'Settle into the 60-minute session in your private suite. The multinational therapist roster offers massage styles to match your preference. Lighting, sound, and bath are controllable from the room.',
+          title: '60-Minute Massage',
+          body: 'Take an hour to unwind with a 60-minute massage. Adjust the lighting and music to your liking, settle into a comfortable atmosphere, and give yourself time to relax.',
         },
         {
           title: 'Rest Area',
@@ -410,17 +409,17 @@ const en: SpaPageCopy = {
       aliases: 'Number Nine Spa Macau, No.9 Spa, 玖號水療',
       highlights: [
         'Brand new — opened April 2026',
-        'Modern stage entertainment',
+        'Modern stage facilities',
         'Multiple ambient themed rooms',
         'Balinese + Japanese massage',
       ],
       bestFor: 'Trying the newest venue',
       features: [
-        'Unique rooms',
-        'fashion show stage entertainment',
-        'diverse auditions',
-        'various props',
-        'featuring Japanese and Korean themes.',
+        'Distinct room designs',
+        'Stage lighting',
+        'LED screens',
+        'Modern bathing facilities',
+        'Balinese-style and Japanese-style massage',
       ],
       flow: [
         {
@@ -436,8 +435,8 @@ const en: SpaPageCopy = {
           body: 'Complimentary dining with an emphasis on diverse, premium food selections — the venue treats dining as an integral part of the overall experience.',
         },
         {
-          title: 'Stage Selection Show',
-          body: 'The entertainment hall features professional stage lighting and LED screens, delivering the most modern visual experience of any selection show in Macau. Multi-national therapists showcase on stage in a fresh, distinctive format.',
+          title: 'Hall Facilities',
+          body: 'The hall combines stage lighting and LED screens with gold accents and marble finishes for a distinctive modern interior.',
         },
         {
           title: 'Choose Themed Room',
@@ -530,7 +529,7 @@ const en: SpaPageCopy = {
       bestFor: 'A quiet setting / modern facilities',
       features: [
         'Recommended rating: {ratingStars}',
-        'Free therapist add-on with selected packages',
+        'Complimentary massage or care treatment; confirm the included treatment when booking.',
         'international service standards',
         'extremely high cost performance.',
       ],
@@ -631,18 +630,13 @@ const en: SpaPageCopy = {
       highlights: [
         'Most luxurious decor',
         'Largest rooms',
-        'Best dual-service price',
         'No service fee',
-        'Buy one, get one free (ask for details when booking)',
       ],
       bestFor: 'Luxury environment / overnight stays',
       features: [
-        'Rating {ratingStars}',
         'The most luxurious decor in Macau',
-        'a talent show with scenic views',
-        'over ten themed rooms',
+        'More than ten different room styles',
         'a KTV-room party mode',
-        'close-up interactive experiences',
         'open 24 hours a day.',
         'No service fee',
       ],
@@ -660,16 +654,16 @@ const en: SpaPageCopy = {
           body: 'Complimentary steak, fresh fruit, cold beer, and more with a generous selection of dishes. Majesty\'s food quality is widely praised in the industry, with unlimited servings throughout your stay.',
         },
         {
-          title: 'Scenic Line Show',
-          body: 'The hall \'scenic line\' selection format features multinational therapists lined up in a row, with some proactively smiling and lightly engaging with guests. The atmosphere is relaxed and natural — less formal than other venues. You can observe up close with minimal selection pressure.',
+          title: 'A Spacious Stage',
+          body: 'The hall uses a “scenic line” format: therapists from different countries stand in a row, and you decide on site who will provide your massage.',
         },
         {
           title: 'Confirm Prices',
           body: 'Prices range from MOP 2,799 to MOP 6,699.',
         },
         {
-          title: '60-Minute Session',
-          body: 'Enter spacious luxury rooms with mood lighting and premium furniture. The sense of space is generous — a top choice for those who prioritize environment quality.',
+          title: '60-minute massage',
+          body: 'Enjoy a 60-minute massage in a spacious room with soft lighting and comfortable furnishings. Confirm the massage option and its price before the session.',
         },
         {
           title: 'Rest & Stay Overnight',
@@ -757,16 +751,16 @@ const en: SpaPageCopy = {
           body: 'Complimentary dining is available around the clock, so you can eat whether you arrive in the afternoon or late at night.',
         },
         {
-          title: 'Boutique Selection',
-          body: 'The Excellent uses a boutique face-to-face selection model — a carefully screened, high-quality multinational lineup following a \'fewer but finer\' philosophy, with each therapist vetted for both appearance and service standards. No large runway shows; the manager introduces options one by one based on your preferences in a private, unhurried setting.',
+          title: 'Discuss Your Massage',
+          body: 'Tell reception which areas you would like to focus on and your preferred massage pressure. Review the available options, duration and charges before confirming your arrangements.',
         },
         {
           title: 'Water Bed or Themed Room',
-          body: 'The Excellent offers both water bed service and scenario-based themed rooms — choose a traditional Dongguan-style water bed experience, or pick a themed room (office, classroom, hospital, cinema, etc.).',
+          body: 'Room interiors draw on different styles, including offices, classrooms and cinemas, with waterbeds available in some rooms. Ask about the facilities and room availability before choosing your setting.',
         },
         {
-          title: '60-Minute Session',
-          body: 'Enter your chosen room for approximately 60 minutes of dedicated service. A 10% service fee applies. The Excellent\'s Thai- and Shanghai-style massage techniques remain a strong reason to visit even if you choose a simpler room setup.',
+          title: '60-Minute Massage',
+          body: 'Massage sessions last approximately 60 minutes, with a 10% service charge. Thai-style and Shanghai-style massage are available; confirm the techniques, pressure and charges before starting.',
         },
         {
           title: 'Rest & Stay Overnight',
@@ -852,7 +846,6 @@ const en: SpaPageCopy = {
         'Newest premium opening — 15 May 2026',
         'HK$80M luxury build',
         'Themed suites with hotel-grade amenities',
-        'Taiwanese & Japanese headlining therapists',
         'Signature waterbed massage rooms',
         '24-hour service, overnight rest areas',
       ],
@@ -870,16 +863,16 @@ const en: SpaPageCopy = {
           body: 'Move through to the dining area for complimentary food and drinks. The room is styled to hotel-grade standards rather than typical sauna canteen — quiet, private, with comfortable seating designed for taking your time before or after service.',
         },
         {
-          title: 'Therapist Selection',
-          body: 'Meet the multinational lineup, including influencer- and celebrity-level headliners. Selection is conducted in a private viewing format rather than a stage, in keeping with the brand\'s quieter, concierge-led tone. Once you\'ve decided, the manager confirms the price tier (MOP 2,488 – 7,388); detailed menu items are shared on the spot.',
+          title: 'Confirm Massage Options and Fees',
+          body: 'Ask reception about the massage options, duration and itemised charges before deciding what suits your needs. Reference prices range from MOP 2,488 to 7,388; confirm the service details and total cost before starting.',
         },
         {
           title: 'Themed Suite or Waterbed Room',
           body: 'Choose from multiple themed suites — each with custom mood lighting, premium bedding, and luxury hotel finishings — or one of the signature waterbed massage rooms designed specifically for Empire\'s signature service.',
         },
         {
-          title: '60-Minute Service',
-          body: 'Settle into the 60-minute session in your private room. Massage styles span Taiwan-style, Japanese-style, and the venue\'s signature waterbed treatments. Rooms are sized for comfort, with bath, lighting, and sound all controllable from the bed.',
+          title: '60-Minute Massage',
+          body: 'The massage lasts 60 minutes; ask reception about the techniques and arrangements beforehand. Rooms include a bathtub and adjustable lighting and audio, so you can set a comfortable atmosphere.',
         },
         {
           title: 'Rest Area & Overnight',
@@ -963,13 +956,11 @@ const en: SpaPageCopy = {
     'east-castle-spa': {
       aliases: 'East Castle Spa Macau, 東方皇堡水療',
       highlights: [
-        '20+ themed rooms',
+        'More than 20 distinct room designs',
       ],
-      bestFor: 'Themed room interiors',
+      bestFor: 'Exploring different room designs',
       features: [
-        'Rating {ratingStars}',
-        '20+ Themed Scenario Rooms',
-        'Pioneer of themed rooms in Macau',
+        '20+ distinct room designs',
         'Professional Service Team',
         'Open 24 Hours',
         'Private & Secure Environment',
@@ -981,19 +972,19 @@ const en: SpaPageCopy = {
         },
         {
           title: 'Bathe & Relax',
-          body: 'Enjoy the bathing facilities and sauna to unwind. A unique feature of East Castle is that therapists mingle throughout the venue, so you can observe and browse while soaking.',
+          body: 'Enjoy the bathing facilities and sauna at your own pace, with time to soak, rest and unwind after your travels.',
         },
         {
           title: 'Free Dining',
-          body: 'Complimentary dining available — enjoy a meal in the dining area while keeping an eye on the therapists moving around the venue.',
+          body: 'Complimentary food and drinks are available. Take a break in the dining area before continuing with your visit.',
         },
         {
-          title: 'Browse & Pick',
-          body: 'East Castle uses a \'free browse\' model — there\'s no fixed show schedule. Multinational therapists are spread across different areas of the venue, and you can approach or select anyone you like at any time by telling the manager. This format makes the selection process feel natural and pressure-free.',
+          title: 'Confirm Your Massage',
+          body: 'Ask reception about massage options, available times and room availability. Confirm the service details, duration and itemised charges before starting.',
         },
         {
-          title: 'Themed Rooms',
-          body: 'East Castle\'s biggest draw — over 20 meticulously designed themed rooms including a prison interrogation room, classroom, office, airplane cabin, hospital, ambulance (signature room), boxing ring, and golf course.',
+          title: '20+ Distinct Room Designs',
+          body: 'One of East Castle Spa’s highlights is its choice of more than 20 room designs. Each has a different interior style, so you can enjoy your massage in surroundings that suit your taste.',
         },
         {
           title: 'Service Charges and Tax',
@@ -1160,44 +1151,34 @@ const en: SpaPageCopy = {
         'Hot spring rooms',
         'More luxurious decor',
       ],
-      bestFor: 'Luxury themed experience',
+      bestFor: 'Historical facilities — temporarily closed',
       features: [
-        'Rating {ratingStars}',
-        'High-Tech Cyberpunk Style',
-        'Rich Themed Room Selection',
-        'Script-Killing Experiences',
-        'KTV Party Mode',
-        'Futuristic Décor',
-        'Open 24 Hours',
+        'Futuristic interiors',
+        'Distinct room designs',
+        'KTV rooms',
+        'Bathing facilities',
+        'Temporarily closed',
       ],
       flow: [
         {
-          title: 'Arrive & Check In',
-          body: 'Arrive at M Club, the luxury sister venue to East Castle Spa, positioned as a more premium, upscale experience. The decor is more refined than East Castle, featuring exclusive KTV rooms and hot spring rooms. Register at the front desk and collect your wristband.',
+          title: 'Temporarily Closed',
+          body: 'M Club is currently closed and is not accepting guests or bookings. The information below describes its former facilities.',
         },
         {
-          title: 'Bathe & Relax',
-          body: 'Enjoy the bathing facilities and sauna. M Club features hot spring rooms where you can enjoy a private hot spring soak — a unique facility not found at other venues.',
+          title: 'Venue and Rooms',
+          body: 'A sister venue of East Castle Spa, M Club previously featured rooms in different styles, KTV rooms and bathing facilities.',
         },
         {
-          title: 'Free Dining',
-          body: 'Complimentary dining in a setting that matches the overall luxurious decor, providing a comfortable dining experience.',
+          title: 'Bathing and Dining',
+          body: 'The former facilities included bathing, sauna and dining areas with futuristic interiors. These facilities are not currently open to visitors.',
         },
         {
-          title: 'Browse & Pick',
-          body: 'Same free-browse model as East Castle — multinational therapists move freely throughout the venue and you can choose at any time. No fixed show schedule to wait for.',
+          title: 'Historical Charges',
+          body: 'A 10% service charge previously applied. This is a historical record, not a current quotation or booking offer.',
         },
         {
-          title: 'KTV & Themed Rooms',
-          body: 'M Club\'s exclusive KTV themed rooms let you sing karaoke while enjoying service. Additional luxury themed options include hot spring rooms, with higher-end decor and more expensive room builds than East Castle.',
-        },
-        {
-          title: '60-Minute Session',
-          body: 'A fully immersive, narrative-driven interactive service where you can customize the script and scene. Prices are somewhat higher than East Castle, but room facilities and decor are more luxurious. A 10% service fee applies.',
-        },
-        {
-          title: 'Rest & Stay Overnight',
-          body: 'Lobby reclining chairs available for overnight rest. M Club has lower foot traffic than East Castle, making for a relatively quieter environment.',
+          title: 'Rest Facilities',
+          body: 'The lobby formerly had a recliner lounge. Overnight stays are unavailable during the closure; any reopening arrangements should be checked against the venue’s latest announcement.',
         },
       ],
       gallery: [
@@ -1283,48 +1264,39 @@ const en: SpaPageCopy = {
     'number-one-sauna': {
       aliases: 'Number One Sauna Macau, The One Sauna, 壹號桑拿',
       highlights: [
-        'Most staff in Macau',
-        'Widest international selection',
-        'Recommended for first-timers',
-        'Famous complimentary steak',
+        'Spacious changing rooms',
+        'Whirlpool baths',
+        'Dry sauna and steam room',
+        'Former dining facilities',
       ],
-      bestFor: 'First-time visitors',
+      bestFor: 'Historical facilities — temporarily closed',
       features: [
-        'Rating {ratingStars}',
-        'Popular sauna in Macau',
-        'multi-nationality options',
-        'high quality guaranteed',
-        'visually stunning',
-        'open 24 hours.',
+        'Bathing facilities',
+        'Spacious hall',
+        'Lockers',
+        'Rest area',
+        'Temporarily closed',
       ],
       flow: [
         {
-          title: 'Arrive & Check In',
-          body: 'Arrive at Number One Sauna and register at the front desk to collect your wristband and locker key. The changing rooms are spacious with brand-new facilities.',
+          title: 'Temporarily Closed',
+          body: 'Number One Sauna is currently closed and is not accepting guests or bookings. The information below is a record of its former facilities.',
         },
         {
-          title: 'Bathe & Relax',
-          body: 'The venue features a large jacuzzi, dry sauna, and steam room with soft, ambient lighting. We recommend spending 20-30 minutes soaking first to unwind and ease into the experience.',
+          title: 'Bathing and Changing Facilities',
+          body: 'The venue formerly had spacious changing rooms, lockers, large whirlpool baths, a dry sauna and a steam room.',
         },
         {
-          title: 'Free Dining',
-          body: 'Unlimited complimentary food throughout your stay — the signature steak is Number One\'s most popular dish, alongside fried rice, fried noodles, fresh fruit platters, and cold beer. The spacious dining area overlooks the main hall activity.',
+          title: 'Dining Area',
+          body: 'Previous dining options included steak, fried rice, noodles, fruit and drinks, served in a spacious dining area. Dining service is currently unavailable.',
         },
         {
-          title: 'Grand Selection Show',
-          body: 'Each night, multinational staff walk the hall runway in groups with professional lighting and sound — a spectacular sight. Each round takes about 30 minutes, featuring staff from China, Vietnam, Thailand, Taiwan, Japan, Korea, Russia, and Ukraine — the largest and most international show in all of Macau.',
+          title: 'Historical Prices',
+          body: 'The recorded historical price range was MOP 2,199 to MOP 7,699. These are not current quotations; bookings and services are unavailable during the closure.',
         },
         {
-          title: 'Choose Your Therapist',
-          body: 'Tell the manager your preferred number and they\'ll confirm the service tier and corresponding price. Prices range from MOP 2,199 to MOP 7,699 depending on the staff category. During peak hours (22:00-00:00 on weekends), popular therapists may require a wait — arriving early is recommended.',
-        },
-        {
-          title: '60-Minute Session',
-          body: 'Enter a private room for an exclusive one-on-one water bed session — Number One is famous across Macau for its water bed service. Additional paid mini-services include ear cleaning, nail care, and back massage.',
-        },
-        {
-          title: 'Rest & Stay Overnight',
-          body: 'After your session, rest in reclining chairs or stay overnight. Note that the rest area gets lively during peak hours; for quiet sleep, aim to settle in after 2 AM, with 6-8 AM being the quietest. Enjoy a complimentary breakfast the next morning before heading out.',
+          title: 'Rest Facilities',
+          body: 'A recliner rest area was previously available. Overnight stays are unavailable during the closure; check the venue’s latest announcement for any reopening.',
         },
       ],
       gallery: [
@@ -1395,48 +1367,38 @@ const en: SpaPageCopy = {
     'familia-nobre': {
       aliases: 'Familia Nobre Macau, 豪門桑拿殿',
       highlights: [
-        'Largest venue',
-        'No service fee',
-        'Best quality-to-value ratio',
+        'Spacious bathing area',
+        'Multiple rooms',
+        'Rest area',
       ],
-      bestFor: 'Best value seekers',
+      bestFor: 'Historical facilities — temporarily closed',
       features: [
-        'Rating {ratingStars}',
-        'Macau\'s largest sauna',
-        'with the most rooms',
-        'stable service',
-        'best value for money',
-        'No service fee',
-        'open 24 hours.',
+        'Spacious bathing area',
+        'Multiple rooms',
+        'Lockers',
+        'Recliner lounge',
+        'Temporarily closed',
       ],
       flow: [
         {
-          title: 'Arrive & Check In',
-          body: 'Arrive at Familia Nobre and register at the front desk to collect your wristband and locker key. The changing room has secure lockers for free luggage storage — slip into a robe and you\'re ready to go.',
+          title: 'Temporarily Closed',
+          body: 'Familia Nobre is currently closed and is not accepting guests or bookings. The information below records its former facilities.',
         },
         {
-          title: 'Bathe & Relax',
-          body: 'The bathing area is the largest in all of Macau, with multiple jacuzzis and sauna rooms in a spacious, uncrowded setting. Even during peak hours, you won\'t find yourself waiting in line.',
+          title: 'Bathing and Changing Facilities',
+          body: 'The venue formerly had spacious changing rooms, lockers, baths and sauna rooms, with separate bathing, dining and rest areas.',
         },
         {
-          title: 'Free Dining',
-          body: 'Complimentary steak, cold beer, and various stir-fry dishes — Familia Nobre\'s steak and beer are highly praised among regulars. The dining area is spacious and comfortable, with unlimited servings at no extra charge.',
+          title: 'Dining and Rooms',
+          body: 'Steak, drinks and hot food were previously served, and the venue had multiple rooms. Dining and room facilities are not currently open to visitors.',
         },
         {
-          title: 'Selection',
-          body: 'The manager lines up a row of therapists for you to observe up close and choose at your own pace. Price tiers for each group are announced in advance so you know the cost before selecting.',
+          title: 'Historical Prices',
+          body: 'The recorded historical price range was MOP 2,388 to MOP 6,988, with no service charge at that time. This is a historical record, not a current quotation.',
         },
         {
-          title: 'Choose Your Therapist',
-          body: 'Zero service fee — the listed price is the final price with no hidden charges or surcharges. Prices range from MOP 2,388 to MOP 6,988, making it the best value in Macau. With ample space and rooms, there\'s virtually no waiting.',
-        },
-        {
-          title: '60-Minute Session',
-          body: 'Enter a private room for an exclusive one-on-one session. Familia Nobre has the most rooms of any venue in Macau, so even during busy periods you\'ll rarely have to wait — a smooth and seamless experience.',
-        },
-        {
-          title: 'Rest & Stay Overnight',
-          body: 'The most reclining chairs of any venue in a spacious rest area with generous spacing between seats for comfortable overnight stays. No noisy entertainment shows to disturb you — ideal for quiet rest. Enjoy a complimentary breakfast the next morning before leaving.',
+          title: 'Rest Facilities',
+          body: 'The former rest area had multiple recliners spaced apart. Overnight stays are unavailable during the closure; check the venue’s latest announcement for any reopening.',
         },
       ],
       gallery: [
@@ -1762,15 +1724,14 @@ const ja: SpaPageCopy = {
       aliases: '曼濠水療、Manhao Spa',
       highlights: [
         '2026年 氹仔最新',
-        '最大のショータイム舞台',
+        'ゆとりある大きなステージ',
         '看板の赤いウォーターベッド',
         '皇者の大理石ラグジュアリー',
       ],
-      bestFor: '最大のショータイム舞台／氹仔の高級マカオ サウナ',
+      bestFor: '広いステージ／タイパでの贅沢なひととき',
       features: [
-        'おすすめ度{ratingStars}',
         '2026年5月1日 氹仔に新規オープン',
-        '全マカオ最大のショータイム・キャットウォークホール',
+        '広々としたステージホール',
         '看板の赤いウォーターベッド（スポットライト個室）',
         '寝室＋ウォーターベッドの一体型スイート',
         'カラカッタ大理石のラウンジ＆ロッカールーム',
@@ -1794,16 +1755,16 @@ const ja: SpaPageCopy = {
           body: '大理石トップのダイニングラウンジで、無料のフード＆ドリンクを。静かでホテル級の座席とプライベートバーのような雰囲気で、施術の前後にゆっくり過ごせます。',
         },
         {
-          title: '全マカオ最大のショータイム',
-          body: '目玉は、ディープブルーのネオンに照らされた多層ガラス手すりのキャットウォークホール。マンハオはこれを全マカオ最大のショータイムと位置づけており、ランウェイさながらの演出が、女の子を選ぶ時間そのものを主役級の体験へと変えてくれます。指名が決まったら、マネージャーが料金帯（MOP 2,488〜6,088）をご案内します。',
+          title: 'ゆとりある大きなステージ',
+          body: 'マンハオスパの見どころは、ディープブルーのネオンと多層のガラス手すりが印象的なステージホール。ゆとりある舞台と立体的な照明が、館内の華やかな見せ場をつくります。',
         },
         {
           title: '一体型スイートと看板ウォーターベッド',
           body: '客室は一体型スイート。プレミアムな寝室仕様（壁画調の壁、特大ベッド、ソファ、ランプ）に、ひと筋のドラマチックなスポットライトで照らされた看板の赤いウォーターベッドを組み合わせています。寝室とウォーターベッドは同じ個室に収まり、施術中に部屋を移動する必要はありません。',
         },
         {
-          title: '60分の施術',
-          body: 'プライベートスイートで、60分の施術をお楽しみください。多国籍の女の子が在籍し、マッサージのスタイルもお好みに合わせて選べます。照明・音響・浴槽はすべて室内から操作できます。',
+          title: '60分のマッサージ',
+          body: '60分のマッサージで、日常や旅の疲れをゆっくりとほぐしましょう。照明と音楽はお好みに合わせて調整でき、心地よい空間でくつろげます。',
         },
         {
           title: '休憩エリア',
@@ -1882,17 +1843,17 @@ const ja: SpaPageCopy = {
       aliases: '玖號水療、Number Nine Spa',
       highlights: [
         '2026年4月オープンの最新店',
-        'モダンなステージ演出',
+        'モダンなステージ設備',
         '多彩な雰囲気テーマルーム',
         'バリ式＋日本式マッサージ',
       ],
       bestFor: '最新店を一番乗りで体験',
       features: [
-        '特色テーマルーム',
-        'ファッションショー風ステージ演出',
-        '多彩なショータイム',
-        '豊富なプレイ小物',
-        '日本・韓国勢が主力',
+        '多彩な客室デザイン',
+        'ステージ照明',
+        'LEDスクリーン',
+        'モダンな入浴設備',
+        'バリ式・日本式マッサージ',
       ],
       flow: [
         {
@@ -1908,8 +1869,8 @@ const ja: SpaPageCopy = {
           body: '各種フード＆ドリンクを無料でご利用いただけます。多彩で高級志向のメニューにこだわり、お食事も体験全体の大切な一部としてお楽しみいただけます。',
         },
         {
-          title: 'ステージでの女の子紹介（ショータイム）',
-          body: 'エンタメホールはプロ仕様のステージ照明とLEDスクリーンを備え、女の子の紹介はマカオ随一のモダンな映像演出で楽しめます。多国籍の女の子がステージに登場する、新鮮で個性的なスタイルです。',
+          title: 'ホール設備',
+          body: 'ホールにはステージ照明とLEDスクリーンを備え、ゴールドの装飾と大理石を組み合わせたモダンな空間が広がります。',
         },
         {
           title: 'テーマルームを選ぶ',
@@ -2000,7 +1961,7 @@ const ja: SpaPageCopy = {
       bestFor: '落ち着いた空間／モダンな設備',
       features: [
         'おすすめ度{ratingStars}',
-        '対象コースでセラピスト無料特典',
+        '指定のマッサージまたはケア施術を無料で提供します。対象の施術はご予約時にご確認ください。',
         '国際水準のサービス',
         'コスパ抜群',
       ],
@@ -2099,18 +2060,13 @@ const ja: SpaPageCopy = {
       highlights: [
         '最高峰の豪華内装',
         '最大級の客室',
-        '女の子2名指名がいちばんお得',
         'サービス料無料',
-        '1名分の料金で2名利用（詳細は予約時にご確認ください）',
       ],
       bestFor: '豪華な空間／宿泊（24時間）の本命',
       features: [
-        'おすすめ度{ratingStars}',
         'マカオ最高峰の豪華内装',
-        '景色を眺めるショータイム形式',
-        '10種類以上のテーマルーム',
+        '10種類以上の異なるスタイルの客室',
         'KTVルームでパーティーモード',
-        '近距離での濃厚な接客',
         '24時間営業',
         'サービス料無料',
       ],
@@ -2128,16 +2084,16 @@ const ja: SpaPageCopy = {
           body: 'ステーキ、新鮮なフルーツ、よく冷えたビールなどを無料でどうぞ。食材もメニューも豊富で、マジェスティの食事クオリティは業界でも高く評価されています。滞在中は食べ放題・飲み放題です。',
         },
         {
-          title: '景色を眺めるショータイム',
-          body: '大広間の「景色を眺める」ショータイム形式——多国籍の女の子が一列に並び、なかには自分から微笑みかけ、軽く触れてくる子もいます。雰囲気は他店ほど堅苦しくなく、あくまで自然体。間近でじっくり眺められるので、選ぶときのプレッシャーも少なめです。',
+          title: '広々としたステージ',
+          body: 'ホールでは「景観ライン」形式で各国のセラピストが一列に並び、マッサージを担当するセラピストをその場で選べます。',
         },
         {
           title: '料金の確認',
           body: '料金はMOP 2,799〜MOP 6,699。',
         },
         {
-          title: '60分のサービス',
-          body: 'ゆったりとした豪華な客室へ。雰囲気のある照明と高級家具を備え、空間にゆとりがあります。環境の質を重視する方の本命です。',
+          title: '60分のマッサージ',
+          body: '広々とした客室で60分のマッサージを受けられます。照明や家具が落ち着いた空間を整えています。施術内容と料金は開始前にご確認ください。',
         },
         {
           title: '休憩・宿泊',
@@ -2223,16 +2179,16 @@ const ja: SpaPageCopy = {
           body: '各種フードを24時間無料で提供。午後でも深夜でも、自分のタイミングで食事を楽しめます。',
         },
         {
-          title: '精品セレクション',
-          body: 'エクセレントは一人ずつ対面で選ぶ「精品（少数精鋭）」スタイル。厳選された質の高い多国籍の女の子が在籍し、容姿もサービスもしっかり管理されています。大がかりなショータイムはなく、マネージャーが好みに合わせて一人ずつ紹介してくれるので、落ち着いた雰囲気でじっくり選べます。',
+          title: 'マッサージの相談',
+          body: '重点的にほぐしたい部位や好みの力加減を受付に伝え、利用できるマッサージの内容、時間、料金を確認してから申し込みます。',
         },
         {
           title: 'ウォーターベッド／テーマルーム',
-          body: 'エクセレントではウォーターベッドとシチュエーション型テーマルームの両方を用意。伝統的な莞式ウォーターベッド体験を選ぶことも、テーマルーム（オフィス・教室・病院など）を選ぶこともできます。',
+          body: 'オフィス、教室、映画館などをモチーフにした内装があり、ウォーターベッドを備えた客室もあります。設備や空き状況を確認して、好みに合う空間を選べます。',
         },
         {
-          title: '60分のサービス',
-          body: '選んだお部屋で約60分の専属サービスを満喫。サービス料は10%です。エクセレントのタイ式・上海式マッサージは、シンプルな部屋を選んでも十分に楽しめる本格的な内容です。',
+          title: '60分のマッサージ',
+          body: 'マッサージは約60分で、別途10%のサービス料がかかります。タイ式と上海式のマッサージがあり、施術の内容、力加減、料金は開始前にご確認ください。',
         },
         {
           title: '休憩・宿泊',
@@ -2316,7 +2272,6 @@ const ja: SpaPageCopy = {
         '【2026年最新版】2026年5月15日 新規オープン',
         '港幣8,000万の高級内装',
         'ホテル級テーマスイート',
-        'インフルエンサー級／有名級が在籍',
         '看板のウォーターベッド特別ルーム',
         '24時間営業・宿泊（24時間）OK',
       ],
@@ -2334,16 +2289,16 @@ const ja: SpaPageCopy = {
           body: 'ダイニングへ移動し、無料の食事とドリンクをどうぞ。従来のサウナの食堂とは一線を画すホテル級の内装で、静かでプライベート感のある快適な座席をご用意。サービスの前後にゆっくりとお過ごしいただけます。',
         },
         {
-          title: '女の子の指名',
-          body: '人気インフルエンサー級や有名級も在籍する多国籍の顔ぶれと対面。指名はステージ形式ではなく、落ち着いた高級店らしいプライベートな観賞スタイル（ショータイム）で行います。決まったらマネージャーが料金帯（MOP 2,488〜7,388）を確認します。詳しいメニューはその場でご案内します。',
+          title: 'マッサージ内容と料金の確認',
+          body: '受付でマッサージの内容、所要時間、料金の内訳を確認し、ご自身の希望に合うものを選びます。参考料金は MOP 2,488～7,388 です。利用前に内容と合計金額をご確認ください。',
         },
         {
           title: 'テーマスイートまたはウォーターベッドルーム',
           body: 'オーダーメイドの間接照明・上質な寝具・ホテル級の装飾を備えた多彩なテーマスイート、または看板のウォーターベッド特別ルームから選択。',
         },
         {
-          title: '60分のサービス',
-          body: '個室で60分のサービスを満喫。マッサージは台湾式・日本式、そして看板のウォーターベッド特別サービスまで対応しています。お部屋は快適さを重視した造りで、バス・照明・音響はすべてベッドサイドから操作できます。',
+          title: '60分のマッサージ',
+          body: 'マッサージは60分です。手法や利用の流れは、事前に受付へお問い合わせください。客室には浴槽があり、照明と音響を室内で調整して、好みの落ち着いた環境を整えられます。',
         },
         {
           title: '休憩・宿泊（24時間）',
@@ -2425,13 +2380,11 @@ const ja: SpaPageCopy = {
     'east-castle-spa': {
       aliases: '東方皇堡水療、East Castle Spa',
       highlights: [
-        '20室以上のテーマルーム',
+        '20種類以上の客室デザイン',
       ],
-      bestFor: 'テーマルームの内装',
+      bestFor: 'さまざまな客室デザインを楽しむ',
       features: [
-        'おすすめ度{ratingStars}',
-        'テーマルーム20室以上',
-        'マカオのテーマルームの先駆け',
+        '20種類以上の客室デザイン',
         'プロのサービスチーム',
         '24時間営業',
         'プライベートで安心の空間',
@@ -2443,19 +2396,19 @@ const ja: SpaPageCopy = {
         },
         {
           title: '入浴・リラックス',
-          body: '浴室設備やサウナで心身をゆったりとほぐしましょう。皇堡ならではの特徴は、女の子が場内のあちこちを動き回っていること。お湯に浸かりながら、その様子を眺めて選べます。',
+          body: '浴槽やサウナを自分のペースで利用し、入浴や休憩をしながら旅の疲れを癒せます。',
         },
         {
           title: '無料の食事',
-          body: '各種の食事を無料で楽しめます。ダイニングでひと息つきながら、場内を動き回る女の子の様子をチェックしておきましょう。',
+          body: '無料の食事と飲み物を用意しています。ダイニングでひと休みしてから、その後の予定をゆっくり決められます。',
         },
         {
-          title: '自由に指名',
-          body: '皇堡は「自由閲覧」スタイル。固定のショータイムはなく、多国籍の女の子が場内の各エリアに散らばっています。どのエリアでも、気になった子にその場で声をかけてマネージャーに伝えるだけ。だから選ぶ流れがとても自然で、プレッシャーを感じることもありません。',
+          title: 'マッサージの確認',
+          body: '受付でマッサージの内容、予約可能な時間、客室の空き状況を確認します。利用前に内容、所要時間、料金の内訳を確かめて、ご自身の予定に合わせてお選びください。',
         },
         {
-          title: 'テーマルーム',
-          body: '皇堡最大の目玉——作り込まれたテーマルームが20室以上。監獄の取調室、教室、オフィス、飛行機の客室、病院、救急車（看板の部屋）、ボクシングリング、ゴルフ場など。',
+          title: '20種類以上の客室デザイン',
+          body: 'イーストキャッスルスパの魅力の一つは、20種類以上の個性ある客室デザインです。内装や雰囲気の異なる部屋から、好みに合った空間でマッサージを楽しめます。',
         },
         {
           title: 'サービス料・税金',
@@ -2618,44 +2571,34 @@ const ja: SpaPageCopy = {
         '温泉房',
         'さらに豪華な内装',
       ],
-      bestFor: '豪華なテーマ体験',
+      bestFor: '過去の設備情報（営業休止中）',
       features: [
-        'おすすめ度{ratingStars}',
-        'テック感あふれる内装',
-        '豊富なテーマ個室',
-        'テーマ演出体験',
-        'KTVパーティーモード',
-        '近未来デザイン',
-        '24時間営業',
+        '近未来的な内装',
+        '多彩な客室デザイン',
+        'KTVルーム',
+        '入浴設備',
+        '営業休止中',
       ],
       flow: [
         {
-          title: '到着・チェックイン',
-          body: 'イーストキャッスルスパ（東方皇堡水療）の姉妹店であるエムクラブに到着します。よりプレミアムでハイエンドな位置づけで、内装も皇堡よりさらに洗練されています。KTV房や温泉房といった独自の設備を備えています。フロントで受付を済ませ、リストバンドを受け取りましょう。',
+          title: '営業休止中',
+          body: 'MCLUBは現在営業を休止しており、来店や予約を受け付けていません。以下は過去の設備に関する情報です。',
         },
         {
-          title: '入浴・リラックス',
-          body: 'バスエリアとサウナを満喫。エムクラブには温泉房があり、プライベートな温泉の湯浴みを体験できます。他店にはない独自の設備です。',
+          title: '施設と客室',
+          body: '東方皇堡水療の姉妹店で、かつては異なるデザインの客室、KTVルーム、入浴設備を備えていました。',
         },
         {
-          title: '無料の食事',
-          body: '各種の食事を無料でお楽しみいただけます。ダイニングは全体の豪華な内装に調和した、居心地のよい空間です。',
+          title: '入浴・飲食設備',
+          body: '近未来的な内装の浴場、サウナ、飲食スペースがありました。現在は利用できません。',
         },
         {
-          title: '自由に指名',
-          body: '皇堡と同じく自由に見て回るスタイルで、多国籍の女の子が館内の各エリアにいるので、いつでもお選びいただけます。決まったショータイムを待つ必要はありません。',
+          title: '過去の料金情報',
+          body: '営業当時は別途10%のサービス料がかかりました。過去の記録であり、現在の料金案内や予約プランではありません。',
         },
         {
-          title: 'KTV・テーマ個室',
-          body: 'エムクラブ独自のKTVテーマ個室では、歌いながらサービスを楽しめます。温泉房など豪華なテーマの選択肢もあり、皇堡よりハイグレードな内装で、1室あたりの造りもより贅沢です。',
-        },
-        {
-          title: '60分のサービス',
-          body: '全編にわたるテーマ演出のインタラクティブサービスで、体験やシーンを自分好みにカスタマイズできます。料金は皇堡よりやや高めですが、個室の設備と内装はより豪華です。別途 10% のサービス料がかかります。',
-        },
-        {
-          title: '休憩・宿泊',
-          body: 'ロビーのリクライニングチェアで、宿泊（24時間）してゆっくり休めます。エムクラブは皇堡より客足が少なく、比較的静かな環境です。',
+          title: '休憩設備',
+          body: 'かつてロビーにリクライニング休憩スペースがありました。休業中は宿泊できません。営業再開については施設の最新発表をご確認ください。',
         },
       ],
       gallery: [
@@ -2739,48 +2682,39 @@ const ja: SpaPageCopy = {
     'number-one-sauna': {
       aliases: '壹號桑拿、Number One Sauna',
       highlights: [
-        '在籍する女の子はマカオ最多',
-        '国際色がもっとも豊富',
-        '初めての体験におすすめ',
-        '名物の無料ステーキ',
+        '広い更衣室',
+        'ジャグジー',
+        'ドライサウナ・スチームサウナ',
+        '過去の飲食設備',
       ],
-      bestFor: '初めての方',
+      bestFor: '過去の設備情報（営業休止中）',
       features: [
-        'おすすめ度{ratingStars}',
-        'マカオの人気サウナ',
-        '多国籍から選べる',
-        '日本語対応・無料送迎',
-        '圧巻のショータイム',
-        '宿泊OK・24時間営業',
+        '入浴設備',
+        '広々としたホール',
+        'ロッカー',
+        '休憩スペース',
+        '営業休止中',
       ],
       flow: [
         {
-          title: '到着・チェックイン',
-          body: 'ナンバーワンサウナに到着したら、フロントで受付し、リストバンドとロッカーの鍵を受け取ります。ロッカールームは広々としていて、設備も新しく快適です。',
+          title: '営業休止中',
+          body: '壹號桑拿は現在営業を休止しており、来店や予約を受け付けていません。以下は過去の設備情報です。',
         },
         {
-          title: '入浴・リラックス',
-          body: '館内には大型のジャグジー、ドライサウナ、スチームサウナがあり、照明はやわらかく落ち着いた雰囲気。まずは20〜30分ほど湯に浸かって心身をほぐし、コンディションを整えるのがおすすめです。',
+          title: '入浴・更衣設備',
+          body: 'かつては広い更衣室、ロッカー、大型ジャグジー、ドライサウナ、スチームサウナを備えていました。',
         },
         {
-          title: '無料のお食事',
-          body: '滞在中はずっと無料・食べ放題。名物のステーキはナンバーワンで一番人気のメニューで、ほかにもチャーハン、焼きそば、新鮮なフルーツの盛り合わせ、冷えたビールが揃います。広々としたダイニングで、大ホールの様子を眺めながら食事を楽しめます。',
+          title: '飲食スペース',
+          body: '以前は広いダイニングでステーキ、炒飯、麺類、果物、飲み物などを提供していました。現在は飲食サービスを行っていません。',
         },
         {
-          title: '大規模なショータイム',
-          body: '毎晩多国籍の女の子がグループに分かれて大ホールのランウェイを巡り、プロ仕様の照明と音響で登場——まさに圧巻の光景です。1ラウンドは約30分。中国・ベトナム・タイ・台湾・日本・韓国・ロシア・ウクライナなど多彩な顔ぶれが揃い、マカオ最大規模かつ最も国際色豊かなショータイムです。',
+          title: '過去の料金',
+          body: '記録上の過去の料金帯は MOP 2,199～7,699 でした。現在の料金案内ではなく、休業中は予約やサービスを受け付けていません。',
         },
         {
-          title: '女の子を選ぶ',
-          body: '気になった番号をマネージャーに伝えると、その女の子のサービスのランクと対応する料金を確認してくれます。料金はランクに応じてMOP 2,199〜MOP 7,699。ピーク時（週末の22:00〜00:00）は人気の女の子に待ちが出ることもあるので、早めの入場がおすすめです。',
-        },
-        {
-          title: '60分のサービス',
-          body: '個室へ移動し、一対一のウォーターベッドによる専属サービスへ。ナンバーワンはこのウォーターベッドのサービスでマカオ中に名を知られています。そのほか、耳かき・ネイルケア・背中マッサージなどの有料の小サービスもあります。',
-        },
-        {
-          title: '休憩・宿泊（24時間）',
-          body: 'サービスの後は、リクライニングチェアの休憩スペースで休んだり、そのまま宿泊（24時間）したりできます。ピーク時の休憩スペースはにぎやかになるため、静かに眠りたい方は深夜2時以降の就寝がおすすめ。6〜8時が最も静かな時間帯です。翌日は無料の朝食を楽しんでから、ゆっくりと退館できます。',
+          title: '休憩設備',
+          body: 'かつてリクライニング休憩スペースがありました。休業中は宿泊できません。営業再開については施設の最新発表をご確認ください。',
         },
       ],
       gallery: [
@@ -2849,48 +2783,38 @@ const ja: SpaPageCopy = {
     'familia-nobre': {
       aliases: '豪門桑拿殿、Familia Nobre',
       highlights: [
-        '全店最大級',
-        'サービス料無料',
-        '高品質なコスパの一軒',
+        '広い浴場',
+        '複数の客室',
+        '休憩スペース',
       ],
-      bestFor: 'コスパ重視の方に',
+      bestFor: '過去の設備情報（営業休止中）',
       features: [
-        'おすすめ度{ratingStars}',
-        'マカオ最大級のサウナ',
-        '部屋数が最多',
-        '安定したサービス',
-        '最高のコストパフォーマンス',
-        'サービス料無料',
-        '24時間営業',
+        '広い浴場',
+        '複数の客室',
+        'ロッカー',
+        'リクライニング休憩スペース',
+        '営業休止中',
       ],
       flow: [
         {
-          title: '到着・入店',
-          body: 'マカオ半島・新口岸エリアのファミリアノブレへは無料送迎でアクセス可能。到着したらフロントで受付し、リストバンドとロッカーキーを受け取ります。更衣室には荷物を無料で預けられる安全なロッカーを完備。バスローブに着替えれば、すぐに体験スタートです。',
+          title: '営業休止中',
+          body: '豪門桑拿は現在営業を休止しており、来店や予約を受け付けていません。以下は過去の設備に関する記録です。',
         },
         {
-          title: '入浴・リラックス',
-          body: 'バスエリアはマカオ最大級の広さで、複数のジャグジーとサウナルームを備え、ゆったりとして混雑しません。ピーク時でも行列に並んで待つことはありません。',
+          title: '入浴・更衣設備',
+          body: 'かつては広い更衣室、ロッカー、浴槽、サウナ室があり、入浴、飲食、休憩の各エリアに分かれていました。',
         },
         {
-          title: '無料の飲食',
-          body: 'ステーキ・冷えたビール・各種炒め物を無料でお楽しみいただけます。ファミリアノブレのステーキとビールは常連客からの評価が高い一品。ダイニングエリアは広く快適で、追加料金なしの食べ放題・飲み放題です。',
+          title: '飲食・客室設備',
+          body: '以前はステーキ、飲み物、温かい料理を提供し、複数の客室も備えていました。現在は飲食・客室設備を利用できません。',
         },
         {
-          title: '女の子のセレクション',
-          body: 'マネージャーの案内で女の子が目の前に一列に並ぶので、間近で見ながら自分のペースで選べます。各グループの料金ランクは事前に案内されるため、選ぶ前に金額がはっきり分かります。',
+          title: '過去の料金',
+          body: '記録上の過去の料金帯は MOP 2,388～6,988 で、当時はサービス料を徴収していませんでした。過去の記録であり、現在の料金案内ではありません。',
         },
         {
-          title: '女の子を選ぶ',
-          body: '全行程サービス料は無料。表示価格がそのまま最終価格で、隠れた費用や追加料金は一切ありません。料金は MOP 2,388 〜 MOP 6,988 で、マカオで最もコスパの高い選択肢。広い館内と豊富な部屋数のため、待ち時間はほぼありません。',
-        },
-        {
-          title: '60分のサービス',
-          body: '個室に入り、一対一のプライベートなサービスをお楽しみいただけます。ファミリアノブレは部屋数がマカオ最多のため、混雑時でもほとんど待つことなく、スムーズに体験いただけます。',
-        },
-        {
-          title: '休憩・宿泊',
-          body: 'リクライニングチェアが全店最多の広々とした休憩エリア。チェアの間隔も広く、宿泊（24時間）の快適さは抜群です。騒がしいショータイムに邪魔されることもなく、静かに休めます。翌日は無料の飲食を楽しんでから退店できます。',
+          title: '休憩設備',
+          body: 'かつて休憩エリアには間隔を空けて複数のリクライニングチェアを配置していました。休業中は宿泊できません。営業再開については施設の最新発表をご確認ください。',
         },
       ],
       gallery: [
@@ -3213,15 +3137,14 @@ const zhTW: SpaPageCopy = {
       aliases: '曼濠桑拿、曼豪桑拿、漫濠水療、澳門曼濠水療',
       highlights: [
         '2026氹仔最新',
-        '最大走秀舞台',
+        '超大的舞台',
         '招牌紅色水床',
         '皇者奢華風格',
       ],
-      bestFor: '最大走秀舞台／氹仔奢華首選',
+      bestFor: '寬敞舞台／氹仔奢華體驗',
       features: [
-        '推薦指數{ratingStars}',
         '2026年5月1日氹仔全新開業',
-        '全澳最大走秀大廳',
+        '超大的舞台大廳',
         '招牌紅色水床聚光燈房型',
         '睡房結合水床整合式套房',
         '雲石主調奢華大堂與更衣室',
@@ -3245,16 +3168,16 @@ const zhTW: SpaPageCopy = {
           body: '於雲石桌面用餐廳享用免費餐飲——靜雅的酒店級座椅配私人酒吧氛圍，適合在服務前後慢慢享受。',
         },
         {
-          title: '全澳最大走秀大廳',
-          body: '招牌賣點：多層玻璃欄杆走秀大廳配深藍霓虹燈光，曼濠定位為全澳最大規模的走秀體驗，宏大的舞台讓挑選技師成為主場體驗而非例行步驟。確定後由經理確認價格檔次（MOP 2,488 至 6,088）。',
+          title: '超大的舞台',
+          body: '招牌賣點是寬敞的舞台大廳：多層玻璃欄杆配上深藍霓虹燈光，形成鮮明的視覺層次。宏大的舞台與燈光設計相互呼應，成為曼濠館內引人注目的焦點。',
         },
         {
           title: '整合式套房與招牌水床',
           body: '客房採用整合式設計——奢華睡房配置（壁畫牆面、超大床、沙發、檯燈）結合招牌紅色水床及戲劇性聚光燈效果。睡房與水床設於同一私密房間，服務期間無需轉移房間。',
         },
         {
-          title: '60分鐘服務',
-          body: '於私密套房享受 60 分鐘服務。多國籍技師陣容，按摩風格相應配對。燈光、音響、浴缸均可在房內操控。',
+          title: '60分鐘按摩',
+          body: '以 60 分鐘按摩放慢步調，舒緩旅途與日常的疲憊。燈光和音樂可按喜好調整，讓您在舒適的氛圍中，安心享受放鬆時光。',
         },
         {
           title: '休息區',
@@ -3333,17 +3256,17 @@ const zhTW: SpaPageCopy = {
       aliases: '玖號桑拿、九號桑拿、9號桑拿、澳門玖號水療',
       highlights: [
         '2026年4月全新開業',
-        '現代化舞台娛樂',
+        '現代化舞台設施',
         '多款氛圍主題房',
         '巴厘島+日式按摩',
       ],
       bestFor: '嘗鮮最新場',
       features: [
-        '特色房間',
-        '時裝秀舞台娛樂',
-        '多元化海選',
-        '花樣道具',
-        '主打日韓',
+        '不同風格房間',
+        '舞台燈光設施',
+        'LED螢幕',
+        '現代化沐浴設施',
+        '巴厘島式及日式按摩',
       ],
       flow: [
         {
@@ -3359,8 +3282,8 @@ const zhTW: SpaPageCopy = {
           body: '免費享用各式餐飲服務，場所強調多樣化的高端餐飲選擇，將用餐體驗納入整體享受的一部分。',
         },
         {
-          title: '舞台技師介紹環節',
-          body: '娛樂大廳配備專業舞台燈光及 LED 螢幕，技師介紹環節的視覺效果為全澳最具現代感。國際技師團隊在舞台上介紹，場面新穎獨特。',
+          title: '大廳設施',
+          body: '大廳配備舞台燈光及 LED 螢幕，配合金色與大理石裝潢，呈現鮮明的現代風格。',
         },
         {
           title: '選擇主題房間',
@@ -3451,7 +3374,7 @@ const zhTW: SpaPageCopy = {
       bestFor: '安靜環境／現代化設施',
       features: [
         '推薦指數{ratingStars}',
-        '惠顧指定套式送師傅工',
+        '贈送指定按摩／護理項目，具體項目請於預約時確認',
         '國際化的服務標準',
         '性價比極高',
       ],
@@ -3550,18 +3473,13 @@ const zhTW: SpaPageCopy = {
       highlights: [
         '最豪華裝修',
         '最大房間',
-        '兩位技師同行最抵',
         '免服務費',
-        '買一送一（詳情於預約時說明）',
       ],
       bestFor: '豪華環境／過夜首選',
       features: [
-        '推薦指數{ratingStars}',
         '澳門最奢華裝修',
-        '走秀看風景模式',
-        '十多種主題房間',
+        '十多種不同風格房間',
         'KTV房派對模式',
-        '近距離互動體驗',
         '24小時營業',
         '免服務費',
       ],
@@ -3579,16 +3497,16 @@ const zhTW: SpaPageCopy = {
           body: '免費享用牛排、新鮮水果、凍啤酒等餐飲，食材及菜式選擇豐富。尊貴的餐飲品質在業界備受讚譽，全程無限量供應。',
         },
         {
-          title: '景觀線走秀',
-          body: '大廳「景觀線」走秀形式——多國籍技師排列成線，部分技師會主動微笑、輕觸互動，氣氛輕鬆自然，不像其他場所那麼拘謹。走秀過程中可以近距離觀察，挑選壓力較小。',
+          title: '超大的舞台',
+          body: '大廳「景觀線」形式——多國籍技師排列成線，由你現場決定，由誰來為你提供按摩！',
         },
         {
           title: '確認價格',
           body: '價格區間 MOP 2,799 至 MOP 6,699。',
         },
         {
-          title: '60分鐘服務',
-          body: '進入寬敞的豪華房間，配氣氛燈光及高級傢俱。空間感舒適，是追求環境質素的首選。',
+          title: '60分鐘按摩',
+          body: '在寬敞舒適的房間享受 60 分鐘按摩，柔和燈光與精緻傢俱營造放鬆氛圍。開始前請確認按摩項目與費用。',
         },
         {
           title: '休息過夜',
@@ -3679,16 +3597,16 @@ const zhTW: SpaPageCopy = {
           body: '24 小時免費享用各式餐飲，無論下午或深夜入場，都可按自己的時間用餐。',
         },
         {
-          title: '精品挑選',
-          body: '極品採用精品式面對面挑選——經過嚴格篩選的多國籍高質技師，走的是「少而精」路線，每位技師的外貌及服務質素都經過把關。沒有大型走秀，經理會根據你的喜好逐一介紹，挑選過程從容私密。',
+          title: '了解按摩安排',
+          body: '向接待人員說明希望放鬆的部位及按摩力度，了解可選項目、時長與收費後，再確認適合自己的安排。',
         },
         {
           title: '水床或主題房間',
-          body: '極品提供水床及情境主題房——你可以選擇傳統莞式水床體驗，或選擇主題房間（辦公室、教室、醫院等）。',
+          body: '房間設計涵蓋辦公室、教室、影院等不同風格，另有配備水床的房型。可先了解房間設施及供應情況，再選擇適合自己的空間。',
         },
         {
-          title: '60分鐘服務',
-          body: '進入房間享受約60分鐘的專屬服務，另收 10% 服務費。極品的泰式及上海式按摩即使選擇較簡單的房型，專業水準也相當高。',
+          title: '60分鐘按摩',
+          body: '按摩時間約 60 分鐘，另收 10% 服務費。場內提供泰式及上海式按摩，具體手法、力度與費用請於開始前確認。',
         },
         {
           title: '休息過夜',
@@ -3777,7 +3695,6 @@ const zhTW: SpaPageCopy = {
         '2026年5月15日全新開業',
         '港幣8,000萬奢華打造',
         '酒店級主題套房',
-        '網紅級／明星級技師領銜',
         '招牌水床特色房',
         '24小時營業，可過夜休息',
       ],
@@ -3795,16 +3712,16 @@ const zhTW: SpaPageCopy = {
           body: '前往用餐廳享用免費餐飲。場所裝潢採用酒店級格調，告別傳統桑拿食堂的氣氛，環境靜雅私密、配備舒適座椅，適合在服務前後從容享用。',
         },
         {
-          title: '選擇技師',
-          body: '認識國際技師陣容，包括網紅級及明星級技師領銜駐場。技師媒合以私密觀賞模式進行而非舞台表演，配合品牌靜雅尊貴的整體格調。確認後由經理確認價格檔次（MOP 2,488 至 7,388），詳細項目可即場查詢。',
+          title: '確認按摩項目與費用',
+          body: '向接待人員了解按摩項目、時長及費用明細，再按自己的需要決定。參考價格為 MOP 2,488 至 7,388；服務內容及總費用請於開始前確認。',
         },
         {
           title: '主題套房或水床房型',
           body: '選擇多款主題套房——每間配備訂製氛圍燈光、優質寢具及酒店級裝飾——或選擇巨亨招牌水床特色房型。',
         },
         {
-          title: '60分鐘服務',
-          body: '進入私密房間享受60分鐘服務。按摩風格涵蓋台式、日式及巨亨招牌水床特色服務。房間以舒適為先，浴缸、燈光、音響均可在床邊操控。',
+          title: '60分鐘按摩',
+          body: '按摩時長為 60 分鐘，具體手法及安排請事先向接待人員了解。房間設有浴缸，燈光與音響可在房內調節，方便按個人習慣營造舒適環境。',
         },
         {
           title: '休息過夜',
@@ -3886,13 +3803,11 @@ const zhTW: SpaPageCopy = {
     'east-castle-spa': {
       aliases: '東方皇堡、東方皇堡水療會所、澳門東方皇堡',
       highlights: [
-        '20 多款主題房間',
+        '20 多款不同風格的房間設計',
       ],
-      bestFor: '主題房間設計',
+      bestFor: '體驗不同風格的房間設計',
       features: [
-        '推薦指數{ratingStars}',
-        '20+ 主題情景房間',
-        '澳門主題房間開創者',
+        '20+ 不同風格房間設計',
         '專業服務團隊',
         '24小時營業',
         '私密安全環境',
@@ -3904,19 +3819,19 @@ const zhTW: SpaPageCopy = {
         },
         {
           title: '沐浴放鬆',
-          body: '享用沐浴設施及桑拿放鬆身心。皇堡的特色在於技師會在場所各處活動互動，你可以邊泡澡邊觀察挑選。',
+          body: '享用沐浴設施及桑拿，按自己的節奏泡浴、休息，放鬆旅途中的疲憊。',
         },
         {
           title: '免費餐飲',
-          body: '免費享用各式餐飲，可在用餐區休息的同時留意場內技師動態。',
+          body: '場內提供免費餐飲，可在用餐區稍作休息，再安排接下來的行程。',
         },
         {
-          title: '自由挑選',
-          body: '皇堡採用「自由瀏覽」模式——沒有固定技師介紹時間，多國籍技師分佈在場所各區域，你可隨時在任何區域遇到並挑選心儀技師，告知經理即可。這種模式讓整個挑選過程更自然、無壓力。',
+          title: '確認按摩安排',
+          body: '向接待人員了解按摩項目、可預約時間及房間供應情況。開始前確認服務內容、時長和費用明細，按自己的需要安排。',
         },
         {
-          title: '主題房間',
-          body: '皇堡最大賣點——超過 20 款精心設計的主題房間，包括監獄審訊室、教室、辦公室、飛機艙、醫院、救護車（招牌房型）、拳擊場、高爾夫球場等。',
+          title: '20+ 不同風格的房間設計',
+          body: '東方皇堡水療的一大特色，是提供 20 多款不同風格的房間設計。各房間以不同的裝潢與氛圍呈現個性，讓顧客在喜歡的空間中享受按摩、放鬆身心。',
         },
         {
           title: '服務費與稅項',
@@ -4079,44 +3994,34 @@ const zhTW: SpaPageCopy = {
         '溫泉房',
         '裝修更豪華',
       ],
-      bestFor: '豪華主題體驗',
+      bestFor: '歷史設施資料（暫停營業）',
       features: [
-        '推薦指數{ratingStars}',
-        '科技感風格',
-        '豐富主題房間',
-        '主題情境體驗',
-        'KTV房派對模式',
-        '未來科技裝修',
-        '24小時營業',
+        '科技風格裝修',
+        '不同風格房間',
+        'KTV房間',
+        '浴池設施',
+        '暫停營業',
       ],
       flow: [
         {
-          title: '抵達入場',
-          body: '抵達晉會MCLUB，作為東方皇堡的姊妹店，定位更為豪華高端。裝修風格比皇堡更為精緻，設有KTV房間及溫泉房等獨家設施。前台登記後領取手牌。',
+          title: '暫停營業',
+          body: '晉會 MCLUB 目前暫停營業，不接待客人或提供預約。以下為過往設施資料。',
         },
         {
-          title: '沐浴放鬆',
-          body: '享用沐浴設施及桑拿，晉會設有溫泉房，可體驗私密溫泉泡湯，是其他場所沒有的獨特設施。',
+          title: '場館與房間',
+          body: '晉會為東方皇堡的姊妹店，過往設有不同風格的房間、KTV 房間及浴池設施。',
         },
         {
-          title: '免費餐飲',
-          body: '免費享用各式餐飲，用餐環境配合整體豪華裝修風格，環境舒適。',
+          title: '沐浴與餐飲',
+          body: '過往設有沐浴、桑拿及餐飲區，整體採用科技感裝修。相關設施目前不對外開放。',
         },
         {
-          title: '自由挑選',
-          body: '與皇堡相同的自由瀏覽模式，多國籍技師在場所各區域活動，可隨時選擇。無需等候固定技師介紹時間。',
+          title: '歷史收費說明',
+          body: '過往另收 10% 服務費。此資料僅作歷史記錄，不是現行報價或預約方案。',
         },
         {
-          title: 'KTV及主題房間',
-          body: '晉會獨有的KTV主題房間，可邊唱歌邊享受服務。另設有溫泉房等豪華主題選擇，裝修比皇堡更高級，每間房造價更高。',
-        },
-        {
-          title: '60分鐘服務',
-          body: '全程主題情境互動服務，可自訂體驗及場景。價格比皇堡略高，但房間設施及裝修更為豪華。另收 10% 服務費。',
-        },
-        {
-          title: '休息過夜',
-          body: '大堂設有躺椅可過夜休息。晉會客流量較皇堡少，環境相對安靜。',
+          title: '休息設施',
+          body: '過往大堂設有躺椅休息區。停業期間不提供過夜住宿；如恢復營業，應以場館最新公告為準。',
         },
       ],
       gallery: [
@@ -4200,48 +4105,39 @@ const zhTW: SpaPageCopy = {
     'number-one-sauna': {
       aliases: '一號桑拿、1號桑拿、澳門壹號桑拿、The One Sauna',
       highlights: [
-        '全澳技師最多',
-        '國際化選擇最豐富',
-        '推薦首次體驗',
-        '招牌免費牛排',
+        '寬敞更衣室',
+        '按摩浴缸',
+        '乾蒸與濕蒸設施',
+        '歷史餐飲設施',
       ],
-      bestFor: '首次體驗者',
+      bestFor: '歷史設施資料（暫停營業）',
       features: [
-        '推薦指數{ratingStars}',
-        '澳門熱門桑拿',
-        '多國籍選擇',
-        '高質量保證',
-        '視覺享受',
-        '24小時營業',
+        '浴池設施',
+        '寬敞大廳',
+        '儲物櫃',
+        '休息區',
+        '暫停營業',
       ],
       flow: [
         {
-          title: '抵達入場',
-          body: '抵達壹號桑拿後，在前台登記領取手牌及儲物櫃鑰匙。更衣室空間寬敞，設施簇新。',
+          title: '暫停營業',
+          body: '壹號桑拿目前暫停營業，不接待客人或提供預約。以下僅保留過往設施資料。',
         },
         {
-          title: '沐浴放鬆',
-          body: '場內設有大型按摩浴缸、乾蒸房及濕蒸房，燈光柔和舒適。建議先花20-30分鐘泡澡放鬆，調整身心狀態。',
+          title: '沐浴與更衣設施',
+          body: '過往設有寬敞更衣室、儲物櫃、大型按摩浴缸、乾蒸房及濕蒸房。',
         },
         {
-          title: '免費餐飲',
-          body: '全程無限量免費供應，招牌牛排是壹號最受歡迎的菜式，另有炒飯、炒麵、新鮮水果拼盤及凍啤酒。餐區寬敞，可邊用餐邊觀賞大廳動態。',
+          title: '餐飲區',
+          body: '過往餐飲供應包括牛排、炒飯、炒麵、水果及飲品，並設有寬敞用餐區；目前不提供餐飲服務。',
         },
         {
-          title: '大型技師介紹會',
-          body: '每晚多國籍技師分批沿大廳走秀介紹，燈光音響專業，場面壯觀。每輪約 30 分鐘，技師團隊涵蓋亞洲（中國、日本、韓國、台灣、越南、泰國）及歐洲（俄羅斯、烏克蘭）多國背景，為全澳規模最大、國際化程度最高的技師媒合會。',
+          title: '歷史價格',
+          body: '過往記錄的價格區間為 MOP 2,199 至 MOP 7,699。此資料不構成現行報價，停業期間不接受預約或安排服務。',
         },
         {
-          title: '選擇技師',
-          body: '看中心儀號碼後告知經理，經理會確認該技師的服務檔次及對應價格。價格區間由 MOP 2,199 至 MOP 7,699，視技師類別而定。高峰時段（22:00-00:00週末）熱門技師可能需等候，建議提早入場。',
-        },
-        {
-          title: '60分鐘服務',
-          body: '進入獨立房間享受一對一專屬水床服務，壹號以水床服務聞名全澳。另有付費小工服務：掏耳、修甲、捶背等。',
-        },
-        {
-          title: '休息過夜',
-          body: '服務後可在休息區躺椅休息或直接過夜。注意高峰時段休息區較為熱鬧，想安靜休息建議凌晨2點後入眠，6-8點為最安靜時段。翌日可享用免費餐飲後從容離場。',
+          title: '休息設施',
+          body: '過往設有躺椅休息區。停業期間不提供過夜住宿；如恢復營業，請以場館最新公告為準。',
         },
       ],
       gallery: [
@@ -4310,47 +4206,38 @@ const zhTW: SpaPageCopy = {
     'familia-nobre': {
       aliases: '豪門桑拿、新豪門桑拿殿、澳門豪門桑拿',
       highlights: [
-        '全場最大',
-        '免收服務費',
-        '高質素性價比之選',
+        '寬敞浴區',
+        '多間客房',
+        '休息區',
       ],
-      bestFor: '追求性價比',
+      bestFor: '歷史設施資料（暫停營業）',
       features: [
-        '推薦指數{ratingStars}',
-        '澳門最大型桑拿',
-        '房間數量最多',
-        '服務穩定',
-        '最高性價比',
-        '免服務費',
+        '寬敞浴區',
+        '多間客房',
+        '儲物櫃',
+        '躺椅休息區',
+        '暫停營業',
       ],
       flow: [
         {
-          title: '抵達入場',
-          body: '抵達豪門桑拿殿後在前台登記，領取手牌及儲物櫃鑰匙。更衣室設有安全儲物櫃可免費寄存行李，換上浴袍後即可開始體驗。',
+          title: '暫停營業',
+          body: '豪門桑拿目前暫停營業，不接待客人或提供預約。以下資料用於記錄過往場館設施。',
         },
         {
-          title: '沐浴放鬆',
-          body: '場內沐浴空間為全澳面積最大，設有多個按摩浴缸及桑拿房，環境寬敞不擁擠。即使在高峰時段，也不會出現排隊等候的情況。',
+          title: '沐浴與更衣設施',
+          body: '過往設有寬敞更衣室、儲物櫃、浴池及桑拿房。場內空間寬敞，分為沐浴、餐飲及休息區。',
         },
         {
-          title: '免費餐飲',
-          body: '免費享用牛排、凍啤及各式熱炒，豪門的牛排及凍啤在客人中口碑極佳。用餐區域寬敞舒適，全程無限量供應，無需額外付費。',
+          title: '餐飲與客房',
+          body: '過往供應牛排、飲品及熱食，並設有多間客房。目前餐飲與客房設施均不對外開放。',
         },
         {
-          title: '技師媒合環節',
-          body: '經理會安排一排技師站在你面前，近距離觀察後從容挑選。每組技師對應的價格檔次會提前告知，讓你在選擇前清楚了解價格。',
+          title: '歷史價格',
+          body: '過往記錄的價格區間為 MOP 2,388 至 MOP 6,988，當時免收服務費。此資料僅作歷史記錄，不是現行報價。',
         },
         {
-          title: '選擇技師',
-          body: '全程免收服務費，標價即為最終價格，無任何隱藏收費或額外加價。價格區間MOP 2,388至MOP 6,988，為全澳性價比最高的選擇。因場地及房間數量充裕，幾乎無需排隊等候。',
-        },
-        {
-          title: '60分鐘服務',
-          body: '進入獨立房間享受一對一專屬服務。豪門房間數量為全澳最多，即使在繁忙時段也幾乎不用等位，體驗流暢順利。',
-        },
-        {
-          title: '休息過夜',
-          body: '擁有全澳最多躺椅的寬敞休息區，躺椅間距較大，過夜舒適度高。沒有嘈雜的娛樂表演打擾，適合安靜休息。翌日可享用免費餐飲後離場。',
+          title: '休息設施',
+          body: '過往休息區設有多張躺椅，間距寬敞。停業期間不提供過夜住宿；如恢復營業，請以場館最新公告為準。',
         },
       ],
       gallery: [
@@ -4673,19 +4560,18 @@ const zhCN: SpaPageCopy = {
       aliases: '曼濠桑拿、曼豪桑拿、漫濠水疗、澳门曼濠水疗',
       highlights: [
         '2026氹仔最新',
-        '最大走秀舞台',
+        '超大的舞台',
         '招牌红色水床',
         '皇者奢华风格',
       ],
-      bestFor: '最大走秀舞台／氹仔奢华首选',
+      bestFor: '宽敞舞台／氹仔奢华体验',
       staffValue: '多国籍技师团队',
       staffNote: '',
       overnightValue: '不可过夜',
       overnightNote: '— 过渡期暂不提供过夜，即将恢复24小时及过夜',
       features: [
-        '推荐指数{ratingStars}',
         '2026年5月1日氹仔全新开业',
-        '全澳最大走秀大厅',
+        '超大的舞台大厅',
         '招牌红色水床聚光灯房型',
         '睡房结合水床整合式套房',
         '云石主调奢华大堂与更衣室',
@@ -4709,16 +4595,16 @@ const zhCN: SpaPageCopy = {
           body: '于云石桌面用餐厅享用免费餐饮——静雅的酒店级座椅配私人酒吧氛围，适合在服务前后慢慢享受。',
         },
         {
-          title: '全澳最大走秀大厅',
-          body: '招牌卖点：多层玻璃栏杆走秀大厅配深蓝霓虹灯光，曼濠定位为全澳最大规模的走秀体验，宏大的舞台让挑选技师成为主场体验而非例行步骤。确定后由经理确认价格档次（MOP 2,488 至 6,088）。',
+          title: '超大的舞台',
+          body: '招牌卖点是宽敞的舞台大厅：多层玻璃栏杆配上深蓝霓虹灯光，形成鲜明的视觉层次。宏大的舞台与灯光设计相互呼应，成为曼濠馆内引人注目的焦点。',
         },
         {
           title: '整合式套房与招牌水床',
           body: '客房采用整合式设计——奢华睡房配置（壁画墙面、超大床、沙发、台灯）结合招牌红色水床及戏剧性聚光灯效果。睡房与水床设于同一私密房间，服务期间无需转移房间。',
         },
         {
-          title: '60分钟服务',
-          body: '于私密套房享受 60 分钟服务。多国籍技师阵容，按摩风格相应配对。灯光、音响、浴缸均可在房内操控。',
+          title: '60分钟按摩',
+          body: '以 60 分钟按摩放慢步调，舒缓旅途与日常的疲惫。灯光和音乐可按喜好调整，让您在舒适的氛围中，安心享受放松时光。',
         },
         {
           title: '休息区',
@@ -4797,17 +4683,17 @@ const zhCN: SpaPageCopy = {
       aliases: '玖号桑拿、九号桑拿、9号水疗、澳门玖号水疗',
       highlights: [
         '2026年4月全新开业',
-        '现代化舞台娱乐',
+        '现代化舞台设施',
         '多款氛围主题房',
         '巴厘岛+日式按摩',
       ],
       bestFor: '尝鲜最新场',
       features: [
-        '特色房间',
-        '时装秀舞台娱乐',
-        '多元化海选',
-        '花样道具',
-        '主打日韩',
+        '不同风格房间',
+        '舞台灯光设施',
+        'LED屏幕',
+        '现代化沐浴设施',
+        '巴厘岛式及日式按摩',
       ],
       flow: [
         {
@@ -4823,8 +4709,8 @@ const zhCN: SpaPageCopy = {
           body: '免费享用各式餐饮服务，场所强调多样化的高端餐饮选择，将用餐体验纳入整体享受的一部分。',
         },
         {
-          title: '舞台技师介绍环节',
-          body: '娱乐大厅配备专业舞台灯光及 LED 屏幕，技师介绍环节的视觉效果为全澳最具现代感。国际技师团队在舞台上介绍，场面新颖独特。',
+          title: '大厅设施',
+          body: '大厅配备舞台灯光及 LED 屏幕，配合金色与大理石装潢，呈现鲜明的现代风格。',
         },
         {
           title: '选择主题房间',
@@ -4915,7 +4801,7 @@ const zhCN: SpaPageCopy = {
       bestFor: '安静环境／现代化设施',
       features: [
         '推荐指数{ratingStars}',
-        '惠顾指定套式送师傅工',
+        '赠送指定按摩／护理项目，具体项目请于预约时确认',
         '国际化的服务标准',
         '性价比极高',
       ],
@@ -5014,18 +4900,13 @@ const zhCN: SpaPageCopy = {
       highlights: [
         '最豪华装修',
         '最大房间',
-        '两位技师同行最抵',
         '免服务费',
-        '买一送一（详情预约时说明）',
       ],
       bestFor: '豪华环境／过夜首选',
       features: [
-        '推荐指数{ratingStars}',
         '澳门最奢华装修',
-        '走秀看风景模式',
-        '十多种主题房间',
+        '十多种不同风格房间',
         'KTV房派对模式',
-        '近距离互动体验',
         '24小时营业',
         '免服务费',
       ],
@@ -5043,16 +4924,16 @@ const zhCN: SpaPageCopy = {
           body: '免费享用牛排、新鲜水果、冻啤酒等餐饮，食材及菜式选择丰富。尊贵的餐饮品质在业界备受赞誉，全程无限量供应。',
         },
         {
-          title: '景观线走秀',
-          body: '大厅「景观线」走秀形式——多国籍技师排列成线，部分技师会主动微笑、轻触互动，气氛轻松自然，不像其他场所那么拘谨。走秀过程中可以近距离观察，挑选压力较小。',
+          title: '超大的舞台',
+          body: '大厅“景观线”形式——多国籍技师排列成线，由你现场决定，由谁来为你提供按摩！',
         },
         {
           title: '确认价格',
           body: '价格区间 MOP 2,799 至 MOP 6,699。',
         },
         {
-          title: '60分钟服务',
-          body: '进入宽敞的豪华房间，配气氛灯光及高级家具。空间感舒适，是追求环境质素的首选。',
+          title: '60分钟按摩',
+          body: '在宽敞舒适的房间享受 60 分钟按摩，柔和灯光与精致家具营造放松氛围。开始前请确认按摩项目与费用。',
         },
         {
           title: '休息过夜',
@@ -5143,16 +5024,16 @@ const zhCN: SpaPageCopy = {
           body: '24 小时免费享用各式餐饮，无论下午或深夜入场，都可按自己的时间用餐。',
         },
         {
-          title: '精品挑选',
-          body: '极品采用精品式面对面挑选——经过严格筛选的多国籍高质技师，走的是「少而精」路线，每位技师的外貌及服务质素都经过把关。没有大型走秀，经理会根据你的喜好逐一介绍，挑选过程从容私密。',
+          title: '了解按摩安排',
+          body: '向接待人员说明希望放松的部位及按摩力度，了解可选项目、时长与收费后，再确认适合自己的安排。',
         },
         {
           title: '水床或主题房间',
-          body: '极品提供水床及情境主题房——你可以选择传统莞式水床体验，或选择主题房间（办公室、教室、医院等）。',
+          body: '房间设计涵盖办公室、教室、影院等不同风格，另有配备水床的房型。可先了解房间设施及供应情况，再选择适合自己的空间。',
         },
         {
-          title: '60分钟服务',
-          body: '进入房间享受约60分钟的专属服务，另收 10% 服务费。极品的泰式及上海式按摩即使选择较简单的房型，专业水准也相当高。',
+          title: '60分钟按摩',
+          body: '按摩时间约 60 分钟，另收 10% 服务费。场内提供泰式及上海式按摩，具体手法、力度与费用请于开始前确认。',
         },
         {
           title: '休息过夜',
@@ -5241,7 +5122,6 @@ const zhCN: SpaPageCopy = {
         '2026年5月15日全新开业',
         '港币8,000万奢华打造',
         '酒店级主题套房',
-        '网红级／明星级技师领衔',
         '招牌水床特色房',
         '24小时营业，可过夜休息',
       ],
@@ -5259,16 +5139,16 @@ const zhCN: SpaPageCopy = {
           body: '前往用餐厅享用免费餐饮。场所装潢采用酒店级格调，告别传统桑拿食堂的气氛，环境静雅私密、配备舒适座椅，适合在服务前后从容享用。',
         },
         {
-          title: '选择技师',
-          body: '认识国际技师阵容，包括网红级及明星级技师领衔驻场。技师媒合以私密观赏模式进行而非舞台表演，配合品牌静雅尊贵的整体格调。确认后由经理确认价格档次（MOP 2,488 至 7,388），详细项目可即场查询。',
+          title: '确认按摩项目与费用',
+          body: '向接待人员了解按摩项目、时长及费用明细，再按自己的需要决定。参考价格为 MOP 2,488 至 7,388；服务内容及总费用请于开始前确认。',
         },
         {
           title: '主题套房或水床房型',
           body: '选择多款主题套房——每间配备订制氛围灯光、优质寝具及酒店级装饰——或选择巨亨招牌水床特色房型。',
         },
         {
-          title: '60分钟服务',
-          body: '进入私密房间享受60分钟服务。按摩风格涵盖台式、日式及巨亨招牌水床特色服务。房间以舒适为先，浴缸、灯光、音响均可在床边操控。',
+          title: '60分钟按摩',
+          body: '按摩时长为 60 分钟，具体手法及安排请事先向接待人员了解。房间设有浴缸，灯光与音响可在房内调节，方便按个人习惯营造舒适环境。',
         },
         {
           title: '休息过夜',
@@ -5350,13 +5230,11 @@ const zhCN: SpaPageCopy = {
     'east-castle-spa': {
       aliases: '东方皇堡、东方皇堡水疗会所、澳门东方皇堡',
       highlights: [
-        '20 多款主题房间',
+        '20 多款不同风格的房间设计',
       ],
-      bestFor: '主题房间设计',
+      bestFor: '体验不同风格的房间设计',
       features: [
-        '推荐指数{ratingStars}',
-        '20+ 主题情景房间',
-        '澳门主题房间开创者',
+        '20+ 不同风格房间设计',
         '专业服务团队',
         '24小时营业',
         '私密安全环境',
@@ -5368,19 +5246,19 @@ const zhCN: SpaPageCopy = {
         },
         {
           title: '沐浴放松',
-          body: '享用沐浴设施及桑拿放松身心。皇堡的特色在于技师会在场所各处活动互动，你可以边泡澡边观察挑选。',
+          body: '享用沐浴设施及桑拿，按自己的节奏泡浴、休息，放松旅途中的疲惫。',
         },
         {
           title: '免费餐饮',
-          body: '免费享用各式餐饮，可在用餐区休息的同时留意场内技师动态。',
+          body: '场内提供免费餐饮，可在用餐区稍作休息，再安排接下来的行程。',
         },
         {
-          title: '自由挑选',
-          body: '皇堡采用「自由浏览」模式——没有固定技师介绍时间，多国籍技师分布在场所各区域，你可随时在任何区域遇到并挑选心仪技师，告知经理即可。这种模式让整个挑选过程更自然、无压力。',
+          title: '确认按摩安排',
+          body: '向接待人员了解按摩项目、可预约时间及房间供应情况。开始前确认服务内容、时长和费用明细，按自己的需要安排。',
         },
         {
-          title: '主题房间',
-          body: '皇堡最大卖点——超过 20 款精心设计的主题房间，包括监狱审讯室、教室、办公室、飞机舱、医院、救护车（招牌房型）、拳击场、高尔夫球场等。',
+          title: '20+ 不同风格的房间设计',
+          body: '东方皇堡水疗的一大特色，是提供 20 多款不同风格的房间设计。各房间以不同的装潢与氛围呈现个性，让顾客在喜欢的空间中享受按摩、放松身心。',
         },
         {
           title: '服务费与税项',
@@ -5543,44 +5421,34 @@ const zhCN: SpaPageCopy = {
         '温泉房',
         '装修更豪华',
       ],
-      bestFor: '豪华主题体验',
+      bestFor: '历史设施资料（暂停营业）',
       features: [
-        '推荐指数{ratingStars}',
-        '科技感风格',
-        '丰富主题房间',
-        '主题情境体验',
-        'KTV房派对模式',
-        '未来科技装修',
-        '24小时营业',
+        '科技风格装修',
+        '不同风格房间',
+        'KTV房间',
+        '浴池设施',
+        '暂停营业',
       ],
       flow: [
         {
-          title: '抵达入场',
-          body: '抵达晋会MCLUB，作为东方皇堡的姊妹店，定位更为豪华高端。装修风格比皇堡更为精致，设有KTV房间及温泉房等独家设施。前台登记后领取手牌。',
+          title: '暂停营业',
+          body: '晋会 MCLUB 目前暂停营业，不接待客人或提供预约。以下为过往设施资料。',
         },
         {
-          title: '沐浴放松',
-          body: '享用沐浴设施及桑拿，晋会设有温泉房，可体验私密温泉泡汤，是其他场所没有的独特设施。',
+          title: '场馆与房间',
+          body: '晋会为东方皇堡的姊妹店，过往设有不同风格的房间、KTV 房间及浴池设施。',
         },
         {
-          title: '免费餐饮',
-          body: '免费享用各式餐饮，用餐环境配合整体豪华装修风格，环境舒适。',
+          title: '沐浴与餐饮',
+          body: '过往设有沐浴、桑拿及餐饮区，整体采用科技感装修。相关设施目前不对外开放。',
         },
         {
-          title: '自由挑选',
-          body: '与皇堡相同的自由浏览模式，多国籍技师在场所各区域活动，可随时选择。无需等候固定技师介绍时间。',
+          title: '历史收费说明',
+          body: '过往另收 10% 服务费。此资料仅作历史记录，不是现行报价或预约方案。',
         },
         {
-          title: 'KTV及主题房间',
-          body: '晋会独有的KTV主题房间，可边唱歌边享受服务。另设有温泉房等豪华主题选择，装修比皇堡更高级，每间房造价更高。',
-        },
-        {
-          title: '60分钟服务',
-          body: '全程主题情境互动服务，可自订体验及场景。价格比皇堡略高，但房间设施及装修更为豪华。另收 10% 服务费。',
-        },
-        {
-          title: '休息过夜',
-          body: '大堂设有躺椅可过夜休息。晋会客流量较皇堡少，环境相对安静。',
+          title: '休息设施',
+          body: '过往大厅设有躺椅休息区。停业期间不提供过夜住宿；如恢复营业，应以场馆最新公告为准。',
         },
       ],
       gallery: [
@@ -5664,48 +5532,39 @@ const zhCN: SpaPageCopy = {
     'number-one-sauna': {
       aliases: '一号桑拿、1号桑拿、澳门壹号桑拿、The One Sauna',
       highlights: [
-        '全澳技师最多',
-        '国际化选择最丰富',
-        '推荐首次体验',
-        '招牌免费牛排',
+        '宽敞更衣室',
+        '按摩浴缸',
+        '干蒸与湿蒸设施',
+        '历史餐饮设施',
       ],
-      bestFor: '首次体验者',
+      bestFor: '历史设施资料（暂停营业）',
       features: [
-        '推荐指数{ratingStars}',
-        '澳门热门桑拿',
-        '多国籍选择',
-        '高质量保证',
-        '视觉享受',
-        '24小时营业',
+        '浴池设施',
+        '宽敞大厅',
+        '储物柜',
+        '休息区',
+        '暂停营业',
       ],
       flow: [
         {
-          title: '抵达入场',
-          body: '抵达壹号桑拿后，在前台登记领取手牌及储物柜钥匙。更衣室空间宽敞，设施簇新。',
+          title: '暂停营业',
+          body: '壹号桑拿目前暂停营业，不接待客人或提供预约。以下仅保留过往设施资料。',
         },
         {
-          title: '沐浴放松',
-          body: '场内设有大型按摩浴缸、干蒸房及湿蒸房，灯光柔和舒适。建议先花20-30分钟泡澡放松，调整身心状态。',
+          title: '沐浴与更衣设施',
+          body: '过往设有宽敞更衣室、储物柜、大型按摩浴缸、干蒸房及湿蒸房。',
         },
         {
-          title: '免费餐饮',
-          body: '全程无限量免费供应，招牌牛排是壹号最受欢迎的菜式，另有炒饭、炒面、新鲜水果拼盘及冻啤酒。餐区宽敞，可边用餐边观赏大厅动态。',
+          title: '餐饮区',
+          body: '过往餐饮供应包括牛排、炒饭、炒面、水果及饮品，并设有宽敞用餐区；目前不提供餐饮服务。',
         },
         {
-          title: '大型技师介绍会',
-          body: '每晚多国籍技师分批沿大厅走秀介绍，灯光音响专业，场面壮观。每轮约 30 分钟，技师团队涵盖亚洲（中国、日本、韩国、台湾、越南、泰国）及欧洲（俄罗斯、乌克兰）多国背景，为全澳规模最大、国际化程度最高的技师媒合会。',
+          title: '历史价格',
+          body: '过往记录的价格区间为 MOP 2,199 至 MOP 7,699。此资料不构成现行报价，停业期间不接受预约或安排服务。',
         },
         {
-          title: '选择技师',
-          body: '看中心仪号码后告知经理，经理会确认该技师的服务档次及对应价格。价格区间由 MOP 2,199 至 MOP 7,699，视技师类别而定。高峰时段（22:00-00:00周末）热门技师可能需等候，建议提早入场。',
-        },
-        {
-          title: '60分钟服务',
-          body: '进入独立房间享受一对一专属水床服务，壹号以水床服务闻名全澳。另有付费小工服务：掏耳、修甲、捶背等。',
-        },
-        {
-          title: '休息过夜',
-          body: '服务后可在休息区躺椅休息或直接过夜。注意高峰时段休息区较为热闹，想安静休息建议凌晨2点后入眠，6-8点为最安静时段。翌日可享用免费餐饮后从容离场。',
+          title: '休息设施',
+          body: '过往设有躺椅休息区。停业期间不提供过夜住宿；如恢复营业，请以场馆最新公告为准。',
         },
       ],
       gallery: [
@@ -5774,47 +5633,38 @@ const zhCN: SpaPageCopy = {
     'familia-nobre': {
       aliases: '豪门桑拿、新豪门桑拿殿、澳门豪门桑拿',
       highlights: [
-        '全场最大',
-        '免收服务费',
-        '高质素性价比之选',
+        '宽敞浴区',
+        '多间客房',
+        '休息区',
       ],
-      bestFor: '追求性价比',
+      bestFor: '历史设施资料（暂停营业）',
       features: [
-        '推荐指数{ratingStars}',
-        '澳门最大型桑拿',
-        '房间数量最多',
-        '服务稳定',
-        '最高性价比',
-        '免服务费',
+        '宽敞浴区',
+        '多间客房',
+        '储物柜',
+        '躺椅休息区',
+        '暂停营业',
       ],
       flow: [
         {
-          title: '抵达入场',
-          body: '抵达豪门桑拿殿后在前台登记，领取手牌及储物柜钥匙。更衣室设有安全储物柜可免费寄存行李，换上浴袍后即可开始体验。',
+          title: '暂停营业',
+          body: '豪门桑拿目前暂停营业，不接待客人或提供预约。以下资料用于记录过往场馆设施。',
         },
         {
-          title: '沐浴放松',
-          body: '场内沐浴空间为全澳面积最大，设有多个按摩浴缸及桑拿房，环境宽敞不拥挤。即使在高峰时段，也不会出现排队等候的情况。',
+          title: '沐浴与更衣设施',
+          body: '过往设有宽敞更衣室、储物柜、浴池及桑拿房。场内空间宽敞，分为沐浴、餐饮及休息区。',
         },
         {
-          title: '免费餐饮',
-          body: '免费享用牛排、冻啤及各式热炒，豪门的牛排及冻啤在客人中口碑极佳。用餐区域宽敞舒适，全程无限量供应，无需额外付费。',
+          title: '餐饮与客房',
+          body: '过往供应牛排、饮品及热食，并设有多间客房。目前餐饮与客房设施均不对外开放。',
         },
         {
-          title: '技师媒合环节',
-          body: '经理会安排一排技师站在你面前，近距离观察后从容挑选。每组技师对应的价格档次会提前告知，让你在选择前清楚了解价格。',
+          title: '历史价格',
+          body: '过往记录的价格区间为 MOP 2,388 至 MOP 6,988，当时免收服务费。此资料仅作历史记录，不是现行报价。',
         },
         {
-          title: '选择技师',
-          body: '全程免收服务费，标价即为最终价格，无任何隐藏收费或额外加价。价格区间MOP 2,388至MOP 6,988，为全澳性价比最高的选择。因场地及房间数量充裕，几乎无需排队等候。',
-        },
-        {
-          title: '60分钟服务',
-          body: '进入独立房间享受一对一专属服务。豪门房间数量为全澳最多，即使在繁忙时段也几乎不用等位，体验流畅顺利。',
-        },
-        {
-          title: '休息过夜',
-          body: '拥有全澳最多躺椅的宽敞休息区，躺椅间距较大，过夜舒适度高。没有嘈杂的娱乐表演打扰，适合安静休息。翌日可享用免费餐饮后离场。',
+          title: '休息设施',
+          body: '过往休息区设有多张躺椅，间距宽敞。停业期间不提供过夜住宿；如恢复营业，请以场馆最新公告为准。',
         },
       ],
       gallery: [
@@ -6138,15 +5988,14 @@ const ko: SpaPageCopy = {
       aliases: '만하오 사우나, 만하오 스파, 마카오 만하오 스파, Manhao Spa',
       highlights: [
         '2026 타이파 최신',
-        '최대 쇼 스테이지',
+        '넓은 무대',
         '대표 레드 워터베드',
         '황제급 럭셔리 스타일',
       ],
-      bestFor: '최대 쇼 스테이지 / 타이파 럭셔리를 원하는 분',
+      bestFor: '넓은 무대 / 타이파에서의 여유로운 휴식',
       features: [
-        '추천 지수 {ratingStars}',
         '2026년 5월 1일 타이파 그랜드 오픈',
-        '마카오 최대 규모 쇼 홀',
+        '넓은 무대 홀',
         '대표 레드 워터베드 스폿라이트 룸',
         '침실 + 워터베드 일체형 스위트',
         '대리석 중심의 럭셔리 로비와 탈의실',
@@ -6170,16 +6019,16 @@ const ko: SpaPageCopy = {
           body: '대리석 테이블의 다이닝 홀에서 무료 다과를 즐기세요 — 호텔급 좌석과 프라이빗 바 분위기로, 서비스 전후 천천히 즐기기에 적합합니다.',
         },
         {
-          title: '마카오 최대 쇼 홀',
-          body: '대표 볼거리: 다층 글라스 난간 쇼 홀에 딥블루 네온 조명을 더해, 만하오는 마카오 최대 규모의 쇼 경험을 표방합니다. 웅장한 무대에서 테라피스트 선택이 일과가 아닌 메인 경험이 됩니다. 결정 후 매니저가 요금 등급(MOP 2,488 – 6,088)을 확인해 드립니다.',
+          title: '넓은 무대',
+          body: '만하오 스파의 대표 공간은 딥블루 네온과 여러 층의 유리 난간이 어우러진 넓은 무대 홀입니다. 웅장한 무대와 입체적인 조명이 조화를 이루며 시선을 끄는 공간을 완성합니다.',
         },
         {
           title: '일체형 스위트와 대표 워터베드',
           body: '객실은 일체형 설계 — 럭셔리 침실 구성(벽화, 킹 침대, 소파, 스탠드)에 대표 레드 워터베드와 드라마틱한 스폿라이트를 결합했습니다. 침실과 워터베드가 같은 프라이빗 룸에 있어 서비스 중 룸 이동이 없습니다.',
         },
         {
-          title: '60분 서비스',
-          body: '프라이빗 스위트에서 60분 서비스를 즐기세요. 다국적 테라피스트 라인업에 맞춰 마사지 스타일도 배합됩니다. 조명, 사운드, 욕조 모두 룸 안에서 조작할 수 있습니다.',
+          title: '60분 마사지',
+          body: '60분 마사지로 여행과 일상에 지친 몸을 편안하게 풀어보세요. 조명과 음악을 취향에 맞게 조절하며 아늑한 분위기 속에서 여유롭게 쉴 수 있습니다.',
         },
         {
           title: '휴게 공간',
@@ -6258,17 +6107,17 @@ const ko: SpaPageCopy = {
       aliases: '넘버 나인 사우나, 9호 사우나, 마카오 넘버 나인 스파, Number Nine Spa',
       highlights: [
         '2026년 4월 그랜드 오픈',
-        '모던 스테이지 엔터테인먼트',
+        '현대적인 무대 시설',
         '다양한 무드 테마룸',
         '발리식 + 일식 마사지',
       ],
       bestFor: '최신 매장을 먼저 경험하고 싶은 분',
       features: [
-        '특색 있는 객실',
-        '패션쇼 스테이지 엔터테인먼트',
-        '다양한 라인업 쇼',
-        '다양한 소품',
-        '일본·한국 중심 라인업',
+        '다양한 객실 디자인',
+        '무대 조명',
+        'LED 스크린',
+        '현대적인 목욕 시설',
+        '발리식 및 일본식 마사지',
       ],
       flow: [
         {
@@ -6284,8 +6133,8 @@ const ko: SpaPageCopy = {
           body: '다양한 식음료를 무료로 이용하세요. 매장은 다양한 고급 다이닝 선택지를 강조하며, 식사 경험을 전체 즐거움의 일부로 포함합니다.',
         },
         {
-          title: '스테이지 테라피스트 소개',
-          body: '엔터테인먼트 홀은 전문 무대 조명과 LED 스크린을 갖춰 테라피스트 소개의 비주얼이 마카오에서 가장 모던합니다. 국제 테라피스트 팀이 무대에서 소개되는 색다른 장면입니다.',
+          title: '홀 시설',
+          body: '홀에는 무대 조명과 LED 스크린이 설치되어 있으며, 금색 장식과 대리석 마감이 현대적인 분위기를 만듭니다.',
         },
         {
           title: '테마룸 선택',
@@ -6376,7 +6225,7 @@ const ko: SpaPageCopy = {
       bestFor: '조용한 환경 / 현대적인 시설',
       features: [
         '추천 지수 {ratingStars}',
-        '지정 코스 이용 시 마사지 시술 무료',
+        '지정 마사지 또는 케어 서비스를 무료로 제공합니다. 제공 항목은 예약 시 확인해 주세요.',
         '국제적인 서비스 기준',
         '뛰어난 가성비',
       ],
@@ -6475,18 +6324,13 @@ const ko: SpaPageCopy = {
       highlights: [
         '가장 럭셔리한 인테리어',
         '가장 넓은 객실',
-        '테라피스트 2명 동반 시 최고 혜택',
         '서비스 요금 없음',
-        '1+1 행사 (자세한 내용은 예약 시 안내)',
       ],
       bestFor: '럭셔리한 환경 / 야간 휴식을 원하는 분',
       features: [
-        '추천 지수 {ratingStars}',
         '마카오에서 가장 럭셔리한 인테리어',
-        '경치를 볼 수 있는 쇼 방식',
-        '10여 종의 테마룸',
+        '10가지가 넘는 다양한 스타일의 객실',
         'KTV 룸 파티 모드',
-        '근거리 인터랙션 경험',
         '24시간 영업',
         '서비스 요금 없음',
       ],
@@ -6504,16 +6348,16 @@ const ko: SpaPageCopy = {
           body: '스테이크, 신선한 과일, 시원한 맥주 등을 무료로 즐기세요. 식재료와 메뉴 선택이 풍부하고, 마제스티의 다이닝 퀄리티는 업계에서 호평받으며 전 시간 무제한으로 제공됩니다.',
         },
         {
-          title: '뷰 라인 쇼',
-          body: '로비의 「뷰 라인」 쇼 방식 — 다국적 테라피스트가 일렬로 서고, 일부는 먼저 미소를 지으며 가볍게 인터랙션합니다. 분위기가 편안하고 자연스러워 다른 매장처럼 경직되지 않습니다. 쇼 중에 가까이서 볼 수 있어 선택 부담이 적습니다.',
+          title: '넓은 무대',
+          body: '홀에서는 여러 국적의 테라피스트가 한 줄로 서는 ‘시닉 라인’ 방식으로 안내하며, 현장에서 마사지를 담당할 테라피스트를 직접 선택할 수 있습니다.',
         },
         {
           title: '요금 확인',
           body: '가격대는 MOP 2,799 – 6,699입니다.',
         },
         {
-          title: '60분 서비스',
-          body: '넓은 럭셔리 룸에 들어가 무드 조명과 고급 가구를 즐기세요. 공간감이 편안해 환경의 질을 중시하는 분께 최적입니다.',
+          title: '60분 마사지',
+          body: '넓고 편안한 객실에서 60분 마사지를 받으며 쉬어 갈 수 있습니다. 부드러운 조명과 가구가 차분한 분위기를 더합니다. 시작 전에 마사지 내용과 요금을 확인해 주세요.',
         },
         {
           title: '휴식과 숙박',
@@ -6604,16 +6448,16 @@ const ko: SpaPageCopy = {
           body: '24시간 다양한 식음료를 무료로 이용할 수 있어, 오후든 심야든 본인 시간에 맞춰 식사할 수 있습니다.',
         },
         {
-          title: '부티크 방식의 선택',
-          body: '디 엑설런트는 부티크식 대면 선택 — 엄선된 다국적 고퀄리티 테라피스트로 「적지만 정예」 노선을 갑니다. 모든 테라피스트의 외모와 서비스가 검증되어 있습니다. 대형 쇼 없이 매니저가 취향에 맞춰 한 명씩 소개해, 선택 과정이 여유롭고 프라이빗합니다.',
+          title: '마사지 상담',
+          body: '집중적으로 풀고 싶은 부위와 원하는 마사지 강도를 접수처에 알려 주세요. 이용 가능한 마사지 종류, 시간, 요금을 확인한 뒤 일정을 정할 수 있습니다.',
         },
         {
           title: '워터베드 또는 테마룸',
-          body: '워터베드와 시추에이션 테마룸을 제공합니다 — 전통 둥관식 워터베드 경험 또는 테마룸(오피스, 교실, 병원 등)을 선택할 수 있습니다.',
+          body: '사무실, 교실, 영화관 등 다양한 스타일의 객실이 있으며, 일부 객실에는 워터베드가 마련되어 있습니다. 객실 시설과 이용 가능 여부를 확인한 뒤 원하는 공간을 선택하세요.',
         },
         {
-          title: '60분 서비스',
-          body: '룸에 들어가 약 60분의 전속 서비스를 즐기세요. 10% 서비스 요금이 별도입니다. 디 엑설런트의 타이식과 상하이식 마사지는 간단한 룸을 선택해도 전문 수준이 상당히 높습니다.',
+          title: '60분 마사지',
+          body: '마사지 시간은 약 60분이며, 서비스 요금 10%가 별도로 부과됩니다. 태국식과 상하이식 마사지를 제공하며, 시작 전에 마사지 방식과 강도, 비용을 확인해 주세요.',
         },
         {
           title: '휴식과 숙박',
@@ -6702,7 +6546,6 @@ const ko: SpaPageCopy = {
         '2026년 5월 15일 그랜드 오픈',
         'HK$8,000만 럭셔리 시공',
         '호텔급 테마 스위트',
-        '인플루언서급 / 스타급 테라피스트 주축',
         '대표 워터베드 특색룸',
         '24시간 영업, 야간 휴식 가능',
       ],
@@ -6720,16 +6563,16 @@ const ko: SpaPageCopy = {
           body: '다이닝 홀에서 무료 다과를 즐기세요. 호텔급 인테리어로 전통 사우나 식당 분위기가 아니며, 고요하고 프라이빗한 환경에 편안한 좌석을 갖춰 서비스 전후 여유롭게 이용할 수 있습니다.',
         },
         {
-          title: '테라피스트 선택',
-          body: '인플루언서급과 스타급 테라피스트가 주축인 국제 라인업을 만나보세요. 매칭은 무대 퍼포먼스가 아닌 프라이빗 관람 방식으로 진행되어, 브랜드의 고요하고 품격 있는 전체 톤과 조화를 이룹니다. 결정 후 매니저가 요금 등급(MOP 2,488 – 7,388)을 확인해 드리며, 세부 항목은 현장에서 문의하실 수 있습니다.',
+          title: '마사지 내용과 요금 확인',
+          body: '접수처에서 마사지 종류, 소요 시간, 요금 내역을 확인한 뒤 필요에 맞게 선택하세요. 참고 요금은 MOP 2,488~7,388이며, 이용 전에 서비스 내용과 총금액을 확인해 주세요.',
         },
         {
           title: '테마 스위트 또는 워터베드룸',
           body: '다양한 테마 스위트 — 각 룸에 맞춤 무드 조명, 고급 침구, 호텔급 장식을 갖춤 — 또는 엠파이어 대표 워터베드 특색룸을 선택하세요.',
         },
         {
-          title: '60분 서비스',
-          body: '프라이빗 룸에서 60분 서비스를 즐기세요. 마사지 스타일은 대만식, 일본식, 엠파이어 대표 워터베드 특색 서비스를 포함합니다. 욕조, 조명, 사운드를 침대 옆에서 조작할 수 있어 편안함이 최우선입니다.',
+          title: '60분 마사지',
+          body: '마사지 시간은 60분입니다. 구체적인 마사지 방식과 이용 절차는 미리 접수처에 문의하세요. 객실에는 욕조가 있으며 조명과 음향을 조절해 편안한 분위기를 만들 수 있습니다.',
         },
         {
           title: '휴식과 숙박',
@@ -6811,13 +6654,11 @@ const ko: SpaPageCopy = {
     'east-castle-spa': {
       aliases: '이스트 캐슬, 이스트 캐슬 스파, 마카오 이스트 캐슬, East Castle Spa, 東方皇堡',
       highlights: [
-        '20종 이상의 테마룸',
+        '20종 이상의 다양한 객실 디자인',
       ],
-      bestFor: '테마룸 인테리어',
+      bestFor: '다양한 스타일의 객실 디자인 체험',
       features: [
-        '추천 지수 {ratingStars}',
-        '20종 이상의 테마룸',
-        '마카오 테마룸의 개척자',
+        '20종 이상의 객실 디자인',
         '전문 서비스 팀',
         '24시간 영업',
         '프라이빗하고 안전한 환경',
@@ -6829,19 +6670,19 @@ const ko: SpaPageCopy = {
         },
         {
           title: '목욕으로 휴식',
-          body: '목욕 시설과 사우나로 몸을 풀어보세요. 이스트 캐슬의 특징은 테라피스트가 매장 곳곳에서 활동하며 인터랙션한다는 점으로, 입욕하며 관찰하고 고를 수 있습니다.',
+          body: '목욕 시설과 사우나를 자신의 속도에 맞춰 이용하며 여행 중 쌓인 피로를 풀어 보세요.',
         },
         {
           title: '무료 다과',
-          body: '다양한 식음료를 무료로 이용하며, 다이닝 구역에서 쉬면서 매장 내 테라피스트 동향을 살필 수 있습니다.',
+          body: '무료 식음료가 제공됩니다. 식사 공간에서 잠시 쉬며 다음 일정을 계획해 보세요.',
         },
         {
-          title: '자유 선택',
-          body: '이스트 캐슬은 「자유 관람」 방식 — 정해진 소개 시간 없이 다국적 테라피스트가 매장 각 구역에 있어, 언제든 어디서든 만나 마음에 드는 테라피스트를 고르고 매니저에게 알리면 됩니다. 이 방식은 선택 과정 전체를 더 자연스럽고 부담 없게 만듭니다.',
+          title: '마사지 이용 확인',
+          body: '접수처에서 마사지 종류, 예약 가능한 시간, 객실 상황을 확인하세요. 이용 전에 서비스 내용과 소요 시간, 요금 내역을 확인한 뒤 일정에 맞게 선택할 수 있습니다.',
         },
         {
-          title: '테마룸',
-          body: '이스트 캐슬 최대의 볼거리 — 감옥 심문실, 교실, 오피스, 비행기 객실, 병원, 구급차(대표 룸), 복싱장, 골프장 등 20종 이상의 정교한 테마룸.',
+          title: '20종 이상의 다양한 객실 디자인',
+          body: '이스트 캐슬 스파의 특징 중 하나는 20종 이상의 다양한 객실 디자인입니다. 각기 다른 인테리어와 분위기를 갖춰, 취향에 맞는 공간에서 마사지를 받으며 쉴 수 있습니다.',
         },
         {
           title: '서비스 요금과 세금',
@@ -7004,44 +6845,34 @@ const ko: SpaPageCopy = {
         '온천룸',
         '더 럭셔리한 인테리어',
       ],
-      bestFor: '럭셔리한 테마 체험',
+      bestFor: '과거 시설 안내 · 임시 휴업',
       features: [
-        '추천 지수 {ratingStars}',
-        '테크 감성 스타일',
-        '풍부한 테마룸',
-        '테마 시추에이션 체험',
-        'KTV 룸 파티 모드',
-        '미래 테크 인테리어',
-        '24시간 영업',
+        '미래적인 인테리어',
+        '다양한 객실 디자인',
+        'KTV룸',
+        '목욕 시설',
+        '임시 휴업',
       ],
       flow: [
         {
-          title: '도착과 입장',
-          body: 'M 클럽에 도착하세요 — 이스트 캐슬의 자매 매장으로, 더 럭셔리하고 하이엔드한 포지셔닝입니다. 인테리어 스타일이 이스트 캐슬보다 정교하며, KTV 룸과 온천룸 등 독점 시설을 갖추고 있습니다. 프런트 등록 후 손목밴드를 받으세요.',
+          title: '임시 휴업',
+          body: 'MCLUB은 현재 휴업 중으로 방문객이나 예약을 받지 않습니다. 아래 내용은 과거 시설에 관한 안내입니다.',
         },
         {
-          title: '목욕으로 휴식',
-          body: '목욕 시설과 사우나를 이용하세요. M 클럽에는 온천룸이 있어 프라이빗한 온천 입욕을 경험할 수 있는, 다른 매장에 없는 독특한 시설입니다.',
+          title: '시설과 객실',
+          body: '동방황보 스파의 자매 업장으로, 다양한 스타일의 객실과 KTV룸, 목욕 시설을 갖추고 있었습니다.',
         },
         {
-          title: '무료 다과',
-          body: '다양한 식음료를 무료로 이용하세요. 다이닝 환경은 전체 럭셔리 인테리어 스타일과 조화를 이루어 쾌적합니다.',
+          title: '목욕 및 식사 시설',
+          body: '미래적인 인테리어의 목욕탕, 사우나, 식사 공간이 있었습니다. 현재는 해당 시설을 이용할 수 없습니다.',
         },
         {
-          title: '자유 선택',
-          body: '이스트 캐슬과 같은 자유 관람 방식으로, 다국적 테라피스트가 매장 각 구역에서 활동해 언제든 고를 수 있습니다. 고정 소개 시간을 기다릴 필요가 없습니다.',
+          title: '과거 요금 안내',
+          body: '과거에는 서비스 요금 10%가 별도로 부과되었습니다. 현재 요금이나 예약 상품이 아닌 과거 기록입니다.',
         },
         {
-          title: 'KTV와 테마룸',
-          body: 'M 클럽만의 KTV 테마룸에서 노래하며 서비스를 즐길 수 있습니다. 온천룸 등 럭셔리 테마 선택지도 있으며, 인테리어가 이스트 캐슬보다 고급이라 룸당 시공 비용이 더 높습니다.',
-        },
-        {
-          title: '60분 서비스',
-          body: '전 과정 테마 시추에이션 인터랙션 서비스로, 경험과 장면을 직접 설계할 수 있습니다. 가격은 이스트 캐슬보다 다소 높지만 룸 시설과 인테리어가 더 럭셔리합니다. 10% 서비스 요금이 별도입니다.',
-        },
-        {
-          title: '휴식과 숙박',
-          body: '로비에 리클라이너가 있어 야간 휴식이 가능합니다. M 클럽은 이스트 캐슬보다 손님이 적어 비교적 조용합니다.',
+          title: '휴식 시설',
+          body: '과거 로비에 리클라이너 휴식 공간이 있었습니다. 휴업 중에는 숙박할 수 없으며, 영업 재개 여부는 업장의 최신 공지를 확인해 주세요.',
         },
       ],
       gallery: [
@@ -7125,48 +6956,39 @@ const ko: SpaPageCopy = {
     'number-one-sauna': {
       aliases: '넘버 원 사우나, 1호 사우나, 마카오 넘버 원 사우나, The One Sauna, 壹號桑拿',
       highlights: [
-        '마카오 최다 테라피스트',
-        '가장 풍부한 국제적 선택지',
-        '첫 방문 추천',
-        '대표 무료 스테이크',
+        '넓은 탈의실',
+        '월풀 욕조',
+        '건식·습식 사우나',
+        '과거 식사 시설',
       ],
-      bestFor: '처음 경험하는 분',
+      bestFor: '과거 시설 안내 · 임시 휴업',
       features: [
-        '추천 지수 {ratingStars}',
-        '마카오 인기 사우나',
-        '다국적 선택지',
-        '높은 퀄리티 보장',
-        '비주얼 경험',
-        '24시간 영업',
+        '목욕 시설',
+        '넓은 홀',
+        '사물함',
+        '휴식 공간',
+        '임시 휴업',
       ],
       flow: [
         {
-          title: '도착과 입장',
-          body: '넘버 원 사우나에 도착하면 프런트에서 등록하고 손목밴드와 락커 키를 받으세요. 탈의실은 넓고 시설이 새롭습니다.',
+          title: '임시 휴업',
+          body: '일호 사우나는 현재 휴업 중으로 방문객이나 예약을 받지 않습니다. 아래 내용은 과거 시설에 관한 기록입니다.',
         },
         {
-          title: '목욕으로 휴식',
-          body: '대형 월풀, 드라이 사우나, 스팀 사우나를 갖추고 조명이 부드럽고 편안합니다. 먼저 20-30분 입욕하며 몸과 마음의 상태를 가다듬기를 권합니다.',
+          title: '목욕 및 탈의 시설',
+          body: '과거에는 넓은 탈의실, 사물함, 대형 월풀 욕조, 건식 사우나와 습식 사우나가 마련되어 있었습니다.',
         },
         {
-          title: '무료 다과',
-          body: '전 시간 무제한 무료 제공. 대표 스테이크가 넘버 원에서 가장 인기 있는 메뉴이며, 볶음밥, 볶음면, 신선한 과일 플래터, 시원한 맥주도 있습니다. 넓은 다이닝 구역에서 식사하며 로비 동향을 살필 수 있습니다.',
+          title: '식사 공간',
+          body: '과거 넓은 식사 공간에서 스테이크, 볶음밥, 면 요리, 과일, 음료 등을 제공했습니다. 현재는 식사 서비스를 운영하지 않습니다.',
         },
         {
-          title: '대형 테라피스트 소개 쇼',
-          body: '매일 밤 다국적 테라피스트가 조를 나눠 로비를 런웨이하며 소개됩니다. 전문 조명과 사운드로 장관을 이루며, 회당 약 30분입니다. 테라피스트 팀은 아시아(중국, 일본, 한국, 대만, 베트남, 태국)와 유럽(러시아, 우크라이나) 등 다국적 배경으로, 마카오 최대 규모이자 가장 국제적인 테라피스트 매칭 쇼입니다.',
+          title: '과거 요금',
+          body: '기록된 과거 요금은 MOP 2,199~7,699였습니다. 현재 적용되는 요금이 아니며, 휴업 중에는 예약이나 서비스를 제공하지 않습니다.',
         },
         {
-          title: '테라피스트 선택',
-          body: '마음에 드는 번호를 매니저에게 알리면 해당 테라피스트의 서비스 등급과 가격을 확인해 줍니다. 가격대는 테라피스트 유형에 따라 MOP 2,199 – 7,699입니다. 피크 시간(주말 22:00-00:00)에는 인기 테라피스트 대기가 있을 수 있으니 일찍 입장하길 권합니다.',
-        },
-        {
-          title: '60분 서비스',
-          body: '독립 룸에서 1:1 전속 워터베드 서비스를 즐기세요 — 넘버 원은 워터베드 서비스로 마카오 전역에 알려져 있습니다. 유료 소품 시술도 있습니다: 귀이개, 네일, 두드림 마사지 등.',
-        },
-        {
-          title: '휴식과 숙박',
-          body: '서비스 후 휴게 구역 리클라이너에서 쉬거나 바로 야간 휴식을 보낼 수 있습니다. 피크 시간대 휴게 구역은 다소 활기가 있으니, 조용히 쉬려면 새벽 2시 이후에 잠드는 것을 권하며 6-8시가 가장 조용합니다. 다음 날 무료 다과 후 여유롭게 퇴장하세요.',
+          title: '휴식 시설',
+          body: '과거에는 리클라이너 휴식 공간이 있었습니다. 휴업 중에는 숙박할 수 없으며, 영업 재개 여부는 업장의 최신 공지를 확인해 주세요.',
         },
       ],
       gallery: [
@@ -7235,47 +7057,38 @@ const ko: SpaPageCopy = {
     'familia-nobre': {
       aliases: '파밀리아 노브레, 마카오 파밀리아 노브레, Familia Nobre, 豪門桑拿',
       highlights: [
-        '전관 최대 규모',
-        '서비스 요금 없음',
-        '높은 퀄리티의 가성비 선택',
+        '넓은 목욕 공간',
+        '다수의 객실',
+        '휴식 공간',
       ],
-      bestFor: '가성비를 추구하는 분',
+      bestFor: '과거 시설 안내 · 임시 휴업',
       features: [
-        '추천 지수 {ratingStars}',
-        '마카오 최대 규모 사우나',
-        '가장 많은 객실 수',
-        '안정적인 서비스',
-        '최고 가성비',
-        '서비스 요금 없음',
+        '넓은 목욕 공간',
+        '다수의 객실',
+        '사물함',
+        '리클라이너 휴식 공간',
+        '임시 휴업',
       ],
       flow: [
         {
-          title: '도착과 입장',
-          body: '파밀리아 노브레에 도착하면 프런트에서 등록하고 손목밴드와 락커 키를 받으세요. 탈의실에는 무료로 짐을 맡길 수 있는 안전 락커가 있으며, 가운으로 갈아입은 후 경험을 시작하면 됩니다.',
+          title: '임시 휴업',
+          body: '호문 사우나는 현재 휴업 중으로 방문객이나 예약을 받지 않습니다. 아래 내용은 과거 시설에 관한 기록입니다.',
         },
         {
-          title: '목욕으로 휴식',
-          body: '마카오에서 면적이 가장 넓은 목욕 공간으로, 여러 월풀과 사우나룸을 갖춰 넓고 붐비지 않습니다. 피크 시간에도 줄 서서 기다리는 일이 없습니다.',
+          title: '목욕 및 탈의 시설',
+          body: '과거에는 넓은 탈의실, 사물함, 욕조와 사우나실이 있었으며, 목욕·식사·휴식 공간이 구분되어 있었습니다.',
         },
         {
-          title: '무료 다과',
-          body: '스테이크, 시원한 맥주, 각종 따뜻한 요리를 무료로 즐기세요. 파밀리아의 스테이크와 맥주는 손님들 사이에서 평판이 매우 좋습니다. 넓고 편안한 다이닝 구역에서 전 시간 무제한으로 제공되며 추가 비용이 없습니다.',
+          title: '식사 및 객실 시설',
+          body: '과거 스테이크, 음료, 따뜻한 요리를 제공했으며 다수의 객실을 갖추고 있었습니다. 현재는 식사 및 객실 시설을 이용할 수 없습니다.',
         },
         {
-          title: '테라피스트 매칭',
-          body: '매니저가 테라피스트 한 조를 눈앞에 세워 가까이서 보고 여유롭게 고릅니다. 각 조의 가격 등급을 미리 알려줘 선택 전에 가격을 분명히 알 수 있습니다.',
+          title: '과거 요금',
+          body: '기록된 과거 요금은 MOP 2,388~6,988였으며 당시에는 서비스 요금이 없었습니다. 현재 요금이 아닌 과거 기록입니다.',
         },
         {
-          title: '테라피스트 선택',
-          body: '전 과정 서비스 요금이 없어 표시 가격이 곧 최종 가격이며, 숨은 요금이나 추가 가격이 전혀 없습니다. 가격대는 MOP 2,388 – 6,988로 마카오에서 가성비가 가장 높은 선택입니다. 공간과 객실 수가 넉넉해 대기가 거의 필요 없습니다.',
-        },
-        {
-          title: '60분 서비스',
-          body: '독립 룸에서 1:1 전속 서비스를 즐기세요. 파밀리아는 객실 수가 마카오에서 가장 많아, 번잡한 시간에도 거의 자리를 기다리지 않아 경험이 매끄럽습니다.',
-        },
-        {
-          title: '휴식과 숙박',
-          body: '마카오에서 가장 많은 리클라이너를 갖춘 넓은 휴게 구역으로, 리클라이너 간격이 넓어 야간 휴식의 편안함이 높습니다. 시끄러운 엔터테인먼트의 방해 없이 조용히 쉴 수 있습니다. 다음 날 무료 다과 후 퇴장하세요.',
+          title: '휴식 시설',
+          body: '과거 휴식 공간에는 간격을 넓게 둔 리클라이너가 여러 개 있었습니다. 휴업 중에는 숙박할 수 없으며, 영업 재개 여부는 업장의 최신 공지를 확인해 주세요.',
         },
       ],
       gallery: [

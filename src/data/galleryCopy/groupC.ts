@@ -309,28 +309,6 @@ export const galleryCopyGroupC = {
       caption: "앞을 향한 크림색 좌석과 타원형 창, 곡선형 그레이 소파가 프라이빗 기내 같은 아늑함을 연출합니다.",
     },
   },
-  "macau-sauna-spa-east-castle-placed-20260624-08": {
-    en: {
-      alt: "Cell-themed room enclosed by black metal bars",
-      caption: "Heavy black bars, chain details, and a simple bench define a stark enclosed setting with warm light beyond.",
-    },
-    "zh-TW": {
-      alt: "黑色金屬欄杆圍合的牢房主題房",
-      caption: "厚實黑色欄杆、鎖鏈細節與簡單長椅組成封閉場景，後方暖光增添明暗對比。",
-    },
-    "zh-CN": {
-      alt: "黑色金属栏杆围合的牢房主题房",
-      caption: "厚实黑色栏杆、锁链细节与简单长椅组成封闭场景，后方暖光增添明暗对比。",
-    },
-    ja: {
-      alt: "黒い金属格子で囲まれた独房風のテーマルーム",
-      caption: "太い黒格子と鎖、簡素なベンチが閉ざされた場面をつくり、奥の暖かな光が強い陰影を添えています。",
-    },
-    ko: {
-      alt: "블랙 메탈 바로 둘러싸인 독방 콘셉트룸",
-      caption: "굵은 블랙 바와 체인, 간결한 벤치가 폐쇄된 장면을 만들고, 뒤편의 따뜻한 빛이 강한 명암을 더합니다.",
-    },
-  },
   "macau-sauna-spa-east-castle-placed-20260624-09": {
     en: {
       alt: "Red padded bed in a black combat-sports themed room",

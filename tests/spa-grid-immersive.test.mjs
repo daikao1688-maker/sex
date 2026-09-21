@@ -122,11 +122,22 @@ test("restyling preserves every locale's venue content, facts, cover assets and 
       const wrapper = [...section.matchAll(/<div\b[^>]*\bdata-buckets="([^"]*)"[^>]*>\s*<a\b[^>]*\bhref="([^"]*)"/g)]
         .find((match) => match[2] === href);
       assert.ok(wrapper, `${href}: filterable venue wrapper is missing`);
-      assert.deepEqual(wrapper[1].split(/\s+/), venue.buckets, `${href}: filter membership changed`);
+      assert.deepEqual(wrapper[1].split(/\s+/), [
+        ...venue.buckets.filter((bucket) => bucket !== "lineup"), venue.district,
+      ], `${href}: filter membership must follow amenities and the actual district`);
     }
     const filterButtons = [...section.matchAll(/<button\b(?=[^>]*\bdata-bucket=")[^>]*>/g)].map(([tag]) => tag);
     assert.deepEqual(filterButtons.map((tag) => attribute(tag, "data-bucket")), copy.filters.map((filter) => filter.bucket));
     assert.equal(attribute(filterButtons[0], "aria-pressed"), "true", `${locale}: All filter is not initially selected`);
+    assert.ok(filterButtons.some((tag) => attribute(tag, "data-bucket") === "taipa"));
+    assert.ok(!filterButtons.some((tag) => attribute(tag, "data-bucket") === "lineup"));
+    const pausedWrapper = section.match(/<div\b[^>]*\bdata-buckets="([^"]*)"[^>]*>\s*<div\b[^>]*\bdata-testid="spa-paused-card"/);
+    assert.ok(pausedWrapper, `${locale}: filterable paused-venue card is missing`);
+    assert.deepEqual(new Set(pausedWrapper[1].split(/\s+/)), new Set(
+      venues.filter((venue) => venue.temporarilyClosed).flatMap((venue) => [
+        ...venue.buckets.filter((bucket) => bucket !== "lineup"), venue.district,
+      ]),
+    ), `${locale}: paused-venue filtering does not follow its venues' actual districts`);
     assert.match(section, /\bdata-spa-hidden-note\b/);
     assert.match(section, /\bdata-spa-jump-all\b/);
     for (const venue of venues.filter((item) => item.temporarilyClosed)) {

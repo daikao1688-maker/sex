@@ -3,7 +3,7 @@ import { getDictionary, interpolate } from "../i18n";
 import { localizePath, type Locale } from "../i18n/config";
 import { bookableVenues, venues } from "../data/venues";
 import { contact, chatUrl } from "../data/site";
-import { defaultSelection, rankVenues } from "../lib/quickMatch";
+import { defaultSelection, rankVenues, toQuickMatchVenue } from "../lib/quickMatch";
 
 interface Props {
   lang: Locale;
@@ -40,7 +40,7 @@ const defaultMessage = interpolate(qm.messageTemplate, {
 
 // Everything the browser needs to re-render after an answer changes.
 const clientConfig = {
-  candidates: bookableVenues,
+  candidates: bookableVenues.map(toQuickMatchVenue),
   labels: {
     group: qm.groupOptions,
     experience: qm.experienceOptions,
@@ -280,8 +280,7 @@ const clientConfig = {
 </section>
 
 <script>
-  import { defaultSelection, rankVenues, type QuickMatchSelection } from "../lib/quickMatch";
-  import type { Venue } from "../data/venues";
+  import { defaultSelection, rankVenues, type QuickMatchSelection, type QuickMatchVenue } from "../lib/quickMatch";
 
   interface VenueCopy {
     name: string;
@@ -290,7 +289,7 @@ const clientConfig = {
   }
 
   interface Config {
-    candidates: Venue[];
+    candidates: QuickMatchVenue[];
     labels: Record<string, Record<string, string>>;
     messageTemplate: string;
     yes: string;

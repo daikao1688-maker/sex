@@ -385,19 +385,19 @@ test("the homepage restores clearly disclosed customer reviews in every locale",
 test("homepage venue and monthly-pick introductions use the approved localized copy", async () => {
   const expected = {
     en: [
-      "Explore 14 popular Macau sauna venues, with updates on prices, opening status, team size and other practical details.",
+      "Compare 14 Macau sauna venues by reference prices, opening status and facilities.",
       "Our monthly picks reflect recent guest feedback. Tell us your budget, timing and preferences, and we can suggest the venues that suit you best.",
     ],
     "zh-TW": [
-      "收錄澳門熱門的14家桑拿會所，即時更新情報（價格，營業狀態，人員數量等）",
+      "收錄澳門14家桑拿會所，提供價格、營業狀態與設施資訊。",
       "我們根據當月客戶反饋，做出推薦，我們也會根據您的預算，時間，喜好推薦適合的桑拿房！",
     ],
     "zh-CN": [
-      "收录澳门热门的 14 家桑拿会所，及时更新价格、营业状态、人员数量等实用信息。",
+      "收录澳门14家桑拿会所，提供价格、营业状态与设施信息。",
       "我们会根据当月客户反馈给出推荐，也会结合您的预算、时间和喜好，帮您筛选合适的桑拿会所。",
     ],
     ja: [
-      "マカオで人気のサウナ14店を掲載。料金・営業状況・在籍人数など、来店前に知りたい情報を随時更新しています。",
+      "マカオのサウナ14店について、参考料金、営業状況、設備を比較できます。",
       "今月のお客様の声をもとにおすすめ店を選んでいます。ご予算・ご希望の時間・お好みを伺い、条件に合う店舗もご案内します。",
     ],
   };

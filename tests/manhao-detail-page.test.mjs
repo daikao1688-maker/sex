@@ -29,11 +29,11 @@ test("renders the approved Manhao copy and venue-specific practical facts", asyn
 
   assert.match(
     text,
-    /曼濠水疗是氹仔君怡酒店内的新派高端场，2026 年 5 月开业后很快成为路氹一带的话题选择。/,
+    /曼濠水疗于 2026 年 5 月在氹仔君怡酒店开业，邻近威尼斯人与银河度假城一带。/,
   );
   assert.match(
     text,
-    /最有辨识度的是大型走秀大厅与红色水床套房。.*营业时段、过夜和优惠建议预约前再确认。/,
+    /沐浴区以大理石铺设，配有两座浴池、芬兰式桑拿及蒸汽浴室。.*在行程之间或一天游览后，留一段时间好好休息。/,
   );
   assert.match(text, /MOP 2,488 - 6,088/);
   assert.match(text, /多国籍技师团队/);

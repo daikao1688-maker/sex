@@ -16,12 +16,12 @@ const replacementGalleries = {
   "manhao-spa": { lead: "macau-sauna-spa-manhao-placed-20260624-01", count: 11 },
   "number-nine-sauna": { lead: "macau-sauna-spa-number-nine-placed-20260624-01", count: 6 },
   "shang-pin-spa": { lead: "macau-sauna-spa-elite-placed-20260624-01", count: 11 },
-  "majesty-spa": { lead: "macau-sauna-spa-majesty-gallery-202607-01", count: 25 },
+  "majesty-spa": { lead: "macau-sauna-spa-majesty-gallery-202607-01", count: 21 },
   "the-excellent-sauna": { lead: "macau-sauna-spa-excellent-gallery-202607-01", count: 14 },
   "empire-sauna": { lead: "macau-sauna-spa-empire-placed-20260624-01", count: 12 },
-  "east-castle-spa": { lead: "macau-sauna-spa-east-castle-gallery-202607-02", count: 18 },
+  "east-castle-spa": { lead: "macau-sauna-spa-east-castle-gallery-202607-02", count: 17 },
   "victoria-sauna": { lead: "macau-sauna-spa-victoria-gallery-202607-01", count: 8 },
-  "m-club": { lead: "macau-sauna-spa-mclub-gallery-202607-02", count: 22 },
+  "m-club": { lead: "macau-sauna-spa-mclub-gallery-202607-02", count: 17 },
   "number-one-sauna": { lead: "macau-sauna-spa-number-one-gallery-202607-01", count: 10 },
   "familia-nobre": { lead: "macau-sauna-spa-familia-nobre-gallery-202607-01", count: 9 },
   "eighteen-sauna": { lead: "macau-sauna-spa-eighteen-gallery-202607-01", count: 7 },
@@ -120,7 +120,7 @@ test("gives every gallery image specific, non-templated copy in all four languag
     }
   }
 
-  assert.equal(renderedImageCount, 688, "the four localized galleries must render exactly 688 image cards");
+  assert.equal(renderedImageCount, 648, "the four localized galleries must render exactly 648 image cards");
 });
 
 test("removes only the selected Familia Nobre staircase photo", async () => {

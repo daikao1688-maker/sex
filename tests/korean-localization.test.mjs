@@ -393,12 +393,12 @@ test("all active Korean galleries expose specific Korean alternative text and ca
     "manhao-spa": 11,
     "number-nine-sauna": 6,
     "shang-pin-spa": 11,
-    "majesty-spa": 25,
+    "majesty-spa": 21,
     "the-excellent-sauna": 14,
     "empire-sauna": 12,
-    "east-castle-spa": 18,
+    "east-castle-spa": 17,
     "victoria-sauna": 8,
-    "m-club": 22,
+    "m-club": 17,
     "number-one-sauna": 10,
     "familia-nobre": 9,
     "oceanic-royal-spa": 9,
@@ -430,7 +430,7 @@ test("all active Korean galleries expose specific Korean alternative text and ca
     renderedImages += expectedCount;
   }
 
-  assert.equal(renderedImages, 172, "Korean pages must expose all 172 active gallery descriptions");
+  assert.equal(renderedImages, 162, "Korean pages must expose all 162 active gallery descriptions");
 });
 
 test("Korean server and client month labels use Korean month and year forms", async () => {

@@ -40,7 +40,7 @@ const en: FaqCopy = {
       items: [
         {
           question: 'What is a Macau sauna?',
-          answer: 'A modern entertainment spa combining wellness, dining, and leisure. Includes bathing facilities, complimentary dining, a staff selection show, and a 60-minute one-on-one service. Most venues allow 12-15 hour stays, including overnight.',
+          answer: 'A Macau sauna is a modern entertainment venue combining spa facilities, dining, and leisure. All legitimate venues hold valid licences issued by the Macao Government Tourism Office (MGTO). They offer bathing facilities, complimentary dining, and professional massage. Most venues allow stays of 12-15 hours, including overnight.',
         },
         {
           question: 'Are Macau saunas safe and legal?',
@@ -57,7 +57,7 @@ const en: FaqCopy = {
       items: [
         {
           question: 'How much does it cost?',
-          answer: 'Depends on venue and service tier. General range: MOP 1,800 - 7,000+. Vietnamese/Thai: ~MOP 2,400-3,200. Chinese/model: ~MOP 3,200-4,200. Japanese/Korean: ~MOP 5,800-6,800. Contact us for current promotions.',
+          answer: "Prices depend on the venue, massage treatment, duration and facilities included. Ask for an itemized quote for the treatment you want, including any service charge, taxes and optional extras. Confirm the total before booking.",
         },
         {
           question: 'How can I confirm what is included in a package?',
@@ -81,12 +81,12 @@ const en: FaqCopy = {
           answer: 'Yu Sauna, Empire, Shang Pin, Number Nine, Majesty and The Excellent are publicly listed as running 24 hours. Manhao opens 14:00–04:00. Yu Sauna lists therapist hours of 13:00–06:00, while shifts at other venues vary — see each venue page, or we\'ll confirm when you book.',
         },
         {
-          question: 'When are the most staff available?',
-          answer: 'Most staff come on duty after 7 PM, offering the widest selection. For a quieter experience, arrive between 3-6 PM.',
+          question: "When is a quieter time to visit?",
+          answer: "The afternoon, around 3–6 PM, is generally quieter. Crowding and treatment availability vary by venue and date, so confirm your preferred arrival time before travelling.",
         },
         {
-          question: 'How long is the service?',
-          answer: 'Standard service is 60 minutes. Pure massage is 90 minutes.',
+          question: "How long is a massage treatment?",
+          answer: "Duration varies by venue and treatment. Before booking, confirm the type of massage, its actual duration, what the package includes and the total price. Use the treatment details confirmed by the venue when planning your visit.",
         },
         {
           question: 'Can I stay overnight?',
@@ -101,8 +101,8 @@ const en: FaqCopy = {
           answer: 'Yes — completely free and unlimited. The menu spans premium steak, fresh seafood, slow-simmered Cantonese soups, Sichuan-style stir-fries, fried rice, fried noodles, fresh fruit, beer, soft drinks, and snacks. The cuisine leans Hong Kong / Cantonese with Sichuan accents, and Taiwan visitors find it very accessible — many regulars say the steak and fried rice rival outside restaurants. Some venues also serve abalone and fish maw at no extra charge.',
         },
         {
-          question: 'Which venues have the most Japanese/Korean staff?',
-          answer: '<a class="text-gold hover:underline" href="{base}/spa/number-nine-sauna/">Number Nine Spa</a> and <a class="text-gold hover:underline" href="{base}/spa/victoria-sauna/">Victoria Sauna</a> have the strongest Japanese/Korean selection. <a class="text-gold hover:underline" href="{base}/spa/number-one-sauna/">Number One Sauna</a> also offers them but at higher price tiers. Lineups change daily — ask us when you book for the latest.',
+          question: "Can I request help in my preferred language?",
+          answer: "Tell us which language you use when you enquire. We can help check whether a venue can explain its facilities, massage treatments and prices in that language. Language support depends on the venue and time of visit; please confirm it before booking.",
         },
         {
           question: 'Is the return ride free too?',
@@ -115,7 +115,7 @@ const en: FaqCopy = {
       items: [
         {
           question: 'Why should I book through you?',
-          answer: 'We offer: exclusive partner pricing (lower than walk-in), complimentary 7-seater private car pickup AND return anywhere in Macau, 1 complimentary VIP Extra (your choice), priority entry — no front-desk queue, real-time staff availability info, and honest recommendations based on your preferences.',
+          answer: "We offer exclusive partner pricing, complimentary 7-seater private car pickup and return anywhere in Macau, 1 complimentary VIP Extra of your choice, priority entry, current venue information and recommendations based on your budget, location, facilities and massage needs.",
         },
         {
           question: 'Can I cancel last minute?',
@@ -132,7 +132,7 @@ const en: FaqCopy = {
       items: [
         {
           question: 'Do Macau saunas include a massage?',
-          answer: 'Yes. Every Macau sauna booked through us includes a complimentary massage — you choose 1 each visit, including full-body back massage, foot massage (reflexology), head massage and hand massage, all normally charged separately. A 60-minute one-on-one service is provided on top of that.',
+          answer: "Yes. Bookings through us include a choice of 1 complimentary treatment, such as back rubbing, foot massage (reflexology), head massage or hand massage, which are normally charged separately. Confirm the available treatment, duration and package details with the venue before booking.",
         },
         {
           question: 'What massages and treatments are included free?',
@@ -144,7 +144,7 @@ const en: FaqCopy = {
         },
         {
           question: 'Can I get a full-body massage?',
-          answer: 'Yes. The full-body back massage is a popular free option, working down the back, neck and shoulders. For a deeper 60-minute one-on-one massage, tell us your preferences and we\'ll match you with the right venue and therapist.',
+          answer: 'Yes. We can help you find a suitable venue.',
         },
         {
           question: 'Is this a spa or a sauna? What\'s the difference?',
@@ -184,7 +184,7 @@ const ja: FaqCopy = {
       items: [
         {
           question: 'マカオ サウナ（桑拿）とはどんな施設ですか？',
-          answer: '入浴・お食事・休憩・エンターテインメントをまるごと1か所で楽しめる、マカオならではの大型複合施設——それがマカオ サウナ（桑拿）です。街中のマッサージ店とはまったくの別物で、正規店はすべてマカオ観光局（MGTO）の営業ライセンスを持っています。広々としたバスエリア、無料ダイニング、女の子を選べるショータイム、そして60分の一対一サービスまでがワンセット。滞在は多くの店舗で12〜15時間までOK、そのまま宿泊（24時間）することもできます。日本語対応と無料送迎が付くので、初めてでも迷うことはありません。',
+          answer: 'マカオ サウナ（桑拿）は、スパ、食事、休憩を一か所で楽しめる現代的な娯楽施設です。正規店はすべてマカオ観光局（MGTO）が発行する有効な営業ライセンスを取得しています。入浴設備、無料の食事、専門のマッサージを提供しており、多くの店舗では12〜15時間滞在でき、夜を越して休むこともできます。',
         },
         {
           question: 'マカオ サウナは合法ですか？安全性や口コミは？',
@@ -196,11 +196,11 @@ const ja: FaqCopy = {
         },
         {
           question: '日本語は通じますか？日本語だけで大丈夫？',
-          answer: 'はい、大丈夫です。当サイトのLINEは日本語に完全対応しており、お店選びから送迎の手配まですべて日本語で完結します。店内スタッフは中国語（広東語）が中心で英語は簡単な程度のことが多いですが、ご希望・ご予算を事前にLINEでお伝えいただければ、当日は入店から退店までほとんど会話不要でスムーズに楽しめます。日本語が話せる女の子が在籍するお店のご案内も可能です。',
+          answer: "当サイトのLINEは日本語に対応しており、店舗選び、料金の確認、送迎の手配を日本語でご相談いただけます。ご希望のマッサージ、予算、設備、必要な言語サポートを事前にお知らせください。館内での日本語対応は店舗や時間帯によって異なるため、予約時に確認します。",
         },
         {
           question: '一人で行っても大丈夫ですか？',
-          answer: 'もちろんです。マカオ サウナはお一人でのご利用がむしろ多数派です。LINEでお問い合わせいただければ、無料送迎車がホテルまでお迎えに上がり、到着後はスタッフがご案内しますので、初めての方でも流れに迷うことはありません。お一人だからこそ、女の子選びもサービスも自分のペースでゆっくり楽しめます。',
+          answer: "もちろんです。お一人での来店もご相談いただけます。LINEで店舗や利用内容を確認し、送迎をご希望の場合は乗車場所と時間を決めます。到着後はスタッフの案内に沿って受付を済ませ、入浴、食事、マッサージ、休憩をご自分のペースでお楽しみください。",
         },
         {
           question: '予約なしで直接お店に行ってもいいですか？',
@@ -208,7 +208,7 @@ const ja: FaqCopy = {
         },
         {
           question: 'マカオ サウナはどの店がおすすめですか？',
-          answer: 'ご予算・エリア・好みのタイプ（日本人／韓国人のスタッフが多い店、設備が新しい店、宿泊向きの店など）によっておすすめは変わります。当サイトでは{venueCount}店舗の情報と休業状況を整理しています。LINEでご希望をお知らせいただければ、営業中の選択肢から条件に合う店舗をご案内します。料金、営業状況、許可情報は来店前にあらためてご確認ください。',
+          answer: "おすすめは、ご予算、エリア、設備、希望するマッサージ、宿泊休憩の要否によって変わります。当サイトでは{venueCount}店舗の情報と休業状況を整理しています。LINEで条件をお知らせいただければ、営業中の候補をご案内します。料金、営業状況、許可情報は来店前にあらためてご確認ください。",
         },
       ],
     },
@@ -217,7 +217,7 @@ const ja: FaqCopy = {
       items: [
         {
           question: '料金・値段の相場はどれくらいですか？',
-          answer: 'マカオ サウナの料金はお店のグレードと女の子のランクで決まり、全体の目安は MOP 1,800 〜 7,000+ です。相場の内訳は、ベトナム／タイ系が約 MOP 2,400-3,200、中国／モデル系が約 MOP 3,200-4,200、日本／韓国系が約 MOP 5,800-6,800。値段はすべて明朗会計です。時期によってお得なプランも出ますので、最新の料金はLINEでお気軽にご確認ください。',
+          answer: "料金は店舗、マッサージの種類と時間、利用する設備やプランによって異なります。ご希望の施術について、サービス料・税金・追加項目を含む明細付きの見積もりを取り、予約前に総額をご確認ください。",
         },
         {
           question: 'プランに含まれる内容はどう確認すればよいですか？',
@@ -245,12 +245,12 @@ const ja: FaqCopy = {
           answer: 'YU SAUNA・巨亨・尚品・玖号・尊貴・極品は公開情報で24時間営業と案内されています。曼濠は14:00〜翌4:00です。YU SAUNAのスタッフ対応時間は13:00〜翌6:00で、その他の店舗も勤務時間帯が異なります。詳細は各店舗ページをご確認いただくか、ご予約時にご案内します。',
         },
         {
-          question: '女の子の人数が一番そろう時間帯はいつですか？',
-          answer: '夜19時を過ぎると大半の女の子が出勤してくるため、マカオ サウナのショータイムはこの時間帯が選択肢最多になります。一方で、混雑を避けて待ち時間なくじっくり選びたい方には、比較的すいている15〜18時の入店も人気です。',
+          question: "比較的落ち着いて利用できる時間帯はいつですか？",
+          answer: "午後15〜18時は比較的空いている傾向があります。ただし、混雑状況と施術の予約枠は店舗や日程によって異なるため、来店前に希望する時間帯の状況をご確認ください。",
         },
         {
-          question: 'サービス時間はどのくらいありますか？',
-          answer: 'マカオ サウナの標準のマンツーマンサービスは60分間です（マッサージのみのご利用なら90分）。時間を気にせずくつろぎたい方は、そのまま宿泊（24時間）まで延ばす使い方もおすすめです。',
+          question: "マッサージの施術時間はどのくらいですか？",
+          answer: "施術時間は店舗とメニューによって異なります。予約前に、マッサージの種類、実際の施術時間、プランに含まれる項目、総額をご確認ください。利用計画は、店舗が確認した施術内容をもとにお立てください。",
         },
         {
           question: 'そのまま宿泊することはできますか？',
@@ -265,8 +265,8 @@ const ja: FaqCopy = {
           answer: '館内ダイニングは全品無料・食べ放題で、追加料金は一切かかりません。ラインナップは厳選ステーキ、新鮮なシーフード、広東式の煮込みスープ、四川風の炒め物、チャーハン、焼きそば、フルーツ、ビール・ソフトドリンク、軽食まで幅広くそろっています。香港・広東ベースに四川のアクセントを効かせた味付けは日本人の舌にもよく合い、口コミでは「ステーキとチャーハンは外のレストラン級」との評判も。店舗によってはアワビやフカヒレといった高級食材まで、追加料金なしで楽しめます。',
         },
         {
-          question: '日本人・韓国人の女の子が多いのはどの店ですか？',
-          answer: '日本・韓国系の在籍が多いマカオ サウナは、ナンバーナインスパ（玖號水療）とヴィクトリアサウナ（凱旋桑拿）の2店です。ナンバーワンサウナ（壹號桑拿）にも在籍はありますが、こちらは料金がやや高めのクラスになります。その日の出勤状況・指名の空き・日本語の可否は日々変わるものなので、ご来店前にLINEで聞いていただければ最新情報をリアルタイムでお答えします。',
+          question: "希望する言語で案内を受けられますか？",
+          answer: "お問い合わせの際に、ご希望の言語をお知らせください。設備、マッサージの内容、料金について、その言語で案内を受けられるか店舗に確認します。対応状況は店舗や利用時間によって異なるため、予約前にご確認ください。",
         },
         {
           question: '帰りも無料で送ってもらえますか？',
@@ -278,7 +278,7 @@ const ja: FaqCopy = {
         },
         {
           question: 'カジノや観光の合間に利用できますか？深夜でも大丈夫？',
-          answer: 'はい。主要なマカオ サウナは24時間営業なので、カジノで遊んだ後や観光の合間、深夜着の便の後でも利用できます。ただし店舗の営業時間と女の子の出勤時間は別で、出勤時間は店ごとにおおむね13:00〜翌06:00の範囲です。ご希望の店舗の当日状況は予約前にご確認ください。コタイ・マカオ半島どちらのホテル・カジノからも無料送迎で向かえます。宿泊対応も店舗ごとに異なります。',
+          answer: "観光の合間や深夜のご利用も、店舗の営業時間と施術の予約枠が合えば可能です。店舗が24時間営業でも、すべてのマッサージを終日受けられるとは限りません。希望する日時と施術内容を予約前にご確認ください。無料送迎と宿泊休憩の利用条件も店舗ごとに異なります。",
         },
       ],
     },
@@ -287,7 +287,7 @@ const ja: FaqCopy = {
       items: [
         {
           question: 'LINEで手配してもらうと何がお得なのですか？',
-          answer: 'LINE経由の手配には特典が満載です。具体的には——現地での当日払いより安い提携特別価格／行き帰りとも無料の7人乗り私人専車送迎（マカオ市内全域対応）／お好みで選べる無料VIP特典1つ／行列をスキップできる優先入場／女の子の最新出勤状況のリアルタイム共有／ご希望に沿った忖度なしのおすすめ提案。もちろん料金（値段）は明朗会計で、やり取りは日本語で完結。宿泊（24時間）のご相談もそのまま承ります。',
+          answer: "LINEでは、提携特別価格、マカオ市内全域の無料往復送迎、選べる無料VIP特典1つ、優先入場、店舗の最新情報をご案内します。ご予算、エリア、設備、希望するマッサージの内容に合わせて店舗をご提案し、日本語で予約や宿泊休憩の相談に対応します。",
         },
         {
           question: '予約後のキャンセルは可能ですか？',
@@ -299,7 +299,7 @@ const ja: FaqCopy = {
         },
         {
           question: 'LINEでの予約・手配はどんな流れですか？',
-          answer: '流れはとてもシンプルです。①LINEで友だち追加 → ②ご希望（日時・ご予算・エリア・好みのタイプ）を日本語で送る → ③ぴったりのお店と会員価格、当日の女の子の出勤状況をご提案 → ④送迎車のお迎え場所と時間を確定。あとは当日、お迎えの車に乗るだけです。前金（デポジット）は不要、直前キャンセルも無料なので、気軽に相談だけでも大丈夫です。',
+          answer: "①LINEで友だち追加 → ②日時、ご予算、エリア、希望する設備とマッサージ、必要な言語サポートを送信 → ③営業中の候補、施術内容、所要時間、総額、予約可能な時間を確認 → ④店舗を決め、送迎をご希望の場合は乗車場所と時間を確定します。前金は不要で、直前キャンセルも無料です。",
         },
       ],
     },
@@ -308,7 +308,7 @@ const ja: FaqCopy = {
       items: [
         {
           question: 'マッサージも料金に含まれていますか？',
-          answer: '含まれています。当サイト経由のマカオ サウナ（桑拿）では、ご来店のたびに全身アカスリ・足裏マッサージ（足ツボ）・ヘッドマッサージ・ハンドマッサージの中から1項目を無料でお選びいただけます——いずれも本来は別料金の施術です。これに加えて、60分のマンツーマン（一対一）サービスが標準で付いてきます。',
+          answer: "当サイト経由の予約では、通常は別料金のアカスリ、足裏マッサージ、ヘッドマッサージ、ハンドマッサージなどから1項目を無料特典としてお選びいただけます。対象となる施術、所要時間、プランの内容は予約前に店舗へご確認ください。",
         },
         {
           question: '無料施術のラインナップを教えてください',
@@ -320,7 +320,7 @@ const ja: FaqCopy = {
         },
         {
           question: '全身をしっかりほぐしてもらうことはできますか？',
-          answer: 'できます。マカオ サウナで人気No.1の無料項目は全身アカスリで、背中から首・肩まで丸ごとすっきりほぐせます（通常は別料金）。さらに本格的な60分のマンツーマン（一対一）マッサージをご希望なら、お好みをLINEでお聞かせください。日本語対応・無料送迎で、相性のいい店舗と女の子をセットでご案内します。',
+          answer: 'できます。ご希望に合う店舗をご案内します。',
         },
         {
           question: 'スパ（水療）とサウナ（桑拿）はどう違うのですか？',
@@ -360,7 +360,7 @@ const zhTW: FaqCopy = {
       items: [
         {
           question: '澳門桑拿是什麼？',
-          answer: '澳門桑拿是集水療、餐飲與休閒於一體的現代化娛樂會所，所有正規場所均持有澳門旅遊局（MGTO）核發的合法執照。提供沐浴設施、免費餐飲、專業按摩、技師媒合環節及 60 分鐘一對一服務，大部分場所可逗留 12-15 小時，亦可過夜。',
+          answer: '澳門桑拿是集水療、餐飲與休閒於一體的現代化娛樂會所，所有正規場所均持有澳門旅遊局（MGTO）核發的合法執照。提供沐浴設施、免費餐飲、專業按摩，大部分場所可逗留 12-15 小時，亦可過夜。',
         },
         {
           question: '澳門桑拿安全合法嗎？',
@@ -377,7 +377,7 @@ const zhTW: FaqCopy = {
       items: [
         {
           question: '大概要花多少錢？',
-          answer: '視乎場所及技師類別，一般範圍為 MOP 1,800 - 7,000+。越南/泰國技師約 MOP 2,400-3,200，中國/模特約 MOP 3,200-4,200，日韓技師約 MOP 5,800-6,800。聯繫我們了解最新優惠。',
+          answer: "費用因場所、按摩項目、時長及套餐包含的設施而異。請按想預約的按摩項目索取明細報價，確認服務費、稅項及自選項目是否另收費，並在預約前核對總價。",
         },
         {
           question: '如何確認套餐包含哪些項目？',
@@ -401,12 +401,12 @@ const zhTW: FaqCopy = {
           answer: '八湯御、巨亨、尚品、玖號、尊貴與極品的公開資料標示 24 小時營業；曼濠為 14:00–04:00。八湯御技師時段為 13:00–06:00，其他場館亦有不同當班時段，詳情見各場館頁面，或預約時由專人確認。',
         },
         {
-          question: '幾點技師比較多？',
-          answer: '晚上7點後大部分技師上班，選擇最豐富。想避開人潮，下午3-6點入場最為清靜。',
+          question: "什麼時段比較清靜？",
+          answer: "下午 3–6 點通常較為清靜。不過，人流及按摩預約時段會因場所和日期而異，出發前請先確認希望到訪的時間。",
         },
         {
-          question: '服務時間多久？',
-          answer: '標準服務60分鐘，純按摩90分鐘。',
+          question: "按摩項目需要多久？",
+          answer: "時長視乎場所及所選按摩項目。預約前，請確認按摩類型、實際時長、套餐包含內容及總價，並以場所確認的療程安排為準。",
         },
         {
           question: '可以過夜嗎？',
@@ -421,8 +421,8 @@ const zhTW: FaqCopy = {
           answer: '有。全部免費、無限量供應。餐飲包含精選牛排、新鮮海鮮、粵式燉湯、川式精緻小炒、炒飯、炒麵、新鮮水果、啤酒、汽水、小食。口味偏港式／粵式，並融合川菜風味，對台灣旅客來說都很好接受——很多老饕說澳門桑拿的牛排和炒飯水準不輸外面餐廳。部分場所還有鮑魚、花膠魚翅、燕窩、牛鞭湯等高級菜餚，無需額外收費。',
         },
         {
-          question: '日韓技師哪家比較多？',
-          answer: '玖號水療和凱旋桑拿的日韓技師選擇最多。壹號桑拿亦有日韓選擇，但屬較高消費檔次。當日陣容以現場為準，預約時問我們即可取得最新資訊。',
+          question: "可以使用我熟悉的語言溝通嗎？",
+          answer: "查詢時告訴我們你的慣用語言，我們可協助確認場所能否以該語言說明設施、按摩項目及收費。語言支援因場所和到訪時段而異，請在預約前確認。",
         },
         {
           question: '回程也免費嗎？',
@@ -435,7 +435,7 @@ const zhTW: FaqCopy = {
       items: [
         {
           question: '為什麼要透過你們預約？',
-          answer: '我們提供：專屬合作價（低於自行到場價格）、免費私人專車接送與回程（澳門任何地點）、1 項 VIP 尊享（由你選）、優先入場免排隊、實時技師在線資訊、根據你的喜好作出真誠推薦。',
+          answer: "我們提供專屬合作價、澳門全境免費私人專車接送與回程、1 項自選 VIP 尊享、優先入場及最新場館資訊，並按你的預算、地點、設施和按摩需求推薦合適場所。",
         },
         {
           question: '可以臨時取消嗎？',
@@ -452,7 +452,7 @@ const zhTW: FaqCopy = {
       items: [
         {
           question: '澳門桑拿有按摩服務嗎？',
-          answer: '有。透過我們預約任何一間澳門桑拿，都包含免費按摩——每次可任選 1 項，包括全身擦背按摩、足底按摩（足療）、頭部按摩與手部按摩，平時這些項目都需單獨收費。此外還有 60 分鐘一對一專屬服務。',
+          answer: "有。透過我們預約可任選 1 項免費護理，包括擦背、足底按摩、頭部按摩或手部按摩等，這些項目平時需另行收費。可選項目、時長及套餐內容，請在預約前向場所確認。",
         },
         {
           question: '預約包含哪些免費按摩與護理項目？',
@@ -464,7 +464,7 @@ const zhTW: FaqCopy = {
         },
         {
           question: '可以做全身按摩嗎？',
-          answer: '可以。全身擦背按摩是熱門的免費項目，沿背部、肩頸放鬆全身；若想要更深層的 60 分鐘一對一按摩，告訴我們你的偏好，我們會為你配對合適的場所與技師。',
+          answer: '可以。我們會為你配對合適的場所。',
         },
         {
           question: '這是 spa（水療）還是桑拿？有什麼分別？',
@@ -504,7 +504,7 @@ const zhCN: FaqCopy = {
       items: [
         {
           question: '澳门桑拿是什么？',
-          answer: '澳门桑拿是集水疗、餐饮与休闲于一体的现代化娱乐会所，所有正规场所均持有澳门旅游局（MGTO）核发的合法执照。提供沐浴设施、免费餐饮、专业按摩、技师媒合环节及 60 分钟一对一服务，大部分场所可逗留 12-15 小时，亦可过夜。',
+          answer: '澳门桑拿是集水疗、餐饮与休闲于一体的现代化娱乐会所，所有正规场所均持有澳门旅游局（MGTO）核发的合法执照。提供沐浴设施、免费餐饮、专业按摩，大部分场所可逗留 12-15 小时，亦可过夜。',
         },
         {
           question: '澳门桑拿安全合法吗？',
@@ -521,7 +521,7 @@ const zhCN: FaqCopy = {
       items: [
         {
           question: '大概要花多少钱？',
-          answer: '视乎场所及技师类别，一般范围为 MOP 1,800 - 7,000+。越南/泰国技师约 MOP 2,400-3,200，中国/模特约 MOP 3,200-4,200，日韩技师约 MOP 5,800-6,800。联系我们了解最新优惠。',
+          answer: "费用因场所、按摩项目、时长及套餐包含的设施而异。请按想预约的按摩项目索取明细报价，确认服务费、税项及自选项目是否另收费，并在预约前核对总价。",
         },
         {
           question: '如何确认套餐包含哪些项目？',
@@ -545,12 +545,12 @@ const zhCN: FaqCopy = {
           answer: '八汤御、巨亨、尚品、玖号、尊贵与极品的公开资料标注 24 小时营业；曼濠为 14:00–04:00。八汤御技师时段为 13:00–06:00，其他场馆也有不同当班时段，详情见各场馆页面，或预约时由专人确认。',
         },
         {
-          question: '几点技师比较多？',
-          answer: '晚上7点后大部分技师上班，选择最丰富。想避开人潮，下午3-6点入场最为清静。',
+          question: "什么时段比较清静？",
+          answer: "下午 3–6 点通常较为清静。不过，人流及按摩预约时段会因场所和日期而异，出发前请先确认希望到访的时间。",
         },
         {
-          question: '服务时间多久？',
-          answer: '标准服务60分钟，纯按摩90分钟。',
+          question: "按摩项目需要多久？",
+          answer: "时长取决于场所及所选按摩项目。预约前，请确认按摩类型、实际时长、套餐包含内容及总价，并以场所确认的疗程安排为准。",
         },
         {
           question: '可以过夜吗？',
@@ -565,8 +565,8 @@ const zhCN: FaqCopy = {
           answer: '有。全部免费、无限量供应。餐饮包含精选牛排、新鲜海鲜、粤式炖汤、川式精致小炒、炒饭、炒面、新鲜水果、啤酒、汽水、小食。口味偏港式／粤式，并融合川菜风味，对台湾旅客来说都很好接受——很多老饕说澳门桑拿的牛排和炒饭水准不输外面餐厅。部分场所还有鲍鱼、花胶鱼翅、燕窝、牛鞭汤等高级菜肴，无需额外收费。',
         },
         {
-          question: '日韩技师哪家比较多？',
-          answer: '玖号水疗和凯旋桑拿的日韩技师选择最多。壹号桑拿亦有日韩选择，但属较高消费档次。当日阵容以现场为准，预约时问我们即可获取最新资讯。',
+          question: "可以使用我熟悉的语言沟通吗？",
+          answer: "咨询时告诉我们你的常用语言，我们可协助确认场所能否以该语言说明设施、按摩项目及收费。语言支持因场所和到访时段而异，请在预约前确认。",
         },
         {
           question: '回程也免费吗？',
@@ -579,7 +579,7 @@ const zhCN: FaqCopy = {
       items: [
         {
           question: '为什么要通过你们预约？',
-          answer: '我们提供：专属合作价（低于自行到场价格）、免费私人专车接送与回程（澳门任何地点）、1 项 VIP 尊享（由你选）、优先入场免排队、实时技师在线资讯、根据你的喜好作出真诚推荐。',
+          answer: "我们提供专属合作价、澳门全境免费私人专车接送与回程、1 项自选 VIP 尊享、优先入场及最新场馆资讯，并按你的预算、地点、设施和按摩需求推荐合适场所。",
         },
         {
           question: '可以临时取消吗？',
@@ -596,7 +596,7 @@ const zhCN: FaqCopy = {
       items: [
         {
           question: '澳门桑拿有按摩服务吗？',
-          answer: '有。通过我们预约任何一间澳门桑拿，都包含免费按摩——每次可任选 1 项，包括全身擦背按摩、足底按摩（足疗）、头部按摩与手部按摩，平时这些项目都需单独收费。此外还有 60 分钟一对一专属服务。',
+          answer: "有。通过我们预约可任选 1 项免费护理，包括擦背、足底按摩、头部按摩或手部按摩等，这些项目平时需另行收费。可选项目、时长及套餐内容，请在预约前向场所确认。",
         },
         {
           question: '预约包含哪些免费按摩与护理项目？',
@@ -608,7 +608,7 @@ const zhCN: FaqCopy = {
         },
         {
           question: '可以做全身按摩吗？',
-          answer: '可以。全身擦背按摩是热门的免费项目，沿背部、肩颈放松全身；若想要更深层的 60 分钟一对一按摩，告诉我们你的偏好，我们会为你配对合适的场所与技师。',
+          answer: '可以。我们会为你配对合适的场所。',
         },
         {
           question: '这是 spa（水疗）还是桑拿？有什么分别？',
@@ -648,7 +648,7 @@ const ko: FaqCopy = {
       items: [
         {
           question: '마카오 사우나는 무엇인가요?',
-          answer: '마카오 사우나는 스파, 다이닝, 레저를 결합한 현대식 엔터테인먼트 클럽으로, 정규 매장은 모두 마카오 관광청(MGTO)이 발급한 합법 라이선스를 보유하고 있습니다. 목욕 시설, 무료 다이닝, 전문 마사지, 테라피스트 매칭, 60분 1:1 서비스를 제공하며, 대부분 매장에서 12-15시간 머물 수 있고 야간 휴식도 가능합니다.',
+          answer: '마카오 사우나는 스파, 다이닝, 레저를 결합한 현대식 엔터테인먼트 클럽으로, 정규 매장은 모두 마카오 관광청(MGTO)이 발급한 합법 라이선스를 보유하고 있습니다. 목욕 시설, 무료 다이닝, 전문 마사지를 제공하며, 대부분 매장에서 12-15시간 머물 수 있고 야간 휴식도 가능합니다.',
         },
         {
           question: '마카오 사우나는 안전하고 합법적인가요?',
@@ -665,7 +665,7 @@ const ko: FaqCopy = {
       items: [
         {
           question: '비용은 대략 얼마인가요?',
-          answer: '매장과 테라피스트 유형에 따라 일반적으로 MOP 1,800 - 7,000+입니다. 베트남/태국 테라피스트 약 MOP 2,400-3,200, 중국/모델 약 MOP 3,200-4,200, 일본·한국 테라피스트 약 MOP 5,800-6,800입니다. 최신 혜택은 문의해 주세요.',
+          answer: "요금은 매장, 마사지 종류와 시간, 패키지에 포함된 시설에 따라 달라집니다. 원하는 마사지 항목의 상세 견적을 받아 서비스 요금, 세금, 선택 옵션의 추가 비용을 확인하고, 예약 전에 총액을 확인해 주세요.",
         },
         {
           question: '패키지에 포함된 항목은 어떻게 확인하나요?',
@@ -689,12 +689,12 @@ const ko: FaqCopy = {
           answer: 'YU SAUNA, 엠파이어, 샹핀, 넘버 나인, 마제스티, 디 엑설런트는 공개 정보상 24시간 영업이며, 만하오는 14:00–04:00입니다. YU SAUNA의 직원 대응 시간은 13:00–06:00이고 다른 매장도 근무 시간대가 각각 다릅니다. 자세한 내용은 각 매장 페이지를 보시거나 예약 시 담당자가 확인해 드립니다.',
         },
         {
-          question: '몇 시에 테라피스트가 가장 많나요?',
-          answer: '저녁 7시 이후 대부분의 테라피스트가 출근해 선택지가 가장 풍부합니다. 인파를 피하고 싶다면 오후 3-6시 입장이 가장 한산합니다.',
+          question: "비교적 한산한 시간대는 언제인가요?",
+          answer: "오후 3–6시는 비교적 한산한 편입니다. 다만 혼잡도와 마사지 예약 가능 시간은 매장과 날짜마다 다르므로, 출발 전에 원하는 방문 시간을 확인해 주세요.",
         },
         {
-          question: '서비스 시간은 얼마나 되나요?',
-          answer: '표준 서비스 60분, 마사지만 받는 코스는 90분입니다.',
+          question: "마사지 시간은 얼마나 되나요?",
+          answer: "소요 시간은 매장과 선택한 마사지 항목에 따라 다릅니다. 예약 전에 마사지 종류, 실제 소요 시간, 패키지 포함 항목과 총액을 확인하세요. 매장이 확인한 코스 내용을 기준으로 이용 일정을 잡아주세요.",
         },
         {
           question: '야간 휴식이 가능한가요?',
@@ -709,8 +709,8 @@ const ko: FaqCopy = {
           answer: '있습니다. 전부 무료로 무제한 제공됩니다. 다이닝에는 엄선 스테이크, 신선한 해산물, 광둥식 탕, 쓰촨식 볶음 요리, 볶음밥, 볶음면, 신선한 과일, 맥주, 탄산음료, 스낵이 포함됩니다. 맛은 홍콩식/광둥식에 쓰촨 풍미를 더해 대만 여행자도 부담 없이 드실 수 있으며 — 미식가들 사이에서 마카오 사우나의 스테이크와 볶음밥이 바깥 레스토랑 못지않다는 평이 많습니다. 일부 매장에는 전복, 해삼·상어 지느러미, 제비집, 소 힘줄탕 같은 고급 요리도 추가 비용 없이 있습니다.',
         },
         {
-          question: '일본·한국 테라피스트는 어느 매장에 많나요?',
-          answer: '넘버 나인 스파와 빅토리아 사우나의 일본·한국 테라피스트 선택지가 가장 많습니다. 넘버 원 사우나에도 일본·한국 선택지가 있지만 더 높은 가격대입니다. 당일 라인업은 현장 기준이며, 예약 시 문의하시면 최신 정보를 안내해 드립니다.',
+          question: "익숙한 언어로 안내받을 수 있나요?",
+          answer: "문의할 때 사용하는 언어를 알려주세요. 해당 언어로 시설, 마사지 항목, 요금 안내가 가능한지 매장에 확인해 드립니다. 언어 지원은 매장과 방문 시간에 따라 다르므로 예약 전에 확인해 주세요.",
         },
         {
           question: '귀가 차량도 무료인가요?',
@@ -723,7 +723,7 @@ const ko: FaqCopy = {
       items: [
         {
           question: '왜 저희를 통해 예약해야 하나요?',
-          answer: '저희는 다음을 제공합니다: 전용 제휴가(직접 방문 가격보다 저렴), 무료 전용 차량 픽업 및 귀가(마카오 전역), VIP 특전 1가지(선택 가능), 우선 입장 대기 면제, 실시간 테라피스트 정보, 취향에 맞는 진심 어린 추천.',
+          answer: "제휴 특별가, 마카오 전역 무료 전용 차량 왕복 송영, 선택 가능한 VIP 특전 1가지, 우선 입장, 최신 매장 정보를 제공합니다. 예산, 위치, 시설, 원하는 마사지 항목에 맞춰 적합한 매장을 추천해 드립니다.",
         },
         {
           question: '갑자기 취소해도 되나요?',
@@ -740,7 +740,7 @@ const ko: FaqCopy = {
       items: [
         {
           question: '마카오 사우나에 마사지 서비스가 있나요?',
-          answer: '있습니다. 저희를 통해 마카오 사우나 어디를 예약하든 무료 마사지가 포함됩니다 — 매회 1가지를 선택할 수 있으며, 전신 등밀이 마사지, 발 마사지(족욕), 헤드 마사지, 핸드 마사지가 있고, 평소에는 모두 별도 요금입니다. 이 밖에 60분 1:1 전속 서비스도 있습니다.',
+          answer: "있습니다. 저희를 통해 예약하면 평소 별도 요금인 등밀이, 발 마사지, 헤드 마사지, 핸드 마사지 등에서 1가지를 무료로 선택할 수 있습니다. 선택 가능한 항목, 소요 시간, 패키지 내용은 예약 전에 매장에 확인해 주세요.",
         },
         {
           question: '예약에 포함되는 무료 마사지·케어 항목은 무엇인가요?',
@@ -752,7 +752,7 @@ const ko: FaqCopy = {
         },
         {
           question: '전신 마사지를 받을 수 있나요?',
-          answer: '가능합니다. 전신 등밀이 마사지는 인기 있는 무료 항목으로, 등과 어깨·목을 따라 전신을 풀어줍니다. 더 깊은 60분 1:1 마사지를 원하시면 취향을 알려주세요. 적합한 매장과 테라피스트를 매칭해 드립니다.',
+          answer: '가능합니다. 원하시는 조건에 맞는 매장을 안내해 드립니다.',
         },
         {
           question: '스파(水療)와 사우나(桑拿)는 무엇이 다른가요?',

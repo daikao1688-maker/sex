@@ -15,18 +15,31 @@ export interface QuickMatchSelection {
   overnight: boolean;
 }
 
+/** Only the venue facts used for matching or rendering a result reach the browser. */
+export type QuickMatchVenue = Pick<Venue,
+  | "slug" | "cover" | "district" | "priceMin" | "rating" | "hours"
+  | "overnightAllowed" | "overnightRequiresConfirmation" | "open24h"
+  | "ktv" | "themeRooms" | "isNew"
+>;
+
+export function toQuickMatchVenue(venue: Venue): QuickMatchVenue {
+  const { slug, cover, district, priceMin, rating, hours, overnightAllowed,
+    overnightRequiresConfirmation, open24h, ktv, themeRooms, isNew } = venue;
+  return { slug, cover, district, priceMin, rating, hours, overnightAllowed,
+    overnightRequiresConfirmation, open24h, ktv, themeRooms, isNew };
+}
+
 export const defaultSelection: QuickMatchSelection = {
   group: "pair",
-  experience: "show",
+  experience: "value",
   when: "tonight",
   from: "hotel",
   overnight: false,
 };
 
-const experienceMatches: Record<QuickMatchExperience, (venue: Venue) => boolean> = {
-  show: (venue) => venue.recommendedShow,
+const experienceMatches: Record<Exclude<QuickMatchExperience, "value">, (venue: QuickMatchVenue) => boolean> = {
   theme: (venue) => venue.themeRooms,
-  jpkr: (venue) => venue.jpkr,
+  taipa: (venue) => venue.district === "taipa",
   new: (venue) => venue.isNew,
   ktv: (venue) => venue.ktv,
   classic: (venue) => !venue.isNew,
@@ -64,7 +77,7 @@ function currentMacauMinute(): number {
   return hour * 60 + minute;
 }
 
-export function isStaffOnDuty(venue: Venue, macauMinute: number): boolean {
+export function isStaffOnDuty(venue: QuickMatchVenue, macauMinute: number): boolean {
   const [startText, endText] = venue.hours.split(/\s*[-–—]\s*/u);
   const start = startText ? parseClockMinutes(startText) : undefined;
   const end = endText ? parseClockMinutes(endText) : undefined;
@@ -80,13 +93,19 @@ export function isStaffOnDuty(venue: Venue, macauMinute: number): boolean {
  * stay stable between server render and client re-render — never random.
  */
 export function scoreVenue(
-  venue: Venue,
+  venue: QuickMatchVenue,
   selection: QuickMatchSelection,
   macauMinute?: number,
+  priceRange = { min: venue.priceMin, max: venue.priceMin },
 ): number {
   let score = 50;
 
-  if (experienceMatches[selection.experience](venue)) score += 32;
+  if (selection.experience === "value") {
+    // Compare listed entry prices within the current candidates. Equal prices
+    // get equal preference; otherwise cheaper venues receive a larger bonus.
+    const span = priceRange.max - priceRange.min;
+    score += span > 0 ? 32 * (priceRange.max - venue.priceMin) / span : 32;
+  } else if (experienceMatches[selection.experience](venue)) score += 32;
 
   score += (venue.rating - 3) * 4;
 
@@ -115,14 +134,16 @@ export function scoreVenue(
 }
 
 export interface QuickMatchResult {
-  venue: Venue;
+  venue: QuickMatchVenue;
   score: number;
 }
 
 /** Best match first; ties keep the editorial order from `venues.ts`. */
-export function rankVenues(selection: QuickMatchSelection, candidates: readonly Venue[]): QuickMatchResult[] {
+export function rankVenues(selection: QuickMatchSelection, candidates: readonly QuickMatchVenue[]): QuickMatchResult[] {
+  const prices = candidates.map((venue) => venue.priceMin);
+  const priceRange = { min: Math.min(...prices), max: Math.max(...prices) };
   return candidates
-    .map((venue, index) => ({ venue, score: scoreVenue(venue, selection), index }))
+    .map((venue, index) => ({ venue, score: scoreVenue(venue, selection, undefined, priceRange), index }))
     .sort((a, b) => b.score - a.score || a.index - b.index)
     .map(({ venue, score }) => ({ venue, score }));
 }

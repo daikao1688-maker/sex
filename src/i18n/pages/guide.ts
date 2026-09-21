@@ -68,7 +68,7 @@ const en: GuideCopy = {
         icon: 'sparkles',
         title: 'The format differs by venue',
         body:
-          'Bathing areas, dining, stage presentations, KTV rooms, themed rooms and rest lounges are not the same everywhere. Decide which one or two features matter to you, then read the venue page instead of assuming every package includes the same facilities.',
+          "Bathing areas, dining, KTV rooms, room designs and rest lounges differ by venue. Decide which facilities matter most to you, then check the venue page and package details before booking.",
       },
       {
         icon: 'message-circle',
@@ -102,7 +102,7 @@ const en: GuideCopy = {
       {
         title: 'Ask what is open on your date',
         body:
-          'Send your date and priorities. Request a shortlist of currently operating venues, then ask about the latest staff duty window, room availability and likely waiting time instead of relying on an old screenshot or promotion.',
+          "Send your date and priorities. Request a shortlist of operating venues, then confirm massage appointment times, room availability and likely waiting time instead of relying on an old screenshot or promotion.",
       },
       {
         title: 'Review the full quote',
@@ -120,14 +120,14 @@ const en: GuideCopy = {
           'Many guests start with a shower, bath or sauna, but the exact facilities vary. Do not rush through this part; it is a good time to settle in and check the timing of the next stage with staff.',
       },
       {
-        title: 'Check dining and introductions',
+        title: "Check dining and facility hours",
         body:
-          'Food service and staff introductions differ by venue and time of day. Ask what is available that evening and whether an introduction is scheduled, rather than planning the whole visit around a fixed show time.',
+          "Ask when dining, bathing and rest areas are available and which facilities your package includes. Plan your visit around the confirmed massage appointment and your departure time.",
       },
       {
-        title: 'Confirm the room and service',
+        title: "Confirm the massage and room",
         body:
-          'Before entering the private room, make sure the selected service, duration, room type and any surcharge match the quote. Clear communication about preferences and boundaries makes the experience more comfortable for everyone.',
+          "Before your massage, confirm the treatment, actual duration, room and any surcharge against the quote. Tell staff about your preferred pressure and any areas to avoid.",
       },
       {
         title: 'Decide whether to rest or leave',
@@ -162,10 +162,10 @@ const en: GuideCopy = {
           'A karaoke-led format on the Macau Peninsula. It suits guests who want the room and singing portion to be central to the night; overnight stay is not available.',
       },
       {
-        want: 'Understanding a large-show format',
+        want: "Comparing a large venue",
         slug: 'number-one-sauna',
         body:
-          'This profile is useful for learning how a large venue and presentation hall operate. It is currently temporarily closed, so it should not be treated as a bookable first choice.',
+          "This profile records the facilities and layout of a large venue. It is temporarily closed and cannot currently be booked; use the information only as a historical reference.",
       },
       {
         want: 'Comparing a large traditional venue',
@@ -177,43 +177,43 @@ const en: GuideCopy = {
         want: 'A longer overnight plan',
         slug: 'majesty-spa',
         body:
-          'A 24-hour Macau Peninsula venue with overnight facilities, KTV and themed rooms. Confirm lounge or private-rest-room conditions for the night you intend to visit.',
+          "A 24-hour Macau Peninsula venue with overnight facilities, KTV and rooms in a range of styles. Confirm lounge or private-rest-room conditions for your visit.",
       },
       {
-        want: 'Theme-room variety',
+        want: "A variety of room designs",
         slug: 'east-castle-spa',
         body:
-          'A Macau Peninsula option focused on scenario rooms. Consider it when room design matters more than KTV or a large stage presentation.',
+          "A Macau Peninsula venue with more than 20 room designs. Compare the available facilities and massage options, and confirm the room and treatment before booking.",
       },
       {
         want: 'A newer venue in Taipa',
         slug: 'manhao-spa',
         body:
-          'Inside the Grandview Hotel, with a prominent presentation hall and newer interiors. It works well for Taipa-based guests who do not need an overnight stay.',
+          "Inside the Grandview Hotel, with a spacious hall and newer interiors. It suits Taipa-based guests who do not need an overnight stay.",
       },
       {
-        want: '24-hour access and themed rooms',
+        want: "24-hour access and varied room designs",
         slug: 'the-excellent-sauna',
         body:
-          'An operating 24-hour venue with overnight rest and themed rooms. Staff duty hours are narrower than the venue opening hours, so plan arrival time around the current roster.',
+          "A 24-hour venue with overnight rest and varied room designs. Confirm massage appointment times and the facilities included before arrival.",
       },
       {
         want: 'A newer central-Macau option',
         slug: 'number-nine-sauna',
         body:
-          'A 2026 venue with stage lighting, themed rooms and overnight arrangements. Check the current price tier and staff roster before setting a time.',
+          "Opened in 2026 in central Macau, with newer interiors and overnight arrangements. Confirm the massage treatment, appointment time and full package price before booking.",
       },
       {
         want: 'A premium new venue',
         slug: 'empire-sauna',
         body:
-          'A newer Macau Peninsula venue with themed suites and overnight facilities. It spans a broad price range, so request a package-specific quote rather than budgeting from the entry figure alone.',
+          "A newer Macau Peninsula venue with a range of suite designs and overnight facilities. Request a quote for the massage treatment and facilities you intend to use.",
       },
       {
-        want: 'A stage-focused visit',
+        want: "A spacious hall and bathing facilities",
         slug: 'manhao-spa',
         body:
-          'The presentation hall is the main reason to shortlist Manhao. Choose it for atmosphere and Taipa convenience, not for overnight rest, which is currently unavailable.',
+          "Manhao combines a spacious hall with bathing facilities at the Grandview Hotel in Taipa. Confirm the facilities included in your package; overnight rest is currently unavailable.",
       },
       {
         want: 'Staying around Lisboeta',
@@ -225,13 +225,13 @@ const en: GuideCopy = {
         want: 'Researching a quieter format',
         slug: 'victoria-sauna',
         body:
-          'Victoria Sauna has resumed operations and is again a current option for visitors who prefer a quieter, spacious venue. Confirm the same-day lineup, room availability and overnight arrangements before departure.',
+          "Victoria Sauna has resumed operations and is an option for visitors who prefer a quieter, spacious venue. Confirm massage appointments, room availability and overnight arrangements before departure.",
       },
       {
         want: 'Researching KTV and cyber styling',
         slug: 'm-club',
         body:
-          'A reference profile for a technology-led KTV and themed-room concept. M CLUB is temporarily closed, so use it for comparison only until operations resume.',
+          "A reference profile documenting KTV facilities and contemporary interiors. M CLUB is temporarily closed and is not accepting reservations.",
       },
     ],
   },
@@ -239,11 +239,11 @@ const en: GuideCopy = {
     heading: 'Seven checks that make the night easier',
     items: [
       'Budget for the total, not just the lowest advertised figure. Ask about the service fee, room upgrades, drinks and add-ons before you confirm.',
-      'Separate venue hours from staff duty hours. A venue may be open around the clock while the available roster follows a narrower schedule.',
+      "Check venue opening hours separately from massage appointment times. A venue may open around the clock without offering every treatment at every hour.",
       'If overnight rest matters, confirm both the venue policy and your package. Ask where you can rest, until what time, and whether a private room costs extra. Manhao Spa and Clube Rio currently do not offer overnight stays.',
       'Choose the area around your itinerary. Macau Peninsula suits many central-city plans; Taipa and Cotai are easier when your hotel and next-day activities are already there.',
       'Check the detail page for a temporary-closure notice, then verify again on the day. An online profile does not guarantee that a venue is accepting guests.',
-      'State your preferred language and any non-negotiable preferences early. Availability changes daily, so a clear shortlist is more useful than a promise about one person.',
+      "State your preferred language, facilities and massage needs early. Confirm the available treatments and communication support before choosing a venue.",
       'Carry identification and a backup payment method. Payment support and exchange treatment differ by venue, and cash may be simpler in some cases.',
     ],
   },
@@ -294,7 +294,7 @@ const ja: GuideCopy = {
         icon: 'sparkles',
         title: '設備や過ごし方は店舗ごとに違います',
         body:
-          '入浴設備、食事、紹介ショー、KTV、テーマルーム、休憩スペースは全店共通ではありません。自分が重視するものを1〜2個決め、各店舗ページで実際の設備と利用条件を確認しましょう。',
+          "入浴設備、食事、KTV、客室のデザイン、休憩スペースは店舗ごとに異なります。重視する設備を決め、各店舗ページとプランの利用条件を確認してから予約しましょう。",
       },
       {
         icon: 'message-circle',
@@ -327,7 +327,7 @@ const ja: GuideCopy = {
       {
         title: '当日営業している店舗を聞く',
         body:
-          '日付と希望条件を送り、現在営業中の候補を確認します。古い画像や広告だけで判断せず、スタッフの出勤時間、空室、待ち時間の目安も尋ねてください。',
+          "日付と希望条件を送り、現在営業中の候補を確認します。古い画像や広告だけで判断せず、マッサージの予約枠、空室、待ち時間の目安も尋ねてください。",
       },
       {
         title: '見積もりの総額を確認する',
@@ -345,14 +345,14 @@ const ja: GuideCopy = {
           'シャワー、浴槽、サウナから始める方が多いですが、設備は店舗によって異なります。急がずに体を休め、次の案内時間をスタッフに確認しておくと安心です。',
       },
       {
-        title: '食事と紹介時間を確認する',
+        title: "食事と設備の利用時間を確認する",
         body:
-          '食事内容やスタッフ紹介の形式、時間帯は店舗ごとに異なります。その日の提供内容と予定を聞き、決まったショー時間があると思い込まないようにしましょう。',
+          "食事、入浴設備、休憩スペースの利用時間と、プランに含まれる設備を確認します。確定したマッサージの予約時間と退店予定に合わせて過ごしましょう。",
       },
       {
-        title: '個室とサービス内容を確認する',
+        title: "マッサージの内容と部屋を確認する",
         body:
-          '入室前に、サービス内容、時間、部屋タイプ、追加料金が見積もりと一致しているか確認します。希望と避けたいことをはっきり伝えると、落ち着いて過ごせます。',
+          "施術前に、マッサージの種類、実際の施術時間、部屋、追加料金が見積もりと一致しているか確認します。希望する強さや避けてほしい部位もスタッフに伝えてください。",
       },
       {
         title: '休憩するか退店するか決める',
@@ -387,10 +387,10 @@ const ja: GuideCopy = {
           'マカオ半島にあるカラオケ中心の店舗です。歌と個室での時間を重視する方向けで、宿泊には対応していません。',
       },
       {
-        want: '大型店舗の仕組みを知りたい',
+        want: "大型店舗の設備を比較したい",
         slug: 'number-one-sauna',
         body:
-          '大型ホール型の流れを知る資料としてご覧いただけます。現在は一時休業中のため、予約可能な第一候補にはできません。',
+          "大型店舗の設備とレイアウトを記録した参考ページです。現在は一時休業中で予約を受け付けていないため、過去の施設情報としてご覧ください。",
       },
       {
         want: '大型の伝統的店舗を比較したい',
@@ -402,43 +402,43 @@ const ja: GuideCopy = {
         want: '夜を長く過ごしたい',
         slug: 'majesty-spa',
         body:
-          '24時間営業で宿泊設備、KTV、テーマルームがあります。利用日のラウンジや個室休憩の条件は事前にご確認ください。',
+          "マカオ半島の24時間営業店で、宿泊休憩、KTV、さまざまな内装の部屋があります。利用日のラウンジや個室休憩の条件は事前にご確認ください。",
       },
       {
-        want: 'テーマルームを選びたい',
+        want: "さまざまな客室デザインを見たい",
         slug: 'east-castle-spa',
         body:
-          'シチュエーション型の個室を重視するマカオ半島の店舗。KTVや大型ショーより、部屋の趣向を楽しみたい方向けです。',
+          "20種類以上の客室デザインを備えたマカオ半島の店舗です。設備とマッサージの内容を比較し、予約前に利用する部屋と施術をご確認ください。",
       },
       {
         want: 'タイパの新しい店舗へ行きたい',
         slug: 'manhao-spa',
         body:
-          'グランドビュー・ホテル内にあり、印象的な紹介ホールと新しい内装が特徴です。宿泊を必要としないタイパ滞在者に向いています。',
+          "グランドビュー・ホテル内にあり、広いホールと新しい内装が特徴です。宿泊休憩を必要としないタイパ滞在者に向いています。",
       },
       {
-        want: '24時間営業とテーマルーム',
+        want: "24時間営業と多彩な客室デザイン",
         slug: 'the-excellent-sauna',
         body:
-          '24時間営業で宿泊休憩とテーマルームに対応しています。店舗営業時間とスタッフ出勤時間は異なるため、到着時刻を先に確認しましょう。',
+          "24時間営業で、宿泊休憩とさまざまな内装の部屋に対応しています。来店前に、マッサージの予約時間と利用できる設備をご確認ください。",
       },
       {
         want: 'マカオ中心部の新しい店舗',
         slug: 'number-nine-sauna',
         body:
-          '2026年開業で、ステージ照明、テーマルーム、宿泊設備があります。料金帯と当日の出勤状況を確認してから時間を決めるのがおすすめです。',
+          "2026年開業のマカオ中心部の店舗で、新しい内装と宿泊休憩の設備があります。施術内容、予約時間、プランの総額を確認してからご予約ください。",
       },
       {
         want: '新しい高価格帯の店舗',
         slug: 'empire-sauna',
         body:
-          'テーマスイートと宿泊設備を備えたマカオ半島の新しい店舗。料金幅が広いため、最低価格だけでなく希望コースの総額を確認してください。',
+          "さまざまなスイートのデザインと宿泊休憩の設備を備えた、マカオ半島の新しい店舗です。利用したいマッサージと設備について見積もりをお求めください。",
       },
       {
-        want: '紹介ホールの雰囲気を重視',
+        want: "広いホールと入浴設備を重視",
         slug: 'manhao-spa',
         body:
-          'マンハオは紹介ホールの雰囲気が大きな特徴です。タイパでのアクセスと舞台感を重視する方向けで、現在は宿泊できません。',
+          "タイパのグランドビュー・ホテル内にあり、広いホールと入浴設備を備えています。プランに含まれる設備をご確認ください。現在、宿泊休憩には対応していません。",
       },
       {
         want: '葡京人周辺に泊まる',
@@ -450,13 +450,13 @@ const ja: GuideCopy = {
         want: '静かな店舗の参考を探す',
         slug: 'victoria-sauna',
         body:
-          'ヴィクトリアサウナは営業を再開し、静かで広々とした店舗を好む方の選択肢に戻りました。当日の在籍、個室、宿泊条件は出発前に確認してください。',
+          "ヴィクトリアサウナは営業を再開し、静かで広々とした店舗を好む方の選択肢です。出発前に、施術の予約枠、空室、宿泊休憩の条件をご確認ください。",
       },
       {
         want: 'KTVと近未来的な内装を比較',
         slug: 'm-club',
         body:
-          'KTVとテーマルームを備えた近未来的なコンセプトの参考ページです。現在は一時休業中のため、再開までは比較用としてご覧ください。',
+          "KTV設備と現代的な内装を記録した参考ページです。M CLUBは現在一時休業中で、予約を受け付けていません。",
       },
     ],
   },
@@ -464,11 +464,11 @@ const ja: GuideCopy = {
     heading: '初めての方に役立つ7つの確認',
     items: [
       '広告の最安値ではなく総額で予算を立てましょう。サービス料、部屋変更、飲み物、追加ケアの有無を予約前に確認します。',
-      '店舗営業時間とスタッフ出勤時間は別です。24時間営業でも、希望する時間帯に同じ選択肢があるとは限りません。',
+      "店舗の営業時間とマッサージの予約可能時間は別に確認しましょう。24時間営業でも、すべての施術を終日受けられるとは限りません。",
       '宿泊が必要なら、店舗の方針と利用コースの両方を確認します。休憩場所、利用期限、個室の追加料金まで聞いておくと安心です。マンハオスパ（曼濠水療）とクラブリオ（利澳薈）は現在宿泊に対応していないため、別の候補をご検討ください。',
       '旅程に合うエリアを選びましょう。市街地の予定が多ければマカオ半島、ホテルや翌日の予定がコタイならタイパ／コタイが便利です。',
       '詳細ページの一時休業表示を確認し、当日も再確認してください。紹介ページがあることと、現在予約できることは同じではありません。',
-      '希望言語と譲れない条件は早めに伝えましょう。出勤状況は毎日変わるため、一人を確約するより複数候補を持つ方が現実的です。',
+      "希望する言語、設備、マッサージの内容を事前に伝えましょう。受けられる施術と言語サポートを確認してから店舗を選んでください。",
       '身分証と予備の支払い手段をお持ちください。利用できる決済方法や換算条件は店舗によって異なります。',
     ],
   },
@@ -519,7 +519,7 @@ const zhTW: GuideCopy = {
         icon: 'sparkles',
         title: '每間的玩法與設施不同',
         body:
-          '浴區、餐飲、技師介紹、KTV、主題房及休息區並非間間相同。先選一兩項你最重視的體驗，再細看會所頁面的實際設施與套式內容，比單看宣傳字眼可靠。',
+          "浴區、餐飲、KTV、房間設計及休息區因場所而異。先選出你最重視的設施，再查看各場所頁面及套餐內容，確認適合後再預約。",
       },
       {
         icon: 'message-circle',
@@ -552,7 +552,7 @@ const zhTW: GuideCopy = {
       {
         title: '查當日有哪些會所營業',
         body:
-          '把日期和條件傳來，先取得目前營業的候選名單，再問技師當班時段、房間情況及預計等候時間。不要只靠舊截圖或過期優惠作決定。',
+          "把日期和條件傳來，先取得目前營業的候選名單，再確認按摩預約時段、房間情況及預計等候時間。不要只靠舊截圖或過期優惠作決定。",
       },
       {
         title: '看清楚完整報價',
@@ -570,14 +570,14 @@ const zhTW: GuideCopy = {
           '不少人會先沖身、浸浴或蒸桑拿，但實際設施視乎會所。這一段不用趕，也可以順便向職員確認下一個環節大約何時開始。',
       },
       {
-        title: '了解當晚餐飲與介紹安排',
+        title: "確認餐飲及設施使用時間",
         body:
-          '餐飲供應、技師介紹方式及時段各有不同。到場後先問清楚當晚安排，不要假設每間都有同一餐單或固定走秀時間。',
+          "先確認餐飲、沐浴及休息區的開放時間，以及套餐包含哪些設施，再配合已確認的按摩預約和離場時間安排行程。",
       },
       {
-        title: '入房前確認服務內容',
+        title: "確認按摩項目與房間",
         body:
-          '確認服務項目、時間、房型及附加費與報價一致，再進入私人房間。清楚表達喜好和界線，雙方都會更自在。',
+          "按摩前，請核對項目、實際時長、房間及附加收費是否與報價一致，並向工作人員說明希望的力度及需要避開的部位。",
       },
       {
         title: '決定休息還是離場',
@@ -612,10 +612,10 @@ const zhTW: GuideCopy = {
           '位於澳門半島、以卡拉 OK 為主軸，適合把唱歌及包廂時間放在行程中心的客人；目前不設過夜。',
       },
       {
-        want: '了解大型走秀會所',
+        want: "比較大型會所設施",
         slug: 'number-one-sauna',
         body:
-          '介紹頁可用來了解大型會所與大廳流程，但現時暫停營業，不應當作目前可預約的新手首選。',
+          "此頁保留大型會所的設施與空間資料。場所目前暫停營業，不接受預約，內容僅供歷史資料參考。",
       },
       {
         want: '比較傳統大型會所',
@@ -627,43 +627,43 @@ const zhTW: GuideCopy = {
         want: '安排較長的過夜行程',
         slug: 'majesty-spa',
         body:
-          '澳門半島的 24 小時會所，設過夜安排、KTV 與主題房。指定日期的躺椅及獨立休息房條件應先確認。',
+          "澳門半島的 24 小時會所，設過夜安排、KTV 及多種不同風格房間。到訪日期的躺椅及獨立休息房條件應先確認。",
       },
       {
-        want: '多款情境主題房',
+        want: "多種不同風格的房間設計",
         slug: 'east-castle-spa',
         body:
-          '以場景房為重點的澳門半島選項。若你重視房間設計多於 KTV 或大型舞台，可以列入候選。',
+          "澳門半島的會所，設有 20 多款不同風格房間。可按設施和按摩項目比較，預約前確認房間及療程內容。",
       },
       {
         want: '氹仔較新的會所',
         slug: 'manhao-spa',
         body:
-          '位於君怡酒店，介紹大廳醒目、裝修較新。適合住氹仔而且不需要過夜的客人。',
+          "位於氹仔君怡酒店，設寬敞大廳及較新的裝潢，適合以氹仔為行程中心、不需要過夜的旅客。",
       },
       {
-        want: '24 小時與主題房',
+        want: "24 小時營業與多種房間設計",
         slug: 'the-excellent-sauna',
         body:
-          '24 小時營業，設過夜休息與主題房。會所營業時間與技師當班時段不同，應按最新時段安排到場。',
+          "24 小時營業，設過夜休息與多種不同風格房間。到訪前，請確認按摩預約時段及套餐包含的設施。",
       },
       {
         want: '澳門市區較新選項',
         slug: 'number-nine-sauna',
         body:
-          '2026 年開業，設舞台燈光、主題房及過夜安排。先確認當日價格層級與技師情況，再決定時間。',
+          "2026 年開業，位於澳門半島，設有較新的裝潢及過夜安排。預約前，請確認按摩項目、預約時段及套餐總價。",
       },
       {
         want: '較新的高預算會所',
         slug: 'empire-sauna',
         body:
-          '澳門半島的新場，設主題套房及過夜安排。價格跨度較大，不要只用入門價做預算，應索取指定套式總價。',
+          "澳門半島的新場，設多種不同設計套房及過夜設施。請按想使用的按摩項目與設施索取明細報價。",
       },
       {
-        want: '以舞台氣氛為主',
+        want: "寬敞大廳與沐浴設施",
         slug: 'manhao-spa',
         body:
-          '曼濠最值得留意的是介紹大廳。適合重視舞台感和氹仔位置的人，但現階段不可過夜。',
+          "曼濠位於氹仔君怡酒店，設寬敞大廳與沐浴設施。預約前請確認套餐包含內容；目前不設過夜留宿。",
       },
       {
         want: '入住澳門葡京人附近',
@@ -675,13 +675,13 @@ const zhTW: GuideCopy = {
         want: '研究清靜型會所',
         slug: 'victoria-sauna',
         body:
-          '凱旋桑拿已恢復營業，現可重新列入偏好清靜、寬敞路線的選擇。當日技師陣容、房間與過夜安排仍應在出發前確認。',
+          "凱旋桑拿已恢復營業，可列入偏好清靜、寬敞環境的選擇。出發前請確認按摩預約時段、房間及過夜安排。",
       },
       {
         want: '研究 KTV 與未來感設計',
         slug: 'm-club',
         body:
-          '可作 KTV、主題房與未來感風格的比較參考。晉會 M CLUB 現時暫停營業，重開前只宜作資料用途。',
+          "此頁保留 KTV 設施及現代風格裝潢資料。晉會 M CLUB 現時暫停營業，不接受預約。",
       },
     ],
   },
@@ -689,11 +689,11 @@ const zhTW: GuideCopy = {
     heading: '新手最實用的 7 個提醒',
     items: [
       '用總價做預算，不要只看宣傳上的最低數字。套式、服務費、房型升級、飲品及加購項目都要先問清楚。',
-      '分清楚會所營業時間與技師當班時段。會所即使 24 小時營業，不同時段可選的陣容也會有差別。',
+      "分開確認會所營業時間與按摩預約時段。即使會所 24 小時營業，也不代表所有按摩項目均全日提供。",
       '要過夜就同時確認會所政策及所選套式，問明休息位置、可留到幾點，以及獨立房是否另收費。曼濠水療與利澳薈目前不提供過夜，需要留宿請另選會所。',
       '配合旅遊路線揀地區：市中心行程較多可選澳門半島；酒店及翌日活動都在路氹，就以氹仔／路氹為先。',
       '先看詳情頁有沒有暫停營業提示，出發當日再查一次。有介紹頁不等於目前正在接待客人。',
-      '及早說明慣用語言與不可妥協的要求。技師情況每天不同，準備幾個合適方向比要求保證某一位實際。',
+      "及早說明慣用語言、希望使用的設施及按摩需求，確認可提供的療程與溝通支援後，再選擇場所。",
       '帶備證件及後備付款方式。不同會所支援的支付方法及兌換安排可能不同，部分情況用現金會較直接。',
     ],
   },
@@ -744,7 +744,7 @@ const zhCN: GuideCopy = {
         icon: 'sparkles',
         title: '每家的玩法和设施不同',
         body:
-          '浴区、餐饮、技师介绍、KTV、主题房和休息区并不是家家一样。先选一两项你最看重的体验，再查看会所详情页中的实际设施和套餐内容，比只看宣传词更可靠。',
+          "浴区、餐饮、KTV、房间设计及休息区因场所而异。先选出你最看重的设施，再查看各场所页面及套餐内容，确认适合后再预约。",
       },
       {
         icon: 'message-circle',
@@ -777,7 +777,7 @@ const zhCN: GuideCopy = {
       {
         title: '查询当天有哪些会所营业',
         body:
-          '把日期和条件发来，先获取当前营业的候选名单，再问技师当班时段、房间情况和预计等待时间。不要只凭旧截图或过期优惠做决定。',
+          "把日期和条件发来，先获取当前营业的候选名单，再确认按摩预约时段、房间情况及预计等候时间。不要只靠旧截图或过期优惠做决定。",
       },
       {
         title: '看清完整报价',
@@ -795,14 +795,14 @@ const zhCN: GuideCopy = {
           '不少客人会先冲澡、泡浴或蒸桑拿，但实际设施要看会所。这一段不用赶，也可以顺便向工作人员确认下一个环节大约什么时候开始。',
       },
       {
-        title: '了解当晚餐饮和介绍安排',
+        title: "确认餐饮及设施使用时间",
         body:
-          '餐饮供应、技师介绍方式和时段各不相同。到店后先问清当晚安排，不要默认每家都有同一份菜单或固定走秀时间。',
+          "先确认餐饮、沐浴及休息区的开放时间，以及套餐包含哪些设施，再配合已确认的按摩预约和离场时间安排行程。",
       },
       {
-        title: '进房前确认服务内容',
+        title: "确认按摩项目与房间",
         body:
-          '确认服务项目、时间、房型和附加费与报价一致，再进入独立房间。清楚表达喜好和边界，双方都会更自在。',
+          "按摩前，请核对项目、实际时长、房间及附加收费是否与报价一致，并向工作人员说明希望的力度及需要避开的部位。",
       },
       {
         title: '决定休息还是离场',
@@ -837,10 +837,10 @@ const zhCN: GuideCopy = {
           '位于澳门半岛，以卡拉 OK 为主轴，适合把唱歌和包厢时间放在行程中心的客人；目前不提供过夜。',
       },
       {
-        want: '了解大型走秀会所',
+        want: "比较大型会所设施",
         slug: 'number-one-sauna',
         body:
-          '介绍页可以用来了解大型会所和大厅流程，但目前暂停营业，不应当作现在可以预约的新手首选。',
+          "此页保留大型会所的设施与空间资料。场所目前暂停营业，不接受预约，内容仅供历史资料参考。",
       },
       {
         want: '对比传统大型会所',
@@ -852,43 +852,43 @@ const zhCN: GuideCopy = {
         want: '安排较长的过夜行程',
         slug: 'majesty-spa',
         body:
-          '澳门半岛的 24 小时会所，提供过夜安排、KTV 和主题房。指定日期的躺椅及独立休息房条件需要提前确认。',
+          "澳门半岛的 24 小时会所，设过夜安排、KTV 及多种不同风格房间。到访日期的躺椅及独立休息房条件应先确认。",
       },
       {
-        want: '多种场景主题房',
+        want: "多种不同风格的房间设计",
         slug: 'east-castle-spa',
         body:
-          '以场景房为重点的澳门半岛选项。如果你更看重房间设计，而不是 KTV 或大型舞台，可以列入候选。',
+          "澳门半岛的会所，设有 20 多款不同风格房间。可按设施和按摩项目比较，预约前确认房间及疗程内容。",
       },
       {
         want: '氹仔较新的会所',
         slug: 'manhao-spa',
         body:
-          '位于君怡酒店，介绍大厅醒目、装修较新。适合住在氹仔并且不需要过夜的客人。',
+          "位于氹仔君怡酒店，设宽敞大厅及较新的装潢，适合以氹仔为行程中心、不需要过夜的旅客。",
       },
       {
-        want: '24 小时和主题房',
+        want: "24 小时营业与多种房间设计",
         slug: 'the-excellent-sauna',
         body:
-          '24 小时营业，设有过夜休息和主题房。会所营业时间与技师当班时段不同，应根据最新时段安排到店。',
+          "24 小时营业，设过夜休息与多种不同风格房间。到访前，请确认按摩预约时段及套餐包含的设施。",
       },
       {
         want: '澳门市区较新选项',
         slug: 'number-nine-sauna',
         body:
-          '2026 年开业，设有舞台灯光、主题房和过夜安排。先确认当天价格档位与技师情况，再决定到店时间。',
+          "2026 年开业，位于澳门半岛，设有较新的装潢及过夜安排。预约前，请确认按摩项目、预约时段及套餐总价。",
       },
       {
         want: '较新的高预算会所',
         slug: 'empire-sauna',
         body:
-          '澳门半岛的新场，设有主题套房和过夜安排。价格跨度较大，不要只按入门价做预算，应索取指定套餐总价。',
+          "澳门半岛的新场，设多种不同设计套房及过夜设施。请按想使用的按摩项目与设施索取明细报价。",
       },
       {
-        want: '以舞台氛围为主',
+        want: "宽敞大厅与沐浴设施",
         slug: 'manhao-spa',
         body:
-          '曼濠最值得留意的是介绍大厅。适合看重舞台感和氹仔位置的人，但现阶段不能过夜。',
+          "曼濠位于氹仔君怡酒店，设宽敞大厅与沐浴设施。预约前请确认套餐包含内容；目前不设过夜留宿。",
       },
       {
         want: '住在澳门葡京人附近',
@@ -900,13 +900,13 @@ const zhCN: GuideCopy = {
         want: '了解安静型会所',
         slug: 'victoria-sauna',
         body:
-          '凯旋桑拿已恢复营业，现在可重新列入偏好安静、宽敞路线的选择。当天技师阵容、房间与过夜安排仍应在出发前确认。',
+          "凯旋桑拿已恢复营业，可列入偏好清静、宽敞环境的选择。出发前请确认按摩预约时段、房间及过夜安排。",
       },
       {
         want: '了解 KTV 和未来感设计',
         slug: 'm-club',
         body:
-          '可作为 KTV、主题房和未来感风格的对比参考。晋会 M CLUB 目前暂停营业，恢复营业前只适合资料查阅。',
+          "此页保留 KTV 设施及现代风格装潢资料。晋会 M CLUB 目前暂停营业，不接受预约。",
       },
     ],
   },
@@ -914,11 +914,11 @@ const zhCN: GuideCopy = {
     heading: '新手最实用的 7 个提醒',
     items: [
       '按总价做预算，不要只看宣传中的最低数字。套餐、服务费、房型升级、饮品和加购项目都要提前问清楚。',
-      '分清会所营业时间和技师当班时段。会所即使 24 小时营业，不同时段可选的阵容也会有差别。',
+      "分开确认会所营业时间与按摩预约时段。即使会所 24 小时营业，也不代表所有按摩项目均全日提供。",
       '需要过夜就同时确认会所政策和所选套餐，问清休息位置、能够留到几点，以及独立房是否另外收费。曼濠水疗与利澳荟目前不提供过夜，需要留宿请另选会所。',
       '结合旅行路线选区域：市中心行程较多可以选澳门半岛；酒店和第二天活动都在路氹，就优先考虑氹仔／路氹。',
       '先看详情页有没有暂停营业提示，出发当天再确认一次。有介绍页不等于目前正在接待客人。',
-      '尽早说明常用语言和不能妥协的要求。技师情况每天不同，准备几个合适方向比要求保证某一位更实际。',
+      "尽早说明常用语言、希望使用的设施及按摩需求，确认可提供的疗程与沟通支持后，再选择场所。",
       '带好证件和备用支付方式。不同会所支持的支付方法和换算安排可能不同，部分情况下使用现金更直接。',
     ],
   },
@@ -969,7 +969,7 @@ const ko: GuideCopy = {
         icon: 'sparkles',
         title: '매장마다 이용법과 시설이 다릅니다',
         body:
-          '욕장, 다이닝, 테라피스트 소개, KTV, 테마룸, 휴게 구역이 모든 매장에서 같지 않습니다. 가장 중시하는 경험 한두 가지를 먼저 정하고, 매장 페이지의 실제 시설과 코스 내용을 자세히 보는 것이 홍보 문구만 보는 것보다 확실합니다.',
+          "목욕 시설, 다이닝, KTV, 객실 디자인, 휴게 공간은 매장마다 다릅니다. 중요하게 생각하는 시설을 정한 뒤, 매장 페이지와 패키지 내용을 확인하고 예약하세요.",
       },
       {
         icon: 'message-circle',
@@ -1002,7 +1002,7 @@ const ko: GuideCopy = {
       {
         title: '당일 영업 중인 매장 확인',
         body:
-          '날짜와 조건을 보내셔서 현재 영업 중인 후보 목록을 먼저 받고, 테라피스트 근무 시간대, 룸 상황, 예상 대기 시간을 물어보세요. 오래된 스크린샷이나 만료된 혜택만 믿고 결정하지 마세요.',
+          "날짜와 원하는 조건을 보내 현재 영업 중인 후보를 확인하세요. 오래된 사진이나 혜택에만 의존하지 말고 마사지 예약 시간, 객실 상황, 예상 대기 시간도 확인해 주세요.",
       },
       {
         title: '전체 견적을 자세히 확인',
@@ -1020,14 +1020,14 @@ const ko: GuideCopy = {
           '많은 분들이 먼저 샤워, 입욕, 사우나를 하지만 실제 시설은 매장에 따라 다릅니다. 이 단계는 서두를 필요가 없으며, 직원에게 다음 순서가 언제쯤 시작되는지 확인해도 좋습니다.',
       },
       {
-        title: '그날 밤의 다이닝과 소개 배치 파악',
+        title: "다이닝과 시설 이용 시간 확인",
         body:
-          '다이닝 제공, 테라피스트 소개 방식, 시간대는 매장마다 다릅니다. 도착 후 그날 밤의 배치를 먼저 확인하고, 모든 매장이 같은 메뉴와 고정 쇼 시간을 갖는다고 가정하지 마세요.',
+          "다이닝, 목욕 시설, 휴게 공간의 이용 시간과 패키지에 포함된 시설을 확인하세요. 확정된 마사지 예약 시간과 퇴장 시간에 맞춰 일정을 잡으세요.",
       },
       {
-        title: '룸 입장 전 서비스 내용 확인',
+        title: "마사지 항목과 객실 확인",
         body:
-          '서비스 항목, 시간, 룸 타입, 부가 요금이 견적과 일치하는지 확인한 뒤 프라이빗 룸에 들어가세요. 취향과 경계를 명확히 표현하면 양쪽 모두 더 편안합니다.',
+          "마사지 전에 항목, 실제 소요 시간, 객실, 추가 요금이 견적과 일치하는지 확인하세요. 원하는 압력과 피해야 할 부위도 직원에게 알려주세요.",
       },
       {
         title: '휴식할지 퇴장할지 결정',
@@ -1062,10 +1062,10 @@ const ko: GuideCopy = {
           '마카오 반도에서 노래방을 중심으로 운영하며, 노래와 룸 시간을 일정의 중심에 두는 손님에게 적합합니다. 현재 숙박은 제공되지 않습니다.',
       },
       {
-        want: '대형 쇼 매장 알아보기',
+        want: "대형 매장 시설 비교",
         slug: 'number-one-sauna',
         body:
-          '소개 페이지로 대형 매장과 로비 진행 방식을 알아볼 수 있지만, 현재 일시 휴업 중이므로 지금 예약 가능한 초보 추천 매장으로 삼아서는 안 됩니다.',
+          "대형 매장의 시설과 공간 구성을 기록한 참고 페이지입니다. 현재 일시 휴업 중이며 예약을 받지 않으므로 과거 시설 정보로만 참고해 주세요.",
       },
       {
         want: '전통 대형 매장 비교',
@@ -1077,43 +1077,43 @@ const ko: GuideCopy = {
         want: '긴 야간 휴식 일정',
         slug: 'majesty-spa',
         body:
-          '마카오 반도의 24시간 매장으로 숙박 배치, KTV, 테마룸이 있습니다. 지정 날짜의 리클라이너와 독립 휴게실 조건은 먼저 확인해야 합니다.',
+          "마카오 반도의 24시간 매장으로 야간 휴식, KTV, 다양한 디자인의 객실이 있습니다. 방문일의 리클라이너와 독립 휴게실 이용 조건을 미리 확인하세요.",
       },
       {
-        want: '다양한 시추에이션 테마룸',
+        want: "다양한 객실 디자인",
         slug: 'east-castle-spa',
         body:
-          '테마룸을 중심으로 하는 마카오 반도의 선택지입니다. KTV나 대형 무대보다 룸 디자인을 중시한다면 후보에 넣으세요.',
+          "20가지가 넘는 객실 디자인을 갖춘 마카오 반도의 매장입니다. 시설과 마사지 항목을 비교하고, 예약 전에 이용할 객실과 코스 내용을 확인하세요.",
       },
       {
         want: '타이파의 비교적 새로운 매장',
         slug: 'manhao-spa',
         body:
-          '그랜드뷰 호텔에 위치하며, 인상적인 소개 홀과 비교적 새로운 인테리어를 갖췄습니다. 타이파에 묵으며 숙박이 필요 없는 손님에게 적합합니다.',
+          "타이파 그랜드뷰 호텔 안에 있으며 넓은 홀과 새로운 인테리어를 갖췄습니다. 야간 숙박이 필요 없는 타이파 중심 여행 일정에 적합합니다.",
       },
       {
-        want: '24시간 영업과 테마룸',
+        want: "24시간 영업과 다양한 객실 디자인",
         slug: 'the-excellent-sauna',
         body:
-          '24시간 영업으로 야간 휴식과 테마룸이 있습니다. 매장 영업시간과 테라피스트 근무 시간대가 다르므로 최신 시간대에 맞춰 방문하세요.',
+          "24시간 영업하며 야간 휴식 공간과 다양한 디자인의 객실을 갖췄습니다. 방문 전에 마사지 예약 시간과 패키지에 포함된 시설을 확인하세요.",
       },
       {
         want: '마카오 시내의 비교적 새로운 선택지',
         slug: 'number-nine-sauna',
         body:
-          '2026년 오픈으로 무대 조명, 테마룸, 숙박 배치를 갖췄습니다. 당일 가격 등급과 테라피스트 상황을 먼저 확인한 뒤 시간을 정하세요.',
+          "2026년 오픈한 마카오 반도의 매장으로 새로운 인테리어와 야간 휴식 시설을 갖췄습니다. 예약 전에 마사지 항목, 예약 시간, 패키지 총액을 확인하세요.",
       },
       {
         want: '비교적 새로운 고예산 매장',
         slug: 'empire-sauna',
         body:
-          '마카오 반도의 신규 매장으로 테마 스위트와 숙박 배치가 있습니다. 가격 폭이 크므로 입문가만으로 예산을 잡지 말고, 지정 코스 총액을 받아보세요.',
+          "다양한 스위트 디자인과 야간 휴식 시설을 갖춘 마카오 반도의 신규 매장입니다. 이용할 마사지 항목과 시설에 맞춰 상세 견적을 요청하세요.",
       },
       {
-        want: '무대 분위기 중심',
+        want: "넓은 홀과 목욕 시설",
         slug: 'manhao-spa',
         body:
-          '만하오에서 가장 주목할 점은 소개 홀입니다. 무대 감각과 타이파 위치를 중시하는 분께 적합하지만, 현 단계에서는 숙박이 불가능합니다.',
+          "만하오는 타이파 그랜드뷰 호텔 안에 넓은 홀과 목욕 시설을 갖추고 있습니다. 예약 전에 패키지 포함 항목을 확인하세요. 현재 숙박은 제공하지 않습니다.",
       },
       {
         want: '리스보에타 인근 숙박',
@@ -1125,13 +1125,13 @@ const ko: GuideCopy = {
         want: '조용한 매장 알아보기',
         slug: 'victoria-sauna',
         body:
-          '빅토리아 사우나는 영업을 재개해 조용하고 넓은 매장을 선호하는 분의 선택지로 돌아왔습니다. 당일 인원, 객실과 야간 휴식 조건은 출발 전에 확인하세요.',
+          "빅토리아 사우나는 영업을 재개했으며 조용하고 넓은 매장을 원하는 분들이 고려할 수 있습니다. 출발 전에 마사지 예약 시간, 객실, 야간 휴식 조건을 확인하세요.",
       },
       {
         want: 'KTV와 미래감각 디자인 알아보기',
         slug: 'm-club',
         body:
-          'KTV, 테마룸, 미래감각 스타일의 비교 참고로 활용하세요. M 클럽은 현재 일시 휴업 중이므로 재개 전까지 자료 용도로만 적합합니다.',
+          "KTV 시설과 현대적인 인테리어를 기록한 참고 페이지입니다. M 클럽은 현재 일시 휴업 중이며 예약을 받지 않습니다.",
       },
     ],
   },
@@ -1139,11 +1139,11 @@ const ko: GuideCopy = {
     heading: '초보에게 가장 실용적인 7가지 조언',
     items: [
       '총액으로 예산을 잡고, 홍보의 최저 숫자만 보지 마세요. 코스, 서비스 요금, 룸 타입 업그레이드, 음료, 추가 항목을 미리 확인하세요.',
-      '매장 영업시간과 테라피스트 근무 시간대를 구분하세요. 매장이 24시간 영업이어도 시간대별로 선택 가능한 라인업이 다릅니다.',
+      "매장 영업시간과 마사지 예약 시간을 따로 확인하세요. 24시간 영업한다고 해서 모든 마사지 항목을 하루 종일 제공하는 것은 아닙니다.",
       '숙박이 필요하면 매장 정책과 선택 코스를 함께 확인하고, 휴식 위치, 몇 시까지 머물 수 있는지, 독립룸 별도 요금 여부를 물어보세요. 만하오 스파와 클루브 리오는 현재 숙박을 제공하지 않으니 숙박이 필요하면 다른 매장을 선택하세요.',
       '여행 동선에 맞춰 지역을 고르세요: 시내 일정이 많다면 마카오 반도, 호텔과 다음 날 일정이 모두 코타이라면 타이파/코타이 우선.',
       '상세 페이지에 일시 휴업 안내가 있는지 먼저 보고, 출발 당일에 한 번 더 확인하세요. 소개 페이지가 있다고 해서 현재 손님을 받고 있는 것은 아닙니다.',
-      '사용 언어와 양보할 수 없는 조건을 일찍 알려주세요. 테라피스트 상황은 매일 달라지므로, 한 명을 확정받기보다 여러 적합한 방향을 준비하는 편이 현실적입니다.',
+      "사용 언어, 이용할 시설, 원하는 마사지 항목을 미리 알려주세요. 제공 가능한 코스와 언어 지원을 확인한 뒤 매장을 선택하세요.",
       '신분증과 예비 결제 수단을 지참하세요. 매장마다 지원하는 결제 방법과 환전 배치가 다를 수 있으며, 경우에 따라 현금이 더 간단합니다.',
     ],
   },

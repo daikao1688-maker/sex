@@ -509,72 +509,6 @@ export const galleryCopyGroupA = {
       caption: "두 개의 행잉 시트가 블랙·화이트 스트라이프 소파를 마주 보고, 레드 조명과 정돈된 타월이 극적인 인상을 더합니다.",
     },
   },
-  "macau-sauna-spa-majesty-gallery-202607-16": {
-    en: {
-      alt: "Round bed inside a black cage frame with red feather decor",
-      caption: "A circular bed sits within a tall black frame, surrounded by crimson curtains, feather trim, and deep red lighting.",
-    },
-    "zh-TW": {
-      alt: "黑色框架內的圓床與紅色羽毛裝飾",
-      caption: "圓床置於高挑黑色框架中央，深紅布簾、羽毛飾邊與低光營造強烈戲劇氛圍。",
-    },
-    "zh-CN": {
-      alt: "黑色框架内的圆床与红色羽毛装饰",
-      caption: "圆床置于高挑黑色框架中央，深红布帘、羽毛饰边与低光营造强烈戏剧氛围。",
-    },
-    ja: {
-      alt: "黒いフレーム内の円形ベッドと赤い羽根飾り",
-      caption: "高い黒色フレームの中央に円形ベッドを置き、深紅のカーテンと羽根、控えめな赤い光で演出しています。",
-    },
-    ko: {
-      alt: "블랙 케이지 프레임 속 원형 침대와 레드 페더 장식",
-      caption: "높은 블랙 프레임 중앙에 원형 침대를 두고, 딥레드 커튼과 페더 트림, 낮은 조명이 강렬한 드라마를 연출합니다.",
-    },
-  },
-  "macau-sauna-spa-majesty-gallery-202607-17": {
-    en: {
-      alt: "Red-lit bed behind metal rails and a sheer canopy",
-      caption: "Metal rails frame a low bed dressed with red cushions, folded towels, and a translucent crimson canopy.",
-    },
-    "zh-TW": {
-      alt: "金屬欄架與紅色薄紗後的低床",
-      caption: "低床以紅色靠枕和整齊毛巾佈置，金屬欄架與半透明紅紗為空間增加層次。",
-    },
-    "zh-CN": {
-      alt: "金属栏架与红色薄纱后的低床",
-      caption: "低床以红色靠枕和整齐毛巾布置，金属栏架与半透明红纱为空间增加层次。",
-    },
-    ja: {
-      alt: "金属格子と赤い薄布に囲まれたローベッド",
-      caption: "赤いクッションと畳んだタオルを置いた低いベッドを、金属の格子と透ける深紅の布が囲んでいます。",
-    },
-    ko: {
-      alt: "메탈 레일과 시어 캐노피 뒤의 레드 조명 침대",
-      caption: "레드 쿠션과 개어둔 타월을 올린 낮은 침대를, 메탈 레일과 반투명 크림슨 캐노피가 감싸는 구성입니다.",
-    },
-  },
-  "macau-sauna-spa-majesty-gallery-202607-18": {
-    en: {
-      alt: "Black leather straps and chain on a red metal frame",
-      caption: "A close-up reveals black leather straps, metal fittings, and a short chain set against red curtains and padded panels.",
-    },
-    "zh-TW": {
-      alt: "紅色金屬架上的黑色皮革帶與鏈條",
-      caption: "近景呈現黑色皮革帶、金屬扣件與短鏈，後方紅色布簾和軟墊延續一致色調。",
-    },
-    "zh-CN": {
-      alt: "红色金属架上的黑色皮革带与链条",
-      caption: "近景呈现黑色皮革带、金属扣件与短链，后方红色布帘和软垫延续统一色调。",
-    },
-    ja: {
-      alt: "赤い金属フレームに掛けられた黒革ストラップとチェーン",
-      caption: "黒い革ベルトや金具、短いチェーンを近くから捉え、背景の赤いカーテンとパッドが色調を揃えています。",
-    },
-    ko: {
-      alt: "레드 메탈 프레임에 걸린 블랙 레더 스트랩과 체인",
-      caption: "블랙 레더 벨트와 메탈 피팅, 짧은 체인을 클로즈업으로 담았고, 배경의 레드 커튼과 패드가 톤을 통일합니다.",
-    },
-  },
   "macau-sauna-spa-majesty-gallery-202607-19": {
     en: {
       alt: "Bright studio-themed room with easels and bookshelves",
@@ -705,28 +639,6 @@ export const galleryCopyGroupA = {
     ko: {
       alt: "다크 우드 수납과 퀼팅 플로어 매트, 리프레시 카운터의 방",
       caption: "타월을 올린 퀼팅 매트 옆으로 다크 캐비닛과 음료 카운터가 이어지고, 높은 창으로 빛이 들어옵니다.",
-    },
-  },
-  "macau-sauna-spa-majesty-gallery-202607-25": {
-    en: {
-      alt: "Costume display room with colourful outfits and mannequins",
-      caption: "Colourful costumes hang from a gold grid beside mannequin displays, wall graphics, and floor cushions.",
-    },
-    "zh-TW": {
-      alt: "彩色服裝、模特與坐墊佈置的造型房",
-      caption: "多套彩色服裝掛在金色網架上，配合模特展示、趣味牆飾與地面坐墊，畫面活潑鮮明。",
-    },
-    "zh-CN": {
-      alt: "彩色服装、模特与坐垫布置的造型房",
-      caption: "多套彩色服装挂在金色网架上，配合模特展示、趣味墙饰与地面坐垫，画面活泼鲜明。",
-    },
-    ja: {
-      alt: "カラフルな衣装とマネキンを並べたコスチュームルーム",
-      caption: "金色のメッシュに衣装を掛け、マネキンや遊び心のある壁飾り、床クッションで明るくまとめています。",
-    },
-    ko: {
-      alt: "컬러풀한 의상과 마네킹을 진열한 코스튬 디스플레이룸",
-      caption: "골드 그리드에 다양한 의상을 걸고, 마네킹 디스플레이와 유쾌한 벽 장식, 플로어 쿠션으로 화사하게 꾸몄습니다.",
     },
   },
   "macau-sauna-spa-majesty-gallery-202607-26": {

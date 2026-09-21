@@ -40,7 +40,11 @@ const openVenues = venues
     return 0;
   });
 const closedVenues = venues.filter((venue) => venue.temporarilyClosed);
-const pausedBuckets = [...new Set(closedVenues.flatMap((venue) => venue.buckets))].join(" ");
+const filterBuckets = (venue: (typeof venues)[number]) => [
+  ...venue.buckets.filter((bucket) => bucket !== "lineup"),
+  venue.district,
+];
+const pausedBuckets = [...new Set(closedVenues.flatMap(filterBuckets))].join(" ");
 ---
 
 <section id="spas" class="py-20 sm:py-28 px-4 scroll-mt-6">
@@ -86,7 +90,7 @@ const pausedBuckets = [...new Set(closedVenues.flatMap((venue) => venue.buckets)
             <div
               class="fade-up"
               style={`transition-delay: ${(index * 0.03).toFixed(2)}s`}
-              data-buckets={venue.buckets.join(" ")}
+              data-buckets={filterBuckets(venue).join(" ")}
             >
               <a
                 href={localizePath(lang, `/spa/${venue.slug}/`)}

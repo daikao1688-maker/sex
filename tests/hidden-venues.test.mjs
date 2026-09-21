@@ -43,7 +43,7 @@ test('Quick Match uses only public candidates for every selection', async (t) =>
   const { rankVenues } = await server.ssrLoadModule('/src/lib/quickMatch.ts');
   assert.equal(bookableVenues.length, 9);
   for (const group of ['solo', 'pair', 'small', 'large']) {
-    for (const experience of ['show', 'theme', 'jpkr', 'new', 'ktv', 'classic']) {
+    for (const experience of ['value', 'theme', 'taipa', 'new', 'ktv', 'classic']) {
       for (const when of ['now', 'tonight', 'tomorrow', 'sat', 'sun', 'other']) {
         for (const from of ['border', 'hotel', 'airport', 'other']) {
           for (const overnight of [false, true]) {

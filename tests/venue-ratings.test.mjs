@@ -32,24 +32,18 @@ test('every localized venue title shows the shared editorial score on a five-sta
   }
 });
 
-test('one central rating edit reaches venue facts, localized feature stars and current prose', async (t) => {
+test('one central rating edit reaches venue facts and localized feature stars', async (t) => {
   const server = await moduleServer();
   t.after(() => server.close());
   const { venueRatings } = await server.ssrLoadModule('/src/data/venueRatings.ts');
-  const original = venueRatings['familia-nobre'];
+  const original = venueRatings['the-excellent-sauna'];
   try {
-    venueRatings['familia-nobre'] = 2;
+    venueRatings['the-excellent-sauna'] = 2;
     const { venues } = await server.ssrLoadModule('/src/data/venues.ts');
-    const venue = venues.find((entry) => entry.slug === 'familia-nobre');
+    const venue = venues.find((entry) => entry.slug === 'the-excellent-sauna');
     assert.equal(venue.rating, 2, 'consumers of shared venue facts must receive the edited score');
     const { getSpaPageCopy } = await server.ssrLoadModule('/src/i18n/pages/spa.ts');
     const { resolveVenueDetail } = await server.ssrLoadModule('/src/lib/spaDetail.ts');
-    const currentScorePhrases = {
-      en: 'Rated 2 out of five stars',
-      'zh-TW': '推薦指數2星',
-      'zh-CN': '推荐指数2星',
-      ja: 'おすすめ度は2つ星',
-    };
     for (const locale of locales) {
       const { default: dictionary } = await server.ssrLoadModule(`/src/i18n/locales/${locale}.ts`);
       const detail = resolveVenueDetail(venue, getSpaPageCopy(locale), dictionary);
@@ -57,12 +51,9 @@ test('one central rating edit reaches venue facts, localized feature stars and c
       assert.ok(ratingFeature, `${locale}: rating feature is missing`);
       assert.equal((ratingFeature.match(/⭐/gu) ?? []).length, 2, `${locale}: feature kept a stale score`);
       assert.ok(!detail.features.some((feature) => feature.includes('{ratingStars}')));
-      if (currentScorePhrases[locale]) {
-        assert.ok(dictionary.spas.venues['familia-nobre'].description.includes(currentScorePhrases[locale]));
-      }
     }
   } finally {
-    venueRatings['familia-nobre'] = original;
+    venueRatings['the-excellent-sauna'] = original;
   }
 });
 
