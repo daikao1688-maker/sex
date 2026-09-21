@@ -5,7 +5,7 @@ const en: Dictionary = {
   meta: {
     title: 'Macau Sauna Sites | Luxury VIP Booking & Free Shuttle',
     description:
-      'Compare 15 Macau sauna and spa listings, including current closure notices, reference prices, facilities and private shuttle support.',
+      'Compare {venueCount} Macau sauna and spa listings, including current closure notices, reference prices, facilities and private shuttle support.',
     siteName: 'Macau Sauna Sites',
     ogImageAlt: 'A woman in a champagne-colored dress beside the Macau waterfront at night',
   },
@@ -60,7 +60,7 @@ const en: Dictionary = {
   spas: {
     heading: 'Featured Saunas',
     intro:
-      'Explore 15 popular Macau sauna venues, with updates on prices, opening status, team size and other practical details.',
+      'Explore {venueCount} popular Macau sauna venues, with updates on prices, opening status, team size and other practical details.',
     filterLabel: 'Filter venues',
     filters: [
       { bucket: 'all', label: 'All' },
@@ -96,7 +96,7 @@ const en: Dictionary = {
         badge: 'New & KTV King',
         summary: 'Clube Rio is a business-KTV club on the third floor of Hotel Rio in NAPE, with private karaoke rooms and spa options.',
         description:
-          'Clube Rio is a business-KTV club that held its grand opening on 30 July 2026 on the 3rd floor of Hotel Rio in the NAPE district — the only karaoke-first venue in the Macau sauna scene, which is why regulars call it the "KTV King" of Macau sauna nightlife. Crystal chandeliers over a wall of red roses in the main lounge, gold-leaf dragon-and-eagle art in the VIP rooms, big party rooms for a whole crew — every room is fully private with premium sound, equally right for business hosting and a night with friends.\n\nThe signature way to play is companion karaoke (坐檯): a companion joins your room to sit with you, sing with you and share drinks. Pair it with the signature package — 1 hour companion karaoke + 1 hour spa massage with free-flow drinks — and the whole night happens in one place. Prefer it quiet? Spa massage can be booked on its own. Open until 4 am, no overnight stay — the freshest pick for a singing, toasting kind of night.',
+          'Clube Rio is a business-KTV club that held its grand opening on 30 July 2026 on the 3rd floor of Hotel Rio in the NAPE district — the only karaoke-first venue in the Macau sauna scene, which is why regulars call it the "KTV King" of Macau sauna nightlife. Crystal chandeliers over a wall of red roses in the main lounge, gold-leaf dragon-and-eagle art in the VIP rooms, big party rooms for a whole crew — every room is fully private with premium sound, equally right for business hosting and a night with friends.\n\nSpa massage can be booked on its own. Open until 4 am, no overnight stay — the freshest pick for a singing, toasting kind of night.',
       },
       'yu-sauna': {
         name: 'Yu Sauna',
@@ -123,7 +123,7 @@ const en: Dictionary = {
         name: 'Shang Pin Spa',
         badge: 'Great Value',
         description:
-          "Shang Pin Spa is located at L2 R95 on the second floor of Lisboeta Macau and is one of the newer upscale spa venues in Cotai. Public information describes a space of about 20,000 square feet, designed in a Japanese style and equipped with a whirlpool bath, sauna and Japanese bathing room. The overall atmosphere is bright and clean, feeling more like a modern hotel spa than a traditional older venue.\n\nIts appeal lies in being refined without being noisy. There is none of the pressure of a large runway show; introductions are instead arranged one at a time based on your budget, preferences and how you feel that day. Japanese-style bubble baths, waterbed rooms and two-person package promotions are frequently mentioned features. For guests staying at Lisboeta Macau, Grand Lisboa Palace or elsewhere in Cotai who want a mid-to-high-priced venue with a comfortable pace, Shang Pin is a good fit.",
+          "Shang Pin Spa is located at L2 R95 on the second floor of Lisboeta Macau and is one of the newer upscale spa venues in Cotai. Public information describes a space of about 20,000 square feet, designed in a Japanese style and equipped with a whirlpool bath, sauna and Japanese bathing room. The overall atmosphere is bright and clean, feeling more like a modern hotel spa than a traditional older venue.\n\nIts appeal lies in being refined without being noisy. Waterbed rooms and two-person package promotions are frequently mentioned features. For guests staying at Lisboeta Macau, Grand Lisboa Palace or elsewhere in Cotai who want a mid-to-high-priced venue with a comfortable pace, Shang Pin is a good fit.",
       },
       'majesty-spa': {
         name: 'Majesty Spa',
@@ -135,7 +135,7 @@ const en: Dictionary = {
         name: 'The Excellent Sauna',
         badge: '24 Hours',
         description:
-          'The Excellent Sauna is tucked inside the Grand Emperor Hotel on the Macau Peninsula and follows a boutique themed-room concept. It does not rely on oversized spectacle. Instead, it turns DJ, office, medical and cinema settings into distinctive room types. Guests looking for a scenario-driven experience can upgrade to a themed room, while those who simply want to relax can choose a traditional private room.\n\nThe pace here is relatively quiet, making it suitable for guests who do not want to choose in a crowded hall. Bathe and use the sauna first, then choose a room type and therapist according to your mood; afterwards, you can settle in for an overnight stay in the 24-hour rest area. If your schedule is flexible, your budget is mid-range and you want a little novelty from role-play settings during the evening, The Excellent is a lighter alternative to a large venue.',
+          'The Excellent Sauna is tucked inside the Grand Emperor Hotel on the Macau Peninsula and follows a boutique themed-room concept. It does not rely on oversized spectacle. Instead, it turns DJ, office, medical and cinema settings into distinctive room types. Guests who simply want to relax can choose a traditional private room.\n\nThe pace here is relatively quiet, making it suitable for guests who do not want to choose in a crowded hall. Bathe and use the sauna first, then choose a room type and therapist according to your mood; afterwards, you can settle in for an overnight stay in the 24-hour rest area. If your schedule is flexible and your budget is mid-range, The Excellent is a lighter alternative to a large venue.',
       },
       'empire-sauna': {
         name: 'Empire Sauna',
@@ -148,7 +148,7 @@ const en: Dictionary = {
         name: 'East Castle Spa',
         badge: 'Theme Rooms',
         description:
-          'East Castle Spa is memorable not because the venue is extravagant, but because it turns its “theme” into a complete experience. Located on the third and fourth floors of the Casa Real Hotel, a team from the same group has built prison, classroom, medical, aircraft-cabin, office, boxing-ring and other settings into the rooms. Lighting, props and costumes are all prepared; guests simply choose the scenario they want to enter, and the evening unfolds naturally from there.\n\nThis venue suits people who are no longer satisfied with the conventional bath-and-massage routine. Relax in the bathing area, take your time over a meal, then choose a therapist and room type according to how you feel that day. There is no pressuring fixed rhythm inside, which leaves more room for exploration. If you want a distinctive Macau themed sauna at a mid-range budget that can feel fresh on each visit, East Castle Spa should be a good fit.',
+          'East Castle Spa is memorable not because the venue is extravagant, but because it turns its “theme” into a complete experience. Located on the third and fourth floors of the Casa Real Hotel, a team from the same group has built prison, classroom, medical, aircraft-cabin, office, boxing-ring and other settings into the rooms.\n\nThis venue suits people who are no longer satisfied with the conventional bath-and-massage routine. Relax in the bathing area, take your time over a meal, then choose a therapist and room type according to how you feel that day. There is no pressuring fixed rhythm inside, which leaves more room for exploration. If you want a distinctive Macau themed sauna at a mid-range budget that can feel fresh on each visit, East Castle Spa should be a good fit.',
       },
       'victoria-sauna': {
         name: 'Victoria Sauna',

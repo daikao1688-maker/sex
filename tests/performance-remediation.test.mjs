@@ -11,7 +11,6 @@ const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
 const locales = ["en", "zh-TW", "zh-CN", "ja"];
 const venueSlugs = [
-  "clube-rio",
   "yu-sauna",
   "manhao-spa",
   "number-nine-sauna",
@@ -286,7 +285,7 @@ test("hero initially fetches only its active source and preloads the next source
 test("viewport-role images expose real responsive candidates and intrinsic dimensions", async () => {
   const home = await readPage("en");
   const cards = tags(home, "img").filter((tag) => tag.includes("Macau premium sauna venue"));
-  assert.equal(cards.length, 10, "only bookable venues render full cards; paused ones collapse into the consolidated card");
+  assert.equal(cards.length, 9, "only bookable venues render full cards; paused ones collapse into the consolidated card");
   for (const [index, card] of cards.entries()) {
     assert.equal(attr(card, "width"), "800");
     assert.equal(attr(card, "height"), "800");
@@ -310,7 +309,7 @@ test("viewport-role images expose real responsive candidates and intrinsic dimen
   assert.ok(attr(hero, "sizes"));
   await assertTruthfulResponsiveImage(hero, "homepage hero");
 
-  const gallery = await readPage("en", "spa", "clube-rio");
+  const gallery = await readPage("en", "spa", "yu-sauna");
   const thumbnails = tags(gallery, "img").filter((tag) => attr(tag, "src")?.includes("-thumb.webp"));
   assert.ok(thumbnails.length > 0, "representative venue has no gallery thumbnails");
   for (const thumbnail of thumbnails) {

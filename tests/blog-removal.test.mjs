@@ -72,7 +72,7 @@ test("generated pages, sitemaps and llms.txt do not advertise removed article UR
   );
   assert.ok(files.includes("sitemap-0.xml"));
   assert.ok(files.includes("llms.txt"));
-  assert.equal(files.filter((file) => file.endsWith(".html")).length, 127);
+  assert.equal(files.filter((file) => file.endsWith(".html")).length, 122);
   for (const file of files) {
     const content = await readFile(new URL(file, distRoot), "utf8");
     for (const slug of removedSlugs) {

@@ -228,9 +228,9 @@ test("each active page renders Korean-owned copy instead of its page-specific En
     { segments: ["faq"], route: "/faq/", englishFallback: "FAQ" },
     { segments: ["guide"], route: "/guide/", englishFallback: "Planning Your First Macau Sauna Visit?" },
     { segments: ["privacy"], route: "/privacy/", englishFallback: "Privacy Notice" },
-    { segments: ["ranking"], route: "/ranking/", englishFallback: "Macau Sauna Guide 2026 — Compare 15 Venues" },
+    { segments: ["ranking"], route: "/ranking/", englishFallback: "Macau Sauna Guide 2026 — Compare 14 Venues" },
     { segments: ["shuttle"], route: "/shuttle/", englishFallback: "Plan Your Macau Sauna Pickup" },
-    { segments: ["spa", "clube-rio"], route: "/spa/clube-rio/", englishFallback: "Clube Rio is a business-KTV club that held its grand opening on 30 July 2026", headingRequired: false },
+    { segments: ["spa", "yu-sauna"], route: "/spa/yu-sauna/", englishFallback: "Tell us your party size, arrival time and preferences", headingRequired: false },
     { segments: ["spa", "eighteen-sauna"], route: "/spa/eighteen-sauna/", englishFallback: "18 Sauna formerly operated on the sixth floor of Hotel Golden Dragon", headingRequired: false },
   ];
 
@@ -350,13 +350,14 @@ test("Korean public pages do not publish known corrupted Korean tokens", async (
 
 test("Korean high-traffic pages publish natural localized wording", async () => {
   const contact = await readPage(koreanLocale, "contact");
-  const clubeRio = await readPage(koreanLocale, "spa", "clube-rio");
+  const empireSauna = await readPage(koreanLocale, "spa", "empire-sauna");
+  const retainedVenueCopy = await readFile(path.join(projectRoot, "src/i18n/pages/spa.ts"), "utf8");
   const homepage = await readPage(koreanLocale);
 
   assert.ok(contact.includes("메시지를 보낸 후"), "Korean contact FAQ must use 보낸");
-  assert.ok(clubeRio.includes("무료 픽업"), "Korean Clube Rio page must advertise 무료 픽업");
-  assert.ok(clubeRio.includes("클루브 리오"), "Korean Clube Rio page must use its established Korean name");
-  assert.ok(clubeRio.includes("금박 용·독수리"), "Korean Clube Rio gallery must name the dragon-and-eagle artwork");
+  assert.ok(empireSauna.includes("무료 픽업"), "Korean venue page must advertise 무료 픽업");
+  assert.ok(retainedVenueCopy.includes("클루브 리오"), "hidden Clube Rio must retain its established Korean name for reactivation");
+  assert.ok(retainedVenueCopy.includes("금박 용·독수리"), "hidden Clube Rio must retain its localized dragon-and-eagle artwork description");
   assert.ok(homepage.includes("이달의 베스트"), "Korean homepage must use the standard 이달의 spelling");
 });
 
@@ -388,7 +389,6 @@ test("SpaGrid image alternatives and footer copyright use each locale's language
 
 test("all active Korean galleries expose specific Korean alternative text and captions", async () => {
   const galleryCounts = {
-    "clube-rio": 5,
     "yu-sauna": 10,
     "manhao-spa": 11,
     "number-nine-sauna": 6,
@@ -430,7 +430,7 @@ test("all active Korean galleries expose specific Korean alternative text and ca
     renderedImages += expectedCount;
   }
 
-  assert.equal(renderedImages, 177, "Korean pages must expose all 177 active gallery descriptions");
+  assert.equal(renderedImages, 172, "Korean pages must expose all 172 active gallery descriptions");
 });
 
 test("Korean server and client month labels use Korean month and year forms", async () => {
@@ -445,16 +445,16 @@ test("Korean server and client month labels use Korean month and year forms", as
   assert.equal(runPromoMonthRefresh(promoScript), "8월", "client month refresh must use the Korean 월 suffix");
 });
 
-test("Korean static pages complete the 125-URL sitemap and reciprocal hreflang mesh", async () => {
+test("Korean static pages complete the 120-URL sitemap and reciprocal hreflang mesh", async () => {
   const sitemap = await readFile(path.join(distRoot, "sitemap-0.xml"), "utf8");
   const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-  assert.equal(sitemapLocations.length, 125, "sitemap must list 125 localized canonical URLs");
+  assert.equal(sitemapLocations.length, 120, "sitemap must list 120 localized canonical URLs");
 
   const localizedPaths = (await readdir(path.join(distRoot, koreanLocale), { recursive: true }))
     .filter((relativePath) =>
       relativePath === "index.html" || relativePath.endsWith(`${path.sep}index.html`),
     );
-  assert.equal(localizedPaths.length, 25, "Korean must ship the same 25 public pages as every other locale");
+  assert.equal(localizedPaths.length, 24, "Korean must ship the same 24 public pages as every other locale");
 
   for (const relativePath of localizedPaths) {
     const html = await readFile(path.join(distRoot, koreanLocale, relativePath), "utf8");

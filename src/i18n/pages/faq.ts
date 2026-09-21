@@ -1,4 +1,5 @@
 import type { Locale } from '../config';
+import { formatVenueCount } from '../venueVisibility';
 import { createPageCopy, type Crumb } from './helpers';
 
 export interface FaqCopy {
@@ -59,12 +60,12 @@ const en: FaqCopy = {
           answer: 'Depends on venue and service tier. General range: MOP 1,800 - 7,000+. Vietnamese/Thai: ~MOP 2,400-3,200. Chinese/model: ~MOP 3,200-4,200. Japanese/Korean: ~MOP 5,800-6,800. Contact us for current promotions.',
         },
         {
-          question: 'Can I book a dual session with two therapists?',
-          answer: 'Yes. Choose one therapist and add a second for a dual-service experience. The surcharge varies by venue and some run very reasonable rates — tell us when you book and we\'ll compare the current dual-session offers and recommend the best value.',
+          question: 'How can I confirm what is included in a package?',
+          answer: 'Before booking, ask the venue to confirm the included services, their duration, and the total price. Check whether service charges and optional extras are included. Refer to the itemized quote provided by the venue at the time of booking.',
         },
         {
           question: 'Are there hidden fees?',
-          answer: 'Some venues charge 10-15% service fee, themed rooms cost extra (MOP 400-1,000), and costume requests add MOP 200-350. Book through us and we’ll disclose all costs upfront — no surprises.',
+          answer: 'Some venues charge 10-15% service fee, and themed rooms cost extra (MOP 400-1,000). Book through us and we’ll disclose all costs upfront — no surprises.',
         },
         {
           question: 'Can I pay by card?',
@@ -147,7 +148,7 @@ const en: FaqCopy = {
         },
         {
           question: 'Is this a spa or a sauna? What\'s the difference?',
-          answer: 'In Macau, "sauna" and "spa" usually mean the same kind of all-in-one club — bathing, dry and wet steam, dining, massage treatments and, at some venues, overnight rest in one place. Our directory covers 15 venue profiles, including temporarily closed locations; always reconfirm the operator, licence and current status before visiting.',
+          answer: 'In Macau, "sauna" and "spa" usually mean the same kind of all-in-one club — bathing, dry and wet steam, dining, massage treatments and, at some venues, overnight rest in one place. Our directory covers {venueCount} venue profiles, including temporarily closed locations; always reconfirm the operator, licence and current status before visiting.',
         },
       ],
     },
@@ -207,7 +208,7 @@ const ja: FaqCopy = {
         },
         {
           question: 'マカオ サウナはどの店がおすすめですか？',
-          answer: 'ご予算・エリア・好みのタイプ（日本人／韓国人のスタッフが多い店、設備が新しい店、宿泊向きの店など）によっておすすめは変わります。当サイトでは15店舗の情報と休業状況を整理しています。LINEでご希望をお知らせいただければ、営業中の選択肢から条件に合う店舗をご案内します。料金、営業状況、許可情報は来店前にあらためてご確認ください。',
+          answer: 'ご予算・エリア・好みのタイプ（日本人／韓国人のスタッフが多い店、設備が新しい店、宿泊向きの店など）によっておすすめは変わります。当サイトでは{venueCount}店舗の情報と休業状況を整理しています。LINEでご希望をお知らせいただければ、営業中の選択肢から条件に合う店舗をご案内します。料金、営業状況、許可情報は来店前にあらためてご確認ください。',
         },
       ],
     },
@@ -219,12 +220,12 @@ const ja: FaqCopy = {
           answer: 'マカオ サウナの料金はお店のグレードと女の子のランクで決まり、全体の目安は MOP 1,800 〜 7,000+ です。相場の内訳は、ベトナム／タイ系が約 MOP 2,400-3,200、中国／モデル系が約 MOP 3,200-4,200、日本／韓国系が約 MOP 5,800-6,800。値段はすべて明朗会計です。時期によってお得なプランも出ますので、最新の料金はLINEでお気軽にご確認ください。',
         },
         {
-          question: '2人同時（女の子2名）のサービスは頼めますか？',
-          answer: 'はい。お好みの女の子を1人指名したうえで、もう1人を追加して2人同時のサービスを体験できます。追加料金の設定は店舗ごとに異なり、かなりお得な設定の店舗もあります。ご予約時にお声がけいただければ、各店舗の最新の2人同時プランを比較して、いちばんお得な組み合わせをご案内します。',
+          question: 'プランに含まれる内容はどう確認すればよいですか？',
+          answer: 'ご予約前に、プランに含まれる項目、それぞれの所要時間、総額を店舗にご確認ください。サービス料や追加オプションが別料金かどうかも確認しましょう。具体的な内容は、予約時に店舗が提示する明細付きの見積もりをご確認ください。',
         },
         {
           question: '追加料金や隠れた費用が発生することはありますか？',
-          answer: '店舗によっては、サービス料10〜15%、テーマルームの利用料（MOP 400〜1,000）、特別な衣装リクエストの別途料金（MOP 200〜350）がかかるケースがあります。ただし当サイトを通していただければ、こうした値段も含めた総額を事前に日本語でご案内します。マカオ サウナの料金が後から思わぬ形で膨らむことは一切ありません。',
+          answer: '店舗によっては、サービス料10〜15%、テーマルームの利用料（MOP 400〜1,000）がかかるケースがあります。ただし当サイトを通していただければ、こうした値段も含めた総額を事前に日本語でご案内します。マカオ サウナの料金が後から思わぬ形で膨らむことは一切ありません。',
         },
         {
           question: 'クレジットカードや電子マネーで支払えますか？',
@@ -323,7 +324,7 @@ const ja: FaqCopy = {
         },
         {
           question: 'スパ（水療）とサウナ（桑拿）はどう違うのですか？',
-          answer: 'マカオでは、「サウナ（桑拿）」と「スパ（水療）」が、入浴、ドライ／スチームサウナ、食事、施術、店舗によっては宿泊休憩までをまとめた施設を指すことがあります。日本の一般的なサウナ施設とは内容が異なります。当サイトは一時休業中を含む15店舗を掲載しています。営業状況、料金、営業許可、送迎条件は変わるため、来店前に最新情報をご確認ください。',
+          answer: 'マカオでは、「サウナ（桑拿）」と「スパ（水療）」が、入浴、ドライ／スチームサウナ、食事、施術、店舗によっては宿泊休憩までをまとめた施設を指すことがあります。日本の一般的なサウナ施設とは内容が異なります。当サイトは一時休業中を含む{venueCount}店舗を掲載しています。営業状況、料金、営業許可、送迎条件は変わるため、来店前に最新情報をご確認ください。',
         },
       ],
     },
@@ -379,12 +380,12 @@ const zhTW: FaqCopy = {
           answer: '視乎場所及技師類別，一般範圍為 MOP 1,800 - 7,000+。越南/泰國技師約 MOP 2,400-3,200，中國/模特約 MOP 3,200-4,200，日韓技師約 MOP 5,800-6,800。聯繫我們了解最新優惠。',
         },
         {
-          question: '可以安排雙人（兩位技師）同時服務嗎？',
-          answer: '可以。選一位技師後可加選第二位一同服務，即雙人同時服務體驗。加價幅度視場所而定，部分場館加幅相當划算。預約時告訴我們，我們會即時比較各場館的雙人優惠，推薦最抵的安排。',
+          question: '如何確認套餐包含哪些項目？',
+          answer: '預約前，請向場所確認套餐包含的項目、各項目時長及總價，並核對服務費和其他自選項目是否另行收費。具體內容以場所當時提供的明細報價為準。',
         },
         {
           question: '有隱藏收費嗎？',
-          answer: '部分場所收取10-15%服務費，主題房間需額外付費（MOP 400-1,000），特殊服裝要求另計（MOP 200-350）。透過我們預約，所有費用提前告知，絕無隱藏收費。',
+          answer: '部分場所收取10-15%服務費，主題房間需額外付費（MOP 400-1,000）。透過我們預約，所有費用提前告知，絕無隱藏收費。',
         },
         {
           question: '可以刷卡嗎？',
@@ -467,7 +468,7 @@ const zhTW: FaqCopy = {
         },
         {
           question: '這是 spa（水療）還是桑拿？有什麼分別？',
-          answer: '在澳門，「桑拿」與「水療（spa）」通常指結合沐浴、乾濕蒸、餐飲、按摩護理，以及部分場所的過夜休息設施，並非單純的三溫暖或單項按摩店。本站收錄 15 間場所，當中包括暫停營業的舊場資料；營業狀態、營運方及牌照資訊均應在到訪前再次確認。',
+          answer: '在澳門，「桑拿」與「水療（spa）」通常指結合沐浴、乾濕蒸、餐飲、按摩護理，以及部分場所的過夜休息設施，並非單純的三溫暖或單項按摩店。本站收錄 {venueCount} 間場所，當中包括暫停營業的舊場資料；營業狀態、營運方及牌照資訊均應在到訪前再次確認。',
         },
       ],
     },
@@ -523,12 +524,12 @@ const zhCN: FaqCopy = {
           answer: '视乎场所及技师类别，一般范围为 MOP 1,800 - 7,000+。越南/泰国技师约 MOP 2,400-3,200，中国/模特约 MOP 3,200-4,200，日韩技师约 MOP 5,800-6,800。联系我们了解最新优惠。',
         },
         {
-          question: '可以安排双人（两位技师）同时服务吗？',
-          answer: '可以。选一位技师后可加选第二位一同服务，即双人同时服务体验。加价幅度视场所而定，部分场馆加幅相当划算。预约时告诉我们，我们会即时比较各场馆的双人优惠，推荐最抵的安排。',
+          question: '如何确认套餐包含哪些项目？',
+          answer: '预约前，请向场所确认套餐包含的项目、各项目时长及总价，并核对服务费和其他自选项目是否另行收费。具体内容以场所当时提供的明细报价为准。',
         },
         {
           question: '有隐藏收费吗？',
-          answer: '部分场所收取10-15%服务费，主题房间需额外付费（MOP 400-1,000），特殊服装要求另计（MOP 200-350）。通过我们预约，所有费用提前告知，绝无隐藏收费。',
+          answer: '部分场所收取10-15%服务费，主题房间需额外付费（MOP 400-1,000）。通过我们预约，所有费用提前告知，绝无隐藏收费。',
         },
         {
           question: '可以刷卡吗？',
@@ -611,7 +612,7 @@ const zhCN: FaqCopy = {
         },
         {
           question: '这是 spa（水疗）还是桑拿？有什么分别？',
-          answer: '在澳门，「桑拿」与「水疗（spa）」通常指结合沐浴、干湿蒸、餐饮、按摩护理，以及部分场所的过夜休息设施，并非单纯的三温暖或单项按摩店。本站收录 15 家场所，其中包括暂停营业的旧场资料；营业状态、运营方和牌照信息都应在到访前再次确认。',
+          answer: '在澳门，「桑拿」与「水疗（spa）」通常指结合沐浴、干湿蒸、餐饮、按摩护理，以及部分场所的过夜休息设施，并非单纯的三温暖或单项按摩店。本站收录 {venueCount} 家场所，其中包括暂停营业的旧场资料；营业状态、运营方和牌照信息都应在到访前再次确认。',
         },
       ],
     },
@@ -667,12 +668,12 @@ const ko: FaqCopy = {
           answer: '매장과 테라피스트 유형에 따라 일반적으로 MOP 1,800 - 7,000+입니다. 베트남/태국 테라피스트 약 MOP 2,400-3,200, 중국/모델 약 MOP 3,200-4,200, 일본·한국 테라피스트 약 MOP 5,800-6,800입니다. 최신 혜택은 문의해 주세요.',
         },
         {
-          question: '테라피스트 2명 동반 서비스를 배치할 수 있나요?',
-          answer: '가능합니다. 한 명을 선택한 뒤 두 번째를 추가해 동시에 서비스받는, 2명 동반 체험입니다. 추가 요금 폭은 매장에 따라 다릅니다. 예약 시 알려주시면 각 매장의 2명 동반 혜택을 바로 비교해 가장 유리한 배치를 추천해 드립니다.',
+          question: '패키지에 포함된 항목은 어떻게 확인하나요?',
+          answer: '예약 전에 매장에 패키지에 포함된 항목, 각 항목의 소요 시간과 총액을 확인하세요. 서비스 요금과 선택 옵션에 별도 요금이 있는지도 확인해 주세요. 구체적인 내용은 예약 시 매장에서 제공하는 항목별 견적을 기준으로 확인하세요.',
         },
         {
           question: '숨은 요금이 있나요?',
-          answer: '일부 매장은 10-15% 서비스 요금을 받고, 테마룸은 추가 요금(MOP 400-1,000)이 있으며, 특별 의상 요청은 별도(MOP 200-350)입니다. 저희를 통해 예약하시면 모든 비용을 미리 안내해, 숨은 요금이 전혀 없습니다.',
+          answer: '일부 매장은 10-15% 서비스 요금을 받고, 테마룸은 추가 요금(MOP 400-1,000)이 있습니다. 저희를 통해 예약하시면 모든 비용을 미리 안내해, 숨은 요금이 전혀 없습니다.',
         },
         {
           question: '카드 결제가 가능한가요?',
@@ -755,7 +756,7 @@ const ko: FaqCopy = {
         },
         {
           question: '스파(水療)와 사우나(桑拿)는 무엇이 다른가요?',
-          answer: '마카오에서 「사우나」와 「스파(spa)」는 일반적으로 입욕, 드라이·스팀 사우나, 다이닝, 마사지 케어, 일부 매장의 야간 휴식 시설을 결합한 곳을 가리키며, 단순한 찜질방이나 단일 마사지숍이 아닙니다. 본 사이트는 일시 휴업 매장의 과거 자료를 포함해 15개 매장을 수록하고 있습니다. 영업 상태, 운영사, 라이선스 정보는 방문 전 반드시 다시 확인하세요.',
+          answer: '마카오에서 「사우나」와 「스파(spa)」는 일반적으로 입욕, 드라이·스팀 사우나, 다이닝, 마사지 케어, 일부 매장의 야간 휴식 시설을 결합한 곳을 가리키며, 단순한 찜질방이나 단일 마사지숍이 아닙니다. 본 사이트는 일시 휴업 매장의 과거 자료를 포함해 {venueCount}개 매장을 수록하고 있습니다. 영업 상태, 운영사, 라이선스 정보는 방문 전 반드시 다시 확인하세요.',
         },
       ],
     },
@@ -775,4 +776,18 @@ export const faqCopy: Partial<Record<Locale, FaqCopy>> = {
   ko,
 };
 
-export const getFaqCopy = createPageCopy(faqCopy);
+const getRawFaqCopy = createPageCopy(faqCopy);
+
+export function getFaqCopy(lang: Locale): FaqCopy {
+  const copy = getRawFaqCopy(lang);
+  return {
+    ...copy,
+    categories: copy.categories.map((category) => ({
+      ...category,
+      items: category.items.map((item) => ({
+        ...item,
+        answer: formatVenueCount(item.answer),
+      })),
+    })),
+  };
+}

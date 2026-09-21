@@ -105,7 +105,7 @@ test("each locale publishes an editorial policy covering volatile facts and corr
 test("venue pages omit the removed source-and-review panel", async () => {
   const headings = /Source and review notes|資料來源與審閱說明|资料来源与审阅说明|情報源と確認状況/;
   for (const locale of locales) {
-    for (const slug of ["clube-rio", "eighteen-sauna"]) {
+    for (const slug of ["yu-sauna", "eighteen-sauna"]) {
       const html = await readPage(locale, "spa", slug);
       assert.doesNotMatch(html, /data-testid="editorial-evidence"/);
       assert.doesNotMatch(html, headings);

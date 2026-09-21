@@ -6,6 +6,7 @@ import zhTW from './locales/zh-TW';
 import type { Dictionary } from './types';
 import { defaultLocale, locales, localizePath, type Locale } from './config';
 import { testimonials } from './testimonials';
+import { formatVenueCount, visibleHeroVenueGroups } from './venueVisibility';
 
 /** Register a new dictionary here after adding its file to `src/i18n/locales/`. */
 const dictionaries: Record<Locale, Dictionary> = {
@@ -17,7 +18,22 @@ const dictionaries: Record<Locale, Dictionary> = {
 };
 
 export function getDictionary(lang: Locale): Dictionary {
-  return dictionaries[lang];
+  const dictionary = dictionaries[lang];
+  return {
+    ...dictionary,
+    meta: {
+      ...dictionary.meta,
+      description: formatVenueCount(dictionary.meta.description),
+    },
+    hero: {
+      ...dictionary.hero,
+      venueGroups: visibleHeroVenueGroups(dictionary.hero.venueGroups, lang),
+    },
+    spas: {
+      ...dictionary.spas,
+      intro: formatVenueCount(dictionary.spas.intro),
+    },
+  };
 }
 
 /** Reads the active locale out of a URL like `/en/guide/`. */

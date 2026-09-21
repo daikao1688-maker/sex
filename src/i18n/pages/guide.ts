@@ -1,5 +1,6 @@
 import type { Locale } from '../config';
-import type { VenueSlug } from '../../data/venues';
+import { isVenueVisible, type VenueSlug } from '../../data/venues';
+import { formatVenueCount } from '../venueVisibility';
 import { createPageCopy, type Crumb } from './helpers';
 
 export interface GuideCopy {
@@ -85,7 +86,7 @@ const en: GuideCopy = {
     ],
     rankingTeaser: {
       body:
-        'Ready to compare price bands, areas, staff hours, overnight rules and facilities across all 15 profiles?',
+        'Ready to compare price bands, areas, staff hours, overnight rules and facilities across all {venueCount} profiles?',
       link: 'Open the comparison',
     },
   },
@@ -310,7 +311,7 @@ const ja: GuideCopy = {
       },
     ],
     rankingTeaser: {
-      body: '15店の料金目安、エリア、出勤時間、宿泊条件、設備をまとめて比べたい方はこちら。',
+      body: '{venueCount}店の料金目安、エリア、出勤時間、宿泊条件、設備をまとめて比べたい方はこちら。',
       link: '店舗比較を見る',
     },
   },
@@ -535,7 +536,7 @@ const zhTW: GuideCopy = {
       },
     ],
     rankingTeaser: {
-      body: '想一次比較 15 間會所的價格、地區、技師時段、過夜規則與設施？',
+      body: '想一次比較 {venueCount} 間會所的價格、地區、技師時段、過夜規則與設施？',
       link: '查看會所比較',
     },
   },
@@ -760,7 +761,7 @@ const zhCN: GuideCopy = {
       },
     ],
     rankingTeaser: {
-      body: '想一次对比 15 家会所的价格、区域、技师时段、过夜规则和设施？',
+      body: '想一次对比 {venueCount} 家会所的价格、区域、技师时段、过夜规则和设施？',
       link: '查看会所对比',
     },
   },
@@ -985,7 +986,7 @@ const ko: GuideCopy = {
       },
     ],
     rankingTeaser: {
-      body: '15개 매장의 가격, 지역, 테라피스트 시간대, 숙박 규칙, 시설을 한 번에 비교하고 싶으신가요?',
+      body: '{venueCount}개 매장의 가격, 지역, 테라피스트 시간대, 숙박 규칙, 시설을 한 번에 비교하고 싶으신가요?',
       link: '매장 비교 보기',
     },
   },
@@ -1169,4 +1170,36 @@ export const guideCopy: Partial<Record<Locale, GuideCopy>> = {
   ko,
 };
 
-export const getGuideCopy = createPageCopy(guideCopy);
+const getRawGuideCopy = createPageCopy(guideCopy);
+
+// Preserve the full source tip above so enabling Clube Rio restores its mention.
+const overnightTipWithoutClubeRio: Record<Locale, string> = {
+  en: 'If overnight rest matters, confirm both the venue policy and your package. Ask where you can rest, until what time, and whether a private room costs extra. Manhao Spa currently does not offer overnight stays.',
+  ja: '宿泊が必要なら、店舗の方針と利用コースの両方を確認します。休憩場所、利用期限、個室の追加料金まで聞いておくと安心です。マンハオスパ（曼濠水療）は現在宿泊に対応していないため、別の候補をご検討ください。',
+  'zh-TW': '要過夜就同時確認會所政策及所選套式，問明休息位置、可留到幾點，以及獨立房是否另收費。曼濠水療目前不提供過夜，需要留宿請另選會所。',
+  'zh-CN': '需要过夜就同时确认会所政策和所选套餐，问清休息位置、能够留到几点，以及独立房是否另外收费。曼濠水疗目前不提供过夜，需要留宿请另选会所。',
+  ko: '숙박이 필요하면 매장 정책과 선택 코스를 함께 확인하고, 휴식 위치, 몇 시까지 머물 수 있는지, 독립룸 별도 요금 여부를 물어보세요. 만하오 스파는 현재 숙박을 제공하지 않으니 숙박이 필요하면 다른 매장을 선택하세요.',
+};
+
+export function getGuideCopy(lang: Locale): GuideCopy {
+  const copy = getRawGuideCopy(lang);
+  return {
+    ...copy,
+    expect: {
+      ...copy.expect,
+      rankingTeaser: {
+        ...copy.expect.rankingTeaser,
+        body: formatVenueCount(copy.expect.rankingTeaser.body),
+      },
+    },
+    recommendations: {
+      ...copy.recommendations,
+      cards: copy.recommendations.cards.filter((card) => isVenueVisible(card.slug)),
+    },
+    tips: {
+      ...copy.tips,
+      items: copy.tips.items.map((tip, index) =>
+        index === 2 && !isVenueVisible('clube-rio') ? overnightTipWithoutClubeRio[lang] : tip),
+    },
+  };
+}

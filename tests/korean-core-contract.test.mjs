@@ -4,6 +4,7 @@ import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import ts from "typescript";
+import { createServer } from "vite";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 
@@ -35,7 +36,7 @@ function property(object, name) {
   return match;
 }
 
-test("registered locale dictionaries are exhaustive and fail closed", async () => {
+test("registered locale dictionaries are exhaustive and fail closed", async (t) => {
   const sourceFile = await parse("src/i18n/index.ts");
   const dictionaries = variableDeclaration(sourceFile, "dictionaries");
 
@@ -45,17 +46,27 @@ test("registered locale dictionaries are exhaustive and fail closed", async () =
     "registered locales must require a dictionary at compile time",
   );
 
-  const getDictionary = sourceFile.statements.find(
-    (statement) => ts.isFunctionDeclaration(statement) && statement.name?.text === "getDictionary",
-  );
-  assert.ok(getDictionary && ts.isFunctionDeclaration(getDictionary), "missing getDictionary function");
-  const returns = getDictionary.body?.statements.filter(ts.isReturnStatement) ?? [];
-  assert.equal(returns.length, 1, "getDictionary must have one direct return");
-  assert.equal(
-    returns[0].expression?.getText(sourceFile),
-    "dictionaries[lang]",
-    "a registered locale must never silently receive the English dictionary",
-  );
+  const server = await createServer({
+    root: projectRoot,
+    configFile: false,
+    logLevel: "silent",
+    server: { middlewareMode: true, hmr: false },
+    appType: "custom",
+  });
+  t.after(() => server.close());
+  const { getDictionary, locales } = await server.ssrLoadModule("/src/i18n/index.ts");
+  assert.deepEqual([...locales].sort(), ["en", "ja", "ko", "zh-CN", "zh-TW"]);
+  for (const locale of locales) {
+    const { default: expected } = await server.ssrLoadModule(`/src/i18n/locales/${locale}.ts`);
+    const actual = getDictionary(locale);
+    assert.equal(actual.meta.title, expected.meta.title, `${locale} must retain its own page title`);
+    assert.equal(actual.hero.title, expected.hero.title, `${locale} must retain its own hero copy`);
+    assert.deepEqual(actual.nav, expected.nav, `${locale} must retain its own navigation dictionary`);
+  }
+  for (const unsupportedLocale of ["fr", "", undefined]) {
+    assert.throws(() => getDictionary(unsupportedLocale),
+      "an unsupported locale must fail instead of silently receiving the English dictionary");
+  }
 });
 
 test("all Korean core venue cards own concise summaries", async () => {

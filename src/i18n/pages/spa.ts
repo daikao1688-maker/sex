@@ -204,37 +204,21 @@ const en: SpaPageCopy = {
       highlights: [
         'Grand opening 30 July 2026',
         'Macau\'s rare KTV-first club',
-        'Companion karaoke, 3 tiers',
-        'KTV + spa in one package',
       ],
-      bestFor: 'A singing night with company',
+      bestFor: 'Karaoke with friends',
       features: [
-        'Karaoke-first with companions',
         'Free-flow drinks',
         'Private rooms, premium sound',
-        'KTV + spa package',
         '3/F Hotel Rio',
       ],
       flow: [
         {
           title: 'Book Your Room',
-          body: 'Book through us with your headcount, timing and how you want to play (companion / package / spa). In the opening period, booking ahead gets the smoothest room and lineup arrangements.',
+          body: 'Book through us with your headcount and timing. During the opening period, booking ahead is recommended for room availability.',
         },
         {
           title: 'Arrive at Hotel Rio',
           body: 'Head to the 3rd floor of Hotel Rio in NAPE — minutes from the border gates and major hotels, or let us arrange the free private car transfer. Give your booking name and staff walk you through.',
-        },
-        {
-          title: 'Meet the Companions',
-          body: 'In your room, companions are introduced in person and the tier differences are explained on the spot. Companion karaoke runs three price tiers: MOP 1,300 / 1,500 / 2,000.',
-        },
-        {
-          title: 'Companion Karaoke',
-          body: 'Your companion sits beside you, sings with you and keeps the drinks flowing — a fully private room with premium sound, so business talk and entertainment share the same table.',
-        },
-        {
-          title: 'Switch to the Spa',
-          body: 'On the signature package, one hour of companion karaoke flows into one hour of spa massage; the free-flow option makes drinks unlimited. Viet-style and Tang-style lines run MOP 3,288 – 5,088.',
         },
         {
           title: 'Play Until Late',
@@ -253,7 +237,7 @@ const en: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-clube-rio-02-vip-room-gold-leaf',
-          caption: 'Hosting under the gold-leaf dragon and eagle carries weight; close the door and the sound, lights and companions belong to your table alone.',
+          caption: 'Gold-leaf dragon and eagle art decorates the VIP room, with its own sound and lighting.',
           alt: 'Clube Rio VIP room — gold-leaf dragon and eagle art',
         },
         {
@@ -283,7 +267,7 @@ const en: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-clube-rio-08-vip-room-crystal-art',
-          caption: 'Quilted orange sofas under crystal tiger art — speakers rigged, lights low: this is the home ground of companion karaoke.',
+          caption: 'Quilted orange sofas, crystal tiger art, speakers and low lighting in the VIP room.',
           alt: 'Clube Rio VIP room corner — crystal animal art and gold mirror',
         },
         {
@@ -541,13 +525,12 @@ const en: SpaPageCopy = {
     'shang-pin-spa': {
       aliases: 'Shang Pin Spa Macau, 尚品國際水療',
       highlights: [
-        'Japanese bubble bath specialist',
+        'Modern bathing facilities',
       ],
-      bestFor: 'Japanese-style experience',
+      bestFor: 'A quiet setting / modern facilities',
       features: [
         'Recommended rating: {ratingStars}',
         'Free therapist add-on with selected packages',
-        'Japanese-style bubble bath',
         'international service standards',
         'extremely high cost performance.',
       ],
@@ -565,16 +548,8 @@ const en: SpaPageCopy = {
           body: 'Complimentary dining in a clean, comfortable setting that matches the venue\'s overall modern design language.',
         },
         {
-          title: 'Boutique Selection',
-          body: 'Shang Pin uses a boutique selection model — share your preferences and budget with the manager, who then arranges face-to-face introductions one at a time. No large-scale shows to watch; the entire process is private and unhurried, ideal for guests who prefer a quieter atmosphere.',
-        },
-        {
-          title: 'Choose Your Therapist',
-          body: 'Multinational quality-focused staff, primarily Chinese and Japanese, with consistently high standards in both appearance and service. Shang Pin positions itself as \'mid-range price, high-end quality\' — the value proposition is outstanding.',
-        },
-        {
-          title: '60-Minute Session',
-          body: 'Every room features its own private bathtub for a high level of privacy. Shang Pin specializes in Japanese-style soapland (bubble bath) service.',
+          title: 'Room Facilities',
+          body: 'Every room features its own private bathtub for a high level of privacy.',
         },
         {
           title: 'Rest & Stay Overnight',
@@ -604,7 +579,7 @@ const en: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-elite-05-jacuzzi-wet-area',
-          caption: 'A modern jacuzzi wet area, bright and immaculate — fitting bathing surroundings for a venue known for Japanese-style bubble bath.',
+          caption: 'A modern jacuzzi wet area with bright, immaculate bathing facilities.',
           alt: 'Elite International Spa jacuzzi wet area',
         },
         {
@@ -689,8 +664,8 @@ const en: SpaPageCopy = {
           body: 'The hall \'scenic line\' selection format features multinational therapists lined up in a row, with some proactively smiling and lightly engaging with guests. The atmosphere is relaxed and natural — less formal than other venues. You can observe up close with minimal selection pressure.',
         },
         {
-          title: 'Choose Your Therapist',
-          body: 'After selecting your preferred therapist, the manager confirms the price tier. Prices range from MOP 2,799 to MOP 6,699.',
+          title: 'Confirm Prices',
+          body: 'Prices range from MOP 2,799 to MOP 6,699.',
         },
         {
           title: '60-Minute Session',
@@ -765,7 +740,6 @@ const en: SpaPageCopy = {
         'brand new themed rooms',
         'various exciting themes',
         'DJ room experience',
-        'role-play theme room',
         'cinema theme.',
         'Open 24 hours with overnight rest area',
       ],
@@ -788,7 +762,7 @@ const en: SpaPageCopy = {
         },
         {
           title: 'Water Bed or Themed Room',
-          body: 'The Excellent offers both water bed service and scenario-based themed rooms — choose a traditional Dongguan-style water bed experience, or pick a themed room (office, classroom, hospital, cinema, etc.). Themed rooms cost an extra MOP 440, and you can fully customize costumes and interaction style.',
+          body: 'The Excellent offers both water bed service and scenario-based themed rooms — choose a traditional Dongguan-style water bed experience, or pick a themed room (office, classroom, hospital, cinema, etc.).',
         },
         {
           title: '60-Minute Session',
@@ -807,7 +781,7 @@ const en: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-excellent-02-ambulance-theme-room',
-          caption: 'Step into the brand-new hospital-themed scene room, fully kitted out for immersive role-play as a MOP 440 themed-room upgrade.',
+          caption: 'The newly furnished hospital-themed room at The Excellent Sauna.',
           alt: 'The Excellent Sauna hospital theme room',
         },
         {
@@ -901,7 +875,7 @@ const en: SpaPageCopy = {
         },
         {
           title: 'Themed Suite or Waterbed Room',
-          body: 'Choose from multiple themed suites — each with custom mood lighting, premium bedding, and luxury hotel finishings — or one of the signature waterbed massage rooms designed specifically for Empire\'s signature service. Optional themed costume / signature attire service is available on request.',
+          body: 'Choose from multiple themed suites — each with custom mood lighting, premium bedding, and luxury hotel finishings — or one of the signature waterbed massage rooms designed specifically for Empire\'s signature service.',
         },
         {
           title: '60-Minute Service',
@@ -989,15 +963,13 @@ const en: SpaPageCopy = {
     'east-castle-spa': {
       aliases: 'East Castle Spa Macau, 東方皇堡水療',
       highlights: [
-        'Narrative-style service',
-        'Roleplay interaction experience',
+        '20+ themed rooms',
       ],
-      bestFor: 'Themed rooms / roleplay',
+      bestFor: 'Themed room interiors',
       features: [
         'Rating {ratingStars}',
         '20+ Themed Scenario Rooms',
-        'Macau Script-Killing Pioneer',
-        'Japanese Themed Experiences',
+        'Pioneer of themed rooms in Macau',
         'Professional Service Team',
         'Open 24 Hours',
         'Private & Secure Environment',
@@ -1005,7 +977,7 @@ const en: SpaPageCopy = {
       flow: [
         {
           title: 'Arrive & Check In',
-          body: 'Arrive at East Castle Spa, the original pioneer of themed rooms in Macau, famous for its narrative-driven roleplay services. Register at the front desk and collect your wristband. The reference price range is MOP 2,388 – 6,498; detailed menu items are confirmed when booking.',
+          body: 'Arrive at East Castle Spa, the original pioneer of themed rooms in Macau. Register at the front desk and collect your wristband. The reference price range is MOP 2,388 – 6,498; detailed menu items are confirmed when booking.',
         },
         {
           title: 'Bathe & Relax',
@@ -1021,11 +993,11 @@ const en: SpaPageCopy = {
         },
         {
           title: 'Themed Rooms',
-          body: 'East Castle\'s biggest draw — over 20 meticulously designed themed rooms including a prison interrogation room, classroom, office, airplane cabin, hospital, ambulance (signature room), boxing ring, and golf course. Each room has full set design, props, and costumes, with therapists professionally trained in roleplay.',
+          body: 'East Castle\'s biggest draw — over 20 meticulously designed themed rooms including a prison interrogation room, classroom, office, airplane cabin, hospital, ambulance (signature room), boxing ring, and golf course.',
         },
         {
-          title: '60-Minute Session',
-          body: 'A fully immersive, narrative-driven interactive session where you can customize the entire script — choose the scene, specify costumes, design dialogue and interactions. Therapists stay in character throughout for an intensely engaging experience. A 10% service charge and a 5% tourism tax apply.',
+          title: 'Service Charges and Tax',
+          body: 'A 10% service charge and a 5% tourism tax apply.',
         },
         {
           title: 'Rest & Stay Overnight',
@@ -1035,7 +1007,7 @@ const en: SpaPageCopy = {
       gallery: [
         {
           file: 'macau-sauna-spa-east-castle-01-gym-theme-room',
-          caption: 'East Castle Spa\'s signature gym-themed room comes with a full equipment set and props — pure proof of why this is Macau\'s pioneer of immersive roleplay.',
+          caption: 'East Castle Spa\'s gym-themed room has training equipment and props.',
           alt: 'East Castle Spa gym theme room',
         },
         {
@@ -1050,12 +1022,12 @@ const en: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-east-castle-04-classroom-theme-room',
-          caption: 'The classroom-themed room — desks, blackboard and full props turn a roleplay session into something seamless and convincing.',
+          caption: 'A classroom-themed room with desks, a blackboard and classroom props.',
           alt: 'East Castle Spa classroom theme room',
         },
         {
           file: 'macau-sauna-spa-east-castle-05-hospital-ward-room',
-          caption: 'A hospital-ward themed room with a detailed bed-and-clinic set, built for fully immersive roleplay.',
+          caption: 'A hospital-ward themed room with a detailed bed-and-clinic set.',
           alt: 'East Castle Spa hospital ward room',
         },
         {
@@ -1070,7 +1042,7 @@ const en: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-east-castle-08-airplane-cabin-room',
-          caption: 'An airplane-cabin themed room — seats and cabin detailing that take roleplay scenarios to another level.',
+          caption: 'An airplane-cabin themed room with passenger seats and cabin detailing.',
           alt: 'East Castle Spa airplane cabin room',
         },
         {
@@ -1348,7 +1320,7 @@ const en: SpaPageCopy = {
         },
         {
           title: '60-Minute Session',
-          body: 'Enter a private room for an exclusive one-on-one water bed session — Number One is famous across Macau for its water bed service. You can add a dual service with a second therapist for an additional fee (charged on-site). Additional paid mini-services include ear cleaning, nail care, and back massage.',
+          body: 'Enter a private room for an exclusive one-on-one water bed session — Number One is famous across Macau for its water bed service. Additional paid mini-services include ear cleaning, nail care, and back massage.',
         },
         {
           title: 'Rest & Stay Overnight',
@@ -1708,37 +1680,21 @@ const ja: SpaPageCopy = {
       highlights: [
         '2026年7月30日グランドオープン',
         'マカオでは珍しいKTV主役の店',
-        '同伴カラオケは3ランク',
-        'セットで歌もスパも一晩で',
       ],
-      bestFor: '歌って乾杯したい夜に',
+      bestFor: '友人とのカラオケに',
       features: [
-        'カラオケ×同伴が主役',
         '飲み放題プラン',
         '完全個室×高音質',
-        'KTV＋スパのセット',
         'リオホテル3階',
       ],
       flow: [
         {
           title: '個室を予約',
-          body: '人数・時間・遊び方（同伴／セット／スパ）を添えてご予約ください。オープン直後は事前予約が確実で、個室もラインナップもスムーズにご用意できます。日本語OKです。',
+          body: '人数と希望時間を添えてご予約ください。オープン直後は個室の空き状況を事前にご確認ください。日本語OKです。',
         },
         {
           title: 'リオホテルへ',
           body: '新口岸のリオホテル（利澳酒店）3階へ。各ボーダーゲートや主要ホテルから数分、無料送迎の手配もできます。到着したら予約名を伝えるだけでスタッフがご案内します。',
-        },
-        {
-          title: '女の子を選ぶ',
-          body: '個室に入ると、その場で女の子をご紹介。同伴やセットのランクの違いもここで説明があります。同伴カラオケは MOP 1,300 / 1,500 / 2,000 の3ランクです。',
-        },
-        {
-          title: '同伴カラオケ',
-          body: '女の子が隣に座って一緒に歌い、乾杯に付き合ってくれます。完全個室×高音質サウンドだから、接待の会話も盛り上がりも同じテーブルで両立します。',
-        },
-        {
-          title: 'スパへ切り替え',
-          body: '名物セットなら、同伴1時間のあとスパマッサージ1時間へ。飲み放題プランならお酒は追加なし。ベトナム式と唐式の2系統で、公開価格は MOP 3,288〜5,088 です。',
         },
         {
           title: '翌4時まで',
@@ -1757,7 +1713,7 @@ const ja: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-clube-rio-02-vip-room-gold-leaf',
-          caption: '金箔の龍と鷹のアートの下での接待は格別。ドアを閉めれば音響も照明も同伴も、このテーブルだけのものになります。',
+          caption: '金箔の龍と鷹のアートを飾ったVIPルーム。音響と照明を備えています。',
           alt: 'クラブ・リオのVIPルーム — 金箔の龍と鷹のアート',
         },
         {
@@ -1787,7 +1743,7 @@ const ja: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-clube-rio-08-vip-room-crystal-art',
-          caption: 'キルティングのオレンジソファに虎豹のクリスタルアート。スピーカーと照明を整えた、同伴カラオケの主戦場です。',
+          caption: 'キルティングのオレンジソファに虎豹のクリスタルアート。スピーカーと照明を備えたVIPルームです。',
           alt: 'クラブ・リオのVIPルームの一角 — クリスタルアートと金縁ミラー',
         },
         {
@@ -2039,13 +1995,12 @@ const ja: SpaPageCopy = {
     'shang-pin-spa': {
       aliases: '尚品國際水療、Shang Pin Spa',
       highlights: [
-        '日本式 泡泡浴のスペシャリスト',
+        'モダンな入浴設備',
       ],
-      bestFor: '日本式の体験を求める方',
+      bestFor: '落ち着いた空間／モダンな設備',
       features: [
         'おすすめ度{ratingStars}',
         '対象コースでセラピスト無料特典',
-        '日本式 泡泡浴',
         '国際水準のサービス',
         'コスパ抜群',
       ],
@@ -2063,16 +2018,8 @@ const ja: SpaPageCopy = {
           body: '各種の食事を無料で楽しめます。ダイニングは清潔で快適、館内全体のモダンなデザインと統一感があります。',
         },
         {
-          title: '精品セレクション',
-          body: 'シャンピンは「精品セレクション」方式——好みと予算をマネージャーに伝えると、女の子が一人ずつ対面で挨拶に来ます。大がかりな紹介ショーを見る必要はなく、静かでプライベート。にぎやかな場が苦手な方に向いています。',
-        },
-        {
-          title: '女の子を選ぶ',
-          body: '在籍は数より質で勝負。中心は中国・日本の女の子で、容姿・サービスとも高水準です。シャンピンの方針は「中価格・高品質」、コスパは抜群です。',
-        },
-        {
-          title: '60分のサービス',
-          body: '各部屋に専用の浴槽があり、プライベート性が高いのが特長。看板は日本式の泡泡浴です。',
+          title: '客室設備',
+          body: '各部屋に専用の浴槽があり、プライベート性が高いのが特長。',
         },
         {
           title: '休憩・宿泊',
@@ -2102,7 +2049,7 @@ const ja: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-elite-05-jacuzzi-wet-area',
-          caption: '明るく清潔感あふれるモダンなジャグジーの浴池。日本式の泡風呂で知られる店にふさわしい、上質な入浴環境です。',
+          caption: '明るく清潔に整えられた、モダンなジャグジー付きの浴室エリアです。',
           alt: 'シャンピンスパ ジャグジーの浴池｜マカオ サウナ',
         },
         {
@@ -2185,8 +2132,8 @@ const ja: SpaPageCopy = {
           body: '大広間の「景色を眺める」ショータイム形式——多国籍の女の子が一列に並び、なかには自分から微笑みかけ、軽く触れてくる子もいます。雰囲気は他店ほど堅苦しくなく、あくまで自然体。間近でじっくり眺められるので、選ぶときのプレッシャーも少なめです。',
         },
         {
-          title: '女の子を選ぶ',
-          body: '気に入った女の子を選んだら、マネージャーが料金ランクを確認します。料金はMOP 2,799〜MOP 6,699。',
+          title: '料金の確認',
+          body: '料金はMOP 2,799〜MOP 6,699。',
         },
         {
           title: '60分のサービス',
@@ -2259,7 +2206,6 @@ const ja: SpaPageCopy = {
         '新しいテーマルーム',
         '多彩なテーマ',
         'DJルーム体験',
-        'ロールプレイ個室',
         '映画館テーマ',
         '24時間営業・宿泊休憩エリア',
       ],
@@ -2282,7 +2228,7 @@ const ja: SpaPageCopy = {
         },
         {
           title: 'ウォーターベッド／テーマルーム',
-          body: 'エクセレントではウォーターベッドとシチュエーション型テーマルームの両方を用意。伝統的な莞式ウォーターベッド体験を選ぶことも、テーマルーム（オフィス・教室・病院など）を選ぶこともできます。テーマルームは MOP 440 の追加で、衣装や演出を自由にカスタマイズできます。',
+          body: 'エクセレントではウォーターベッドとシチュエーション型テーマルームの両方を用意。伝統的な莞式ウォーターベッド体験を選ぶことも、テーマルーム（オフィス・教室・病院など）を選ぶこともできます。',
         },
         {
           title: '60分のサービス',
@@ -2301,7 +2247,7 @@ const ja: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-excellent-02-ambulance-theme-room',
-          caption: '新設の「医院」テーマルームへ。没入感あふれるロールプレイのために細部まで設えられた、MOP 440 のテーマルーム・アップグレードです。',
+          caption: 'エクセレントサウナに新設された、病院をテーマにした内装の部屋です。',
           alt: 'エクセレントサウナ 医院テーマルーム｜マカオ サウナ',
         },
         {
@@ -2393,7 +2339,7 @@ const ja: SpaPageCopy = {
         },
         {
           title: 'テーマスイートまたはウォーターベッドルーム',
-          body: 'オーダーメイドの間接照明・上質な寝具・ホテル級の装飾を備えた多彩なテーマスイート、または看板のウォーターベッド特別ルームから選択。ご希望に応じて特別コスチューム体験のオプションも追加できます。',
+          body: 'オーダーメイドの間接照明・上質な寝具・ホテル級の装飾を備えた多彩なテーマスイート、または看板のウォーターベッド特別ルームから選択。',
         },
         {
           title: '60分のサービス',
@@ -2479,15 +2425,13 @@ const ja: SpaPageCopy = {
     'east-castle-spa': {
       aliases: '東方皇堡水療、East Castle Spa',
       highlights: [
-        'シチュエーション型サービス',
-        'ロールプレイ型のふれあい体験',
+        '20室以上のテーマルーム',
       ],
-      bestFor: 'テーマルーム／ロールプレイ体験',
+      bestFor: 'テーマルームの内装',
       features: [
         'おすすめ度{ratingStars}',
         'テーマルーム20室以上',
-        'マカオ・テーマ系の元祖',
-        'シチュエーション体験',
+        'マカオのテーマルームの先駆け',
         'プロのサービスチーム',
         '24時間営業',
         'プライベートで安心の空間',
@@ -2495,7 +2439,7 @@ const ja: SpaPageCopy = {
       flow: [
         {
           title: '到着・チェックイン',
-          body: 'イーストキャッスルスパに到着。ここはマカオにおけるテーマルームの元祖で、シチュエーション型のサービスで知られています。まずはフロントで受付を済ませ、リストバンドを受け取りましょう。参考料金帯は MOP 2,388〜6,498 で、詳しいメニューは予約時にご確認ください。',
+          body: 'イーストキャッスルスパに到着。ここはマカオにおけるテーマルームの元祖です。まずはフロントで受付を済ませ、リストバンドを受け取りましょう。参考料金帯は MOP 2,388〜6,498 で、詳しいメニューは予約時にご確認ください。',
         },
         {
           title: '入浴・リラックス',
@@ -2511,11 +2455,11 @@ const ja: SpaPageCopy = {
         },
         {
           title: 'テーマルーム',
-          body: '皇堡最大の目玉——作り込まれたテーマルームが20室以上。監獄の取調室、教室、オフィス、飛行機の客室、病院、救急車（看板の部屋）、ボクシングリング、ゴルフ場など。各部屋にセット・小道具・衣装が完備され、女の子はシチュエーション体験の専門トレーニングを受けています。',
+          body: '皇堡最大の目玉——作り込まれたテーマルームが20室以上。監獄の取調室、教室、オフィス、飛行機の客室、病院、救急車（看板の部屋）、ボクシングリング、ゴルフ場など。',
         },
         {
-          title: '60分のサービス',
-          body: '全編シチュエーション型のふれあいサービスです。場面を選び、衣装を指定し、やり取りの流れを自分で組み立てるなど、体験は自由自在にカスタマイズできます。女の子は最後まで役になりきって演じてくれるので、没入感は抜群。なかでも日本・韓国の女の子は、シチュエーションへの入り込み度で最も高い評価を得ています。別途10%のサービス料と5%の観光税がかかります。',
+          title: 'サービス料・税金',
+          body: '別途10%のサービス料と5%の観光税がかかります。',
         },
         {
           title: '休憩・宿泊',
@@ -2525,7 +2469,7 @@ const ja: SpaPageCopy = {
       gallery: [
         {
           file: 'macau-sauna-spa-east-castle-01-gym-theme-room',
-          caption: 'イーストキャッスルスパ（東方皇堡水療）を代表するジム・テーマルームは、本格的なトレーニング機材と小道具を完備。没入型ロールプレイの先駆けたる所以を体感できます。',
+          caption: 'イーストキャッスルスパのジム・テーマルームは、トレーニング機材と小道具を備えています。',
           alt: 'マカオ サウナ｜イーストキャッスルスパのジムルーム',
         },
         {
@@ -2540,12 +2484,12 @@ const ja: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-east-castle-04-classroom-theme-room',
-          caption: '机に黒板、細部まで揃えた小道具——教室をテーマにしたルームが、ロールプレイをよりリアルで途切れない世界へと誘います。',
+          caption: '机や黒板、小道具を備えた教室テーマのルームです。',
           alt: 'イーストキャッスルスパ 教室テーマルーム｜マカオ サウナ',
         },
         {
           file: 'macau-sauna-spa-east-castle-05-hospital-ward-room',
-          caption: '病室をテーマにしたルームは、ベッドや診療設備まで作り込んだ本格的なしつらえ。完全没入のロールプレイのために設えられた空間です。',
+          caption: '病室をテーマにしたルームは、ベッドや診療設備を模した内装です。',
           alt: 'マカオ サウナ｜イーストキャッスルスパの病室ルーム',
         },
         {
@@ -2560,7 +2504,7 @@ const ja: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-east-castle-08-airplane-cabin-room',
-          caption: '機内をテーマにしたルームは、座席からキャビンの細部まで再現。ロールプレイのシナリオを次のステージへと押し上げます。',
+          caption: '座席からキャビンの細部まで再現した、機内テーマのルームです。',
           alt: 'イーストキャッスルスパ 機内テーマルーム｜マカオ サウナ',
         },
         {
@@ -2832,7 +2776,7 @@ const ja: SpaPageCopy = {
         },
         {
           title: '60分のサービス',
-          body: '個室へ移動し、一対一のウォーターベッドによる専属サービスへ。ナンバーワンはこのウォーターベッドのサービスでマカオ中に名を知られています。女の子2名による同時サービスを追加することも可能です（料金は現地にてご確認ください）。そのほか、耳かき・ネイルケア・背中マッサージなどの有料の小サービスもあります。',
+          body: '個室へ移動し、一対一のウォーターベッドによる専属サービスへ。ナンバーワンはこのウォーターベッドのサービスでマカオ中に名を知られています。そのほか、耳かき・ネイルケア・背中マッサージなどの有料の小サービスもあります。',
         },
         {
           title: '休憩・宿泊（24時間）',
@@ -3187,41 +3131,25 @@ const zhTW: SpaPageCopy = {
       highlights: [
         '2026年7月30日全新開幕',
         '全澳少有KTV為主軸',
-        '坐檯陪唱三個等級',
-        '套票唱K+水療一晚完成',
       ],
-      bestFor: '唱K兼有人陪飲',
+      bestFor: '朋友聚會唱K',
       features: [
-        'KTV連坐檯',
         '酒水任飲',
         '私密包廂高清音響',
-        'KTV+水療套票',
         '利澳酒店3樓',
       ],
       flow: [
         {
           title: '預約包廂',
-          body: '透過我們預約，講明人數、時段與想玩的方式（坐檯 / 套票 / 水療）。開幕初期建議提前預約，包廂與陣容安排會較順。',
+          body: '透過我們預約，請告知人數與時段。開幕初期建議提前確認包廂的空位。',
         },
         {
           title: '抵達利澳酒店',
           body: '前往新口岸利澳酒店 3 樓，各口岸與主要酒店短程直達，亦可由我們安排免費私人專車接送。到場報預約名字即有專人帶位。',
         },
         {
-          title: '入包廂選技師',
-          body: '入包廂後由現場介紹技師供您選擇，坐檯與套票的詳細等級此時會逐一說明。坐檯項目分三個價位等級（MOP 1,300 / 1,500 / 2,000）。',
-        },
-        {
-          title: '坐檯陪唱',
-          body: '技師入包廂陪坐、陪唱、陪飲——私密包廂配高清音響，商務應酬洽談娛樂兩不誤，朋友暢聚亦夠氣氛。',
-        },
-        {
-          title: '套票轉場水療',
-          body: '選招牌套票的話，陪唱陪飲 1 小時後轉場水療按摩 1 小時，暢飲版酒水任飲。套票分越式與唐式系列，公開價位 MOP 3,288 至 5,088。',
-        },
-        {
           title: '暢玩至凌晨',
-          body: '營業至凌晨 4 時，唱K、陪飲、按摩按自己節奏進行。不設過夜——散場後新口岸截車方便，也可預約回程專車。',
+          body: '營業至凌晨 4 時。不設過夜——散場後新口岸截車方便，也可預約回程專車。',
         },
         {
           title: '回程安排',
@@ -3236,7 +3164,7 @@ const zhTW: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-clube-rio-02-vip-room-gold-leaf',
-          caption: '金箔龍鷹掛畫下宴客最有面子；門一關，音響、燈光與陪唱都只屬於你們這一枱。',
+          caption: '金箔龍鷹掛畫裝飾的 VIP 包廂，配備音響與燈光。',
           alt: '利澳薈 VIP 包廂 — 金箔龍鷹藝術掛畫',
         },
         {
@@ -3266,7 +3194,7 @@ const zhTW: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-clube-rio-08-vip-room-crystal-art',
-          caption: '橙色絎縫梳化配虎豹水晶掛畫——喇叭掛好、燈光調暗，坐檯陪唱的主場就是這種包廂。',
+          caption: '橙色絎縫梳化配虎豹水晶掛畫，VIP 包廂內設有喇叭與柔和燈光。',
           alt: '利澳薈 VIP 包廂一角 — 水晶動物掛畫與金框圓鏡',
         },
         {
@@ -3518,13 +3446,12 @@ const zhTW: SpaPageCopy = {
     'shang-pin-spa': {
       aliases: '尚品水療、尚品桑拿、尚品、澳門尚品國際水療',
       highlights: [
-        '日式泡泡浴專家',
+        '現代化沐浴設施',
       ],
-      bestFor: '日式體驗愛好者',
+      bestFor: '安靜環境／現代化設施',
       features: [
         '推薦指數{ratingStars}',
         '惠顧指定套式送師傅工',
-        '日式泡泡浴',
         '國際化的服務標準',
         '性價比極高',
       ],
@@ -3542,16 +3469,8 @@ const zhTW: SpaPageCopy = {
           body: '免費享用各式餐飲，餐區環境舒適整潔，與場所整體的現代設計風格一致。',
         },
         {
-          title: '精品挑選',
-          body: '尚品採用精品式挑選模式——告知經理你的喜好及預算後，經理會逐一安排技師面對面見面。無需觀看大型技師介紹，整個過程私密、從容，適合不喜歡熱鬧場面的客人。',
-        },
-        {
-          title: '選擇技師',
-          body: '全場多國籍技師以質素取勝，主要為中國及日本籍，外貌及服務質素均屬上乘。尚品的定位為「中等價位、高端質素」，性價比極為突出。',
-        },
-        {
-          title: '60分鐘服務',
-          body: '每間房間均設有獨立浴缸，私密度高。尚品以日式泡泡浴（ソープランド）為招牌服務。',
+          title: '客房設施',
+          body: '每間房間均設有獨立浴缸，私密度高。',
         },
         {
           title: '休息過夜',
@@ -3581,7 +3500,7 @@ const zhTW: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-elite-05-jacuzzi-wet-area',
-          caption: '現代化按摩浴池濕區，明亮整潔的泡浴環境，正合這家日式泡泡浴特色場館。',
+          caption: '現代化按摩浴池濕區，提供明亮整潔的泡浴環境。',
           alt: '尚品國際水療按摩浴池濕區',
         },
         {
@@ -3664,8 +3583,8 @@ const zhTW: SpaPageCopy = {
           body: '大廳「景觀線」走秀形式——多國籍技師排列成線，部分技師會主動微笑、輕觸互動，氣氛輕鬆自然，不像其他場所那麼拘謹。走秀過程中可以近距離觀察，挑選壓力較小。',
         },
         {
-          title: '選擇技師',
-          body: '選擇心儀技師後，經理確認價格檔次。價格區間 MOP 2,799 至 MOP 6,699。',
+          title: '確認價格',
+          body: '價格區間 MOP 2,799 至 MOP 6,699。',
         },
         {
           title: '60分鐘服務',
@@ -3765,7 +3684,7 @@ const zhTW: SpaPageCopy = {
         },
         {
           title: '水床或主題房間',
-          body: '極品提供水床及情境主題房——你可以選擇傳統莞式水床體驗，或選擇主題房間（辦公室、教室、醫院等）。主題房間另加 MOP 440，可完全自選服飾及互動風格。',
+          body: '極品提供水床及情境主題房——你可以選擇傳統莞式水床體驗，或選擇主題房間（辦公室、教室、醫院等）。',
         },
         {
           title: '60分鐘服務',
@@ -3784,7 +3703,7 @@ const zhTW: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-excellent-02-ambulance-theme-room',
-          caption: '走進全新醫院情境主題房，逼真佈景打造沉浸式角色扮演，可加點 MOP 440 升級體驗。',
+          caption: '極品桑拿新設的醫院主題房，採用細緻的場景佈置。',
           alt: '極品桑拿醫院主題房',
         },
         {
@@ -3881,7 +3800,7 @@ const zhTW: SpaPageCopy = {
         },
         {
           title: '主題套房或水床房型',
-          body: '選擇多款主題套房——每間配備訂製氛圍燈光、優質寢具及酒店級裝飾——或選擇巨亨招牌水床特色房型。如有興趣，亦可加配特色情趣制服體驗。',
+          body: '選擇多款主題套房——每間配備訂製氛圍燈光、優質寢具及酒店級裝飾——或選擇巨亨招牌水床特色房型。',
         },
         {
           title: '60分鐘服務',
@@ -3967,15 +3886,13 @@ const zhTW: SpaPageCopy = {
     'east-castle-spa': {
       aliases: '東方皇堡、東方皇堡水療會所、澳門東方皇堡',
       highlights: [
-        '主題情境服務',
-        '主題場景互動體驗',
+        '20 多款主題房間',
       ],
-      bestFor: '主題場景房／情境體驗',
+      bestFor: '主題房間設計',
       features: [
         '推薦指數{ratingStars}',
         '20+ 主題情景房間',
-        '澳門主題情境開創者',
-        '情景主題體驗',
+        '澳門主題房間開創者',
         '專業服務團隊',
         '24小時營業',
         '私密安全環境',
@@ -3983,7 +3900,7 @@ const zhTW: SpaPageCopy = {
       flow: [
         {
           title: '抵達入場',
-          body: '抵達東方皇堡水療，這裡是澳門主題場景房的鼻祖，以主題情境服務聞名。前台登記後領取手牌；參考價格為 MOP 2,388 至 6,498，詳細項目請於預約時確認。',
+          body: '抵達東方皇堡水療，這裡是澳門主題場景房的鼻祖。前台登記後領取手牌；參考價格為 MOP 2,388 至 6,498，詳細項目請於預約時確認。',
         },
         {
           title: '沐浴放鬆',
@@ -3999,11 +3916,11 @@ const zhTW: SpaPageCopy = {
         },
         {
           title: '主題房間',
-          body: '皇堡最大賣點——超過 20 款精心設計的主題房間，包括監獄審訊室、教室、辦公室、飛機艙、醫院、救護車（招牌房型）、拳擊場、高爾夫球場等。每間房都有完整的佈景、道具及服飾，技師經過專業情境體驗培訓。',
+          body: '皇堡最大賣點——超過 20 款精心設計的主題房間，包括監獄審訊室、教室、辦公室、飛機艙、醫院、救護車（招牌房型）、拳擊場、高爾夫球場等。',
         },
         {
-          title: '60分鐘服務',
-          body: '全程主題情境互動服務，您可自訂體驗——選擇場景、指定服飾、設計互動方式。技師會全程配合場景演出，體驗感極強。日韓技師在情境投入度方面評價最高。另收 10% 服務費及 5% 旅遊稅。',
+          title: '服務費與稅項',
+          body: '另收 10% 服務費及 5% 旅遊稅。',
         },
         {
           title: '休息過夜',
@@ -4028,7 +3945,7 @@ const zhTW: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-east-castle-04-classroom-theme-room',
-          caption: '教室主題情景房，課桌、黑板等完整佈景與道具，角色扮演體驗一氣呵成。',
+          caption: '教室主題情景房，設有課桌、黑板等佈景與道具。',
           alt: '東方皇堡教室主題情景房',
         },
         {
@@ -4048,7 +3965,7 @@ const zhTW: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-east-castle-08-airplane-cabin-room',
-          caption: '飛機艙主題情景房，艙內座椅與細節佈景，將角色扮演主題推向新高度。',
+          caption: '飛機艙主題情景房，設有艙內座椅與細節佈景。',
           alt: '東方皇堡飛機艙主題情景房',
         },
         {
@@ -4320,7 +4237,7 @@ const zhTW: SpaPageCopy = {
         },
         {
           title: '60分鐘服務',
-          body: '進入獨立房間享受一對一專屬水床服務，壹號以水床服務聞名全澳。可加購兩位技師同行體驗，安排第二位技師同時服務（費用以現場為準）。另有付費小工服務：掏耳、修甲、捶背等。',
+          body: '進入獨立房間享受一對一專屬水床服務，壹號以水床服務聞名全澳。另有付費小工服務：掏耳、修甲、捶背等。',
         },
         {
           title: '休息過夜',
@@ -4674,41 +4591,25 @@ const zhCN: SpaPageCopy = {
       highlights: [
         '2026年7月30日全新开幕',
         '全澳少有KTV为主轴',
-        '坐台陪唱三个等级',
-        '套票唱K+水疗一晚完成',
       ],
-      bestFor: '唱K兼有人陪饮',
+      bestFor: '朋友聚会唱K',
       features: [
-        'KTV连坐台',
         '酒水任饮',
         '私密包厢高清音响',
-        'KTV+水疗套票',
         '利澳酒店3楼',
       ],
       flow: [
         {
           title: '预约包厢',
-          body: '通过我们预约，讲明人数、时段与想玩的方式（坐台 / 套票 / 水疗）。开幕初期建议提前预约，包厢与阵容安排会较顺。',
+          body: '通过我们预约，请告知人数与时段。开幕初期建议提前确认包厢的空位。',
         },
         {
           title: '抵达利澳酒店',
           body: '前往新口岸利澳酒店 3 楼，各口岸与主要酒店短程直达，亦可由我们安排免费私人专车接送。到场报预约名字即有专人带位。',
         },
         {
-          title: '入包厢选技师',
-          body: '入包厢后由现场介绍技师供您选择，坐台与套票的详细等级此时会逐一说明。坐台项目分三个价位等级（MOP 1,300 / 1,500 / 2,000）。',
-        },
-        {
-          title: '坐台陪唱',
-          body: '技师入包厢陪坐、陪唱、陪饮——私密包厢配高清音响，商务应酬洽谈娱乐两不误，朋友畅聚亦够气氛。',
-        },
-        {
-          title: '套票转场水疗',
-          body: '选招牌套票的话，陪唱陪饮 1 小时后转场水疗按摩 1 小时，畅饮版酒水任饮。套票分越式与唐式系列，公开价位 MOP 3,288 至 5,088。',
-        },
-        {
           title: '畅玩至凌晨',
-          body: '营业至凌晨 4 时，唱K、陪饮、按摩按自己节奏进行。不设过夜——散场后新口岸截车方便，也可预约回程专车。',
+          body: '营业至凌晨 4 时。不设过夜——散场后新口岸截车方便，也可预约回程专车。',
         },
         {
           title: '回程安排',
@@ -4723,7 +4624,7 @@ const zhCN: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-clube-rio-02-vip-room-gold-leaf',
-          caption: '金箔龙鹰挂画下宴客最有面子；门一关，音响、灯光与陪唱都只属于你们这一台。',
+          caption: '金箔龙鹰挂画装饰的 VIP 包厢，配备音响与灯光。',
           alt: '利澳荟 VIP 包厢 — 金箔龙鹰艺术挂画',
         },
         {
@@ -4753,7 +4654,7 @@ const zhCN: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-clube-rio-08-vip-room-crystal-art',
-          caption: '橙色绗缝沙发配虎豹水晶挂画——喇叭挂好、灯光调暗，坐台陪唱的主场就是这种包厢。',
+          caption: '橙色绗缝沙发配虎豹水晶挂画，VIP 包厢内设有音箱与柔和灯光。',
           alt: '利澳荟 VIP 包厢一角 — 水晶动物挂画与金框圆镜',
         },
         {
@@ -5009,13 +4910,12 @@ const zhCN: SpaPageCopy = {
     'shang-pin-spa': {
       aliases: '尚品水疗、尚品桑拿、尚品、澳门尚品国际水疗',
       highlights: [
-        '日式泡泡浴专家',
+        '现代化沐浴设施',
       ],
-      bestFor: '日式体验爱好者',
+      bestFor: '安静环境／现代化设施',
       features: [
         '推荐指数{ratingStars}',
         '惠顾指定套式送师傅工',
-        '日式泡泡浴',
         '国际化的服务标准',
         '性价比极高',
       ],
@@ -5033,16 +4933,8 @@ const zhCN: SpaPageCopy = {
           body: '免费享用各式餐饮，餐区环境舒适整洁，与场所整体的现代设计风格一致。',
         },
         {
-          title: '精品挑选',
-          body: '尚品采用精品式挑选模式——告知经理你的喜好及预算后，经理会逐一安排技师面对面见面。无需观看大型技师介绍，整个过程私密、从容，适合不喜欢热闹场面的客人。',
-        },
-        {
-          title: '选择技师',
-          body: '全场多国籍技师以质素取胜，主要为中国及日本籍，外貌及服务质素均属上乘。尚品的定位为「中等价位、高端质素」，性价比极为突出。',
-        },
-        {
-          title: '60分钟服务',
-          body: '每间房间均设有独立浴缸，私密度高。尚品以日式泡泡浴（ソープランド）为招牌服务。',
+          title: '客房设施',
+          body: '每间房间均设有独立浴缸，私密度高。',
         },
         {
           title: '休息过夜',
@@ -5072,7 +4964,7 @@ const zhCN: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-elite-05-jacuzzi-wet-area',
-          caption: '现代化按摩浴池湿区，明亮整洁的泡浴环境，正合这家日式泡泡浴特色场馆。',
+          caption: '现代化按摩浴池湿区，提供明亮整洁的泡浴环境。',
           alt: '尚品国际水疗按摩浴池湿区',
         },
         {
@@ -5155,8 +5047,8 @@ const zhCN: SpaPageCopy = {
           body: '大厅「景观线」走秀形式——多国籍技师排列成线，部分技师会主动微笑、轻触互动，气氛轻松自然，不像其他场所那么拘谨。走秀过程中可以近距离观察，挑选压力较小。',
         },
         {
-          title: '选择技师',
-          body: '选择心仪技师后，经理确认价格档次。价格区间 MOP 2,799 至 MOP 6,699。',
+          title: '确认价格',
+          body: '价格区间 MOP 2,799 至 MOP 6,699。',
         },
         {
           title: '60分钟服务',
@@ -5256,7 +5148,7 @@ const zhCN: SpaPageCopy = {
         },
         {
           title: '水床或主题房间',
-          body: '极品提供水床及情境主题房——你可以选择传统莞式水床体验，或选择主题房间（办公室、教室、医院等）。主题房间另加 MOP 440，可完全自选服饰及互动风格。',
+          body: '极品提供水床及情境主题房——你可以选择传统莞式水床体验，或选择主题房间（办公室、教室、医院等）。',
         },
         {
           title: '60分钟服务',
@@ -5275,7 +5167,7 @@ const zhCN: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-excellent-02-ambulance-theme-room',
-          caption: '走进全新医院情境主题房，逼真布景打造沉浸式角色扮演，可加点 MOP 440 升级体验。',
+          caption: '极品桑拿新设的医院主题房，采用细致的场景布置。',
           alt: '极品桑拿医院主题房',
         },
         {
@@ -5372,7 +5264,7 @@ const zhCN: SpaPageCopy = {
         },
         {
           title: '主题套房或水床房型',
-          body: '选择多款主题套房——每间配备订制氛围灯光、优质寝具及酒店级装饰——或选择巨亨招牌水床特色房型。如有兴趣，亦可加配特色情趣制服体验。',
+          body: '选择多款主题套房——每间配备订制氛围灯光、优质寝具及酒店级装饰——或选择巨亨招牌水床特色房型。',
         },
         {
           title: '60分钟服务',
@@ -5458,15 +5350,13 @@ const zhCN: SpaPageCopy = {
     'east-castle-spa': {
       aliases: '东方皇堡、东方皇堡水疗会所、澳门东方皇堡',
       highlights: [
-        '主题情境服务',
-        '主题场景互动体验',
+        '20 多款主题房间',
       ],
-      bestFor: '主题场景房／情境体验',
+      bestFor: '主题房间设计',
       features: [
         '推荐指数{ratingStars}',
         '20+ 主题情景房间',
-        '澳门主题情境开创者',
-        '情景主题体验',
+        '澳门主题房间开创者',
         '专业服务团队',
         '24小时营业',
         '私密安全环境',
@@ -5474,7 +5364,7 @@ const zhCN: SpaPageCopy = {
       flow: [
         {
           title: '抵达入场',
-          body: '抵达东方皇堡水疗，这里是澳门主题场景房的鼻祖，以主题情境服务闻名。前台登记后领取手牌；参考价格为 MOP 2,388 至 6,498，详细项目请于预约时确认。',
+          body: '抵达东方皇堡水疗，这里是澳门主题场景房的鼻祖。前台登记后领取手牌；参考价格为 MOP 2,388 至 6,498，详细项目请于预约时确认。',
         },
         {
           title: '沐浴放松',
@@ -5490,11 +5380,11 @@ const zhCN: SpaPageCopy = {
         },
         {
           title: '主题房间',
-          body: '皇堡最大卖点——超过 20 款精心设计的主题房间，包括监狱审讯室、教室、办公室、飞机舱、医院、救护车（招牌房型）、拳击场、高尔夫球场等。每间房都有完整的布景、道具及服饰，技师经过专业情境体验培训。',
+          body: '皇堡最大卖点——超过 20 款精心设计的主题房间，包括监狱审讯室、教室、办公室、飞机舱、医院、救护车（招牌房型）、拳击场、高尔夫球场等。',
         },
         {
-          title: '60分钟服务',
-          body: '全程主题情境互动服务，您可自订体验——选择场景、指定服饰、设计互动方式。技师会全程配合场景演出，体验感极强。日韩技师在情境投入度方面评价最高。另收 10% 服务费及 5% 旅游税。',
+          title: '服务费与税项',
+          body: '另收 10% 服务费及 5% 旅游税。',
         },
         {
           title: '休息过夜',
@@ -5519,7 +5409,7 @@ const zhCN: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-east-castle-04-classroom-theme-room',
-          caption: '教室主题情景房，课桌、黑板等完整布景与道具，角色扮演体验一气呵成。',
+          caption: '教室主题情景房，设有课桌、黑板等布景与道具。',
           alt: '东方皇堡教室主题情景房',
         },
         {
@@ -5539,7 +5429,7 @@ const zhCN: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-east-castle-08-airplane-cabin-room',
-          caption: '飞机舱主题情景房，舱内座椅与细节布景，将角色扮演主题推向新高度。',
+          caption: '飞机舱主题情景房，设有舱内座椅与细节布景。',
           alt: '东方皇堡飞机舱主题情景房',
         },
         {
@@ -5811,7 +5701,7 @@ const zhCN: SpaPageCopy = {
         },
         {
           title: '60分钟服务',
-          body: '进入独立房间享受一对一专属水床服务，壹号以水床服务闻名全澳。可加购两位技师同行体验，安排第二位技师同时服务（费用以现场为准）。另有付费小工服务：掏耳、修甲、捶背等。',
+          body: '进入独立房间享受一对一专属水床服务，壹号以水床服务闻名全澳。另有付费小工服务：掏耳、修甲、捶背等。',
         },
         {
           title: '休息过夜',
@@ -6166,37 +6056,21 @@ const ko: SpaPageCopy = {
       highlights: [
         '2026년 7월 30일 그랜드 오픈',
         '마카오에서 드문 KTV 중심 클럽',
-        '도우미 노래방 3개 요금 등급',
-        'KTV + 스파 패키지',
       ],
-      bestFor: '함께 노래하며 술자리를 즐기고 싶은 분',
+      bestFor: '친구들과 노래방을 즐기고 싶은 분',
       features: [
-        '도우미와 함께하는 노래방',
         '주류 무제한',
         '프라이빗 룸, 고급 사운드',
-        'KTV + 스파 패키지',
         '호텔 리오 3층',
       ],
       flow: [
         {
           title: '룸 예약',
-          body: '인원, 시간대, 원하는 이용 방식(도우미 / 패키지 / 스파)을 알려주시고 저희를 통해 예약하세요. 오픈 초기에는 미리 예약하시면 룸과 라인업이 가장 원활하게 배정됩니다.',
+          body: '인원과 희망 시간대를 알려주시고 저희를 통해 예약하세요. 오픈 초기에는 룸의 빈자리를 미리 확인하시는 것이 좋습니다.',
         },
         {
           title: '호텔 리오 도착',
           body: '신커우안(NAPE)의 호텔 리오 3층으로 오시면 됩니다. 각 출입경과 주요 호텔에서 가깝고, 저희가 무료 전용 차량도 배차해 드립니다. 예약자 성함을 말씀하시면 직원이 안내해 드립니다.',
-        },
-        {
-          title: '룸에서 도우미 선택',
-          body: '룸에 들어서면 현장에서 도우미를 소개받고 등급 차이를 설명 들으실 수 있습니다. 도우미 노래방은 세 가지 요금 등급(MOP 1,300 / 1,500 / 2,000)으로 운영됩니다.',
-        },
-        {
-          title: '도우미 노래방',
-          body: '도우미가 옆에 앉아 함께 노래하고 술잔을 채워줍니다. 고급 사운드를 갖춘 완전 프라이빗 룸이라 비즈니스 접대와 친목 모임 모두에 어울립니다.',
-        },
-        {
-          title: '스파로 전환',
-          body: '대표 패키지를 선택하면 도우미 노래방 1시간 후 스파 마사지 1시간으로 이어지며, 무제한 옵션은 주류가 무제한입니다. 월남식과 당식 라인은 MOP 3,288 – 5,088입니다.',
         },
         {
           title: '새벽까지 이용',
@@ -6215,7 +6089,7 @@ const ko: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-clube-rio-02-vip-room-gold-leaf',
-          caption: '금박 용·독수리 그림 아래라면 접대의 품격이 달라집니다. 문을 닫으면 사운드, 조명, 도우미가 오직 한 팀만을 위한 것이 됩니다.',
+          caption: '금박 용·독수리 그림으로 장식된 VIP 룸에 사운드와 조명을 갖췄습니다.',
           alt: '클루브 리오 VIP 룸 — 금박 용·독수리 아트',
         },
         {
@@ -6245,7 +6119,7 @@ const ko: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-clube-rio-08-vip-room-crystal-art',
-          caption: '오렌지 퀼팅 소파에 호랑이·표범 크리스털 그림 — 스피커를 달고 조명을 낮추면, 도우미 노래방의 무대는 바로 이런 룸입니다.',
+          caption: '오렌지 퀼팅 소파와 호랑이·표범 크리스털 그림, 스피커와 은은한 조명을 갖춘 VIP 룸입니다.',
           alt: '클루브 리오 VIP 룸 — 크리스털 애니멀 아트와 골드 프레임 거울',
         },
         {
@@ -6497,13 +6371,12 @@ const ko: SpaPageCopy = {
     'shang-pin-spa': {
       aliases: '샹핀 스파, 샹핀 사우나, 마카오 샹핀 국제 스파, Shang Pin Spa',
       highlights: [
-        '일식 버블 바스(ソープ) 전문',
+        '현대적인 입욕 시설',
       ],
-      bestFor: '일본식 경험을 좋아하는 분',
+      bestFor: '조용한 환경 / 현대적인 시설',
       features: [
         '추천 지수 {ratingStars}',
         '지정 코스 이용 시 마사지 시술 무료',
-        '일식 버블 바스',
         '국제적인 서비스 기준',
         '뛰어난 가성비',
       ],
@@ -6521,16 +6394,8 @@ const ko: SpaPageCopy = {
           body: '다양한 식음료를 무료로 이용하세요. 다이닝 구역은 매장 전체의 모던한 디자인과 조화를 이루는 쾌적한 환경입니다.',
         },
         {
-          title: '부티크 방식의 선택',
-          body: '샹핀은 부티크식 선택 방식 — 취향과 예산을 매니저에게 알리면, 매니저가 테라피스트를 한 명씩 직접 만나게 해줍니다. 대규모 소개 무대가 필요 없어 과정 전체가 프라이빗하고 여유로워, 시끄러운 분위기를 좋아하지 않는 손님에게 적합합니다.',
-        },
-        {
-          title: '테라피스트 선택',
-          body: '다국적 테라피스트는 퀄리티로 승부하며, 주로 중국과 일본 국적으로 외모와 서비스 모두 수준이 높습니다. 「중간 가격대, 하이엔드 퀄리티」라는 포지셔닝으로 가성비가 매우 뛰어납니다.',
-        },
-        {
-          title: '60분 서비스',
-          body: '모든 룸에 독립 욕조가 있어 프라이버시가 높습니다. 샹핀의 대표 서비스는 일식 버블 바스(ソープランド)입니다.',
+          title: '객실 시설',
+          body: '모든 룸에 독립 욕조가 있어 프라이버시가 높습니다.',
         },
         {
           title: '휴식과 숙박',
@@ -6560,7 +6425,7 @@ const ko: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-elite-05-jacuzzi-wet-area',
-          caption: '모던한 월풀 웻 구역. 밝고 깔끔한 입욕 환경으로, 일식 버블 바스가 특색인 매장에 잘 어울립니다.',
+          caption: '모던한 월풀 웻 구역으로, 밝고 깔끔한 입욕 환경입니다.',
           alt: '샹핀 스파 월풀 웻 구역',
         },
         {
@@ -6643,8 +6508,8 @@ const ko: SpaPageCopy = {
           body: '로비의 「뷰 라인」 쇼 방식 — 다국적 테라피스트가 일렬로 서고, 일부는 먼저 미소를 지으며 가볍게 인터랙션합니다. 분위기가 편안하고 자연스러워 다른 매장처럼 경직되지 않습니다. 쇼 중에 가까이서 볼 수 있어 선택 부담이 적습니다.',
         },
         {
-          title: '테라피스트 선택',
-          body: '마음에 드는 테라피스트를 선택하면 매니저가 요금 등급을 확인해 드립니다. 가격대는 MOP 2,799 – 6,699입니다.',
+          title: '요금 확인',
+          body: '가격대는 MOP 2,799 – 6,699입니다.',
         },
         {
           title: '60분 서비스',
@@ -6744,7 +6609,7 @@ const ko: SpaPageCopy = {
         },
         {
           title: '워터베드 또는 테마룸',
-          body: '워터베드와 시추에이션 테마룸을 제공합니다 — 전통 둥관식 워터베드 경험 또는 테마룸(오피스, 교실, 병원 등)을 선택할 수 있습니다. 테마룸은 MOP 440 추가로, 의상과 인터랙션 스타일을 자유롭게 선택할 수 있습니다.',
+          body: '워터베드와 시추에이션 테마룸을 제공합니다 — 전통 둥관식 워터베드 경험 또는 테마룸(오피스, 교실, 병원 등)을 선택할 수 있습니다.',
         },
         {
           title: '60분 서비스',
@@ -6763,7 +6628,7 @@ const ko: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-excellent-02-ambulance-theme-room',
-          caption: '새로운 병원 시추에이션 테마룸에 들어서 보세요. 실감 나는 세트로 몰입형 롤플레잉을 경험하며, MOP 440 추가로 업그레이드할 수 있습니다.',
+          caption: '디 엑설런트 사우나에 새로 마련된 병원 테마의 객실입니다.',
           alt: '디 엑설런트 사우나 병원 테마룸',
         },
         {
@@ -6860,7 +6725,7 @@ const ko: SpaPageCopy = {
         },
         {
           title: '테마 스위트 또는 워터베드룸',
-          body: '다양한 테마 스위트 — 각 룸에 맞춤 무드 조명, 고급 침구, 호텔급 장식을 갖춤 — 또는 엠파이어 대표 워터베드 특색룸을 선택하세요. 원하시면 특색 유니폼 체험도 추가할 수 있습니다.',
+          body: '다양한 테마 스위트 — 각 룸에 맞춤 무드 조명, 고급 침구, 호텔급 장식을 갖춤 — 또는 엠파이어 대표 워터베드 특색룸을 선택하세요.',
         },
         {
           title: '60분 서비스',
@@ -6946,15 +6811,13 @@ const ko: SpaPageCopy = {
     'east-castle-spa': {
       aliases: '이스트 캐슬, 이스트 캐슬 스파, 마카오 이스트 캐슬, East Castle Spa, 東方皇堡',
       highlights: [
-        '테마 시추에이션 서비스',
-        '테마 장면 인터랙티브 체험',
+        '20종 이상의 테마룸',
       ],
-      bestFor: '테마룸 / 시추에이션 체험',
+      bestFor: '테마룸 인테리어',
       features: [
         '추천 지수 {ratingStars}',
         '20종 이상의 테마룸',
-        '마카오 테마 시추에이션의 개척자',
-        '장면 테마 체험',
+        '마카오 테마룸의 개척자',
         '전문 서비스 팀',
         '24시간 영업',
         '프라이빗하고 안전한 환경',
@@ -6962,7 +6825,7 @@ const ko: SpaPageCopy = {
       flow: [
         {
           title: '도착과 입장',
-          body: '이스트 캐슬 스파에 도착하세요 — 마카오 테마룸의 원조로, 테마 시추에이션 서비스로 유명합니다. 프런트 등록 후 손목밴드를 받으세요. 참고 가격은 MOP 2,388 – 6,498이며, 세부 항목은 예약 시 확인해 주세요.',
+          body: '이스트 캐슬 스파에 도착하세요 — 마카오 테마룸의 원조입니다. 프런트 등록 후 손목밴드를 받으세요. 참고 가격은 MOP 2,388 – 6,498이며, 세부 항목은 예약 시 확인해 주세요.',
         },
         {
           title: '목욕으로 휴식',
@@ -6978,11 +6841,11 @@ const ko: SpaPageCopy = {
         },
         {
           title: '테마룸',
-          body: '이스트 캐슬 최대의 볼거리 — 감옥 심문실, 교실, 오피스, 비행기 객실, 병원, 구급차(대표 룸), 복싱장, 골프장 등 20종 이상의 정교한 테마룸. 각 룸에 완전한 세트, 소품, 의상이 갖춰져 있고, 테라피스트는 전문 시추에이션 체험 트레이닝을 받았습니다.',
+          body: '이스트 캐슬 최대의 볼거리 — 감옥 심문실, 교실, 오피스, 비행기 객실, 병원, 구급차(대표 룸), 복싱장, 골프장 등 20종 이상의 정교한 테마룸.',
         },
         {
-          title: '60분 서비스',
-          body: '전 과정 테마 시추에이션 인터랙션 서비스로, 경험을 직접 설계할 수 있습니다 — 장면 선택, 의상 지정, 인터랙션 방식 설정. 테라피스트가 전 과정 장면 연기에 호응해 몰입감이 매우 높습니다. 일본·한국 테라피스트는 몰입도 면에서 최고 평가를 받습니다. 10% 서비스 요금과 5% 관광세가 별도입니다.',
+          title: '서비스 요금과 세금',
+          body: '10% 서비스 요금과 5% 관광세가 별도입니다.',
         },
         {
           title: '휴식과 숙박',
@@ -6992,7 +6855,7 @@ const ko: SpaPageCopy = {
       gallery: [
         {
           file: 'macau-sauna-spa-east-castle-01-gym-theme-room',
-          caption: '이스트 캐슬 스파 대표 피트니스 테마룸. 완비된 기구 세트와 소품으로, 마카오 롤플레잉 개척자의 몰입형 품격을 보여줍니다.',
+          caption: '이스트 캐슬 스파의 피트니스 테마룸에 운동 기구와 소품을 갖췄습니다.',
           alt: '이스트 캐슬 피트니스 테마룸',
         },
         {
@@ -7007,7 +6870,7 @@ const ko: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-east-castle-04-classroom-theme-room',
-          caption: '교실 테마룸. 책상, 칠판 등 완전한 세트와 소품으로 롤플레잉 체험이 자연스럽게 이어집니다.',
+          caption: '책상, 칠판 등 교실 세트와 소품을 갖춘 테마룸입니다.',
           alt: '이스트 캐슬 교실 테마룸',
         },
         {
@@ -7027,12 +6890,12 @@ const ko: SpaPageCopy = {
         },
         {
           file: 'macau-sauna-spa-east-castle-08-airplane-cabin-room',
-          caption: '비행기 객실 테마룸. 객실 좌석과 디테일 세트로 롤플레잉 테마를 새로운 높이로 끌어올립니다.',
+          caption: '객실 좌석과 세부 장식을 재현한 비행기 객실 테마룸입니다.',
           alt: '이스트 캐슬 비행기 객실 테마룸',
         },
         {
           file: 'macau-sauna-spa-east-castle-09-ufc-octagon-room',
-          caption: '옥타곤 복싱장 테마룸. 스포츠 장면 세트를 완비해 롤플레잉식 체험이 독특합니다.',
+          caption: '옥타곤 복싱장을 재현한 스포츠 테마룸입니다.',
           alt: '이스트 캐슬 복싱장 테마룸',
         },
       ],
@@ -7299,7 +7162,7 @@ const ko: SpaPageCopy = {
         },
         {
           title: '60분 서비스',
-          body: '독립 룸에서 1:1 전속 워터베드 서비스를 즐기세요 — 넘버 원은 워터베드 서비스로 마카오 전역에 알려져 있습니다. 테라피스트 2명 동반 체험을 추가로 신청해 두 번째 테라피스트가 동시에 서비스하도록 할 수 있습니다(요금은 현장 기준). 유료 소품 시술도 있습니다: 귀이개, 네일, 두드림 마사지 등.',
+          body: '독립 룸에서 1:1 전속 워터베드 서비스를 즐기세요 — 넘버 원은 워터베드 서비스로 마카오 전역에 알려져 있습니다. 유료 소품 시술도 있습니다: 귀이개, 네일, 두드림 마사지 등.',
         },
         {
           title: '휴식과 숙박',

@@ -1,4 +1,4 @@
-import { bookableVenues, type Venue } from "../data/venues";
+import type { Venue } from "../data/venues";
 import type {
   QuickMatchExperience,
   QuickMatchFrom,
@@ -120,8 +120,8 @@ export interface QuickMatchResult {
 }
 
 /** Best match first; ties keep the editorial order from `venues.ts`. */
-export function rankVenues(selection: QuickMatchSelection): QuickMatchResult[] {
-  return bookableVenues
+export function rankVenues(selection: QuickMatchSelection, candidates: readonly Venue[]): QuickMatchResult[] {
+  return candidates
     .map((venue, index) => ({ venue, score: scoreVenue(venue, selection), index }))
     .sort((a, b) => b.score - a.score || a.index - b.index)
     .map(({ venue, score }) => ({ venue, score }));

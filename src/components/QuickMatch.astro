@@ -23,7 +23,7 @@ const questions = [
 const activePill = "bg-gradient-to-r from-gold-light to-gold-dark text-black";
 const idlePill = "border border-white/12 bg-white/[0.04] text-white/75 hover:bg-white/[0.08]";
 
-const ranked = rankVenues(defaultSelection);
+const ranked = rankVenues(defaultSelection, bookableVenues);
 const [best, ...rest] = ranked;
 const alternates = rest.slice(0, 2);
 
@@ -40,6 +40,7 @@ const defaultMessage = interpolate(qm.messageTemplate, {
 
 // Everything the browser needs to re-render after an answer changes.
 const clientConfig = {
+  candidates: bookableVenues,
   labels: {
     group: qm.groupOptions,
     experience: qm.experienceOptions,
@@ -280,6 +281,7 @@ const clientConfig = {
 
 <script>
   import { defaultSelection, rankVenues, type QuickMatchSelection } from "../lib/quickMatch";
+  import type { Venue } from "../data/venues";
 
   interface VenueCopy {
     name: string;
@@ -288,6 +290,7 @@ const clientConfig = {
   }
 
   interface Config {
+    candidates: Venue[];
     labels: Record<string, Record<string, string>>;
     messageTemplate: string;
     yes: string;
@@ -328,7 +331,7 @@ const clientConfig = {
       });
 
     const render = () => {
-      const ranked = rankVenues(selection);
+      const ranked = rankVenues(selection, config.candidates);
       const pinnedIndex = pinned ? ranked.findIndex((item) => item.venue.slug === pinned) : -1;
       const best = pinnedIndex > -1 ? ranked[pinnedIndex] : ranked[0];
       const alternates = ranked.filter((item) => item.venue.slug !== best.venue.slug).slice(0, 2);

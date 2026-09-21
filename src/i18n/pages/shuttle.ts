@@ -1,4 +1,5 @@
 import type { Locale } from '../config';
+import { formatVenueCount } from '../venueVisibility';
 import { createPageCopy, type Crumb } from './helpers';
 
 export interface ShuttleCopy {
@@ -241,7 +242,7 @@ const zhTW: ShuttleCopy = {
     heading: '還沒選好場館？',
     links: [
       {
-        label: '15 間桑拿排名與價格',
+        label: '{venueCount} 間桑拿排名與價格',
         path: '/ranking/',
       },
       {
@@ -321,7 +322,7 @@ const zhCN: ShuttleCopy = {
     heading: '还没选好场馆？',
     links: [
       {
-        label: '15 家桑拿排名与价格',
+        label: '{venueCount} 家桑拿排名与价格',
         path: '/ranking/',
       },
       {
@@ -401,7 +402,7 @@ const ko: ShuttleCopy = {
     heading: '아직 매장을 고르지 못하셨나요?',
     links: [
       {
-        label: '15개 사우나 랭킹과 가격',
+        label: '{venueCount}개 사우나 랭킹과 가격',
         path: '/ranking/',
       },
       {
@@ -425,4 +426,15 @@ export const shuttleCopy: Partial<Record<Locale, ShuttleCopy>> = {
   ko,
 };
 
-export const getShuttleCopy = createPageCopy(shuttleCopy);
+const getRawShuttleCopy = createPageCopy(shuttleCopy);
+
+export function getShuttleCopy(lang: Locale): ShuttleCopy {
+  const copy = getRawShuttleCopy(lang);
+  return {
+    ...copy,
+    next: {
+      ...copy.next,
+      links: copy.next.links.map((link) => ({ ...link, label: formatVenueCount(link.label) })),
+    },
+  };
+}

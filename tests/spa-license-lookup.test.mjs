@@ -43,8 +43,10 @@ test("licence lookup stays specific to venue detail pages", async () => {
 });
 
 test("lookup uses the correct venue category and registered name, with an unfiltered fallback", async () => {
+  const retainedLookupSource = await readFile(new URL("../src/data/venueLicenses.ts", import.meta.url), "utf8");
+  assert.match(retainedLookupSource, /'clube-rio': \{ searchKey: '利澳薈', comType: '12' \}/,
+    "hidden Clube Rio must retain its karaoke licence lookup for reactivation");
   const cases = [
-    { slug: "clube-rio", category: "12", search: "利澳薈" },
     { slug: "yu-sauna", category: "10", search: "御桑拿" },
     { slug: "east-castle-spa", category: "10", search: "東方皇堡水療會所" },
     { slug: "oceanic-royal-spa", category: "10", search: "帝湖水療休閒會所" },

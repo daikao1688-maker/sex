@@ -357,12 +357,16 @@ test("keeps shared FAQ and guide claims aligned with venue-specific facts", asyn
   ]) {
     assert.ok(!guide.includes(stale), `Guide still contains: ${stale}`);
   }
-  for (const current of [
-    "Manhao Spa and Clube Rio currently do not offer overnight stays",
-    "マンハオスパ（曼濠水療）とクラブリオ（利澳薈）は現在宿泊に対応していない",
-    "曼濠水療與利澳薈目前不提供過夜",
-    "曼濠水疗与利澳荟目前不提供过夜",
-  ]) {
-    assert.ok(guide.includes(current), `Guide is missing: ${current}`);
+  const currentOvernightClaims = {
+    en: "Manhao Spa currently does not offer overnight stays",
+    ja: "マンハオスパ（曼濠水療）は現在宿泊に対応していない",
+    "zh-TW": "曼濠水療目前不提供過夜",
+    "zh-CN": "曼濠水疗目前不提供过夜",
+    ko: "만하오 스파는 현재 숙박을 제공하지 않으니",
+  };
+  for (const [locale, current] of Object.entries(currentOvernightClaims)) {
+    const renderedGuide = visibleText(await readFile(path.join(distRoot, locale, "guide", "index.html"), "utf8"));
+    assert.ok(renderedGuide.includes(current), `${locale} guide is missing: ${current}`);
+    assert.doesNotMatch(renderedGuide, /Clube Rio|クラブリオ|利澳[薈荟]|클루브 리오/);
   }
 });

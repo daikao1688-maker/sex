@@ -60,6 +60,16 @@ Continue editing the website on `main`. After building, update `html` with the n
 of `main`; `dist/` is ignored there. The `html` branch stores build artifacts;
 hosting configuration is managed separately.
 
+## 隐藏 / 重新启用场所
+
+在 `src/data/venueVisibility.json` 中设置 `"clube-rio": false`，即可隐藏利澳荟。
+将 `false` 改为 `true` 后重新构建并发布，即可恢复五语显示。
+
+隐藏开关统一控制列表、首页名单、推荐、指南、详情页、站点地图和 `llms.txt`；
+公开会所数量会自动调整。原始五语资料和图片保留在源码中，隐藏图片不复制到发布产物。
+构建还会在 `dist/.htaccess` 生成临时 404 规则，阻止服务器残留的旧详情页和图片继续访问。
+重新启用后构建会自动移除这些规则。发布时须同步删除旧文件并上传新的 `.htaccess`。
+
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:

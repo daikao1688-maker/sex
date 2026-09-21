@@ -88,7 +88,7 @@ test("canonical, social, and structured-data URLs use the configured site origin
     readPage("en"),
     readPage("zh-TW", "privacy"),
     readPage("zh-CN", "ranking"),
-    readPage("ja", "spa", "clube-rio"),
+    readPage("ja", "spa", "yu-sauna"),
     readPage("ko", "blog"),
   ]);
 
@@ -140,7 +140,7 @@ test("localized homepages describe the editorial site without claiming a physica
 test("Open Graph image dimensions match the assets published for each page type", async () => {
   const pages = [
     ["zh-CN", "about"],
-    ["en", "spa", "clube-rio"],
+    ["en", "spa", "yu-sauna"],
     ["en", "blog"],
   ];
 
@@ -202,7 +202,7 @@ test("the generated sitemap, robots file, and head declaration share one origin"
   }
 });
 
-test("the sitemap contains exactly the 125 remaining localized canonical pages", async () => {
+test("the sitemap contains exactly the 120 remaining localized canonical pages", async () => {
   const sitemap = await readFile(path.join(distRoot, "sitemap-0.xml"), "utf8");
   const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
   const localizedPages = await localizedHtmlPaths();
@@ -214,7 +214,7 @@ test("the sitemap contains exactly the 125 remaining localized canonical pages",
     )
   ).filter(Boolean);
 
-  assert.equal(canonicalUrls.length, 125, "localized canonical page count changed unexpectedly");
+  assert.equal(canonicalUrls.length, 120, "localized canonical page count changed unexpectedly");
   assert.equal(
     sitemapLocations.includes(`${siteOrigin}/`),
     false,
@@ -301,7 +301,7 @@ test("venue schema avoids presenting package estimates as formal offers", async 
     }
   }
 
-  const active = schemaOfType(await readPage("en", "spa", "clube-rio"), "LocalBusiness");
+  const active = schemaOfType(await readPage("en", "spa", "yu-sauna"), "LocalBusiness");
   assert.ok(active.priceRange, "active venues lost priceRange");
   assert.equal("makesOffer" in active, false, "package estimates must not be published as formal offers");
   assert.equal("offers" in active, false, "package estimates must not be published as formal offers");

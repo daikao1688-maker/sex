@@ -7,7 +7,6 @@ import { createServer } from "vite";
 const locales = ["en", "zh-TW", "zh-CN", "ja", "ko"];
 const expectedCards = [
   ["yu-sauna", "red"],
-  ["clube-rio", "gold"],
   ["manhao-spa", "gold"],
   ["number-nine-sauna", "gold"],
   ["shang-pin-spa", "gold"],

@@ -3,7 +3,7 @@ import Icon from "./Icon.astro";
 import { getDictionary, interpolate } from "../i18n";
 import { localeMeta, localizePath, type Locale } from "../i18n/config";
 import { getBestOfMonthCopy } from "../i18n/pages/bestOfMonth";
-import { venues } from "../data/venues";
+import { venues, isVenueVisible } from "../data/venues";
 
 /**
  * Editors' shortlist under the hero: three venue scorecards stacked in one
@@ -27,7 +27,7 @@ const monthLabel = htmlLang.startsWith("ko")
     : new Intl.DateTimeFormat(htmlLang, { month: "long", year: "numeric" }).format(now);
 
 const rankSymbols = ["🏆", "🥈", "🥉"];
-const cards = copy.cards.map((card, index) => {
+const cards = copy.cards.filter((card) => isVenueVisible(card.slug)).map((card, index) => {
   const venue = venues.find((entry) => entry.slug === card.slug)!;
   return {
     ...card,

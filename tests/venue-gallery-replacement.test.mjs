@@ -12,7 +12,6 @@ const distRoot = path.join(projectRoot, "dist");
 const locales = ["en", "zh-TW", "zh-CN", "ja"];
 
 const replacementGalleries = {
-  "clube-rio": { lead: "macau-sauna-spa-clube-rio-repaired-01", count: 5 },
   "yu-sauna": { lead: "macau-sauna-spa-yu-sauna-gallery-20260827-01", count: 10 },
   "manhao-spa": { lead: "macau-sauna-spa-manhao-placed-20260624-01", count: 11 },
   "number-nine-sauna": { lead: "macau-sauna-spa-number-nine-placed-20260624-01", count: 6 },
@@ -61,7 +60,7 @@ const decodeHtml = (value) => value
   .replaceAll("&lt;", "<")
   .replaceAll("&gt;", ">");
 
-test("uses the supplied replacement gallery for every existing venue", async () => {
+test("uses the supplied replacement gallery for every visible venue", async () => {
   for (const [slug, gallery] of Object.entries(replacementGalleries)) {
     await Promise.all([
       access(path.join(projectRoot, "public", "media", `${gallery.lead}-lg.webp`)),
@@ -121,7 +120,7 @@ test("gives every gallery image specific, non-templated copy in all four languag
     }
   }
 
-  assert.equal(renderedImageCount, 708, "the four localized galleries must render exactly 708 image cards");
+  assert.equal(renderedImageCount, 688, "the four localized galleries must render exactly 688 image cards");
 });
 
 test("removes only the selected Familia Nobre staircase photo", async () => {
@@ -181,8 +180,12 @@ test("removes legacy gallery files while retaining the Oceanic album", async () 
   );
 });
 
-test("derives every shared venue cover from the first detail-gallery image", async () => {
-  for (const [slug, gallery] of Object.entries(allVenueLeadImages)) {
+test("derives every retained venue cover from the first detail-gallery image", async () => {
+  const retainedVenueLeadImages = {
+    ...allVenueLeadImages,
+    "clube-rio": { lead: "macau-sauna-spa-clube-rio-repaired-01", count: 5 },
+  };
+  for (const [slug, gallery] of Object.entries(retainedVenueLeadImages)) {
     const source = path.join(projectRoot, "public", "media", `${gallery.lead}-lg.webp`);
     const expectedWebp = await sharp(source)
       .resize(800, 800, { fit: "cover", position: "centre" })

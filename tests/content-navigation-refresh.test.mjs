@@ -187,7 +187,7 @@ test("opening the mobile menu gives the site navigation an opaque black surface"
   const openMenuSurfaceClass = "has-[[data-menu-toggle][aria-expanded=true]]:bg-[#0a0a0a]";
 
   for (const locale of locales) {
-    const html = await readPage(locale, "spa", "clube-rio");
+    const html = await readPage(locale, "spa", "yu-sauna");
     const navigationClasses = classList(tagWithAttribute(html, "data-site-nav"));
 
     assert.ok(
@@ -266,7 +266,7 @@ test("mobile navigation marks the current section with a visible left rail", asy
   for (const locale of allLocales) {
     const home = await readPage(locale);
     const blog = await readPage(locale, "blog");
-    const spa = await readPage(locale, "spa", "clube-rio");
+    const spa = await readPage(locale, "spa", "yu-sauna");
     const homeMenu = regionBetween(home, 'id="mobile-menu"', "</nav>");
     const blogMenu = regionBetween(blog, 'id="mobile-menu"', "</nav>");
     const spaMenu = regionBetween(spa, 'id="mobile-menu"', "</nav>");
@@ -385,19 +385,19 @@ test("the homepage restores clearly disclosed customer reviews in every locale",
 test("homepage venue and monthly-pick introductions use the approved localized copy", async () => {
   const expected = {
     en: [
-      "Explore 15 popular Macau sauna venues, with updates on prices, opening status, team size and other practical details.",
+      "Explore 14 popular Macau sauna venues, with updates on prices, opening status, team size and other practical details.",
       "Our monthly picks reflect recent guest feedback. Tell us your budget, timing and preferences, and we can suggest the venues that suit you best.",
     ],
     "zh-TW": [
-      "收錄澳門熱門的15家桑拿會所，即時更新情報（價格，營業狀態，人員數量等）",
+      "收錄澳門熱門的14家桑拿會所，即時更新情報（價格，營業狀態，人員數量等）",
       "我們根據當月客戶反饋，做出推薦，我們也會根據您的預算，時間，喜好推薦適合的桑拿房！",
     ],
     "zh-CN": [
-      "收录澳门热门的 15 家桑拿会所，及时更新价格、营业状态、人员数量等实用信息。",
+      "收录澳门热门的 14 家桑拿会所，及时更新价格、营业状态、人员数量等实用信息。",
       "我们会根据当月客户反馈给出推荐，也会结合您的预算、时间和喜好，帮您筛选合适的桑拿会所。",
     ],
     ja: [
-      "マカオで人気のサウナ15店を掲載。料金・営業状況・在籍人数など、来店前に知りたい情報を随時更新しています。",
+      "マカオで人気のサウナ14店を掲載。料金・営業状況・在籍人数など、来店前に知りたい情報を随時更新しています。",
       "今月のお客様の声をもとにおすすめ店を選んでいます。ご予算・ご希望の時間・お好みを伺い、条件に合う店舗もご案内します。",
     ],
   };

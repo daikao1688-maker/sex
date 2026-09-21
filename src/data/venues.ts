@@ -1,4 +1,5 @@
 import { getVenueRating, type VenueRating } from './venueRatings';
+import venueVisibility from './venueVisibility.json';
 
 /**
  * Locale-neutral venue facts: slugs, imagery, pricing and the feature flags the
@@ -25,6 +26,11 @@ export const venueSlugs = [
 ] as const;
 
 export type VenueSlug = (typeof venueSlugs)[number];
+
+/** Set a venue to false in venueVisibility.json to hide it; true restores it. */
+export function isVenueVisible(slug: VenueSlug): boolean {
+  return (venueVisibility as Partial<Record<VenueSlug, boolean>>)[slug] !== false;
+}
 
 /** Card frame treatment — mirrors the three tiers used on the live site. */
 export type VenueAccent = 'red' | 'gold' | 'silver' | 'plain';
@@ -382,7 +388,8 @@ const venueDetails: Omit<Venue, 'rating'>[] = [
   },
 ];
 
-export const venues: Venue[] = venueDetails.map((venue) => ({
+/** Public venue list. Full source records above remain intact while hidden. */
+export const venues: Venue[] = venueDetails.filter((venue) => isVenueVisible(venue.slug)).map((venue) => ({
   ...venue,
   rating: getVenueRating(venue.slug),
 }));
