@@ -5,7 +5,7 @@ import { test } from "node:test";
 const distRoot = new URL("../dist/", import.meta.url);
 const containerId = "GTM-NF5S83BB";
 
-test("every HTML page installs the requested GTM container once at the start of head and body", async () => {
+test("content pages install GTM once while the root gateway redirects without tracking overhead", async () => {
   const files = (await readdir(distRoot, { recursive: true }))
     .filter((file) => file.endsWith(".html"));
   assert.ok(files.includes("index.html"), "include the root language gateway");
@@ -20,6 +20,11 @@ test("every HTML page installs the requested GTM container once at the start of 
     assert.ok(charset, `${file}: keep UTF-8 declared`);
     assert.ok(Buffer.byteLength(rawHtml.slice(0, charset.index + charset[0].length)) <= 1024,
       `${file}: GTM must not push the charset declaration beyond the first 1024 bytes`);
+    if (file === "index.html") {
+      assert.match(rawHtml, /data-root-locale-redirect/);
+      assert.doesNotMatch(rawHtml, /googletagmanager\.com|GTM-/);
+      continue;
+    }
     const html = rawHtml.replace(/<!--[\s\S]*?-->/g, "");
     const firstHeadScript = html.match(/<head\b[^>]*>\s*<script\b([^>]*)>([\s\S]*?)<\/script>/i);
     assert.ok(firstHeadScript, `${file}: GTM must be first in head`);

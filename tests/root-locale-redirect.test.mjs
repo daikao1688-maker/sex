@@ -23,17 +23,26 @@ async function readRedirectScript() {
   return redirectScript[2];
 }
 
-test("root gateway exposes a static fallback link for every supported locale", async () => {
+test("root redirects before loading any assets and only shows language choices without JavaScript", async () => {
   const html = await readFile(rootPagePath, "utf8");
-  const fallback = html.match(/<nav\b[^>]*data-root-locale-fallback[^>]*>[\s\S]*?<\/nav>/i)?.[0] ?? "";
+  const firstHeadScript = html.match(/<head>\s*<meta\b[^>]*charset="UTF-8"[^>]*>\s*<script\b([^>]*)>/i);
+  assert.match(firstHeadScript?.[1] ?? "", /data-root-locale-redirect/);
+  assert.doesNotMatch(firstHeadScript[1], /\b(?:src|type|defer|async)\b/i);
+  assert.doesNotMatch(html, /<script\b[^>]*\bsrc=|<link\b[^>]*\brel="stylesheet"|<style\b/i);
+  const noscript = html.match(/<noscript>([\s\S]*?)<\/noscript>/i)?.[1] ?? "";
+  const fallback = noscript.match(/<nav\b[^>]*data-root-locale-fallback[^>]*>[\s\S]*?<\/nav>/i)?.[0] ?? "";
   const expectedLinks = [
     ["en", "/en/", "English"],
     ["zh-TW", "/zh-TW/", "繁體中文"],
     ["zh-CN", "/zh-CN/", "简体中文"],
     ["ja", "/ja/", "日本語"],
+    ["ko", "/ko/", "한국어"],
   ];
 
-  assert.ok(fallback, "root gateway is missing its visible locale fallback navigation");
+  assert.ok(fallback, "language choices must be available when JavaScript is disabled");
+  const visibleBody = html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i)?.[1].replace(/<noscript>[\s\S]*?<\/noscript>/gi, "") ?? "";
+  assert.doesNotMatch(visibleBody, /<nav\b|<h1\b|<pre\b|<code\b/i);
+  assert.match(visibleBody, /Redirecting…/);
   assert.match(fallback, /aria-label="[^"]+"/, "locale fallback navigation needs an accessible name");
 
   for (const [hreflang, href, label] of expectedLinks) {
