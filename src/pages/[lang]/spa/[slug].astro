@@ -5,6 +5,7 @@ import Icon from "../../../components/Icon.astro";
 import SpaGallery from "../../../components/SpaGallery.astro";
 import ContactChannels from "../../../components/ContactChannels.astro";
 import VipExtrasDrawer from "../../../components/VipExtrasDrawer.astro";
+import VenueLicenseNotice from "../../../components/VenueLicenseNotice.astro";
 import { getDictionary, interpolate } from "../../../i18n";
 import { locales, localizePath, type Locale } from "../../../i18n/config";
 import { getSpaPageCopy, spaBreadcrumbs, venueSummary } from "../../../i18n/pages/spa";
@@ -636,6 +637,7 @@ const schemas = [
         )
       }
       <ContactChannels lang={lang} message={inquiryMessage} />
+      <VenueLicenseNotice lang={lang} slug={venue.slug} venueName={name} />
       <div class="mt-8 flex justify-center sm:mt-10">
         <a
           href={localizePath(lang, "/#spas")}
