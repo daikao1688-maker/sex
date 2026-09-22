@@ -423,7 +423,6 @@ test("the promo CTA follows both responsive and scroll visibility without leavin
 test("the spa gallery lightbox makes the page inert and restores it after every close path", async () => {
   const lightbox = new FakeElement();
   const image = new FakeElement();
-  const caption = new FakeElement();
   const closeButton = new FakeElement();
   const trigger = new FakeElement();
   const background = new FakeElement();
@@ -436,16 +435,14 @@ test("the spa gallery lightbox makes the page inert and restores it after every 
   trigger.dataset = {
     src: "/media/venue-lg.webp",
     alt: "Venue interior",
-    caption: "Venue lounge",
   };
   lightbox.querySelector = (selector) =>
     ({
       "[data-gallery-image]": image,
-      "[data-gallery-caption]": caption,
       "[data-gallery-close]": closeButton,
     })[selector] ?? null;
 
-  for (const element of [lightbox, image, caption, closeButton, trigger, background]) {
+  for (const element of [lightbox, image, closeButton, trigger, background]) {
     element.classList = classListFor(element);
   }
 

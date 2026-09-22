@@ -35,7 +35,6 @@ function harness(count = 3) {
   const lightbox = new Element();
   lightbox.hidden = true;
   const image = new Element();
-  const caption = new Element();
   const close = new Element();
   const prev = new Element();
   const next = new Element();
@@ -44,16 +43,16 @@ function harness(count = 3) {
   const background = new Element();
   const triggers = Array.from({ length: count }, (_, i) => {
     const trigger = new Element();
-    trigger.dataset = { src: `/photo-${i + 1}.webp`, alt: `Photo ${i + 1}`, caption: `Caption ${i + 1}` };
+    trigger.dataset = { src: `/photo-${i + 1}.webp`, alt: `Photo ${i + 1}` };
     return trigger;
   });
   lightbox.querySelector = (selector) => ({
-    '[data-gallery-image]': image, '[data-gallery-caption]': caption,
+    '[data-gallery-image]': image,
     '[data-gallery-close]': close, '[data-gallery-prev]': prev,
     '[data-gallery-next]': next, '[data-gallery-counter]': counter,
   })[selector] ?? null;
-  lightbox.querySelectorAll = () => [close, caption, prev, next].filter(el => !el.hidden && !el.disabled);
-  lightbox.contains = (el) => [lightbox, image, caption, close, prev, next, counter].includes(el);
+  lightbox.querySelectorAll = () => [close, prev, next].filter(el => !el.hidden && !el.disabled);
+  lightbox.contains = (el) => [lightbox, image, close, prev, next, counter].includes(el);
   document = {
     activeElement: null,
     body: { style: { overflow: 'auto' }, append() {} },
@@ -72,16 +71,15 @@ function harness(count = 3) {
     image.fire('pointerdown', { pointerId: 1, pointerType: 'touch', isPrimary: true, clientX: 200, clientY: 200, ...extras });
     image.fire('pointerup', { pointerId: 1, pointerType: 'touch', isPrimary: true, clientX: 200 + dx, clientY: 200 + dy, ...extras });
   };
-  return { lightbox, image, caption, close, prev, next, counter, triggers, background, document, window, scrollCalls, key, swipe };
+  return { lightbox, image, close, prev, next, counter, triggers, background, document, window, scrollCalls, key, swipe };
 }
 
-test('gallery navigation opens the selected photo and updates image, caption and count without closing', () => {
+test('gallery navigation opens the selected photo and updates image and count without closing', () => {
   const h = harness();
   h.triggers[1].fire('click');
   h.next.fire('click');
   assert.equal(h.image.src, '/photo-3.webp');
   assert.equal(h.image.alt, 'Photo 3');
-  assert.equal(h.caption.textContent, 'Caption 3');
   assert.equal(h.counter.textContent, '3 / 3');
   assert.equal(h.counter.getAttribute('aria-label'), 'Photo 3 of 3');
   assert.equal(h.lightbox.hidden, false);
@@ -168,7 +166,7 @@ test('all close paths restore the original scroll and opening thumbnail after na
   }
 });
 
-test('single-photo galleries hide switching controls but keep the caption keyboard-scrollable', () => {
+test('single-photo galleries hide switching controls and keep keyboard focus on Close', () => {
   const h = harness(1);
   h.triggers[0].fire('click');
   assert.equal(h.prev.hidden, true);
@@ -177,10 +175,8 @@ test('single-photo galleries hide switching controls but keep the caption keyboa
   h.swipe(-100);
   assert.equal(h.image.src, '/photo-1.webp');
   assert.equal(h.counter.textContent, '1 / 1');
-  assert.equal(h.key('Tab').defaultPrevented, undefined, 'Tab must reach the scrollable caption');
-  h.document.activeElement = h.caption;
-  h.key('Tab');
+  assert.equal(h.key('Tab').defaultPrevented, true, 'Tab must stay inside the dialog');
   assert.equal(h.document.activeElement, h.close);
   h.key('Tab', true);
-  assert.equal(h.document.activeElement, h.caption);
+  assert.equal(h.document.activeElement, h.close);
 });

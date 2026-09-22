@@ -141,7 +141,7 @@ const en: Dictionary = {
         badge: 'Newest & Hottest',
         summary: "Empire Sauna opened on the Macau Peninsula in April 2026, with a boutique hotel-style lobby, spacious bathing pools and comfortable rest areas.",
         description:
-          "Empire Sauna opened on the Macau Peninsula in April 2026. The lobby takes its cues from a boutique hotel, using marble, carefully placed lighting and detailed furnishings to make a striking first impression.\n\nLarge bathing pools, hotel-style suites and well-equipped rest areas give you reasons to stay for more than a quick visit. Start with a soak, then take time for a meal or massage before returning to the rest of your Macau trip.\n\nThe reported renovation cost was US$1,000.",
+          "Empire Sauna opened on the Macau Peninsula in April 2026. The lobby takes its cues from a boutique hotel, using marble, carefully placed lighting and detailed furnishings to make a striking first impression.\n\nLarge bathing pools, hotel-style suites and well-equipped rest areas give you reasons to stay for more than a quick visit. Start with a soak, then take time for a meal or massage before returning to the rest of your Macau trip.\n\nThe reported renovation cost was US$10 million.",
       },
       'east-castle-spa': {
         name: 'East Castle Spa',

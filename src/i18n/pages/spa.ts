@@ -78,7 +78,7 @@ export interface SpaPageCopy {
   vipReminder: { title: string; body: string; cta: string };
   /** Copy for the VipExtrasDrawer opened from the reminder. */
   vipDrawer: { titleLead: string; titleAccent: string; note: string; close: string };
-  cta: { headingLead: string; headingAccent: string; body: string };
+  cta: { headingLead: string; headingAccent: string; headingTail: string; body: string };
   breadcrumbHome: string;
   breadcrumbList: string;
   /** Labels used when a venue has no written detail copy yet. */
@@ -177,8 +177,9 @@ const en: SpaPageCopy = {
     close: 'Close complimentary treatments list',
   },
   cta: {
-    headingLead: 'Book Your',
-    headingAccent: 'VIP Experience',
+    headingLead: 'Want to know ',
+    headingAccent: 'more',
+    headingTail: '? Contact us now!',
     body: 'Send us a message and we\'ll take care of the rest.',
   },
   breadcrumbHome: 'Home',
@@ -791,13 +792,13 @@ const en: SpaPageCopy = {
       aliases: 'Empire Sauna Macau, 巨亨桑拿',
       highlights: [
         'Newest 2026 opening',
-        'Reported renovation cost: US$1,000',
+        'Reported renovation cost: US$10 million',
         'Hotel suites',
       ],
       bestFor: 'Newest luxury / hotel suites',
       features: [
         'Opened in April 2026',
-        'Reported renovation cost: US$1,000',
+        'Reported renovation cost: US$10 million',
         'Suites with hotel-grade amenities',
         '24-hour service, overnight rest areas',
       ],
@@ -1522,8 +1523,9 @@ const ja: SpaPageCopy = {
     close: '無料ケアメニューの一覧を閉じる',
   },
   cta: {
-    headingLead: 'あなたの',
-    headingAccent: 'VIP体験を',
+    headingLead: '',
+    headingAccent: 'もっと',
+    headingTail: '知りたいですか？今すぐお問い合わせください！',
     body: 'まずはLINEで問い合わせ。無料送迎・日本語対応で、初めてでも安心。あとはお任せください。',
   },
   breadcrumbHome: 'ホーム',
@@ -2124,13 +2126,13 @@ const ja: SpaPageCopy = {
       aliases: '巨亨桑拿、Empire Sauna',
       highlights: [
         '2026年 最新オープン',
-        '改装費は1,000米ドルとのこと',
+        '改装費は1,000万米ドルとのこと',
         'ホテルスイート',
       ],
       bestFor: '最新の高級店／ホテルスイートを楽しみたい方',
       features: [
         '2026年4月オープン',
-        '改装費は1,000米ドルとのこと',
+        '改装費は1,000万米ドルとのこと',
         'ホテル級スイート',
         '24時間営業・宿泊（24時間）OK',
       ],
@@ -2842,8 +2844,9 @@ const zhTW: SpaPageCopy = {
     close: '關閉贈送護理項目清單',
   },
   cta: {
-    headingLead: '預約您的',
-    headingAccent: 'VIP 體驗',
+    headingLead: '想了解',
+    headingAccent: '更多',
+    headingTail: '？快聯繫我們吧！',
     body: '傳一則訊息給我們，剩下的交給我們處理。',
   },
   breadcrumbHome: '首頁',
@@ -3454,13 +3457,13 @@ const zhTW: SpaPageCopy = {
       aliases: '巨享桑拿、澳門巨亨桑拿、Empire Sauna',
       highlights: [
         '2026最新開業',
-        '據介紹裝修花費1,000美元',
+        '據介紹裝修花費1,000萬美元',
         '酒店套房',
       ],
       bestFor: '最新奢華／酒店套房首選',
       features: [
         '2026年4月開業',
-        '據介紹裝修花費1,000美元',
+        '據介紹裝修花費1,000萬美元',
         '酒店級套房',
         '24小時營業，可過夜休息',
       ],
@@ -4172,8 +4175,9 @@ const zhCN: SpaPageCopy = {
     close: '关闭赠送护理项目清单',
   },
   cta: {
-    headingLead: '预约您的',
-    headingAccent: 'VIP 体验',
+    headingLead: '想了解',
+    headingAccent: '更多',
+    headingTail: '？快联系我们吧！',
     body: '给我们发个信息，剩下的交给我们处理。',
   },
   breadcrumbHome: '首页',
@@ -4787,13 +4791,13 @@ const zhCN: SpaPageCopy = {
       aliases: '巨享桑拿、澳门巨亨桑拿、Empire Sauna',
       highlights: [
         '2026最新开业',
-        '据介绍装修花费1,000美元',
+        '据介绍装修花费1,000万美元',
         '酒店套房',
       ],
       bestFor: '最新奢华／酒店套房首选',
       features: [
         '2026年4月开业',
-        '据介绍装修花费1,000美元',
+        '据介绍装修花费1,000万美元',
         '酒店级套房',
         '24小时营业，可过夜休息',
       ],
@@ -5506,8 +5510,9 @@ const ko: SpaPageCopy = {
     close: '무료 케어 항목 목록 닫기',
   },
   cta: {
-    headingLead: '당신의',
-    headingAccent: 'VIP 경험을 예약하세요',
+    headingLead: '',
+    headingAccent: '더',
+    headingTail: ' 알고 싶으신가요? 지금 문의해 주세요!',
     body: '메시지 한 통 보내주시면 나머지는 저희가 알아서 처리해 드립니다.',
   },
   breadcrumbHome: '홈',
@@ -6118,13 +6123,13 @@ const ko: SpaPageCopy = {
       aliases: '엠파이어 사우나, 마카오 엠파이어 사우나, Empire Sauna, 巨亨桑拿',
       highlights: [
         '2026년 최신 오픈',
-        '알려진 인테리어 비용: 미화 1,000달러',
+        '알려진 인테리어 비용: 미화 1,000만 달러',
         '호텔 스위트',
       ],
       bestFor: '최신 럭셔리 / 호텔 스위트를 원하는 분',
       features: [
         '2026년 4월 개업',
-        '알려진 인테리어 비용: 미화 1,000달러',
+        '알려진 인테리어 비용: 미화 1,000만 달러',
         '호텔급 스위트',
         '24시간 영업, 야간 휴식 가능',
       ],

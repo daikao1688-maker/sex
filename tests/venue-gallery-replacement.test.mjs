@@ -92,7 +92,7 @@ test("keeps the existing Oceanic Royal Spa gallery unchanged", async () => {
   }
 });
 
-test("gives every gallery image specific, non-templated copy in all five languages", async () => {
+test("keeps specific localized image alternatives without visible gallery descriptions in all five languages", async () => {
   const forbiddenTemplate = /(venue gallery|interior and facilities|會所相冊|會所環境與設施|会所相册|会所环境与设施|店内ギャラリー|店内と設備)\s*\d*/i;
   let renderedImageCount = 0;
 
@@ -100,19 +100,14 @@ test("gives every gallery image specific, non-templated copy in all five languag
     for (const locale of locales) {
       const page = await readFile(path.join(distRoot, locale, "spa", slug, "index.html"), "utf8");
       const alts = [...page.matchAll(/data-alt="([^"]+)"/g)].map((match) => decodeHtml(match[1].trim()));
-      const captions = [...page.matchAll(/data-caption="([^"]+)"/g)].map((match) => decodeHtml(match[1].trim()));
 
       assert.equal(alts.length, gallery.count, `${locale}/${slug} is missing localized alt text`);
-      assert.equal(captions.length, gallery.count, `${locale}/${slug} is missing localized captions`);
       assert.equal(new Set(alts).size, gallery.count, `${locale}/${slug} repeats alt text`);
-      assert.equal(new Set(captions).size, gallery.count, `${locale}/${slug} repeats captions`);
+      assert.doesNotMatch(page, /<figcaption\b|\bdata-caption=|\bdata-gallery-caption\b/i, `${locale}/${slug} still exposes a gallery description`);
 
       for (let index = 0; index < gallery.count; index += 1) {
         assert.ok(alts[index].length >= 6, `${locale}/${slug} image ${index + 1} has an empty or vague alt`);
-        assert.ok(captions[index].length >= 12, `${locale}/${slug} image ${index + 1} has an empty or vague caption`);
-        assert.notEqual(alts[index], captions[index], `${locale}/${slug} image ${index + 1} reuses alt as caption`);
         assert.equal(forbiddenTemplate.test(alts[index]), false, `${locale}/${slug} image ${index + 1} uses a generic alt template`);
-        assert.equal(forbiddenTemplate.test(captions[index]), false, `${locale}/${slug} image ${index + 1} uses a generic caption template`);
         assert.equal(alts[index].includes("\n"), false, `${locale}/${slug} image ${index + 1} alt contains a line break`);
       }
 

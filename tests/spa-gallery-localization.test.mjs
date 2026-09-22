@@ -28,6 +28,7 @@ test('all venue galleries expose localized navigation with counts matching avail
       assert.equal(/\bhidden(?:\s|=|>)/.test(prev), images.length < 2);
       assert.equal(/\bhidden(?:\s|=|>)/.test(nextButton), images.length < 2);
       assert.ok(html.includes(`data-count-template="${count}"`));
+      assert.doesNotMatch(html, /<figcaption\b|\bdata-caption=|\bdata-gallery-caption\b/i, `${locale}/${entry.name}: gallery descriptions must be absent`);
     }
   }
 });

@@ -8,7 +8,7 @@ import Icon from "./Icon.astro";
  * disk yet are skipped, so the gallery fills in as assets are supplied.
  */
 interface Props {
-  images: Array<{ file: string; caption: string; alt: string }>;
+  images: Array<{ file: string; alt: string }>;
   /** Shown when no photos exist yet. */
   fallbackImage: string;
   fallbackAlt: string;
@@ -58,7 +58,6 @@ const large = (file: string) =>
               data-gallery-open
               data-src={large(image.file)}
               data-alt={image.alt}
-              data-caption={image.caption}
             >
               <img
                 src={`/media/${image.file}-thumb.webp`}
@@ -74,9 +73,6 @@ const large = (file: string) =>
                 {viewLarger}
               </span>
             </button>
-            <figcaption class="px-4 py-3 text-sm leading-relaxed text-white/50">
-              {image.caption}
-            </figcaption>
           </figure>
         ))}
       </div>
@@ -110,7 +106,6 @@ const large = (file: string) =>
             data-gallery-image src="" alt="" draggable="false"
             class="max-h-[max(8rem,calc(100dvh-17rem))] w-auto max-w-full select-none rounded-xl object-contain [touch-action:pan-y_pinch-zoom] sm:max-h-[max(8rem,calc(100dvh-15rem))]"
           />
-          <figcaption data-gallery-caption tabindex="0" class="max-h-20 overflow-y-auto rounded-sm text-center text-sm leading-relaxed text-white/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold" />
         </figure>
         <div class="mt-4 flex items-center justify-center gap-6">
           <button
@@ -145,7 +140,6 @@ const large = (file: string) =>
     if (!lightbox) return;
 
     const image = lightbox.querySelector<HTMLImageElement>("[data-gallery-image]");
-    const caption = lightbox.querySelector<HTMLElement>("[data-gallery-caption]");
     const closeButton = lightbox.querySelector<HTMLButtonElement>("[data-gallery-close]");
     const previousButton = lightbox.querySelector<HTMLButtonElement>("[data-gallery-prev]");
     const nextButton = lightbox.querySelector<HTMLButtonElement>("[data-gallery-next]");
@@ -164,13 +158,11 @@ const large = (file: string) =>
     const isOpen = () => !lightbox.hidden;
     const isZoomed = () => (window.visualViewport?.scale ?? 1) > 1.05;
     const showPhoto = (index: number) => {
-      if (!image || !caption || !triggers.length) return;
+      if (!image || !triggers.length) return;
       currentIndex = (index + triggers.length) % triggers.length;
       const trigger = triggers[currentIndex];
       image.src = trigger.dataset.src ?? "";
       image.alt = trigger.dataset.alt ?? "";
-      caption.textContent = trigger.dataset.caption ?? "";
-      caption.scrollTop = 0;
       if (counter) {
         counter.textContent = `${currentIndex + 1} / ${triggers.length}`;
         counter.setAttribute("aria-label", (counter.dataset.countTemplate ?? "{current} / {total}")
@@ -206,7 +198,7 @@ const large = (file: string) =>
 
     triggers.forEach((trigger, index) => {
       trigger.addEventListener("click", () => {
-        if (!image || !caption) return;
+        if (!image) return;
         lastTrigger = trigger;
         previousBodyOverflow = document.body.style.overflow;
         savedScrollY = window.scrollY;
@@ -253,9 +245,7 @@ const large = (file: string) =>
         event.preventDefault();
         navigate(event.key === "ArrowLeft" ? -1 : 1);
       } else if (event.key === "Tab") {
-        // Captions can scroll on small screens, so they must remain in the
-        // keyboard cycle even when this gallery has only one photograph.
-        const controls = [closeButton, caption, previousButton, nextButton]
+        const controls = [closeButton, previousButton, nextButton]
           .filter((control): control is HTMLElement => Boolean(control && !control.hidden));
         const first = controls[0];
         const last = controls[controls.length - 1];

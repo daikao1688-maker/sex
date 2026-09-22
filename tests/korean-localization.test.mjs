@@ -387,7 +387,7 @@ test("SpaGrid image alternatives and footer copyright use each locale's language
   }
 });
 
-test("all active Korean galleries expose specific Korean alternative text and captions", async () => {
+test("all active Korean galleries retain specific Korean alternative text without visible descriptions", async () => {
   const galleryCounts = {
     "yu-sauna": 10,
     "manhao-spa": 11,
@@ -414,23 +414,17 @@ test("all active Korean galleries expose specific Korean alternative text and ca
     const alts = figures.map((figure) =>
       textContent(figure.match(/<img\b(?=[^>]*\balt="([^"]+)")[^>]*>/i)?.[1] ?? ""),
     );
-    const captions = figures.map((figure) =>
-      textContent(figure.match(/<figcaption\b[^>]*>([\s\S]*?)<\/figcaption>/i)?.[1] ?? ""),
-    );
 
     assert.equal(alts.length, expectedCount, `${slug} is missing rendered Korean gallery image alt text`);
-    assert.equal(captions.length, expectedCount, `${slug} is missing rendered Korean gallery figcaptions`);
     assert.equal(new Set(alts).size, expectedCount, `${slug} repeats Korean gallery image alt text`);
-    assert.equal(new Set(captions).size, expectedCount, `${slug} repeats visible Korean gallery captions`);
+    assert.doesNotMatch(html, /<figcaption\b|\bdata-caption=|\bdata-gallery-caption\b/i, `${slug} still exposes a Korean gallery description`);
     for (const [index, alt] of alts.entries()) {
       assert.ok(containsHangul(alt), `${slug} image ${index + 1} alt text is not Korean`);
-      assert.ok(containsHangul(captions[index]), `${slug} image ${index + 1} caption is not Korean`);
-      assert.notEqual(alt, captions[index], `${slug} image ${index + 1} reuses its alt text as a caption`);
     }
     renderedImages += expectedCount;
   }
 
-  assert.equal(renderedImages, 150, "Korean pages must expose all 162 active gallery descriptions");
+  assert.equal(renderedImages, 150, "Korean pages must retain all 150 active gallery images and alternatives");
 });
 
 test("Korean server and client month labels use Korean month and year forms", async () => {
