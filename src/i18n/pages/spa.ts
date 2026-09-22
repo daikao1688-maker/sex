@@ -213,21 +213,37 @@ const en: SpaPageCopy = {
       ],
       flow: [
         {
-          title: 'Book Your Room',
-          body: 'Book through us with your headcount and timing. During the opening period, booking ahead is recommended for room availability.',
+          "title": "Book Ahead, Private Transfers and a Complimentary Massage",
+          "body": "Book Clube Rio through us and tell us your group size, arrival time and location. We will arrange a private luxury executive vehicle for your transfer. Pickup is available anywhere in Macau, with the vehicle arriving within 10 minutes."
         },
         {
-          title: 'Arrive at Hotel Rio',
-          body: 'Head to the 3rd floor of Hotel Rio in NAPE — minutes from the border gates and major hotels, or let us arrange the free private car transfer. Give your booking name and staff walk you through.',
+          "title": "Arrive at Clube Rio",
+          "body": "On arrival, staff we have already arranged will welcome you and guide you into the sauna. You will receive your own numbered wristband (all your spending will be recorded under this number)."
         },
         {
-          title: 'Play Until Late',
-          body: 'Open until 4 am — sing, toast and unwind at your own pace. No overnight stay; NAPE makes late rides easy, or book the return car with us.',
+          "title": "Bathing and Changing",
+          "body": "Everyone at the sauna is required to wear the same type of clothing. The loose-fitting clothes help you relax and make it easier to receive a massage."
         },
         {
-          title: 'Ride Home',
-          body: 'Booking through us includes a free private car transfer (private, not shared). If your trip needs an overnight plan, ask us when booking and we\'ll suggest the right arrangement.',
+          "title": "Facilities",
+          "body": "You can enjoy the facilities free of charge, including the sauna and steam room, hot and cold pools, and whirlpool baths."
         },
+        {
+          "title": "A Complimentary Buffet with Plenty of Choice",
+          "body": "Clube Rio offers a wide selection of food, all free of charge. Tell your server what you would like to eat, and they will ask the kitchen to prepare it. The menu caters to the tastes of guests from around the world."
+        },
+        {
+          "title": "Choose Your Therapist",
+          "body": "Staff will introduce all the therapists at the venue, and you decide who will provide your massage. A massage generally lasts 60 minutes."
+        },
+        {
+          "title": "After Your Massage",
+          "body": "You can rest on a recliner in the lounge. Because you booked through us, we will also give you a complimentary 40-minute massage in the lounge."
+        },
+        {
+          "title": "Stay Overnight or Head Back",
+          "body": "Most Macau saunas provide overnight stays at no extra charge. If you need to travel to another location in Macau, contact us and we will arrange a private vehicle to take you there."
+        }
       ],
       gallery: [
         {
@@ -303,37 +319,37 @@ const en: SpaPageCopy = {
       ],
       flow: [
         {
-          title: 'Arrive at Grandview Hotel, Taipa',
-          body: 'Manhao Spa is located inside the Grandview Hotel (氹仔君怡酒店) on Taipa — a five-minute drive from the Cotai Strip and the most accessible new luxury sauna option for Taipa-side guests. The lobby greets you with the gold crowned \'MH\' monogram on calacatta marble; check in at the front desk and collect your wristband from the concierge.',
+          "title": "Book Ahead, Private Transfers and a Complimentary Massage",
+          "body": "Book Manhao Spa through us and tell us your group size, arrival time and location. We will arrange a private luxury executive vehicle for your transfer. Pickup is available anywhere in Macau, with the vehicle arriving within 10 minutes."
         },
         {
-          title: 'Luxury Changing Room',
-          body: 'Step into the changing area — calacatta marble feature wall, dark wood lockers with gold-toggle pulls, and tufted bench seating. The hardware tone is consistently imperial-luxe rather than utilitarian, setting expectations for the rest of the visit.',
+          "title": "Arrive at Manhao Spa",
+          "body": "On arrival, staff we have already arranged will welcome you and guide you into the sauna. You will receive your own numbered wristband (all your spending will be recorded under this number)."
         },
         {
-          title: 'Bath & Wet Area',
-          body: 'Move through to the bath area, finished in dark mosaic tile and green-veined marble with multiple shower stations and a small immersion pool. The wet zone is brand-new throughout, sized for a relaxed pre-service soak.',
+          "title": "Bathing and Changing",
+          "body": "Everyone at the sauna is required to wear the same type of clothing. The loose-fitting clothes help you relax and make it easier to receive a massage."
         },
         {
-          title: 'Dining Lounge',
-          body: 'Take complimentary food and drinks in the marble-topped dining lounge — quiet, hotel-grade seating with a private bar feel, designed for taking your time before or after service.',
+          "title": "Facilities",
+          "body": "You can enjoy the facilities free of charge, including the sauna and steam room, hot and cold pools, and whirlpool baths."
         },
         {
-          title: 'Spacious Stage',
-          body: 'A defining feature is the spacious stage hall, where glass balustrades span multiple levels under deep blue neon lighting. The scale of the stage and layered lighting make this a striking focal point of Manhao Spa.',
+          "title": "A Complimentary Buffet with Plenty of Choice",
+          "body": "Manhao Spa offers a wide selection of food, all free of charge. Tell your server what you would like to eat, and they will ask the kitchen to prepare it. The menu caters to the tastes of guests from around the world."
         },
         {
-          title: 'Integrated Suite & Signature Waterbed',
-          body: 'Treatment rooms are integrated suites — premium bedroom finishes (mural-papered walls, oversized bed, sofa, lamps) combined with the venue\'s signature red waterbed lit by a single dramatic spotlight. The two surfaces share one private room so you don\'t have to relocate during service.',
+          "title": "Choose Your Therapist",
+          "body": "Staff will introduce all the therapists at the venue, and you decide who will provide your massage. A massage generally lasts 60 minutes."
         },
         {
-          title: '60-Minute Massage',
-          body: 'Take an hour to unwind with a 60-minute massage. Adjust the lighting and music to your liking, settle into a comfortable atmosphere, and give yourself time to relax.',
+          "title": "After Your Massage",
+          "body": "You can rest on a recliner in the lounge. Because you booked through us, we will also give you a complimentary 40-minute massage in the lounge."
         },
         {
-          title: 'Rest Area',
-          body: 'Retreat to the dedicated rest area — a calm, dim room of stargazer-lit recliners for unwinding after service. Doors run 14:00–04:00 and overnight stays are not offered for now. Check out at the front desk; cash, card, WeChat Pay, and Alipay are all accepted.',
-        },
+          "title": "Stay Overnight or Head Back",
+          "body": "Most Macau saunas provide overnight stays at no extra charge. If you need to travel to another location in Macau, contact us and we will arrange a private vehicle to take you there."
+        }
       ],
       gallery: [
         {
@@ -423,33 +439,37 @@ const en: SpaPageCopy = {
       ],
       flow: [
         {
-          title: 'Arrive & Check In',
-          body: 'Arrive at Number Nine Spa, brand new as of April 2026, located inside Royal Dragon Hotel in central Macau. As the newest venue in the city, all facilities are in pristine condition. The overall design follows a modern luxury aesthetic with gold and marble elements paired with professional lighting systems.',
+          "title": "Book Ahead, Private Transfers and a Complimentary Massage",
+          "body": "Book Number Nine Spa through us and tell us your group size, arrival time and location. We will arrange a private luxury executive vehicle for your transfer. Pickup is available anywhere in Macau, with the vehicle arriving within 10 minutes."
         },
         {
-          title: 'Bathe & Relax',
-          body: 'Enjoy newly built modern bathing and sauna facilities with brand-new equipment throughout. The changing room features wooden lockers in a clean, orderly design, while the bathing area is decorated with green mosaic tiles for a fresh, inviting feel.',
+          "title": "Arrive at Number Nine Spa",
+          "body": "On arrival, staff we have already arranged will welcome you and guide you into the sauna. You will receive your own numbered wristband (all your spending will be recorded under this number)."
         },
         {
-          title: 'Free Dining',
-          body: 'Complimentary dining with an emphasis on diverse, premium food selections — the venue treats dining as an integral part of the overall experience.',
+          "title": "Bathing and Changing",
+          "body": "Everyone at the sauna is required to wear the same type of clothing. The loose-fitting clothes help you relax and make it easier to receive a massage."
         },
         {
-          title: 'Hall Facilities',
-          body: 'The hall combines stage lighting and LED screens with gold accents and marble finishes for a distinctive modern interior.',
+          "title": "Facilities",
+          "body": "You can enjoy the facilities free of charge, including the sauna and steam room, hot and cold pools, and whirlpool baths."
         },
         {
-          title: 'Choose Themed Room',
-          body: 'Number Nine offers multiple ambient themed rooms, each featuring unique mood lighting — red, pink-purple, blue-violet, and other color tones paired with starry-sky ceilings and refined decor for an immersive experience. Round oversized beds are a signature feature in select rooms.',
+          "title": "A Complimentary Buffet with Plenty of Choice",
+          "body": "Number Nine Spa offers a wide selection of food, all free of charge. Tell your server what you would like to eat, and they will ask the kitchen to prepare it. The menu caters to the tastes of guests from around the world."
         },
         {
-          title: '60-Minute Session',
-          body: 'Choose between Balinese-style and Japanese-style massage, blending Southeast Asian and Japanese techniques. Number Nine\'s signature \'original Japanese + Balinese\' fusion sets it apart from traditional venues.',
+          "title": "Choose Your Therapist",
+          "body": "Staff will introduce all the therapists at the venue, and you decide who will provide your massage. A massage generally lasts 60 minutes."
         },
         {
-          title: 'Rest & Stay Overnight',
-          body: 'Overnight stays available with brand-new facilities ensuring comfort. As a new venue, early-stage foot traffic is lower and the atmosphere is quiet. Book through us for the latest special prices.',
+          "title": "After Your Massage",
+          "body": "You can rest on a recliner in the lounge. Because you booked through us, we will also give you a complimentary 40-minute massage in the lounge."
         },
+        {
+          "title": "Stay Overnight or Head Back",
+          "body": "Most Macau saunas provide overnight stays at no extra charge. If you need to travel to another location in Macau, contact us and we will arrange a private vehicle to take you there."
+        }
       ],
       gallery: [
         {
@@ -535,25 +555,37 @@ const en: SpaPageCopy = {
       ],
       flow: [
         {
-          title: 'Arrive & Check In',
-          body: 'Arrive at Shang Pin Spa, located inside Lisboeta Macau (Cotai). The entire venue features a European-modern design aesthetic with a contemporary look. Register at the front desk and collect your wristband.',
+          "title": "Book Ahead, Private Transfers and a Complimentary Massage",
+          "body": "Book Shang Pin Spa through us and tell us your group size, arrival time and location. We will arrange a private luxury executive vehicle for your transfer. Pickup is available anywhere in Macau, with the vehicle arriving within 10 minutes."
         },
         {
-          title: 'Bathe & Relax',
-          body: 'Brand-new bathing facilities with well-appointed equipment. The pool and sauna areas are bright and immaculate, a stark contrast to traditional venue styles.',
+          "title": "Arrive at Shang Pin Spa",
+          "body": "On arrival, staff we have already arranged will welcome you and guide you into the sauna. You will receive your own numbered wristband (all your spending will be recorded under this number)."
         },
         {
-          title: 'Free Dining',
-          body: 'Complimentary dining in a clean, comfortable setting that matches the venue\'s overall modern design language.',
+          "title": "Bathing and Changing",
+          "body": "Everyone at the sauna is required to wear the same type of clothing. The loose-fitting clothes help you relax and make it easier to receive a massage."
         },
         {
-          title: 'Room Facilities',
-          body: 'Every room features its own private bathtub for a high level of privacy.',
+          "title": "Facilities",
+          "body": "You can enjoy the facilities free of charge, including the sauna and steam room, hot and cold pools, and whirlpool baths."
         },
         {
-          title: 'Rest & Stay Overnight',
-          body: 'Overnight stays available — rest in the free lobby recliner lounge, or opt for a paid private rest room. As a boutique-scale venue, foot traffic is lower and the atmosphere is peaceful. Staff numbers may be smaller during off-peak hours — evening visits are recommended.',
+          "title": "A Complimentary Buffet with Plenty of Choice",
+          "body": "Shang Pin Spa offers a wide selection of food, all free of charge. Tell your server what you would like to eat, and they will ask the kitchen to prepare it. The menu caters to the tastes of guests from around the world."
         },
+        {
+          "title": "Choose Your Therapist",
+          "body": "Staff will introduce all the therapists at the venue, and you decide who will provide your massage. A massage generally lasts 60 minutes."
+        },
+        {
+          "title": "After Your Massage",
+          "body": "You can rest on a recliner in the lounge. Because you booked through us, we will also give you a complimentary 40-minute massage in the lounge."
+        },
+        {
+          "title": "Stay Overnight or Head Back",
+          "body": "Most Macau saunas provide overnight stays at no extra charge. If you need to travel to another location in Macau, contact us and we will arrange a private vehicle to take you there."
+        }
       ],
       gallery: [
         {
@@ -642,33 +674,37 @@ const en: SpaPageCopy = {
       ],
       flow: [
         {
-          title: 'Arrive & Check In',
-          body: 'Arrive at Majesty Spa, the most luxuriously decorated sauna venue in Macau. Gold accents and marble elements run throughout, creating an immediate sense of top-tier opulence. Register at the front desk and collect your wristband.',
+          "title": "Book Ahead, Private Transfers and a Complimentary Massage",
+          "body": "Book Majesty Spa through us and tell us your group size, arrival time and location. We will arrange a private luxury executive vehicle for your transfer. Pickup is available anywhere in Macau, with the vehicle arriving within 10 minutes."
         },
         {
-          title: 'Bathe & Relax',
-          body: 'Enjoy luxurious bathing facilities and sauna with spacious pools and soft ambient lighting in an elegant, grand atmosphere. Take your time here — Majesty Spa has the finest hardware and fixtures of any venue in Macau.',
+          "title": "Arrive at Majesty Spa",
+          "body": "On arrival, staff we have already arranged will welcome you and guide you into the sauna. You will receive your own numbered wristband (all your spending will be recorded under this number)."
         },
         {
-          title: 'Free Dining',
-          body: 'Complimentary steak, fresh fruit, cold beer, and more with a generous selection of dishes. Majesty\'s food quality is widely praised in the industry, with unlimited servings throughout your stay.',
+          "title": "Bathing and Changing",
+          "body": "Everyone at the sauna is required to wear the same type of clothing. The loose-fitting clothes help you relax and make it easier to receive a massage."
         },
         {
-          title: 'A Spacious Stage',
-          body: 'The hall uses a “scenic line” format: therapists from different countries stand in a row, and you decide on site who will provide your massage.',
+          "title": "Facilities",
+          "body": "You can enjoy the facilities free of charge, including the sauna and steam room, hot and cold pools, and whirlpool baths."
         },
         {
-          title: 'Confirm Prices',
-          body: 'Prices range from MOP 2,799 to MOP 6,699.',
+          "title": "A Complimentary Buffet with Plenty of Choice",
+          "body": "Majesty Spa offers a wide selection of food, all free of charge. Tell your server what you would like to eat, and they will ask the kitchen to prepare it. The menu caters to the tastes of guests from around the world."
         },
         {
-          title: '60-minute massage',
-          body: 'Enjoy a 60-minute massage in a spacious room with soft lighting and comfortable furnishings. Confirm the massage option and its price before the session.',
+          "title": "Choose Your Therapist",
+          "body": "Staff will introduce all the therapists at the venue, and you decide who will provide your massage. A massage generally lasts 60 minutes."
         },
         {
-          title: 'Rest & Stay Overnight',
-          body: 'Majesty Spa is open 24 hours and overnight-friendly — rest in the free lobby recliner lounge, or opt for a paid private rest room in peak season. With free dining included, it\'s a comfortable place to stay until morning.',
+          "title": "After Your Massage",
+          "body": "You can rest on a recliner in the lounge. Because you booked through us, we will also give you a complimentary 40-minute massage in the lounge."
         },
+        {
+          "title": "Stay Overnight or Head Back",
+          "body": "Most Macau saunas provide overnight stays at no extra charge. If you need to travel to another location in Macau, contact us and we will arrange a private vehicle to take you there."
+        }
       ],
       gallery: [
         {
@@ -739,33 +775,37 @@ const en: SpaPageCopy = {
       ],
       flow: [
         {
-          title: 'Arrive & Check In',
-          body: 'Arrive at The Excellent Sauna inside the Grand Emperor Hotel main building. The venue is open 24 hours, while therapists are on duty from 13:00 to 05:00. Register at reception, bathe and settle into its quieter boutique pace.',
+          "title": "Book Ahead, Private Transfers and a Complimentary Massage",
+          "body": "Book The Excellent Sauna through us and tell us your group size, arrival time and location. We will arrange a private luxury executive vehicle for your transfer. Pickup is available anywhere in Macau, with the vehicle arriving within 10 minutes."
         },
         {
-          title: 'Bathe & Relax',
-          body: 'Enjoy the bathing facilities and sauna in a relatively quiet, serene setting. The Excellent has lower foot traffic than larger venues, so there\'s none of the crowded, noisy atmosphere.',
+          "title": "Arrive at The Excellent Sauna",
+          "body": "On arrival, staff we have already arranged will welcome you and guide you into the sauna. You will receive your own numbered wristband (all your spending will be recorded under this number)."
         },
         {
-          title: 'Free Dining',
-          body: 'Complimentary dining is available around the clock, so you can eat whether you arrive in the afternoon or late at night.',
+          "title": "Bathing and Changing",
+          "body": "Everyone at the sauna is required to wear the same type of clothing. The loose-fitting clothes help you relax and make it easier to receive a massage."
         },
         {
-          title: 'Discuss Your Massage',
-          body: 'Tell reception which areas you would like to focus on and your preferred massage pressure. Review the available options, duration and charges before confirming your arrangements.',
+          "title": "Facilities",
+          "body": "You can enjoy the facilities free of charge, including the sauna and steam room, hot and cold pools, and whirlpool baths."
         },
         {
-          title: 'Water Bed or Themed Room',
-          body: 'Room interiors draw on different styles, including offices, classrooms and cinemas, with waterbeds available in some rooms. Ask about the facilities and room availability before choosing your setting.',
+          "title": "A Complimentary Buffet with Plenty of Choice",
+          "body": "The Excellent Sauna offers a wide selection of food, all free of charge. Tell your server what you would like to eat, and they will ask the kitchen to prepare it. The menu caters to the tastes of guests from around the world."
         },
         {
-          title: '60-Minute Massage',
-          body: 'Massage sessions last approximately 60 minutes, with a 10% service charge. Thai-style and Shanghai-style massage are available; confirm the techniques, pressure and charges before starting.',
+          "title": "Choose Your Therapist",
+          "body": "Staff will introduce all the therapists at the venue, and you decide who will provide your massage. A massage generally lasts 60 minutes."
         },
         {
-          title: 'Rest & Stay Overnight',
-          body: 'Wind down in the quiet 24-hour rest area after your session. You can stay overnight at your own pace, then settle up at the front desk when you are ready to leave.',
+          "title": "After Your Massage",
+          "body": "You can rest on a recliner in the lounge. Because you booked through us, we will also give you a complimentary 40-minute massage in the lounge."
         },
+        {
+          "title": "Stay Overnight or Head Back",
+          "body": "Most Macau saunas provide overnight stays at no extra charge. If you need to travel to another location in Macau, contact us and we will arrange a private vehicle to take you there."
+        }
       ],
       gallery: [
         {
@@ -851,37 +891,37 @@ const en: SpaPageCopy = {
       ],
       flow: [
         {
-          title: 'Arrive & Check In',
-          body: 'Arrive at Empire Sauna, the newest premium sauna on the Macau peninsula. The lobby and stairway entrance set the tone — Eastern zen lines paired with modern luxury finishings, all freshly built. Register at the front desk and collect your wristband from the concierge.',
+          "title": "Book Ahead, Private Transfers and a Complimentary Massage",
+          "body": "Book Empire Sauna through us and tell us your group size, arrival time and location. We will arrange a private luxury executive vehicle for your transfer. Pickup is available anywhere in Macau, with the vehicle arriving within 10 minutes."
         },
         {
-          title: 'Bathe & Relax',
-          body: 'Step into the signature marble bathing pool — warm ambient lighting, generous space, and a calm, almost spa-resort quality unusual for Macau. The wet-area hardware is brand-new throughout, including a full sauna suite, making this the centerpiece of the venue.',
+          "title": "Arrive at Empire Sauna",
+          "body": "On arrival, staff we have already arranged will welcome you and guide you into the sauna. You will receive your own numbered wristband (all your spending will be recorded under this number)."
         },
         {
-          title: 'Dining Lounge',
-          body: 'Move through to the dining area for complimentary food and drinks. The room is styled to hotel-grade standards rather than typical sauna canteen — quiet, private, with comfortable seating designed for taking your time before or after service.',
+          "title": "Bathing and Changing",
+          "body": "Everyone at the sauna is required to wear the same type of clothing. The loose-fitting clothes help you relax and make it easier to receive a massage."
         },
         {
-          title: 'Confirm Massage Options and Fees',
-          body: 'Ask reception about the massage options, duration and itemised charges before deciding what suits your needs. Reference prices range from MOP 2,488 to 7,388; confirm the service details and total cost before starting.',
+          "title": "Facilities",
+          "body": "You can enjoy the facilities free of charge, including the sauna and steam room, hot and cold pools, and whirlpool baths."
         },
         {
-          title: 'Themed Suite or Waterbed Room',
-          body: 'Choose from multiple themed suites — each with custom mood lighting, premium bedding, and luxury hotel finishings — or one of the signature waterbed massage rooms designed specifically for Empire\'s signature service.',
+          "title": "A Complimentary Buffet with Plenty of Choice",
+          "body": "Empire Sauna offers a wide selection of food, all free of charge. Tell your server what you would like to eat, and they will ask the kitchen to prepare it. The menu caters to the tastes of guests from around the world."
         },
         {
-          title: '60-Minute Massage',
-          body: 'The massage lasts 60 minutes; ask reception about the techniques and arrangements beforehand. Rooms include a bathtub and adjustable lighting and audio, so you can set a comfortable atmosphere.',
+          "title": "Choose Your Therapist",
+          "body": "Staff will introduce all the therapists at the venue, and you decide who will provide your massage. A massage generally lasts 60 minutes."
         },
         {
-          title: 'Rest Area & Overnight',
-          body: 'After service, retreat to the dedicated rest area — quiet, dimly lit, and built for actual sleep rather than chair-naps. Overnight stays are welcomed, and the wet area, dining lounge, and rest area remain accessible for the duration of your visit.',
+          "title": "After Your Massage",
+          "body": "You can rest on a recliner in the lounge. Because you booked through us, we will also give you a complimentary 40-minute massage in the lounge."
         },
         {
-          title: 'Departure',
-          body: 'Check out at the front desk. Empire Sauna accepts cash, card, WeChat Pay, and Alipay. Book through our concierge in advance and your site-exclusive perks (free add-ons, free shuttle, no entrance fee) are settled accurately at checkout.',
-        },
+          "title": "Stay Overnight or Head Back",
+          "body": "Most Macau saunas provide overnight stays at no extra charge. If you need to travel to another location in Macau, contact us and we will arrange a private vehicle to take you there."
+        }
       ],
       gallery: [
         {
@@ -967,33 +1007,37 @@ const en: SpaPageCopy = {
       ],
       flow: [
         {
-          title: 'Arrive & Check In',
-          body: 'Arrive at East Castle Spa, the original pioneer of themed rooms in Macau. Register at the front desk and collect your wristband. The reference price range is MOP 2,388 – 6,498; detailed menu items are confirmed when booking.',
+          "title": "Book Ahead, Private Transfers and a Complimentary Massage",
+          "body": "Book East Castle Spa through us and tell us your group size, arrival time and location. We will arrange a private luxury executive vehicle for your transfer. Pickup is available anywhere in Macau, with the vehicle arriving within 10 minutes."
         },
         {
-          title: 'Bathe & Relax',
-          body: 'Enjoy the bathing facilities and sauna at your own pace, with time to soak, rest and unwind after your travels.',
+          "title": "Arrive at East Castle Spa",
+          "body": "On arrival, staff we have already arranged will welcome you and guide you into the sauna. You will receive your own numbered wristband (all your spending will be recorded under this number)."
         },
         {
-          title: 'Free Dining',
-          body: 'Complimentary food and drinks are available. Take a break in the dining area before continuing with your visit.',
+          "title": "Bathing and Changing",
+          "body": "Everyone at the sauna is required to wear the same type of clothing. The loose-fitting clothes help you relax and make it easier to receive a massage."
         },
         {
-          title: 'Confirm Your Massage',
-          body: 'Ask reception about massage options, available times and room availability. Confirm the service details, duration and itemised charges before starting.',
+          "title": "Facilities",
+          "body": "You can enjoy the facilities free of charge, including the sauna and steam room, hot and cold pools, and whirlpool baths."
         },
         {
-          title: '20+ Distinct Room Designs',
-          body: 'One of East Castle Spa’s highlights is its choice of more than 20 room designs. Each has a different interior style, so you can enjoy your massage in surroundings that suit your taste.',
+          "title": "A Complimentary Buffet with Plenty of Choice",
+          "body": "East Castle Spa offers a wide selection of food, all free of charge. Tell your server what you would like to eat, and they will ask the kitchen to prepare it. The menu caters to the tastes of guests from around the world."
         },
         {
-          title: 'Service Charges and Tax',
-          body: 'A 10% service charge and a 5% tourism tax apply.',
+          "title": "Choose Your Therapist",
+          "body": "Staff will introduce all the therapists at the venue, and you decide who will provide your massage. A massage generally lasts 60 minutes."
         },
         {
-          title: 'Rest & Stay Overnight',
-          body: 'Lobby reclining chairs are available for overnight rest. East Castle\'s core experience centers on the themed rooms rather than rest facilities — if overnight comfort is your priority, Majesty Spa is a better choice.',
+          "title": "After Your Massage",
+          "body": "You can rest on a recliner in the lounge. Because you booked through us, we will also give you a complimentary 40-minute massage in the lounge."
         },
+        {
+          "title": "Stay Overnight or Head Back",
+          "body": "Most Macau saunas provide overnight stays at no extra charge. If you need to travel to another location in Macau, contact us and we will arrange a private vehicle to take you there."
+        }
       ],
       gallery: [
         {
@@ -1065,33 +1109,37 @@ const en: SpaPageCopy = {
       ],
       flow: [
         {
-          title: 'Arrive & Check In',
-          body: 'Arrive at Victoria Sauna on the 5th floor of L\'Arc Hotel, centrally located on the Macau Peninsula near MGM, Wynn, and Grand Lisboa. Register at the front desk and collect your wristband — the overall atmosphere is quiet and private.',
+          "title": "Book Ahead, Private Transfers and a Complimentary Massage",
+          "body": "Book Victoria Sauna through us and tell us your group size, arrival time and location. We will arrange a private luxury executive vehicle for your transfer. Pickup is available anywhere in Macau, with the vehicle arriving within 10 minutes."
         },
         {
-          title: 'Bathe & Relax',
-          body: 'Enjoy the bathing facilities and sauna in a clean, serene setting. Victoria deliberately manages guest volume, so it never feels crowded even during peak hours.',
+          "title": "Arrive at Victoria Sauna",
+          "body": "On arrival, staff we have already arranged will welcome you and guide you into the sauna. You will receive your own numbered wristband (all your spending will be recorded under this number)."
         },
         {
-          title: 'Free Dining',
-          body: 'Complimentary dining in a quiet, comfortable setting — none of the noise you\'d find at larger venues.',
+          "title": "Bathing and Changing",
+          "body": "Everyone at the sauna is required to wear the same type of clothing. The loose-fitting clothes help you relax and make it easier to receive a massage."
         },
         {
-          title: 'Relaxed Matching',
-          body: 'Victoria has no fixed selection shows or runway events — simply tell the manager your preferences and they\'ll arrange suitable therapists to meet you. The entire process moves at your own pace with zero pressure or rushing, making it the most relaxed selection experience in Macau.',
+          "title": "Facilities",
+          "body": "You can enjoy the facilities free of charge, including the sauna and steam room, hot and cold pools, and whirlpool baths."
         },
         {
-          title: 'Choose Your Therapist',
-          body: 'Multinational therapists on-site, including Chinese, Vietnamese, Japanese, and Korean nationalities. Victoria is known for meticulous, attentive service with consistently high standards. Prices range from MOP 2,298 to MOP 6,998, plus a 10% service fee.',
+          "title": "A Complimentary Buffet with Plenty of Choice",
+          "body": "Victoria Sauna offers a wide selection of food, all free of charge. Tell your server what you would like to eat, and they will ask the kitchen to prepare it. The menu caters to the tastes of guests from around the world."
         },
         {
-          title: '60-Minute Session',
-          body: 'Enter a room for a 60-minute one-on-one session. The signature water-bed rooms are quiet and private — quality on par with Oceanic Royal at a friendlier price. Service quality rivals Oceanic Royal but at more affordable prices.',
+          "title": "Choose Your Therapist",
+          "body": "Staff will introduce all the therapists at the venue, and you decide who will provide your massage. A massage generally lasts 60 minutes."
         },
         {
-          title: 'Rest & Stay Overnight',
-          body: 'Quiet and private — one of the best venues in Macau for peaceful rest and overnight stays. The lounge is full of recliners, foot traffic is low and noise is minimal, so you can stay the night with peace of mind. Low foot traffic and minimal noise make it ideal for guests seeking tranquility and privacy.',
+          "title": "After Your Massage",
+          "body": "You can rest on a recliner in the lounge. Because you booked through us, we will also give you a complimentary 40-minute massage in the lounge."
         },
+        {
+          "title": "Stay Overnight or Head Back",
+          "body": "Most Macau saunas provide overnight stays at no extra charge. If you need to travel to another location in Macau, contact us and we will arrange a private vehicle to take you there."
+        }
       ],
       gallery: [
         {
@@ -1161,25 +1209,37 @@ const en: SpaPageCopy = {
       ],
       flow: [
         {
-          title: 'Temporarily Closed',
-          body: 'M Club is currently closed and is not accepting guests or bookings. The information below describes its former facilities.',
+          "title": "Book Ahead, Private Transfers and a Complimentary Massage",
+          "body": "Book M CLUB through us and tell us your group size, arrival time and location. We will arrange a private luxury executive vehicle for your transfer. Pickup is available anywhere in Macau, with the vehicle arriving within 10 minutes."
         },
         {
-          title: 'Venue and Rooms',
-          body: 'A sister venue of East Castle Spa, M Club previously featured rooms in different styles, KTV rooms and bathing facilities.',
+          "title": "Arrive at M CLUB",
+          "body": "On arrival, staff we have already arranged will welcome you and guide you into the sauna. You will receive your own numbered wristband (all your spending will be recorded under this number)."
         },
         {
-          title: 'Bathing and Dining',
-          body: 'The former facilities included bathing, sauna and dining areas with futuristic interiors. These facilities are not currently open to visitors.',
+          "title": "Bathing and Changing",
+          "body": "Everyone at the sauna is required to wear the same type of clothing. The loose-fitting clothes help you relax and make it easier to receive a massage."
         },
         {
-          title: 'Historical Charges',
-          body: 'A 10% service charge previously applied. This is a historical record, not a current quotation or booking offer.',
+          "title": "Facilities",
+          "body": "You can enjoy the facilities free of charge, including the sauna and steam room, hot and cold pools, and whirlpool baths."
         },
         {
-          title: 'Rest Facilities',
-          body: 'The lobby formerly had a recliner lounge. Overnight stays are unavailable during the closure; any reopening arrangements should be checked against the venue’s latest announcement.',
+          "title": "A Complimentary Buffet with Plenty of Choice",
+          "body": "M CLUB offers a wide selection of food, all free of charge. Tell your server what you would like to eat, and they will ask the kitchen to prepare it. The menu caters to the tastes of guests from around the world."
         },
+        {
+          "title": "Choose Your Therapist",
+          "body": "Staff will introduce all the therapists at the venue, and you decide who will provide your massage. A massage generally lasts 60 minutes."
+        },
+        {
+          "title": "After Your Massage",
+          "body": "You can rest on a recliner in the lounge. Because you booked through us, we will also give you a complimentary 40-minute massage in the lounge."
+        },
+        {
+          "title": "Stay Overnight or Head Back",
+          "body": "Most Macau saunas provide overnight stays at no extra charge. If you need to travel to another location in Macau, contact us and we will arrange a private vehicle to take you there."
+        }
       ],
       gallery: [
         {
@@ -1279,25 +1339,37 @@ const en: SpaPageCopy = {
       ],
       flow: [
         {
-          title: 'Temporarily Closed',
-          body: 'Number One Sauna is currently closed and is not accepting guests or bookings. The information below is a record of its former facilities.',
+          "title": "Book Ahead, Private Transfers and a Complimentary Massage",
+          "body": "Book Number One Sauna through us and tell us your group size, arrival time and location. We will arrange a private luxury executive vehicle for your transfer. Pickup is available anywhere in Macau, with the vehicle arriving within 10 minutes."
         },
         {
-          title: 'Bathing and Changing Facilities',
-          body: 'The venue formerly had spacious changing rooms, lockers, large whirlpool baths, a dry sauna and a steam room.',
+          "title": "Arrive at Number One Sauna",
+          "body": "On arrival, staff we have already arranged will welcome you and guide you into the sauna. You will receive your own numbered wristband (all your spending will be recorded under this number)."
         },
         {
-          title: 'Dining Area',
-          body: 'Previous dining options included steak, fried rice, noodles, fruit and drinks, served in a spacious dining area. Dining service is currently unavailable.',
+          "title": "Bathing and Changing",
+          "body": "Everyone at the sauna is required to wear the same type of clothing. The loose-fitting clothes help you relax and make it easier to receive a massage."
         },
         {
-          title: 'Historical Prices',
-          body: 'The recorded historical price range was MOP 2,199 to MOP 7,699. These are not current quotations; bookings and services are unavailable during the closure.',
+          "title": "Facilities",
+          "body": "You can enjoy the facilities free of charge, including the sauna and steam room, hot and cold pools, and whirlpool baths."
         },
         {
-          title: 'Rest Facilities',
-          body: 'A recliner rest area was previously available. Overnight stays are unavailable during the closure; check the venue’s latest announcement for any reopening.',
+          "title": "A Complimentary Buffet with Plenty of Choice",
+          "body": "Number One Sauna offers a wide selection of food, all free of charge. Tell your server what you would like to eat, and they will ask the kitchen to prepare it. The menu caters to the tastes of guests from around the world."
         },
+        {
+          "title": "Choose Your Therapist",
+          "body": "Staff will introduce all the therapists at the venue, and you decide who will provide your massage. A massage generally lasts 60 minutes."
+        },
+        {
+          "title": "After Your Massage",
+          "body": "You can rest on a recliner in the lounge. Because you booked through us, we will also give you a complimentary 40-minute massage in the lounge."
+        },
+        {
+          "title": "Stay Overnight or Head Back",
+          "body": "Most Macau saunas provide overnight stays at no extra charge. If you need to travel to another location in Macau, contact us and we will arrange a private vehicle to take you there."
+        }
       ],
       gallery: [
         {
@@ -1381,25 +1453,37 @@ const en: SpaPageCopy = {
       ],
       flow: [
         {
-          title: 'Temporarily Closed',
-          body: 'Familia Nobre is currently closed and is not accepting guests or bookings. The information below records its former facilities.',
+          "title": "Book Ahead, Private Transfers and a Complimentary Massage",
+          "body": "Book Familia Nobre through us and tell us your group size, arrival time and location. We will arrange a private luxury executive vehicle for your transfer. Pickup is available anywhere in Macau, with the vehicle arriving within 10 minutes."
         },
         {
-          title: 'Bathing and Changing Facilities',
-          body: 'The venue formerly had spacious changing rooms, lockers, baths and sauna rooms, with separate bathing, dining and rest areas.',
+          "title": "Arrive at Familia Nobre",
+          "body": "On arrival, staff we have already arranged will welcome you and guide you into the sauna. You will receive your own numbered wristband (all your spending will be recorded under this number)."
         },
         {
-          title: 'Dining and Rooms',
-          body: 'Steak, drinks and hot food were previously served, and the venue had multiple rooms. Dining and room facilities are not currently open to visitors.',
+          "title": "Bathing and Changing",
+          "body": "Everyone at the sauna is required to wear the same type of clothing. The loose-fitting clothes help you relax and make it easier to receive a massage."
         },
         {
-          title: 'Historical Prices',
-          body: 'The recorded historical price range was MOP 2,388 to MOP 6,988, with no service charge at that time. This is a historical record, not a current quotation.',
+          "title": "Facilities",
+          "body": "You can enjoy the facilities free of charge, including the sauna and steam room, hot and cold pools, and whirlpool baths."
         },
         {
-          title: 'Rest Facilities',
-          body: 'The former rest area had multiple recliners spaced apart. Overnight stays are unavailable during the closure; check the venue’s latest announcement for any reopening.',
+          "title": "A Complimentary Buffet with Plenty of Choice",
+          "body": "Familia Nobre offers a wide selection of food, all free of charge. Tell your server what you would like to eat, and they will ask the kitchen to prepare it. The menu caters to the tastes of guests from around the world."
         },
+        {
+          "title": "Choose Your Therapist",
+          "body": "Staff will introduce all the therapists at the venue, and you decide who will provide your massage. A massage generally lasts 60 minutes."
+        },
+        {
+          "title": "After Your Massage",
+          "body": "You can rest on a recliner in the lounge. Because you booked through us, we will also give you a complimentary 40-minute massage in the lounge."
+        },
+        {
+          "title": "Stay Overnight or Head Back",
+          "body": "Most Macau saunas provide overnight stays at no extra charge. If you need to travel to another location in Macau, contact us and we will arrange a private vehicle to take you there."
+        }
       ],
       gallery: [
         {
@@ -1487,17 +1571,37 @@ const en: SpaPageCopy = {
       ],
       flow: [
         {
-          title: 'Check the current status',
-          body: 'Oceanic Royal Spa is temporarily closed and is not accepting guests or bookings. Please contact us before making plans.',
+          "title": "Book Ahead, Private Transfers and a Complimentary Massage",
+          "body": "Book Oceanic Royal Spa through us and tell us your group size, arrival time and location. We will arrange a private luxury executive vehicle for your transfer. Pickup is available anywhere in Macau, with the vehicle arriving within 10 minutes."
         },
         {
-          title: 'Choose an alternative',
-          body: 'Tell us whether you prefer Taipa or the Macau Peninsula, a themed room, a 24-hour venue or an overnight lounge. We can point you to an operating alternative.',
+          "title": "Arrive at Oceanic Royal Spa",
+          "body": "On arrival, staff we have already arranged will welcome you and guide you into the sauna. You will receive your own numbered wristband (all your spending will be recorded under this number)."
         },
         {
-          title: 'Return when it reopens',
-          body: 'When operations resume, reconfirm the day’s price, staff availability and room arrangements — those details can change with the venue schedule.',
+          "title": "Bathing and Changing",
+          "body": "Everyone at the sauna is required to wear the same type of clothing. The loose-fitting clothes help you relax and make it easier to receive a massage."
         },
+        {
+          "title": "Facilities",
+          "body": "You can enjoy the facilities free of charge, including the sauna and steam room, hot and cold pools, and whirlpool baths."
+        },
+        {
+          "title": "A Complimentary Buffet with Plenty of Choice",
+          "body": "Oceanic Royal Spa offers a wide selection of food, all free of charge. Tell your server what you would like to eat, and they will ask the kitchen to prepare it. The menu caters to the tastes of guests from around the world."
+        },
+        {
+          "title": "Choose Your Therapist",
+          "body": "Staff will introduce all the therapists at the venue, and you decide who will provide your massage. A massage generally lasts 60 minutes."
+        },
+        {
+          "title": "After Your Massage",
+          "body": "You can rest on a recliner in the lounge. Because you booked through us, we will also give you a complimentary 40-minute massage in the lounge."
+        },
+        {
+          "title": "Stay Overnight or Head Back",
+          "body": "Most Macau saunas provide overnight stays at no extra charge. If you need to travel to another location in Macau, contact us and we will arrange a private vehicle to take you there."
+        }
       ],
       gallery: [
         {
@@ -1651,21 +1755,37 @@ const ja: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '個室を予約',
-          body: '人数と希望時間を添えてご予約ください。オープン直後は個室の空き状況を事前にご確認ください。日本語OKです。',
+          "title": "事前予約・専用車送迎・無料マッサージ",
+          "body": "当サイトを通じてクラブ・リオ（利澳薈）をご予約いただき、人数、来店時刻、現在地をお知らせください。専用の高級送迎車を手配します。マカオ内のどのエリアでもお迎えでき、車は10分以内に到着します。"
         },
         {
-          title: 'リオホテルへ',
-          body: '新口岸のリオホテル（利澳酒店）3階へ。各ボーダーゲートや主要ホテルから数分、無料送迎の手配もできます。到着したら予約名を伝えるだけでスタッフがご案内します。',
+          "title": "クラブ・リオ（利澳薈）に到着",
+          "body": "到着後は、事前に手配したスタッフがお迎えし、館内へご案内します。お客様専用の番号付きリストバンドをお受け取りください（ご利用料金はすべて、この番号に記録されます）。"
         },
         {
-          title: '翌4時まで',
-          body: '営業は翌4時まで。歌って、乾杯して、マッサージで締める——ペースは自分次第です。宿泊はありませんが、新口岸なので深夜の帰りも安心です。',
+          "title": "入浴・お着替え",
+          "body": "館内では、皆様に共通の館内着を着用していただきます。ゆったりした服は、くつろぎやすく、マッサージも受けやすくするためです。"
         },
         {
-          title: '帰りの送迎',
-          body: '当サイト経由のご予約で無料専用送迎（相乗りなし）を手配できます。宿泊込みの過ごし方をお探しなら、ご予約時にご相談いただければ最適なプランをご提案します。',
+          "title": "館内設備",
+          "body": "サウナ、スチームルーム、温水・冷水の浴槽、ジェットバスなどの設備を無料でご利用いただけます。"
         },
+        {
+          "title": "無料で品数豊富なビュッフェレストラン",
+          "body": "クラブ・リオ（利澳薈）では、豊富なお食事を無料で提供しています。食べたい料理をスタッフにお伝えいただくと、厨房に調理を依頼します。世界各地からのお客様の好みを考えたメニューをご用意しています。"
+        },
+        {
+          "title": "セラピストを選ぶ",
+          "body": "現地のスタッフが、その場にいるセラピスト全員をご紹介します。どのセラピストにマッサージを担当してもらうかは、お客様が決められます。施術時間は通常60分です。"
+        },
+        {
+          "title": "マッサージの後に",
+          "body": "休憩ラウンジのリクライニングチェアでお休みいただけます。当サイトを通じてご予約いただいたお客様には、ラウンジでの40分間のマッサージを追加で無料提供します。"
+        },
+        {
+          "title": "宿泊休憩、またはお帰り",
+          "body": "マカオの多くのサウナでは、追加料金なしで夜を越して休むことができます。マカオ内の別の場所へ移動する際は、ご連絡いただければ専用車を手配し、目的地までお送りします。"
+        }
       ],
       gallery: [
         {
@@ -1739,37 +1859,37 @@ const ja: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '君怡酒店（タイパ）に到着',
-          body: 'マンハオスパ（曼濠水療）は氹仔の君怡酒店（Grandview Hotel）内にあり、コタイ地区から車で約5分のアクセス。無料送迎を使えばタイパ側では最も行きやすい、最新の高級マカオ サウナです。ロビーでは、カラカッタ大理石に映えるゴールドの王冠 MH ロゴがお出迎え。フロントでチェックインを済ませ、コンシェルジュからリストバンドを受け取ります。',
+          "title": "事前予約・専用車送迎・無料マッサージ",
+          "body": "当サイトを通じてマンハオスパをご予約いただき、人数、来店時刻、現在地をお知らせください。専用の高級送迎車を手配します。マカオ内のどのエリアでもお迎えでき、車は10分以内に到着します。"
         },
         {
-          title: 'ラグジュアリーなロッカールーム',
-          body: 'ロッカールームへ。カラカッタ大理石のフィーチャーウォールに、ゴールドの留め具が付いたダーク木製ロッカー、タフテッド仕様のベンチが並びます。実用一辺倒ではなく皇者ラグジュアリーで統一されたしつらえが、この後の体験のレベルを予感させます。',
+          "title": "マンハオスパに到着",
+          "body": "到着後は、事前に手配したスタッフがお迎えし、館内へご案内します。お客様専用の番号付きリストバンドをお受け取りください（ご利用料金はすべて、この番号に記録されます）。"
         },
         {
-          title: 'バス＆ウェットエリア',
-          body: 'バスエリアへ。ダークモザイクタイルと緑の筋が入った大理石で仕上げられ、複数のシャワーブースと小さな浸かり湯を備えます。ウェットゾーンはすべて新設で広々。施術前にゆったりと湯に浸かってリラックスできます。',
+          "title": "入浴・お着替え",
+          "body": "館内では、皆様に共通の館内着を着用していただきます。ゆったりした服は、くつろぎやすく、マッサージも受けやすくするためです。"
         },
         {
-          title: 'ダイニングラウンジ',
-          body: '大理石トップのダイニングラウンジで、無料のフード＆ドリンクを。静かでホテル級の座席とプライベートバーのような雰囲気で、施術の前後にゆっくり過ごせます。',
+          "title": "館内設備",
+          "body": "サウナ、スチームルーム、温水・冷水の浴槽、ジェットバスなどの設備を無料でご利用いただけます。"
         },
         {
-          title: 'ゆとりある大きなステージ',
-          body: 'マンハオスパの見どころは、ディープブルーのネオンと多層のガラス手すりが印象的なステージホール。ゆとりある舞台と立体的な照明が、館内の華やかな見せ場をつくります。',
+          "title": "無料で品数豊富なビュッフェレストラン",
+          "body": "マンハオスパでは、豊富なお食事を無料で提供しています。食べたい料理をスタッフにお伝えいただくと、厨房に調理を依頼します。世界各地からのお客様の好みを考えたメニューをご用意しています。"
         },
         {
-          title: '一体型スイートと看板ウォーターベッド',
-          body: '客室は一体型スイート。プレミアムな寝室仕様（壁画調の壁、特大ベッド、ソファ、ランプ）に、ひと筋のドラマチックなスポットライトで照らされた看板の赤いウォーターベッドを組み合わせています。寝室とウォーターベッドは同じ個室に収まり、施術中に部屋を移動する必要はありません。',
+          "title": "セラピストを選ぶ",
+          "body": "現地のスタッフが、その場にいるセラピスト全員をご紹介します。どのセラピストにマッサージを担当してもらうかは、お客様が決められます。施術時間は通常60分です。"
         },
         {
-          title: '60分のマッサージ',
-          body: '60分のマッサージで、日常や旅の疲れをゆっくりとほぐしましょう。照明と音楽はお好みに合わせて調整でき、心地よい空間でくつろげます。',
+          "title": "マッサージの後に",
+          "body": "休憩ラウンジのリクライニングチェアでお休みいただけます。当サイトを通じてご予約いただいたお客様には、ラウンジでの40分間のマッサージを追加で無料提供します。"
         },
         {
-          title: '休憩エリア',
-          body: '施術後は専用の休憩エリアへ。星空のような柔らかな灯りのリクライナーが並ぶ静かな空間でくつろげます。営業は毎日 14:00–翌4:00 で、宿泊はご利用いただけません。退店時はフロントで精算、現金・カード・WeChat Pay・Alipay に対応しています。',
-        },
+          "title": "宿泊休憩、またはお帰り",
+          "body": "マカオの多くのサウナでは、追加料金なしで夜を越して休むことができます。マカオ内の別の場所へ移動する際は、ご連絡いただければ専用車を手配し、目的地までお送りします。"
+        }
       ],
       gallery: [
         {
@@ -1857,33 +1977,37 @@ const ja: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '到着・入店',
-          body: '2026年4月にオープンしたばかりのナンバーナインスパ（玖號水療）へ。マカオ半島・新口岸（皇朝区）の御龍酒店（Royal Dragon Hotel）内にあり、リスボアからもアクセスしやすい立地です。無料送迎をご利用いただければ、初めての方でも迷わず到着できます。マカオ最新の店だけあって設備はすべて真新しく、ゴールドと大理石を基調に、プロ仕様の照明システムを組み合わせた現代的でラグジュアリーなデザインです。',
+          "title": "事前予約・専用車送迎・無料マッサージ",
+          "body": "当サイトを通じてナンバーナインスパをご予約いただき、人数、来店時刻、現在地をお知らせください。専用の高級送迎車を手配します。マカオ内のどのエリアでもお迎えでき、車は10分以内に到着します。"
         },
         {
-          title: '入浴・リラックス',
-          body: '真新しい現代的なバス＆サウナ設備をご利用いただけます。ロッカールームは木目調ロッカーで清潔かつ整然、バスエリアはグリーンのモザイクタイルで彩られ、爽やかで居心地のよい空間です。',
+          "title": "ナンバーナインスパに到着",
+          "body": "到着後は、事前に手配したスタッフがお迎えし、館内へご案内します。お客様専用の番号付きリストバンドをお受け取りください（ご利用料金はすべて、この番号に記録されます）。"
         },
         {
-          title: '無料の飲食',
-          body: '各種フード＆ドリンクを無料でご利用いただけます。多彩で高級志向のメニューにこだわり、お食事も体験全体の大切な一部としてお楽しみいただけます。',
+          "title": "入浴・お着替え",
+          "body": "館内では、皆様に共通の館内着を着用していただきます。ゆったりした服は、くつろぎやすく、マッサージも受けやすくするためです。"
         },
         {
-          title: 'ホール設備',
-          body: 'ホールにはステージ照明とLEDスクリーンを備え、ゴールドの装飾と大理石を組み合わせたモダンな空間が広がります。',
+          "title": "館内設備",
+          "body": "サウナ、スチームルーム、温水・冷水の浴槽、ジェットバスなどの設備を無料でご利用いただけます。"
         },
         {
-          title: 'テーマルームを選ぶ',
-          body: 'ナンバーナインには雰囲気の異なるテーマルームが多彩に揃い、各室それぞれに赤・ピンクパープル・ブルーバイオレットなど独自のムード照明を採用。星空天井と上質な内装が没入感を演出します。一部の部屋には円形の特大ベッドという特徴的なデザインも見られます。',
+          "title": "無料で品数豊富なビュッフェレストラン",
+          "body": "ナンバーナインスパでは、豊富なお食事を無料で提供しています。食べたい料理をスタッフにお伝えいただくと、厨房に調理を依頼します。世界各地からのお客様の好みを考えたメニューをご用意しています。"
         },
         {
-          title: '60分のサービス',
-          body: 'バリ式と日本式の2スタイルからお選びいただけ、東南アジアと日本の手技を融合しています。ナンバーナインは「独自の日本式＋バリの情緒」を売りに、従来の店とは一味違う体験をご提供。',
+          "title": "セラピストを選ぶ",
+          "body": "現地のスタッフが、その場にいるセラピスト全員をご紹介します。どのセラピストにマッサージを担当してもらうかは、お客様が決められます。施術時間は通常60分です。"
         },
         {
-          title: '休憩・宿泊',
-          body: '宿泊（24時間）でゆっくりお休みいただけます。真新しい設備で快適そのもの。新店だけあって当初は客足も少なめで、静かにお過ごしいただけます。料金や予約のご相談は、LINEで問い合わせ（無料送迎つき）が便利です。当サイト経由のお問い合わせで、最新の特別価格をご案内いたします。',
+          "title": "マッサージの後に",
+          "body": "休憩ラウンジのリクライニングチェアでお休みいただけます。当サイトを通じてご予約いただいたお客様には、ラウンジでの40分間のマッサージを追加で無料提供します。"
         },
+        {
+          "title": "宿泊休憩、またはお帰り",
+          "body": "マカオの多くのサウナでは、追加料金なしで夜を越して休むことができます。マカオ内の別の場所へ移動する際は、ご連絡いただければ専用車を手配し、目的地までお送りします。"
+        }
       ],
       gallery: [
         {
@@ -1967,25 +2091,37 @@ const ja: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '到着・受付',
-          body: 'リスボエタ・マカオ（葡京人・コタイ）内のシャンピンスパに到着。館内はヨーロピアン・モダンの内装で、コンテンポラリーな雰囲気。フロントで受付を済ませ、リストバンドを受け取ります。',
+          "title": "事前予約・専用車送迎・無料マッサージ",
+          "body": "当サイトを通じてシャンピンスパをご予約いただき、人数、来店時刻、現在地をお知らせください。専用の高級送迎車を手配します。マカオ内のどのエリアでもお迎えでき、車は10分以内に到着します。"
         },
         {
-          title: '入浴・リラックス',
-          body: '浴室設備は新しく、充実しています。浴槽やサウナは明るく清潔で、従来の店とはまったく異なる雰囲気です。',
+          "title": "シャンピンスパに到着",
+          "body": "到着後は、事前に手配したスタッフがお迎えし、館内へご案内します。お客様専用の番号付きリストバンドをお受け取りください（ご利用料金はすべて、この番号に記録されます）。"
         },
         {
-          title: '無料の食事',
-          body: '各種の食事を無料で楽しめます。ダイニングは清潔で快適、館内全体のモダンなデザインと統一感があります。',
+          "title": "入浴・お着替え",
+          "body": "館内では、皆様に共通の館内着を着用していただきます。ゆったりした服は、くつろぎやすく、マッサージも受けやすくするためです。"
         },
         {
-          title: '客室設備',
-          body: '各部屋に専用の浴槽があり、プライベート性が高いのが特長。',
+          "title": "館内設備",
+          "body": "サウナ、スチームルーム、温水・冷水の浴槽、ジェットバスなどの設備を無料でご利用いただけます。"
         },
         {
-          title: '休憩・宿泊',
-          body: '宿泊（24時間）も可能で、ロビーの無料リクライニングラウンジのほか有料の個室休憩室もあります。少人数制の落ち着いた規模ゆえ客足は少なめで、静かで快適。オフピークは女の子の人数が少ないこともあるため、夜の入場がおすすめです。',
+          "title": "無料で品数豊富なビュッフェレストラン",
+          "body": "シャンピンスパでは、豊富なお食事を無料で提供しています。食べたい料理をスタッフにお伝えいただくと、厨房に調理を依頼します。世界各地からのお客様の好みを考えたメニューをご用意しています。"
         },
+        {
+          "title": "セラピストを選ぶ",
+          "body": "現地のスタッフが、その場にいるセラピスト全員をご紹介します。どのセラピストにマッサージを担当してもらうかは、お客様が決められます。施術時間は通常60分です。"
+        },
+        {
+          "title": "マッサージの後に",
+          "body": "休憩ラウンジのリクライニングチェアでお休みいただけます。当サイトを通じてご予約いただいたお客様には、ラウンジでの40分間のマッサージを追加で無料提供します。"
+        },
+        {
+          "title": "宿泊休憩、またはお帰り",
+          "body": "マカオの多くのサウナでは、追加料金なしで夜を越して休むことができます。マカオ内の別の場所へ移動する際は、ご連絡いただければ専用車を手配し、目的地までお送りします。"
+        }
       ],
       gallery: [
         {
@@ -2072,33 +2208,37 @@ const ja: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '到着・受付',
-          body: 'マジェスティスパに到着。マカオ サウナのなかでも内装の豪華さで随一とされる一軒です。ゴールドと大理石が館内を貫き、ひと目でトップクラスの会員制クラブの風格が感じられます。まずはフロントで受付を済ませ、リストバンドを受け取ります。',
+          "title": "事前予約・専用車送迎・無料マッサージ",
+          "body": "当サイトを通じてマジェスティスパをご予約いただき、人数、来店時刻、現在地をお知らせください。専用の高級送迎車を手配します。マカオ内のどのエリアでもお迎えでき、車は10分以内に到着します。"
         },
         {
-          title: '入浴・リラックス',
-          body: '豪華な入浴設備とサウナを満喫。浴槽はゆったり広く、照明は柔らかで、全体に上品で大らかな空気が流れます。マカオでも屈指のハードウェアを誇るので、ここでの入浴はぜひ時間をかけてじっくりと。',
+          "title": "マジェスティスパに到着",
+          "body": "到着後は、事前に手配したスタッフがお迎えし、館内へご案内します。お客様専用の番号付きリストバンドをお受け取りください（ご利用料金はすべて、この番号に記録されます）。"
         },
         {
-          title: '無料のお食事',
-          body: 'ステーキ、新鮮なフルーツ、よく冷えたビールなどを無料でどうぞ。食材もメニューも豊富で、マジェスティの食事クオリティは業界でも高く評価されています。滞在中は食べ放題・飲み放題です。',
+          "title": "入浴・お着替え",
+          "body": "館内では、皆様に共通の館内着を着用していただきます。ゆったりした服は、くつろぎやすく、マッサージも受けやすくするためです。"
         },
         {
-          title: '広々としたステージ',
-          body: 'ホールでは「景観ライン」形式で各国のセラピストが一列に並び、マッサージを担当するセラピストをその場で選べます。',
+          "title": "館内設備",
+          "body": "サウナ、スチームルーム、温水・冷水の浴槽、ジェットバスなどの設備を無料でご利用いただけます。"
         },
         {
-          title: '料金の確認',
-          body: '料金はMOP 2,799〜MOP 6,699。',
+          "title": "無料で品数豊富なビュッフェレストラン",
+          "body": "マジェスティスパでは、豊富なお食事を無料で提供しています。食べたい料理をスタッフにお伝えいただくと、厨房に調理を依頼します。世界各地からのお客様の好みを考えたメニューをご用意しています。"
         },
         {
-          title: '60分のマッサージ',
-          body: '広々とした客室で60分のマッサージを受けられます。照明や家具が落ち着いた空間を整えています。施術内容と料金は開始前にご確認ください。',
+          "title": "セラピストを選ぶ",
+          "body": "現地のスタッフが、その場にいるセラピスト全員をご紹介します。どのセラピストにマッサージを担当してもらうかは、お客様が決められます。施術時間は通常60分です。"
         },
         {
-          title: '休憩・宿泊',
-          body: 'マジェスティは24時間営業で宿泊OK。ロビーの無料リクライニングラウンジでゆっくり休めるほか、繁忙期は有料の個室休憩室も選べます。無料の食事も揃っており、朝まで快適に過ごせます。',
+          "title": "マッサージの後に",
+          "body": "休憩ラウンジのリクライニングチェアでお休みいただけます。当サイトを通じてご予約いただいたお客様には、ラウンジでの40分間のマッサージを追加で無料提供します。"
         },
+        {
+          "title": "宿泊休憩、またはお帰り",
+          "body": "マカオの多くのサウナでは、追加料金なしで夜を越して休むことができます。マカオ内の別の場所へ移動する際は、ご連絡いただければ専用車を手配し、目的地までお送りします。"
+        }
       ],
       gallery: [
         {
@@ -2167,33 +2307,37 @@ const ja: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '到着・入場',
-          body: 'マカオ半島・新口岸（皇朝区）のグランドエンペラーホテル本館内にあるエクセレントサウナ（極品桑拿）に到着。施設は24時間営業で、セラピストの時間帯は13:00〜05:00です。受付を済ませ、入浴して、静かなブティック型のペースで過ごせます。',
+          "title": "事前予約・専用車送迎・無料マッサージ",
+          "body": "当サイトを通じてエクセレントサウナをご予約いただき、人数、来店時刻、現在地をお知らせください。専用の高級送迎車を手配します。マカオ内のどのエリアでもお迎えでき、車は10分以内に到着します。"
         },
         {
-          title: '入浴・リラックス',
-          body: 'シャワーやサウナでゆっくりと身体を温め、リラックス。エクセレントは比較的静かで落ち着いた環境。客数も多すぎず、大型店のような騒がしさとは無縁です。',
+          "title": "エクセレントサウナに到着",
+          "body": "到着後は、事前に手配したスタッフがお迎えし、館内へご案内します。お客様専用の番号付きリストバンドをお受け取りください（ご利用料金はすべて、この番号に記録されます）。"
         },
         {
-          title: '無料の食事',
-          body: '各種フードを24時間無料で提供。午後でも深夜でも、自分のタイミングで食事を楽しめます。',
+          "title": "入浴・お着替え",
+          "body": "館内では、皆様に共通の館内着を着用していただきます。ゆったりした服は、くつろぎやすく、マッサージも受けやすくするためです。"
         },
         {
-          title: 'マッサージの相談',
-          body: '重点的にほぐしたい部位や好みの力加減を受付に伝え、利用できるマッサージの内容、時間、料金を確認してから申し込みます。',
+          "title": "館内設備",
+          "body": "サウナ、スチームルーム、温水・冷水の浴槽、ジェットバスなどの設備を無料でご利用いただけます。"
         },
         {
-          title: 'ウォーターベッド／テーマルーム',
-          body: 'オフィス、教室、映画館などをモチーフにした内装があり、ウォーターベッドを備えた客室もあります。設備や空き状況を確認して、好みに合う空間を選べます。',
+          "title": "無料で品数豊富なビュッフェレストラン",
+          "body": "エクセレントサウナでは、豊富なお食事を無料で提供しています。食べたい料理をスタッフにお伝えいただくと、厨房に調理を依頼します。世界各地からのお客様の好みを考えたメニューをご用意しています。"
         },
         {
-          title: '60分のマッサージ',
-          body: 'マッサージは約60分で、別途10%のサービス料がかかります。タイ式と上海式のマッサージがあり、施術の内容、力加減、料金は開始前にご確認ください。',
+          "title": "セラピストを選ぶ",
+          "body": "現地のスタッフが、その場にいるセラピスト全員をご紹介します。どのセラピストにマッサージを担当してもらうかは、お客様が決められます。施術時間は通常60分です。"
         },
         {
-          title: '休憩・宿泊',
-          body: '施術後は静かな24時間休憩エリアでひと息。そのままゆっくり宿泊でき、退店するときにフロントで精算します。',
+          "title": "マッサージの後に",
+          "body": "休憩ラウンジのリクライニングチェアでお休みいただけます。当サイトを通じてご予約いただいたお客様には、ラウンジでの40分間のマッサージを追加で無料提供します。"
         },
+        {
+          "title": "宿泊休憩、またはお帰り",
+          "body": "マカオの多くのサウナでは、追加料金なしで夜を越して休むことができます。マカオ内の別の場所へ移動する際は、ご連絡いただければ専用車を手配し、目的地までお送りします。"
+        }
       ],
       gallery: [
         {
@@ -2277,37 +2421,37 @@ const ja: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '到着・チェックイン（アクセス・無料送迎）',
-          body: 'マカオ半島・新口岸エリアで最も新しい高級マカオ サウナ、エンパイアサウナ（巨亨桑拿）に到着。空港やホテルからの無料送迎をご利用いただけるのでアクセスも安心です。ロビーと階段の入口からすでに上質な雰囲気——東洋的な禅のラインとモダンな高級感が調和し、すべてが新装そのもの。フロントで受付を済ませ、コンシェルジュからリストバンドを受け取ります。',
+          "title": "事前予約・専用車送迎・無料マッサージ",
+          "body": "当サイトを通じてエンパイアサウナをご予約いただき、人数、来店時刻、現在地をお知らせください。専用の高級送迎車を手配します。マカオ内のどのエリアでもお迎えでき、車は10分以内に到着します。"
         },
         {
-          title: '入浴・リラックス',
-          body: '看板の大理石バスへ。やわらかな間接照明とゆったりとした空間で、マカオでは珍しいリゾートスパのような静けさが広がります。ウェットエリアの設備はすべて新品で、本格的なサウナ室も完備。館内のハイライトとなる空間です。',
+          "title": "エンパイアサウナに到着",
+          "body": "到着後は、事前に手配したスタッフがお迎えし、館内へご案内します。お客様専用の番号付きリストバンドをお受け取りください（ご利用料金はすべて、この番号に記録されます）。"
         },
         {
-          title: 'ダイニングラウンジ',
-          body: 'ダイニングへ移動し、無料の食事とドリンクをどうぞ。従来のサウナの食堂とは一線を画すホテル級の内装で、静かでプライベート感のある快適な座席をご用意。サービスの前後にゆっくりとお過ごしいただけます。',
+          "title": "入浴・お着替え",
+          "body": "館内では、皆様に共通の館内着を着用していただきます。ゆったりした服は、くつろぎやすく、マッサージも受けやすくするためです。"
         },
         {
-          title: 'マッサージ内容と料金の確認',
-          body: '受付でマッサージの内容、所要時間、料金の内訳を確認し、ご自身の希望に合うものを選びます。参考料金は MOP 2,488～7,388 です。利用前に内容と合計金額をご確認ください。',
+          "title": "館内設備",
+          "body": "サウナ、スチームルーム、温水・冷水の浴槽、ジェットバスなどの設備を無料でご利用いただけます。"
         },
         {
-          title: 'テーマスイートまたはウォーターベッドルーム',
-          body: 'オーダーメイドの間接照明・上質な寝具・ホテル級の装飾を備えた多彩なテーマスイート、または看板のウォーターベッド特別ルームから選択。',
+          "title": "無料で品数豊富なビュッフェレストラン",
+          "body": "エンパイアサウナでは、豊富なお食事を無料で提供しています。食べたい料理をスタッフにお伝えいただくと、厨房に調理を依頼します。世界各地からのお客様の好みを考えたメニューをご用意しています。"
         },
         {
-          title: '60分のマッサージ',
-          body: 'マッサージは60分です。手法や利用の流れは、事前に受付へお問い合わせください。客室には浴槽があり、照明と音響を室内で調整して、好みの落ち着いた環境を整えられます。',
+          "title": "セラピストを選ぶ",
+          "body": "現地のスタッフが、その場にいるセラピスト全員をご紹介します。どのセラピストにマッサージを担当してもらうかは、お客様が決められます。施術時間は通常60分です。"
         },
         {
-          title: '休憩・宿泊（24時間）',
-          body: 'サービス後は専用の休憩エリアへ。照明を落とした静かな空間で、仮眠ではなくしっかり眠るために設計されています。宿泊（24時間）も歓迎で、滞在中はウェットエリア・ダイニング・休憩エリアをいつでも利用できます。',
+          "title": "マッサージの後に",
+          "body": "休憩ラウンジのリクライニングチェアでお休みいただけます。当サイトを通じてご予約いただいたお客様には、ラウンジでの40分間のマッサージを追加で無料提供します。"
         },
         {
-          title: '翌日のチェックアウト',
-          body: 'フロントでチェックアウト。エンパイアサウナは現金・カード・WeChat Pay・Alipay に対応しています。事前にコンシェルジュ（LINEで問い合わせ）からご予約いただければ、当サイト限定特典（無料ミニサービス・無料送迎・入場料無料）もチェックアウト時に正確に精算されます。',
-        },
+          "title": "宿泊休憩、またはお帰り",
+          "body": "マカオの多くのサウナでは、追加料金なしで夜を越して休むことができます。マカオ内の別の場所へ移動する際は、ご連絡いただければ専用車を手配し、目的地までお送りします。"
+        }
       ],
       gallery: [
         {
@@ -2391,33 +2535,37 @@ const ja: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '到着・チェックイン',
-          body: 'イーストキャッスルスパに到着。ここはマカオにおけるテーマルームの元祖です。まずはフロントで受付を済ませ、リストバンドを受け取りましょう。参考料金帯は MOP 2,388〜6,498 で、詳しいメニューは予約時にご確認ください。',
+          "title": "事前予約・専用車送迎・無料マッサージ",
+          "body": "当サイトを通じてイーストキャッスルスパをご予約いただき、人数、来店時刻、現在地をお知らせください。専用の高級送迎車を手配します。マカオ内のどのエリアでもお迎えでき、車は10分以内に到着します。"
         },
         {
-          title: '入浴・リラックス',
-          body: '浴槽やサウナを自分のペースで利用し、入浴や休憩をしながら旅の疲れを癒せます。',
+          "title": "イーストキャッスルスパに到着",
+          "body": "到着後は、事前に手配したスタッフがお迎えし、館内へご案内します。お客様専用の番号付きリストバンドをお受け取りください（ご利用料金はすべて、この番号に記録されます）。"
         },
         {
-          title: '無料の食事',
-          body: '無料の食事と飲み物を用意しています。ダイニングでひと休みしてから、その後の予定をゆっくり決められます。',
+          "title": "入浴・お着替え",
+          "body": "館内では、皆様に共通の館内着を着用していただきます。ゆったりした服は、くつろぎやすく、マッサージも受けやすくするためです。"
         },
         {
-          title: 'マッサージの確認',
-          body: '受付でマッサージの内容、予約可能な時間、客室の空き状況を確認します。利用前に内容、所要時間、料金の内訳を確かめて、ご自身の予定に合わせてお選びください。',
+          "title": "館内設備",
+          "body": "サウナ、スチームルーム、温水・冷水の浴槽、ジェットバスなどの設備を無料でご利用いただけます。"
         },
         {
-          title: '20種類以上の客室デザイン',
-          body: 'イーストキャッスルスパの魅力の一つは、20種類以上の個性ある客室デザインです。内装や雰囲気の異なる部屋から、好みに合った空間でマッサージを楽しめます。',
+          "title": "無料で品数豊富なビュッフェレストラン",
+          "body": "イーストキャッスルスパでは、豊富なお食事を無料で提供しています。食べたい料理をスタッフにお伝えいただくと、厨房に調理を依頼します。世界各地からのお客様の好みを考えたメニューをご用意しています。"
         },
         {
-          title: 'サービス料・税金',
-          body: '別途10%のサービス料と5%の観光税がかかります。',
+          "title": "セラピストを選ぶ",
+          "body": "現地のスタッフが、その場にいるセラピスト全員をご紹介します。どのセラピストにマッサージを担当してもらうかは、お客様が決められます。施術時間は通常60分です。"
         },
         {
-          title: '休憩・宿泊',
-          body: 'ロビーにはリクライニングチェアがあり、宿泊（24時間）も可能です。皇堡の体験の核はテーマルームであって休憩設備ではないため、宿泊時の快適さを最優先するならマジェスティスパ（尊貴水療）をおすすめします。',
+          "title": "マッサージの後に",
+          "body": "休憩ラウンジのリクライニングチェアでお休みいただけます。当サイトを通じてご予約いただいたお客様には、ラウンジでの40分間のマッサージを追加で無料提供します。"
         },
+        {
+          "title": "宿泊休憩、またはお帰り",
+          "body": "マカオの多くのサウナでは、追加料金なしで夜を越して休むことができます。マカオ内の別の場所へ移動する際は、ご連絡いただければ専用車を手配し、目的地までお送りします。"
+        }
       ],
       gallery: [
         {
@@ -2487,33 +2635,37 @@ const ja: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '到着・チェックイン',
-          body: '凱旋門酒店（L\'Arc Hotel）5階のヴィクトリアサウナに到着。マカオ半島・新口岸（皇朝区）の中心に位置し、MGM・ウィン・グランドリスボアからも近いアクセスのよい立地です。フロントで受付を済ませてリストバンドを受け取りましょう。館内全体が静かでプライベートな雰囲気に包まれています。',
+          "title": "事前予約・専用車送迎・無料マッサージ",
+          "body": "当サイトを通じてヴィクトリアサウナをご予約いただき、人数、来店時刻、現在地をお知らせください。専用の高級送迎車を手配します。マカオ内のどのエリアでもお迎えでき、車は10分以内に到着します。"
         },
         {
-          title: '入浴・リラックス',
-          body: '清潔で落ち着いた空間で、浴場設備とサウナを満喫。ヴィクトリアはあえて客数を抑えているため、混み合う時間帯でも窮屈さを感じません。',
+          "title": "ヴィクトリアサウナに到着",
+          "body": "到着後は、事前に手配したスタッフがお迎えし、館内へご案内します。お客様専用の番号付きリストバンドをお受け取りください（ご利用料金はすべて、この番号に記録されます）。"
         },
         {
-          title: '無料のお食事',
-          body: '各種お食事を無料で楽しめます。大型店のような騒がしさがなく、静かで快適な空間でゆっくり過ごせます。',
+          "title": "入浴・お着替え",
+          "body": "館内では、皆様に共通の館内着を着用していただきます。ゆったりした服は、くつろぎやすく、マッサージも受けやすくするためです。"
         },
         {
-          title: '気軽な女の子選び',
-          body: 'ヴィクトリアには決まったショータイム（セレクションショー）はありません。マネージャーに好みを伝えれば、ご希望に合った女の子を手配してもらえます。すべてあなたのペースで進み、急かされることもプレッシャーもない、マカオで最もリラックスできる選び方です。',
+          "title": "館内設備",
+          "body": "サウナ、スチームルーム、温水・冷水の浴槽、ジェットバスなどの設備を無料でご利用いただけます。"
         },
         {
-          title: '女の子を選ぶ',
-          body: '在籍する女の子は中国・ベトナム・日本・韓国などの多国籍。ヴィクトリアはきめ細やかで丁寧なサービスに定評があり、口コミでも全体のサービスの質が安定していると評判です。料金・値段はMOP 2,298〜MOP 6,998で、別途10%のサービス料がかかります。',
+          "title": "無料で品数豊富なビュッフェレストラン",
+          "body": "ヴィクトリアサウナでは、豊富なお食事を無料で提供しています。食べたい料理をスタッフにお伝えいただくと、厨房に調理を依頼します。世界各地からのお客様の好みを考えたメニューをご用意しています。"
         },
         {
-          title: '60分のサービス',
-          body: '個室に入り、60分の1対1サービスを楽しみます。看板のウォーターベッドルームは静かでプライベート。オーシャニックロイヤルに匹敵するサービスを、よりお手頃な料金で味わえます。',
+          "title": "セラピストを選ぶ",
+          "body": "現地のスタッフが、その場にいるセラピスト全員をご紹介します。どのセラピストにマッサージを担当してもらうかは、お客様が決められます。施術時間は通常60分です。"
         },
         {
-          title: '休憩・宿泊',
-          body: '静かでプライベートな環境は、マカオでもゆっくり休んで宿泊するのに最適な一軒。リクライニングチェアの並ぶラウンジでゆっくり休め、客数が少なく騒音も控えめ。静けさとプライベート感を求める方にぴったりです。',
+          "title": "マッサージの後に",
+          "body": "休憩ラウンジのリクライニングチェアでお休みいただけます。当サイトを通じてご予約いただいたお客様には、ラウンジでの40分間のマッサージを追加で無料提供します。"
         },
+        {
+          "title": "宿泊休憩、またはお帰り",
+          "body": "マカオの多くのサウナでは、追加料金なしで夜を越して休むことができます。マカオ内の別の場所へ移動する際は、ご連絡いただければ専用車を手配し、目的地までお送りします。"
+        }
       ],
       gallery: [
         {
@@ -2581,25 +2733,37 @@ const ja: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '営業休止中',
-          body: 'MCLUBは現在営業を休止しており、来店や予約を受け付けていません。以下は過去の設備に関する情報です。',
+          "title": "事前予約・専用車送迎・無料マッサージ",
+          "body": "当サイトを通じてエムクラブをご予約いただき、人数、来店時刻、現在地をお知らせください。専用の高級送迎車を手配します。マカオ内のどのエリアでもお迎えでき、車は10分以内に到着します。"
         },
         {
-          title: '施設と客室',
-          body: '東方皇堡水療の姉妹店で、かつては異なるデザインの客室、KTVルーム、入浴設備を備えていました。',
+          "title": "エムクラブに到着",
+          "body": "到着後は、事前に手配したスタッフがお迎えし、館内へご案内します。お客様専用の番号付きリストバンドをお受け取りください（ご利用料金はすべて、この番号に記録されます）。"
         },
         {
-          title: '入浴・飲食設備',
-          body: '近未来的な内装の浴場、サウナ、飲食スペースがありました。現在は利用できません。',
+          "title": "入浴・お着替え",
+          "body": "館内では、皆様に共通の館内着を着用していただきます。ゆったりした服は、くつろぎやすく、マッサージも受けやすくするためです。"
         },
         {
-          title: '過去の料金情報',
-          body: '営業当時は別途10%のサービス料がかかりました。過去の記録であり、現在の料金案内や予約プランではありません。',
+          "title": "館内設備",
+          "body": "サウナ、スチームルーム、温水・冷水の浴槽、ジェットバスなどの設備を無料でご利用いただけます。"
         },
         {
-          title: '休憩設備',
-          body: 'かつてロビーにリクライニング休憩スペースがありました。休業中は宿泊できません。営業再開については施設の最新発表をご確認ください。',
+          "title": "無料で品数豊富なビュッフェレストラン",
+          "body": "エムクラブでは、豊富なお食事を無料で提供しています。食べたい料理をスタッフにお伝えいただくと、厨房に調理を依頼します。世界各地からのお客様の好みを考えたメニューをご用意しています。"
         },
+        {
+          "title": "セラピストを選ぶ",
+          "body": "現地のスタッフが、その場にいるセラピスト全員をご紹介します。どのセラピストにマッサージを担当してもらうかは、お客様が決められます。施術時間は通常60分です。"
+        },
+        {
+          "title": "マッサージの後に",
+          "body": "休憩ラウンジのリクライニングチェアでお休みいただけます。当サイトを通じてご予約いただいたお客様には、ラウンジでの40分間のマッサージを追加で無料提供します。"
+        },
+        {
+          "title": "宿泊休憩、またはお帰り",
+          "body": "マカオの多くのサウナでは、追加料金なしで夜を越して休むことができます。マカオ内の別の場所へ移動する際は、ご連絡いただければ専用車を手配し、目的地までお送りします。"
+        }
       ],
       gallery: [
         {
@@ -2697,25 +2861,37 @@ const ja: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '営業休止中',
-          body: '壹號桑拿は現在営業を休止しており、来店や予約を受け付けていません。以下は過去の設備情報です。',
+          "title": "事前予約・専用車送迎・無料マッサージ",
+          "body": "当サイトを通じてナンバーワンサウナをご予約いただき、人数、来店時刻、現在地をお知らせください。専用の高級送迎車を手配します。マカオ内のどのエリアでもお迎えでき、車は10分以内に到着します。"
         },
         {
-          title: '入浴・更衣設備',
-          body: 'かつては広い更衣室、ロッカー、大型ジャグジー、ドライサウナ、スチームサウナを備えていました。',
+          "title": "ナンバーワンサウナに到着",
+          "body": "到着後は、事前に手配したスタッフがお迎えし、館内へご案内します。お客様専用の番号付きリストバンドをお受け取りください（ご利用料金はすべて、この番号に記録されます）。"
         },
         {
-          title: '飲食スペース',
-          body: '以前は広いダイニングでステーキ、炒飯、麺類、果物、飲み物などを提供していました。現在は飲食サービスを行っていません。',
+          "title": "入浴・お着替え",
+          "body": "館内では、皆様に共通の館内着を着用していただきます。ゆったりした服は、くつろぎやすく、マッサージも受けやすくするためです。"
         },
         {
-          title: '過去の料金',
-          body: '記録上の過去の料金帯は MOP 2,199～7,699 でした。現在の料金案内ではなく、休業中は予約やサービスを受け付けていません。',
+          "title": "館内設備",
+          "body": "サウナ、スチームルーム、温水・冷水の浴槽、ジェットバスなどの設備を無料でご利用いただけます。"
         },
         {
-          title: '休憩設備',
-          body: 'かつてリクライニング休憩スペースがありました。休業中は宿泊できません。営業再開については施設の最新発表をご確認ください。',
+          "title": "無料で品数豊富なビュッフェレストラン",
+          "body": "ナンバーワンサウナでは、豊富なお食事を無料で提供しています。食べたい料理をスタッフにお伝えいただくと、厨房に調理を依頼します。世界各地からのお客様の好みを考えたメニューをご用意しています。"
         },
+        {
+          "title": "セラピストを選ぶ",
+          "body": "現地のスタッフが、その場にいるセラピスト全員をご紹介します。どのセラピストにマッサージを担当してもらうかは、お客様が決められます。施術時間は通常60分です。"
+        },
+        {
+          "title": "マッサージの後に",
+          "body": "休憩ラウンジのリクライニングチェアでお休みいただけます。当サイトを通じてご予約いただいたお客様には、ラウンジでの40分間のマッサージを追加で無料提供します。"
+        },
+        {
+          "title": "宿泊休憩、またはお帰り",
+          "body": "マカオの多くのサウナでは、追加料金なしで夜を越して休むことができます。マカオ内の別の場所へ移動する際は、ご連絡いただければ専用車を手配し、目的地までお送りします。"
+        }
       ],
       gallery: [
         {
@@ -2797,25 +2973,37 @@ const ja: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '営業休止中',
-          body: '豪門桑拿は現在営業を休止しており、来店や予約を受け付けていません。以下は過去の設備に関する記録です。',
+          "title": "事前予約・専用車送迎・無料マッサージ",
+          "body": "当サイトを通じてファミリアノブレをご予約いただき、人数、来店時刻、現在地をお知らせください。専用の高級送迎車を手配します。マカオ内のどのエリアでもお迎えでき、車は10分以内に到着します。"
         },
         {
-          title: '入浴・更衣設備',
-          body: 'かつては広い更衣室、ロッカー、浴槽、サウナ室があり、入浴、飲食、休憩の各エリアに分かれていました。',
+          "title": "ファミリアノブレに到着",
+          "body": "到着後は、事前に手配したスタッフがお迎えし、館内へご案内します。お客様専用の番号付きリストバンドをお受け取りください（ご利用料金はすべて、この番号に記録されます）。"
         },
         {
-          title: '飲食・客室設備',
-          body: '以前はステーキ、飲み物、温かい料理を提供し、複数の客室も備えていました。現在は飲食・客室設備を利用できません。',
+          "title": "入浴・お着替え",
+          "body": "館内では、皆様に共通の館内着を着用していただきます。ゆったりした服は、くつろぎやすく、マッサージも受けやすくするためです。"
         },
         {
-          title: '過去の料金',
-          body: '記録上の過去の料金帯は MOP 2,388～6,988 で、当時はサービス料を徴収していませんでした。過去の記録であり、現在の料金案内ではありません。',
+          "title": "館内設備",
+          "body": "サウナ、スチームルーム、温水・冷水の浴槽、ジェットバスなどの設備を無料でご利用いただけます。"
         },
         {
-          title: '休憩設備',
-          body: 'かつて休憩エリアには間隔を空けて複数のリクライニングチェアを配置していました。休業中は宿泊できません。営業再開については施設の最新発表をご確認ください。',
+          "title": "無料で品数豊富なビュッフェレストラン",
+          "body": "ファミリアノブレでは、豊富なお食事を無料で提供しています。食べたい料理をスタッフにお伝えいただくと、厨房に調理を依頼します。世界各地からのお客様の好みを考えたメニューをご用意しています。"
         },
+        {
+          "title": "セラピストを選ぶ",
+          "body": "現地のスタッフが、その場にいるセラピスト全員をご紹介します。どのセラピストにマッサージを担当してもらうかは、お客様が決められます。施術時間は通常60分です。"
+        },
+        {
+          "title": "マッサージの後に",
+          "body": "休憩ラウンジのリクライニングチェアでお休みいただけます。当サイトを通じてご予約いただいたお客様には、ラウンジでの40分間のマッサージを追加で無料提供します。"
+        },
+        {
+          "title": "宿泊休憩、またはお帰り",
+          "body": "マカオの多くのサウナでは、追加料金なしで夜を越して休むことができます。マカオ内の別の場所へ移動する際は、ご連絡いただければ専用車を手配し、目的地までお送りします。"
+        }
       ],
       gallery: [
         {
@@ -2901,17 +3089,37 @@ const ja: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '現在の営業状況を確認',
-          body: 'オーシャニック・ロイヤル・スパは現在一時休業中で、利用および予約は承っていません。予定を立てる前にお問い合わせください。',
+          "title": "事前予約・専用車送迎・無料マッサージ",
+          "body": "当サイトを通じてオーシャニック・ロイヤル・スパをご予約いただき、人数、来店時刻、現在地をお知らせください。専用の高級送迎車を手配します。マカオ内のどのエリアでもお迎えでき、車は10分以内に到着します。"
         },
         {
-          title: '代わりの店舗を選ぶ',
-          body: 'タイパかマカオ半島か、テーマルーム、24時間営業、宿泊ラウンジなどのご希望をお知らせいただければ、営業中の店舗をご案内します。',
+          "title": "オーシャニック・ロイヤル・スパに到着",
+          "body": "到着後は、事前に手配したスタッフがお迎えし、館内へご案内します。お客様専用の番号付きリストバンドをお受け取りください（ご利用料金はすべて、この番号に記録されます）。"
         },
         {
-          title: '再開後に改めて確認',
-          body: '営業再開後は、その日の料金、在籍状況、部屋の案内を改めてご確認ください。店舗のスケジュールによって変動する場合があります。',
+          "title": "入浴・お着替え",
+          "body": "館内では、皆様に共通の館内着を着用していただきます。ゆったりした服は、くつろぎやすく、マッサージも受けやすくするためです。"
         },
+        {
+          "title": "館内設備",
+          "body": "サウナ、スチームルーム、温水・冷水の浴槽、ジェットバスなどの設備を無料でご利用いただけます。"
+        },
+        {
+          "title": "無料で品数豊富なビュッフェレストラン",
+          "body": "オーシャニック・ロイヤル・スパでは、豊富なお食事を無料で提供しています。食べたい料理をスタッフにお伝えいただくと、厨房に調理を依頼します。世界各地からのお客様の好みを考えたメニューをご用意しています。"
+        },
+        {
+          "title": "セラピストを選ぶ",
+          "body": "現地のスタッフが、その場にいるセラピスト全員をご紹介します。どのセラピストにマッサージを担当してもらうかは、お客様が決められます。施術時間は通常60分です。"
+        },
+        {
+          "title": "マッサージの後に",
+          "body": "休憩ラウンジのリクライニングチェアでお休みいただけます。当サイトを通じてご予約いただいたお客様には、ラウンジでの40分間のマッサージを追加で無料提供します。"
+        },
+        {
+          "title": "宿泊休憩、またはお帰り",
+          "body": "マカオの多くのサウナでは、追加料金なしで夜を越して休むことができます。マカオ内の別の場所へ移動する際は、ご連絡いただければ専用車を手配し、目的地までお送りします。"
+        }
       ],
       gallery: [
         {
@@ -3064,21 +3272,37 @@ const zhTW: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '預約包廂',
-          body: '透過我們預約，請告知人數與時段。開幕初期建議提前確認包廂的空位。',
+          "title": "提前預約，專車接送，贈送按摩：",
+          "body": "通過我們預約利澳薈，說明人數，到場時間，以及所在的位置，我們將安排專屬的豪華商務車進行接送，澳門境內任何區域都可以接送，10分鐘內抵達。"
         },
         {
-          title: '抵達利澳酒店',
-          body: '前往新口岸利澳酒店 3 樓，各口岸與主要酒店短程直達，亦可由我們安排免費私人專車接送。到場報預約名字即有專人帶位。',
+          "title": "抵達利澳薈",
+          "body": "抵達後，現場我們已經安排人員接待，會接待你們進入桑拿房，領取您的專屬號碼手牌（你的所有消費都會記錄在這個號碼當中）。"
         },
         {
-          title: '暢玩至凌晨',
-          body: '營業至凌晨 4 時。不設過夜——散場後新口岸截車方便，也可預約回程專車。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要統一服飾，寬鬆的衣服是為了更好的放鬆以及更好的進行按摩。"
         },
         {
-          title: '回程安排',
-          body: '透過我們預約可安排免費私人專車接送（非共乘）。如行程需要過夜，預約時可向我們查詢，專人會建議合適的安排。',
+          "title": "內部設施",
+          "body": "可以免費的享用設施（三溫暖汗蒸，冷熱水池，按摩浴缸）"
         },
+        {
+          "title": "免費、豐富的自助餐廳",
+          "body": "利澳薈：提供豐富的餐飲，這是免費的，可以告知服務員，你想吃什麼，她會安排廚房進行烹飪，值得一提的是，桑拿房的菜品顧及了全球各地的人。"
+        },
+        {
+          "title": "挑選技師",
+          "body": "現場的工作人員，會介紹現場所有的技師，由你決定那個技師為您進行按摩，一般為60分鐘。"
+        },
+        {
+          "title": "按摩結束",
+          "body": "可以在休息大廳的躺椅進行休息，由於您是通過我們進行預約，因此我們將再贈送40分鐘的大廳按摩。"
+        },
+        {
+          "title": "過夜或回程",
+          "body": "澳門的桑拿房基本上都通過過夜留宿服務，這個不需要額外加收費用，如果你需要回澳門其他的地方，請你聯繫我們，我們將安排專車送你前往！"
+        }
       ],
       gallery: [
         {
@@ -3152,37 +3376,37 @@ const zhTW: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵達君怡酒店',
-          body: '曼濠水療位於氹仔君怡酒店——距離路氹城僅5分鐘車程，是氹仔區最便捷的最新奢華桑拿選擇。大堂以雲石背景上的金色皇冠 MH 標誌迎賓；前台登記後，由禮賓接待領取手牌。',
+          "title": "提前預約，專車接送，贈送按摩：",
+          "body": "通過我們預約曼濠水療，說明人數，到場時間，以及所在的位置，我們將安排專屬的豪華商務車進行接送，澳門境內任何區域都可以接送，10分鐘內抵達。"
         },
         {
-          title: '奢華更衣室',
-          body: '踏入更衣區——卡拉拉雲石主牆面、金色搭扣訂製木櫃、軟墊長椅。所有硬件貫徹皇者奢華格調而非實用主義設計，預示後續體驗的水準。',
+          "title": "抵達曼濠水療",
+          "body": "抵達後，現場我們已經安排人員接待，會接待你們進入桑拿房，領取您的專屬號碼手牌（你的所有消費都會記錄在這個號碼當中）。"
         },
         {
-          title: '沐浴與濕區',
-          body: '前往沐浴區，採用深色馬賽克瓷磚與綠紋雲石搭配，配備多個沖涼位置及獨立泡池。整個濕區全新打造，空間寬敞，適合服務前從容浸泡放鬆。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要統一服飾，寬鬆的衣服是為了更好的放鬆以及更好的進行按摩。"
         },
         {
-          title: '用餐廳',
-          body: '於雲石桌面用餐廳享用免費餐飲——靜雅的酒店級座椅配私人酒吧氛圍，適合在服務前後慢慢享受。',
+          "title": "內部設施",
+          "body": "可以免費的享用設施（三溫暖汗蒸，冷熱水池，按摩浴缸）"
         },
         {
-          title: '超大的舞台',
-          body: '招牌賣點是寬敞的舞台大廳：多層玻璃欄杆配上深藍霓虹燈光，形成鮮明的視覺層次。宏大的舞台與燈光設計相互呼應，成為曼濠館內引人注目的焦點。',
+          "title": "免費、豐富的自助餐廳",
+          "body": "曼濠水療：提供豐富的餐飲，這是免費的，可以告知服務員，你想吃什麼，她會安排廚房進行烹飪，值得一提的是，桑拿房的菜品顧及了全球各地的人。"
         },
         {
-          title: '整合式套房與招牌水床',
-          body: '客房採用整合式設計——奢華睡房配置（壁畫牆面、超大床、沙發、檯燈）結合招牌紅色水床及戲劇性聚光燈效果。睡房與水床設於同一私密房間，服務期間無需轉移房間。',
+          "title": "挑選技師",
+          "body": "現場的工作人員，會介紹現場所有的技師，由你決定那個技師為您進行按摩，一般為60分鐘。"
         },
         {
-          title: '60分鐘按摩',
-          body: '以 60 分鐘按摩放慢步調，舒緩旅途與日常的疲憊。燈光和音樂可按喜好調整，讓您在舒適的氛圍中，安心享受放鬆時光。',
+          "title": "按摩結束",
+          "body": "可以在休息大廳的躺椅進行休息，由於您是通過我們進行預約，因此我們將再贈送40分鐘的大廳按摩。"
         },
         {
-          title: '休息區',
-          body: '前往專屬星空休息區——光線柔和、配備奢華躺椅，讓您於服務後放鬆。營業時間 14:00–04:00，暫不設過夜留宿。離場時於前台結算，現金、信用卡、微信支付及支付寶均可使用。',
-        },
+          "title": "過夜或回程",
+          "body": "澳門的桑拿房基本上都通過過夜留宿服務，這個不需要額外加收費用，如果你需要回澳門其他的地方，請你聯繫我們，我們將安排專車送你前往！"
+        }
       ],
       gallery: [
         {
@@ -3270,33 +3494,37 @@ const zhTW: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵達入場',
-          body: '抵達2026年4月全新開業的玖號水療，位於澳門市中心御龍酒店內。作為全澳最新場所，所有設施均為全新狀態，整體設計走現代奢華路線，金色與大理石元素搭配專業燈光系統。',
+          "title": "提前預約，專車接送，贈送按摩：",
+          "body": "通過我們預約玖號水療，說明人數，到場時間，以及所在的位置，我們將安排專屬的豪華商務車進行接送，澳門境內任何區域都可以接送，10分鐘內抵達。"
         },
         {
-          title: '沐浴放鬆',
-          body: '享用全新裝修的現代化沐浴及桑拿設施，設備簇新。更衣室採用木質儲物櫃設計，整潔有序；沐浴區以綠色馬賽克瓷磚裝飾，環境清新。',
+          "title": "抵達玖號水療",
+          "body": "抵達後，現場我們已經安排人員接待，會接待你們進入桑拿房，領取您的專屬號碼手牌（你的所有消費都會記錄在這個號碼當中）。"
         },
         {
-          title: '免費餐飲',
-          body: '免費享用各式餐飲服務，場所強調多樣化的高端餐飲選擇，將用餐體驗納入整體享受的一部分。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要統一服飾，寬鬆的衣服是為了更好的放鬆以及更好的進行按摩。"
         },
         {
-          title: '大廳設施',
-          body: '大廳配備舞台燈光及 LED 螢幕，配合金色與大理石裝潢，呈現鮮明的現代風格。',
+          "title": "內部設施",
+          "body": "可以免費的享用設施（三溫暖汗蒸，冷熱水池，按摩浴缸）"
         },
         {
-          title: '選擇主題房間',
-          body: '玖號設有多款氛圍主題房間，每間房都配備獨特的氛圍燈光——紅色、粉紫色、藍紫色等不同色調，搭配星空天花及精緻裝潢，營造沉浸式體驗。圓形大床為部分房間的特色設計。',
+          "title": "免費、豐富的自助餐廳",
+          "body": "玖號水療：提供豐富的餐飲，這是免費的，可以告知服務員，你想吃什麼，她會安排廚房進行烹飪，值得一提的是，桑拿房的菜品顧及了全球各地的人。"
         },
         {
-          title: '60分鐘服務',
-          body: '提供巴厘島式及日式按摩兩種風格選擇，結合東南亞與日本的按摩手法。玖號以「獨創日式+巴厘島風情」為賣點，服務體驗與傳統場所有所不同。',
+          "title": "挑選技師",
+          "body": "現場的工作人員，會介紹現場所有的技師，由你決定那個技師為您進行按摩，一般為60分鐘。"
         },
         {
-          title: '休息過夜',
-          body: '可過夜休息，全新設施確保舒適度。作為新場，初期客流量較少，環境安靜。透過我們預約可獲取最新優惠價格。',
+          "title": "按摩結束",
+          "body": "可以在休息大廳的躺椅進行休息，由於您是通過我們進行預約，因此我們將再贈送40分鐘的大廳按摩。"
         },
+        {
+          "title": "過夜或回程",
+          "body": "澳門的桑拿房基本上都通過過夜留宿服務，這個不需要額外加收費用，如果你需要回澳門其他的地方，請你聯繫我們，我們將安排專車送你前往！"
+        }
       ],
       gallery: [
         {
@@ -3380,25 +3608,37 @@ const zhTW: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵達入場',
-          body: '抵達尚品國際水療，位於葡京人酒店內（路氹）。整體裝修採用歐式現代風格，富當代設計感。前台登記後領取手牌。',
+          "title": "提前預約，專車接送，贈送按摩：",
+          "body": "通過我們預約尚品國際水療，說明人數，到場時間，以及所在的位置，我們將安排專屬的豪華商務車進行接送，澳門境內任何區域都可以接送，10分鐘內抵達。"
         },
         {
-          title: '沐浴放鬆',
-          body: '沐浴設施簇新，設備完善。浴池及桑拿環境明亮整潔，與傳統場所風格截然不同。',
+          "title": "抵達尚品國際水療",
+          "body": "抵達後，現場我們已經安排人員接待，會接待你們進入桑拿房，領取您的專屬號碼手牌（你的所有消費都會記錄在這個號碼當中）。"
         },
         {
-          title: '免費餐飲',
-          body: '免費享用各式餐飲，餐區環境舒適整潔，與場所整體的現代設計風格一致。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要統一服飾，寬鬆的衣服是為了更好的放鬆以及更好的進行按摩。"
         },
         {
-          title: '客房設施',
-          body: '每間房間均設有獨立浴缸，私密度高。',
+          "title": "內部設施",
+          "body": "可以免費的享用設施（三溫暖汗蒸，冷熱水池，按摩浴缸）"
         },
         {
-          title: '休息過夜',
-          body: '可過夜休息，大堂設免費躺椅休息區，另有付費獨立休息房；因場所規模精品化，客流量較少，環境安靜舒適。非高峰時段技師數量可能較少，建議晚間入場。',
+          "title": "免費、豐富的自助餐廳",
+          "body": "尚品國際水療：提供豐富的餐飲，這是免費的，可以告知服務員，你想吃什麼，她會安排廚房進行烹飪，值得一提的是，桑拿房的菜品顧及了全球各地的人。"
         },
+        {
+          "title": "挑選技師",
+          "body": "現場的工作人員，會介紹現場所有的技師，由你決定那個技師為您進行按摩，一般為60分鐘。"
+        },
+        {
+          "title": "按摩結束",
+          "body": "可以在休息大廳的躺椅進行休息，由於您是通過我們進行預約，因此我們將再贈送40分鐘的大廳按摩。"
+        },
+        {
+          "title": "過夜或回程",
+          "body": "澳門的桑拿房基本上都通過過夜留宿服務，這個不需要額外加收費用，如果你需要回澳門其他的地方，請你聯繫我們，我們將安排專車送你前往！"
+        }
       ],
       gallery: [
         {
@@ -3485,33 +3725,37 @@ const zhTW: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵達入場',
-          body: '抵達尊貴水療，是全澳裝修最為豪華的桑拿場所。金色與大理石元素貫穿全場，第一眼即感受到頂級會所的氣派。前台登記後領取手牌。',
+          "title": "提前預約，專車接送，贈送按摩：",
+          "body": "通過我們預約尊貴水療，說明人數，到場時間，以及所在的位置，我們將安排專屬的豪華商務車進行接送，澳門境內任何區域都可以接送，10分鐘內抵達。"
         },
         {
-          title: '沐浴放鬆',
-          body: '享用豪華沐浴設施及桑拿，浴池寬敞、燈光柔和，整體環境優雅大氣。建議花時間好好享受這裡的沐浴體驗，是全澳硬件配置最頂級的場所。',
+          "title": "抵達尊貴水療",
+          "body": "抵達後，現場我們已經安排人員接待，會接待你們進入桑拿房，領取您的專屬號碼手牌（你的所有消費都會記錄在這個號碼當中）。"
         },
         {
-          title: '免費餐飲',
-          body: '免費享用牛排、新鮮水果、凍啤酒等餐飲，食材及菜式選擇豐富。尊貴的餐飲品質在業界備受讚譽，全程無限量供應。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要統一服飾，寬鬆的衣服是為了更好的放鬆以及更好的進行按摩。"
         },
         {
-          title: '超大的舞台',
-          body: '大廳「景觀線」形式——多國籍技師排列成線，由你現場決定，由誰來為你提供按摩！',
+          "title": "內部設施",
+          "body": "可以免費的享用設施（三溫暖汗蒸，冷熱水池，按摩浴缸）"
         },
         {
-          title: '確認價格',
-          body: '價格區間 MOP 2,799 至 MOP 6,699。',
+          "title": "免費、豐富的自助餐廳",
+          "body": "尊貴水療：提供豐富的餐飲，這是免費的，可以告知服務員，你想吃什麼，她會安排廚房進行烹飪，值得一提的是，桑拿房的菜品顧及了全球各地的人。"
         },
         {
-          title: '60分鐘按摩',
-          body: '在寬敞舒適的房間享受 60 分鐘按摩，柔和燈光與精緻傢俱營造放鬆氛圍。開始前請確認按摩項目與費用。',
+          "title": "挑選技師",
+          "body": "現場的工作人員，會介紹現場所有的技師，由你決定那個技師為您進行按摩，一般為60分鐘。"
         },
         {
-          title: '休息過夜',
-          body: '尊貴 24 小時營業、可過夜——大堂設免費躺椅休息區，旺季另有付費獨立休息房可選，配合免費餐飲，是舒適過夜的選擇。',
+          "title": "按摩結束",
+          "body": "可以在休息大廳的躺椅進行休息，由於您是通過我們進行預約，因此我們將再贈送40分鐘的大廳按摩。"
         },
+        {
+          "title": "過夜或回程",
+          "body": "澳門的桑拿房基本上都通過過夜留宿服務，這個不需要額外加收費用，如果你需要回澳門其他的地方，請你聯繫我們，我們將安排專車送你前往！"
+        }
       ],
       gallery: [
         {
@@ -3585,33 +3829,37 @@ const zhTW: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵達入場',
-          body: '抵達位於英皇娛樂酒店本館內的極品桑拿。會所 24 小時營業，技師時段為 13:00 至 05:00；前台登記後先沐浴，再按自己的節奏享受精品型場館的安靜氛圍。',
+          "title": "提前預約，專車接送，贈送按摩：",
+          "body": "通過我們預約極品桑拿，說明人數，到場時間，以及所在的位置，我們將安排專屬的豪華商務車進行接送，澳門境內任何區域都可以接送，10分鐘內抵達。"
         },
         {
-          title: '沐浴放鬆',
-          body: '享用沐浴設施及桑拿放鬆身心。極品的環境相對安靜清幽，客流量較少，不會有大型場所的嘈雜感。',
+          "title": "抵達極品桑拿",
+          "body": "抵達後，現場我們已經安排人員接待，會接待你們進入桑拿房，領取您的專屬號碼手牌（你的所有消費都會記錄在這個號碼當中）。"
         },
         {
-          title: '免費餐飲',
-          body: '24 小時免費享用各式餐飲，無論下午或深夜入場，都可按自己的時間用餐。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要統一服飾，寬鬆的衣服是為了更好的放鬆以及更好的進行按摩。"
         },
         {
-          title: '了解按摩安排',
-          body: '向接待人員說明希望放鬆的部位及按摩力度，了解可選項目、時長與收費後，再確認適合自己的安排。',
+          "title": "內部設施",
+          "body": "可以免費的享用設施（三溫暖汗蒸，冷熱水池，按摩浴缸）"
         },
         {
-          title: '水床或主題房間',
-          body: '房間設計涵蓋辦公室、教室、影院等不同風格，另有配備水床的房型。可先了解房間設施及供應情況，再選擇適合自己的空間。',
+          "title": "免費、豐富的自助餐廳",
+          "body": "極品桑拿：提供豐富的餐飲，這是免費的，可以告知服務員，你想吃什麼，她會安排廚房進行烹飪，值得一提的是，桑拿房的菜品顧及了全球各地的人。"
         },
         {
-          title: '60分鐘按摩',
-          body: '按摩時間約 60 分鐘，另收 10% 服務費。場內提供泰式及上海式按摩，具體手法、力度與費用請於開始前確認。',
+          "title": "挑選技師",
+          "body": "現場的工作人員，會介紹現場所有的技師，由你決定那個技師為您進行按摩，一般為60分鐘。"
         },
         {
-          title: '休息過夜',
-          body: '服務後可在安靜舒適的 24 小時休息區放鬆，也可按自己的節奏留宿過夜，離場前於前台結算即可。',
+          "title": "按摩結束",
+          "body": "可以在休息大廳的躺椅進行休息，由於您是通過我們進行預約，因此我們將再贈送40分鐘的大廳按摩。"
         },
+        {
+          "title": "過夜或回程",
+          "body": "澳門的桑拿房基本上都通過過夜留宿服務，這個不需要額外加收費用，如果你需要回澳門其他的地方，請你聯繫我們，我們將安排專車送你前往！"
+        }
       ],
       gallery: [
         {
@@ -3700,37 +3948,37 @@ const zhTW: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵達入場',
-          body: '抵達巨亨桑拿，澳門半島最新頂級桑拿會所。大堂與樓梯入口已揭示全場格調——東方禪意線條配現代奢華裝潢，所有設施均為全新狀態。前台登記後，由禮賓接待領取手牌。',
+          "title": "提前預約，專車接送，贈送按摩：",
+          "body": "通過我們預約巨亨桑拿，說明人數，到場時間，以及所在的位置，我們將安排專屬的豪華商務車進行接送，澳門境內任何區域都可以接送，10分鐘內抵達。"
         },
         {
-          title: '沐浴放鬆',
-          body: '踏入招牌大理石浴池——柔和氛圍燈光、寬敞空間，整體靜謐氛圍媲美度假村級水療，在全澳桑拿中相當罕見。整個濕區設施全新打造，包括完整桑拿房，是場內的視覺核心。',
+          "title": "抵達巨亨桑拿",
+          "body": "抵達後，現場我們已經安排人員接待，會接待你們進入桑拿房，領取您的專屬號碼手牌（你的所有消費都會記錄在這個號碼當中）。"
         },
         {
-          title: '用餐廳',
-          body: '前往用餐廳享用免費餐飲。場所裝潢採用酒店級格調，告別傳統桑拿食堂的氣氛，環境靜雅私密、配備舒適座椅，適合在服務前後從容享用。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要統一服飾，寬鬆的衣服是為了更好的放鬆以及更好的進行按摩。"
         },
         {
-          title: '確認按摩項目與費用',
-          body: '向接待人員了解按摩項目、時長及費用明細，再按自己的需要決定。參考價格為 MOP 2,488 至 7,388；服務內容及總費用請於開始前確認。',
+          "title": "內部設施",
+          "body": "可以免費的享用設施（三溫暖汗蒸，冷熱水池，按摩浴缸）"
         },
         {
-          title: '主題套房或水床房型',
-          body: '選擇多款主題套房——每間配備訂製氛圍燈光、優質寢具及酒店級裝飾——或選擇巨亨招牌水床特色房型。',
+          "title": "免費、豐富的自助餐廳",
+          "body": "巨亨桑拿：提供豐富的餐飲，這是免費的，可以告知服務員，你想吃什麼，她會安排廚房進行烹飪，值得一提的是，桑拿房的菜品顧及了全球各地的人。"
         },
         {
-          title: '60分鐘按摩',
-          body: '按摩時長為 60 分鐘，具體手法及安排請事先向接待人員了解。房間設有浴缸，燈光與音響可在房內調節，方便按個人習慣營造舒適環境。',
+          "title": "挑選技師",
+          "body": "現場的工作人員，會介紹現場所有的技師，由你決定那個技師為您進行按摩，一般為60分鐘。"
         },
         {
-          title: '休息過夜',
-          body: '服務結束後可前往獨立休息區——光線柔和、環境靜謐，專為實際睡眠而非短暫休憩設計。歡迎過夜留宿，期間濕區、用餐廳及休息區全程開放。',
+          "title": "按摩結束",
+          "body": "可以在休息大廳的躺椅進行休息，由於您是通過我們進行預約，因此我們將再贈送40分鐘的大廳按摩。"
         },
         {
-          title: '翌日離場',
-          body: '於前台辦理離場手續。巨亨桑拿接受現金、信用卡、微信支付及支付寶。如預先透過我們預約，本站專屬禮遇（免費加點、免費接送、免入場費）均會在離場時準確結算。',
-        },
+          "title": "過夜或回程",
+          "body": "澳門的桑拿房基本上都通過過夜留宿服務，這個不需要額外加收費用，如果你需要回澳門其他的地方，請你聯繫我們，我們將安排專車送你前往！"
+        }
       ],
       gallery: [
         {
@@ -3814,33 +4062,37 @@ const zhTW: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵達入場',
-          body: '抵達東方皇堡水療，這裡是澳門主題場景房的鼻祖。前台登記後領取手牌；參考價格為 MOP 2,388 至 6,498，詳細項目請於預約時確認。',
+          "title": "提前預約，專車接送，贈送按摩：",
+          "body": "通過我們預約東方皇堡水療，說明人數，到場時間，以及所在的位置，我們將安排專屬的豪華商務車進行接送，澳門境內任何區域都可以接送，10分鐘內抵達。"
         },
         {
-          title: '沐浴放鬆',
-          body: '享用沐浴設施及桑拿，按自己的節奏泡浴、休息，放鬆旅途中的疲憊。',
+          "title": "抵達東方皇堡水療",
+          "body": "抵達後，現場我們已經安排人員接待，會接待你們進入桑拿房，領取您的專屬號碼手牌（你的所有消費都會記錄在這個號碼當中）。"
         },
         {
-          title: '免費餐飲',
-          body: '場內提供免費餐飲，可在用餐區稍作休息，再安排接下來的行程。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要統一服飾，寬鬆的衣服是為了更好的放鬆以及更好的進行按摩。"
         },
         {
-          title: '確認按摩安排',
-          body: '向接待人員了解按摩項目、可預約時間及房間供應情況。開始前確認服務內容、時長和費用明細，按自己的需要安排。',
+          "title": "內部設施",
+          "body": "可以免費的享用設施（三溫暖汗蒸，冷熱水池，按摩浴缸）"
         },
         {
-          title: '20+ 不同風格的房間設計',
-          body: '東方皇堡水療的一大特色，是提供 20 多款不同風格的房間設計。各房間以不同的裝潢與氛圍呈現個性，讓顧客在喜歡的空間中享受按摩、放鬆身心。',
+          "title": "免費、豐富的自助餐廳",
+          "body": "東方皇堡水療：提供豐富的餐飲，這是免費的，可以告知服務員，你想吃什麼，她會安排廚房進行烹飪，值得一提的是，桑拿房的菜品顧及了全球各地的人。"
         },
         {
-          title: '服務費與稅項',
-          body: '另收 10% 服務費及 5% 旅遊稅。',
+          "title": "挑選技師",
+          "body": "現場的工作人員，會介紹現場所有的技師，由你決定那個技師為您進行按摩，一般為60分鐘。"
         },
         {
-          title: '休息過夜',
-          body: '大堂設有躺椅可過夜休息。皇堡的體驗核心在於主題房間而非休息設施，若以過夜舒適度為首要考慮，建議選擇尊貴水療。',
+          "title": "按摩結束",
+          "body": "可以在休息大廳的躺椅進行休息，由於您是通過我們進行預約，因此我們將再贈送40分鐘的大廳按摩。"
         },
+        {
+          "title": "過夜或回程",
+          "body": "澳門的桑拿房基本上都通過過夜留宿服務，這個不需要額外加收費用，如果你需要回澳門其他的地方，請你聯繫我們，我們將安排專車送你前往！"
+        }
       ],
       gallery: [
         {
@@ -3910,33 +4162,37 @@ const zhTW: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵達入場',
-          body: '抵達位於凱旋門酒店5樓的凱旋門桑拿，地點位於澳門半島中心，鄰近美高梅、永利及新葡京。前台登記後領取手牌，場所整體環境安靜私密。',
+          "title": "提前預約，專車接送，贈送按摩：",
+          "body": "通過我們預約凱旋桑拿，說明人數，到場時間，以及所在的位置，我們將安排專屬的豪華商務車進行接送，澳門境內任何區域都可以接送，10分鐘內抵達。"
         },
         {
-          title: '沐浴放鬆',
-          body: '享用沐浴設施及桑拿，環境清幽整潔。凱旋門刻意控制客流量，即使在繁忙時段也不會感到擁擠。',
+          "title": "抵達凱旋桑拿",
+          "body": "抵達後，現場我們已經安排人員接待，會接待你們進入桑拿房，領取您的專屬號碼手牌（你的所有消費都會記錄在這個號碼當中）。"
         },
         {
-          title: '免費餐飲',
-          body: '免費享用各式餐飲，用餐環境安靜舒適，不像大型場所般嘈雜。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要統一服飾，寬鬆的衣服是為了更好的放鬆以及更好的進行按摩。"
         },
         {
-          title: '自由配對',
-          body: '凱旋門沒有固定的技師介紹表演或走秀環節——告知經理你的喜好後，經理會根據你的要求安排合適的技師見面。整個過程完全按照你的節奏進行，沒有任何壓力或催促，是全澳最輕鬆自在的挑選方式。',
+          "title": "內部設施",
+          "body": "可以免費的享用設施（三溫暖汗蒸，冷熱水池，按摩浴缸）"
         },
         {
-          title: '選擇技師',
-          body: '多國籍技師在場，包括中國、越南、日本及韓國籍。凱旋門的服務以細緻周到著稱，技師整體服務質素穩定。價格區間 MOP 2,298 至 MOP 6,998，另收 10% 服務費。',
+          "title": "免費、豐富的自助餐廳",
+          "body": "凱旋桑拿：提供豐富的餐飲，這是免費的，可以告知服務員，你想吃什麼，她會安排廚房進行烹飪，值得一提的是，桑拿房的菜品顧及了全球各地的人。"
         },
         {
-          title: '60分鐘服務',
-          body: '進入房間享受60分鐘一對一服務。招牌水床房型私密安靜，服務品質與帝湖相若但價格更實惠，性價比極高。',
+          "title": "挑選技師",
+          "body": "現場的工作人員，會介紹現場所有的技師，由你決定那個技師為您進行按摩，一般為60分鐘。"
         },
         {
-          title: '休息過夜',
-          body: '環境安靜私密，是全澳最適合安靜休息及過夜的場所之一。大堂設大量躺椅，客流量少、噪音低，讓你安心過夜，適合追求私密寧靜的客人。',
+          "title": "按摩結束",
+          "body": "可以在休息大廳的躺椅進行休息，由於您是通過我們進行預約，因此我們將再贈送40分鐘的大廳按摩。"
         },
+        {
+          "title": "過夜或回程",
+          "body": "澳門的桑拿房基本上都通過過夜留宿服務，這個不需要額外加收費用，如果你需要回澳門其他的地方，請你聯繫我們，我們將安排專車送你前往！"
+        }
       ],
       gallery: [
         {
@@ -4004,25 +4260,37 @@ const zhTW: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '暫停營業',
-          body: '晉會 MCLUB 目前暫停營業，不接待客人或提供預約。以下為過往設施資料。',
+          "title": "提前預約，專車接送，贈送按摩：",
+          "body": "通過我們預約晉會MCLUB，說明人數，到場時間，以及所在的位置，我們將安排專屬的豪華商務車進行接送，澳門境內任何區域都可以接送，10分鐘內抵達。"
         },
         {
-          title: '場館與房間',
-          body: '晉會為東方皇堡的姊妹店，過往設有不同風格的房間、KTV 房間及浴池設施。',
+          "title": "抵達晉會MCLUB",
+          "body": "抵達後，現場我們已經安排人員接待，會接待你們進入桑拿房，領取您的專屬號碼手牌（你的所有消費都會記錄在這個號碼當中）。"
         },
         {
-          title: '沐浴與餐飲',
-          body: '過往設有沐浴、桑拿及餐飲區，整體採用科技感裝修。相關設施目前不對外開放。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要統一服飾，寬鬆的衣服是為了更好的放鬆以及更好的進行按摩。"
         },
         {
-          title: '歷史收費說明',
-          body: '過往另收 10% 服務費。此資料僅作歷史記錄，不是現行報價或預約方案。',
+          "title": "內部設施",
+          "body": "可以免費的享用設施（三溫暖汗蒸，冷熱水池，按摩浴缸）"
         },
         {
-          title: '休息設施',
-          body: '過往大堂設有躺椅休息區。停業期間不提供過夜住宿；如恢復營業，應以場館最新公告為準。',
+          "title": "免費、豐富的自助餐廳",
+          "body": "晉會MCLUB：提供豐富的餐飲，這是免費的，可以告知服務員，你想吃什麼，她會安排廚房進行烹飪，值得一提的是，桑拿房的菜品顧及了全球各地的人。"
         },
+        {
+          "title": "挑選技師",
+          "body": "現場的工作人員，會介紹現場所有的技師，由你決定那個技師為您進行按摩，一般為60分鐘。"
+        },
+        {
+          "title": "按摩結束",
+          "body": "可以在休息大廳的躺椅進行休息，由於您是通過我們進行預約，因此我們將再贈送40分鐘的大廳按摩。"
+        },
+        {
+          "title": "過夜或回程",
+          "body": "澳門的桑拿房基本上都通過過夜留宿服務，這個不需要額外加收費用，如果你需要回澳門其他的地方，請你聯繫我們，我們將安排專車送你前往！"
+        }
       ],
       gallery: [
         {
@@ -4120,25 +4388,37 @@ const zhTW: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '暫停營業',
-          body: '壹號桑拿目前暫停營業，不接待客人或提供預約。以下僅保留過往設施資料。',
+          "title": "提前預約，專車接送，贈送按摩：",
+          "body": "通過我們預約壹號桑拿，說明人數，到場時間，以及所在的位置，我們將安排專屬的豪華商務車進行接送，澳門境內任何區域都可以接送，10分鐘內抵達。"
         },
         {
-          title: '沐浴與更衣設施',
-          body: '過往設有寬敞更衣室、儲物櫃、大型按摩浴缸、乾蒸房及濕蒸房。',
+          "title": "抵達壹號桑拿",
+          "body": "抵達後，現場我們已經安排人員接待，會接待你們進入桑拿房，領取您的專屬號碼手牌（你的所有消費都會記錄在這個號碼當中）。"
         },
         {
-          title: '餐飲區',
-          body: '過往餐飲供應包括牛排、炒飯、炒麵、水果及飲品，並設有寬敞用餐區；目前不提供餐飲服務。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要統一服飾，寬鬆的衣服是為了更好的放鬆以及更好的進行按摩。"
         },
         {
-          title: '歷史價格',
-          body: '過往記錄的價格區間為 MOP 2,199 至 MOP 7,699。此資料不構成現行報價，停業期間不接受預約或安排服務。',
+          "title": "內部設施",
+          "body": "可以免費的享用設施（三溫暖汗蒸，冷熱水池，按摩浴缸）"
         },
         {
-          title: '休息設施',
-          body: '過往設有躺椅休息區。停業期間不提供過夜住宿；如恢復營業，請以場館最新公告為準。',
+          "title": "免費、豐富的自助餐廳",
+          "body": "壹號桑拿：提供豐富的餐飲，這是免費的，可以告知服務員，你想吃什麼，她會安排廚房進行烹飪，值得一提的是，桑拿房的菜品顧及了全球各地的人。"
         },
+        {
+          "title": "挑選技師",
+          "body": "現場的工作人員，會介紹現場所有的技師，由你決定那個技師為您進行按摩，一般為60分鐘。"
+        },
+        {
+          "title": "按摩結束",
+          "body": "可以在休息大廳的躺椅進行休息，由於您是通過我們進行預約，因此我們將再贈送40分鐘的大廳按摩。"
+        },
+        {
+          "title": "過夜或回程",
+          "body": "澳門的桑拿房基本上都通過過夜留宿服務，這個不需要額外加收費用，如果你需要回澳門其他的地方，請你聯繫我們，我們將安排專車送你前往！"
+        }
       ],
       gallery: [
         {
@@ -4220,25 +4500,37 @@ const zhTW: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '暫停營業',
-          body: '豪門桑拿目前暫停營業，不接待客人或提供預約。以下資料用於記錄過往場館設施。',
+          "title": "提前預約，專車接送，贈送按摩：",
+          "body": "通過我們預約豪門桑拿殿，說明人數，到場時間，以及所在的位置，我們將安排專屬的豪華商務車進行接送，澳門境內任何區域都可以接送，10分鐘內抵達。"
         },
         {
-          title: '沐浴與更衣設施',
-          body: '過往設有寬敞更衣室、儲物櫃、浴池及桑拿房。場內空間寬敞，分為沐浴、餐飲及休息區。',
+          "title": "抵達豪門桑拿殿",
+          "body": "抵達後，現場我們已經安排人員接待，會接待你們進入桑拿房，領取您的專屬號碼手牌（你的所有消費都會記錄在這個號碼當中）。"
         },
         {
-          title: '餐飲與客房',
-          body: '過往供應牛排、飲品及熱食，並設有多間客房。目前餐飲與客房設施均不對外開放。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要統一服飾，寬鬆的衣服是為了更好的放鬆以及更好的進行按摩。"
         },
         {
-          title: '歷史價格',
-          body: '過往記錄的價格區間為 MOP 2,388 至 MOP 6,988，當時免收服務費。此資料僅作歷史記錄，不是現行報價。',
+          "title": "內部設施",
+          "body": "可以免費的享用設施（三溫暖汗蒸，冷熱水池，按摩浴缸）"
         },
         {
-          title: '休息設施',
-          body: '過往休息區設有多張躺椅，間距寬敞。停業期間不提供過夜住宿；如恢復營業，請以場館最新公告為準。',
+          "title": "免費、豐富的自助餐廳",
+          "body": "豪門桑拿殿：提供豐富的餐飲，這是免費的，可以告知服務員，你想吃什麼，她會安排廚房進行烹飪，值得一提的是，桑拿房的菜品顧及了全球各地的人。"
         },
+        {
+          "title": "挑選技師",
+          "body": "現場的工作人員，會介紹現場所有的技師，由你決定那個技師為您進行按摩，一般為60分鐘。"
+        },
+        {
+          "title": "按摩結束",
+          "body": "可以在休息大廳的躺椅進行休息，由於您是通過我們進行預約，因此我們將再贈送40分鐘的大廳按摩。"
+        },
+        {
+          "title": "過夜或回程",
+          "body": "澳門的桑拿房基本上都通過過夜留宿服務，這個不需要額外加收費用，如果你需要回澳門其他的地方，請你聯繫我們，我們將安排專車送你前往！"
+        }
       ],
       gallery: [
         {
@@ -4324,17 +4616,37 @@ const zhTW: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '先確認營業狀態',
-          body: '帝湖水療目前暫停營業，不接待客人或提供預約服務。計劃前請先聯繫我們確認最新情況。',
+          "title": "提前預約，專車接送，贈送按摩：",
+          "body": "通過我們預約帝湖水療，說明人數，到場時間，以及所在的位置，我們將安排專屬的豪華商務車進行接送，澳門境內任何區域都可以接送，10分鐘內抵達。"
         },
         {
-          title: '選擇替代會所',
-          body: '告訴我們你偏好氹仔或澳門半島、主題房、24 小時營業或過夜躺椅休息區，我們可為你推薦目前營業中的選擇。',
+          "title": "抵達帝湖水療",
+          "body": "抵達後，現場我們已經安排人員接待，會接待你們進入桑拿房，領取您的專屬號碼手牌（你的所有消費都會記錄在這個號碼當中）。"
         },
         {
-          title: '恢復營業後再確認',
-          body: '恢復營業後，請再確認當日價格、技師陣容與房間安排；這些資訊可能隨場館的實際營運而調整。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要統一服飾，寬鬆的衣服是為了更好的放鬆以及更好的進行按摩。"
         },
+        {
+          "title": "內部設施",
+          "body": "可以免費的享用設施（三溫暖汗蒸，冷熱水池，按摩浴缸）"
+        },
+        {
+          "title": "免費、豐富的自助餐廳",
+          "body": "帝湖水療：提供豐富的餐飲，這是免費的，可以告知服務員，你想吃什麼，她會安排廚房進行烹飪，值得一提的是，桑拿房的菜品顧及了全球各地的人。"
+        },
+        {
+          "title": "挑選技師",
+          "body": "現場的工作人員，會介紹現場所有的技師，由你決定那個技師為您進行按摩，一般為60分鐘。"
+        },
+        {
+          "title": "按摩結束",
+          "body": "可以在休息大廳的躺椅進行休息，由於您是通過我們進行預約，因此我們將再贈送40分鐘的大廳按摩。"
+        },
+        {
+          "title": "過夜或回程",
+          "body": "澳門的桑拿房基本上都通過過夜留宿服務，這個不需要額外加收費用，如果你需要回澳門其他的地方，請你聯繫我們，我們將安排專車送你前往！"
+        }
       ],
       gallery: [
         {
@@ -4487,21 +4799,37 @@ const zhCN: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '预约包厢',
-          body: '通过我们预约，请告知人数与时段。开幕初期建议提前确认包厢的空位。',
+          "title": "提前预约，专车接送，赠送按摩：",
+          "body": "通过我们预约利澳荟，说明人数，到场时间，以及所在的位置，我们将安排专属的豪华商务车进行接送，澳门境内任何区域都可以接送，10分钟内抵达。"
         },
         {
-          title: '抵达利澳酒店',
-          body: '前往新口岸利澳酒店 3 楼，各口岸与主要酒店短程直达，亦可由我们安排免费私人专车接送。到场报预约名字即有专人带位。',
+          "title": "抵达利澳荟",
+          "body": "抵达后，现场我们已经安排人员接待，会接待你们进入桑拿房，领取您的专属号码手牌（你的所有消费都会记录在这个号码当中）。"
         },
         {
-          title: '畅玩至凌晨',
-          body: '营业至凌晨 4 时。不设过夜——散场后新口岸截车方便，也可预约回程专车。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要统一服饰，宽松的衣服是为了更好的放松以及更好的进行按摩。"
         },
         {
-          title: '回程安排',
-          body: '通过我们预约可安排免费私人专车接送（非共乘）。如行程需要过夜，预约时可向我们查询，专人会建议合适的安排。',
+          "title": "内部设施",
+          "body": "可以免费的享用设施（三温暖汗蒸，冷热水池，按摩浴缸）"
         },
+        {
+          "title": "免费、丰富的自助餐厅",
+          "body": "利澳荟：提供丰富的餐饮，这是免费的，可以告知服务员，你想吃什么，她会安排厨房进行烹饪，值得一提的是，桑拿房的菜品顾及了全球各地的人。"
+        },
+        {
+          "title": "挑选技师",
+          "body": "现场的工作人员，会介绍现场所有的技师，由你决定那个技师为您进行按摩，一般为60分钟。"
+        },
+        {
+          "title": "按摩结束",
+          "body": "可以在休息大厅的躺椅进行休息，由于您是通过我们进行预约，因此我们将再赠送40分钟的大厅按摩。"
+        },
+        {
+          "title": "过夜或回程",
+          "body": "澳门的桑拿房基本上都通过过夜留宿服务，这个不需要额外加收费用，如果你需要回澳门其他的地方，请你联系我们，我们将安排专车送你前往！"
+        }
       ],
       gallery: [
         {
@@ -4579,37 +4907,37 @@ const zhCN: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵达君怡酒店',
-          body: '曼濠水疗位于氹仔君怡酒店——距离路氹城仅5分钟车程，是氹仔区最便捷的最新奢华桑拿选择。大堂以云石背景上的金色皇冠 MH 标志迎宾；前台登记后，由礼宾接待领取手牌。',
+          "title": "提前预约，专车接送，赠送按摩：",
+          "body": "通过我们预约曼濠水疗，说明人数，到场时间，以及所在的位置，我们将安排专属的豪华商务车进行接送，澳门境内任何区域都可以接送，10分钟内抵达。"
         },
         {
-          title: '奢华更衣室',
-          body: '踏入更衣区——卡拉拉云石主墙面、金色搭扣订制木柜、软垫长椅。所有硬件贯彻皇者奢华格调而非实用主义设计，预示后续体验的水准。',
+          "title": "抵达曼濠水疗",
+          "body": "抵达后，现场我们已经安排人员接待，会接待你们进入桑拿房，领取您的专属号码手牌（你的所有消费都会记录在这个号码当中）。"
         },
         {
-          title: '沐浴与湿区',
-          body: '前往沐浴区，采用深色马赛克瓷砖与绿纹云石搭配，配备多个冲凉位置及独立泡池。整个湿区全新打造，空间宽敞，适合服务前从容浸泡放松。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要统一服饰，宽松的衣服是为了更好的放松以及更好的进行按摩。"
         },
         {
-          title: '用餐厅',
-          body: '于云石桌面用餐厅享用免费餐饮——静雅的酒店级座椅配私人酒吧氛围，适合在服务前后慢慢享受。',
+          "title": "内部设施",
+          "body": "可以免费的享用设施（三温暖汗蒸，冷热水池，按摩浴缸）"
         },
         {
-          title: '超大的舞台',
-          body: '招牌卖点是宽敞的舞台大厅：多层玻璃栏杆配上深蓝霓虹灯光，形成鲜明的视觉层次。宏大的舞台与灯光设计相互呼应，成为曼濠馆内引人注目的焦点。',
+          "title": "免费、丰富的自助餐厅",
+          "body": "曼濠水疗：提供丰富的餐饮，这是免费的，可以告知服务员，你想吃什么，她会安排厨房进行烹饪，值得一提的是，桑拿房的菜品顾及了全球各地的人。"
         },
         {
-          title: '整合式套房与招牌水床',
-          body: '客房采用整合式设计——奢华睡房配置（壁画墙面、超大床、沙发、台灯）结合招牌红色水床及戏剧性聚光灯效果。睡房与水床设于同一私密房间，服务期间无需转移房间。',
+          "title": "挑选技师",
+          "body": "现场的工作人员，会介绍现场所有的技师，由你决定那个技师为您进行按摩，一般为60分钟。"
         },
         {
-          title: '60分钟按摩',
-          body: '以 60 分钟按摩放慢步调，舒缓旅途与日常的疲惫。灯光和音乐可按喜好调整，让您在舒适的氛围中，安心享受放松时光。',
+          "title": "按摩结束",
+          "body": "可以在休息大厅的躺椅进行休息，由于您是通过我们进行预约，因此我们将再赠送40分钟的大厅按摩。"
         },
         {
-          title: '休息区',
-          body: '前往专属星空休息区——光线柔和、配备奢华躺椅，让您于服务后放松。营业时间 14:00–04:00，暂不设过夜留宿。离场时于前台结算，现金、信用卡、微信支付及支付宝均可使用。',
-        },
+          "title": "过夜或回程",
+          "body": "澳门的桑拿房基本上都通过过夜留宿服务，这个不需要额外加收费用，如果你需要回澳门其他的地方，请你联系我们，我们将安排专车送你前往！"
+        }
       ],
       gallery: [
         {
@@ -4697,33 +5025,37 @@ const zhCN: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵达入场',
-          body: '抵达2026年4月全新开业的玖号水疗，位于澳门市中心御龙酒店内。作为全澳最新场所，所有设施均为全新状态，整体设计走现代奢华路线，金色与大理石元素搭配专业灯光系统。',
+          "title": "提前预约，专车接送，赠送按摩：",
+          "body": "通过我们预约玖号水疗，说明人数，到场时间，以及所在的位置，我们将安排专属的豪华商务车进行接送，澳门境内任何区域都可以接送，10分钟内抵达。"
         },
         {
-          title: '沐浴放松',
-          body: '享用全新装修的现代化沐浴及桑拿设施，设备簇新。更衣室采用木质储物柜设计，整洁有序；沐浴区以绿色马赛克瓷砖装饰，环境清新。',
+          "title": "抵达玖号水疗",
+          "body": "抵达后，现场我们已经安排人员接待，会接待你们进入桑拿房，领取您的专属号码手牌（你的所有消费都会记录在这个号码当中）。"
         },
         {
-          title: '免费餐饮',
-          body: '免费享用各式餐饮服务，场所强调多样化的高端餐饮选择，将用餐体验纳入整体享受的一部分。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要统一服饰，宽松的衣服是为了更好的放松以及更好的进行按摩。"
         },
         {
-          title: '大厅设施',
-          body: '大厅配备舞台灯光及 LED 屏幕，配合金色与大理石装潢，呈现鲜明的现代风格。',
+          "title": "内部设施",
+          "body": "可以免费的享用设施（三温暖汗蒸，冷热水池，按摩浴缸）"
         },
         {
-          title: '选择主题房间',
-          body: '玖号设有多款氛围主题房间，每间房都配备独特的氛围灯光——红色、粉紫色、蓝紫色等不同色调，搭配星空天花及精致装潢，营造沉浸式体验。圆形大床为部分房间的特色设计。',
+          "title": "免费、丰富的自助餐厅",
+          "body": "玖号水疗：提供丰富的餐饮，这是免费的，可以告知服务员，你想吃什么，她会安排厨房进行烹饪，值得一提的是，桑拿房的菜品顾及了全球各地的人。"
         },
         {
-          title: '60分钟服务',
-          body: '提供巴厘岛式及日式按摩两种风格选择，结合东南亚与日本的按摩手法。玖号以「独创日式+巴厘岛风情」为卖点，服务体验与传统场所有所不同。',
+          "title": "挑选技师",
+          "body": "现场的工作人员，会介绍现场所有的技师，由你决定那个技师为您进行按摩，一般为60分钟。"
         },
         {
-          title: '休息过夜',
-          body: '可过夜休息，全新设施确保舒适度。作为新场，初期客流量较少，环境安静。通过我们预约可获取最新优惠价格。',
+          "title": "按摩结束",
+          "body": "可以在休息大厅的躺椅进行休息，由于您是通过我们进行预约，因此我们将再赠送40分钟的大厅按摩。"
         },
+        {
+          "title": "过夜或回程",
+          "body": "澳门的桑拿房基本上都通过过夜留宿服务，这个不需要额外加收费用，如果你需要回澳门其他的地方，请你联系我们，我们将安排专车送你前往！"
+        }
       ],
       gallery: [
         {
@@ -4807,25 +5139,37 @@ const zhCN: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵达入场',
-          body: '抵达尚品国际水疗，位于葡京人酒店内（路氹）。整体装修采用欧式现代风格，富当代设计感。前台登记后领取手牌。',
+          "title": "提前预约，专车接送，赠送按摩：",
+          "body": "通过我们预约尚品国际水疗，说明人数，到场时间，以及所在的位置，我们将安排专属的豪华商务车进行接送，澳门境内任何区域都可以接送，10分钟内抵达。"
         },
         {
-          title: '沐浴放松',
-          body: '沐浴设施簇新，设备完善。浴池及桑拿环境明亮整洁，与传统场所风格截然不同。',
+          "title": "抵达尚品国际水疗",
+          "body": "抵达后，现场我们已经安排人员接待，会接待你们进入桑拿房，领取您的专属号码手牌（你的所有消费都会记录在这个号码当中）。"
         },
         {
-          title: '免费餐饮',
-          body: '免费享用各式餐饮，餐区环境舒适整洁，与场所整体的现代设计风格一致。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要统一服饰，宽松的衣服是为了更好的放松以及更好的进行按摩。"
         },
         {
-          title: '客房设施',
-          body: '每间房间均设有独立浴缸，私密度高。',
+          "title": "内部设施",
+          "body": "可以免费的享用设施（三温暖汗蒸，冷热水池，按摩浴缸）"
         },
         {
-          title: '休息过夜',
-          body: '可过夜休息，大堂设免费躺椅休息区，另有付费独立休息房；因场所规模精品化，客流量较少，环境安静舒适。非高峰时段技师数量可能较少，建议晚间入场。',
+          "title": "免费、丰富的自助餐厅",
+          "body": "尚品国际水疗：提供丰富的餐饮，这是免费的，可以告知服务员，你想吃什么，她会安排厨房进行烹饪，值得一提的是，桑拿房的菜品顾及了全球各地的人。"
         },
+        {
+          "title": "挑选技师",
+          "body": "现场的工作人员，会介绍现场所有的技师，由你决定那个技师为您进行按摩，一般为60分钟。"
+        },
+        {
+          "title": "按摩结束",
+          "body": "可以在休息大厅的躺椅进行休息，由于您是通过我们进行预约，因此我们将再赠送40分钟的大厅按摩。"
+        },
+        {
+          "title": "过夜或回程",
+          "body": "澳门的桑拿房基本上都通过过夜留宿服务，这个不需要额外加收费用，如果你需要回澳门其他的地方，请你联系我们，我们将安排专车送你前往！"
+        }
       ],
       gallery: [
         {
@@ -4912,33 +5256,37 @@ const zhCN: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵达入场',
-          body: '抵达尊贵水疗，是全澳装修最为豪华的桑拿场所。金色与大理石元素贯穿全场，第一眼即感受到顶级会所的气派。前台登记后领取手牌。',
+          "title": "提前预约，专车接送，赠送按摩：",
+          "body": "通过我们预约尊贵水疗，说明人数，到场时间，以及所在的位置，我们将安排专属的豪华商务车进行接送，澳门境内任何区域都可以接送，10分钟内抵达。"
         },
         {
-          title: '沐浴放松',
-          body: '享用豪华沐浴设施及桑拿，浴池宽敞、灯光柔和，整体环境优雅大气。建议花时间好好享受这里的沐浴体验，是全澳硬件配置最顶级的场所。',
+          "title": "抵达尊贵水疗",
+          "body": "抵达后，现场我们已经安排人员接待，会接待你们进入桑拿房，领取您的专属号码手牌（你的所有消费都会记录在这个号码当中）。"
         },
         {
-          title: '免费餐饮',
-          body: '免费享用牛排、新鲜水果、冻啤酒等餐饮，食材及菜式选择丰富。尊贵的餐饮品质在业界备受赞誉，全程无限量供应。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要统一服饰，宽松的衣服是为了更好的放松以及更好的进行按摩。"
         },
         {
-          title: '超大的舞台',
-          body: '大厅“景观线”形式——多国籍技师排列成线，由你现场决定，由谁来为你提供按摩！',
+          "title": "内部设施",
+          "body": "可以免费的享用设施（三温暖汗蒸，冷热水池，按摩浴缸）"
         },
         {
-          title: '确认价格',
-          body: '价格区间 MOP 2,799 至 MOP 6,699。',
+          "title": "免费、丰富的自助餐厅",
+          "body": "尊贵水疗：提供丰富的餐饮，这是免费的，可以告知服务员，你想吃什么，她会安排厨房进行烹饪，值得一提的是，桑拿房的菜品顾及了全球各地的人。"
         },
         {
-          title: '60分钟按摩',
-          body: '在宽敞舒适的房间享受 60 分钟按摩，柔和灯光与精致家具营造放松氛围。开始前请确认按摩项目与费用。',
+          "title": "挑选技师",
+          "body": "现场的工作人员，会介绍现场所有的技师，由你决定那个技师为您进行按摩，一般为60分钟。"
         },
         {
-          title: '休息过夜',
-          body: '尊贵 24 小时营业、可过夜——大堂设免费躺椅休息区，旺季另有付费独立休息房可选，配合免费餐饮，是舒适过夜的选择。',
+          "title": "按摩结束",
+          "body": "可以在休息大厅的躺椅进行休息，由于您是通过我们进行预约，因此我们将再赠送40分钟的大厅按摩。"
         },
+        {
+          "title": "过夜或回程",
+          "body": "澳门的桑拿房基本上都通过过夜留宿服务，这个不需要额外加收费用，如果你需要回澳门其他的地方，请你联系我们，我们将安排专车送你前往！"
+        }
       ],
       gallery: [
         {
@@ -5012,33 +5360,37 @@ const zhCN: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵达入场',
-          body: '抵达位于英皇娱乐酒店本馆内的极品桑拿。会所 24 小时营业，技师时段为 13:00 至 05:00；前台登记后先沐浴，再按自己的节奏享受精品型场馆的安静氛围。',
+          "title": "提前预约，专车接送，赠送按摩：",
+          "body": "通过我们预约极品桑拿，说明人数，到场时间，以及所在的位置，我们将安排专属的豪华商务车进行接送，澳门境内任何区域都可以接送，10分钟内抵达。"
         },
         {
-          title: '沐浴放松',
-          body: '享用沐浴设施及桑拿放松身心。极品的环境相对安静清幽，客流量较少，不会有大型场所的嘈杂感。',
+          "title": "抵达极品桑拿",
+          "body": "抵达后，现场我们已经安排人员接待，会接待你们进入桑拿房，领取您的专属号码手牌（你的所有消费都会记录在这个号码当中）。"
         },
         {
-          title: '免费餐饮',
-          body: '24 小时免费享用各式餐饮，无论下午或深夜入场，都可按自己的时间用餐。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要统一服饰，宽松的衣服是为了更好的放松以及更好的进行按摩。"
         },
         {
-          title: '了解按摩安排',
-          body: '向接待人员说明希望放松的部位及按摩力度，了解可选项目、时长与收费后，再确认适合自己的安排。',
+          "title": "内部设施",
+          "body": "可以免费的享用设施（三温暖汗蒸，冷热水池，按摩浴缸）"
         },
         {
-          title: '水床或主题房间',
-          body: '房间设计涵盖办公室、教室、影院等不同风格，另有配备水床的房型。可先了解房间设施及供应情况，再选择适合自己的空间。',
+          "title": "免费、丰富的自助餐厅",
+          "body": "极品桑拿：提供丰富的餐饮，这是免费的，可以告知服务员，你想吃什么，她会安排厨房进行烹饪，值得一提的是，桑拿房的菜品顾及了全球各地的人。"
         },
         {
-          title: '60分钟按摩',
-          body: '按摩时间约 60 分钟，另收 10% 服务费。场内提供泰式及上海式按摩，具体手法、力度与费用请于开始前确认。',
+          "title": "挑选技师",
+          "body": "现场的工作人员，会介绍现场所有的技师，由你决定那个技师为您进行按摩，一般为60分钟。"
         },
         {
-          title: '休息过夜',
-          body: '服务后可在安静舒适的 24 小时休息区放松，也可按自己的节奏留宿过夜，离场前于前台结算即可。',
+          "title": "按摩结束",
+          "body": "可以在休息大厅的躺椅进行休息，由于您是通过我们进行预约，因此我们将再赠送40分钟的大厅按摩。"
         },
+        {
+          "title": "过夜或回程",
+          "body": "澳门的桑拿房基本上都通过过夜留宿服务，这个不需要额外加收费用，如果你需要回澳门其他的地方，请你联系我们，我们将安排专车送你前往！"
+        }
       ],
       gallery: [
         {
@@ -5127,37 +5479,37 @@ const zhCN: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵达入场',
-          body: '抵达巨亨桑拿，澳门半岛最新顶级桑拿会所。大堂与楼梯入口已揭示全场格调——东方禅意线条配现代奢华装潢，所有设施均为全新状态。前台登记后，由礼宾接待领取手牌。',
+          "title": "提前预约，专车接送，赠送按摩：",
+          "body": "通过我们预约巨亨桑拿，说明人数，到场时间，以及所在的位置，我们将安排专属的豪华商务车进行接送，澳门境内任何区域都可以接送，10分钟内抵达。"
         },
         {
-          title: '沐浴放松',
-          body: '踏入招牌大理石浴池——柔和氛围灯光、宽敞空间，整体静谧氛围媲美度假村级水疗，在全澳桑拿中相当罕见。整个湿区设施全新打造，包括完整桑拿房，是场内的视觉核心。',
+          "title": "抵达巨亨桑拿",
+          "body": "抵达后，现场我们已经安排人员接待，会接待你们进入桑拿房，领取您的专属号码手牌（你的所有消费都会记录在这个号码当中）。"
         },
         {
-          title: '用餐厅',
-          body: '前往用餐厅享用免费餐饮。场所装潢采用酒店级格调，告别传统桑拿食堂的气氛，环境静雅私密、配备舒适座椅，适合在服务前后从容享用。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要统一服饰，宽松的衣服是为了更好的放松以及更好的进行按摩。"
         },
         {
-          title: '确认按摩项目与费用',
-          body: '向接待人员了解按摩项目、时长及费用明细，再按自己的需要决定。参考价格为 MOP 2,488 至 7,388；服务内容及总费用请于开始前确认。',
+          "title": "内部设施",
+          "body": "可以免费的享用设施（三温暖汗蒸，冷热水池，按摩浴缸）"
         },
         {
-          title: '主题套房或水床房型',
-          body: '选择多款主题套房——每间配备订制氛围灯光、优质寝具及酒店级装饰——或选择巨亨招牌水床特色房型。',
+          "title": "免费、丰富的自助餐厅",
+          "body": "巨亨桑拿：提供丰富的餐饮，这是免费的，可以告知服务员，你想吃什么，她会安排厨房进行烹饪，值得一提的是，桑拿房的菜品顾及了全球各地的人。"
         },
         {
-          title: '60分钟按摩',
-          body: '按摩时长为 60 分钟，具体手法及安排请事先向接待人员了解。房间设有浴缸，灯光与音响可在房内调节，方便按个人习惯营造舒适环境。',
+          "title": "挑选技师",
+          "body": "现场的工作人员，会介绍现场所有的技师，由你决定那个技师为您进行按摩，一般为60分钟。"
         },
         {
-          title: '休息过夜',
-          body: '服务结束后可前往独立休息区——光线柔和、环境静谧，专为实际睡眠而非短暂休憩设计。欢迎过夜留宿，期间湿区、用餐厅及休息区全程开放。',
+          "title": "按摩结束",
+          "body": "可以在休息大厅的躺椅进行休息，由于您是通过我们进行预约，因此我们将再赠送40分钟的大厅按摩。"
         },
         {
-          title: '翌日离场',
-          body: '于前台办理离场手续。巨亨桑拿接受现金、信用卡、微信支付及支付宝。如预先通过我们预约，本站专属礼遇（免费加点、免费接送、免入场费）均会在离场时准确结算。',
-        },
+          "title": "过夜或回程",
+          "body": "澳门的桑拿房基本上都通过过夜留宿服务，这个不需要额外加收费用，如果你需要回澳门其他的地方，请你联系我们，我们将安排专车送你前往！"
+        }
       ],
       gallery: [
         {
@@ -5241,33 +5593,37 @@ const zhCN: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵达入场',
-          body: '抵达东方皇堡水疗，这里是澳门主题场景房的鼻祖。前台登记后领取手牌；参考价格为 MOP 2,388 至 6,498，详细项目请于预约时确认。',
+          "title": "提前预约，专车接送，赠送按摩：",
+          "body": "通过我们预约东方皇堡水疗，说明人数，到场时间，以及所在的位置，我们将安排专属的豪华商务车进行接送，澳门境内任何区域都可以接送，10分钟内抵达。"
         },
         {
-          title: '沐浴放松',
-          body: '享用沐浴设施及桑拿，按自己的节奏泡浴、休息，放松旅途中的疲惫。',
+          "title": "抵达东方皇堡水疗",
+          "body": "抵达后，现场我们已经安排人员接待，会接待你们进入桑拿房，领取您的专属号码手牌（你的所有消费都会记录在这个号码当中）。"
         },
         {
-          title: '免费餐饮',
-          body: '场内提供免费餐饮，可在用餐区稍作休息，再安排接下来的行程。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要统一服饰，宽松的衣服是为了更好的放松以及更好的进行按摩。"
         },
         {
-          title: '确认按摩安排',
-          body: '向接待人员了解按摩项目、可预约时间及房间供应情况。开始前确认服务内容、时长和费用明细，按自己的需要安排。',
+          "title": "内部设施",
+          "body": "可以免费的享用设施（三温暖汗蒸，冷热水池，按摩浴缸）"
         },
         {
-          title: '20+ 不同风格的房间设计',
-          body: '东方皇堡水疗的一大特色，是提供 20 多款不同风格的房间设计。各房间以不同的装潢与氛围呈现个性，让顾客在喜欢的空间中享受按摩、放松身心。',
+          "title": "免费、丰富的自助餐厅",
+          "body": "东方皇堡水疗：提供丰富的餐饮，这是免费的，可以告知服务员，你想吃什么，她会安排厨房进行烹饪，值得一提的是，桑拿房的菜品顾及了全球各地的人。"
         },
         {
-          title: '服务费与税项',
-          body: '另收 10% 服务费及 5% 旅游税。',
+          "title": "挑选技师",
+          "body": "现场的工作人员，会介绍现场所有的技师，由你决定那个技师为您进行按摩，一般为60分钟。"
         },
         {
-          title: '休息过夜',
-          body: '大堂设有躺椅可过夜休息。皇堡的体验核心在于主题房间而非休息设施，若以过夜舒适度为首要考虑，建议选择尊贵水疗。',
+          "title": "按摩结束",
+          "body": "可以在休息大厅的躺椅进行休息，由于您是通过我们进行预约，因此我们将再赠送40分钟的大厅按摩。"
         },
+        {
+          "title": "过夜或回程",
+          "body": "澳门的桑拿房基本上都通过过夜留宿服务，这个不需要额外加收费用，如果你需要回澳门其他的地方，请你联系我们，我们将安排专车送你前往！"
+        }
       ],
       gallery: [
         {
@@ -5337,33 +5693,37 @@ const zhCN: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '抵达入场',
-          body: '抵达位于凯旋门酒店5楼的凯旋门桑拿，地点位于澳门半岛中心，邻近美高梅、永利及新葡京。前台登记后领取手牌，场所整体环境安静私密。',
+          "title": "提前预约，专车接送，赠送按摩：",
+          "body": "通过我们预约凯旋桑拿，说明人数，到场时间，以及所在的位置，我们将安排专属的豪华商务车进行接送，澳门境内任何区域都可以接送，10分钟内抵达。"
         },
         {
-          title: '沐浴放松',
-          body: '享用沐浴设施及桑拿，环境清幽整洁。凯旋门刻意控制客流量，即使在繁忙时段也不会感到拥挤。',
+          "title": "抵达凯旋桑拿",
+          "body": "抵达后，现场我们已经安排人员接待，会接待你们进入桑拿房，领取您的专属号码手牌（你的所有消费都会记录在这个号码当中）。"
         },
         {
-          title: '免费餐饮',
-          body: '免费享用各式餐饮，用餐环境安静舒适，不像大型场所般嘈杂。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要统一服饰，宽松的衣服是为了更好的放松以及更好的进行按摩。"
         },
         {
-          title: '自由配对',
-          body: '凯旋门没有固定的技师介绍表演或走秀环节——告知经理你的喜好后，经理会根据你的要求安排合适的技师见面。整个过程完全按照你的节奏进行，没有任何压力或催促，是全澳最轻松自在的挑选方式。',
+          "title": "内部设施",
+          "body": "可以免费的享用设施（三温暖汗蒸，冷热水池，按摩浴缸）"
         },
         {
-          title: '选择技师',
-          body: '多国籍技师在场，包括中国、越南、日本及韩国籍。凯旋门的服务以细致周到著称，技师整体服务质素稳定。价格区间 MOP 2,298 至 MOP 6,998，另收 10% 服务费。',
+          "title": "免费、丰富的自助餐厅",
+          "body": "凯旋桑拿：提供丰富的餐饮，这是免费的，可以告知服务员，你想吃什么，她会安排厨房进行烹饪，值得一提的是，桑拿房的菜品顾及了全球各地的人。"
         },
         {
-          title: '60分钟服务',
-          body: '进入房间享受60分钟一对一服务。招牌水床房型私密安静，服务品质与帝湖相若但价格更实惠，性价比极高。',
+          "title": "挑选技师",
+          "body": "现场的工作人员，会介绍现场所有的技师，由你决定那个技师为您进行按摩，一般为60分钟。"
         },
         {
-          title: '休息过夜',
-          body: '环境安静私密，是全澳最适合安静休息及过夜的场所之一。大堂设大量躺椅，客流量少、噪音低，让你安心过夜，适合追求私密宁静的客人。',
+          "title": "按摩结束",
+          "body": "可以在休息大厅的躺椅进行休息，由于您是通过我们进行预约，因此我们将再赠送40分钟的大厅按摩。"
         },
+        {
+          "title": "过夜或回程",
+          "body": "澳门的桑拿房基本上都通过过夜留宿服务，这个不需要额外加收费用，如果你需要回澳门其他的地方，请你联系我们，我们将安排专车送你前往！"
+        }
       ],
       gallery: [
         {
@@ -5431,25 +5791,37 @@ const zhCN: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '暂停营业',
-          body: '晋会 MCLUB 目前暂停营业，不接待客人或提供预约。以下为过往设施资料。',
+          "title": "提前预约，专车接送，赠送按摩：",
+          "body": "通过我们预约晋会MCLUB，说明人数，到场时间，以及所在的位置，我们将安排专属的豪华商务车进行接送，澳门境内任何区域都可以接送，10分钟内抵达。"
         },
         {
-          title: '场馆与房间',
-          body: '晋会为东方皇堡的姊妹店，过往设有不同风格的房间、KTV 房间及浴池设施。',
+          "title": "抵达晋会MCLUB",
+          "body": "抵达后，现场我们已经安排人员接待，会接待你们进入桑拿房，领取您的专属号码手牌（你的所有消费都会记录在这个号码当中）。"
         },
         {
-          title: '沐浴与餐饮',
-          body: '过往设有沐浴、桑拿及餐饮区，整体采用科技感装修。相关设施目前不对外开放。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要统一服饰，宽松的衣服是为了更好的放松以及更好的进行按摩。"
         },
         {
-          title: '历史收费说明',
-          body: '过往另收 10% 服务费。此资料仅作历史记录，不是现行报价或预约方案。',
+          "title": "内部设施",
+          "body": "可以免费的享用设施（三温暖汗蒸，冷热水池，按摩浴缸）"
         },
         {
-          title: '休息设施',
-          body: '过往大厅设有躺椅休息区。停业期间不提供过夜住宿；如恢复营业，应以场馆最新公告为准。',
+          "title": "免费、丰富的自助餐厅",
+          "body": "晋会MCLUB：提供丰富的餐饮，这是免费的，可以告知服务员，你想吃什么，她会安排厨房进行烹饪，值得一提的是，桑拿房的菜品顾及了全球各地的人。"
         },
+        {
+          "title": "挑选技师",
+          "body": "现场的工作人员，会介绍现场所有的技师，由你决定那个技师为您进行按摩，一般为60分钟。"
+        },
+        {
+          "title": "按摩结束",
+          "body": "可以在休息大厅的躺椅进行休息，由于您是通过我们进行预约，因此我们将再赠送40分钟的大厅按摩。"
+        },
+        {
+          "title": "过夜或回程",
+          "body": "澳门的桑拿房基本上都通过过夜留宿服务，这个不需要额外加收费用，如果你需要回澳门其他的地方，请你联系我们，我们将安排专车送你前往！"
+        }
       ],
       gallery: [
         {
@@ -5547,25 +5919,37 @@ const zhCN: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '暂停营业',
-          body: '壹号桑拿目前暂停营业，不接待客人或提供预约。以下仅保留过往设施资料。',
+          "title": "提前预约，专车接送，赠送按摩：",
+          "body": "通过我们预约壹号桑拿，说明人数，到场时间，以及所在的位置，我们将安排专属的豪华商务车进行接送，澳门境内任何区域都可以接送，10分钟内抵达。"
         },
         {
-          title: '沐浴与更衣设施',
-          body: '过往设有宽敞更衣室、储物柜、大型按摩浴缸、干蒸房及湿蒸房。',
+          "title": "抵达壹号桑拿",
+          "body": "抵达后，现场我们已经安排人员接待，会接待你们进入桑拿房，领取您的专属号码手牌（你的所有消费都会记录在这个号码当中）。"
         },
         {
-          title: '餐饮区',
-          body: '过往餐饮供应包括牛排、炒饭、炒面、水果及饮品，并设有宽敞用餐区；目前不提供餐饮服务。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要统一服饰，宽松的衣服是为了更好的放松以及更好的进行按摩。"
         },
         {
-          title: '历史价格',
-          body: '过往记录的价格区间为 MOP 2,199 至 MOP 7,699。此资料不构成现行报价，停业期间不接受预约或安排服务。',
+          "title": "内部设施",
+          "body": "可以免费的享用设施（三温暖汗蒸，冷热水池，按摩浴缸）"
         },
         {
-          title: '休息设施',
-          body: '过往设有躺椅休息区。停业期间不提供过夜住宿；如恢复营业，请以场馆最新公告为准。',
+          "title": "免费、丰富的自助餐厅",
+          "body": "壹号桑拿：提供丰富的餐饮，这是免费的，可以告知服务员，你想吃什么，她会安排厨房进行烹饪，值得一提的是，桑拿房的菜品顾及了全球各地的人。"
         },
+        {
+          "title": "挑选技师",
+          "body": "现场的工作人员，会介绍现场所有的技师，由你决定那个技师为您进行按摩，一般为60分钟。"
+        },
+        {
+          "title": "按摩结束",
+          "body": "可以在休息大厅的躺椅进行休息，由于您是通过我们进行预约，因此我们将再赠送40分钟的大厅按摩。"
+        },
+        {
+          "title": "过夜或回程",
+          "body": "澳门的桑拿房基本上都通过过夜留宿服务，这个不需要额外加收费用，如果你需要回澳门其他的地方，请你联系我们，我们将安排专车送你前往！"
+        }
       ],
       gallery: [
         {
@@ -5647,25 +6031,37 @@ const zhCN: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '暂停营业',
-          body: '豪门桑拿目前暂停营业，不接待客人或提供预约。以下资料用于记录过往场馆设施。',
+          "title": "提前预约，专车接送，赠送按摩：",
+          "body": "通过我们预约豪门桑拿殿，说明人数，到场时间，以及所在的位置，我们将安排专属的豪华商务车进行接送，澳门境内任何区域都可以接送，10分钟内抵达。"
         },
         {
-          title: '沐浴与更衣设施',
-          body: '过往设有宽敞更衣室、储物柜、浴池及桑拿房。场内空间宽敞，分为沐浴、餐饮及休息区。',
+          "title": "抵达豪门桑拿殿",
+          "body": "抵达后，现场我们已经安排人员接待，会接待你们进入桑拿房，领取您的专属号码手牌（你的所有消费都会记录在这个号码当中）。"
         },
         {
-          title: '餐饮与客房',
-          body: '过往供应牛排、饮品及热食，并设有多间客房。目前餐饮与客房设施均不对外开放。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要统一服饰，宽松的衣服是为了更好的放松以及更好的进行按摩。"
         },
         {
-          title: '历史价格',
-          body: '过往记录的价格区间为 MOP 2,388 至 MOP 6,988，当时免收服务费。此资料仅作历史记录，不是现行报价。',
+          "title": "内部设施",
+          "body": "可以免费的享用设施（三温暖汗蒸，冷热水池，按摩浴缸）"
         },
         {
-          title: '休息设施',
-          body: '过往休息区设有多张躺椅，间距宽敞。停业期间不提供过夜住宿；如恢复营业，请以场馆最新公告为准。',
+          "title": "免费、丰富的自助餐厅",
+          "body": "豪门桑拿殿：提供丰富的餐饮，这是免费的，可以告知服务员，你想吃什么，她会安排厨房进行烹饪，值得一提的是，桑拿房的菜品顾及了全球各地的人。"
         },
+        {
+          "title": "挑选技师",
+          "body": "现场的工作人员，会介绍现场所有的技师，由你决定那个技师为您进行按摩，一般为60分钟。"
+        },
+        {
+          "title": "按摩结束",
+          "body": "可以在休息大厅的躺椅进行休息，由于您是通过我们进行预约，因此我们将再赠送40分钟的大厅按摩。"
+        },
+        {
+          "title": "过夜或回程",
+          "body": "澳门的桑拿房基本上都通过过夜留宿服务，这个不需要额外加收费用，如果你需要回澳门其他的地方，请你联系我们，我们将安排专车送你前往！"
+        }
       ],
       gallery: [
         {
@@ -5751,17 +6147,37 @@ const zhCN: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '先确认营业状态',
-          body: '帝湖水疗目前暂停营业，不接待客人或提供预约服务。计划前请先联系我们确认最新情况。',
+          "title": "提前预约，专车接送，赠送按摩：",
+          "body": "通过我们预约帝湖水疗，说明人数，到场时间，以及所在的位置，我们将安排专属的豪华商务车进行接送，澳门境内任何区域都可以接送，10分钟内抵达。"
         },
         {
-          title: '选择替代会所',
-          body: '告诉我们你偏好氹仔或澳门半岛、主题房、24 小时营业或过夜躺椅休息区，我们可为你推荐目前营业中的选择。',
+          "title": "抵达帝湖水疗",
+          "body": "抵达后，现场我们已经安排人员接待，会接待你们进入桑拿房，领取您的专属号码手牌（你的所有消费都会记录在这个号码当中）。"
         },
         {
-          title: '恢复营业后再确认',
-          body: '恢复营业后，请再确认当日价格、技师阵容与房间安排；这些信息可能随场馆的实际营运而调整。',
+          "title": "沐浴更衣",
+          "body": "在桑拿房，所有人都需要统一服饰，宽松的衣服是为了更好的放松以及更好的进行按摩。"
         },
+        {
+          "title": "内部设施",
+          "body": "可以免费的享用设施（三温暖汗蒸，冷热水池，按摩浴缸）"
+        },
+        {
+          "title": "免费、丰富的自助餐厅",
+          "body": "帝湖水疗：提供丰富的餐饮，这是免费的，可以告知服务员，你想吃什么，她会安排厨房进行烹饪，值得一提的是，桑拿房的菜品顾及了全球各地的人。"
+        },
+        {
+          "title": "挑选技师",
+          "body": "现场的工作人员，会介绍现场所有的技师，由你决定那个技师为您进行按摩，一般为60分钟。"
+        },
+        {
+          "title": "按摩结束",
+          "body": "可以在休息大厅的躺椅进行休息，由于您是通过我们进行预约，因此我们将再赠送40分钟的大厅按摩。"
+        },
+        {
+          "title": "过夜或回程",
+          "body": "澳门的桑拿房基本上都通过过夜留宿服务，这个不需要额外加收费用，如果你需要回澳门其他的地方，请你联系我们，我们将安排专车送你前往！"
+        }
       ],
       gallery: [
         {
@@ -5915,21 +6331,37 @@ const ko: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '룸 예약',
-          body: '인원과 희망 시간대를 알려주시고 저희를 통해 예약하세요. 오픈 초기에는 룸의 빈자리를 미리 확인하시는 것이 좋습니다.',
+          "title": "사전 예약, 전용 차량, 무료 마사지",
+          "body": "저희를 통해 Clube Rio (클루브 리오) 예약을 진행하고 인원, 도착 시간, 현재 위치를 알려 주세요. 전용 고급 비즈니스 차량으로 모셔 드리며, 마카오 내 모든 지역에서 픽업이 가능합니다. 차량은 10분 이내에 도착합니다."
         },
         {
-          title: '호텔 리오 도착',
-          body: '신커우안(NAPE)의 호텔 리오 3층으로 오시면 됩니다. 각 출입경과 주요 호텔에서 가깝고, 저희가 무료 전용 차량도 배차해 드립니다. 예약자 성함을 말씀하시면 직원이 안내해 드립니다.',
+          "title": "Clube Rio (클루브 리오) 도착",
+          "body": "도착하면 저희가 미리 배정한 직원이 맞이하여 사우나 안으로 안내합니다. 개인 번호가 적힌 손목밴드를 받게 되며, 모든 이용 금액은 이 번호에 기록됩니다."
         },
         {
-          title: '새벽까지 이용',
-          body: '새벽 4시까지 영업합니다. 노래, 술자리, 마사지를 본인 페이스에 맞춰 즐기세요. 숙박은 제공되지 않습니다 — 마친 후 신커우안에서 차량 이용이 편리하고, 귀가 차량 예약도 가능합니다.',
+          "title": "목욕 및 환복",
+          "body": "사우나에서는 모두가 같은 복장을 착용해야 합니다. 넉넉한 옷은 더욱 편안하게 쉬고 마사지를 받기 위한 것입니다."
         },
         {
-          title: '귀가 배차',
-          body: '저희를 통해 예약하시면 무료 전용 차량(합승 아님)을 배차해 드립니다. 숙박이 필요한 경우 예약 시 문의해 주시면 적합한 방안을 안내해 드립니다.',
+          "title": "내부 시설",
+          "body": "사우나와 찜질 시설, 냉탕과 온탕, 마사지 욕조를 무료로 이용할 수 있습니다."
         },
+        {
+          "title": "다양한 메뉴의 무료 뷔페식당",
+          "body": "Clube Rio (클루브 리오)에서는 다양한 식음료를 무료로 제공합니다. 먹고 싶은 음식을 직원에게 말씀하시면 주방에서 조리하도록 안내해 드립니다. 사우나의 메뉴는 세계 각지에서 온 고객의 입맛을 고려해 구성되어 있습니다."
+        },
+        {
+          "title": "테라피스트 선택",
+          "body": "현장 직원이 그곳에 있는 모든 테라피스트를 소개하며, 마사지를 담당할 테라피스트는 직접 선택할 수 있습니다. 마사지 시간은 일반적으로 60분입니다."
+        },
+        {
+          "title": "마사지 종료",
+          "body": "휴게홀의 리클라이너에서 쉴 수 있습니다. 저희를 통해 예약하셨으므로 홀에서 받는 40분 마사지를 추가로 무료 제공해 드립니다."
+        },
+        {
+          "title": "야간 숙박 또는 귀가",
+          "body": "마카오의 사우나는 대부분 밤새 머무를 수 있는 서비스를 제공하며, 별도 추가 요금은 없습니다. 마카오 내 다른 장소로 돌아가야 한다면 저희에게 연락해 주세요. 전용 차량으로 모셔다 드리겠습니다!"
+        }
       ],
       gallery: [
         {
@@ -6003,37 +6435,37 @@ const ko: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '그랜드뷰 호텔 도착',
-          body: '만하오 스파는 타이파의 그랜드뷰 호텔(君怡酒店)에 있습니다 — 코타이에서 차로 5분 거리로, 타이파에서 가장 접근성 좋은 최신 럭셔리 사우나입니다. 대리석 배경 위 골드 크라운 MH 로고가 맞이하며, 프런트 등록 후 컨시어지가 손목밴드를 드립니다.',
+          "title": "사전 예약, 전용 차량, 무료 마사지",
+          "body": "저희를 통해 Manhao Spa (만하오 스파) 예약을 진행하고 인원, 도착 시간, 현재 위치를 알려 주세요. 전용 고급 비즈니스 차량으로 모셔 드리며, 마카오 내 모든 지역에서 픽업이 가능합니다. 차량은 10분 이내에 도착합니다."
         },
         {
-          title: '럭셔리 탈의실',
-          body: '탈의 공간에 들어서면 — 칼라카타 대리석 메인 벽, 골드 버클 맞춤 우드 락커, 패딩 벤치가 보입니다. 실용주의가 아닌 황제급 럭셔리로 통일된 하드웨어가 이후 경험의 수준을 예고합니다.',
+          "title": "Manhao Spa (만하오 스파) 도착",
+          "body": "도착하면 저희가 미리 배정한 직원이 맞이하여 사우나 안으로 안내합니다. 개인 번호가 적힌 손목밴드를 받게 되며, 모든 이용 금액은 이 번호에 기록됩니다."
         },
         {
-          title: '목욕과 웻 구역',
-          body: '목욕 구역은 다크 모자이크 타일과 그린 베인 대리석 조합으로, 여러 샤워 부스와 독립 풀을 갖추고 있습니다. 웻 구역 전체가 새로 만들어져 넓고, 서비스 전 여유롭게 몸을 담그기 좋습니다.',
+          "title": "목욕 및 환복",
+          "body": "사우나에서는 모두가 같은 복장을 착용해야 합니다. 넉넉한 옷은 더욱 편안하게 쉬고 마사지를 받기 위한 것입니다."
         },
         {
-          title: '다이닝 홀',
-          body: '대리석 테이블의 다이닝 홀에서 무료 다과를 즐기세요 — 호텔급 좌석과 프라이빗 바 분위기로, 서비스 전후 천천히 즐기기에 적합합니다.',
+          "title": "내부 시설",
+          "body": "사우나와 찜질 시설, 냉탕과 온탕, 마사지 욕조를 무료로 이용할 수 있습니다."
         },
         {
-          title: '넓은 무대',
-          body: '만하오 스파의 대표 공간은 딥블루 네온과 여러 층의 유리 난간이 어우러진 넓은 무대 홀입니다. 웅장한 무대와 입체적인 조명이 조화를 이루며 시선을 끄는 공간을 완성합니다.',
+          "title": "다양한 메뉴의 무료 뷔페식당",
+          "body": "Manhao Spa (만하오 스파)에서는 다양한 식음료를 무료로 제공합니다. 먹고 싶은 음식을 직원에게 말씀하시면 주방에서 조리하도록 안내해 드립니다. 사우나의 메뉴는 세계 각지에서 온 고객의 입맛을 고려해 구성되어 있습니다."
         },
         {
-          title: '일체형 스위트와 대표 워터베드',
-          body: '객실은 일체형 설계 — 럭셔리 침실 구성(벽화, 킹 침대, 소파, 스탠드)에 대표 레드 워터베드와 드라마틱한 스폿라이트를 결합했습니다. 침실과 워터베드가 같은 프라이빗 룸에 있어 서비스 중 룸 이동이 없습니다.',
+          "title": "테라피스트 선택",
+          "body": "현장 직원이 그곳에 있는 모든 테라피스트를 소개하며, 마사지를 담당할 테라피스트는 직접 선택할 수 있습니다. 마사지 시간은 일반적으로 60분입니다."
         },
         {
-          title: '60분 마사지',
-          body: '60분 마사지로 여행과 일상에 지친 몸을 편안하게 풀어보세요. 조명과 음악을 취향에 맞게 조절하며 아늑한 분위기 속에서 여유롭게 쉴 수 있습니다.',
+          "title": "마사지 종료",
+          "body": "휴게홀의 리클라이너에서 쉴 수 있습니다. 저희를 통해 예약하셨으므로 홀에서 받는 40분 마사지를 추가로 무료 제공해 드립니다."
         },
         {
-          title: '휴게 공간',
-          body: '전용 스타라이트 휴게 구역으로 이동하세요 — 은은한 조명과 럭셔리 리클라이너로 서비스 후 휴식을 취할 수 있습니다. 영업시간은 14:00–04:00이며 현재 숙박은 제공되지 않습니다. 퇴장 시 프런트에서 결제하며 현금, 카드, 위챗페이, 알리페이를 사용할 수 있습니다.',
-        },
+          "title": "야간 숙박 또는 귀가",
+          "body": "마카오의 사우나는 대부분 밤새 머무를 수 있는 서비스를 제공하며, 별도 추가 요금은 없습니다. 마카오 내 다른 장소로 돌아가야 한다면 저희에게 연락해 주세요. 전용 차량으로 모셔다 드리겠습니다!"
+        }
       ],
       gallery: [
         {
@@ -6121,33 +6553,37 @@ const ko: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '도착과 입장',
-          body: '2026년 4월 그랜드 오픈한 넘버 나인 스파는 마카오 시내 로열 드래곤 호텔(御龍酒店) 안에 있습니다. 마카오에서 가장 최신 매장답게 모든 시설이 새것이며, 골드와 대리석 요소에 전문 조명 시스템을 결합한 모던 럭셔리 디자인입니다.',
+          "title": "사전 예약, 전용 차량, 무료 마사지",
+          "body": "저희를 통해 Number Nine Spa (넘버 나인 스파) 예약을 진행하고 인원, 도착 시간, 현재 위치를 알려 주세요. 전용 고급 비즈니스 차량으로 모셔 드리며, 마카오 내 모든 지역에서 픽업이 가능합니다. 차량은 10분 이내에 도착합니다."
         },
         {
-          title: '목욕으로 휴식',
-          body: '새로 단장한 모던 목욕·사우나 시설을 이용하세요. 탈의실은 우드 락커로 깔끔하게 정돈되어 있고, 목욕 구역은 그린 모자이크 타일로 꾸며 상쾌합니다.',
+          "title": "Number Nine Spa (넘버 나인 스파) 도착",
+          "body": "도착하면 저희가 미리 배정한 직원이 맞이하여 사우나 안으로 안내합니다. 개인 번호가 적힌 손목밴드를 받게 되며, 모든 이용 금액은 이 번호에 기록됩니다."
         },
         {
-          title: '무료 다과',
-          body: '다양한 식음료를 무료로 이용하세요. 매장은 다양한 고급 다이닝 선택지를 강조하며, 식사 경험을 전체 즐거움의 일부로 포함합니다.',
+          "title": "목욕 및 환복",
+          "body": "사우나에서는 모두가 같은 복장을 착용해야 합니다. 넉넉한 옷은 더욱 편안하게 쉬고 마사지를 받기 위한 것입니다."
         },
         {
-          title: '홀 시설',
-          body: '홀에는 무대 조명과 LED 스크린이 설치되어 있으며, 금색 장식과 대리석 마감이 현대적인 분위기를 만듭니다.',
+          "title": "내부 시설",
+          "body": "사우나와 찜질 시설, 냉탕과 온탕, 마사지 욕조를 무료로 이용할 수 있습니다."
         },
         {
-          title: '테마룸 선택',
-          body: '넘버 나인에는 다양한 무드 테마룸이 있으며, 각 룸은 레드, 핑크 퍼플, 블루 퍼플 등 고유의 무드 조명과 스타 천장, 정교한 인테리어로 몰입감을 줍니다. 원형 킹 침대는 일부 룸의 특징입니다.',
+          "title": "다양한 메뉴의 무료 뷔페식당",
+          "body": "Number Nine Spa (넘버 나인 스파)에서는 다양한 식음료를 무료로 제공합니다. 먹고 싶은 음식을 직원에게 말씀하시면 주방에서 조리하도록 안내해 드립니다. 사우나의 메뉴는 세계 각지에서 온 고객의 입맛을 고려해 구성되어 있습니다."
         },
         {
-          title: '60분 서비스',
-          body: '발리식과 일식 마사지 두 가지 스타일을 선택할 수 있으며, 동남아시아와 일본의 마사지 기법을 결합합니다. 「독창적인 일식 + 발리 무드」를 내세워 전통 매장과 다른 서비스 경험을 제공합니다.',
+          "title": "테라피스트 선택",
+          "body": "현장 직원이 그곳에 있는 모든 테라피스트를 소개하며, 마사지를 담당할 테라피스트는 직접 선택할 수 있습니다. 마사지 시간은 일반적으로 60분입니다."
         },
         {
-          title: '휴식과 숙박',
-          body: '야간 휴식이 가능하며, 새 시설이 쾌적함을 보장합니다. 신규 매장이라 초기에는 손님이 적어 조용합니다. 저희를 통해 예약하시면 최신 우대 가격을 안내해 드립니다.',
+          "title": "마사지 종료",
+          "body": "휴게홀의 리클라이너에서 쉴 수 있습니다. 저희를 통해 예약하셨으므로 홀에서 받는 40분 마사지를 추가로 무료 제공해 드립니다."
         },
+        {
+          "title": "야간 숙박 또는 귀가",
+          "body": "마카오의 사우나는 대부분 밤새 머무를 수 있는 서비스를 제공하며, 별도 추가 요금은 없습니다. 마카오 내 다른 장소로 돌아가야 한다면 저희에게 연락해 주세요. 전용 차량으로 모셔다 드리겠습니다!"
+        }
       ],
       gallery: [
         {
@@ -6231,25 +6667,37 @@ const ko: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '도착과 입장',
-          body: '샹핀 스파는 리스보에타 호텔(葡京人) 안(코타이)에 있습니다. 전체 인테리어는 유러피언 모던 스타일로 현대적인 디자인 감각을 갖췄습니다. 프런트 등록 후 손목밴드를 받으세요.',
+          "title": "사전 예약, 전용 차량, 무료 마사지",
+          "body": "저희를 통해 Shang Pin Spa (샹핀 스파) 예약을 진행하고 인원, 도착 시간, 현재 위치를 알려 주세요. 전용 고급 비즈니스 차량으로 모셔 드리며, 마카오 내 모든 지역에서 픽업이 가능합니다. 차량은 10분 이내에 도착합니다."
         },
         {
-          title: '목욕으로 휴식',
-          body: '목욕 시설은 새것처럼 관리되어 설비가 충실합니다. 욕조와 사우나가 밝고 깔끔해 전통 매장과는 확연히 다른 분위기입니다.',
+          "title": "Shang Pin Spa (샹핀 스파) 도착",
+          "body": "도착하면 저희가 미리 배정한 직원이 맞이하여 사우나 안으로 안내합니다. 개인 번호가 적힌 손목밴드를 받게 되며, 모든 이용 금액은 이 번호에 기록됩니다."
         },
         {
-          title: '무료 다과',
-          body: '다양한 식음료를 무료로 이용하세요. 다이닝 구역은 매장 전체의 모던한 디자인과 조화를 이루는 쾌적한 환경입니다.',
+          "title": "목욕 및 환복",
+          "body": "사우나에서는 모두가 같은 복장을 착용해야 합니다. 넉넉한 옷은 더욱 편안하게 쉬고 마사지를 받기 위한 것입니다."
         },
         {
-          title: '객실 시설',
-          body: '모든 룸에 독립 욕조가 있어 프라이버시가 높습니다.',
+          "title": "내부 시설",
+          "body": "사우나와 찜질 시설, 냉탕과 온탕, 마사지 욕조를 무료로 이용할 수 있습니다."
         },
         {
-          title: '휴식과 숙박',
-          body: '야간 휴식이 가능하며, 로비에 무료 리클라이너 휴게 구역이 있고 유료 독립 휴게실도 있습니다. 부티크 규모라 손님이 적어 조용하고 편안합니다. 비성수기 시간대에는 테라피스트 수가 적을 수 있으니 저녁 입장을 권합니다.',
+          "title": "다양한 메뉴의 무료 뷔페식당",
+          "body": "Shang Pin Spa (샹핀 스파)에서는 다양한 식음료를 무료로 제공합니다. 먹고 싶은 음식을 직원에게 말씀하시면 주방에서 조리하도록 안내해 드립니다. 사우나의 메뉴는 세계 각지에서 온 고객의 입맛을 고려해 구성되어 있습니다."
         },
+        {
+          "title": "테라피스트 선택",
+          "body": "현장 직원이 그곳에 있는 모든 테라피스트를 소개하며, 마사지를 담당할 테라피스트는 직접 선택할 수 있습니다. 마사지 시간은 일반적으로 60분입니다."
+        },
+        {
+          "title": "마사지 종료",
+          "body": "휴게홀의 리클라이너에서 쉴 수 있습니다. 저희를 통해 예약하셨으므로 홀에서 받는 40분 마사지를 추가로 무료 제공해 드립니다."
+        },
+        {
+          "title": "야간 숙박 또는 귀가",
+          "body": "마카오의 사우나는 대부분 밤새 머무를 수 있는 서비스를 제공하며, 별도 추가 요금은 없습니다. 마카오 내 다른 장소로 돌아가야 한다면 저희에게 연락해 주세요. 전용 차량으로 모셔다 드리겠습니다!"
+        }
       ],
       gallery: [
         {
@@ -6336,33 +6784,37 @@ const ko: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '도착과 입장',
-          body: '마제스티 스파에 도착하세요 — 마카오에서 인테리어가 가장 럭셔리한 사우나입니다. 골드와 대리석 요소가 매장 전체를 관통해 첫눈에 최고급 클럽의 품격을 느낄 수 있습니다. 프런트 등록 후 손목밴드를 받으세요.',
+          "title": "사전 예약, 전용 차량, 무료 마사지",
+          "body": "저희를 통해 Majesty Spa (마제스티 스파) 예약을 진행하고 인원, 도착 시간, 현재 위치를 알려 주세요. 전용 고급 비즈니스 차량으로 모셔 드리며, 마카오 내 모든 지역에서 픽업이 가능합니다. 차량은 10분 이내에 도착합니다."
         },
         {
-          title: '목욕으로 휴식',
-          body: '럭셔리한 목욕 시설과 사우나를 이용하세요. 넓은 욕조와 부드러운 조명으로 전체 분위기가 우아하고 대담합니다. 마카오에서 하드웨어 구성이 가장 뛰어난 매장이니 목욕 경험을 충분히 즐기시길 권합니다.',
+          "title": "Majesty Spa (마제스티 스파) 도착",
+          "body": "도착하면 저희가 미리 배정한 직원이 맞이하여 사우나 안으로 안내합니다. 개인 번호가 적힌 손목밴드를 받게 되며, 모든 이용 금액은 이 번호에 기록됩니다."
         },
         {
-          title: '무료 다과',
-          body: '스테이크, 신선한 과일, 시원한 맥주 등을 무료로 즐기세요. 식재료와 메뉴 선택이 풍부하고, 마제스티의 다이닝 퀄리티는 업계에서 호평받으며 전 시간 무제한으로 제공됩니다.',
+          "title": "목욕 및 환복",
+          "body": "사우나에서는 모두가 같은 복장을 착용해야 합니다. 넉넉한 옷은 더욱 편안하게 쉬고 마사지를 받기 위한 것입니다."
         },
         {
-          title: '넓은 무대',
-          body: '홀에서는 여러 국적의 테라피스트가 한 줄로 서는 ‘시닉 라인’ 방식으로 안내하며, 현장에서 마사지를 담당할 테라피스트를 직접 선택할 수 있습니다.',
+          "title": "내부 시설",
+          "body": "사우나와 찜질 시설, 냉탕과 온탕, 마사지 욕조를 무료로 이용할 수 있습니다."
         },
         {
-          title: '요금 확인',
-          body: '가격대는 MOP 2,799 – 6,699입니다.',
+          "title": "다양한 메뉴의 무료 뷔페식당",
+          "body": "Majesty Spa (마제스티 스파)에서는 다양한 식음료를 무료로 제공합니다. 먹고 싶은 음식을 직원에게 말씀하시면 주방에서 조리하도록 안내해 드립니다. 사우나의 메뉴는 세계 각지에서 온 고객의 입맛을 고려해 구성되어 있습니다."
         },
         {
-          title: '60분 마사지',
-          body: '넓고 편안한 객실에서 60분 마사지를 받으며 쉬어 갈 수 있습니다. 부드러운 조명과 가구가 차분한 분위기를 더합니다. 시작 전에 마사지 내용과 요금을 확인해 주세요.',
+          "title": "테라피스트 선택",
+          "body": "현장 직원이 그곳에 있는 모든 테라피스트를 소개하며, 마사지를 담당할 테라피스트는 직접 선택할 수 있습니다. 마사지 시간은 일반적으로 60분입니다."
         },
         {
-          title: '휴식과 숙박',
-          body: '마제스티는 24시간 영업에 야간 휴식 가능 — 로비에 무료 리클라이너 휴게 구역이 있고, 성수기에는 유료 독립 휴게실도 선택할 수 있습니다. 무료 다과와 함께 편안한 야간 휴식을 보내는 선택입니다.',
+          "title": "마사지 종료",
+          "body": "휴게홀의 리클라이너에서 쉴 수 있습니다. 저희를 통해 예약하셨으므로 홀에서 받는 40분 마사지를 추가로 무료 제공해 드립니다."
         },
+        {
+          "title": "야간 숙박 또는 귀가",
+          "body": "마카오의 사우나는 대부분 밤새 머무를 수 있는 서비스를 제공하며, 별도 추가 요금은 없습니다. 마카오 내 다른 장소로 돌아가야 한다면 저희에게 연락해 주세요. 전용 차량으로 모셔다 드리겠습니다!"
+        }
       ],
       gallery: [
         {
@@ -6436,33 +6888,37 @@ const ko: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '도착과 입장',
-          body: '그랜드 엠퍼러 호텔 본관 안의 디 엑설런트 사우나에 도착하세요. 24시간 영업이며 테라피스트 시간은 13:00 – 05:00입니다. 프런트 등록 후 먼저 목욕을 하고, 부티크형 매장의 조용한 분위기를 본인 페이스로 즐기세요.',
+          "title": "사전 예약, 전용 차량, 무료 마사지",
+          "body": "저희를 통해 The Excellent Sauna (디 엑설런트 사우나) 예약을 진행하고 인원, 도착 시간, 현재 위치를 알려 주세요. 전용 고급 비즈니스 차량으로 모셔 드리며, 마카오 내 모든 지역에서 픽업이 가능합니다. 차량은 10분 이내에 도착합니다."
         },
         {
-          title: '목욕으로 휴식',
-          body: '목욕 시설과 사우나로 몸과 마음을 풀어보세요. 디 엑설런트는 비교적 조용하고 한적해 손님이 적어, 대형 매장 특유의 시끄러움이 없습니다.',
+          "title": "The Excellent Sauna (디 엑설런트 사우나) 도착",
+          "body": "도착하면 저희가 미리 배정한 직원이 맞이하여 사우나 안으로 안내합니다. 개인 번호가 적힌 손목밴드를 받게 되며, 모든 이용 금액은 이 번호에 기록됩니다."
         },
         {
-          title: '무료 다과',
-          body: '24시간 다양한 식음료를 무료로 이용할 수 있어, 오후든 심야든 본인 시간에 맞춰 식사할 수 있습니다.',
+          "title": "목욕 및 환복",
+          "body": "사우나에서는 모두가 같은 복장을 착용해야 합니다. 넉넉한 옷은 더욱 편안하게 쉬고 마사지를 받기 위한 것입니다."
         },
         {
-          title: '마사지 상담',
-          body: '집중적으로 풀고 싶은 부위와 원하는 마사지 강도를 접수처에 알려 주세요. 이용 가능한 마사지 종류, 시간, 요금을 확인한 뒤 일정을 정할 수 있습니다.',
+          "title": "내부 시설",
+          "body": "사우나와 찜질 시설, 냉탕과 온탕, 마사지 욕조를 무료로 이용할 수 있습니다."
         },
         {
-          title: '워터베드 또는 테마룸',
-          body: '사무실, 교실, 영화관 등 다양한 스타일의 객실이 있으며, 일부 객실에는 워터베드가 마련되어 있습니다. 객실 시설과 이용 가능 여부를 확인한 뒤 원하는 공간을 선택하세요.',
+          "title": "다양한 메뉴의 무료 뷔페식당",
+          "body": "The Excellent Sauna (디 엑설런트 사우나)에서는 다양한 식음료를 무료로 제공합니다. 먹고 싶은 음식을 직원에게 말씀하시면 주방에서 조리하도록 안내해 드립니다. 사우나의 메뉴는 세계 각지에서 온 고객의 입맛을 고려해 구성되어 있습니다."
         },
         {
-          title: '60분 마사지',
-          body: '마사지 시간은 약 60분이며, 서비스 요금 10%가 별도로 부과됩니다. 태국식과 상하이식 마사지를 제공하며, 시작 전에 마사지 방식과 강도, 비용을 확인해 주세요.',
+          "title": "테라피스트 선택",
+          "body": "현장 직원이 그곳에 있는 모든 테라피스트를 소개하며, 마사지를 담당할 테라피스트는 직접 선택할 수 있습니다. 마사지 시간은 일반적으로 60분입니다."
         },
         {
-          title: '휴식과 숙박',
-          body: '서비스 후 조용하고 편안한 24시간 휴게 구역에서 쉬거나, 본인 페이스로 야간 휴식을 보낼 수 있습니다. 퇴장 전 프런트에서 결제하면 됩니다.',
+          "title": "마사지 종료",
+          "body": "휴게홀의 리클라이너에서 쉴 수 있습니다. 저희를 통해 예약하셨으므로 홀에서 받는 40분 마사지를 추가로 무료 제공해 드립니다."
         },
+        {
+          "title": "야간 숙박 또는 귀가",
+          "body": "마카오의 사우나는 대부분 밤새 머무를 수 있는 서비스를 제공하며, 별도 추가 요금은 없습니다. 마카오 내 다른 장소로 돌아가야 한다면 저희에게 연락해 주세요. 전용 차량으로 모셔다 드리겠습니다!"
+        }
       ],
       gallery: [
         {
@@ -6551,37 +7007,37 @@ const ko: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '도착과 입장',
-          body: '엠파이어 사우나에 도착하세요 — 마카오 반도 최신의 최고급 사우나 클럽입니다. 로비와 계단 입구에서 이미 전체 품격이 드러납니다 — 동양의 선(禪)적 라인에 모던 럭셔리 인테리어, 모든 시설이 새것입니다. 프런트 등록 후 컨시어지가 손목밴드를 드립니다.',
+          "title": "사전 예약, 전용 차량, 무료 마사지",
+          "body": "저희를 통해 Empire Sauna (엠파이어 사우나) 예약을 진행하고 인원, 도착 시간, 현재 위치를 알려 주세요. 전용 고급 비즈니스 차량으로 모셔 드리며, 마카오 내 모든 지역에서 픽업이 가능합니다. 차량은 10분 이내에 도착합니다."
         },
         {
-          title: '목욕으로 휴식',
-          body: '대표 대리석 욕조에 들어서세요 — 부드러운 무드 조명과 넓은 공간, 리조트급 스파에 견줄 만한 고요한 분위기로 마카오 사우나에서는 드문 수준입니다. 완비된 사우나룸을 포함한 웻 구역 전체가 새로 만들어진 매장의 비주얼 중심입니다.',
+          "title": "Empire Sauna (엠파이어 사우나) 도착",
+          "body": "도착하면 저희가 미리 배정한 직원이 맞이하여 사우나 안으로 안내합니다. 개인 번호가 적힌 손목밴드를 받게 되며, 모든 이용 금액은 이 번호에 기록됩니다."
         },
         {
-          title: '다이닝 홀',
-          body: '다이닝 홀에서 무료 다과를 즐기세요. 호텔급 인테리어로 전통 사우나 식당 분위기가 아니며, 고요하고 프라이빗한 환경에 편안한 좌석을 갖춰 서비스 전후 여유롭게 이용할 수 있습니다.',
+          "title": "목욕 및 환복",
+          "body": "사우나에서는 모두가 같은 복장을 착용해야 합니다. 넉넉한 옷은 더욱 편안하게 쉬고 마사지를 받기 위한 것입니다."
         },
         {
-          title: '마사지 내용과 요금 확인',
-          body: '접수처에서 마사지 종류, 소요 시간, 요금 내역을 확인한 뒤 필요에 맞게 선택하세요. 참고 요금은 MOP 2,488~7,388이며, 이용 전에 서비스 내용과 총금액을 확인해 주세요.',
+          "title": "내부 시설",
+          "body": "사우나와 찜질 시설, 냉탕과 온탕, 마사지 욕조를 무료로 이용할 수 있습니다."
         },
         {
-          title: '테마 스위트 또는 워터베드룸',
-          body: '다양한 테마 스위트 — 각 룸에 맞춤 무드 조명, 고급 침구, 호텔급 장식을 갖춤 — 또는 엠파이어 대표 워터베드 특색룸을 선택하세요.',
+          "title": "다양한 메뉴의 무료 뷔페식당",
+          "body": "Empire Sauna (엠파이어 사우나)에서는 다양한 식음료를 무료로 제공합니다. 먹고 싶은 음식을 직원에게 말씀하시면 주방에서 조리하도록 안내해 드립니다. 사우나의 메뉴는 세계 각지에서 온 고객의 입맛을 고려해 구성되어 있습니다."
         },
         {
-          title: '60분 마사지',
-          body: '마사지 시간은 60분입니다. 구체적인 마사지 방식과 이용 절차는 미리 접수처에 문의하세요. 객실에는 욕조가 있으며 조명과 음향을 조절해 편안한 분위기를 만들 수 있습니다.',
+          "title": "테라피스트 선택",
+          "body": "현장 직원이 그곳에 있는 모든 테라피스트를 소개하며, 마사지를 담당할 테라피스트는 직접 선택할 수 있습니다. 마사지 시간은 일반적으로 60분입니다."
         },
         {
-          title: '휴식과 숙박',
-          body: '서비스 후 독립 휴게 구역으로 이동하세요 — 은은한 조명과 고요한 환경으로, 잠깐의 휴식이 아닌 실제 수면을 위해 설계되었습니다. 야간 휴식을 환영하며, 그동안 웻 구역, 다이닝 홀, 휴게 구역이 계속 열립니다.',
+          "title": "마사지 종료",
+          "body": "휴게홀의 리클라이너에서 쉴 수 있습니다. 저희를 통해 예약하셨으므로 홀에서 받는 40분 마사지를 추가로 무료 제공해 드립니다."
         },
         {
-          title: '다음 날 퇴장',
-          body: '프런트에서 퇴장 수속을 하세요. 엠파이어 사우나는 현금, 카드, 위챗페이, 알리페이를 받습니다. 저희를 통해 미리 예약하셨다면, 본 사이트 전용 혜택(무료 추가 시술, 무료 픽업, 입장료 면제)이 퇴장 시 정확히 정산됩니다.',
-        },
+          "title": "야간 숙박 또는 귀가",
+          "body": "마카오의 사우나는 대부분 밤새 머무를 수 있는 서비스를 제공하며, 별도 추가 요금은 없습니다. 마카오 내 다른 장소로 돌아가야 한다면 저희에게 연락해 주세요. 전용 차량으로 모셔다 드리겠습니다!"
+        }
       ],
       gallery: [
         {
@@ -6665,33 +7121,37 @@ const ko: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '도착과 입장',
-          body: '이스트 캐슬 스파에 도착하세요 — 마카오 테마룸의 원조입니다. 프런트 등록 후 손목밴드를 받으세요. 참고 가격은 MOP 2,388 – 6,498이며, 세부 항목은 예약 시 확인해 주세요.',
+          "title": "사전 예약, 전용 차량, 무료 마사지",
+          "body": "저희를 통해 East Castle Spa (이스트 캐슬 스파) 예약을 진행하고 인원, 도착 시간, 현재 위치를 알려 주세요. 전용 고급 비즈니스 차량으로 모셔 드리며, 마카오 내 모든 지역에서 픽업이 가능합니다. 차량은 10분 이내에 도착합니다."
         },
         {
-          title: '목욕으로 휴식',
-          body: '목욕 시설과 사우나를 자신의 속도에 맞춰 이용하며 여행 중 쌓인 피로를 풀어 보세요.',
+          "title": "East Castle Spa (이스트 캐슬 스파) 도착",
+          "body": "도착하면 저희가 미리 배정한 직원이 맞이하여 사우나 안으로 안내합니다. 개인 번호가 적힌 손목밴드를 받게 되며, 모든 이용 금액은 이 번호에 기록됩니다."
         },
         {
-          title: '무료 다과',
-          body: '무료 식음료가 제공됩니다. 식사 공간에서 잠시 쉬며 다음 일정을 계획해 보세요.',
+          "title": "목욕 및 환복",
+          "body": "사우나에서는 모두가 같은 복장을 착용해야 합니다. 넉넉한 옷은 더욱 편안하게 쉬고 마사지를 받기 위한 것입니다."
         },
         {
-          title: '마사지 이용 확인',
-          body: '접수처에서 마사지 종류, 예약 가능한 시간, 객실 상황을 확인하세요. 이용 전에 서비스 내용과 소요 시간, 요금 내역을 확인한 뒤 일정에 맞게 선택할 수 있습니다.',
+          "title": "내부 시설",
+          "body": "사우나와 찜질 시설, 냉탕과 온탕, 마사지 욕조를 무료로 이용할 수 있습니다."
         },
         {
-          title: '20종 이상의 다양한 객실 디자인',
-          body: '이스트 캐슬 스파의 특징 중 하나는 20종 이상의 다양한 객실 디자인입니다. 각기 다른 인테리어와 분위기를 갖춰, 취향에 맞는 공간에서 마사지를 받으며 쉴 수 있습니다.',
+          "title": "다양한 메뉴의 무료 뷔페식당",
+          "body": "East Castle Spa (이스트 캐슬 스파)에서는 다양한 식음료를 무료로 제공합니다. 먹고 싶은 음식을 직원에게 말씀하시면 주방에서 조리하도록 안내해 드립니다. 사우나의 메뉴는 세계 각지에서 온 고객의 입맛을 고려해 구성되어 있습니다."
         },
         {
-          title: '서비스 요금과 세금',
-          body: '10% 서비스 요금과 5% 관광세가 별도입니다.',
+          "title": "테라피스트 선택",
+          "body": "현장 직원이 그곳에 있는 모든 테라피스트를 소개하며, 마사지를 담당할 테라피스트는 직접 선택할 수 있습니다. 마사지 시간은 일반적으로 60분입니다."
         },
         {
-          title: '휴식과 숙박',
-          body: '로비에 리클라이너가 있어 야간 휴식이 가능합니다. 이스트 캐슬의 핵심 경험은 휴게 시설이 아닌 테마룸이므로, 야간 휴식의 편안함이 최우선이라면 마제스티 스파를 권합니다.',
+          "title": "마사지 종료",
+          "body": "휴게홀의 리클라이너에서 쉴 수 있습니다. 저희를 통해 예약하셨으므로 홀에서 받는 40분 마사지를 추가로 무료 제공해 드립니다."
         },
+        {
+          "title": "야간 숙박 또는 귀가",
+          "body": "마카오의 사우나는 대부분 밤새 머무를 수 있는 서비스를 제공하며, 별도 추가 요금은 없습니다. 마카오 내 다른 장소로 돌아가야 한다면 저희에게 연락해 주세요. 전용 차량으로 모셔다 드리겠습니다!"
+        }
       ],
       gallery: [
         {
@@ -6761,33 +7221,37 @@ const ko: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '도착과 입장',
-          body: '그랜드 리스보아 인근 빅토리아 호텔(凱旋門酒店) 5층의 빅토리아 사우나에 도착하세요. 마카오 반도 중심부로 MGM, 윈, 그랜드 리스보아와 가깝습니다. 프런트 등록 후 손목밴드를 받으며, 매장 전체가 조용하고 프라이빗합니다.',
+          "title": "사전 예약, 전용 차량, 무료 마사지",
+          "body": "저희를 통해 Victoria Sauna (빅토리아 사우나) 예약을 진행하고 인원, 도착 시간, 현재 위치를 알려 주세요. 전용 고급 비즈니스 차량으로 모셔 드리며, 마카오 내 모든 지역에서 픽업이 가능합니다. 차량은 10분 이내에 도착합니다."
         },
         {
-          title: '목욕으로 휴식',
-          body: '목욕 시설과 사우나를 조용하고 깔끔한 환경에서 이용하세요. 빅토리아는 의도적으로 손님 수를 조절해, 붐비는 시간대에도 복잡함을 느끼지 않습니다.',
+          "title": "Victoria Sauna (빅토리아 사우나) 도착",
+          "body": "도착하면 저희가 미리 배정한 직원이 맞이하여 사우나 안으로 안내합니다. 개인 번호가 적힌 손목밴드를 받게 되며, 모든 이용 금액은 이 번호에 기록됩니다."
         },
         {
-          title: '무료 다과',
-          body: '다양한 식음료를 무료로 이용하세요. 대형 매장처럼 시끄럽지 않고 조용하고 편안한 다이닝 환경입니다.',
+          "title": "목욕 및 환복",
+          "body": "사우나에서는 모두가 같은 복장을 착용해야 합니다. 넉넉한 옷은 더욱 편안하게 쉬고 마사지를 받기 위한 것입니다."
         },
         {
-          title: '자유 매칭',
-          body: '빅토리아에는 고정된 소개 퍼포먼스나 쇼가 없습니다 — 취향을 매니저에게 알리면 매니저가 적합한 테라피스트와의 만남을 주선합니다. 전 과정이 본인 페이스대로 진행되어 압박이나 재촉이 전혀 없는, 마카오에서 가장 편안한 선택 방식입니다.',
+          "title": "내부 시설",
+          "body": "사우나와 찜질 시설, 냉탕과 온탕, 마사지 욕조를 무료로 이용할 수 있습니다."
         },
         {
-          title: '테라피스트 선택',
-          body: '중국, 베트남, 일본, 한국 국적의 다국적 테라피스트가 있습니다. 빅토리아의 서비스는 세심함으로 알려져 있으며, 테라피스트의 전반적인 서비스 퀄리티가 안정적입니다. 가격대는 MOP 2,298 – 6,998이며 10% 서비스 요금이 별도입니다.',
+          "title": "다양한 메뉴의 무료 뷔페식당",
+          "body": "Victoria Sauna (빅토리아 사우나)에서는 다양한 식음료를 무료로 제공합니다. 먹고 싶은 음식을 직원에게 말씀하시면 주방에서 조리하도록 안내해 드립니다. 사우나의 메뉴는 세계 각지에서 온 고객의 입맛을 고려해 구성되어 있습니다."
         },
         {
-          title: '60분 서비스',
-          body: '룸에 들어가 60분 1:1 서비스를 즐기세요. 대표 워터베드룸은 프라이빗하고 조용하며, 서비스 품질은 오셔닉 로열 수준이지만 가격은 더 합리적이라 가성비가 매우 높습니다.',
+          "title": "테라피스트 선택",
+          "body": "현장 직원이 그곳에 있는 모든 테라피스트를 소개하며, 마사지를 담당할 테라피스트는 직접 선택할 수 있습니다. 마사지 시간은 일반적으로 60분입니다."
         },
         {
-          title: '휴식과 숙박',
-          body: '조용하고 프라이빗한 환경으로, 마카오에서 조용한 휴식과 야간 휴식에 가장 적합한 매장 중 하나입니다. 로비에 많은 리클라이너가 있고 손님이 적고 소음이 낮아, 프라이빗하고 고요함을 원하는 손님에게 적합합니다.',
+          "title": "마사지 종료",
+          "body": "휴게홀의 리클라이너에서 쉴 수 있습니다. 저희를 통해 예약하셨으므로 홀에서 받는 40분 마사지를 추가로 무료 제공해 드립니다."
         },
+        {
+          "title": "야간 숙박 또는 귀가",
+          "body": "마카오의 사우나는 대부분 밤새 머무를 수 있는 서비스를 제공하며, 별도 추가 요금은 없습니다. 마카오 내 다른 장소로 돌아가야 한다면 저희에게 연락해 주세요. 전용 차량으로 모셔다 드리겠습니다!"
+        }
       ],
       gallery: [
         {
@@ -6855,25 +7319,37 @@ const ko: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '임시 휴업',
-          body: 'MCLUB은 현재 휴업 중으로 방문객이나 예약을 받지 않습니다. 아래 내용은 과거 시설에 관한 안내입니다.',
+          "title": "사전 예약, 전용 차량, 무료 마사지",
+          "body": "저희를 통해 M CLUB (엠클럽) 예약을 진행하고 인원, 도착 시간, 현재 위치를 알려 주세요. 전용 고급 비즈니스 차량으로 모셔 드리며, 마카오 내 모든 지역에서 픽업이 가능합니다. 차량은 10분 이내에 도착합니다."
         },
         {
-          title: '시설과 객실',
-          body: '동방황보 스파의 자매 업장으로, 다양한 스타일의 객실과 KTV룸, 목욕 시설을 갖추고 있었습니다.',
+          "title": "M CLUB (엠클럽) 도착",
+          "body": "도착하면 저희가 미리 배정한 직원이 맞이하여 사우나 안으로 안내합니다. 개인 번호가 적힌 손목밴드를 받게 되며, 모든 이용 금액은 이 번호에 기록됩니다."
         },
         {
-          title: '목욕 및 식사 시설',
-          body: '미래적인 인테리어의 목욕탕, 사우나, 식사 공간이 있었습니다. 현재는 해당 시설을 이용할 수 없습니다.',
+          "title": "목욕 및 환복",
+          "body": "사우나에서는 모두가 같은 복장을 착용해야 합니다. 넉넉한 옷은 더욱 편안하게 쉬고 마사지를 받기 위한 것입니다."
         },
         {
-          title: '과거 요금 안내',
-          body: '과거에는 서비스 요금 10%가 별도로 부과되었습니다. 현재 요금이나 예약 상품이 아닌 과거 기록입니다.',
+          "title": "내부 시설",
+          "body": "사우나와 찜질 시설, 냉탕과 온탕, 마사지 욕조를 무료로 이용할 수 있습니다."
         },
         {
-          title: '휴식 시설',
-          body: '과거 로비에 리클라이너 휴식 공간이 있었습니다. 휴업 중에는 숙박할 수 없으며, 영업 재개 여부는 업장의 최신 공지를 확인해 주세요.',
+          "title": "다양한 메뉴의 무료 뷔페식당",
+          "body": "M CLUB (엠클럽)에서는 다양한 식음료를 무료로 제공합니다. 먹고 싶은 음식을 직원에게 말씀하시면 주방에서 조리하도록 안내해 드립니다. 사우나의 메뉴는 세계 각지에서 온 고객의 입맛을 고려해 구성되어 있습니다."
         },
+        {
+          "title": "테라피스트 선택",
+          "body": "현장 직원이 그곳에 있는 모든 테라피스트를 소개하며, 마사지를 담당할 테라피스트는 직접 선택할 수 있습니다. 마사지 시간은 일반적으로 60분입니다."
+        },
+        {
+          "title": "마사지 종료",
+          "body": "휴게홀의 리클라이너에서 쉴 수 있습니다. 저희를 통해 예약하셨으므로 홀에서 받는 40분 마사지를 추가로 무료 제공해 드립니다."
+        },
+        {
+          "title": "야간 숙박 또는 귀가",
+          "body": "마카오의 사우나는 대부분 밤새 머무를 수 있는 서비스를 제공하며, 별도 추가 요금은 없습니다. 마카오 내 다른 장소로 돌아가야 한다면 저희에게 연락해 주세요. 전용 차량으로 모셔다 드리겠습니다!"
+        }
       ],
       gallery: [
         {
@@ -6971,25 +7447,37 @@ const ko: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '임시 휴업',
-          body: '일호 사우나는 현재 휴업 중으로 방문객이나 예약을 받지 않습니다. 아래 내용은 과거 시설에 관한 기록입니다.',
+          "title": "사전 예약, 전용 차량, 무료 마사지",
+          "body": "저희를 통해 Number One Sauna (넘버 원 사우나) 예약을 진행하고 인원, 도착 시간, 현재 위치를 알려 주세요. 전용 고급 비즈니스 차량으로 모셔 드리며, 마카오 내 모든 지역에서 픽업이 가능합니다. 차량은 10분 이내에 도착합니다."
         },
         {
-          title: '목욕 및 탈의 시설',
-          body: '과거에는 넓은 탈의실, 사물함, 대형 월풀 욕조, 건식 사우나와 습식 사우나가 마련되어 있었습니다.',
+          "title": "Number One Sauna (넘버 원 사우나) 도착",
+          "body": "도착하면 저희가 미리 배정한 직원이 맞이하여 사우나 안으로 안내합니다. 개인 번호가 적힌 손목밴드를 받게 되며, 모든 이용 금액은 이 번호에 기록됩니다."
         },
         {
-          title: '식사 공간',
-          body: '과거 넓은 식사 공간에서 스테이크, 볶음밥, 면 요리, 과일, 음료 등을 제공했습니다. 현재는 식사 서비스를 운영하지 않습니다.',
+          "title": "목욕 및 환복",
+          "body": "사우나에서는 모두가 같은 복장을 착용해야 합니다. 넉넉한 옷은 더욱 편안하게 쉬고 마사지를 받기 위한 것입니다."
         },
         {
-          title: '과거 요금',
-          body: '기록된 과거 요금은 MOP 2,199~7,699였습니다. 현재 적용되는 요금이 아니며, 휴업 중에는 예약이나 서비스를 제공하지 않습니다.',
+          "title": "내부 시설",
+          "body": "사우나와 찜질 시설, 냉탕과 온탕, 마사지 욕조를 무료로 이용할 수 있습니다."
         },
         {
-          title: '휴식 시설',
-          body: '과거에는 리클라이너 휴식 공간이 있었습니다. 휴업 중에는 숙박할 수 없으며, 영업 재개 여부는 업장의 최신 공지를 확인해 주세요.',
+          "title": "다양한 메뉴의 무료 뷔페식당",
+          "body": "Number One Sauna (넘버 원 사우나)에서는 다양한 식음료를 무료로 제공합니다. 먹고 싶은 음식을 직원에게 말씀하시면 주방에서 조리하도록 안내해 드립니다. 사우나의 메뉴는 세계 각지에서 온 고객의 입맛을 고려해 구성되어 있습니다."
         },
+        {
+          "title": "테라피스트 선택",
+          "body": "현장 직원이 그곳에 있는 모든 테라피스트를 소개하며, 마사지를 담당할 테라피스트는 직접 선택할 수 있습니다. 마사지 시간은 일반적으로 60분입니다."
+        },
+        {
+          "title": "마사지 종료",
+          "body": "휴게홀의 리클라이너에서 쉴 수 있습니다. 저희를 통해 예약하셨으므로 홀에서 받는 40분 마사지를 추가로 무료 제공해 드립니다."
+        },
+        {
+          "title": "야간 숙박 또는 귀가",
+          "body": "마카오의 사우나는 대부분 밤새 머무를 수 있는 서비스를 제공하며, 별도 추가 요금은 없습니다. 마카오 내 다른 장소로 돌아가야 한다면 저희에게 연락해 주세요. 전용 차량으로 모셔다 드리겠습니다!"
+        }
       ],
       gallery: [
         {
@@ -7071,25 +7559,37 @@ const ko: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '임시 휴업',
-          body: '호문 사우나는 현재 휴업 중으로 방문객이나 예약을 받지 않습니다. 아래 내용은 과거 시설에 관한 기록입니다.',
+          "title": "사전 예약, 전용 차량, 무료 마사지",
+          "body": "저희를 통해 Familia Nobre (파밀리아 노브레) 예약을 진행하고 인원, 도착 시간, 현재 위치를 알려 주세요. 전용 고급 비즈니스 차량으로 모셔 드리며, 마카오 내 모든 지역에서 픽업이 가능합니다. 차량은 10분 이내에 도착합니다."
         },
         {
-          title: '목욕 및 탈의 시설',
-          body: '과거에는 넓은 탈의실, 사물함, 욕조와 사우나실이 있었으며, 목욕·식사·휴식 공간이 구분되어 있었습니다.',
+          "title": "Familia Nobre (파밀리아 노브레) 도착",
+          "body": "도착하면 저희가 미리 배정한 직원이 맞이하여 사우나 안으로 안내합니다. 개인 번호가 적힌 손목밴드를 받게 되며, 모든 이용 금액은 이 번호에 기록됩니다."
         },
         {
-          title: '식사 및 객실 시설',
-          body: '과거 스테이크, 음료, 따뜻한 요리를 제공했으며 다수의 객실을 갖추고 있었습니다. 현재는 식사 및 객실 시설을 이용할 수 없습니다.',
+          "title": "목욕 및 환복",
+          "body": "사우나에서는 모두가 같은 복장을 착용해야 합니다. 넉넉한 옷은 더욱 편안하게 쉬고 마사지를 받기 위한 것입니다."
         },
         {
-          title: '과거 요금',
-          body: '기록된 과거 요금은 MOP 2,388~6,988였으며 당시에는 서비스 요금이 없었습니다. 현재 요금이 아닌 과거 기록입니다.',
+          "title": "내부 시설",
+          "body": "사우나와 찜질 시설, 냉탕과 온탕, 마사지 욕조를 무료로 이용할 수 있습니다."
         },
         {
-          title: '휴식 시설',
-          body: '과거 휴식 공간에는 간격을 넓게 둔 리클라이너가 여러 개 있었습니다. 휴업 중에는 숙박할 수 없으며, 영업 재개 여부는 업장의 최신 공지를 확인해 주세요.',
+          "title": "다양한 메뉴의 무료 뷔페식당",
+          "body": "Familia Nobre (파밀리아 노브레)에서는 다양한 식음료를 무료로 제공합니다. 먹고 싶은 음식을 직원에게 말씀하시면 주방에서 조리하도록 안내해 드립니다. 사우나의 메뉴는 세계 각지에서 온 고객의 입맛을 고려해 구성되어 있습니다."
         },
+        {
+          "title": "테라피스트 선택",
+          "body": "현장 직원이 그곳에 있는 모든 테라피스트를 소개하며, 마사지를 담당할 테라피스트는 직접 선택할 수 있습니다. 마사지 시간은 일반적으로 60분입니다."
+        },
+        {
+          "title": "마사지 종료",
+          "body": "휴게홀의 리클라이너에서 쉴 수 있습니다. 저희를 통해 예약하셨으므로 홀에서 받는 40분 마사지를 추가로 무료 제공해 드립니다."
+        },
+        {
+          "title": "야간 숙박 또는 귀가",
+          "body": "마카오의 사우나는 대부분 밤새 머무를 수 있는 서비스를 제공하며, 별도 추가 요금은 없습니다. 마카오 내 다른 장소로 돌아가야 한다면 저희에게 연락해 주세요. 전용 차량으로 모셔다 드리겠습니다!"
+        }
       ],
       gallery: [
         {
@@ -7175,17 +7675,37 @@ const ko: SpaPageCopy = {
       ],
       flow: [
         {
-          title: '영업 상태 먼저 확인',
-          body: '오셔닉 로열 스파는 현재 일시 휴업 중으로, 손님 접수나 예약 서비스를 받지 않습니다. 계획 전에 저희에게 문의해 최신 상황을 확인해 주세요.',
+          "title": "사전 예약, 전용 차량, 무료 마사지",
+          "body": "저희를 통해 Oceanic Royal Spa (오셔닉 로열 스파) 예약을 진행하고 인원, 도착 시간, 현재 위치를 알려 주세요. 전용 고급 비즈니스 차량으로 모셔 드리며, 마카오 내 모든 지역에서 픽업이 가능합니다. 차량은 10분 이내에 도착합니다."
         },
         {
-          title: '대체 매장 선택',
-          body: '타이파 또는 마카오 반도 선호, 테마룸, 24시간 영업, 야간 리클라이너 휴게 구역 등 원하시는 조건을 알려주시면, 현재 영업 중인 매장을 추천해 드립니다.',
+          "title": "Oceanic Royal Spa (오셔닉 로열 스파) 도착",
+          "body": "도착하면 저희가 미리 배정한 직원이 맞이하여 사우나 안으로 안내합니다. 개인 번호가 적힌 손목밴드를 받게 되며, 모든 이용 금액은 이 번호에 기록됩니다."
         },
         {
-          title: '영업 재개 후 재확인',
-          body: '영업 재개 후에는 당일 가격, 테라피스트 라인업, 룸 배치를 다시 확인해 주세요. 이 정보는 매장의 실제 운영에 따라 조정될 수 있습니다.',
+          "title": "목욕 및 환복",
+          "body": "사우나에서는 모두가 같은 복장을 착용해야 합니다. 넉넉한 옷은 더욱 편안하게 쉬고 마사지를 받기 위한 것입니다."
         },
+        {
+          "title": "내부 시설",
+          "body": "사우나와 찜질 시설, 냉탕과 온탕, 마사지 욕조를 무료로 이용할 수 있습니다."
+        },
+        {
+          "title": "다양한 메뉴의 무료 뷔페식당",
+          "body": "Oceanic Royal Spa (오셔닉 로열 스파)에서는 다양한 식음료를 무료로 제공합니다. 먹고 싶은 음식을 직원에게 말씀하시면 주방에서 조리하도록 안내해 드립니다. 사우나의 메뉴는 세계 각지에서 온 고객의 입맛을 고려해 구성되어 있습니다."
+        },
+        {
+          "title": "테라피스트 선택",
+          "body": "현장 직원이 그곳에 있는 모든 테라피스트를 소개하며, 마사지를 담당할 테라피스트는 직접 선택할 수 있습니다. 마사지 시간은 일반적으로 60분입니다."
+        },
+        {
+          "title": "마사지 종료",
+          "body": "휴게홀의 리클라이너에서 쉴 수 있습니다. 저희를 통해 예약하셨으므로 홀에서 받는 40분 마사지를 추가로 무료 제공해 드립니다."
+        },
+        {
+          "title": "야간 숙박 또는 귀가",
+          "body": "마카오의 사우나는 대부분 밤새 머무를 수 있는 서비스를 제공하며, 별도 추가 요금은 없습니다. 마카오 내 다른 장소로 돌아가야 한다면 저희에게 연락해 주세요. 전용 차량으로 모셔다 드리겠습니다!"
+        }
       ],
       gallery: [
         {

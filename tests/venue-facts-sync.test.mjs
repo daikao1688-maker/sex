@@ -275,12 +275,6 @@ test("renders the revised Majesty and Victoria highlights in Simplified Chinese"
 });
 
 test("keeps The Excellent service fee consistent with the shared venue fact", async () => {
-  const expectedFeeCopy = {
-    en: "with a 10% service charge",
-    ja: "別途10%のサービス料がかかります",
-    "zh-TW": "另收 10% 服務費",
-    "zh-CN": "另收 10% 服务费",
-  };
   const staleFeeCopy = [
     "zero service fee",
     "サービス料は一切かかりません",
@@ -288,12 +282,14 @@ test("keeps The Excellent service fee consistent with the shared venue fact", as
     "全程免收服务费",
   ];
 
-  for (const [locale, expected] of Object.entries(expectedFeeCopy)) {
+  for (const locale of ["en", "ja", "ko", "zh-TW", "zh-CN"]) {
     const html = await readBuiltPage(locale, "the-excellent-sauna");
     const relatedStart = html.indexOf('id="related"');
     assert.ok(relatedStart > 0, `${locale}/the-excellent-sauna is missing the related-venues boundary`);
     const text = visibleText(html.slice(0, relatedStart));
-    assert.ok(text.includes(expected), `${locale}/the-excellent-sauna is missing the 10% service fee`);
+    const feeRow = html.slice(0, relatedStart).match(/<p\b[^>]*\bdata-spa-service-fee\b[^>]*>([\s\S]*?)<\/p>/);
+    assert.ok(feeRow, `${locale}/the-excellent-sauna is missing the service-fee row`);
+    assert.match(visibleText(feeRow[1]), /:\s*10%\s*$/, `${locale}/the-excellent-sauna must show the 10% service fee`);
     for (const stale of staleFeeCopy) {
       assert.ok(!text.includes(stale), `${locale}/the-excellent-sauna still contains: ${stale}`);
     }
