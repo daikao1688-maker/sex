@@ -36,11 +36,11 @@ test('one central rating edit reaches venue facts and localized feature stars', 
   const server = await moduleServer();
   t.after(() => server.close());
   const { venueRatings } = await server.ssrLoadModule('/src/data/venueRatings.ts');
-  const original = venueRatings['the-excellent-sauna'];
+  const original = venueRatings['shang-pin-spa'];
   try {
-    venueRatings['the-excellent-sauna'] = 2;
+    venueRatings['shang-pin-spa'] = 2;
     const { venues } = await server.ssrLoadModule('/src/data/venues.ts');
-    const venue = venues.find((entry) => entry.slug === 'the-excellent-sauna');
+    const venue = venues.find((entry) => entry.slug === 'shang-pin-spa');
     assert.equal(venue.rating, 2, 'consumers of shared venue facts must receive the edited score');
     const { getSpaPageCopy } = await server.ssrLoadModule('/src/i18n/pages/spa.ts');
     const { resolveVenueDetail } = await server.ssrLoadModule('/src/lib/spaDetail.ts');
@@ -53,7 +53,7 @@ test('one central rating edit reaches venue facts and localized feature stars', 
       assert.ok(!detail.features.some((feature) => feature.includes('{ratingStars}')));
     }
   } finally {
-    venueRatings['the-excellent-sauna'] = original;
+    venueRatings['shang-pin-spa'] = original;
   }
 });
 

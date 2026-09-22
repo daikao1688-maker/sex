@@ -6,7 +6,7 @@ const en: Dictionary = {
     description:
       'Compare {venueCount} Macau sauna and spa listings, including current closure notices, reference prices, facilities and private shuttle support.',
     siteName: 'Macau Sauna Sites',
-    ogImageAlt: 'A woman in a champagne-colored dress beside the Macau waterfront at night',
+    ogImageAlt: 'The Parisian Macao Eiffel Tower and Cotai hotels at night',
   },
 
   nav: {
@@ -25,7 +25,7 @@ const en: Dictionary = {
   promo: {
     headlineShort: 'New Sauna Opening',
     headlineLong: 'Celebrate New Sauna Opening',
-    offer: '{month} Free service add-on',
+    offer: '{month} Free massage with booking',
     cta: 'Claim Now →',
   },
 
@@ -63,7 +63,7 @@ const en: Dictionary = {
     filterLabel: 'Filter venues',
     filters: [
       { bucket: 'all', label: 'All' },
-      { bucket: 'theme', label: 'Theme' },
+      { bucket: 'overnight', label: 'Overnight' },
       { bucket: 'value', label: 'Value' },
       { bucket: 'taipa', label: 'Taipa' },
       { bucket: 'new', label: 'New' },
@@ -101,59 +101,59 @@ const en: Dictionary = {
         name: 'Yu Sauna',
         badge: 'NAPE · Bathing & Rest',
         summary:
-          'Yu Sauna is a NAPE venue inside New Orient Landmark Hotel, with dry and steam rooms, showers, a hot pool and a recliner lounge.',
+          "Yu Sauna opened in August 2026 at the former Royal Sauna premises. Run by the Oceanic Royal Spa team, it has bathing pools, saunas and a spacious lounge.",
         description:
-          'Yu Sauna (YU SAUNA) opened on 26 August 2026 on the third floor of New Orient Landmark Hotel in NAPE, Macau, close to Macau Fisherman\'s Wharf and the Outer Harbour Ferry Terminal. Its central NAPE location makes it convenient whether arriving by ferry or staying in the Macau Peninsula hotel district.\n\nThe venue was fully refurbished in 2025, blending Japanese Zen restraint with refined Chinese details. Facilities include a Japanese cypress dry sauna, a full-height glass steam room, a spacious hot-pool hall and treatment rooms with private bathtubs. Timber latticework, a red-lantern corridor and the dining-rest area echo one another to create a quiet, polished and layered spa atmosphere.\n\nYu Sauna operates 24 hours. Therapists are mainly on duty from 13:00 to 06:00 the following day, with a multinational team. Charges cover sauna-only access, Shanghai-style massage and several spa-package tiers; the Japanese-themed package is the venue\'s highest tier. A 10% service fee applies to all spending.',
+          "Yu Sauna opened in August 2026 at the former Royal Sauna premises, with the Oceanic Royal Spa team in charge. It occupies the third floor of New Orient Landmark Hotel in NAPE, close to the Outer Harbour Ferry Terminal and Macau Fisherman's Wharf. The location is handy for visitors staying on the Macau Peninsula.\n\nThe bathing pools, saunas and lounge have plenty of space, and the rooms are clean and tidy. After a day on foot, a hot soak, some time in the sauna and a recliner to stretch out on make a welcome break. The ornate interiors will also appeal if you want a taste of Macau's grander leisure clubs.",
       },
       'manhao-spa': {
         name: 'Manhao Spa',
         badge: 'Opened in 2026',
-        summary: 'Manhao Spa is a Taipa venue inside Grandview Hotel, with marble-and-gold interiors, a showcase hall and private treatment rooms.',
+        summary: "Manhao Spa opened at Grandview Hotel in Taipa in May 2026. Its large bathing area and lounges are best enjoyed with a few hours to spare.",
         description:
-          "Manhao Spa opened in May 2026 inside Grandview Hotel in Taipa, near The Venetian Macao and Galaxy Macau. Generous spaces, marble finishes and gold accents give the venue an elegant, luxurious feel, with room to slow down after a day around the city.\n\nThe marble bathing area has two bathing pools, a Finnish sauna and a steam room. Whether you prefer a soak, dry heat or gentle steam, you can take your time and enjoy a relaxed break from your itinerary.",
+          "Manhao Spa opened in May 2026 at Grandview Hotel in Taipa and is one of Macau's larger sauna venues. A broad lobby, marble bathing areas and gold details give it the grand appearance associated with the city's leisure clubs.\n\nThere is room to move between two bathing pools, a Finnish sauna, a steam room and the lounge without rushing. You could spend a few hours trying the baths and saunas, with time to sit down between them. For visitors based in Taipa or Cotai, Manhao offers a comfortable place to take a longer break from sightseeing.",
       },
       'number-nine-sauna': {
         name: 'Number Nine Spa',
         badge: 'New & Modern Facilities',
         description:
-          'Number Nine Spa opened in 2026 inside the Royal Dragon Hotel in central Macau. Gold and marble finishes, lighting, LED screens and a spacious hall give the venue a modern character.\n\nRooms combine red, pink-purple or blue-purple palettes with starry ceilings. Japanese, Korean and Balinese-style massage options sit alongside bathing and rest facilities. Compare the treatments, durations and prices before booking, and confirm which offers are available on your date.',
+          "Number Nine Spa opened at Royal Dragon Hotel in April 2026. Gold detailing and natural marble dress up the bright lobby and wide corridors, while the lounges give guests plenty of room to sit and relax.\n\nA separate dining area serves an all-you-can-eat buffet, so you can have a proper meal before or after a bath or massage. Having food and somewhere to rest in one place makes it an easy choice for a group of friends or an informal business gathering.\n\nCome in the evening for a livelier atmosphere, or use a daytime visit to break up a busy sightseeing schedule.",
       },
       'shang-pin-spa': {
         name: 'Shang Pin Spa',
         badge: 'Great Value',
         description:
-          'Shang Pin Spa occupies Level 2, unit L2 R95, at Lisboeta Macau in Cotai. Public descriptions put the venue at around 20,000 square feet, with Japanese-inspired interiors, whirlpool baths, sauna facilities and Japanese-style bathing rooms. The setting is bright and clean, with the feel of a modern hotel spa.\n\nSpacious bathing areas and quiet lounges offer a place to pause between sightseeing stops. Guests staying at Lisboeta, Grand Lisboa Palace or elsewhere in Cotai can plan a visit around their itinerary. Confirm treatment details, prices and current offers before booking.',
+          "Shang Pin Spa opened in July 2025 on Level 2 of Lisboeta Macau, in unit L2 R95. While many of Macau's saunas are on the peninsula, this one is in Cotai, near the airport. It is a convenient stop if you are staying at Lisboeta or one of the surrounding resort hotels.\n\nThe bright, tidy interior has a Japanese influence, with whirlpool baths, saunas and places to sit and rest. The appeal is a quiet spell in the water or sauna between outings. If most of your trip is centred on Taipa and Cotai, Shang Pin fits into the day without a journey across town.",
       },
       'majesty-spa': {
         name: 'Majesty Spa',
         badge: 'Most Luxury',
         description:
-          'Majesty Spa is located inside Harbourview Hotel at Macau Fisherman\'s Wharf, with ornate interiors, a spacious hall and comfortable rest areas. Gold and marble finishes connect bathing facilities, KTV rooms, dining areas and more than ten room styles.\n\nGuests can bathe or dine before discussing massage options and room arrangements. If you plan to rest late into the night, confirm the availability and charges for recliners or private rest rooms. Check the treatment duration, included services and total price before booking.',
+          "Majesty Spa is inside Harbourview Hotel at Macau Fisherman's Wharf, close to the Outer Harbour Ferry Terminal. Space is a large part of its appeal: generous bathing pools, ornate interiors and a sofa lounge where you can stretch out after a journey.\n\nA large television in the bathing area lets you watch a programme while you soak. Follow that with a massage or a spell in the lounge. This is somewhere to set aside a few hours, especially if you have spent the day walking around Macau.",
       },
       'the-excellent-sauna': {
         name: 'The Excellent Sauna',
         badge: '24 Hours',
         description:
-          'The Excellent Sauna is located inside Grand Emperor Hotel on the Macau Peninsula. Its compact layout includes rooms with a variety of interior designs as well as traditional room types, alongside bathing, sauna and rest facilities.\n\nStart by checking the facilities, then compare massage options by treatment, duration and budget. The venue has a 24-hour rest area; confirm availability and charges before requesting an overnight stay or a particular room.',
+          "The Excellent Sauna opened in May 2017 on the tenth floor of Grand Emperor Hotel. Its detailed interiors, dining area and rest facilities make it a convenient place to spend a few quiet hours in the centre of the Macau Peninsula.\n\nAfter shopping or a day of sightseeing, you can have a bath, sit down to a meal and arrange a massage. It suits visitors who want to experience the attentive service of a Macau leisure club while keeping close to the city centre.",
       },
       'empire-sauna': {
         name: 'Empire Sauna',
         badge: 'Newest & Hottest',
-        summary: 'Empire Sauna opened on the Macau Peninsula in 2026, combining modern luxury with Eastern-inspired interiors.',
+        summary: "Empire Sauna opened on the Macau Peninsula in April 2026, with a boutique hotel-style lobby, spacious bathing pools and comfortable rest areas.",
         description:
-          'Empire Sauna opened on the Macau Peninsula in 2026, combining modern luxury with Eastern-inspired interiors. Marble bathing areas, hotel-style suites, dining and rest spaces form a complete leisure setting.\n\nFacilities include waterbed rooms, suites in different styles and overnight rest arrangements, with Taiwanese, Japanese and other massage styles offered. Compare the treatment, duration and facilities you need, and confirm availability, the total price and any opening offers before booking.',
+          "Empire Sauna opened on the Macau Peninsula in April 2026. The lobby takes its cues from a boutique hotel, using marble, carefully placed lighting and detailed furnishings to make a striking first impression.\n\nLarge bathing pools, hotel-style suites and well-equipped rest areas give you reasons to stay for more than a quick visit. Start with a soak, then take time for a meal or massage before returning to the rest of your Macau trip.\n\nThe reported renovation cost was US$1,000.",
       },
       'east-castle-spa': {
         name: 'East Castle Spa',
         badge: 'Varied Room Designs',
         description:
-          "East Castle Spa occupies the third and fourth floors of Casa Real Hotel. Spacious bathing areas and clean, well-appointed private rooms are central to the setting, with different room styles and carefully considered interiors.\n\nThe atmosphere is quiet and refined, suited to guests who want to slow down and rest. Professional staff and comfortable surroundings help keep the visit relaxed and unhurried.",
+          "East Castle Spa is one of Macau's long-established sauna venues, occupying the third and fourth floors of Casa Real Hotel. Large bathing areas, a full range of facilities and ornate interiors give it the feel of a traditional Macau leisure club.\n\nThe quiet atmosphere makes it a good option when rest matters more than a busy programme. Leave enough time for a bath and massage, then settle into the lounge for a while. There is no need to fit another stop into every hour of the day.",
       },
       'victoria-sauna': {
         name: 'Victoria Sauna',
         badge: 'Most Quiet',
         description:
-          'Victoria Sauna is a low-key Macau sauna. It does not have a strong influencer-driven image; instead, its strengths are quiet, space and a lack of crowds. The main bath, sauna area and recliner lounge all feel unhurried, making it suitable for people who want to avoid the noise of large popular venues and simply relax in peace for the evening.\n\nIts highlights are value for money and the convenience of staying overnight. Waterbed rooms, buy-one-get-one-style offers and private rest-room arrangements after midnight give budget-conscious guests another option for a complete experience. There is no need to decide immediately after entering—you can take your time bathing, dining and choosing, then leave the rest of the night for sleep. If you prefer quiet over spectacle, Victoria Sauna should suit you well.',
+          "Victoria Sauna occupies the fifth floor of L'Arc Hotel, near MGM Macau, Wynn Macau and Grand Lisboa. It is easy to fit into a day in central Macau, whether you are staying nearby or stopping after a shopping trip.\n\nA large bathing hall, saunas and a lounge lined with recliners provide plenty of room to rest. The atmosphere is quiet, making Victoria a useful choice if you would rather soak and put your feet up than spend the evening somewhere busy.\n\nThe dining area serves snacks and full meals, so you can eat at your own pace. A central location and generous space are the main draws here.",
       },
       'm-club': {
         name: 'M CLUB',
@@ -171,21 +171,21 @@ const en: Dictionary = {
       'familia-nobre': {
         name: 'Familia Nobre',
         badge: 'Best Value',
-        summary: 'Familia Nobre is a Macau Peninsula venue that is currently temporarily closed, with no visits or bookings available.',
+        summary: "Familia Nobre was known for its spacious pools, ornate interiors and extensive facilities. This long-established Macau sauna is currently temporarily closed.",
         description:
-          'Familia Nobre is a Macau Peninsula venue that is currently temporarily closed, with no visits or bookings available. This page preserves former venue information for reference.\n\nEarlier records describe bathing areas, dining spaces, rooms and recliner lounges. Historical prices, the former no-service-fee policy and overnight arrangements are not current offers. Any reopening and updated terms must be checked against future announcements from the venue.',
+          "Familia Nobre was a familiar name among Macau's larger sauna venues, known for spacious bathing pools, ornate interiors and an extensive range of facilities. It welcomed both first-time visitors and regulars who already knew how they liked to spend their time.\n\nAfter a bath, a beer and a chat in the lounge were part of its more relaxed side. The venue offers a glimpse of the style of Macau's large leisure clubs; it is currently temporarily closed.",
       },
       'oceanic-royal-spa': {
         name: 'Oceanic Royal Spa',
         badge: 'Grand Stage & Dining',
         description:
-          'Oceanic Royal Spa is a Taipa venue shaped around an evening-in-one-place experience. Its public-facing identity centres on a classical interior, a large showcase area and spaces to pause between activities, so the atmosphere reads more like a full leisure clubhouse than a single-purpose spa stop. The gallery highlights an arrival space, lounge, stage-like hall, dining moments and private room settings.\n\nThe venue is currently marked as temporarily closed and is not accepting guests or bookings. This page is kept as a reference only; any reopening date, current prices, hours and available services should be confirmed through official, up-to-date channels before making plans.',
+          "Oceanic Royal Spa was based at Inn Hotel Macau in Taipa, near The Venetian Macao. Its location offered an alternative to the many sauna venues on the peninsula, particularly for visitors staying in Taipa or Cotai, or travelling to and from the airport.\n\nBathing facilities, dining areas and lounges brought a soak, a meal and time to rest together in one place. The venue is currently temporarily closed.",
       },
       'eighteen-sauna': {
         name: '18 Sauna',
-        badge: 'Classic & Show Hall',
+        badge: 'Historical Venue Information',
         description:
-          '18 Sauna formerly operated on the sixth floor of Hotel Golden Dragon on the Macau Peninsula. Historical listings describe a large bathing area with dry and steam sauna rooms, a cold pool, a recliner lounge and an evening presentation hall. Its group introductions and interactive programme were the features most closely associated with the venue.\n\nThe venue is currently temporarily closed. The MOP 1,780–5,550 range, former 24-hour schedule, overnight arrangements and no-service-fee policy shown here are historical reference points only, not a current offer. Confirm a reopening and all new terms before planning a visit.',
+          "18 Sauna was a long-established Macau venue on the sixth floor of Hotel Golden Dragon. A large bathing hall, dry sauna, steam room and hot pool formed the core of its facilities.\n\nFriendly staff and the range of bathing facilities let guests follow their own routine: a soak, some time in the sauna and a seat in the lounge afterwards. The venue is currently temporarily closed.",
       },
     },
   },
@@ -194,17 +194,17 @@ const en: Dictionary = {
     badge: 'Complimentary concierge service',
     heading: 'How It Works',
     intro:
-      'We take care of everything for you — recommendation, transport, VIP entry, VIP Extras, and your ride home.',
+      'We handle the details: venue recommendations, pickup, a welcome on arrival and your return ride.',
     tabHow: 'How It Works',
     tabGifts: 'VIP Extras',
-    giftsHeader: 'Choose 1 massage or care extra',
+    giftsHeader: 'Choose 2 massage or care extras',
     columns: { item: 'Service Item', value: 'Value', ours: 'Our VIP' },
     free: 'Free',
     gifts: [
       {
         emoji: '🧎‍♀️',
-        name: 'Back Rubbing',
-        desc: 'Body-glide rub down the back, neck and shoulders.',
+        name: 'Back scrub',
+        desc: 'A back scrub to cleanse the skin.',
         value: '298 MOP',
       },
       {
@@ -244,17 +244,11 @@ const en: Dictionary = {
         desc: 'Traditional ear-cleaning ritual. Surprisingly relaxing.',
         value: '200 MOP',
       },
-      {
-        emoji: '🚗',
-        name: 'Macau-wide private shuttle',
-        desc: 'Private pickup or return transfer across Macau, arranged with a confirmed venue visit.',
-        value: '500 MOP',
-      },
     ],
     steps: [
       {
         title: 'Let us recommend 💬',
-        body: "We'll book for you through our internal network. You don't need to know which sauna is right. Tell us what interests you — or let our team match you. We have years of experience and know each sauna's strengths.",
+        body: "Tell us your budget, available time and preferences, and we'll recommend the sauna that suits you best. No need to worry about which one to choose — we've been working in Macau for years and know each venue well.",
       },
       {
         title: 'Instant private shuttle 🚗',
@@ -269,8 +263,8 @@ const en: Dictionary = {
         body: "Internal-network booking means you skip the front desk and walk straight in. Each sauna has special pricing for our guests — tell us where you'd like to go and we'll secure the discount for you.",
       },
       {
-        title: 'Pick 1 VIP Extra 🎁',
-        body: "Our way of saying thanks for booking through us — we let the venue know you're coming, then you pick your VIP Extras (head massage, reflexology, manicure, and more) on arrival.",
+        title: 'Pick 2 VIP Extras 🎁',
+        body: "A small thank-you for booking through us: we let the venue know you're coming, so you can choose lounge massages and care treatments, such as a head massage, foot massage or manicure, on arrival.",
       },
       {
         title: 'Complimentary return ride 🚗',

@@ -9,17 +9,17 @@ import sharp from "sharp";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
-const locales = ["en", "zh-TW", "zh-CN", "ja"];
+const locales = ["en", "zh-TW", "zh-CN", "ja", "ko"];
 
 const replacementGalleries = {
   "yu-sauna": { lead: "macau-sauna-spa-yu-sauna-gallery-20260827-01", count: 10 },
   "manhao-spa": { lead: "macau-sauna-spa-manhao-placed-20260624-01", count: 11 },
   "number-nine-sauna": { lead: "macau-sauna-spa-number-nine-placed-20260624-01", count: 6 },
   "shang-pin-spa": { lead: "macau-sauna-spa-elite-placed-20260624-01", count: 11 },
-  "majesty-spa": { lead: "macau-sauna-spa-majesty-gallery-202607-01", count: 21 },
-  "the-excellent-sauna": { lead: "macau-sauna-spa-excellent-gallery-202607-01", count: 14 },
+  "majesty-spa": { lead: "macau-sauna-spa-majesty-gallery-202607-01", count: 14 },
+  "the-excellent-sauna": { lead: "macau-sauna-spa-excellent-gallery-202607-01", count: 12 },
   "empire-sauna": { lead: "macau-sauna-spa-empire-placed-20260624-01", count: 12 },
-  "east-castle-spa": { lead: "macau-sauna-spa-east-castle-gallery-202607-02", count: 17 },
+  "east-castle-spa": { lead: "macau-sauna-spa-east-castle-gallery-202607-02", count: 14 },
   "victoria-sauna": { lead: "macau-sauna-spa-victoria-gallery-202607-01", count: 8 },
   "m-club": { lead: "macau-sauna-spa-mclub-gallery-202607-02", count: 17 },
   "number-one-sauna": { lead: "macau-sauna-spa-number-one-gallery-202607-01", count: 10 },
@@ -92,7 +92,7 @@ test("keeps the existing Oceanic Royal Spa gallery unchanged", async () => {
   }
 });
 
-test("gives every gallery image specific, non-templated copy in all four languages", async () => {
+test("gives every gallery image specific, non-templated copy in all five languages", async () => {
   const forbiddenTemplate = /(venue gallery|interior and facilities|會所相冊|會所環境與設施|会所相册|会所环境与设施|店内ギャラリー|店内と設備)\s*\d*/i;
   let renderedImageCount = 0;
 
@@ -120,7 +120,54 @@ test("gives every gallery image specific, non-templated copy in all four languag
     }
   }
 
-  assert.equal(renderedImageCount, 648, "the four localized galleries must render exactly 648 image cards");
+  assert.equal(renderedImageCount, 750, "the five localized galleries must render exactly 750 image cards");
+});
+
+test("hides the East Castle classroom and clinic images while retaining their source assets and copy", async () => {
+  const hidden = [
+    "macau-sauna-spa-east-castle-placed-20260624-03",
+    "macau-sauna-spa-east-castle-placed-20260624-10",
+  ];
+  const retainedCopy = await readFile(path.join(projectRoot, "src", "data", "galleryCopy", "groupC.ts"), "utf8");
+
+  for (const locale of locales) {
+    const page = await readFile(path.join(distRoot, locale, "spa", "east-castle-spa", "index.html"), "utf8");
+    for (const file of hidden) {
+      assert.equal(page.includes(file), false, `${locale}/east-castle-spa still renders hidden image ${file}`);
+    }
+  }
+
+  for (const file of hidden) {
+    assert.ok(retainedCopy.includes(`"${file}":`), `restorable gallery copy is missing for ${file}`);
+    for (const suffix of ["lg", "thumb"]) {
+      await access(path.join(projectRoot, "public", "media", `${file}-${suffix}.webp`));
+    }
+  }
+});
+
+test("removes the ten selected photos from all localized galleries and published assets", async () => {
+  const removedByVenue = {
+    "majesty-spa": ["12", "20", "21", "23", "24", "29", "30"].map((number) => `macau-sauna-spa-majesty-gallery-202607-${number}`),
+    "the-excellent-sauna": ["02", "05"].map((number) => `macau-sauna-spa-excellent-placed-20260624-${number}`),
+    "east-castle-spa": ["macau-sauna-spa-east-castle-placed-20260624-05"],
+  };
+
+  for (const [slug, removed] of Object.entries(removedByVenue)) {
+    for (const locale of locales) {
+      const page = await readFile(path.join(distRoot, locale, "spa", slug, "index.html"), "utf8");
+      for (const file of removed) {
+        assert.equal(page.includes(file), false, `${locale}/${slug} still renders selected image ${file}`);
+      }
+    }
+
+    for (const file of removed) {
+      for (const suffix of ["lg", "thumb"]) {
+        const asset = path.join("media", `${file}-${suffix}.webp`);
+        assert.equal(existsSync(path.join(projectRoot, "public", asset)), false, `${asset} remains in public assets`);
+        assert.equal(existsSync(path.join(distRoot, asset)), false, `${asset} remains in built assets`);
+      }
+    }
+  }
 });
 
 test("removes only the selected Familia Nobre staircase photo", async () => {

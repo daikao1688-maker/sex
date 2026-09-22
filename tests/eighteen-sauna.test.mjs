@@ -13,7 +13,7 @@ const localeExpectations = {
   en: {
     title: "18 Sauna - Macau Sauna Sites",
     name: "18 Sauna",
-    marker: "18 Sauna formerly operated on the sixth floor of Hotel Golden Dragon",
+    marker: "18 Sauna was a long-established Macau venue on the sixth floor of Hotel Golden Dragon",
     closed: "Temporarily Closed",
   },
   "zh-TW": {
@@ -31,7 +31,7 @@ const localeExpectations = {
   ja: {
     title: "18サウナ - マカオ・サウナ・ガイド",
     name: "18サウナ",
-    marker: "18サウナはホテル・ゴールデンドラゴン6階で営業していた",
+    marker: "18サウナ（十八桑拿）は、ホテル・ゴールデン・ドラゴン（金龍酒店）の6階で長く営業していたサウナです。",
     closed: "一時休業中",
   },
 };

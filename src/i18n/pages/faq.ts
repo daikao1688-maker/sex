@@ -65,7 +65,7 @@ const en: FaqCopy = {
         },
         {
           question: 'Are there hidden fees?',
-          answer: 'Some venues charge 10-15% service fee, and themed rooms cost extra (MOP 400-1,000). Book through us and we’ll disclose all costs upfront — no surprises.',
+          answer: 'Some venues add a service charge of 10-15%. Before booking, confirm what your package includes, which extras are charged separately and the itemized total with the venue.',
         },
         {
           question: 'Can I pay by card?',
@@ -115,7 +115,7 @@ const en: FaqCopy = {
       items: [
         {
           question: 'Why should I book through you?',
-          answer: "We offer exclusive partner pricing, complimentary 7-seater private car pickup and return anywhere in Macau, 1 complimentary VIP Extra of your choice, priority entry, current venue information and recommendations based on your budget, location, facilities and massage needs.",
+          answer: "We offer exclusive partner pricing, complimentary 7-seater private car pickup and return anywhere in Macau, 2 complimentary VIP Extras of your choice, priority entry, current venue information and recommendations based on your budget, location, facilities and massage needs.",
         },
         {
           question: 'Can I cancel last minute?',
@@ -123,7 +123,7 @@ const en: FaqCopy = {
         },
         {
           question: 'What are the extra services?',
-          answer: 'Every booking through us includes 1 complimentary VIP Extra — pick from Back Rubbing, head massage, reflexology, manicure, pedicure, hand massage, and ear cleaning. We let the venue know you\'re coming — simply pick what you want on arrival.',
+          answer: 'Every booking through us includes 2 complimentary VIP Extras — pick from back scrub, leg massage, head massage, reflexology, manicure, pedicure, hand massage, and ear cleaning. We let the venue know you\'re coming — simply pick what you want on arrival.',
         },
       ],
     },
@@ -132,11 +132,11 @@ const en: FaqCopy = {
       items: [
         {
           question: 'Do Macau saunas include a massage?',
-          answer: "Yes. Bookings through us include a choice of 1 complimentary treatment, such as back rubbing, foot massage (reflexology), head massage or hand massage, which are normally charged separately. Confirm the available treatment, duration and package details with the venue before booking.",
+          answer: "Yes. Bookings through us include a choice of 2 complimentary treatments, such as back scrub, foot massage (reflexology), head massage or hand massage, which are normally charged separately. Confirm the available treatment, duration and package details with the venue before booking.",
         },
         {
           question: 'What massages and treatments are included free?',
-          answer: 'Each booking lets you pick 1 free: full-body back massage, leg massage, head massage, foot massage, hand massage, manicure, pedicure and ear cleaning. These are normally charged separately (around 200–298 MOP each) but are complimentary when you book through us. The full list is on our ranking page.',
+          answer: 'Each booking lets you pick 2 free: back scrub, leg massage, head massage, foot massage, hand massage, manicure, pedicure and ear cleaning. These are normally charged separately (around 200–298 MOP each) but are complimentary when you book through us. The full list is on our ranking page.',
         },
         {
           question: 'Is there a foot massage / reflexology?',
@@ -225,7 +225,7 @@ const ja: FaqCopy = {
         },
         {
           question: '追加料金や隠れた費用が発生することはありますか？',
-          answer: '店舗によっては、サービス料10〜15%、テーマルームの利用料（MOP 400〜1,000）がかかるケースがあります。ただし当サイトを通していただければ、こうした値段も含めた総額を事前に日本語でご案内します。マカオ サウナの料金が後から思わぬ形で膨らむことは一切ありません。',
+          answer: '店舗によっては10〜15%のサービス料が加算されます。予約前に、プランに含まれる項目、別料金になるもの、明細を含めた総額を店舗に確認してください。',
         },
         {
           question: 'クレジットカードや電子マネーで支払えますか？',
@@ -287,7 +287,7 @@ const ja: FaqCopy = {
       items: [
         {
           question: 'LINEで手配してもらうと何がお得なのですか？',
-          answer: "LINEでは、提携特別価格、マカオ市内全域の無料往復送迎、選べる無料VIP特典1つ、優先入場、店舗の最新情報をご案内します。ご予算、エリア、設備、希望するマッサージの内容に合わせて店舗をご提案し、日本語で予約や宿泊休憩の相談に対応します。",
+          answer: "LINEでは、提携特別価格、マカオ市内全域の無料往復送迎、選べる無料VIP特典2つ、優先入場、店舗の最新情報をご案内します。ご予算、エリア、設備、希望するマッサージの内容に合わせて店舗をご提案し、日本語で予約や宿泊休憩の相談に対応します。",
         },
         {
           question: '予約後のキャンセルは可能ですか？',
@@ -295,7 +295,7 @@ const ja: FaqCopy = {
         },
         {
           question: '無料でもらえるVIP特典にはどんなものがありますか？',
-          answer: '当サイト経由でお問い合わせいただいたお客様には、マカオ サウナのVIP特典を1つ無料でプレゼントしています。選択肢はアカスリ／ヘッドマッサージ／足ツボ（足裏マッサージ）／マニキュア／ペディキュア／ハンドマッサージ／耳かきの7種類。どれも通常は別料金の施術なので、料金面のメリットは小さくありません。ご来店予定は店舗へ事前に申し送りしておくため、当日は着いてからお好きな特典を選ぶだけ。日本語対応・無料送迎で、初めての方もスムーズです。',
+          answer: '当サイト経由でお問い合わせいただいたお客様には、マカオ サウナのVIP特典を2つ無料でプレゼントしています。選択肢は背中のアカスリ／脚・太ももマッサージ／ヘッドマッサージ／足ツボ（足裏マッサージ）／マニキュア／ペディキュア／ハンドマッサージ／耳かきの8種類。どれも通常は別料金の施術なので、料金面のメリットは小さくありません。ご来店予定は店舗へ事前に申し送りしておくため、当日は着いてからお好きな特典を選ぶだけ。日本語対応・無料送迎で、初めての方もスムーズです。',
         },
         {
           question: 'LINEでの予約・手配はどんな流れですか？',
@@ -308,11 +308,11 @@ const ja: FaqCopy = {
       items: [
         {
           question: 'マッサージも料金に含まれていますか？',
-          answer: "当サイト経由の予約では、通常は別料金のアカスリ、足裏マッサージ、ヘッドマッサージ、ハンドマッサージなどから1項目を無料特典としてお選びいただけます。対象となる施術、所要時間、プランの内容は予約前に店舗へご確認ください。",
+          answer: "当サイト経由の予約では、通常は別料金の背中のアカスリ、足裏マッサージ、ヘッドマッサージ、ハンドマッサージなどから2項目を無料特典としてお選びいただけます。対象となる施術、所要時間、プランの内容は予約前に店舗へご確認ください。",
         },
         {
           question: '無料施術のラインナップを教えてください',
-          answer: '毎回のご来店ごとに、全身アカスリ／脚・太ももマッサージ／ヘッドマッサージ／足裏マッサージ／ハンドマッサージ／マニキュア／ペディキュア／耳かきの中から、お好きな1項目を無料でご利用いただけます。通常はどれも1項目あたり約 200–298 MOP の有料メニューですが、当サイト経由なら無料特典として付いてきます。全ラインナップは「サウナおすすめランキング」ページにまとめています。',
+          answer: '毎回のご来店ごとに、背中のアカスリ／脚・太ももマッサージ／ヘッドマッサージ／足裏マッサージ／ハンドマッサージ／マニキュア／ペディキュア／耳かきの中から、お好きな2項目を無料でご利用いただけます。通常はどれも1項目あたり約 200–298 MOP の有料メニューですが、当サイト経由なら無料特典として付いてきます。全ラインナップは「サウナおすすめランキング」ページにまとめています。',
         },
         {
           question: '足ツボ・足裏マッサージは受けられますか？',
@@ -385,7 +385,7 @@ const zhTW: FaqCopy = {
         },
         {
           question: '有隱藏收費嗎？',
-          answer: '部分場所收取10-15%服務費，主題房間需額外付費（MOP 400-1,000）。透過我們預約，所有費用提前告知，絕無隱藏收費。',
+          answer: '部分場所另收 10-15% 服務費。預約前，請向場所確認套餐包含哪些項目、哪些自選項目需另付費，並索取包含各項費用的總價。',
         },
         {
           question: '可以刷卡嗎？',
@@ -435,7 +435,7 @@ const zhTW: FaqCopy = {
       items: [
         {
           question: '為什麼要透過你們預約？',
-          answer: "我們提供專屬合作價、澳門全境免費私人專車接送與回程、1 項自選 VIP 尊享、優先入場及最新場館資訊，並按你的預算、地點、設施和按摩需求推薦合適場所。",
+          answer: "我們提供專屬合作價、澳門全境免費私人專車接送與回程、2 項自選 VIP 尊享、優先入場及最新場館資訊，並按你的預算、地點、設施和按摩需求推薦合適場所。",
         },
         {
           question: '可以臨時取消嗎？',
@@ -443,7 +443,7 @@ const zhTW: FaqCopy = {
         },
         {
           question: 'VIP 尊享有哪些？',
-          answer: '透過我們預約可獲 1 項 VIP 尊享——可任選擦背服務、頭部按摩、足底按摩、修手指甲、修腳指甲、手部按摩、採耳。我們會事先通知場地您的到訪，到場時可直接挑選。',
+          answer: '透過我們預約可獲 2 項 VIP 尊享——可任選擦背服務、腿部按摩、頭部按摩、足底按摩、修手指甲、修腳指甲、手部按摩、採耳。我們會事先通知場地您的到訪，到場時可直接挑選。',
         },
       ],
     },
@@ -452,11 +452,11 @@ const zhTW: FaqCopy = {
       items: [
         {
           question: '澳門桑拿有按摩服務嗎？',
-          answer: "有。透過我們預約可任選 1 項免費護理，包括擦背、足底按摩、頭部按摩或手部按摩等，這些項目平時需另行收費。可選項目、時長及套餐內容，請在預約前向場所確認。",
+          answer: "有。透過我們預約可任選 2 項免費護理，包括擦背服務、足底按摩、頭部按摩或手部按摩等，這些項目平時需另行收費。可選項目、時長及套餐內容，請在預約前向場所確認。",
         },
         {
           question: '預約包含哪些免費按摩與護理項目？',
-          answer: '每次預約可免費任選 1 項，包括全身擦背按摩、腿部按摩、頭部按摩、足底按摩、手部按摩、修手指甲、修腳指甲及採耳。平時這些都需單獨收費（約 200–298 MOP），透過我們預約則免費贈送。完整清單可在「桑拿排名」頁查看。',
+          answer: '每次預約可免費任選 2 項，包括擦背服務、腿部按摩、頭部按摩、足底按摩、手部按摩、修手指甲、修腳指甲及採耳。平時這些都需單獨收費（約 200–298 MOP），透過我們預約則免費贈送。完整清單可在「桑拿排名」頁查看。',
         },
         {
           question: '有提供足底按摩（足療）嗎？',
@@ -529,7 +529,7 @@ const zhCN: FaqCopy = {
         },
         {
           question: '有隐藏收费吗？',
-          answer: '部分场所收取10-15%服务费，主题房间需额外付费（MOP 400-1,000）。通过我们预约，所有费用提前告知，绝无隐藏收费。',
+          answer: '部分场所另收 10-15% 服务费。预约前，请向场所确认套餐包含哪些项目、哪些自选项目需另付费，并索取包含各项费用的总价。',
         },
         {
           question: '可以刷卡吗？',
@@ -579,7 +579,7 @@ const zhCN: FaqCopy = {
       items: [
         {
           question: '为什么要通过你们预约？',
-          answer: "我们提供专属合作价、澳门全境免费私人专车接送与回程、1 项自选 VIP 尊享、优先入场及最新场馆资讯，并按你的预算、地点、设施和按摩需求推荐合适场所。",
+          answer: "我们提供专属合作价、澳门全境免费私人专车接送与回程、2 项自选 VIP 尊享、优先入场及最新场馆资讯，并按你的预算、地点、设施和按摩需求推荐合适场所。",
         },
         {
           question: '可以临时取消吗？',
@@ -587,7 +587,7 @@ const zhCN: FaqCopy = {
         },
         {
           question: 'VIP 尊享有哪些？',
-          answer: '通过我们预约可获 1 项 VIP 尊享——可任选擦背服务、头部按摩、足底按摩、修手指甲、修脚指甲、手部按摩、采耳。我们会事先通知场地您的到访，到场时可直接挑选。',
+          answer: '通过我们预约可获 2 项 VIP 尊享——可任选擦背服务、腿部按摩、头部按摩、足底按摩、修手指甲、修脚指甲、手部按摩、采耳。我们会事先通知场地您的到访，到场时可直接挑选。',
         },
       ],
     },
@@ -596,11 +596,11 @@ const zhCN: FaqCopy = {
       items: [
         {
           question: '澳门桑拿有按摩服务吗？',
-          answer: "有。通过我们预约可任选 1 项免费护理，包括擦背、足底按摩、头部按摩或手部按摩等，这些项目平时需另行收费。可选项目、时长及套餐内容，请在预约前向场所确认。",
+          answer: "有。通过我们预约可任选 2 项免费护理，包括擦背服务、足底按摩、头部按摩或手部按摩等，这些项目平时需另行收费。可选项目、时长及套餐内容，请在预约前向场所确认。",
         },
         {
           question: '预约包含哪些免费按摩与护理项目？',
-          answer: '每次预约可免费任选 1 项，包括全身擦背按摩、腿部按摩、头部按摩、足底按摩、手部按摩、修手指甲、修脚指甲及采耳。平时这些都需单独收费（约 200–298 MOP），通过我们预约则免费赠送。完整清单可在「桑拿排名」页查看。',
+          answer: '每次预约可免费任选 2 项，包括擦背服务、腿部按摩、头部按摩、足底按摩、手部按摩、修手指甲、修脚指甲及采耳。平时这些都需单独收费（约 200–298 MOP），通过我们预约则免费赠送。完整清单可在「桑拿排名」页查看。',
         },
         {
           question: '有提供足底按摩（足疗）吗？',
@@ -673,7 +673,7 @@ const ko: FaqCopy = {
         },
         {
           question: '숨은 요금이 있나요?',
-          answer: '일부 매장은 10-15% 서비스 요금을 받고, 테마룸은 추가 요금(MOP 400-1,000)이 있습니다. 저희를 통해 예약하시면 모든 비용을 미리 안내해, 숨은 요금이 전혀 없습니다.',
+          answer: '일부 매장은 10-15%의 서비스 요금을 별도로 받습니다. 예약 전에 패키지에 포함된 항목과 별도 비용이 드는 옵션을 확인하고, 모든 비용을 포함한 총액을 매장에 문의하세요.',
         },
         {
           question: '카드 결제가 가능한가요?',
@@ -723,7 +723,7 @@ const ko: FaqCopy = {
       items: [
         {
           question: '왜 저희를 통해 예약해야 하나요?',
-          answer: "제휴 특별가, 마카오 전역 무료 전용 차량 왕복 송영, 선택 가능한 VIP 특전 1가지, 우선 입장, 최신 매장 정보를 제공합니다. 예산, 위치, 시설, 원하는 마사지 항목에 맞춰 적합한 매장을 추천해 드립니다.",
+          answer: "제휴 특별가, 마카오 전역 무료 전용 차량 왕복 송영, 선택 가능한 VIP 특전 2가지, 우선 입장, 최신 매장 정보를 제공합니다. 예산, 위치, 시설, 원하는 마사지 항목에 맞춰 적합한 매장을 추천해 드립니다.",
         },
         {
           question: '갑자기 취소해도 되나요?',
@@ -731,7 +731,7 @@ const ko: FaqCopy = {
         },
         {
           question: 'VIP 특전에는 무엇이 있나요?',
-          answer: '저희를 통해 예약하시면 VIP 특전 1가지를 받습니다 — 등밀이(아카스리), 헤드 마사지, 발 마사지, 손톱 정리, 발톱 정리, 핸드 마사지, 귀이개 중 선택 가능합니다. 방문 사실을 매장에 미리 알려, 도착 후 바로 선택하실 수 있습니다.',
+          answer: '저희를 통해 예약하시면 VIP 특전 2가지를 받습니다 — 등밀이, 레그 마사지, 헤드 마사지, 발 마사지, 손톱 정리, 발톱 정리, 핸드 마사지, 귀이개 중 선택 가능합니다. 방문 사실을 매장에 미리 알려, 도착 후 바로 선택하실 수 있습니다.',
         },
       ],
     },
@@ -740,11 +740,11 @@ const ko: FaqCopy = {
       items: [
         {
           question: '마카오 사우나에 마사지 서비스가 있나요?',
-          answer: "있습니다. 저희를 통해 예약하면 평소 별도 요금인 등밀이, 발 마사지, 헤드 마사지, 핸드 마사지 등에서 1가지를 무료로 선택할 수 있습니다. 선택 가능한 항목, 소요 시간, 패키지 내용은 예약 전에 매장에 확인해 주세요.",
+          answer: "있습니다. 저희를 통해 예약하면 평소 별도 요금인 등밀이, 발 마사지, 헤드 마사지, 핸드 마사지 등에서 2가지를 무료로 선택할 수 있습니다. 선택 가능한 항목, 소요 시간, 패키지 내용은 예약 전에 매장에 확인해 주세요.",
         },
         {
           question: '예약에 포함되는 무료 마사지·케어 항목은 무엇인가요?',
-          answer: '매회 예약 시 1가지를 무료로 선택할 수 있으며, 전신 등밀이 마사지, 레그 마사지, 헤드 마사지, 발 마사지, 핸드 마사지, 손톱 정리, 발톱 정리, 귀이개가 포함됩니다. 평소에는 모두 별도 요금(약 200–298 MOP)이지만, 저희를 통해 예약하시면 무료로 드립니다. 전체 목록은 「사우나 랭킹」 페이지에서 확인할 수 있습니다.',
+          answer: '매회 예약 시 2가지를 무료로 선택할 수 있으며, 등밀이, 레그 마사지, 헤드 마사지, 발 마사지, 핸드 마사지, 손톱 정리, 발톱 정리, 귀이개가 포함됩니다. 평소에는 모두 별도 요금(약 200–298 MOP)이지만, 저희를 통해 예약하시면 무료로 드립니다. 전체 목록은 「사우나 랭킹」 페이지에서 확인할 수 있습니다.',
         },
         {
           question: '발 마사지(족욕)를 받을 수 있나요?',

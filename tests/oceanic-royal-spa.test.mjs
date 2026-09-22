@@ -13,7 +13,7 @@ const localeExpectations = {
   en: {
     title: "Oceanic Royal Spa - Macau Sauna Sites",
     name: "Oceanic Royal Spa",
-    marker: "Oceanic Royal Spa is a Taipa venue",
+    marker: "Oceanic Royal Spa was based at Inn Hotel Macau in Taipa",
     closed: "Temporarily Closed",
   },
   "zh-TW": {
@@ -31,7 +31,7 @@ const localeExpectations = {
   ja: {
     title: "オーシャニック・ロイヤル・スパ - マカオ・サウナ・ガイド",
     name: "オーシャニック・ロイヤル・スパ",
-    marker: "オーシャニック・ロイヤル・スパはタイパ",
+    marker: "オーシャニック・ロイヤル・スパ（帝湖水療）は、タイパの盛世酒店内",
     closed: "一時休業中",
   },
 };

@@ -1,26 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="background:#0a0a0a;color:#fff;color-scheme:dark">
   <head>
     <meta charset="UTF-8" />
     <script is:inline data-root-locale-redirect>
       (() => {
         const language = (navigator.language || '').toLowerCase();
         let locale = 'en';
-        if (/^ko(?:-|$)/.test(language)) locale = 'ko';
-        else if (/^ja(?:-|$)/.test(language)) locale = 'ja';
-        else if (/^zh-(?:tw|hk|mo|hant)(?:-|$)/.test(language)) locale = 'zh-TW';
-        else if (/^zh(?:$|-(?:cn|sg|hans)(?:-|$))/.test(language)) locale = 'zh-CN';
+
+        if (/^ko(?:-|$)/.test(language)) {
+          locale = 'ko';
+        } else if (/^ja(?:-|$)/.test(language)) {
+          locale = 'ja';
+        } else if (/^zh-(tw|hk|mo|hant)(?:-|$)/.test(language)) {
+          locale = 'zh-TW';
+        } else if (language === 'zh' || /^zh-(cn|sg|hans)(?:-|$)/.test(language)) {
+          locale = 'zh-CN';
+        }
+
         location.replace(`/${locale}/${location.search}${location.hash}`);
       })();
     </script>
-    <meta name="viewport" content="width=device-width" />
-    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
     <title>Macau Sauna Sites</title>
   </head>
-  <body style="margin:2rem;color:#999;font-family:system-ui,sans-serif">
-    <p>Redirecting…</p>
+  <body>
     <noscript>
-      <p>Choose your language:</p>
+      <p>Choose your language / 請選擇語言</p>
       <nav data-root-locale-fallback aria-label="Choose a language">
         <a href="/en/" hreflang="en" lang="en">English</a>
         <a href="/zh-TW/" hreflang="zh-TW" lang="zh-TW">繁體中文</a>

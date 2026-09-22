@@ -44,7 +44,7 @@ test("empty blog listings retain localized contact promotion and show a visible 
   for (const locale of allLocales) {
     const html = await readPage(locale, "blog");
     const promo = html.match(/<div[^>]+id="promo-top-bar"[\s\S]*?<\/div>\s*<\/div>/)?.[0] ?? "";
-    const emptyTag = tagWithAttribute(html, "data-blog-empty");
+    const emptyTag = tagWithAttribute(html, "data-blog-no-posts");
 
     assert.match(
       promo,
@@ -53,7 +53,7 @@ test("empty blog listings retain localized contact promotion and show a visible 
     );
     assert.ok(!classList(emptyTag).includes("hidden"), `${locale} empty state is hidden before JavaScript runs`);
     assert.doesNotMatch(emptyTag, /\s(?:hidden|aria-hidden="true")(?:\s|>)/, `${locale} empty state is hidden`);
-    assert.match(html, /<p\b[^>]*data-blog-empty[^>]*>\s*[^<\s][^<]*<\/p>/, `${locale} empty state has no message`);
+    assert.match(html, /<p\b[^>]*data-blog-no-posts[^>]*>\s*[^<\s][^<]*<\/p>/, `${locale} empty state has no message`);
     assert.doesNotMatch(
       html,
       /<[^>]+\bdata-(?:blog-card|blog-filter|filter-cat)(?:\s|=|>)/,
@@ -283,19 +283,23 @@ test("mobile navigation marks the current section with a visible left rail", asy
   }
 });
 
-test("the VIP table includes a Macau-wide private shuttle worth 500 MOP in every locale", async () => {
-  const shuttleLabels = {
-    en: "Macau-wide private shuttle",
-    "zh-TW": "全澳專車接送",
-    "zh-CN": "全澳专车接送",
-    ja: "マカオ全域専用車送迎",
+test("the VIP table offers two of eight care services while transport stays separate in every locale", async () => {
+  const choiceLabels = {
+    en: "Choose 2 massage or care extras",
+    "zh-TW": "任選 2 項按摩或護理",
+    "zh-CN": "任选 2 项按摩或护理",
+    ja: "マッサージ・ケア特典から2つ選択",
+    ko: "마사지·케어 혜택 2가지 선택",
   };
 
-  for (const locale of locales) {
+  for (const locale of allLocales) {
     const html = await readPage(locale);
-    assert.ok(html.includes("🚗"), `${locale} is missing the shuttle icon`);
-    assert.ok(html.includes(shuttleLabels[locale]), `${locale} is missing the localized shuttle service`);
-    assert.ok(html.includes("500 MOP"), `${locale} is missing the shuttle value`);
+    const table = regionBetween(html, 'id="panel-gifts"', '</table>');
+    const rows = table.match(/<tbody>([\s\S]*?)<\/tbody>/)?.[1] ?? "";
+    assert.ok(table.includes(choiceLabels[locale]), `${locale} must offer two choices`);
+    assert.equal((rows.match(/<tr\b/g) ?? []).length, 8, `${locale} must keep the eight care services`);
+    assert.doesNotMatch(table, /🚗|500 MOP/, `${locale} must not count transport as a care choice`);
+    assert.ok(html.includes("🚗"), `${locale} must retain its independent transport service`);
   }
 });
 

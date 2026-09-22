@@ -247,24 +247,24 @@ export const galleryCopyGroupA = {
 
   "macau-sauna-spa-majesty-gallery-202607-01": {
     en: {
-      alt: "Show stage with large LED screen and green armchairs",
-      caption: "A raised white runway faces an oversized screen, framed by red spotlights, striped walls, and green leather seating.",
+      alt: "White stage with a large screen and green leather seating",
+      caption: "A white stage sits below a large screen and red spotlights, with red-and-green wall panels and green leather seating in front.",
     },
     "zh-TW": {
-      alt: "大型屏幕舞台與綠色皮椅",
-      caption: "白色伸展舞台面向巨型屏幕，紅色射燈、彩色直紋牆與綠色皮椅構成鮮明劇場感。",
+      alt: "白色舞台、大型屏幕與綠色皮椅",
+      caption: "白色舞台位於大型屏幕下方，上方配有紅色射燈，兩側是紅綠牆板，前方擺放綠色皮椅。",
     },
     "zh-CN": {
-      alt: "大型屏幕舞台与绿色皮椅",
-      caption: "白色伸展舞台面向巨型屏幕，红色射灯、彩色竖纹墙与绿色皮椅构成鲜明剧场感。",
+      alt: "白色舞台、大型屏幕与绿色皮椅",
+      caption: "白色舞台位于大型屏幕下方，上方配有红色射灯，两侧是红绿墙板，前方摆放绿色皮椅。",
     },
     ja: {
-      alt: "大型LEDスクリーンと緑の革椅子を備えたステージ",
-      caption: "白いランウェイの正面に大画面を据え、赤いスポットライトと縦縞の壁、緑のシートで劇場らしく仕上げています。",
+      alt: "白いステージ、大型スクリーンと緑の革張り席",
+      caption: "白いステージの奥に大型スクリーンがあり、上部には赤いスポットライトを配置。両側は赤と緑の壁面パネルで、手前には緑の革張り席が並んでいます。",
     },
     ko: {
-      alt: "대형 LED 스크린과 그린 가죽 의자의 쇼 스테이지",
-      caption: "화이트 런웨이 정면에 초대형 스크린을 배치하고, 레드 스폿 조명과 스트라이프 벽, 그린 가죽 시트로 극장 분위기를 완성했습니다.",
+      alt: "흰색 무대와 대형 스크린, 초록색 가죽 좌석",
+      caption: "흰색 무대 뒤편에 대형 스크린이 있고 위쪽에는 붉은 스폿 조명이 설치돼 있습니다. 양쪽은 빨강·초록 벽 패널로 꾸며져 있으며, 앞쪽에는 초록색 가죽 좌석이 놓여 있습니다.",
     },
   },
   "macau-sauna-spa-majesty-gallery-202607-02": {
@@ -423,24 +423,24 @@ export const galleryCopyGroupA = {
   },
   "macau-sauna-spa-majesty-gallery-202607-09": {
     en: {
-      alt: "Colour-panelled stage with graffiti-style screen artwork",
-      caption: "A glossy black runway leads to a bright illustrated screen surrounded by tall blocks of red, green, and gold.",
+      alt: "Screen, speakers and seating beneath a colourful wall mural",
+      caption: "The room has a display screen, speakers and purple seating, with red, green and grey wall panels, a colourful mural and glossy black floor tiles.",
     },
     "zh-TW": {
-      alt: "彩色牆板與塗鴉風屏幕舞台",
-      caption: "黑色亮面伸展台通往鮮明插畫屏幕，紅、綠與金色高牆板把舞台包圍成強烈視覺框景。",
+      alt: "顯示屏、音響與彩色壁畫的室內空間",
+      caption: "室內設有顯示屏、音響和紫色座位，搭配紅、綠、灰色牆板、彩色人物壁畫與黑色亮面地磚。",
     },
     "zh-CN": {
-      alt: "彩色墙板与涂鸦风屏幕舞台",
-      caption: "黑色亮面伸展台通往鲜明插画屏幕，红、绿与金色高墙板把舞台包围成强烈视觉框景。",
+      alt: "显示屏、音响与彩色壁画的室内空间",
+      caption: "室内设有显示屏、音响和紫色座位，搭配红、绿、灰色墙板、彩色人物壁画与黑色亮面地砖。",
     },
     ja: {
-      alt: "カラーパネルとグラフィティ風映像のステージ",
-      caption: "艶のある黒いランウェイの先に鮮やかなイラスト画面を置き、赤・緑・金の壁面で力強く縁取っています。",
+      alt: "スクリーン、スピーカーとカラフルな壁画のある室内",
+      caption: "スクリーンとスピーカー、紫の座席を備えた室内。赤・緑・グレーの壁面パネルにカラフルな人物壁画を合わせ、床には艶のある黒いタイルが使われています。",
     },
     ko: {
-      alt: "컬러 패널과 그래피티풍 스크린 아트의 스테이지",
-      caption: "광택 블랙 런웨이 끝에 선명한 일러스트 스크린을 두고, 레드·그린·골드 높은 벽면이 무대를 강렬하게 둘러쌉니다.",
+      alt: "스크린과 스피커, 컬러 벽화가 있는 실내",
+      caption: "스크린과 스피커, 보라색 좌석이 놓인 실내입니다. 빨강·초록·회색 벽 패널과 컬러 인물 벽화가 어우러지고, 바닥에는 광택 있는 검은 타일을 사용했습니다.",
     },
   },
   "macau-sauna-spa-majesty-gallery-202607-10": {
@@ -487,28 +487,6 @@ export const galleryCopyGroupA = {
       caption: "골드 사이드 테이블 위에 섬세한 메탈 랜턴 오브제를 장식하고, 레드 시트와 컬러풀한 벽화를 배경으로 합니다.",
     },
   },
-  "macau-sauna-spa-majesty-gallery-202607-12": {
-    en: {
-      alt: "Red and black themed suite with suspended fabric seats",
-      caption: "Two suspended fabric seats face striped sofas in a dark suite accented by red lighting and neatly folded towels.",
-    },
-    "zh-TW": {
-      alt: "紅黑主題房內的懸掛式布座與條紋沙發",
-      caption: "兩張懸掛式布座面向黑白條紋沙發，紅色燈光與整齊毛巾強化房間的戲劇感。",
-    },
-    "zh-CN": {
-      alt: "红黑主题房内的悬挂式布座与条纹沙发",
-      caption: "两张悬挂式布座面向黑白条纹沙发，红色灯光与整齐毛巾强化房间的戏剧感。",
-    },
-    ja: {
-      alt: "吊り下げ式の布製シートと縞柄ソファがある赤黒の客室",
-      caption: "2つの吊り下げシートが白黒のソファに向かい、赤い照明と整えたタオルが劇的な印象を添えています。",
-    },
-    ko: {
-      alt: "행잉 패브릭 시트와 스트라이프 소파가 있는 레드·블랙 스위트",
-      caption: "두 개의 행잉 시트가 블랙·화이트 스트라이프 소파를 마주 보고, 레드 조명과 정돈된 타월이 극적인 인상을 더합니다.",
-    },
-  },
   "macau-sauna-spa-majesty-gallery-202607-19": {
     en: {
       alt: "Bright studio-themed room with easels and bookshelves",
@@ -529,50 +507,6 @@ export const galleryCopyGroupA = {
     ko: {
       alt: "이젤과 책장을 갖춘 밝은 아틀리에 콘셉트룸",
       caption: "인물 스케치와 이젤, 벽을 채운 책장이 대형 블랙 작업대를 둘러싸, 창작 공간 같은 밝은 분위기를 만듭니다.",
-    },
-  },
-  "macau-sauna-spa-majesty-gallery-202607-20": {
-    en: {
-      alt: "Wide view of a red and black suite with hanging seats",
-      caption: "A wider angle shows twin suspended seats, striped corner sofas, rolled towels, and red-lit wall details.",
-    },
-    "zh-TW": {
-      alt: "雙懸掛座與條紋轉角沙發的紅黑房間",
-      caption: "寬幅視角完整呈現兩張懸掛座、黑白轉角沙發、捲好毛巾與紅色牆面燈光。",
-    },
-    "zh-CN": {
-      alt: "双悬挂座与条纹转角沙发的红黑房间",
-      caption: "宽幅视角完整呈现两张悬挂座、黑白转角沙发、卷好毛巾与红色墙面灯光。",
-    },
-    ja: {
-      alt: "2つの吊り下げシートと縞柄コーナーソファの赤黒い客室",
-      caption: "広い画角から吊り下げシート、白黒のコーナーソファ、丸めたタオル、赤い壁面照明まで見渡せます。",
-    },
-    ko: {
-      alt: "행잉 시트 2개와 스트라이프 코너 소파의 레드·블랙룸 와이드 뷰",
-      caption: "넓은 화각으로 행잉 시트 2개, 블랙·화이트 코너 소파, 말아둔 타월, 레드 벽면 조명까지 한눈에 담깁니다.",
-    },
-  },
-  "macau-sauna-spa-majesty-gallery-202607-21": {
-    en: {
-      alt: "Fitting-room setting with round platforms and red carpet",
-      caption: "Round quilted platforms, full-height mirrors, black curtains, and a clothing rail create a theatrical fitting-room scene.",
-    },
-    "zh-TW": {
-      alt: "圓形軟墊平台與紅地毯試衣主題房",
-      caption: "兩座圓形軟墊平台配上全身鏡、黑色布簾與衣架，構成帶有舞台感的試衣場景。",
-    },
-    "zh-CN": {
-      alt: "圆形软垫平台与红地毯试衣主题房",
-      caption: "两座圆形软垫平台配上全身镜、黑色布帘与衣架，构成带有舞台感的试衣场景。",
-    },
-    ja: {
-      alt: "円形クッション台と赤い床のフィッティングルーム風空間",
-      caption: "円形の台、姿見、黒いカーテン、衣装ラックを組み合わせ、舞台のような試着室を表現しています。",
-    },
-    ko: {
-      alt: "원형 퀼팅 플랫폼과 레드 카펫의 피팅룸 콘셉트 공간",
-      caption: "두 개의 원형 퀼팅 플랫폼에 전신 거울, 블랙 커튼, 의류 레일을 더해 무대 같은 피팅룸 장면을 완성했습니다.",
     },
   },
   "macau-sauna-spa-majesty-gallery-202607-22": {
@@ -597,50 +531,6 @@ export const galleryCopyGroupA = {
       caption: "우드 난간과 대나무 블라인드, 수묵풍 벽화, 늘어지는 그린이 어우러져 차분하고 정갈한 일본풍 풍경을 만듭니다.",
     },
   },
-  "macau-sauna-spa-majesty-gallery-202607-23": {
-    en: {
-      alt: "Clinical-themed room with adjustable beds and IV stands",
-      caption: "White adjustable beds, wheeled IV stands, folded towels, and glass partitions complete a clean clinical setting.",
-    },
-    "zh-TW": {
-      alt: "可調式床與點滴架的醫療主題房",
-      caption: "白色可調式床、帶輪點滴架、整齊毛巾與玻璃隔間，共同完成乾淨明亮的醫療場景。",
-    },
-    "zh-CN": {
-      alt: "可调式床与输液架的医疗主题房",
-      caption: "白色可调式床、带轮输液架、整齐毛巾与玻璃隔间，共同完成干净明亮的医疗场景。",
-    },
-    ja: {
-      alt: "可動式ベッドと点滴スタンドを備えた医療テーマの部屋",
-      caption: "白い可動式ベッドやキャスター付き点滴台、畳んだタオル、ガラス間仕切りで清潔感のある場面を整えています。",
-    },
-    ko: {
-      alt: "조절식 침대와 IV 스탠드를 갖춘 클리니컬 콘셉트룸",
-      caption: "화이트 조절식 침대와 바퀴 달린 IV 스탠드, 개어둔 타월, 유리 파티션으로 깔끔한 클리닉 장면을 구성했습니다.",
-    },
-  },
-  "macau-sauna-spa-majesty-gallery-202607-24": {
-    en: {
-      alt: "Dark wood room with quilted floor mat and refreshment counter",
-      caption: "A quilted floor mat with folded towels sits beside dark cabinetry, a refreshment counter, and a tall window.",
-    },
-    "zh-TW": {
-      alt: "深色木櫃與菱格地墊的明亮房間",
-      caption: "菱格地墊上備有捲好毛巾，旁邊深色櫃體、飲品檯與高窗讓房間顯得整潔通透。",
-    },
-    "zh-CN": {
-      alt: "深色木柜与菱格地垫的明亮房间",
-      caption: "菱格地垫上备有卷好毛巾，旁边深色柜体、饮品台与高窗让房间显得整洁通透。",
-    },
-    ja: {
-      alt: "濃色の収納とキルティングマットを備えた明るい部屋",
-      caption: "タオルを置いたキルティングマットの横に濃色キャビネットと飲み物台が並び、高窓から光が入ります。",
-    },
-    ko: {
-      alt: "다크 우드 수납과 퀼팅 플로어 매트, 리프레시 카운터의 방",
-      caption: "타월을 올린 퀼팅 매트 옆으로 다크 캐비닛과 음료 카운터가 이어지고, 높은 창으로 빛이 들어옵니다.",
-    },
-  },
   "macau-sauna-spa-majesty-gallery-202607-26": {
     en: {
       alt: "Marble hotel lobby beneath a stained-glass dome",
@@ -661,50 +551,6 @@ export const galleryCopyGroupA = {
     ko: {
       alt: "스테인드글라스 돔 천장이 있는 대리석 호텔 로비",
       caption: "빛나는 스테인드글라스 돔이 광택 대리석 바닥에 비치고, 야자 화분과 골드 입구가 우아하게 공간을 감쌉니다.",
-    },
-  },
-  "macau-sauna-spa-majesty-gallery-202607-29": {
-    en: {
-      alt: "Black marble bathroom with round whirlpool tub",
-      caption: "A round white whirlpool tub fills the foreground of a black marble bathroom with mirrored sinks and gold trim.",
-    },
-    "zh-TW": {
-      alt: "黑色雲石浴室內的白色圓形按摩浴缸",
-      caption: "白色圓形按摩浴缸佔據前景，鏡面洗手檯、黑色雲石與金色飾線延續華麗質感。",
-    },
-    "zh-CN": {
-      alt: "黑色云石浴室内的白色圆形按摩浴缸",
-      caption: "白色圆形按摩浴缸占据前景，镜面洗手台、黑色云石与金色饰线延续华丽质感。",
-    },
-    ja: {
-      alt: "黒大理石の浴室に置かれた白い円形ジェットバス",
-      caption: "白い円形バスを手前に据え、鏡張りの洗面台と黒い大理石、金色の縁取りで華やかにまとめています。",
-    },
-    ko: {
-      alt: "블랙 대리석 욕실에 놓인 화이트 원형 월풀 욕조",
-      caption: "화이트 원형 월풀 욕조를 전면에 배치하고, 거울 세면대와 블랙 대리석, 골드 트림으로 화려함을 이어갑니다.",
-    },
-  },
-  "macau-sauna-spa-majesty-gallery-202607-30": {
-    en: {
-      alt: "Wide stage with giant screen and dark lounge seating",
-      caption: "A broad white runway stretches toward a large video wall, flanked by black seating and warm red-orange artwork.",
-    },
-    "zh-TW": {
-      alt: "巨型屏幕與深色座席旁的寬闊舞台",
-      caption: "寬闊白色伸展台延伸至大型影像牆，兩側黑色座席與紅橙壁畫襯出熱烈劇場氣氛。",
-    },
-    "zh-CN": {
-      alt: "巨型屏幕与深色座席旁的宽阔舞台",
-      caption: "宽阔白色伸展台延伸至大型影像墙，两侧黑色座席与红橙壁画衬出热烈剧场氛围。",
-    },
-    ja: {
-      alt: "巨大スクリーンと濃色シートに囲まれた広いステージ",
-      caption: "幅広い白いランウェイが大画面へ延び、両側の黒い席と赤橙色の壁画が熱気ある雰囲気をつくります。",
-    },
-    ko: {
-      alt: "대형 스크린과 다크 라운지 좌석에 둘러싸인 와이드 스테이지",
-      caption: "넓은 화이트 런웨이가 대형 비디오 월로 이어지고, 양옆의 블랙 좌석과 레드·오렌지 아트워크가 열기를 더합니다.",
     },
   },
 } satisfies GalleryCopyMap;

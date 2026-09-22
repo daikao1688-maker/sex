@@ -10,11 +10,11 @@ const removedSlugs = [
   "macau-sauna-overnight-guide-2026",
 ];
 const emptyMessages = {
-  en: "There are currently no articles.",
-  "zh-TW": "目前沒有文章。",
+  en: "No articles are currently available.",
+  "zh-TW": "目前暫無文章。",
   "zh-CN": "目前暂无文章。",
-  ja: "現在、掲載中の記事はありません。",
-  ko: "현재 게시된 글이 없습니다.",
+  ja: "現在公開中の記事はありません。",
+  ko: "현재 공개된 글이 없습니다.",
 };
 const locales = Object.keys(emptyMessages);
 
@@ -50,7 +50,7 @@ test("all five archives explain their empty state and homepages omit article pre
       readFile(new URL(`${locale}/blog/index.html`, distRoot), "utf8"),
       readFile(new URL(`${locale}/index.html`, distRoot), "utf8"),
     ]);
-    const empty = archive.match(/<p\b([^>]*\bdata-blog-empty\b[^>]*)>([\s\S]*?)<\/p>/);
+    const empty = archive.match(/<p\b([^>]*\bdata-blog-no-posts\b[^>]*)>([\s\S]*?)<\/p>/);
     assert.ok(empty, `${locale} archive must render an empty-state message without JavaScript`);
     assert.equal(empty[2].trim(), emptyMessage);
     assert.doesNotMatch(empty[1], /\b(?:hidden|inert|aria-hidden)\b/, `${locale} empty state must be visible`);

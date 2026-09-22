@@ -9,6 +9,16 @@ export interface VenueGalleryImage {
 }
 
 /**
+ * Hidden from every localized gallery. Keep the original album entries,
+ * assets and translated copy so a reviewed image can be restored by removing
+ * its exclusion here.
+ */
+export const excludedVenueGalleryFiles: Readonly<Record<string, string>> = {
+  "macau-sauna-spa-east-castle-placed-20260624-03": "Classroom-themed set withdrawn from the active gallery.",
+  "macau-sauna-spa-east-castle-placed-20260624-10": "Clinic-themed set withdrawn from the active gallery.",
+};
+
+/**
  * Replacement venue albums supplied by the site owner.  The filenames in
  * each list deliberately follow the source-folder sort order, so the first
  * image becomes the hero backdrop and the gallery order remains predictable.
@@ -80,16 +90,9 @@ export const replacementVenueGalleryFiles: Partial<Record<VenueSlug, readonly st
     "macau-sauna-spa-majesty-gallery-202607-09",
     "macau-sauna-spa-majesty-gallery-202607-10",
     "macau-sauna-spa-majesty-gallery-202607-11",
-    "macau-sauna-spa-majesty-gallery-202607-12",
     "macau-sauna-spa-majesty-gallery-202607-19",
-    "macau-sauna-spa-majesty-gallery-202607-20",
-    "macau-sauna-spa-majesty-gallery-202607-21",
     "macau-sauna-spa-majesty-gallery-202607-22",
-    "macau-sauna-spa-majesty-gallery-202607-23",
-    "macau-sauna-spa-majesty-gallery-202607-24",
     "macau-sauna-spa-majesty-gallery-202607-26",
-    "macau-sauna-spa-majesty-gallery-202607-29",
-    "macau-sauna-spa-majesty-gallery-202607-30",
   ],
   "the-excellent-sauna": [
     "macau-sauna-spa-excellent-gallery-202607-01",
@@ -100,10 +103,8 @@ export const replacementVenueGalleryFiles: Partial<Record<VenueSlug, readonly st
     "macau-sauna-spa-excellent-gallery-202607-06",
     "macau-sauna-spa-excellent-gallery-202607-07",
     "macau-sauna-spa-excellent-placed-20260624-01",
-    "macau-sauna-spa-excellent-placed-20260624-02",
     "macau-sauna-spa-excellent-placed-20260624-03",
     "macau-sauna-spa-excellent-placed-20260624-04",
-    "macau-sauna-spa-excellent-placed-20260624-05",
     "macau-sauna-spa-excellent-placed-20260624-06",
     "macau-sauna-spa-excellent-placed-20260624-07",
   ],
@@ -133,7 +134,6 @@ export const replacementVenueGalleryFiles: Partial<Record<VenueSlug, readonly st
     "macau-sauna-spa-east-castle-placed-20260624-02",
     "macau-sauna-spa-east-castle-placed-20260624-03",
     "macau-sauna-spa-east-castle-placed-20260624-04",
-    "macau-sauna-spa-east-castle-placed-20260624-05",
     "macau-sauna-spa-east-castle-placed-20260624-06",
     "macau-sauna-spa-east-castle-placed-20260624-07",
     "macau-sauna-spa-east-castle-placed-20260624-09",
@@ -210,7 +210,7 @@ export function getReplacementVenueGallery(
   const files = replacementVenueGalleryFiles[slug];
   if (!files) return undefined;
 
-  return files.map((file) => {
+  return files.filter((file) => !excludedVenueGalleryFiles[file]).map((file) => {
     const copy = replacementVenueGalleryCopy[file]?.[lang];
     if (!copy) {
       throw new Error(`Missing ${lang} gallery copy for ${slug}/${file}`);

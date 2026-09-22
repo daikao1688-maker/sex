@@ -243,28 +243,6 @@ export const galleryCopyGroupC = {
       caption: "블랙 소파 앞에 콤팩트 워크스테이션과 벽걸이 스크린을 배치해 밝고 간결한 사무실 분위기를 만듭니다.",
     },
   },
-  "macau-sauna-spa-east-castle-placed-20260624-05": {
-    en: {
-      alt: "Narrow black galley room with red accent lighting",
-      caption: "Glossy black cabinetry and metal fixtures line a compact passage, punctuated by slim red lights and mirrored surfaces.",
-    },
-    "zh-TW": {
-      alt: "紅色燈帶點綴的黑色狹長場景房",
-      caption: "亮黑櫃體與金屬設備沿狹長通道展開，細長紅光和鏡面反射加深冷峻場景感。",
-    },
-    "zh-CN": {
-      alt: "红色灯带点缀的黑色狭长场景房",
-      caption: "亮黑柜体与金属设备沿狭长通道展开，细长红光和镜面反射加深冷峻场景感。",
-    },
-    ja: {
-      alt: "赤いライン照明を効かせた黒い細長いテーマルーム",
-      caption: "艶のある黒い収納と金属設備が細い通路に並び、赤い光と鏡面の反射が硬質な雰囲気を強めます。",
-    },
-    ko: {
-      alt: "레드 라인 조명을 살린 블랙 갤리 콘셉트룸",
-      caption: "광택 블랙 수납과 메탈 설비가 좁은 통로에 늘어서고, 레드 조명과 미러 반사가 단단한 분위기를 강화합니다.",
-    },
-  },
   "macau-sauna-spa-east-castle-placed-20260624-06": {
     en: {
       alt: "Mirrored room with two padded tables and red exercise ball",
@@ -444,7 +422,7 @@ export const galleryCopyGroupC = {
   "macau-sauna-spa-excellent-gallery-202607-04": {
     en: {
       alt: "Compact black lounge with blue circuit-like wall lights",
-      caption: "Angular blue light strips, mirrored panels, and a wraparound black bench give the intimate room a futuristic edge.",
+      caption: "Angular blue light strips, mirrored panels, and a wraparound black bench give the compact room a futuristic edge.",
     },
     "zh-TW": {
       alt: "藍色電路燈線與黑色環形座椅小房",
@@ -551,28 +529,6 @@ export const galleryCopyGroupC = {
       caption: "블루 모자이크와 스테인리스 손잡이가 빛나는 예각 캐노피를 향해 대칭으로 뻗고, 다크 수면에 직선미가 비칩니다.",
     },
   },
-  "macau-sauna-spa-excellent-placed-20260624-02": {
-    en: {
-      alt: "Red and white themed room with square whirlpool bath",
-      caption: "A white square whirlpool sits among red framing, tiled walls, and bold emergency-style graphics in a brightly lit set.",
-    },
-    "zh-TW": {
-      alt: "紅白場景房內的方形按摩浴缸",
-      caption: "白色方形按摩浴缸置於紅色框架與磚紋牆之間，醒目救援風圖案讓場景更具戲劇感。",
-    },
-    "zh-CN": {
-      alt: "红白场景房内的方形按摩浴缸",
-      caption: "白色方形按摩浴缸置于红色框架与砖纹墙之间，醒目救援风图案让场景更具戏剧感。",
-    },
-    ja: {
-      alt: "赤と白のテーマルームに置かれた角形ジェットバス",
-      caption: "白い角形バスを赤い枠とタイル壁が囲み、救急を思わせる大胆なグラフィックが場面に遊び心を加えています。",
-    },
-    ko: {
-      alt: "레드·화이트 콘셉트룸의 사각 월풀 욕조",
-      caption: "화이트 사각 월풀을 레드 프레임과 타일 벽이 감싸고, 구급을 연상시키는 대담한 그래픽이 장면에 재미를 더합니다.",
-    },
-  },
   "macau-sauna-spa-excellent-placed-20260624-03": {
     en: {
       alt: "Long marble corridor with patterned monochrome floor",
@@ -615,28 +571,6 @@ export const galleryCopyGroupC = {
     ko: {
       alt: "블루 천장 조명과 글라스 욕실을 갖춘 호텔 스타일 침실",
       caption: "넓은 침대와 높은 패딩 헤드보드에 글라스로 구분한 욕실, 슬림 블루 조명을 더한 현대적인 침실입니다.",
-    },
-  },
-  "macau-sauna-spa-excellent-placed-20260624-05": {
-    en: {
-      alt: "Compact treatment room with floral wall and television",
-      caption: "A single padded bed sits beside a slim trolley, surrounded by patterned walls, mirrors, and a wall-mounted screen.",
-    },
-    "zh-TW": {
-      alt: "花紋牆與壁掛電視的單人護理房",
-      caption: "單張軟墊床旁設有小推車，花紋牆、鏡面與壁掛屏幕把緊湊房間布置得層次分明。",
-    },
-    "zh-CN": {
-      alt: "花纹墙与壁挂电视的单人护理房",
-      caption: "单张软垫床旁设有小推车，花纹墙、镜面与壁挂屏幕把紧凑房间布置得层次分明。",
-    },
-    ja: {
-      alt: "花柄の壁とテレビがある一人用トリートメントルーム",
-      caption: "一台のクッションベッドの横に細いワゴンを置き、柄壁と鏡、壁掛け画面で小さな室内に奥行きを持たせています。",
-    },
-    ko: {
-      alt: "플로럴 벽과 TV를 갖춘 1인용 트리트먼트룸",
-      caption: "패딩 침대 옆에 슬림 트롤리를 두고, 패턴 벽과 미러, 벽걸이 스크린으로 작은 실내에 깊이를 줍니다.",
     },
   },
   "macau-sauna-spa-excellent-placed-20260624-06": {

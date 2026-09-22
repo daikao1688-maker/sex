@@ -9,6 +9,7 @@ import VenueLicenseNotice from "../../../components/VenueLicenseNotice.astro";
 import { getDictionary, interpolate } from "../../../i18n";
 import { locales, localizePath, type Locale } from "../../../i18n/config";
 import { getSpaPageCopy, spaBreadcrumbs, venueSummary } from "../../../i18n/pages/spa";
+import { getSpaVisitFlow } from "../../../i18n/pages/spaVisitFlow";
 import { resolveVenueDetail } from "../../../lib/spaDetail";
 import { venues } from "../../../data/venues";
 import { getReplacementVenueGallery } from "../../../data/venueGalleries";
@@ -30,6 +31,7 @@ const detail = resolveVenueDetail(venue, copy, t);
 
 const venueCopy = t.spas.venues[venue.slug];
 const name = venueCopy.name;
+const visitFlow = getSpaVisitFlow(lang, name);
 const inquiryMessage = (venue.temporarilyClosed ? copy.inquiry.closed : copy.inquiry.booking)
   .replace("{venue}", () => name);
 const summary = venueCopy.summary ?? venueSummary(venueCopy.description, lang);
@@ -41,16 +43,6 @@ const koreanQuickContactClass = "inline-flex min-h-11 w-full min-w-0 items-cente
 const galleryImages = getReplacementVenueGallery(venue.slug, lang) ?? detail.gallery;
 
 const price = `MOP ${venue.priceMin.toLocaleString("en-US")} - ${venue.priceMax.toLocaleString("en-US")}`;
-const practicalStaffValue =
-  detail.staffValue ??
-  (venue.staffCount
-    ? `${venue.staffCount}+`
-    : venue.staffTeam
-      ? copy.labels.staffTeam
-      : copy.labels.staffValue);
-const practicalStaffNote =
-  detail.staffNote ??
-  (venue.staffCount ? copy.labels.staffNationalities : undefined);
 const practicalHours = venue.open24h ? copy.labels.openAllDay : venue.hours;
 const paymentMethods = detail.paymentMethods ?? copy.paymentMethods;
 
@@ -242,12 +234,7 @@ const schemas = [
                 <span class="text-xs uppercase tracking-wider text-white/60">{copy.labels.staff}</span>
               </dt>
               <dd class="ml-7 min-w-0 font-medium leading-relaxed text-white break-words">
-                {practicalStaffValue}
-                {
-                  practicalStaffNote && (
-                    <span class="text-sm font-normal text-white/50"> | {practicalStaffNote}</span>
-                  )
-                }
+                {copy.labels.staffValue}
               </dd>
             </div>
 
@@ -489,7 +476,7 @@ const schemas = [
           <div class="flow-line absolute left-[17px] top-2 bottom-2 w-[1.5px] origin-top bg-gradient-to-b from-gold/70 to-gold/10"></div>
           <div class="space-y-5">
             {
-              detail.flow.map((step, index) => (
+              visitFlow.map((step, index) => (
                 <div
                   class="flow-step relative flex gap-5 items-start"
                   style={`--step-delay: ${(index * 0.15).toFixed(2)}s`}

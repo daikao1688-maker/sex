@@ -81,8 +81,7 @@ const filters = [
 
   <section class="px-0 pb-20 sm:pb-28">
     <div class="max-w-5xl mx-auto relative">
-      {posts.length > 0 && (
-      <div class="rm-filterbar px-4 py-3">
+      {posts.length > 0 && <div class="rm-filterbar px-4 py-3">
         <div class="flex flex-wrap items-center gap-2" role="group" data-blog-filter>
           {
             filters.map((filter, index) => (
@@ -102,10 +101,14 @@ const filters = [
             ))
           }
         </div>
-      </div>
-      )}
+      </div>}
 
       <div class="px-4 pt-5">
+        {posts.length === 0 && (
+          <p class="rounded-2xl border border-[var(--paper-border)] bg-[var(--paper-card)] px-6 py-10 text-center text-[var(--paper-muted)]" data-blog-no-posts>
+            {copy.emptyBlog}
+          </p>
+        )}
         {
           featured && featuredCover && (
             <a
@@ -179,8 +182,8 @@ const filters = [
           }
         </div>
 
-        <p class:list={["mt-8 text-center text-sm text-[var(--paper-muted)]", { hidden: posts.length > 0 }]} data-blog-empty>
-          {posts.length > 0 ? copy.emptyFilter : copy.emptyArchive}
+        <p class="hidden mt-8 text-center text-sm text-[var(--paper-muted)]" data-blog-empty>
+          {copy.emptyFilter}
         </p>
       </div>
     </div>

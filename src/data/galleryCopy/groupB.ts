@@ -48,23 +48,23 @@ export const galleryCopyGroupB = {
   "macau-sauna-spa-manhao-placed-20260624-03": {
     en: {
       alt: "Dark marble room with a red treatment bed",
-      caption: "A red-covered bed sits beneath warm spotlights, framed by dramatic black marble and textured purple walls.",
+      caption: "Warm spotlights illuminate a red-covered bed, with black marble and textured purple walls around it.",
     },
     "zh-TW": {
       alt: "黑色雲石房內的紅色護理床",
-      caption: "紅色床面置於暖光投射之下，四周黑色雲石與紫色紋理牆營造出濃厚而私密的氛圍。",
+      caption: "暖色射燈照亮紅色床面，四周可見黑色雲石與紫色紋理牆面。",
     },
     "zh-CN": {
       alt: "黑色云石房内的红色护理床",
-      caption: "红色床面置于暖光投射之下，四周黑色云石与紫色纹理墙营造出浓厚而私密的氛围。",
+      caption: "暖色射灯照亮红色床面，四周可见黑色云石与紫色纹理墙面。",
     },
     ja: {
       alt: "黒大理石の室内に置かれた赤いトリートメントベッド",
-      caption: "暖かなスポットライトが赤いベッドを照らし、黒大理石と紫の質感壁が落ち着いたプライベート感をつくります。",
+      caption: "暖色のスポットライトが赤いベッドを照らし、周囲には黒大理石と模様のある紫の壁が見えます。",
     },
     ko: {
       alt: "블랙 대리석 룸에 놓인 레드 트리트먼트 베드",
-      caption: "따뜻한 스폿 조명이 레드 베드를 비추고, 블랙 대리석과 퍼플 텍스처 벽이 차분한 프라이빗 무드를 만듭니다.",
+      caption: "따뜻한 스폿 조명이 붉은 베드를 비추고, 주변에는 블랙 대리석과 질감이 있는 보라색 벽이 보입니다.",
     },
   },
   "macau-sauna-spa-manhao-placed-20260624-04": {
@@ -158,7 +158,7 @@ export const galleryCopyGroupB = {
   "macau-sauna-spa-manhao-placed-20260624-08": {
     en: {
       alt: "Warm dining lounge with marble tables and tan chairs",
-      caption: "Marble-topped tables, tan dining chairs, and a softly illuminated counter create an intimate restaurant-style setting.",
+      caption: "Marble-topped tables, tan dining chairs, and a softly illuminated counter furnish the dining lounge.",
     },
     "zh-TW": {
       alt: "雲石餐桌與棕色座椅的用餐空間",

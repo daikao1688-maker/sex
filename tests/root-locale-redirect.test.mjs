@@ -42,7 +42,7 @@ test("root redirects before loading any assets and only shows language choices w
   assert.ok(fallback, "language choices must be available when JavaScript is disabled");
   const visibleBody = html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i)?.[1].replace(/<noscript>[\s\S]*?<\/noscript>/gi, "") ?? "";
   assert.doesNotMatch(visibleBody, /<nav\b|<h1\b|<pre\b|<code\b/i);
-  assert.match(visibleBody, /Redirecting…/);
+  assert.equal(visibleBody.trim(), "", "normal visits must not render an intermediate page");
   assert.match(fallback, /aria-label="[^"]+"/, "locale fallback navigation needs an accessible name");
 
   for (const [hreflang, href, label] of expectedLinks) {

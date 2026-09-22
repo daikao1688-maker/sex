@@ -29,14 +29,15 @@ test("renders the approved Manhao copy and venue-specific practical facts", asyn
 
   assert.match(
     text,
-    /曼濠水疗于 2026 年 5 月在氹仔君怡酒店开业，邻近威尼斯人与银河度假城一带。/,
+    /曼濠水疗（Manhao Spa）于2026年5月在氹仔君怡酒店开业/,
   );
   assert.match(
     text,
-    /沐浴区以大理石铺设，配有两座浴池、芬兰式桑拿及蒸汽浴室。.*在行程之间或一天游览后，留一段时间好好休息。/,
+    /两座浴池、芬兰式桑拿、蒸汽浴室和休息区/,
   );
   assert.match(text, /MOP 2,488 - 6,088/);
-  assert.match(text, /多国籍技师团队/);
+  const staffValue = html.match(/<div\b[^>]*data-info-icon="staff"[\s\S]*?<dd\b[^>]*>([\s\S]*?)<\/dd>/)?.[1] ?? "";
+  assert.equal(visibleText(staffValue), "多国技师");
   assert.match(text, /14:00 – 04:00/);
   assert.match(text, /不可过夜 — 过渡期暂不提供过夜，即将恢复24小时及过夜/);
   assert.doesNotMatch(text, /MOP 888 - 5,388/);
@@ -119,7 +120,7 @@ test("does not render venue official-website areas on any detail page", async ()
   }
 });
 
-test("does not leave stale 06:00 Manhao hours in FAQs", async () => {
+test("does not leave stale 06:00 Manhao hours in FAQs or editorial content", async () => {
   const expectations = [
     ["src/i18n/pages/faq.ts", "Manhao opens 14:00–06:00", "Manhao opens 14:00–04:00"],
     ["src/i18n/pages/faq.ts", "曼濠は14:00〜翌6:00", "曼濠は14:00〜翌4:00"],

@@ -5,7 +5,7 @@ const origin = new URL(import.meta.env.SITE).origin;
 export const site = {
   origin,
   // JPEG sharing copy of the homepage's first hero image; keep dimensions in sync.
-  ogImage: '/covers/macau-sauna-hero-grand-lisboa-night-share.jpg',
+  ogImage: '/covers/macau-hero-parisian-night-share.jpg',
   ogImageWidth: 1448,
   ogImageHeight: 1086,
 } as const;

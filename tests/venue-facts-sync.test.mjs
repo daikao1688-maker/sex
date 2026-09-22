@@ -33,60 +33,72 @@ const localeFacts = {
   en: {
     openAllDay: "Open 24 hours",
     staffHours: "Staff:",
-    nationalities: "Multinational therapists",
-    team: "Multinational therapist team",
+    staffValue: "Multinational therapists",
     overnightLabel: "Overnight",
     overnightAvailable: "Available",
   },
   "zh-TW": {
     openAllDay: "24小時營業",
     staffHours: "技師",
-    nationalities: "多國技師",
-    team: "多國籍技師團隊",
+    staffValue: "多國技師",
     overnightLabel: "過夜",
     overnightAvailable: "可過夜",
   },
   "zh-CN": {
     openAllDay: "24小时营业",
     staffHours: "技师",
-    nationalities: "多国技师",
-    team: "多国籍技师团队",
+    staffValue: "多国技师",
     overnightLabel: "过夜",
     overnightAvailable: "可过夜",
   },
   ja: {
     openAllDay: "24時間営業",
-    staffHours: "女の子",
-    nationalities: "多国籍セラピスト",
-    team: "多国籍セラピストチーム",
+    staffHours: "セラピスト勤務時間",
+    staffValue: "多国籍セラピスト",
     overnightLabel: "宿泊（24時間）",
     overnightAvailable: "宿泊OK",
+  },
+  ko: {
+    openAllDay: "24시간 영업",
+    staffHours: "테라피스트:",
+    staffValue: "다국적 테라피스트",
+    overnightLabel: "숙박",
+    overnightAvailable: "숙박 가능",
   },
 };
 
 const venueFacts = {
-  "number-nine-sauna": { staff: "80+", staffHours: "17:00 - 05:00", oldHours: "5:00 PM - 5:00 AM", price: "MOP 2,299 - 5,999", overnight: true },
-  "shang-pin-spa": { staff: "90+", staffHours: "15:00 - 05:00", oldHours: "3:00 PM - 5:00 AM", price: "MOP 2,299 - 6,499", oldPrice: "MOP 999 - 5,999", overnight: true },
-  "majesty-spa": { staff: "70+", staffHours: "14:00 - 05:00", oldHours: "2:00 PM - 5:00 AM", price: "MOP 2,799 - 6,699", oldPrice: "MOP 1,099 - 5,899", overnight: true },
-  "the-excellent-sauna": { staff: "40+", staffHours: "13:00 - 05:00", oldHours: "12:00 PM - 4:00 AM", price: "MOP 2,488 - 6,388", oldPrice: "MOP 988 - 5,288", overnight: true },
-  "empire-sauna": { staff: "team", staffHours: "17:00 - 06:00", oldHours: "5:00 PM - 6:00 AM", price: "MOP 2,488 - 7,388", oldPrice: "MOP 1,088 - 6,388", overnight: true },
-  "east-castle-spa": { staff: "60+", staffHours: "15:00 - 05:00", oldHours: "3:00 PM - 6:00 AM", price: "MOP 2,388 - 6,498", oldPrice: "MOP 1,468 - 2,528", overnight: true },
-  "victoria-sauna": { staff: "70+", staffHours: "13:00 - 05:00", oldHours: "1:00 PM - 5:00 AM", price: "MOP 2,298 - 6,998", overnight: true },
-  "m-club": { staff: "60+", staffHours: "15:00 - 05:00", oldHours: "3:00 PM - 5:00 AM", price: "MOP 2,388 - 6,498", overnight: true },
-  "number-one-sauna": { staff: "130+", staffHours: "13:00 - 05:00", oldHours: "1:00 PM - 5:00 AM", price: "MOP 2,199 - 7,699", overnight: true },
-  "familia-nobre": { staff: "80+", staffHours: "16:00 - 06:00", oldHours: "4:00 PM - 6:00 AM", price: "MOP 2,388 - 6,988", overnight: true },
+  "number-nine-sauna": { staffHours: "17:00 - 05:00", oldHours: "5:00 PM - 5:00 AM", price: "MOP 2,299 - 5,999", overnight: true },
+  "shang-pin-spa": { staffHours: "15:00 - 05:00", oldHours: "3:00 PM - 5:00 AM", price: "MOP 2,299 - 6,499", oldPrice: "MOP 999 - 5,999", overnight: true },
+  "majesty-spa": { staffHours: "14:00 - 05:00", oldHours: "2:00 PM - 5:00 AM", price: "MOP 2,799 - 6,699", oldPrice: "MOP 1,099 - 5,899", overnight: true },
+  "the-excellent-sauna": { staffHours: "13:00 - 05:00", oldHours: "12:00 PM - 4:00 AM", price: "MOP 2,488 - 6,388", oldPrice: "MOP 988 - 5,288", overnight: true },
+  "empire-sauna": { staffHours: "17:00 - 06:00", oldHours: "5:00 PM - 6:00 AM", price: "MOP 2,488 - 7,388", oldPrice: "MOP 1,088 - 6,388", overnight: true },
+  "east-castle-spa": { staffHours: "15:00 - 05:00", oldHours: "3:00 PM - 6:00 AM", price: "MOP 2,388 - 6,498", oldPrice: "MOP 1,468 - 2,528", overnight: true },
+  "victoria-sauna": { staffHours: "13:00 - 05:00", oldHours: "1:00 PM - 5:00 AM", price: "MOP 2,298 - 6,998", overnight: true },
+  "m-club": { staffHours: "15:00 - 05:00", oldHours: "3:00 PM - 5:00 AM", price: "MOP 2,388 - 6,498", overnight: true },
+  "number-one-sauna": { staffHours: "13:00 - 05:00", oldHours: "1:00 PM - 5:00 AM", price: "MOP 2,199 - 7,699", overnight: true },
+  "familia-nobre": { staffHours: "16:00 - 06:00", oldHours: "4:00 PM - 6:00 AM", price: "MOP 2,388 - 6,988", overnight: true },
 };
 
 test("renders the revised venue facts in every locale", async () => {
   for (const [locale, copy] of Object.entries(localeFacts)) {
-    for (const [slug, facts] of Object.entries(venueFacts)) {
-      const text = visibleText(await readBuiltPage(locale, slug));
-      const staffValue = facts.staff === "team" ? copy.team : facts.staff;
+    const slugs = (await readdir(path.join(distRoot, locale, "spa"), { withFileTypes: true }))
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name);
+    assert.equal(slugs.length, 14, `${locale} must render all visible venue profiles`);
+    for (const slug of slugs) {
+      const html = await readBuiltPage(locale, slug);
+      const text = visibleText(html);
+      const staffValue = html.match(/<div\b[^>]*data-info-icon="staff"[\s\S]*?<dd\b[^>]*>([\s\S]*?)<\/dd>/)?.[1];
 
-      assert.ok(
-        text.includes(facts.staff === "team" ? staffValue : `${staffValue} | ${copy.nationalities}`),
-        `${locale}/${slug} is missing the revised staff lineup`,
+      assert.ok(staffValue, `${locale}/${slug} is missing the staff value`);
+      assert.equal(
+        visibleText(staffValue),
+        copy.staffValue,
+        `${locale}/${slug} must show only the shared staff label without counts or nationalities`,
       );
+      const facts = venueFacts[slug];
+      if (!facts) continue;
       assert.ok(
         text.includes(`${copy.openAllDay} ${copy.staffHours} ${facts.staffHours}`),
         `${locale}/${slug} is missing the revised opening and staff hours`,
@@ -170,35 +182,20 @@ test("ranking prices describe package ranges and distinguish fees included in th
   }
 });
 
+function introductionText(html) {
+  const introduction = html.match(/<p\b[^>]*class="[^"]*\bwhitespace-pre-line\b[^"]*"[^>]*>([\s\S]*?)<\/p>/)?.[1];
+  assert.ok(introduction, "Venue page is missing its introduction");
+  return visibleText(introduction);
+}
+
 const zhCnDescriptionMarkers = {
-  "number-nine-sauna": [
-    "玖号水疗位于御龙酒店内，是 2026 年开业的市中心水疗会所。",
-    "房间以红色、粉紫和蓝紫等色调搭配星空天花",
-  ],
-  "shang-pin-spa": [
-    "尚品国际水疗位于澳门葡京人二楼 L2 R95，属于路氹区较新的高端水疗场所。",
-    "宽敞的沐浴区与安静的休息空间，适合在游览之间放慢脚步。",
-  ],
-  "majesty-spa": [
-    "尊贵水疗位于澳门渔人码头励庭海景酒店内，以华丽装修、宽敞大厅和舒适的休息空间为特色。",
-    "客人可先泡浴或用餐，再按需要了解按摩项目与房间安排。",
-  ],
-  "the-excellent-sauna": [
-    "极品桑拿位于澳门半岛英皇娱乐酒店内，采用较精致的空间规划",
-    "馆内设 24 小时休息区；需要过夜或指定房型，请于预约前确认供应及费用。",
-  ],
-  "empire-sauna": [
-    "巨亨桑拿是澳门半岛于 2026 年开业的水疗会所",
-    "馆内设有水床房、多款不同设计的套房及过夜休息安排",
-  ],
-  "east-castle-spa": [
-    "东方皇堡水疗位于皇家金堡酒店 3、4 楼，以宽敞的沐浴空间和整洁完善的私人房间为特色。",
-    "会所整体氛围安静雅致，适合希望放慢节奏、从容休息的客人。",
-  ],
-  "victoria-sauna": [
-    "凯旋桑拿是一间低调型澳门桑拿，没有太强的网红感",
-    "它的亮点在性价比与留宿便利。",
-  ],
+  "number-nine-sauna": ["2026年4月", "御龙酒店", "自助任食"],
+  "shang-pin-spa": ["2025年7月", "澳门葡京人", "二楼L2 R95", "按摩浴池"],
+  "majesty-spa": ["渔人码头励庭海景酒店", "外港客运码头", "浴区设有大电视"],
+  "the-excellent-sauna": ["2017年5月", "英皇娱乐酒店十楼", "餐饮和休息设施"],
+  "empire-sauna": ["2026年4月", "澳门半岛", "酒店风格套房", "装修花费为1,000美元"],
+  "east-castle-spa": ["皇家金堡酒店三、四楼", "宽敞的浴区"],
+  "victoria-sauna": ["凯旋门酒店五楼", "美高梅、永利澳门和新葡京", "小吃和正餐"],
   "m-club": [
     "晋会 MCLUB 位于华都酒店内，目前暂停营业，暂不接待客人或提供预约服务。",
     "图片与设施记录不代表目前可使用",
@@ -207,7 +204,7 @@ const zhCnDescriptionMarkers = {
 
 test("renders the approved Simplified Chinese introductions", async () => {
   for (const [slug, markers] of Object.entries(zhCnDescriptionMarkers)) {
-    const text = visibleText(await readBuiltPage("zh-CN", slug));
+    const text = introductionText(await readBuiltPage("zh-CN", slug));
     for (const marker of markers) {
       assert.ok(text.includes(marker), `zh-CN/${slug} is missing: ${marker}`);
     }
@@ -216,33 +213,33 @@ test("renders the approved Simplified Chinese introductions", async () => {
 
 const translatedDescriptionMarkers = {
   "zh-TW": {
-    "number-nine-sauna": ["玖號水療位於御龍酒店內", "房間以紅色、粉紫和藍紫等色調搭配星空天花"],
-    "shang-pin-spa": ["尚品國際水療位於澳門葡京人二樓 L2 R95", "寬敞的沐浴區與安靜的休息空間"],
-    "majesty-spa": ["尊貴水療位於澳門漁人碼頭勵庭海景酒店內", "客人可先泡浴或用餐，再按需要了解按摩項目與房間安排。"],
-    "the-excellent-sauna": ["極品桑拿位於澳門半島英皇娛樂酒店內", "館內設 24 小時休息區"],
-    "empire-sauna": ["巨亨桑拿是澳門半島於 2026 年開業的水療會所", "館內設有水床房、多款不同設計的套房及過夜休息安排"],
-    "east-castle-spa": ["東方皇堡水療位於皇家金堡酒店 3、4 樓", "會所整體氛圍安靜雅緻，適合希望放慢節奏、從容休息的客人。"],
-    "victoria-sauna": ["凱旋桑拿是一間低調型澳門桑拿", "它的亮點在性價比與留宿便利。"],
+    "number-nine-sauna": ["2026年4月", "御龍酒店", "任食餐飲"],
+    "shang-pin-spa": ["2025年7月", "澳門葡京人", "二樓L2 R95", "按摩浴池"],
+    "majesty-spa": ["漁人碼頭勵庭海景酒店", "外港客運碼頭", "浴區設有大電視"],
+    "the-excellent-sauna": ["2017年5月", "英皇娛樂酒店十樓", "餐飲與休息設施"],
+    "empire-sauna": ["2026年4月", "澳門半島", "酒店風格套房", "裝修花費為1,000美元"],
+    "east-castle-spa": ["皇家金堡酒店三、四樓", "寬敞的浴區"],
+    "victoria-sauna": ["凱旋門酒店五樓", "美高梅、永利澳門及新葡京", "小吃與正餐"],
     "m-club": ["晉會 MCLUB 位於華都酒店內，目前暫停營業", "圖片與設施記錄不代表目前可使用"],
   },
   en: {
-    "number-nine-sauna": ["Number Nine Spa opened in 2026 inside the Royal Dragon Hotel", "Rooms combine red, pink-purple or blue-purple palettes with starry ceilings."],
-    "shang-pin-spa": ["Shang Pin Spa occupies Level 2, unit L2 R95, at Lisboeta Macau", "Spacious bathing areas and quiet lounges offer a place to pause between sightseeing stops."],
-    "majesty-spa": ["Majesty Spa is located inside Harbourview Hotel at Macau Fisherman's Wharf", "Guests can bathe or dine before discussing massage options and room arrangements."],
-    "the-excellent-sauna": ["The Excellent Sauna is located inside Grand Emperor Hotel", "The venue has a 24-hour rest area"],
-    "empire-sauna": ["Empire Sauna opened on the Macau Peninsula in 2026", "Facilities include waterbed rooms, suites in different styles and overnight rest arrangements"],
-    "east-castle-spa": ["East Castle Spa occupies the third and fourth floors of Casa Real Hotel.", "The atmosphere is quiet and refined, suited to guests who want to slow down and rest."],
-    "victoria-sauna": ["Victoria Sauna is a low-key Macau sauna.", "Its highlights are value for money"],
+    "number-nine-sauna": ["Royal Dragon Hotel in April 2026", "all-you-can-eat buffet"],
+    "shang-pin-spa": ["July 2025", "Level 2 of Lisboeta Macau", "L2 R95", "whirlpool baths"],
+    "majesty-spa": ["Harbourview Hotel at Macau Fisherman's Wharf", "Outer Harbour Ferry Terminal", "large television in the bathing area"],
+    "the-excellent-sauna": ["May 2017", "tenth floor of Grand Emperor Hotel", "dining area and rest facilities"],
+    "empire-sauna": ["April 2026", "Macau Peninsula", "hotel-style suites", "renovation cost was US$1,000"],
+    "east-castle-spa": ["third and fourth floors of Casa Real Hotel", "Large bathing areas"],
+    "victoria-sauna": ["fifth floor of L'Arc Hotel", "MGM Macau, Wynn Macau and Grand Lisboa", "snacks and full meals"],
     "m-club": ["MCLUB is located inside Waldo Hotel and is currently temporarily closed.", "Photos and facility descriptions do not indicate current availability."],
   },
   ja: {
-    "number-nine-sauna": ["ナンバーナインスパは、2026年にマカオ中心部の御龍酒店", "客室は赤、ピンクパープル、ブルーパープル"],
-    "shang-pin-spa": ["シャンピンスパは、リスボエタ・マカオの2階、L2 R95", "広い入浴エリアと落ち着いた休憩スペース"],
-    "majesty-spa": ["マジェスティスパは、マカオ・フィッシャーマンズワーフ", "リクライニングチェアや個別休憩室の空きと料金を事前に確認してください。"],
-    "the-excellent-sauna": ["エクセレントサウナは、マカオ半島のグランドエンペラーホテル内", "24時間利用の休憩エリアがあります"],
-    "empire-sauna": ["エンパイアサウナは、2026年にマカオ半島で開業した施設です。", "ウォーターベッドを備えた部屋や異なる内装の客室、宿泊休憩の設備"],
-    "east-castle-spa": ["イーストキャッスルスパ（東方皇堡水療）は、カーサ・レアル・ホテル（皇家金堡酒店）の3階と4階にあります。", "館内は静かで上品な雰囲気に包まれ、慌ただしさを離れて休みたい方に向いています。"],
-    "victoria-sauna": ["ヴィクトリアサウナ（凱旋桑拿）は、控えめなタイプ", "魅力はコストパフォーマンスと宿泊のしやすさです。"],
+    "number-nine-sauna": ["2026年4月", "御龍酒店", "ビュッフェ形式"],
+    "shang-pin-spa": ["2025年7月", "リスボエタ・マカオ", "2階のL2 R95", "ジェットバス"],
+    "majesty-spa": ["フィッシャーマンズ・ワーフ", "ハーバービュー・ホテル（勵庭海景酒店）", "外港フェリーターミナル", "浴場には大型テレビ"],
+    "the-excellent-sauna": ["2017年5月", "英皇娛樂酒店）の10階", "食事や休憩の設備"],
+    "empire-sauna": ["2026年4月", "マカオ半島", "ホテル風のスイート", "1,000米ドル"],
+    "east-castle-spa": ["皇家金堡酒店）の3階と4階", "広い浴場"],
+    "victoria-sauna": ["凱旋門酒店）の5階", "MGMマカオ、ウィン・マカオ、グランド・リスボア", "軽食や食事"],
     "m-club": ["エムクラブ（MCLUB）はワルドホテル内の施設で、現在は一時休業中です。", "写真や設備紹介は現在利用できることを示すものではありません。"],
   },
 };
@@ -250,7 +247,7 @@ const translatedDescriptionMarkers = {
 test("renders the approved introductions in every translated locale", async () => {
   for (const [locale, venues] of Object.entries(translatedDescriptionMarkers)) {
     for (const [slug, markers] of Object.entries(venues)) {
-      const text = visibleText(await readBuiltPage(locale, slug));
+      const text = introductionText(await readBuiltPage(locale, slug));
       for (const marker of markers) {
         assert.ok(text.includes(marker), `${locale}/${slug} is missing: ${marker}`);
       }
@@ -264,9 +261,9 @@ test("renders the revised Majesty and Victoria highlights in Simplified Chinese"
   assert.ok(majesty.includes("十多种不同风格房间"), "Majesty must retain the requested room-design description");
 
   const victoria = visibleText(await readBuiltPage("zh-CN", "victoria-sauna"));
+  assert.ok(!victoria.includes("水床买一送一"), "Victoria must not retain the withdrawn waterbed promotion");
   for (const highlight of [
     "环境安静细致",
-    "水床买一送一",
     "服务细心周到",
     "凌晨3:00后免费独立休息房",
   ]) {
@@ -282,7 +279,7 @@ test("keeps The Excellent service fee consistent with the shared venue fact", as
     "全程免收服务费",
   ];
 
-  for (const locale of ["en", "ja", "ko", "zh-TW", "zh-CN"]) {
+  for (const locale of ["en", "ja", "zh-TW", "zh-CN", "ko"]) {
     const html = await readBuiltPage(locale, "the-excellent-sauna");
     const relatedStart = html.indexOf('id="related"');
     assert.ok(relatedStart > 0, `${locale}/the-excellent-sauna is missing the related-venues boundary`);

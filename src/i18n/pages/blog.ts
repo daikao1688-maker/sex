@@ -12,7 +12,7 @@ export interface BlogCopy {
   allTopics: string;
   categories: Record<BlogCategory, string>;
   emptyFilter: string;
-  emptyArchive: string;
+  emptyBlog: string;
   post: {
     allArticles: string;
     backToAllArticles: string;
@@ -48,7 +48,7 @@ const en: BlogCopy = {
     news: 'Latest News',
   },
   emptyFilter: 'No articles in this topic yet.',
-  emptyArchive: 'There are currently no articles.',
+  emptyBlog: 'No articles are currently available.',
   post: {
     allArticles: 'All articles',
     backToAllArticles: 'Back to all articles',
@@ -83,7 +83,7 @@ const ja: BlogCopy = {
     news: '最新情報',
   },
   emptyFilter: 'このトピックの記事はまだありません。',
-  emptyArchive: '現在、掲載中の記事はありません。',
+  emptyBlog: '現在公開中の記事はありません。',
   post: {
     allArticles: '記事一覧',
     backToAllArticles: '記事一覧に戻る',
@@ -118,7 +118,7 @@ const zhTW: BlogCopy = {
     news: '最新情報',
   },
   emptyFilter: '此主題目前沒有文章。',
-  emptyArchive: '目前沒有文章。',
+  emptyBlog: '目前暫無文章。',
   post: {
     allArticles: '所有文章',
     backToAllArticles: '返回所有文章',
@@ -153,7 +153,7 @@ const zhCN: BlogCopy = {
     news: '最新情报',
   },
   emptyFilter: '此主题暂无文章。',
-  emptyArchive: '目前暂无文章。',
+  emptyBlog: '目前暂无文章。',
   post: {
     allArticles: '所有文章',
     backToAllArticles: '返回所有文章',
@@ -188,7 +188,7 @@ const ko: BlogCopy = {
     news: '최신 소식',
   },
   emptyFilter: '이 주제의 글이 아직 없습니다.',
-  emptyArchive: '현재 게시된 글이 없습니다.',
+  emptyBlog: '현재 공개된 글이 없습니다.',
   post: {
     allArticles: '전체 글',
     backToAllArticles: '전체 글 목록으로 돌아가기',

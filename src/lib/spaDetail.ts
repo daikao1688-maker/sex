@@ -31,10 +31,8 @@ export function resolveVenueDetail(
   const features = [
     venue.ktv ? p.ktv : null,
     venue.themeRooms ? p.themeRooms : null,
-    venue.recommendedShow ? p.show : null,
     venue.overnightAllowed ? p.overnight : null,
     venue.open24h ? p.open24h : null,
-    venue.jpkr ? p.jpkr : null,
     venue.serviceFee === 'none' ? p.noServiceFee : null,
   ].filter((value): value is string => Boolean(value));
 

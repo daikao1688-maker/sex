@@ -37,14 +37,15 @@ const localeExpectations = {
   en: {
     name: "Yu Sauna",
     location: "third floor",
-    opening: "26 August 2026",
+    opening: "August 2026",
     verified: "August 2026",
-    staff: "Multinational therapist team",
+    staff: "Multinational therapists",
     removedStaffNote: "Publicly listed hours 13:00 - 06:00; confirm the same-day roster",
     overnight: "Overnight stays available — ask about rest arrangements when booking",
     bestFor: "Visitors who want to try Macau's newest venue and prefer Japanese Zen-inspired facilities",
     removedFeature: "Venue information states 24-hour access",
-    descriptionMarker: "Japanese cypress dry sauna",
+    descriptionMarkers: ["former Royal Sauna premises", "Oceanic Royal Spa team"],
+    removedShowPromotion: "Shows run every hour",
     rankingOvernight: "Confirm before departure",
     bookingNote: "Transport, payment methods and any promotions require confirmation for this venue.",
     ctaBody: "Send your visit time and requirements; we will confirm the current price, entrance and arrangements before departure.",
@@ -52,15 +53,16 @@ const localeExpectations = {
   },
   "zh-TW": {
     name: "八湯御桑拿",
-    location: "3 樓",
-    opening: "2026 年 8 月 26 日",
+    location: "三樓",
+    opening: "2026年8月",
     verified: "2026 年 8 月",
-    staff: "多國籍技師團隊",
+    staff: "多國技師",
     removedStaffNote: "公開時段為 13:00 - 06:00，實際陣容需當天確認",
     overnight: "可過夜 — 休息安排請於預約時查詢",
     bestFor: "想試最新場館、偏好日式禪意硬件",
     removedFeature: "場館資料標示 24 小時開放",
-    descriptionMarker: "日式檜木乾蒸房",
+    descriptionMarkers: ["原皇家桑拿舊址", "帝湖水療團隊營運"],
+    removedShowPromotion: "每小時安排一場表演",
     rankingOvernight: "出發前確認",
     bookingNote: "此會所的接送、付款方式與任何優惠均需在預約時確認。",
     ctaBody: "告訴我們到訪時間與需求；出發前會先確認當日價格、入口及安排。",
@@ -68,15 +70,16 @@ const localeExpectations = {
   },
   "zh-CN": {
     name: "八汤御桑拿",
-    location: "3 楼",
-    opening: "2026 年 8 月 26 日",
+    location: "三楼",
+    opening: "2026年8月",
     verified: "2026 年 8 月",
-    staff: "多国籍技师团队",
+    staff: "多国技师",
     removedStaffNote: "公开时段为 13:00 - 06:00，实际阵容需当天确认",
     overnight: "可过夜 — 休息安排请于预约时查询",
     bestFor: "想试最新场馆、偏好日式禅意硬件",
     removedFeature: "场馆资料标注 24 小时开放",
-    descriptionMarker: "日式桧木干蒸房",
+    descriptionMarkers: ["原皇家桑拿旧址", "帝湖水疗团队运营"],
+    removedShowPromotion: "每小时安排一场表演",
     rankingOvernight: "出发前确认",
     bookingNote: "这家会所的接送、付款方式和任何优惠都需要在预约时确认。",
     ctaBody: "告诉我们到访时间和需求；出发前会先确认当天价格、入口和安排。",
@@ -85,14 +88,15 @@ const localeExpectations = {
   ja: {
     name: "YU SAUNA（八湯御桑拿）",
     location: "3階",
-    opening: "2026年8月26日",
+    opening: "2026年8月",
     verified: "2026年8月",
-    staff: "多国籍セラピストチーム",
+    staff: "多国籍セラピスト",
     removedStaffNote: "公開対応時間 13:00 - 06:00、当日の在籍は要確認",
     overnight: "宿泊可能 — 休憩の手配は予約時にお問い合わせください",
     bestFor: "最新施設を試したい方、日本の禅を感じる設備を好む方",
     removedFeature: "施設案内では24時間営業",
-    descriptionMarker: "和風ヒノキのドライサウナ",
+    descriptionMarkers: ["旧ロイヤルサウナの場所", "オーシャニック・ロイヤル・スパのチーム"],
+    removedShowPromotion: "1時間ごとにショー",
     rankingOvernight: "出発前に確認",
     bookingNote: "この店舗の送迎、支払い方法、キャンペーンは予約時に確認が必要です。",
     ctaBody: "来店時刻と希望内容をお知らせください。出発前に当日の料金、入口、利用条件を確認します。",
@@ -105,14 +109,15 @@ const localeExpectations = {
   ko: {
     name: "YU SAUNA",
     location: "3층",
-    opening: "2026년 8월 26일",
+    opening: "2026년 8월",
     verified: "2026년 8월",
-    staff: "다국적 테라피스트 팀",
+    staff: "다국적 테라피스트",
     removedStaffNote: "공개 안내 시간 13:00 - 06:00, 당일 인원은 확인 필요",
     overnight: "숙박 가능 — 휴식 일정은 예약 시 문의하세요",
     bestFor: "최신 시설을 경험하고 일본식 젠 설비를 선호하는 방문객",
     removedFeature: "시설 안내상 24시간 운영",
-    descriptionMarker: "일본식 편백나무 드라이 사우나",
+    descriptionMarkers: ["옛 로열 사우나 자리", "오셔닉 로열 스파 팀이 운영을 맡고 있습니다"],
+    removedShowPromotion: "한 시간마다",
     rankingOvernight: "출발 전 확인",
     bookingNote: "이 매장의 픽업, 결제 방법과 프로모션은 예약할 때 확인해야 합니다.",
     ctaBody: "방문 시간과 요청 사항을 알려 주세요. 출발 전에 당일 가격, 입구와 이용 조건을 확인합니다.",
@@ -185,19 +190,29 @@ test("publishes Yu Sauna as a complete five-locale venue", async () => {
 
     assert.ok(detail.includes(`>${expected.name}</h1>`), `${locale} is missing the venue heading`);
     assert.ok(text.includes(expected.location), `${locale} is missing the owner-confirmed third-floor location`);
-    assert.ok(text.includes(expected.opening), `${locale} is missing the owner-confirmed opening date`);
+    assert.ok(text.includes(expected.opening), `${locale} is missing the owner-confirmed opening month`);
     assert.ok(text.includes(expected.verified), `${locale} is missing the fact-verification month`);
-    assert.ok(text.includes(expected.staff), `${locale} is missing the requested therapist-team label`);
+    const staffValue = staffSection.match(/<dd\b[^>]*>([\s\S]*?)<\/dd>/)?.[1] ?? "";
     assert.equal(
-      visibleText(staffSection).includes("|"),
-      false,
-      `${locale} appends extra therapist details after the requested team label`,
+      visibleText(staffValue),
+      expected.staff,
+      `${locale} must show only the requested staff label`,
     );
     assert.equal(text.includes(expected.removedStaffNote), false, `${locale} still shows the removed therapist note`);
     assert.ok(text.includes(expected.overnight), `${locale} does not show the requested overnight wording`);
     assert.ok(text.includes(expected.bestFor), `${locale} does not show the requested best-for wording`);
     assert.equal(text.includes(expected.removedFeature), false, `${locale} still shows the removed 24-hour feature chip`);
-    assert.ok(text.includes(expected.descriptionMarker), `${locale} is missing the new venue description`);
+    const introduction = venueSections.match(/<p\b[^>]*class="[^"]*\bwhitespace-pre-line\b[^"]*"[^>]*>([\s\S]*?)<\/p>/)?.[1];
+    assert.ok(introduction, `${locale} is missing the Yu Sauna introduction`);
+    const description = visibleText(introduction);
+    for (const marker of expected.descriptionMarkers) {
+      assert.ok(description.includes(marker), `${locale} description is missing: ${marker}`);
+    }
+    assert.equal(
+      description.includes(expected.removedShowPromotion),
+      false,
+      `${locale} description still promotes hourly shows`,
+    );
     assert.ok(text.includes("MOP 2,899 - 6,999"), `${locale} has the wrong package range`);
     assert.ok(text.includes("13:00 - 06:00"), `${locale} has the wrong staff hours`);
     assert.ok(detail.match(/data-spa-service-fee[^<]*10%/), `${locale} is missing the 10% fee`);
@@ -331,13 +346,13 @@ test("ships all owner-supplied Yu Sauna photos in the requested lead-image order
   }
 });
 
-test("publishes the owner-confirmed opening and floor without stale fourth-floor copy", async () => {
+test("publishes the owner-confirmed opening month and floor without stale fourth-floor copy", async () => {
   const expectations = {
-    en: { required: [/opened on 26 August 2026/iu, /third floor/iu], stale: /fourth floor/iu },
-    "zh-TW": { required: [/2026\s*年\s*8\s*月\s*26\s*日全新開幕/u, /新東方置地酒店\s*3\s*樓/u], stale: /四樓/u },
-    "zh-CN": { required: [/2026\s*年\s*8\s*月\s*26\s*日全新开幕/u, /新东方置地酒店\s*3\s*楼/u], stale: /四楼/u },
-    ja: { required: [/2026年8月26日に新規開業/u, /New Orient Landmark Hotelの3階/u], stale: /4階/u },
-    ko: { required: [/2026년 8월 26일 새롭게 개장/u, /New Orient Landmark Hotel 3층/u], stale: /4층/u },
+    en: { required: [/opened in August 2026/iu, /third floor of New Orient Landmark Hotel/iu], stale: /fourth floor/iu },
+    "zh-TW": { required: [/2026\s*年\s*8\s*月/u, /新東方置地酒店\s*(?:3|三)\s*樓/u], stale: /四樓/u },
+    "zh-CN": { required: [/2026\s*年\s*8\s*月/u, /新东方置地酒店\s*(?:3|三)\s*楼/u], stale: /四楼/u },
+    ja: { required: [/2026年8月にオープン/u, /新東方置地酒店）3階/u], stale: /4階/u },
+    ko: { required: [/2026년 8월/u, /뉴 오리엔트 랜드마크 호텔 3층/u], stale: /4층/u },
   };
 
   for (const [locale, expected] of Object.entries(expectations)) {

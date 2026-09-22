@@ -40,9 +40,12 @@ const openVenues = venues
     return 0;
   });
 const closedVenues = venues.filter((venue) => venue.temporarilyClosed);
+// This homepage filter is a curated shortlist, separate from overnight facts.
+const overnightFilterSlugs = new Set(["yu-sauna", "majesty-spa", "number-nine-sauna"]);
 const filterBuckets = (venue: (typeof venues)[number]) => [
-  ...venue.buckets.filter((bucket) => bucket !== "lineup"),
+  ...venue.buckets.filter((bucket) => bucket !== "lineup" && bucket !== "overnight"),
   venue.district,
+  ...(overnightFilterSlugs.has(venue.slug) ? ["overnight"] : []),
 ];
 const pausedBuckets = [...new Set(closedVenues.flatMap(filterBuckets))].join(" ");
 ---
