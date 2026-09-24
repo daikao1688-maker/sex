@@ -67,6 +67,16 @@ export interface SpaPageCopy {
     /** Named placeholders let each locale order the photo count naturally. */
     galleryPhotoCount: string;
     flow: string;
+    /** Dining video card inside the visit flow (venues with a clip only). */
+    diningVideoTitle: string;
+    diningVideoDesc: string;
+    /** Interior walkthrough cinema card before the gallery. */
+    interiorVideoHeading: string;
+    interiorVideoTitle: string;
+    interiorVideoDesc: string;
+    interiorVideoBadge: string;
+    /** Shared video modal close label. */
+    videoClose: string;
     moreInfo: string;
     related: string;
     learnMore: string;
@@ -150,6 +160,13 @@ const en: SpaPageCopy = {
     gallerySwipeHint: 'Swipe left or right to browse',
     galleryPhotoCount: 'Photo {current} of {total}',
     flow: 'Detailed Flow',
+    diningVideoTitle: 'Sample dining video · {duration}s',
+    diningVideoDesc: 'Shared sample footage; food and dining spaces vary by venue.',
+    interiorVideoHeading: 'Venue video',
+    interiorVideoTitle: 'Inside the venue',
+    interiorVideoDesc: 'A filmed walkthrough of the sauna floors, bathing areas and rest lounge',
+    interiorVideoBadge: '{duration}s',
+    videoClose: 'Close video',
     moreInfo: 'Want to know more? Contact us for detailed info',
     related: 'Other Popular Spas',
     learnMore: 'Learn More',
@@ -179,7 +196,7 @@ const en: SpaPageCopy = {
   cta: {
     headingLead: 'Want to know ',
     headingAccent: 'more',
-    headingTail: '? Contact us now!',
+    headingTail: '? Get in touch!',
     body: 'Send us a message and we\'ll take care of the rest.',
   },
   breadcrumbHome: 'Home',
@@ -393,7 +410,6 @@ const en: SpaPageCopy = {
       highlights: [
         'Brand new — opened April 2026',
         'Modern stage facilities',
-        'Multiple ambient themed rooms',
         'Balinese + Japanese massage',
       ],
       bestFor: 'Trying the newest venue',
@@ -1496,6 +1512,13 @@ const ja: SpaPageCopy = {
     gallerySwipeHint: '左右にスワイプして写真を切り替え',
     galleryPhotoCount: '全{total}枚中{current}枚目',
     flow: '詳しい流れ',
+    diningVideoTitle: '食事の参考動画 · {duration}秒',
+    diningVideoDesc: '共通の参考動画です。料理や食事スペースは施設によって異なります。',
+    interiorVideoHeading: '館内ムービー',
+    interiorVideoTitle: '館内環境ムービー',
+    interiorVideoDesc: 'サウナフロア・浴場・休憩ラウンジを巡る撮影映像',
+    interiorVideoBadge: '{duration}秒',
+    videoClose: '映像を閉じる',
     moreInfo: 'もっと詳しく知りたい方は、LINEで問い合わせ（無料送迎つき）｜日本語対応で初めてでも安心',
     related: 'その他の人気サウナ',
     learnMore: '詳しく見る',
@@ -1525,7 +1548,7 @@ const ja: SpaPageCopy = {
   cta: {
     headingLead: '',
     headingAccent: 'もっと',
-    headingTail: '知りたいですか？今すぐお問い合わせください！',
+    headingTail: '詳しく知りたいですか？お気軽にお問い合わせください！',
     body: 'まずはLINEで問い合わせ。無料送迎・日本語対応で、初めてでも安心。あとはお任せください。',
   },
   breadcrumbHome: 'ホーム',
@@ -1735,7 +1758,6 @@ const ja: SpaPageCopy = {
       highlights: [
         '2026年4月オープンの最新店',
         'モダンなステージ設備',
-        '多彩な雰囲気テーマルーム',
         'バリ式＋日本式マッサージ',
       ],
       bestFor: '最新店を一番乗りで体験',
@@ -2817,6 +2839,13 @@ const zhTW: SpaPageCopy = {
     gallerySwipeHint: '左右滑動切換相片',
     galleryPhotoCount: '第 {current} 張相片，共 {total} 張',
     flow: '詳細流程',
+    diningVideoTitle: '餐飲參考 · {duration} 秒',
+    diningVideoDesc: '通用參考影片，各會所的餐點與用餐環境可能不同。',
+    interiorVideoHeading: '館內實拍',
+    interiorVideoTitle: '館內環境實拍',
+    interiorVideoDesc: '桑拿房內部環境、浴區與休息大廳實拍巡覽',
+    interiorVideoBadge: '{duration} 秒',
+    videoClose: '關閉影片',
     moreInfo: '想了解更多？聯繫我們獲取詳細資訊',
     related: '其他熱門會所',
     learnMore: '了解更多',
@@ -2846,7 +2875,7 @@ const zhTW: SpaPageCopy = {
   cta: {
     headingLead: '想了解',
     headingAccent: '更多',
-    headingTail: '？快聯繫我們吧！',
+    headingTail: '？快聯絡我們吧！',
     body: '傳一則訊息給我們，剩下的交給我們處理。',
   },
   breadcrumbHome: '首頁',
@@ -3056,7 +3085,6 @@ const zhTW: SpaPageCopy = {
       highlights: [
         '2026年4月全新開業',
         '現代化舞台設施',
-        '多款氛圍主題房',
         '巴厘島+日式按摩',
       ],
       bestFor: '嘗鮮最新場',
@@ -4148,6 +4176,13 @@ const zhCN: SpaPageCopy = {
     gallerySwipeHint: '左右滑动切换照片',
     galleryPhotoCount: '第 {current} 张照片，共 {total} 张',
     flow: '详细流程',
+    diningVideoTitle: '餐饮参考 · {duration} 秒',
+    diningVideoDesc: '通用参考视频，各会所的菜品和用餐环境可能不同。',
+    interiorVideoHeading: '馆内实拍',
+    interiorVideoTitle: '馆内环境实拍',
+    interiorVideoDesc: '桑拿房内部环境、浴区与休息大厅实拍巡览',
+    interiorVideoBadge: '{duration} 秒',
+    videoClose: '关闭视频',
     moreInfo: '想了解更多？联系我们获取详细资讯',
     related: '其他热门会所',
     learnMore: '了解更多',
@@ -4390,7 +4425,6 @@ const zhCN: SpaPageCopy = {
       highlights: [
         '2026年4月全新开业',
         '现代化舞台设施',
-        '多款氛围主题房',
         '巴厘岛+日式按摩',
       ],
       bestFor: '尝鲜最新场',
@@ -5483,6 +5517,13 @@ const ko: SpaPageCopy = {
     gallerySwipeHint: '좌우로 밀어 사진 보기',
     galleryPhotoCount: '사진 {total}장 중 {current}번째',
     flow: '이용 흐름',
+    diningVideoTitle: '식사 참고 영상 · {duration}초',
+    diningVideoDesc: '공통 참고 영상입니다. 음식과 식사 공간은 업소마다 다를 수 있습니다.',
+    interiorVideoHeading: '내부 영상',
+    interiorVideoTitle: '내부 환경 영상',
+    interiorVideoDesc: '사우나 내부, 욕탕 시설, 휴게 라운지 촬영 영상',
+    interiorVideoBadge: '{duration}초',
+    videoClose: '영상 닫기',
     moreInfo: '더 궁금한 점이 있으신가요? 문의하시면 자세히 안내해 드립니다',
     related: '다른 인기 스파',
     learnMore: '자세히 보기',
@@ -5512,7 +5553,7 @@ const ko: SpaPageCopy = {
   cta: {
     headingLead: '',
     headingAccent: '더',
-    headingTail: ' 알고 싶으신가요? 지금 문의해 주세요!',
+    headingTail: ' 알아보고 싶으신가요? 편하게 문의해 주세요!',
     body: '메시지 한 통 보내주시면 나머지는 저희가 알아서 처리해 드립니다.',
   },
   breadcrumbHome: '홈',
@@ -5722,7 +5763,6 @@ const ko: SpaPageCopy = {
       highlights: [
         '2026년 4월 그랜드 오픈',
         '현대적인 무대 시설',
-        '다양한 무드 테마룸',
         '발리식 + 일식 마사지',
       ],
       bestFor: '최신 매장을 먼저 경험하고 싶은 분',

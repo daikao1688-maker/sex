@@ -246,7 +246,7 @@ const large = (file: string) =>
         navigate(event.key === "ArrowLeft" ? -1 : 1);
       } else if (event.key === "Tab") {
         const controls = [closeButton, previousButton, nextButton]
-          .filter((control): control is HTMLElement => Boolean(control && !control.hidden));
+          .filter((control): control is HTMLButtonElement => Boolean(control && !control.hidden));
         const first = controls[0];
         const last = controls[controls.length - 1];
         const active = document.activeElement;

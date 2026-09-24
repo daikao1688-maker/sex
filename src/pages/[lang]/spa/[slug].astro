@@ -12,6 +12,8 @@ import { getSpaPageCopy, spaBreadcrumbs, venueSummary } from "../../../i18n/page
 import { getSpaVisitFlow } from "../../../i18n/pages/spaVisitFlow";
 import { resolveVenueDetail } from "../../../lib/spaDetail";
 import { venues } from "../../../data/venues";
+import { getDiningVideo } from "../../../data/venueDiningVideos";
+import { venueInteriorVideos } from "../../../data/venueInteriorVideos";
 import { getReplacementVenueGallery } from "../../../data/venueGalleries";
 import { venueHeroImageMetadata } from "../../../data/venueHeroImages";
 import { site, contact, chatUrl } from "../../../data/site";
@@ -32,6 +34,14 @@ const detail = resolveVenueDetail(venue, copy, t);
 const venueCopy = t.spas.venues[venue.slug];
 const name = venueCopy.name;
 const visitFlow = getSpaVisitFlow(lang, name);
+const diningVideo = getDiningVideo(venue.slug);
+const diningVideoTitle = diningVideo
+  ? interpolate(copy.labels.diningVideoTitle, { duration: diningVideo.durationSeconds })
+  : "";
+const interiorVideo = venueInteriorVideos[venue.slug];
+const interiorVideoBadge = interiorVideo
+  ? interpolate(copy.labels.interiorVideoBadge, { duration: interiorVideo.durationSeconds })
+  : "";
 const inquiryMessage = (venue.temporarilyClosed ? copy.inquiry.closed : copy.inquiry.booking)
   .replace("{venue}", () => name);
 const summary = venueCopy.summary ?? venueSummary(venueCopy.description, lang);
@@ -427,28 +437,48 @@ const schemas = [
         </div>
       </div>
 
-      <div class="fade-up mb-16">
-        <div class="practical-info-card rounded-2xl p-5 sm:p-6">
-          <div class="mb-4 flex items-center gap-3">
-            <span class="info-ring" aria-hidden="true"><Icon name="sparkles" class="h-4 w-4" /></span>
-            <h2 class="text-sm font-semibold tracking-[0.25em] text-gold-light">{copy.labels.features}</h2>
-            <span class="feature-rule" aria-hidden="true"></span>
-          </div>
-          <div class="flex flex-wrap gap-2.5">
-            {
-              detail.features.map((feature, index) => (
-                <span
-                  class="feature-chip inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/[0.07] px-4 py-2 text-sm text-gold-light"
-                  style={`--chip-delay: ${(index * 0.06).toFixed(2)}s`}
-                >
-                  <span class="feature-dot" aria-hidden="true" />
-                  {feature}
+      {
+        interiorVideo && (
+          <div class="fade-up mb-16">
+            <div class="mb-5 flex items-center gap-3">
+              <span class="info-ring" aria-hidden="true">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+              </span>
+              <h2 class="text-sm font-semibold tracking-[0.25em] text-gold-light">
+                {copy.labels.interiorVideoHeading}
+              </h2>
+              <span class="feature-rule" aria-hidden="true"></span>
+            </div>
+            <div class="practical-info-card rounded-2xl p-5 sm:p-6">
+              <button
+                type="button"
+                data-video-open
+                data-video-src={interiorVideo.src}
+                data-video-poster={interiorVideo.poster}
+                data-video-title={`${copy.labels.interiorVideoTitle} · ${name}`}
+                class="interior-video-card mx-auto flex w-full flex-col items-center gap-4 text-center"
+                aria-label={`${copy.labels.interiorVideoTitle} · ${interiorVideoBadge} · ${name}`}
+              >
+                <span class="interior-video-preview">
+                  <img src={interiorVideo.poster} alt="" loading="lazy" decoding="async" width={interiorVideo.width} height={interiorVideo.height} />
+                  <span class="interior-video-play" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#f0d67e">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                  <span class="interior-video-badge" aria-hidden="true">{interiorVideoBadge}</span>
                 </span>
-              ))
-            }
+                <span>
+                  <span class="block text-sm font-semibold text-white">{copy.labels.interiorVideoTitle}</span>
+                  <span class="mt-1 block text-xs leading-relaxed text-white/50">
+                    {copy.labels.interiorVideoDesc}
+                  </span>
+                </span>
+              </button>
+            </div>
           </div>
-        </div>
-      </div>
+        )
+      }
 
       <SpaGallery
         images={galleryImages}
@@ -484,9 +514,37 @@ const schemas = [
                   <div class="flow-node relative z-10 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-gold/50 bg-[#141414]">
                     <span class="text-sm font-bold tabular-nums text-gold-light">{index + 1}</span>
                   </div>
-                  <div class="pt-1.5">
+                  <div class="flow-step-content min-w-0 flex-1 pt-1.5">
                     <p class="text-white font-medium text-sm">{step.title}</p>
                     <p class="text-white/50 text-sm mt-1 leading-relaxed">{step.body}</p>
+                    {
+                      diningVideo && index === 4 && (
+                        <button
+                          type="button"
+                          data-video-open
+                          data-video-src={diningVideo.src}
+                          data-video-poster={diningVideo.poster}
+                          data-video-title={diningVideoTitle}
+                          class="dining-video-card mt-3 flex w-full items-center gap-3 rounded-xl border border-gold/40 bg-[#141414] p-2.5 text-left transition-colors hover:border-gold/70 hover:bg-gold/[0.06]"
+                          aria-label={diningVideoTitle}
+                        >
+                          <span class="dining-video-thumb" aria-hidden="true">
+                            <img src={diningVideo.poster} alt="" loading="lazy" decoding="async" width={diningVideo.width} height={diningVideo.height} />
+                            <span class="dining-video-play">
+                              <svg width="13" height="13" viewBox="0 0 24 24" fill="#f0d67e">
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </span>
+                          </span>
+                          <span class="min-w-0">
+                            <span class="block text-sm font-semibold text-gold-light">{diningVideoTitle}</span>
+                            <span class="mt-0.5 block text-xs leading-relaxed text-white/50">
+                              {copy.labels.diningVideoDesc}
+                            </span>
+                          </span>
+                        </button>
+                      )
+                    }
                   </div>
                 </div>
               ))
@@ -616,8 +674,8 @@ const schemas = [
           </>
         ) : (
           <>
-            <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-              {copy.cta.headingLead}<span class="text-gold">{copy.cta.headingAccent}</span>{copy.cta.headingTail}
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-balance">
+              {copy.cta.headingLead}<span class="text-yellow-400">{copy.cta.headingAccent}</span>{copy.cta.headingTail}
             </h2>
             <p class="text-white/60 mb-8 max-w-xl mx-auto">{detail.ctaBody ?? copy.cta.body}</p>
           </>
@@ -648,6 +706,152 @@ const schemas = [
         note={copy.vipDrawer.note}
         closeLabel={copy.vipDrawer.close}
       />
+    )
+  }
+  {
+    (diningVideo || interiorVideo) && (
+      <>
+      <div
+        data-video-modal
+        aria-hidden="true"
+        inert
+        class="fixed inset-0 z-[140] pointer-events-none invisible"
+      >
+        <div
+          class="absolute inset-0 bg-black/80 transition-opacity duration-300 opacity-0"
+          data-video-scrim
+        >
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="venue-video-title"
+            data-video-panel
+            class="dining-video-panel pointer-events-auto opacity-0 scale-95 transition-all duration-300"
+          >
+            <div class="mb-3 flex items-center justify-between gap-4">
+              <p id="venue-video-title" class="text-sm font-semibold text-gold-light" data-video-modal-title></p>
+              <button
+                type="button"
+                data-video-close
+                aria-label={copy.labels.videoClose}
+                class="flex-shrink-0 p-2.5 rounded-full bg-white/10 text-white ring-1 ring-white/15 hover:bg-white/20 active:bg-white/25 transition-colors"
+              >
+                <Icon name="close" class="w-5 h-5" />
+              </button>
+            </div>
+            <video
+              preload="none"
+              controls
+              playsinline
+              tabindex="0"
+              aria-labelledby="venue-video-title"
+              class="dining-video-player block rounded-xl border border-gold/50 bg-black"
+            ></video>
+          </div>
+        </div>
+      </div>
+      <script>
+        (() => {
+          const modal = document.querySelector<HTMLElement>("[data-video-modal]");
+          if (!modal) return;
+          // Move out of [data-page-background]: opening sets that container inert,
+          // which would disable every control inside the modal (close button, video).
+          document.body.append(modal);
+          const scrim = modal.querySelector<HTMLElement>("[data-video-scrim]");
+          const panel = modal.querySelector<HTMLElement>("[data-video-panel]");
+          const video = modal.querySelector<HTMLVideoElement>("video");
+          const closeButton = modal.querySelector<HTMLButtonElement>("[data-video-close]");
+          const titleEl = modal.querySelector<HTMLElement>("[data-video-modal-title]");
+          let lastTrigger: HTMLElement | null = null;
+          let previousBodyOverflow = "";
+          let closeTimer: number | undefined;
+          const isOpen = () => modal.getAttribute("aria-hidden") === "false";
+          const setBackgroundInert = (inert: boolean) => {
+            const background = document.querySelector<HTMLElement>("[data-page-background]");
+            if (background) background.inert = inert;
+          };
+
+          const open = (trigger: HTMLElement) => {
+            const src = trigger.dataset.videoSrc;
+            if (isOpen() || !video || !src) return;
+            window.clearTimeout(closeTimer);
+            if (video.getAttribute("src") !== src) {
+              video.setAttribute("src", src);
+              const poster = trigger.dataset.videoPoster;
+              if (poster) video.setAttribute("poster", poster);
+              else video.removeAttribute("poster");
+            }
+            if (titleEl && trigger.dataset.videoTitle) {
+              titleEl.textContent = trigger.dataset.videoTitle;
+            }
+            lastTrigger = trigger;
+            previousBodyOverflow = document.body.style.overflow;
+            modal.classList.remove("pointer-events-none", "invisible");
+            modal.setAttribute("aria-hidden", "false");
+            modal.inert = false;
+            scrim?.classList.replace("opacity-0", "opacity-100");
+            panel?.classList.remove("opacity-0", "scale-95");
+            setBackgroundInert(true);
+            document.body.style.overflow = "hidden";
+            // The clip only starts downloading now — no src on the element before this.
+            video?.play().catch(() => {});
+            requestAnimationFrame(() => {
+              if (isOpen()) closeButton?.focus({ preventScroll: true });
+            });
+          };
+
+          const close = () => {
+            if (!isOpen()) return;
+            video?.pause();
+            video?.removeAttribute("src");
+            video?.load();
+            modal.setAttribute("aria-hidden", "true");
+            scrim?.classList.replace("opacity-100", "opacity-0");
+            panel?.classList.add("opacity-0", "scale-95");
+            setBackgroundInert(false);
+            document.body.style.overflow = previousBodyOverflow;
+            lastTrigger?.focus({ preventScroll: true });
+            lastTrigger = null;
+            modal.inert = true;
+            closeTimer = window.setTimeout(() => {
+              if (!isOpen()) modal.classList.add("pointer-events-none", "invisible");
+            }, 300);
+          };
+
+          document.addEventListener("click", (event) => {
+            const target = event.target as HTMLElement | null;
+            const trigger = target?.closest<HTMLElement>("[data-video-open]");
+            if (trigger) {
+              event.preventDefault();
+              open(trigger);
+            } else if (target?.closest("[data-video-close]") || target === scrim) {
+              close();
+            }
+          });
+
+          document.addEventListener("keydown", (event) => {
+            if (!isOpen()) return;
+            if (event.key === "Escape") {
+              event.preventDefault();
+              close();
+            } else if (event.key === "Tab" && event.shiftKey && document.activeElement === closeButton) {
+              event.preventDefault();
+              video?.focus();
+            }
+          });
+          document.addEventListener("focusin", (event) => {
+            // Let Tab traverse the browser's native video controls before wrapping.
+            // Trapping on activeElement === video would skip those shadow-DOM controls.
+            const target = event.target as Node | null;
+            if (isOpen() && target && !modal.contains(target)) {
+              closeButton?.focus({ preventScroll: true });
+            }
+          });
+        })();
+      </script>
+      </>
     )
   }
 </PageShell>
@@ -709,42 +913,11 @@ const schemas = [
     }
   }
 
-  /* 特色服務卡：與實用資訊卡同體系（方案 A） */
+  /* Section-heading divider shared by the video and visit flow. */
   .feature-rule {
     flex: 1;
     height: 1px;
     background: linear-gradient(90deg, rgb(212 175 55 / 0.35), transparent);
-  }
-
-  .feature-dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 9999px;
-    background: #d4af37;
-    box-shadow: 0 0 6px rgb(212 175 55 / 0.8);
-    flex-shrink: 0;
-  }
-
-  .feature-chip {
-    transition:
-      transform 0.25s ease-out,
-      border-color 0.25s ease-out,
-      background-color 0.25s ease-out;
-  }
-
-  .feature-chip:hover {
-    transform: translateY(-1px);
-    border-color: rgb(212 175 55 / 0.7);
-    background-color: rgb(212 175 55 / 0.12);
-  }
-
-  .motion-ready .feature-chip {
-    opacity: 0;
-  }
-
-  .motion-ready .fade-up.in-view .feature-chip {
-    animation: practicalRowFade 0.5s ease-out forwards;
-    animation-delay: var(--chip-delay, 0s);
   }
 
   /* 詳細流程卡：與資訊卡同體系（方案 A） */
@@ -850,6 +1023,137 @@ const schemas = [
 
     .related-card:hover::after {
       left: -60%;
+    }
+  }
+
+  /* 餐飲實拍卡（方案 C）：流程第 5 步內的封面縮略卡 + 彈窗播放器 */
+  .flow-step-content {
+    container-type: inline-size;
+  }
+
+  @container (max-width: 239px) {
+    .dining-video-card {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .dining-video-card .dining-video-thumb {
+      width: 100%;
+    }
+  }
+
+  .dining-video-thumb {
+    position: relative;
+    display: block;
+    width: 96px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #000;
+  }
+
+  .dining-video-thumb img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .dining-video-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgb(0 0 0 / 0.05), rgb(0 0 0 / 0.35));
+  }
+
+  .dining-video-play svg {
+    width: 32px;
+    height: 32px;
+    padding: 9px;
+    box-sizing: border-box;
+    border-radius: 9999px;
+    background: rgb(212 175 55 / 0.22);
+    border: 1px solid rgb(212 175 55 / 0.65);
+    box-shadow: 0 0 10px rgb(212 175 55 / 0.25);
+  }
+
+  .dining-video-panel {
+    max-width: min(92vw, 420px);
+  }
+
+  .dining-video-player {
+    width: auto;
+    height: min(75vh, 720px);
+    max-width: min(92vw, 420px);
+    object-fit: contain;
+  }
+
+  /* 館內實拍影院卡：相冊前的獨立區塊 */
+  .interior-video-card {
+    cursor: pointer;
+  }
+
+  .interior-video-preview {
+    position: relative;
+    display: block;
+    width: min(58vw, 220px);
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1.5px solid rgb(212 175 55 / 0.55);
+    background: #000;
+    transition: border-color 0.25s ease-out, box-shadow 0.25s ease-out;
+  }
+
+  .interior-video-card:hover .interior-video-preview {
+    border-color: rgb(212 175 55 / 0.85);
+    box-shadow: 0 0 16px rgb(212 175 55 / 0.18);
+  }
+
+  .interior-video-preview img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+  }
+
+  .interior-video-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgb(0 0 0 / 0.05), rgb(0 0 0 / 0.35));
+  }
+
+  .interior-video-play svg {
+    width: 48px;
+    height: 48px;
+    padding: 14px;
+    box-sizing: border-box;
+    border-radius: 9999px;
+    background: rgb(212 175 55 / 0.22);
+    border: 1.5px solid rgb(212 175 55 / 0.7);
+    box-shadow: 0 0 12px rgb(212 175 55 / 0.3);
+  }
+
+  .interior-video-badge {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 11px;
+    color: #f0d67e;
+    background: rgb(0 0 0 / 0.6);
+    border: 1px solid rgb(212 175 55 / 0.4);
+    border-radius: 9999px;
+    padding: 2px 10px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dining-video-panel,
+    .interior-video-preview {
+      transition: none;
     }
   }
 </style>

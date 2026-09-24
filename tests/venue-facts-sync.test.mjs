@@ -255,10 +255,10 @@ test("renders the approved introductions in every translated locale", async () =
   }
 });
 
-test("renders the revised Majesty and Victoria highlights in Simplified Chinese", async () => {
+test("retains Victoria highlights while removing the retired Majesty feature-card copy", async () => {
   const majesty = visibleText(await readBuiltPage("zh-CN", "majesty-spa"));
   assert.ok(!majesty.includes("买一送一（详情预约时说明）"), "Majesty must not retain the removed BOGO promotion");
-  assert.ok(majesty.includes("十多种不同风格房间"), "Majesty must retain the requested room-design description");
+  assert.ok(!majesty.includes("十多种不同风格房间"), "the removed feature-card description must not remain visible");
 
   const victoria = visibleText(await readBuiltPage("zh-CN", "victoria-sauna"));
   assert.ok(!victoria.includes("水床买一送一"), "Victoria must not retain the withdrawn waterbed promotion");
