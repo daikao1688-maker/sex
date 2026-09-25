@@ -66,12 +66,6 @@ const en: RankingCopy = {
         body: 'Convenient for guests based around Lisboeta and the Cotai resort area.',
       },
       {
-        slug: 'manhao-spa',
-        emoji: '🎭',
-        label: 'For a spacious hall',
-        body: "A newer Taipa venue with a spacious hall and bathing facilities; no overnight stay.",
-      },
-      {
         slug: 'majesty-spa',
         emoji: '🛏️',
         label: 'For a longer night',
@@ -174,12 +168,6 @@ const ja: RankingCopy = {
         emoji: '📍',
         label: 'コタイ滞在に便利',
         body: '葡京人やコタイのホテルを拠点にする旅行者が動きやすい立地です。',
-      },
-      {
-        slug: 'manhao-spa',
-        emoji: '🎭',
-        label: '広いホールを重視',
-        body: "広いホールと入浴設備を備えたタイパの新しい店舗。宿泊休憩には対応していません。",
       },
       {
         slug: 'majesty-spa',
@@ -286,12 +274,6 @@ const zhTW: RankingCopy = {
         body: '適合入住澳門葡京人或路氹酒店、希望減少來回交通的人。',
       },
       {
-        slug: 'manhao-spa',
-        emoji: '🎭',
-        label: '重視寬敞大廳',
-        body: "氹仔較新的會所，設寬敞大廳與沐浴設施，不提供過夜留宿。",
-      },
-      {
         slug: 'majesty-spa',
         emoji: '🛏️',
         label: '想留久一點',
@@ -396,12 +378,6 @@ const zhCN: RankingCopy = {
         body: '适合住在澳门葡京人或路氹酒店、希望少花时间往返的游客。',
       },
       {
-        slug: 'manhao-spa',
-        emoji: '🎭',
-        label: '看重宽敞大厅',
-        body: "氹仔较新的会所，设宽敞大厅与沐浴设施，不提供过夜留宿。",
-      },
-      {
         slug: 'majesty-spa',
         emoji: '🛏️',
         label: '准备停留较久',
@@ -504,12 +480,6 @@ const ko: RankingCopy = {
         emoji: '📍',
         label: '코타이 숙박이라면 편리',
         body: '리스보에타나 코타이 호텔에 묵으며 이동 시간을 줄이고 싶은 여행자에게 적합합니다.',
-      },
-      {
-        slug: 'manhao-spa',
-        emoji: '🎭',
-        label: '넓은 홀을 중시한다면',
-        body: "넓은 홀과 목욕 시설을 갖춘 타이파의 신규 매장으로, 숙박은 제공하지 않습니다.",
       },
       {
         slug: 'majesty-spa',

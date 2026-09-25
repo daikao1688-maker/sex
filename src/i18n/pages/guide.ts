@@ -186,12 +186,6 @@ const en: GuideCopy = {
           "A Macau Peninsula venue with more than 20 room designs. Compare the available facilities and massage options, and confirm the room and treatment before booking.",
       },
       {
-        want: 'A newer venue in Taipa',
-        slug: 'manhao-spa',
-        body:
-          "Inside the Grandview Hotel, with a spacious hall and newer interiors. It suits Taipa-based guests who do not need an overnight stay.",
-      },
-      {
         want: "24-hour access and varied room designs",
         slug: 'the-excellent-sauna',
         body:
@@ -208,12 +202,6 @@ const en: GuideCopy = {
         slug: 'empire-sauna',
         body:
           "A newer Macau Peninsula venue with a range of suite designs and overnight facilities. Request a quote for the massage treatment and facilities you intend to use.",
-      },
-      {
-        want: "A spacious hall and bathing facilities",
-        slug: 'manhao-spa',
-        body:
-          "Manhao combines a spacious hall with bathing facilities at the Grandview Hotel in Taipa. Confirm the facilities included in your package; overnight rest is currently unavailable.",
       },
       {
         want: 'Staying around Lisboeta',
@@ -411,12 +399,6 @@ const ja: GuideCopy = {
           "20種類以上の客室デザインを備えたマカオ半島の店舗です。設備とマッサージの内容を比較し、予約前に利用する部屋と施術をご確認ください。",
       },
       {
-        want: 'タイパの新しい店舗へ行きたい',
-        slug: 'manhao-spa',
-        body:
-          "グランドビュー・ホテル内にあり、広いホールと新しい内装が特徴です。宿泊休憩を必要としないタイパ滞在者に向いています。",
-      },
-      {
         want: "24時間営業と多彩な客室デザイン",
         slug: 'the-excellent-sauna',
         body:
@@ -433,12 +415,6 @@ const ja: GuideCopy = {
         slug: 'empire-sauna',
         body:
           "さまざまなスイートのデザインと宿泊休憩の設備を備えた、マカオ半島の新しい店舗です。利用したいマッサージと設備について見積もりをお求めください。",
-      },
-      {
-        want: "広いホールと入浴設備を重視",
-        slug: 'manhao-spa',
-        body:
-          "タイパのグランドビュー・ホテル内にあり、広いホールと入浴設備を備えています。プランに含まれる設備をご確認ください。現在、宿泊休憩には対応していません。",
       },
       {
         want: '葡京人周辺に泊まる',
@@ -636,12 +612,6 @@ const zhTW: GuideCopy = {
           "澳門半島的會所，設有 20 多款不同風格房間。可按設施和按摩項目比較，預約前確認房間及療程內容。",
       },
       {
-        want: '氹仔較新的會所',
-        slug: 'manhao-spa',
-        body:
-          "位於氹仔君怡酒店，設寬敞大廳及較新的裝潢，適合以氹仔為行程中心、不需要過夜的旅客。",
-      },
-      {
         want: "24 小時營業與多種房間設計",
         slug: 'the-excellent-sauna',
         body:
@@ -658,12 +628,6 @@ const zhTW: GuideCopy = {
         slug: 'empire-sauna',
         body:
           "澳門半島的新場，設多種不同設計套房及過夜設施。請按想使用的按摩項目與設施索取明細報價。",
-      },
-      {
-        want: "寬敞大廳與沐浴設施",
-        slug: 'manhao-spa',
-        body:
-          "曼濠位於氹仔君怡酒店，設寬敞大廳與沐浴設施。預約前請確認套餐包含內容；目前不設過夜留宿。",
       },
       {
         want: '入住澳門葡京人附近',
@@ -861,12 +825,6 @@ const zhCN: GuideCopy = {
           "澳门半岛的会所，设有 20 多款不同风格房间。可按设施和按摩项目比较，预约前确认房间及疗程内容。",
       },
       {
-        want: '氹仔较新的会所',
-        slug: 'manhao-spa',
-        body:
-          "位于氹仔君怡酒店，设宽敞大厅及较新的装潢，适合以氹仔为行程中心、不需要过夜的旅客。",
-      },
-      {
         want: "24 小时营业与多种房间设计",
         slug: 'the-excellent-sauna',
         body:
@@ -883,12 +841,6 @@ const zhCN: GuideCopy = {
         slug: 'empire-sauna',
         body:
           "澳门半岛的新场，设多种不同设计套房及过夜设施。请按想使用的按摩项目与设施索取明细报价。",
-      },
-      {
-        want: "宽敞大厅与沐浴设施",
-        slug: 'manhao-spa',
-        body:
-          "曼濠位于氹仔君怡酒店，设宽敞大厅与沐浴设施。预约前请确认套餐包含内容；目前不设过夜留宿。",
       },
       {
         want: '住在澳门葡京人附近',
@@ -1086,12 +1038,6 @@ const ko: GuideCopy = {
           "20가지가 넘는 객실 디자인을 갖춘 마카오 반도의 매장입니다. 시설과 마사지 항목을 비교하고, 예약 전에 이용할 객실과 코스 내용을 확인하세요.",
       },
       {
-        want: '타이파의 비교적 새로운 매장',
-        slug: 'manhao-spa',
-        body:
-          "타이파 그랜드뷰 호텔 안에 있으며 넓은 홀과 새로운 인테리어를 갖췄습니다. 야간 숙박이 필요 없는 타이파 중심 여행 일정에 적합합니다.",
-      },
-      {
         want: "24시간 영업과 다양한 객실 디자인",
         slug: 'the-excellent-sauna',
         body:
@@ -1108,12 +1054,6 @@ const ko: GuideCopy = {
         slug: 'empire-sauna',
         body:
           "다양한 스위트 디자인과 야간 휴식 시설을 갖춘 마카오 반도의 신규 매장입니다. 이용할 마사지 항목과 시설에 맞춰 상세 견적을 요청하세요.",
-      },
-      {
-        want: "넓은 홀과 목욕 시설",
-        slug: 'manhao-spa',
-        body:
-          "만하오는 타이파 그랜드뷰 호텔 안에 넓은 홀과 목욕 시설을 갖추고 있습니다. 예약 전에 패키지 포함 항목을 확인하세요. 현재 숙박은 제공하지 않습니다.",
       },
       {
         want: '리스보에타 인근 숙박',

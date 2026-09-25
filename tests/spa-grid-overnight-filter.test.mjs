@@ -10,7 +10,7 @@ const script = ts.transpileModule(source.match(/<script>([\s\S]*?)<\/script>/)[1
 }).outputText;
 const labels = { en: "Overnight", "zh-TW": "過夜", "zh-CN": "过夜", ja: "宿泊", ko: "숙박" };
 const expectedOrder = [
-  "yu-sauna", "manhao-spa", "number-nine-sauna", "shang-pin-spa", "majesty-spa",
+  "yu-sauna", "number-nine-sauna", "shang-pin-spa", "majesty-spa",
   "the-excellent-sauna", "empire-sauna", "east-castle-spa", "victoria-sauna", "paused",
 ];
 
@@ -74,11 +74,11 @@ for (const [locale, label] of Object.entries(labels)) {
     assert.equal(overnight.getAttribute("aria-pressed"), "true");
     assert.equal(h.pills[0].getAttribute("aria-pressed"), "false");
     assert.equal(h.note.hidden, false);
-    assert.equal(h.count.textContent, "7");
+    assert.equal(h.count.textContent, "6");
     assert.deepEqual(h.pills.map((pill) => pill.dataset.bucket), ["all", "overnight", "value", "taipa", "new", "ktv"]);
 
     h.pills.find((pill) => pill.dataset.bucket === "taipa").click();
-    assert.deepEqual(h.visible(), ["manhao-spa", "shang-pin-spa", "paused"], "other filters keep their existing venue membership");
+    assert.deepEqual(h.visible(), ["shang-pin-spa", "paused"], "other filters keep their existing venue membership");
     overnight.click();
     h.showAll.click();
     assert.deepEqual(h.visible(), expectedOrder);

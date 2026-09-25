@@ -93,8 +93,8 @@ test("ranking rows label closed venues and consolidate duplicated overnight data
     const html = await readPage(locale, "ranking");
     assert.equal(
       (html.match(/data-ranking-closed-status/g) ?? []).length,
-      20,
-      `${locale} must label five closed venues in each comparison table`,
+      24,
+      `${locale} must label six closed venues in each comparison table`,
     );
 
     const overnightTable = element(html, 'data-ranking-table="overnight"', "div");

@@ -78,7 +78,7 @@ const en: FaqCopy = {
       items: [
         {
           question: 'What are the operating hours?',
-          answer: 'Yu Sauna, Empire, Shang Pin, Number Nine, Majesty and The Excellent are publicly listed as running 24 hours. Manhao opens 14:00–04:00. Yu Sauna lists therapist hours of 13:00–06:00, while shifts at other venues vary — see each venue page, or we\'ll confirm when you book.',
+          answer: 'Yu Sauna, Empire, Shang Pin, Number Nine, Majesty and The Excellent are publicly listed as running 24 hours. Manhao Spa is temporarily closed and is not accepting bookings at this time. Yu Sauna lists therapist hours of 13:00–06:00, while shifts at other venues vary — see each venue page, or we\'ll confirm when you book.',
         },
         {
           question: "When is a quieter time to visit?",
@@ -242,7 +242,7 @@ const ja: FaqCopy = {
       items: [
         {
           question: '営業時間を教えてください。何時に行くのがいい？',
-          answer: 'YU SAUNA・巨亨・尚品・玖号・尊貴・極品は公開情報で24時間営業と案内されています。曼濠は14:00〜翌4:00です。YU SAUNAのスタッフ対応時間は13:00〜翌6:00で、その他の店舗も勤務時間帯が異なります。詳細は各店舗ページをご確認いただくか、ご予約時にご案内します。',
+          answer: 'YU SAUNA・巨亨・尚品・玖号・尊貴・極品は公開情報で24時間営業と案内されています。曼濠は一時休業中で、現在ご予約を受け付けていません。YU SAUNAのスタッフ対応時間は13:00〜翌6:00で、その他の店舗も勤務時間帯が異なります。詳細は各店舗ページをご確認いただくか、ご予約時にご案内します。',
         },
         {
           question: "比較的落ち着いて利用できる時間帯はいつですか？",
@@ -398,7 +398,7 @@ const zhTW: FaqCopy = {
       items: [
         {
           question: '營業時間？',
-          answer: '八湯御、巨亨、尚品、玖號、尊貴與極品的公開資料標示 24 小時營業；曼濠為 14:00–04:00。八湯御技師時段為 13:00–06:00，其他場館亦有不同當班時段，詳情見各場館頁面，或預約時由專人確認。',
+          answer: '八湯御、巨亨、尚品、玖號、尊貴與極品的公開資料標示 24 小時營業；曼濠水療暫停營業，目前不接受預約。八湯御技師時段為 13:00–06:00，其他場館亦有不同當班時段，詳情見各場館頁面，或預約時由專人確認。',
         },
         {
           question: "什麼時段比較清靜？",
@@ -542,7 +542,7 @@ const zhCN: FaqCopy = {
       items: [
         {
           question: '营业时间？',
-          answer: '八汤御、巨亨、尚品、玖号、尊贵与极品的公开资料标注 24 小时营业；曼濠为 14:00–04:00。八汤御技师时段为 13:00–06:00，其他场馆也有不同当班时段，详情见各场馆页面，或预约时由专人确认。',
+          answer: '八汤御、巨亨、尚品、玖号、尊贵与极品的公开资料标注 24 小时营业；曼濠水疗暂停营业，目前不接受预约。八汤御技师时段为 13:00–06:00，其他场馆也有不同当班时段，详情见各场馆页面，或预约时由专人确认。',
         },
         {
           question: "什么时段比较清静？",
@@ -686,7 +686,7 @@ const ko: FaqCopy = {
       items: [
         {
           question: '영업시간은 어떻게 되나요?',
-          answer: 'YU SAUNA, 엠파이어, 샹핀, 넘버 나인, 마제스티, 디 엑설런트는 공개 정보상 24시간 영업이며, 만하오는 14:00–04:00입니다. YU SAUNA의 직원 대응 시간은 13:00–06:00이고 다른 매장도 근무 시간대가 각각 다릅니다. 자세한 내용은 각 매장 페이지를 보시거나 예약 시 담당자가 확인해 드립니다.',
+          answer: 'YU SAUNA, 엠파이어, 샹핀, 넘버 나인, 마제스티, 디 엑설런트는 공개 정보상 24시간 영업이며, 만하오 스파는 임시 휴업 중으로 현재 예약을 받지 않습니다. YU SAUNA의 직원 대응 시간은 13:00–06:00이고 다른 매장도 근무 시간대가 각각 다릅니다. 자세한 내용은 각 매장 페이지를 보시거나 예약 시 담당자가 확인해 드립니다.',
         },
         {
           question: "비교적 한산한 시간대는 언제인가요?",

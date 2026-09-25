@@ -285,7 +285,7 @@ test("hero initially fetches only its active source and preloads the next source
 test("viewport-role images expose real responsive candidates and intrinsic dimensions", async () => {
   const home = await readPage("en");
   const cards = tags(home, "img").filter((tag) => tag.includes("Macau premium sauna venue"));
-  assert.equal(cards.length, 9, "only bookable venues render full cards; paused ones collapse into the consolidated card");
+  assert.equal(cards.length, 8, "only bookable venues render full cards; paused ones collapse into the consolidated card");
   for (const [index, card] of cards.entries()) {
     assert.equal(attr(card, "width"), "800");
     assert.equal(attr(card, "height"), "800");

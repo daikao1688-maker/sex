@@ -33,7 +33,7 @@ const ko: Dictionary = {
     title: '마카오 사우나 & 스파 — 나만의 VIP 경험',
     tagline: '마카오 전역 24시간 무료 전용 픽업·귀환 셔틀',
     venueGroups: [
-      'Clube Rio, YU SAUNA\nNumber Nine Spa, Empire Sauna\nManhao Spa, Shang Pin Spa',
+      'Clube Rio, YU SAUNA\nNumber Nine Spa, Empire Sauna\nShang Pin Spa',
       'Familia Nobre, East Castle Spa\nVictoria Sauna\nMajesty Spa, M CLUB',
     ],
     steps: [

@@ -33,7 +33,7 @@ const en: Dictionary = {
     title: 'Macau Sauna & Spa — Your VIP Experience',
     tagline: 'Complimentary 24/7 Private Shuttle Pickup & Return',
     venueGroups: [
-      'Clube Rio, Yu Sauna, Number Nine Spa\nEmpire Sauna, Manhao Spa\nShang Pin Spa, Majesty Spa',
+      'Clube Rio, Yu Sauna, Number Nine Spa\nEmpire Sauna\nShang Pin Spa, Majesty Spa',
       'Familia Nobre, East Castle Spa\nVictoria Sauna\nMajesty Spa, M CLUB',
     ],
     steps: [

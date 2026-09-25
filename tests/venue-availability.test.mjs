@@ -7,6 +7,7 @@ import path from "node:path";
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
 const temporarilyClosedSlugs = [
+  "manhao-spa",
   "m-club",
   "number-one-sauna",
   "familia-nobre",
@@ -61,6 +62,10 @@ const closedCopy = {
   ja: {
     label: "一時休業中",
     notice: "この店舗は現在一時休業中で、ご利用およびご予約は承っておりません。",
+  },
+  ko: {
+    label: "임시 휴업",
+    notice: "현재 임시 휴업 중으로 방문과 예약을 받지 않습니다. 다른 업소를 살펴보거나 적합한 대안을 문의해 주세요.",
   },
 };
 

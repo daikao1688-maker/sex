@@ -7,6 +7,7 @@ import path from "node:path";
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distRoot = path.join(projectRoot, "dist");
 const temporarilyClosed = new Set([
+  "manhao-spa",
   "m-club",
   "number-one-sauna",
   "familia-nobre",

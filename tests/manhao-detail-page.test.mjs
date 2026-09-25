@@ -43,13 +43,14 @@ test("renders the approved Manhao copy and venue-specific practical facts", asyn
   assert.doesNotMatch(text, /MOP 888 - 5,388/);
 });
 
-test("keeps Manhao price and hours consistent across all locale builds and honest JSON-LD", async () => {
+test("retains Manhao reference details while marking it closed and omitting active pricing schema", async () => {
   for (const locale of locales) {
     const html = await readBuiltPage(locale, "spa", "manhao-spa");
     const text = visibleText(html);
     assert.match(text, /MOP 2,488 - 6,088/, `${locale} price`);
     assert.match(text, /14:00 – 04:00/, `${locale} hours`);
-    assert.match(html, /"priceRange":"MOP 2488 – 6088"/, `${locale} priceRange schema`);
+    assert.match(html, /data-testid="spa-temporarily-closed-notice"/, `${locale} closed notice`);
+    assert.doesNotMatch(html, /"priceRange"/, `${locale} closed venue must not publish active pricing schema`);
     assert.doesNotMatch(html, /"(?:lowPrice|highPrice|makesOffer|offers)"/, `${locale} must not claim a formal offer`);
   }
 });
@@ -120,12 +121,13 @@ test("does not render venue official-website areas on any detail page", async ()
   }
 });
 
-test("does not leave stale 06:00 Manhao hours in FAQs or editorial content", async () => {
+test("FAQ replaces Manhao operating hours with its temporary closure status", async () => {
   const expectations = [
-    ["src/i18n/pages/faq.ts", "Manhao opens 14:00–06:00", "Manhao opens 14:00–04:00"],
-    ["src/i18n/pages/faq.ts", "曼濠は14:00〜翌6:00", "曼濠は14:00〜翌4:00"],
-    ["src/i18n/pages/faq.ts", "曼濠為 14:00–06:00", "曼濠為 14:00–04:00"],
-    ["src/i18n/pages/faq.ts", "曼濠为 14:00–06:00", "曼濠为 14:00–04:00"],
+    ["src/i18n/pages/faq.ts", "Manhao opens 14:00", "Manhao Spa is temporarily closed and is not accepting bookings at this time"],
+    ["src/i18n/pages/faq.ts", "曼濠は14:00", "曼濠は一時休業中で、現在ご予約を受け付けていません"],
+    ["src/i18n/pages/faq.ts", "曼濠為 14:00", "曼濠水療暫停營業，目前不接受預約"],
+    ["src/i18n/pages/faq.ts", "曼濠为 14:00", "曼濠水疗暂停营业，目前不接受预约"],
+    ["src/i18n/pages/faq.ts", "만하오는 14:00", "만하오 스파는 임시 휴업 중으로 현재 예약을 받지 않습니다"],
   ];
 
   const cache = new Map();
