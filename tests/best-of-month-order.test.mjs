@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { test } from "node:test";
 
 const locales = ["en", "zh-TW", "zh-CN", "ja", "ko"];
-const expectedOrder = ["number-nine-sauna", "majesty-spa", "manhao-spa"];
+const expectedOrder = ["yu-sauna", "number-nine-sauna", "shang-pin-spa"];
 const attribute = (tag, name) => tag.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1];
 const decodeHtml = (value) => value
   .replaceAll("&quot;", '"')

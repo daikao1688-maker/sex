@@ -53,22 +53,20 @@ const en: BestOfMonthCopy = {
   },
   cards: [
     {
+      slug: 'yu-sauna',
+      award: "Best of the Month",
+      quote: "Yu Sauna opened in August 2026 at the former Royal Sauna premises. Run by the Oceanic Royal Spa team, it has bathing pools, saunas and a spacious lounge.",
+    },
+    {
       slug: 'number-nine-sauna',
       award: "Newer facilities pick",
       quote:
         "Opened in April 2026 at the Royal Dragon Hotel, with newer interiors in central Macau.",
     },
     {
-      slug: 'majesty-spa',
-      award: 'Best of the Month',
-      quote:
-        "A Fisherman's Wharf venue with overnight facilities, daytime offers and no separate service charge. Confirm the current package and rest arrangements before visiting.",
-    },
-    {
-      slug: 'manhao-spa',
-      award: 'Best new opening',
-      quote:
-        "Taipa's May-2026 debut — the most theatrical interior in Macau, built inside the Grandview Hotel.",
+      slug: 'shang-pin-spa',
+      award: "Great Value",
+      quote: "Shang Pin Spa opened in July 2025 on Level 2 of Lisboeta Macau, in unit L2 R95.",
     },
   ],
 };
@@ -93,20 +91,19 @@ const ja: BestOfMonthCopy = {
   },
   cards: [
     {
+      slug: 'yu-sauna',
+      award: "今月のベスト",
+      quote: "YU SAUNAは2026年8月、旧ロイヤルサウナの場所にオープン。オーシャニック・ロイヤル・スパのチームが運営し、浴槽やサウナ、広々とした休憩スペースを備えています。",
+    },
+    {
       slug: 'number-nine-sauna',
       award: "新しい設備のおすすめ",
       quote: "2026年4月に御龍酒店で開業。マカオ中心部に位置し、新しい内装が特徴です。",
     },
     {
-      slug: 'majesty-spa',
-      award: '今月のベスト',
-      quote:
-        "フィッシャーマンズワーフの店舗。宿泊休憩の設備、昼の特典、別途サービス料なしの案内が特徴です。最新のプランと休憩条件をご確認ください。",
-    },
-    {
-      slug: 'manhao-spa',
-      award: '新店ベスト',
-      quote: '2026年5月、氹仔の君怡酒店にオープン。マカオでもっとも劇場的な内装が味わえます。',
+      slug: 'shang-pin-spa',
+      award: "高コスパ",
+      quote: "シャンピンスパ（尚品國際水療）は、2025年7月にリスボエタ・マカオで開業しました。場所は2階のL2 R95。",
     },
   ],
 };
@@ -131,19 +128,19 @@ const zhTW: BestOfMonthCopy = {
   },
   cards: [
     {
+      slug: 'yu-sauna',
+      award: "本月最佳",
+      quote: "八湯御於2026年8月在原皇家桑拿舊址開業，由帝湖水療團隊營運，設有浴池、桑拿房及寬敞的休息區。",
+    },
+    {
       slug: 'number-nine-sauna',
       award: "新設施推薦",
       quote: "2026 年 4 月於御龍酒店開業，位於澳門半島，設有較新的裝潢。",
     },
     {
-      slug: 'majesty-spa',
-      award: '本月最佳',
-      quote: "漁人碼頭場館，設過夜休息設施，提供日場優惠及不另收服務費的安排。到訪前請確認最新套餐與休息條件。",
-    },
-    {
-      slug: 'manhao-spa',
-      award: '最佳新場',
-      quote: '2026 年 5 月進駐氹仔君怡酒店，全澳最具戲劇感的裝潢。',
+      slug: 'shang-pin-spa',
+      award: "性價比極高",
+      quote: "尚品國際水療於2025年7月在澳門葡京人開業，位於二樓L2 R95。",
     },
   ],
 };
@@ -167,19 +164,19 @@ const zhCN: BestOfMonthCopy = {
   },
   cards: [
     {
+      slug: 'yu-sauna',
+      award: "本月最佳",
+      quote: "八汤御于2026年8月在原皇家桑拿旧址开业，由帝湖水疗团队运营，设有浴池、桑拿房和宽敞的休息区。",
+    },
+    {
       slug: 'number-nine-sauna',
       award: "新设施推荐",
       quote: "2026 年 4 月于御龙酒店开业，位于澳门半岛，设有较新的装潢。",
     },
     {
-      slug: 'majesty-spa',
-      award: '本月最佳',
-      quote: "渔人码头场馆，设过夜休息设施，提供日场优惠及不另收服务费的安排。到访前请确认最新套餐与休息条件。",
-    },
-    {
-      slug: 'manhao-spa',
-      award: '最佳新场',
-      quote: '2026 年 5 月进驻氹仔君怡酒店，全澳最具戏剧感的装潢。',
+      slug: 'shang-pin-spa',
+      award: "性价比极高",
+      quote: "尚品国际水疗于2025年7月在澳门葡京人开业，位于二楼L2 R95。",
     },
   ],
 };
@@ -204,22 +201,20 @@ const ko: BestOfMonthCopy = {
   },
   cards: [
     {
+      slug: 'yu-sauna',
+      award: "이달의 베스트",
+      quote: "YU SAUNA는 2026년 8월 옛 로열 사우나 자리에 문을 열었습니다. 오셔닉 로열 스파 운영팀이 맡고 있으며, 넓은 욕장과 사우나, 휴게 공간을 갖췄습니다.",
+    },
+    {
       slug: 'number-nine-sauna',
       award: "새로운 시설 추천",
       quote:
         "2026년 4월 로열 드래곤 호텔에 오픈한 마카오 반도의 매장으로, 새로운 인테리어를 갖췄습니다.",
     },
     {
-      slug: 'majesty-spa',
-      award: '이달의 베스트',
-      quote:
-        "피셔맨즈 워프의 매장으로 야간 휴식 시설, 낮 시간대 혜택, 별도 서비스 요금 없는 요금제를 안내합니다. 방문 전에 최신 패키지와 휴식 조건을 확인하세요.",
-    },
-    {
-      slug: 'manhao-spa',
-      award: '베스트 신규 오픈',
-      quote:
-        '타이파의 2026년 5월 데뷔 — 그랜드뷰 호텔 안에 지어진, 마카오에서 가장 극적인 인테리어.',
+      slug: 'shang-pin-spa',
+      award: "우수한 가성비",
+      quote: "샹핀 스파는 2025년 7월 리스보에타 마카오에 문을 열었습니다. 공항에서 가깝고 타이파·코타이 일정을 소화하는 여행자에게 편리한 위치입니다.",
     },
   ],
 };
