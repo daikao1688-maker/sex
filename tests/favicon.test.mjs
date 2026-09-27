@@ -55,7 +55,7 @@ test("all localized pages and the 404 declare versioned ICO fallback and scalabl
     assert.match(svg, /sizes="any"/);
     assert.match(ico, /type="image\/x-icon"/);
     assert.equal(ico.match(/\?v=([^"]+)/)?.[1], svg.match(/\?v=([^"]+)/)?.[1]);
-    assert.notEqual(svg.match(/\?v=([^"]+)/)?.[1], "2", "old cached icon version must be bypassed");
+    assert.equal(svg.match(/\?v=([^"]+)/)?.[1], "4", "the heart-eyes icon must bypass the previous poker icon cache");
     assert.deepEqual(
       ico.match(/sizes="([^"]+)"/)?.[1].split(" "),
       sizes.map((size) => `${size}x${size}`),
