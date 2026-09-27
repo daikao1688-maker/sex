@@ -15,7 +15,7 @@ const qrLabels = {
   ja: "QRを見る",
   ko: "QR 보기",
 };
-const channelIcons = ["whatsapp", "telegram", "wechat", "line", "kakaotalk"];
+const channelIcons = ["whatsapp", "telegram", "wechat", "line"];
 
 async function routeFiles(locale) {
   const localeRoot = path.join(distRoot, locale);
@@ -84,7 +84,7 @@ function assertCardPresentation(card, context) {
     `${context}: card lost its dark translucent surface`,
   );
 
-  const iconName = card.markup.match(/src="\/icons\/(whatsapp|telegram|wechat|line|kakaotalk)\.svg"/)?.[1];
+  const iconName = card.markup.match(/src="\/icons\/(whatsapp|telegram|wechat|line)\.svg"/)?.[1];
   assert.ok(iconName, `${context}: channel icon is missing`);
   const imageIndex = card.markup.indexOf(`/icons/${iconName}.svg`);
   const wrapperStart = card.markup.lastIndexOf("<div", imageIndex);
@@ -105,9 +105,9 @@ test("every shared contact area renders the approved card and icon presentation 
       if (!html.includes("data-contact-channels")) continue;
       checked++;
       const cards = contactCards(html);
-      assert.equal(cards.length, 5, `${routeFile.route}: shared contact area lost an account`);
+      assert.equal(cards.length, 4, `${routeFile.route}: shared contact area lost an account`);
       assert.deepEqual(
-        cards.map(({ markup }) => markup.match(/\/icons\/(whatsapp|telegram|wechat|line|kakaotalk)\.svg/)?.[1]),
+        cards.map(({ markup }) => markup.match(/\/icons\/(whatsapp|telegram|wechat|line)\.svg/)?.[1]),
         channelIcons,
         `${routeFile.route}: account order changed`,
       );
@@ -139,11 +139,11 @@ test("external contact cards expose an icon arrow without changing link behavior
   }
 });
 
-test("WeChat and KakaoTalk cards keep dialog controls with localized QR pills and no nested controls", async () => {
+test("WeChat cards keep dialog controls with localized QR pills and no nested controls", async () => {
   for (const locale of locales) {
     for (const route of ["", "faq", "spa/yu-sauna"]) {
       const cards = contactCards(await readRenderedPage(locale, route));
-      for (const [index, kind] of [[2, "wechat"], [4, "kakaotalk"]]) {
+      for (const [index, kind] of [[2, "wechat"]]) {
         const { opening, markup } = cards[index];
         assert.match(opening, /^<button\b/);
         assert.match(opening, /type="button"/);

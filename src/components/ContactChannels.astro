@@ -43,12 +43,6 @@ const channels = [
     name: "LINE",
     value: t.contact.channels.line,
   },
-  {
-    kind: "kakaotalk" as const,
-    icon: "/icons/kakaotalk.svg",
-    name: t.kakaotalk.name,
-    value: contact.kakaotalk.id,
-  },
 ];
 
 const cardClass =
@@ -68,14 +62,13 @@ const iconClass =
         <button
           type="button"
           data-wechat-trigger={channel.kind === "wechat" || undefined}
-          data-kakaotalk-trigger={channel.kind === "kakaotalk" || undefined}
           data-contact-channel
           aria-haspopup="dialog"
           aria-controls={`${channel.kind}-modal`}
-          class:list={[cardClass, channel.kind === "kakaotalk" && "sm:col-span-2"]}
+          class={cardClass}
         >
           <div class={iconClass}>
-            <img src={channel.icon} alt={channel.kind === "kakaotalk" ? "" : channel.name} width="28" height="28" class="w-7 h-7 rounded-md" />
+            <img src={channel.icon} alt={channel.name} width="28" height="28" class="w-7 h-7 rounded-md" />
           </div>
           <div class="min-w-0 break-words">
             <div class="text-white/60 text-xs mb-1">{channel.name}</div>
