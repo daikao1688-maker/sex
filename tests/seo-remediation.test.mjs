@@ -20,7 +20,6 @@ const locales = {
 };
 
 const closedVenueSlugs = [
-  "manhao-spa",
   "m-club",
   "number-one-sauna",
   "familia-nobre",

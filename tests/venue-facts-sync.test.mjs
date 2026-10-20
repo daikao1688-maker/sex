@@ -345,17 +345,17 @@ test("keeps shared FAQ and guide claims aligned with venue-specific facts", asyn
     "Japanese FAQ must distinguish venue opening hours from massage availability",
   );
 
-  const manhaoClosureClaims = {
-    en: ["Manhao Spa is temporarily closed and is not accepting bookings at this time", "Manhao opens 14:00–04:00"],
-    ja: ["曼濠は一時休業中で、現在ご予約を受け付けていません", "曼濠は14:00〜翌4:00"],
-    "zh-TW": ["曼濠水療暫停營業，目前不接受預約", "曼濠為 14:00–04:00"],
-    "zh-CN": ["曼濠水疗暂停营业，目前不接受预约", "曼濠为 14:00–04:00"],
-    ko: ["만하오 스파는 임시 휴업 중으로 현재 예약을 받지 않습니다", "만하오는 14:00–04:00"],
+  const manhaoOperatingClaims = {
+    en: ["Manhao opens 14:00–04:00", "Manhao Spa is temporarily closed and is not accepting bookings at this time"],
+    ja: ["曼濠は14:00〜翌4:00", "曼濠は一時休業中で、現在ご予約を受け付けていません"],
+    "zh-TW": ["曼濠為 14:00–04:00", "曼濠水療暫停營業，目前不接受預約"],
+    "zh-CN": ["曼濠为 14:00–04:00", "曼濠水疗暂停营业，目前不接受预约"],
+    ko: ["만하오는 14:00–04:00", "만하오 스파는 임시 휴업 중으로 현재 예약을 받지 않습니다"],
   };
-  for (const [locale, [current, stale]] of Object.entries(manhaoClosureClaims)) {
+  for (const [locale, [current, stale]] of Object.entries(manhaoOperatingClaims)) {
     const renderedFaq = visibleText(await readFile(path.join(distRoot, locale, "faq", "index.html"), "utf8"));
-    assert.ok(renderedFaq.includes(current), `${locale} FAQ is missing Manhao's closure status`);
-    assert.ok(!renderedFaq.includes(stale), `${locale} FAQ still presents Manhao's hours as current`);
+    assert.ok(renderedFaq.includes(current), `${locale} FAQ is missing Manhao's operating hours`);
+    assert.ok(!renderedFaq.includes(stale), `${locale} FAQ still presents Manhao as temporarily closed`);
   }
 
   const guide = await readFile(path.join(projectRoot, "src/i18n/pages/guide.ts"), "utf8");

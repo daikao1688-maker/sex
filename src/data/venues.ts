@@ -121,7 +121,7 @@ const venueDetails: Omit<Venue, 'rating'>[] = [
     isNew: true,
     buckets: ['new'],
     accent: 'gold',
-    temporarilyClosed: true,
+    temporarilyClosed: false,
   },
   {
     slug: 'number-nine-sauna',
